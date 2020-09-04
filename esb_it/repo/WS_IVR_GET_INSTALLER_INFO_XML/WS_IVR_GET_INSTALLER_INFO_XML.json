@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_IVR_GET_INSTALLER_INFO_XML",
+    "name" : "WS_IVR_GET_INSTALLER_INFO_XML",
+    "localPath" : "esb_it\\repo\\WS_IVR_GET_INSTALLER_INFO_XML",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_IVR_GET_INSTALLER_INFO_XML?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

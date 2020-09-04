@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="unqualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import schemaLocation="xsdNeodata/SkyXSD_KitCosmos_Adagio.xsd" /> 
+   <xsd:complexType name="Taxonomy"> 
+    <xsd:complexContent> 
+     <xsd:extension base="Taxonomy" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="TaxonomyResponse"> 
+    <xsd:complexContent> 
+     <xsd:extension base="TaxonomyResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Assets"> 
+    <xsd:complexContent> 
+     <xsd:extension base="Assets" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="AssetsResponse"> 
+    <xsd:complexContent> 
+     <xsd:extension base="AssetsResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opVideoTaxonomyService"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Taxonomy" type="eb:Taxonomy" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opVideoTaxonomyServiceResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="TaxonomyResponse" type="eb:TaxonomyResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opVideoAssetsService"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Assets" type="eb:Assets" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opVideoAssetsServiceResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="AssetsResponse" type="eb:AssetsResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opVideoTaxonomyServiceRequest"> 
+  <wsdl:part element="eb:opVideoTaxonomyService" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opVideoTaxonomyServiceResponse"> 
+  <wsdl:part element="eb:opVideoTaxonomyServiceResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opVideoAssetsServiceRequest"> 
+  <wsdl:part element="eb:opVideoAssetsService" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opVideoAssetsServiceResponse"> 
+  <wsdl:part element="eb:opVideoAssetsServiceResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_KITCOSMOS_ADAGIOSoap"> 
+  <wsdl:operation name="opVideoTaxonomyService"> 
+   <wsdl:input message="eb:opVideoTaxonomyServiceRequest" name="opVideoTaxonomyServiceRequest" /> 
+   <wsdl:output message="eb:opVideoTaxonomyServiceResponse" name="opVideoTaxonomyServiceResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opVideoAssetsService"> 
+   <wsdl:input message="eb:opVideoAssetsServiceRequest" name="opVideoAssetsServiceRequest" /> 
+   <wsdl:output message="eb:opVideoAssetsServiceResponse" name="opVideoAssetsServiceResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_KITCOSMOS_ADAGIOSoap" type="eb:WS_KITCOSMOS_ADAGIOSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opVideoTaxonomyService"> 
+   <soap:operation soapAction="WS_KITCOSMOS_ADAGIO/opVideoTaxonomyService" style="document" /> 
+   <wsdl:input name="opVideoTaxonomyServiceRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opVideoTaxonomyServiceResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opVideoAssetsService"> 
+   <soap:operation soapAction="WS_KITCOSMOS_ADAGIO/opVideoAssetsService" style="document" /> 
+   <wsdl:input name="opVideoAssetsServiceRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opVideoAssetsServiceResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_KITCOSMOS_ADAGIO"> 
+  <wsdl:port binding="eb:WS_KITCOSMOS_ADAGIOSoap" name="WS_KITCOSMOS_ADAGIOSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_KITCOSMOS_ADAGIO" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

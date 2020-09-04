@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "VerificaRicarica",
+    "name" : "VerificaRicarica",
+    "localPath" : "esb_it\\repo\\VerificaRicarica",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/VerificaRicarica?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

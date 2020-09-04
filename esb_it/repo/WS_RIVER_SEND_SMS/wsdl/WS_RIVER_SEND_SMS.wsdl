@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://www.skytv.it/sms/SmsSendWS" schemaLocation="SkyXSD_WS_RIVER_SEND_SMS.xsd" /> 
+   <xsd:complexType name="SmsSendWSRequest" xmlns:sms="http://www.skytv.it/sms/SmsSendWS"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sms:SmsSendWSRequest" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SmsSendWSResponse" xmlns:sms="http://www.skytv.it/sms/SmsSendWS"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sms:SmsSendWSResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opSendSms"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SmsSendWSRequest" type="eb:SmsSendWSRequest" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSendSmsResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SmsSendWSResponse" type="eb:SmsSendWSResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opSendSmsRequest"> 
+  <wsdl:part element="eb:opSendSms" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSendSmsResponse"> 
+  <wsdl:part element="eb:opSendSmsResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_RIVER_SEND_SMSSoap"> 
+  <wsdl:operation name="opSendSms"> 
+   <wsdl:input message="eb:opSendSmsRequest" name="opSendSmsRequest" /> 
+   <wsdl:output message="eb:opSendSmsResponse" name="opSendSmsResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_RIVER_SEND_SMSSoap" type="eb:WS_RIVER_SEND_SMSSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opSendSms"> 
+   <soap:operation soapAction="WS_RIVER_SEND_SMS/opSendSms" style="document" /> 
+   <wsdl:input name="opSendSmsRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSendSmsResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_RIVER_SEND_SMS"> 
+  <wsdl:port binding="eb:WS_RIVER_SEND_SMSSoap" name="WS_RIVER_SEND_SMSSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_RIVER_SEND_SMS" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

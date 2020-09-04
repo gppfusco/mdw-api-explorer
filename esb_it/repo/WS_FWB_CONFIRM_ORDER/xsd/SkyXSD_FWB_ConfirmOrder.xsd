@@ -1,0 +1,129 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://it.fastweb.esb.org/ConfirmOrder" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://it.fastweb.esb.org/ConfirmOrder" targetNamespace="http://it.fastweb.esb.org/ConfirmOrder" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <element name="InputMessage" type="tns:OperationDataType" /> 
+ <complexType name="InputMessageType"> 
+  <sequence> 
+   <element name="TransactionData" type="tns:TransactionDataType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OperationDataType"> 
+  <complexContent> 
+   <extension base="tns:InputMessageType"> 
+    <sequence> 
+     <element name="OperationData" type="tns:SyncronizePartnerKeys_InputType" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="OutputMessage" type="tns:OutputMessageType" /> 
+ <complexType name="OutputMessageType"> 
+  <sequence> 
+   <element name="OperationData" type="tns:SyncronizePartnerKeys_OutputType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="TransactionDataType"> 
+  <sequence> 
+   <element name="SenderName" type="tns:String50" minOccurs="0" /> 
+   <element name="UserName" type="tns:String50" minOccurs="0" /> 
+   <element name="TransactionId" type="tns:String42" /> 
+   <element name="Version" type="tns:String50" minOccurs="0" /> 
+   <element name="TransactionTime" type="tns:DateString19" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="SyncronizePartnerKeys_InputType"> 
+  <sequence> 
+   <element name="Source" type="tns:String30" fixed="SKY" minOccurs="1" /> 
+   <element name="Scenario" type="tns:Scenario_type" minOccurs="1" /> 
+   <element name="IdPDA" type="tns:String30" minOccurs="1" /> 
+   <element name="CodiceContrattoSky" type="tns:String30" minOccurs="1" /> 
+   <element name="IntegrationIdSky" type="tns:String30" minOccurs="0" /> 
+   <element name="IdClienteSky" type="tns:String30" minOccurs="1" /> 
+   <element name="IdBillingAccountSky" type="tns:String30" minOccurs="1" /> 
+   <element name="AzioneSky" type="tns:AzioneSky_type" minOccurs="1" /> 
+   <element name="ClusterNumber" type="tns:String2" minOccurs="1" /> 
+   <element name="CustomerBaseSky" type="tns:Flag_type" minOccurs="1" /> 
+   <element name="BundlePrecedente" type="tns:Flag_type" minOccurs="0" /> 
+   <element name="IdPDAPrecedente" type="xsd:string" minOccurs="0" /> 
+   <element name="ClusterPSPMPrecedente" minOccurs="0"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <enumeration value="1FW" /> 
+      <enumeration value="1SKY" /> 
+      <enumeration value="1COND" /> 
+      <enumeration value="2" /> 
+      <enumeration value="3" /> 
+      <enumeration value="4" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="DataCessazioneBundlePrecedente" minOccurs="0"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <pattern value="(0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])[/](19|20)\d\d" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="SyncronizePartnerKeys_OutputType"> 
+  <sequence> 
+   <element name="Status" type="tns:StatusType" minOccurs="0" /> 
+   <element name="ErrorCode" type="tns:String30" minOccurs="1" /> 
+   <element name="ErrorMessage" type="tns:String255" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <simpleType name="StatusType"> 
+  <restriction base="xsd:string"> 
+   <enumeration value="Success" /> 
+   <enumeration value="Error" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="Scenario_type"> 
+  <restriction base="xsd:string"> 
+   <enumeration value="SKY" /> 
+   <enumeration value="FW" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="AzioneSky_type"> 
+  <restriction base="xsd:string"> 
+   <enumeration value="OK" /> 
+   <enumeration value="KO" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="Flag_type"> 
+  <restriction base="xsd:string"> 
+   <enumeration value="Y" /> 
+   <enumeration value="N" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String30"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="30" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String2"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="2" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String255"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="255" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String50"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="50" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String42"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="42" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="DateString19"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="19" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+</schema>

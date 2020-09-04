@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://services.api.web.cg.igfs.apps.netsw.it/" schemaLocation="xsdIGFS/PaymentInitGateway.xsd" /> 
+   <xsd:complexType name="InitResponse" xmlns="" xmlns:tns="http://services.api.web.cg.igfs.apps.netsw.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="tns:InitResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opInit"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="tid" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="signature" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="shopID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="shopUserRef" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="shopUserName" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="shopUserAccount" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="trType" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="amount" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="currencyCode" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="langID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="errorURL" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="notifyURL" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="addInfo1" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="addInfo2" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="addInfo3" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="addInfo4" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="addInfo5" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="payInstrToken" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="regenPayInstrToken" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="description" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="recurrent" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="freeText" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="accountName" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="channel" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opInitResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InitResponse" type="eb:InitResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opInitRequest"> 
+  <wsdl:part element="eb:opInit" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opInitResponse"> 
+  <wsdl:part element="eb:opInitResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_IGFS_INIT_PAYMENTSoap"> 
+  <wsdl:operation name="opInit"> 
+   <wsdl:input message="eb:opInitRequest" name="opInitRequest" /> 
+   <wsdl:output message="eb:opInitResponse" name="opInitResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_IGFS_INIT_PAYMENTSoap" type="eb:WS_IGFS_INIT_PAYMENTSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opInit"> 
+   <soap:operation soapAction="WS_IGFS_INIT_PAYMENT/opInit" style="document" /> 
+   <wsdl:input name="opInitRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opInitResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_IGFS_INIT_PAYMENT"> 
+  <wsdl:port binding="eb:WS_IGFS_INIT_PAYMENTSoap" name="WS_IGFS_INIT_PAYMENTSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_IGFS_INIT_PAYMENT" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

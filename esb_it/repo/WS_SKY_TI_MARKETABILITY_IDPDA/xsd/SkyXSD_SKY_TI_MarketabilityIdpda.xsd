@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sm="http://telecomitalia.it/SOA/WS_SKY_TI_MARKETABILITY_IDPDA/2014-09-04" targetNamespace="http://telecomitalia.it/SOA/WS_SKY_TI_MARKETABILITY_IDPDA/2014-09-04" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xsd:element name="checkMarketabilityRequest" type="sm:checkMarketabilityRequestType" /> 
+ <xsd:element name="COMPLEX_OUTPUT" type="sm:DocumentDataOutput" /> 
+ <xsd:complexType name="DocumentDataInput"> 
+  <xsd:sequence> 
+   <xsd:element name="checkMarketabilityRequest" type="sm:checkMarketabilityRequestType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="DocumentDataOutput"> 
+  <xsd:sequence> 
+   <xsd:element name="checkMarketabilityResponse" type="sm:checkMarketabilityResponseType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="checkMarketabilityRequestType"> 
+  <xsd:sequence> 
+   <xsd:element name="IdPDA" type="sm:noEmptyFieldType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="checkMarketabilityResponseType"> 
+  <xsd:sequence> 
+   <xsd:element name="CodiceEsito" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="DescrizioneEsito" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="StatoOrdineTI" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="DatiAnagraficiCliente" type="sm:DatiAnagraficiClienteType" minOccurs="0" /> 
+   <xsd:element name="IndirizzoSedeImpianto" type="sm:IndirizzoSedeImpiantoType" minOccurs="0" /> 
+   <xsd:element name="NumeroTelefonoImpianto" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="NumeroFissoSecondario" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="NumeroCellulare" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="Email" type="sm:noEmptyFieldType" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="DatiAnagraficiClienteType"> 
+  <xsd:sequence> 
+   <xsd:element name="CodiceFiscale" type="sm:noEmptyFieldType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="IndirizzoSedeImpiantoType"> 
+  <xsd:sequence> 
+   <xsd:element name="Localita" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="ParticellaToponomastica" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="Indirizzo" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="NumeroCivico" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="CAP" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="SiglaProvincia" type="sm:noEmptyFieldType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> <!-- checkMarketability END --> <!-- SimpleTypes START --> 
+ <xsd:simpleType name="noEmptyFieldType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="1" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+</xsd:schema>

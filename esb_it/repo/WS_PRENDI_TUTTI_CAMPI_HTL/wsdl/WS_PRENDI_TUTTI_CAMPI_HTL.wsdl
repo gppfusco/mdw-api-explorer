@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:string" use="required" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="SRVZ_RET_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_DESCRIZ_ESITO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_ABILITA_SMC" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_CODICE_GRUPPO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_CODICE_HOTEL" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_CODICE_SMC" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_CODICE_SMS" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_CODICE_STANZA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_CODICE_UTENTE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_COSTO_EVENTO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DATA_ACQUISTO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DATA_APERTURA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DATA_CHIUSURA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DATA_FINE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DATA_INIZIO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DATA_MODIFICA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DATA_RIFERIMENTO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DATA_TRASM" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DENOMINAZIONE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DESCRIZIONE_EVENTO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DESCRIZIONE_GRUPPO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DESCRIZIONE_STANZA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_FLAG_ABILITAZIONE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_FLAG_ACQUISTI_PPV" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_FLAG_LISTINO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_GENERAZIONE_PIN" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_ID_CHIAVE_HOTEL" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_ID_FATTURAZIONE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_IP_FATTURAZIONE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_MODALITA_ACQUISTO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_NOME_LISTINO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_NOME_PARAMETRO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_NUMERO_STANZE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_NUM_EVENTI_PREFISSATI" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_NUM_TOT_EVENTI" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_NUM_TOT_EVENTI_GRATIS" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_PIN_CORRENTE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_PORTA_FATTURAZIONE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_PPV_ABILITATA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_PROVENIENZA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_REF_ID" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_SMC_ABILITATA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_SMC_PRESENTE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_STATO_HOTEL" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_TIPO_APERTURA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_TIPO_EVENTO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_TIPO_MODIFICA" type="eb:FMLFieldType" /> 
+     <xsd:any processContents="lax" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:portType name="WS_PRENDI_TUTTI_CAMPI_HTLSoap"></wsdl:portType> 
+ <wsdl:binding name="WS_PRENDI_TUTTI_CAMPI_HTLSoap" type="eb:WS_PRENDI_TUTTI_CAMPI_HTLSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_PRENDI_TUTTI_CAMPI_HTL"> 
+  <wsdl:port binding="eb:WS_PRENDI_TUTTI_CAMPI_HTLSoap" name="WS_PRENDI_TUTTI_CAMPI_HTLSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_PRENDI_TUTTI_CAMPI_HTL" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

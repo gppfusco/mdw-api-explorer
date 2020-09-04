@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:string" use="required" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="SRVZ_RET_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_DESCRIZ_ESITO" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_TIPO_EVENTO" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_NUM_TOT_EVENTI" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="OP_LEGGIRIEPILOGOTIPOEVENTI"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_UTENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_HOTEL" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DATA_INIZIO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DATA_FINE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_LEGGIRIEPILOGOTIPOEVENTIResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="LEGGIRIEPILOGOTIPOEVENTI_OUTPUT" type="eb:FMLComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_LEGGIRIEPILOGOTIPOEVENTIRequest"> 
+  <wsdl:part element="eb:OP_LEGGIRIEPILOGOTIPOEVENTI" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_LEGGIRIEPILOGOTIPOEVENTIResponse"> 
+  <wsdl:part element="eb:OP_LEGGIRIEPILOGOTIPOEVENTIResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_LEGGIRIEPILOGOTIPOEVENTISoap"> 
+  <wsdl:operation name="OP_LEGGIRIEPILOGOTIPOEVENTI"> 
+   <wsdl:input message="eb:OP_LEGGIRIEPILOGOTIPOEVENTIRequest" name="OP_LEGGIRIEPILOGOTIPOEVENTIRequest" /> 
+   <wsdl:output message="eb:OP_LEGGIRIEPILOGOTIPOEVENTIResponse" name="OP_LEGGIRIEPILOGOTIPOEVENTIResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_LEGGIRIEPILOGOTIPOEVENTISoap" type="eb:WS_LEGGIRIEPILOGOTIPOEVENTISoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_LEGGIRIEPILOGOTIPOEVENTI"> 
+   <soap:operation soapAction="WS_LEGGIRIEPILOGOTIPOEVENTI/OP_LEGGIRIEPILOGOTIPOEVENTI" style="document" /> 
+   <wsdl:input name="OP_LEGGIRIEPILOGOTIPOEVENTIRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_LEGGIRIEPILOGOTIPOEVENTIResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_LEGGIRIEPILOGOTIPOEVENTI"> 
+  <wsdl:port binding="eb:WS_LEGGIRIEPILOGOTIPOEVENTISoap" name="WS_LEGGIRIEPILOGOTIPOEVENTISoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_LEGGIRIEPILOGOTIPOEVENTI" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

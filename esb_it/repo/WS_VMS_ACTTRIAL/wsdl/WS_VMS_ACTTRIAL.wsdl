@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:string" use="optional" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexInput"> 
+    <xsd:sequence> 
+     <xsd:element name="CA_OPERATORE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_MEDIA" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CODICE_CAMPAGNA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="VMS_TARGET_AUDICENCE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="SRVZ_TRANSACTION_ID" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_TAG_TYPE" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_TAG_VALUE" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="MRM_CARD_STATUS" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_AMOUNT" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_SERIAL_NUMBER" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_HIDDEN_NUMBER" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CODICE_DEALER" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_CREATION_DATE" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_ACTIVATION_DATE" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_EXPIRED_DATE" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_USED_DATE" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_SKY_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_GROUP_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_TYPE_VOUCHER" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_ACCOUNT_NUMBER" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_REQUESTED_BY" type="eb:FMLFieldType" /> 
+     <xsd:element name="VMS_CREDIT_TYPE" type="eb:FMLFieldType" /> 
+     <xsd:element name="VMS_TARGET_AUDICENCE" type="eb:FMLFieldType" /> 
+     <xsd:element name="VMS_FEE_CALCULATION" type="eb:FMLFieldType" /> 
+     <xsd:element name="VMS_VOUCHER_DESCRIPTION" type="eb:FMLFieldType" /> 
+     <xsd:element name="MRM_TAG_TYPE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_PPV_KIND" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_RET_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="SRVZ_LOG_FILENAME" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="SRVZ_ERROR_TYPE" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opVMS"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WMS_INPUT" type="eb:FMLComplexInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opVMSResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="VMS_OUTPUT" type="eb:FMLComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opVMSRequest"> 
+  <wsdl:part element="eb:opVMS" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opVMSResponse"> 
+  <wsdl:part element="eb:opVMSResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_VMS_ACTTRIALSoap"> 
+  <wsdl:operation name="opVMS"> 
+   <wsdl:input message="eb:opVMSRequest" name="opVMSRequest" /> 
+   <wsdl:output message="eb:opVMSResponse" name="opVMSResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_VMS_ACTTRIALSoap" type="eb:WS_VMS_ACTTRIALSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opVMS"> 
+   <soap:operation soapAction="WS_VMS_ACTTRIAL/opVMS" style="document" /> 
+   <wsdl:input name="opVMSRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opVMSResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_VMS_ACTTRIAL"> 
+  <wsdl:port binding="eb:WS_VMS_ACTTRIALSoap" name="WS_VMS_ACTTRIALSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_mrm/WS_VMS_ACTTRIAL" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

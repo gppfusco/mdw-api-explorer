@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdTelecom/SkyXSD_TI_SBL_Retrieve_Cntrt_Config.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="ElementHeaderResponse" type="eb:ElementHeaderType" /> 
+   <xsd:element name="ElementHeader" type="eb:ElementHeaderType" /> 
+   <xsd:complexType name="ElementHeaderType"> 
+    <xsd:sequence> 
+     <xsd:element name="sourceSystem" type="xsd:string" /> 
+     <xsd:element name="interactionDate"> 
+      <xsd:complexType> 
+       <xsd:sequence> 
+        <xsd:element name="Date" type="xsd:string" /> 
+        <xsd:element name="Time" type="xsd:string" /> 
+       </xsd:sequence> 
+      </xsd:complexType> 
+     </xsd:element> 
+     <xsd:element name="businessId" type="xsd:string" /> 
+     <xsd:element name="transactionId" type="xsd:string" /> 
+     <xsd:element name="messageId" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opRetrieveCntrtConfig"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRetrieveCntrtConfigResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opRetrieveCntrtConfigRequest"> 
+  <wsdl:part element="eb:opRetrieveCntrtConfig" name="parameters" /> 
+  <wsdl:part element="eb:ElementHeader" name="PartHeader" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRetrieveCntrtConfigResponse"> 
+  <wsdl:part element="eb:opRetrieveCntrtConfigResponse" name="parameters" /> 
+  <wsdl:part element="eb:ElementHeaderResponse" name="PartHeaderResponse" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_TI_SKY_RETRIEVE_CNTRT_CONFIGSoap"> 
+  <wsdl:operation name="opRetrieveCntrtConfig"> 
+   <wsdl:input message="eb:opRetrieveCntrtConfigRequest" name="opRetrieveCntrtConfigRequest" /> 
+   <wsdl:output message="eb:opRetrieveCntrtConfigResponse" name="opRetrieveCntrtConfigResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_TI_SKY_RETRIEVE_CNTRT_CONFIGSoap" type="eb:WS_TI_SKY_RETRIEVE_CNTRT_CONFIGSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opRetrieveCntrtConfig"> 
+   <soap:operation soapAction="WS_TI_SKY_RETRIEVE_CNTRT_CONFIG/opRetrieveCntrtConfig" style="document" /> 
+   <wsdl:input name="opRetrieveCntrtConfigRequest"> 
+    <soap:header encodingStyle="" message="eb:opRetrieveCntrtConfigRequest" part="PartHeader" use="literal" /> 
+    <soap:body parts="parameters" use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opRetrieveCntrtConfigResponse"> 
+    <soap:header encodingStyle="" message="eb:opRetrieveCntrtConfigResponse" part="PartHeaderResponse" use="literal" /> 
+    <soap:body parts="parameters" use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_TI_SKY_RETRIEVE_CNTRT_CONFIG"> 
+ </wsdl:service>
+</wsdl:definitions>

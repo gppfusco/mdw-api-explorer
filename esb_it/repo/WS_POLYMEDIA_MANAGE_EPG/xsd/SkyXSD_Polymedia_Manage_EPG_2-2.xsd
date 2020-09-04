@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:tns="http://epg.sky.it/service/events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://epg.sky.it/service/events" version="1.0"> 
+ <xsd:element name="DigitalRights" type="tns:digitalRightsDTO" /> 
+ <xsd:element name="InvalidInputParameterException" type="tns:InvalidInputParameterException" /> 
+ <xsd:element name="NullInputParameterException" type="tns:NullInputParameterException" /> 
+ <xsd:element name="ObjectNotFoundException" type="tns:ObjectNotFoundException" /> 
+ <xsd:element name="getDigitalRightsByEventId" type="tns:getDigitalRightsByEventId" /> 
+ <xsd:element name="getDigitalRightsByEventIdResponse" type="tns:getDigitalRightsByEventIdResponse" /> 
+ <xsd:element name="getOfferAndCAProductByEventId" type="tns:getOfferAndCAProductByEventId" /> 
+ <xsd:element name="getOfferAndCAProductByEventIdResponse" type="tns:getOfferAndCAProductByEventIdResponse" /> 
+ <xsd:element name="searchEventsByProgramId" type="tns:searchEventsByProgramId" /> 
+ <xsd:element name="searchEventsByProgramIdResponse" type="tns:searchEventsByProgramIdResponse" /> 
+ <xsd:element name="searchEventsByServiceKey" type="tns:searchEventsByServiceKey" /> 
+ <xsd:element name="searchEventsByServiceKeyResponse" type="tns:searchEventsByServiceKeyResponse" /> <!--<xsd:element name="getPvodDetails" type="tns:getPvodDetails"/>--> 
+ <xsd:element name="getPvodDetailsResponse" type="tns:getPvodDetailsResponse" /> 
+ <xsd:complexType name="getPvodDetails"> 
+  <xsd:sequence> 
+   <xsd:element name="date" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="partyId"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:int"> 
+      <xsd:enumeration value="1" /> 
+      <xsd:enumeration value="4" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="decoderType" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="getPvodDetailsResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="details" type="tns:pvodDetailDTO" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="pvodDetailDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="eventCardTitle" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="programKey" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="programmeIdSSR" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="definition" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="startDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="endDate" type="xsd:dateTime" minOccurs="0" /> 
+  </xsd:sequence> 
+  <xsd:attribute name="eventId" type="xsd:long" /> 
+ </xsd:complexType> 
+ <xsd:complexType name="searchEventsByProgramId"> 
+  <xsd:sequence> 
+   <xsd:element name="programId" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="startDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="endDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="partyId" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="language" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="full" type="xsd:boolean" minOccurs="0" /> 
+   <xsd:element name="eventType" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="searchEventsByProgramIdResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="events" type="tns:eventDTO" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="eventDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="eventCards" type="tns:eventCardDTO" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="subEvents" type="tns:subEventDTO" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="serviceKey" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="programId" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="program" type="tns:programDTO" minOccurs="0" /> 
+   <xsd:element name="eventId" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="audio" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="duration" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="subtitle" type="xsd:boolean" minOccurs="0" /> 
+   <xsd:element name="eventLinearInfo" type="tns:eventLinearInfo" minOccurs="0" /> 
+   <xsd:element name="eventPvodInfo" type="tns:eventPvodInfo" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="eventCardDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="language" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="title" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="longDescription" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="shortDescription" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="marketingMessage" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="subEventDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="subEventId" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="subEventTitle" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="subEventShortDescription" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="subEventLongDescription" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="subEventMarketingMessage" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="subEventProgrammeId" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="subEventDuration" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="programId" type="xsd:long" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="programDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="programId" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="fullTitle" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="requestedProgId" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="extendedPrograms" type="tns:extendedProgramDTO" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="programCards" type="tns:programCardDTO" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="productionYear" type="xsd:short" minOccurs="0" /> 
+   <xsd:element name="director" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="genre" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="subgenre" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="parentalRating" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="series" type="xsd:boolean" minOccurs="0" /> 
+   <xsd:element name="parent" type="xsd:boolean" minOccurs="0" /> 
+   <xsd:element name="parentId" type="xsd:long" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="extendedProgramDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="name" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="value" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="partyId" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="programId" type="xsd:long" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="programCardDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="partyId" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="programId" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="longDescription" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="shortDescription" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="marketingMessage" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="title" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="language" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="eventLinearInfo"> 
+  <xsd:sequence> 
+   <xsd:element name="eventIdOrig" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="startTime" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="eventDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="highlights" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="eventPvodInfo"> 
+  <xsd:sequence> 
+   <xsd:element name="publishDateTime" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="expiryDateTime" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="branding" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="avType" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="programGroupLink" type="tns:programGroupLink" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="programGroupLink"> 
+  <xsd:sequence> 
+   <xsd:element name="groupKey" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="InvalidInputParameterException"> 
+  <xsd:sequence> 
+   <xsd:element name="message" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ObjectNotFoundException"> 
+  <xsd:sequence> 
+   <xsd:element name="message" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="searchEventsByServiceKey"> 
+  <xsd:sequence> 
+   <xsd:element name="serviceKey" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="startDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="endDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="partyId" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="language" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="full" type="xsd:boolean" minOccurs="0" /> 
+   <xsd:element name="eventType" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="searchEventsByServiceKeyResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="events" type="tns:eventDTO" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="getDigitalRightsByEventId"> 
+  <xsd:sequence> 
+   <xsd:element name="eventId" type="xsd:long" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="getDigitalRightsByEventIdResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="digitalRights" type="tns:digitalRightsDTO" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="digitalRightsDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="Geoblocking" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="ConnectivityList" type="tns:connectivityListDTO" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="connectivityListDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="connectivity" type="tns:connectivityDTO" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="connectivityDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="device" type="tns:deviceDTO" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+  <xsd:attribute name="name" type="xsd:string" /> 
+ </xsd:complexType> 
+ <xsd:complexType name="deviceDTO"> 
+  <xsd:simpleContent> 
+   <xsd:extension base="xsd:int"> 
+    <xsd:attribute name="name" type="xsd:string" /> 
+   </xsd:extension> 
+  </xsd:simpleContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="NullInputParameterException"> 
+  <xsd:sequence> 
+   <xsd:element name="message" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="getOfferAndCAProductByEventId"> 
+  <xsd:sequence> 
+   <xsd:element name="eventId" type="xsd:long" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="getOfferAndCAProductByEventIdResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:productDTO" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="productDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="caProducts" type="tns:caProductDTO" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="eventId" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="ppvInfos" type="tns:ppvInfoDTO" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="caProductDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="productType" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="productId" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ppvInfoDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="currency" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="freePreview" type="xsd:int" /> 
+   <xsd:element name="offers" type="tns:offerDTO" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="offerDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="ppvReferenceId" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="offerName" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="availabilityStart" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="availabilityEnd" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="offerProducts" type="tns:offerProductDTO" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="offerProductDTO"> 
+  <xsd:sequence> 
+   <xsd:element name="type" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="productId" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="startDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="expiryDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="price" type="xsd:int" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

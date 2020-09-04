@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="requestADDDTR"> 
+    <xsd:sequence> 
+     <xsd:element name="flagsync" type="xsd:string" /> 
+     <xsd:element name="clientid" type="xsd:string" /> 
+     <xsd:element name="operator" type="xsd:string" /> 
+     <xsd:element name="idcaller" type="xsd:string" /> 
+     <xsd:element name="typesrvreq" type="xsd:string" /> 
+     <xsd:element name="skyid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="devicetrialid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="deviceid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="deviceuuid" type="xsd:string" /> 
+     <xsd:element name="devicetype" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="devicefriendlyname" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="responseADDDTR"> 
+    <xsd:sequence> 
+     <xsd:element name="result" type="xsd:string" /> 
+     <xsd:element name="descriptionerr" type="xsd:string" /> 
+     <xsd:element name="ndserr" type="xsd:string" /> 
+     <xsd:element name="transid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="householdid" type="xsd:string" /> 
+     <xsd:any processContents="lax" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opADDDTR"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestADDDTR" type="eb:requestADDDTR" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opADDDTRResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseADDDTR" type="eb:responseADDDTR" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opADDDTRRequest"> 
+  <wsdl:part element="eb:opADDDTR" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opADDDTRResponse"> 
+  <wsdl:part element="eb:opADDDTRResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_EXECUTE_ADDDTRSoap"> 
+  <wsdl:operation name="opADDDTR"> 
+   <wsdl:input message="eb:opADDDTRRequest" name="opADDDTRRequest" /> 
+   <wsdl:output message="eb:opADDDTRResponse" name="opADDDTRResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_EXECUTE_ADDDTRSoap" type="eb:WS_SCMS_EXECUTE_ADDDTRSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opADDDTR"> 
+   <soap:operation soapAction="WS_SCMS_EXECUTE_ADDDTR/opADDDTR" style="document" /> 
+   <wsdl:input name="opADDDTRRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opADDDTRResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_EXECUTE_ADDDTR"> 
+  <wsdl:port binding="eb:WS_SCMS_EXECUTE_ADDDTRSoap" name="WS_SCMS_EXECUTE_ADDDTRSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_scms/WS_SCMS_EXECUTE_ADDDTR" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

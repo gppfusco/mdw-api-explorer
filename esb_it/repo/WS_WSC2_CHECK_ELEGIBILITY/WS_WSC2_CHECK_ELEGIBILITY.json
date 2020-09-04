@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_WSC2_CHECK_ELEGIBILITY",
+    "name" : "WS_WSC2_CHECK_ELEGIBILITY",
+    "localPath" : "esb_it\\repo\\WS_WSC2_CHECK_ELEGIBILITY",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_WSC2_CHECK_ELEGIBILITY?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

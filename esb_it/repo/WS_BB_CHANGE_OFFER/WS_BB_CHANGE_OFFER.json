@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_BB_CHANGE_OFFER",
+    "name" : "WS_BB_CHANGE_OFFER",
+    "localPath" : "esb_it\\repo\\WS_BB_CHANGE_OFFER",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_BB_CHANGE_OFFER?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

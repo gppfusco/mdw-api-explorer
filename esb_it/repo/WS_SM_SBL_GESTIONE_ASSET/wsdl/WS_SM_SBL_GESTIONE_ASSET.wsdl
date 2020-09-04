@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdSiebel/xsdSM/SkyXSD_SM_SBL_GESTIONE_ASSET.xsd" /> 
+   <xsd:complexType name="InputAsset"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:RequestGestioneAssetType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="OutputAsset"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:ResponseGestioneAssetType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opGestioneAsset"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestAsset" type="eb:InputAsset" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGestioneAssetResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseAsset" type="eb:OutputAsset" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opGestioneAssetRequest"> 
+  <wsdl:part element="eb:opGestioneAsset" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGestioneAssetResponse"> 
+  <wsdl:part element="eb:opGestioneAssetResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SM_SBL_GESTIONE_ASSETSoap"> 
+  <wsdl:operation name="opGestioneAsset"> 
+   <wsdl:input message="eb:opGestioneAssetRequest" name="opGestioneAssetRequest" /> 
+   <wsdl:output message="eb:opGestioneAssetResponse" name="opGestioneAssetResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SM_SBL_GESTIONE_ASSETSoap" type="eb:WS_SM_SBL_GESTIONE_ASSETSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opGestioneAsset"> 
+   <soap:operation soapAction="WS_SM_SBL_GESTIONE_ASSET/opGestioneAsset" style="document" /> 
+   <wsdl:input name="opGestioneAssetRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGestioneAssetResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SM_SBL_GESTIONE_ASSET"> 
+  <wsdl:port binding="eb:WS_SM_SBL_GESTIONE_ASSETSoap" name="WS_SM_SBL_GESTIONE_ASSETSoap"> 
+   <soap:address location="https://wssvil.sky.it/wsexistbus/ws_sf/WS_SM_SBL_GESTIONE_ASSET" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:string" use="required" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="CA_ESITO" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_MSG" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CA_CLIENTID" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CA_FLAG_ENABLED" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CA_FLAG_MASTER" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CA_CODE" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opScmsGetclientlis"> 
+    <xsd:complexType> 
+     <xsd:sequence /> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opScmsGetclientlisResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ComplexOutput" type="eb:FMLComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opScmsGetclientlisRequest"> 
+  <wsdl:part element="eb:opScmsGetclientlis" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opScmsGetclientlisResponse"> 
+  <wsdl:part element="eb:opScmsGetclientlisResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_GETCLIENTLISTSoap"> 
+  <wsdl:operation name="opScmsGetclientlis"> 
+   <wsdl:input message="eb:opScmsGetclientlisRequest" name="opScmsGetclientlisRequest" /> 
+   <wsdl:output message="eb:opScmsGetclientlisResponse" name="opScmsGetclientlisResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_GETCLIENTLISTSoap" type="eb:WS_SCMS_GETCLIENTLISTSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opScmsGetclientlis"> 
+   <soap:operation soapAction="WS_SCMS_GETCLIENTLIST/opScmsGetclientlis" style="document" /> 
+   <wsdl:input name="opScmsGetclientlisRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opScmsGetclientlisResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_GETCLIENTLIST"> 
+  <wsdl:port binding="eb:WS_SCMS_GETCLIENTLISTSoap" name="WS_SCMS_GETCLIENTLISTSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SCMS_GETCLIENTLIST" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

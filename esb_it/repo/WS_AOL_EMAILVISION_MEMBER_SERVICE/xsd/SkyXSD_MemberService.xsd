@@ -1,0 +1,32 @@
+<xs:schema xmlns:tns="http://api.service.apimember.emailvision.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://api.service.apimember.emailvision.com/" elementFormDefault="unqualified" version="1.0"> 
+ <xs:complexType name="insertOrUpdateMemberByObj"> 
+  <xs:sequence> 
+   <xs:element name="member" type="tns:synchroMember" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="insertOrUpdateMemberByObjResponse"> 
+  <xs:sequence> 
+   <xs:element name="return" type="xs:long" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="synchroMember"> 
+  <xs:sequence> 
+   <xs:element name="dynContent"> 
+    <xs:complexType> 
+     <xs:sequence> 
+      <xs:element name="entry" minOccurs="0" maxOccurs="unbounded"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="key" type="xs:string" minOccurs="0" /> 
+         <xs:element name="value" type="xs:string" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+     </xs:sequence> 
+    </xs:complexType> 
+   </xs:element> 
+   <xs:element name="email" type="xs:string" minOccurs="0" /> 
+   <xs:element name="memberUID" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

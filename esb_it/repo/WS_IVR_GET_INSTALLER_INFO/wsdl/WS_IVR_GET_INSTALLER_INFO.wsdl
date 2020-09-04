@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:string" use="required" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="SRVZ_RET_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_PASSWORD" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_ACCOUNT_NUMBER" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_ASSET_NUMBER" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_SERIALE_DECODER" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CAP_SERVICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CITY_SERVICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CODE_FISCALE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CODICE_PROMOZIONE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_COMUNICAZIONE_DA_TERZI" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_COUNTRY_SERVICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_EMAIL" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_FLAG_APPARATO" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_INDIRIZZO_SERVICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_MAIN_PHONE_NUMBER" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_MARKET_TYPE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_NAME" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_NUM_CIVICO_SERVICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_PARTITA_IVA" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_PAYMENT_METHOD" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_PERIODICITA_FATTURAZIONE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_PROVINCIA_SERVICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_SCALA_SERVICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_STATISTICHE_DI_MERCATO" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_STATO_PACCHETTO" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_STATO_SERVIZI" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_STATUS" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_TIPO_APP" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_TIPO_CLIENTE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_NUM_FAX" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_ROW_ID_CONTR" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_TIPO_CNTR" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CODE_CNTR" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_DUE_DATE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_MARKET_CLASS" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_PERS_GIURID_FLAG" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_COGNOME_CLIENTE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_NOME_CLIENTE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_ASSET_START_DATE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_LIST_PRICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_SERVICE_PRICE_AMOUNT" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_PRODUCT_TYPE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_PRODUCT_TYPE_SERVICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_COMPANY" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_PART_TOPON_SERVICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CODICE_CLIENTE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_RATE_CODE_SERVICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_FLAG_PRONTO_SKY" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_ROW_ID_CLI" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_LIST_NAME" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CODICE_COUPON" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_HOTEL_PPV" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_DESCRIZ_ESITO" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_LOG_FILENAME" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_PARAM_1" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_FORMATO_FATT" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_TIPO_INVIO_FATT" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CATEGORIA_LISTINO" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CODICE_LISTINO" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_TIPO_LISTINO" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_DATA_NASCITA" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_LUOGO_NASCITA" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_PROV_LUOGO_NASCITA" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_TIPO_DOCUMENTO" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_NUMERO_DOCUMENTO" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_DATA_DOCUMENTO" type="eb:FMLFieldType" /> 
+     <xsd:element name="KN_START_DATE_CONTR" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CODICE_ODL" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_STATO_ODL" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CODICE_INSTALLATORE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_CODICE_SERVICE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_FLAG_MULTIVISION" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_ODL_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_AGREEMENT" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_NUMERO_PACCHETTI_ATTIVABILI" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_NUMERO_PACCHETTI_PENDING" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_TECNOLOGIA_ODL" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_STATO_STB" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_TECNOLOGIA" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_FLAG_ENABLED" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_NEW_ASSET_NUMBER" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_TECNOLOGIA_DECODER_MV" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_STATO_SERVIZIO_STB" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_TRACKING_PROMO" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_FLAG_INSTALLAZIONE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_VISIONE_ODL" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_DATA_2SA" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_STATO_PROMO_2SA" type="eb:FMLFieldType" /> 
+     <xsd:element name="CRM_TIPO_ODS" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CRM_INSTALLAZIONE_CONS" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CRM_AREA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CRM_SUB_AREA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CRM_FLG_GESTIONE_IVR" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CRM_PROMO_CONN" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CRM_TIPOLOGIA_CONN" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CRM_X_TIBCO_ORDER_ID" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="OP_GETINSTALLERINFO"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="CRM_NAME_SMS" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="CRM_CODICE_ODL" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CONNID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="ConnId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="TransId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_GETINSTALLERINFOResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="GETINSTALLERINFO_OUTPUT" type="eb:FMLComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_GETINSTALLERINFORequest"> 
+  <wsdl:part element="eb:OP_GETINSTALLERINFO" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_GETINSTALLERINFOResponse"> 
+  <wsdl:part element="eb:OP_GETINSTALLERINFOResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_IVR_GET_INSTALLER_INFOSoap"> 
+  <wsdl:operation name="OP_GETINSTALLERINFO"> 
+   <wsdl:input message="eb:OP_GETINSTALLERINFORequest" name="OP_GETINSTALLERINFORequest" /> 
+   <wsdl:output message="eb:OP_GETINSTALLERINFOResponse" name="OP_GETINSTALLERINFOResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_IVR_GET_INSTALLER_INFOSoap" type="eb:WS_IVR_GET_INSTALLER_INFOSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_GETINSTALLERINFO"> 
+   <soap:operation soapAction="WS_IVR_GET_INSTALLER_INFO/OP_GETINSTALLERINFO" style="document" /> 
+   <wsdl:input name="OP_GETINSTALLERINFORequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_GETINSTALLERINFOResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_IVR_GET_INSTALLER_INFO"> 
+  <wsdl:port binding="eb:WS_IVR_GET_INSTALLER_INFOSoap" name="WS_IVR_GET_INSTALLER_INFOSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_IVR_GET_INSTALLER_INFO" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

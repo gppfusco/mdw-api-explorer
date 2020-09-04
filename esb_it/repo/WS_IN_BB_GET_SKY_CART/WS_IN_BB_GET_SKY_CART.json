@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_IN_BB_GET_SKY_CART",
+    "name" : "WS_IN_BB_GET_SKY_CART",
+    "localPath" : "esb_it\\repo\\WS_IN_BB_GET_SKY_CART",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_IN_BB_GET_SKY_CART?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

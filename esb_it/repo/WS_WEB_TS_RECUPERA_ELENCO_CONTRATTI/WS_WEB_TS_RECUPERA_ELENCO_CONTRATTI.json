@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_WEB_TS_RECUPERA_ELENCO_CONTRATTI",
+    "name" : "WS_WEB_TS_RECUPERA_ELENCO_CONTRATTI",
+    "localPath" : "esb_it\\repo\\WS_WEB_TS_RECUPERA_ELENCO_CONTRATTI",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_WEB_TS_RECUPERA_ELENCO_CONTRATTI?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

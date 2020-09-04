@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="cambioCanali"> 
+    <xsd:sequence> 
+     <xsd:element name="operationType" type="xsd:string" /> 
+     <xsd:element name="codiceHotels" type="eb:c_codiceHotels" /> 
+     <xsd:element name="tecnologia" type="xsd:string" /> 
+     <xsd:element name="operator" type="xsd:string" /> 
+     <xsd:element name="channels" type="eb:c_channels" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="c_codiceHotels"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="codiceHotel" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="c_channels"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="channel" type="eb:c_channel" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="c_channel"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="moduleNumber" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="position" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="rowId" type="xsd:string" /> 
+     <xsd:element name="diseqc" type="xsd:string" /> 
+     <xsd:element name="frequency" type="xsd:string" /> 
+     <xsd:element name="sid" type="xsd:string" /> 
+     <xsd:element name="name" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="startDate" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="endDate" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opCambioCanale"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="cambioCanali" type="eb:cambioCanali" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCambioCanaleResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCambioCanaleRequest"> 
+  <wsdl:part element="eb:opCambioCanale" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCambioCanaleResponse"> 
+  <wsdl:part element="eb:opCambioCanaleResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_HTL_CAMBIO_CANALESoap"> 
+  <wsdl:operation name="opCambioCanale"> 
+   <wsdl:input message="eb:opCambioCanaleRequest" name="opCambioCanaleRequest" /> 
+   <wsdl:output message="eb:opCambioCanaleResponse" name="opCambioCanaleResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_HTL_CAMBIO_CANALESoap" type="eb:WS_HTL_CAMBIO_CANALESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCambioCanale"> 
+   <soap:operation soapAction="WS_HTL_CAMBIO_CANALE/opCambioCanale" style="document" /> 
+   <wsdl:input name="opCambioCanaleRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCambioCanaleResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_HTL_CAMBIO_CANALE"> 
+  <wsdl:port binding="eb:WS_HTL_CAMBIO_CANALESoap" name="WS_HTL_CAMBIO_CANALESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_HTL_CAMBIO_CANALE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

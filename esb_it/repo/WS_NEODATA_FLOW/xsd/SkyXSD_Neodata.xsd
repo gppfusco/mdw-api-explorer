@@ -1,0 +1,28 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://sandbox.api.neodatagroup.it/ui/Soap2/" targetNamespace="http://sandbox.api.neodatagroup.it/ui/Soap2/" elementFormDefault="qualified"> 
+ <xsd:complexType name="Advertiser"> 
+  <xsd:all> 
+   <xsd:element name="advertiserId" type="xsd:int" /> 
+   <xsd:element name="extCode" type="xsd:string" /> 
+   <xsd:element name="name" type="xsd:string" /> 
+   <xsd:element name="type" type="xsd:int" /> 
+   <xsd:element name="status" type="xsd:int" /> 
+   <xsd:element name="KAMId" type="xsd:int" /> 
+   <xsd:element name="KAMExtCode" type="xsd:string" /> 
+   <xsd:element name="agencyId" type="xsd:int" /> 
+   <xsd:element name="agencyExtCode" type="xsd:string" /> 
+   <xsd:element name="firstName" type="xsd:string" /> 
+   <xsd:element name="lastName" type="xsd:string" /> 
+   <xsd:element name="phone" type="xsd:string" /> 
+   <xsd:element name="email" type="xsd:string" /> 
+   <xsd:element name="website" type="xsd:string" /> 
+   <xsd:element name="address" type="xsd:string" /> 
+   <xsd:element name="zip" type="xsd:string" /> 
+   <xsd:element name="city" type="xsd:string" /> 
+   <xsd:element name="state" type="xsd:string" /> 
+   <xsd:element name="country" type="xsd:string" /> 
+   <xsd:element name="login" type="xsd:string" /> 
+   <xsd:element name="password" type="xsd:string" /> 
+   <xsd:element name="createdOn" type="xsd:string" /> 
+  </xsd:all> 
+ </xsd:complexType> 
+</xsd:schema>

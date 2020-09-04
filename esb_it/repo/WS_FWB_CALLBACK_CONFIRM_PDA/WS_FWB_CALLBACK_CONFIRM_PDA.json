@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_FWB_CALLBACK_CONFIRM_PDA",
+    "name" : "WS_FWB_CALLBACK_CONFIRM_PDA",
+    "localPath" : "esb_it\\repo\\WS_FWB_CALLBACK_CONFIRM_PDA",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_FWB_CALLBACK_CONFIRM_PDA?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdFWB/SkyXSD_FWB_ConfirmOrder.xsd",
+        "xsdNameSpace" : "http://it.fastweb.esb.org/ConfirmOrder"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

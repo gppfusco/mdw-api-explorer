@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WSSfIbmsProductsManagement",
+    "name" : "WSSfIbmsProductsManagement",
+    "localPath" : "esb_it\\repo\\WSSfIbmsProductsManagement",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WSSfIbmsProductsManagement?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdSF/SkyXSD_ProductManagement.xsd",
+        "xsdNameSpace" : "http://com/pilatmedia/ibmssales/Customer_mngmt_service_v1_0.wsdl/types/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

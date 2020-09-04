@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdExtranet/SkyXSD_WS_HTL_SET_MAPPING_STANZE_SMC.xsd" /> 
+   <xsd:complexType name="MappingStanzeSmcInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:MappingStanzeSmcIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="MappingStanzeSmcOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:MappingStanzeSmcOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opMappingStanzeSmc"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="MappingStanzeSmcInput" type="eb:MappingStanzeSmcInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opMappingStanzeSmcResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="MappingStanzeSmcOutput" type="eb:MappingStanzeSmcOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opMappingStanzeSmcRequest"> 
+  <wsdl:part element="eb:opMappingStanzeSmc" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opMappingStanzeSmcResponse"> 
+  <wsdl:part element="eb:opMappingStanzeSmcResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_HTL_SET_MAPPING_STANZE_SMCSoap"> 
+  <wsdl:operation name="opMappingStanzeSmc"> 
+   <wsdl:input message="eb:opMappingStanzeSmcRequest" name="opMappingStanzeSmcRequest" /> 
+   <wsdl:output message="eb:opMappingStanzeSmcResponse" name="opMappingStanzeSmcResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_HTL_SET_MAPPING_STANZE_SMCSoap" type="eb:WS_HTL_SET_MAPPING_STANZE_SMCSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opMappingStanzeSmc"> 
+   <soap:operation soapAction="WS_HTL_SET_MAPPING_STANZE_SMC/opMappingStanzeSmc" style="document" /> 
+   <wsdl:input name="opMappingStanzeSmcRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opMappingStanzeSmcResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_HTL_SET_MAPPING_STANZE_SMC"> 
+  <wsdl:port binding="eb:WS_HTL_SET_MAPPING_STANZE_SMCSoap" name="WS_HTL_SET_MAPPING_STANZE_SMCSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_HTL_SET_MAPPING_STANZE_SMC" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

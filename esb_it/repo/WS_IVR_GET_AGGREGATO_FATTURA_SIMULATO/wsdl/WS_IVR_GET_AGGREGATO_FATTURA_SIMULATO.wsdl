@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:string" use="required" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="WS_FML32Type"> 
+    <xsd:sequence> 
+     <xsd:element name="KN_NUMERO_FATTURA" type="eb:FMLFieldType" /> 
+     <xsd:element name="KN_DATA_EMISSIONE" type="eb:FMLFieldType" /> 
+     <xsd:element name="KN_PERIODO_RIFERIMENTO" type="eb:FMLFieldType" /> 
+     <xsd:element name="KN_IMPORTO" type="eb:FMLFieldType" /> 
+     <xsd:element name="KN_DESCRIZIONE_VOCE" type="eb:FMLFieldType" /> 
+     <xsd:element name="KN_CODICE_VOCE" type="eb:FMLFieldType" /> 
+     <xsd:element name="KN_PROGRESSIVO_VOCE" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="SRVZ_RET_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_DESCRIZ_ESITO" type="eb:FMLFieldType" /> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="WS_FML32" type="eb:WS_FML32Type" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="OP_GETAGGREGATOFATTURA"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="CRM_BILLING_ACCOUNT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="KN_NUMERO_FATTURA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="KN_DATA_EMISSIONE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="connID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="TransId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_GETAGGREGATOFATTURAResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="GETAGGREGATOFATTURA_OUTPUT" type="eb:FMLComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_GETAGGREGATOFATTURARequest"> 
+  <wsdl:part element="eb:OP_GETAGGREGATOFATTURA" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_GETAGGREGATOFATTURAResponse"> 
+  <wsdl:part element="eb:OP_GETAGGREGATOFATTURAResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_IVR_GET_AGGREGATO_FATTURA_SIMULATOSoap"> 
+  <wsdl:operation name="OP_GETAGGREGATOFATTURA"> 
+   <wsdl:input message="eb:OP_GETAGGREGATOFATTURARequest" name="OP_GETAGGREGATOFATTURARequest" /> 
+   <wsdl:output message="eb:OP_GETAGGREGATOFATTURAResponse" name="OP_GETAGGREGATOFATTURAResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_IVR_GET_AGGREGATO_FATTURA_SIMULATOSoap" type="eb:WS_IVR_GET_AGGREGATO_FATTURA_SIMULATOSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_GETAGGREGATOFATTURA"> 
+   <soap:operation soapAction="WS_IVR_GET_AGGREGATO_FATTURA_SIMULATO/OP_GETAGGREGATOFATTURA" style="document" /> 
+   <wsdl:input name="OP_GETAGGREGATOFATTURARequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_GETAGGREGATOFATTURAResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_IVR_GET_AGGREGATO_FATTURA_SIMULATO"> 
+  <wsdl:port binding="eb:WS_IVR_GET_AGGREGATO_FATTURA_SIMULATOSoap" name="WS_IVR_GET_AGGREGATO_FATTURA_SIMULATOSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_IVR_GET_AGGREGATO_FATTURA_SIMULATO" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

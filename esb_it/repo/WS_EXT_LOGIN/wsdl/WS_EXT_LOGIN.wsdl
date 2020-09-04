@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:string" use="required" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexInput"> 
+    <xsd:sequence> 
+     <xsd:element name="CA_AMBIENTE" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_MSG" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_OPERATORE" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="SRVZ_RET_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_DESCRIZ_ESITO" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_PRIORITY" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_LOGIN_ID" type="eb:FMLFieldType" /> 
+     <xsd:element name="CA_AMBIENTE" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="get_ext_login"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="FMLComplexIN" type="eb:FMLComplexInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="get_ext_loginResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="FMLComplexOUT" type="eb:FMLComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="get_ext_loginRequest"> 
+  <wsdl:part element="eb:get_ext_login" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="get_ext_loginResponse"> 
+  <wsdl:part element="eb:get_ext_loginResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_EXT_LOGINSoap"> 
+  <wsdl:operation name="get_ext_login"> 
+   <wsdl:input message="eb:get_ext_loginRequest" name="get_ext_loginRequest" /> 
+   <wsdl:output message="eb:get_ext_loginResponse" name="get_ext_loginResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_EXT_LOGINSoap" type="eb:WS_EXT_LOGINSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="get_ext_login"> 
+   <soap:operation soapAction="WS_EXT_LOGIN/get_ext_login" style="document" /> 
+   <wsdl:input name="get_ext_loginRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="get_ext_loginResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_EXT_LOGIN"> 
+  <wsdl:port binding="eb:WS_EXT_LOGINSoap" name="WS_EXT_LOGINSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_EXT_LOGIN" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

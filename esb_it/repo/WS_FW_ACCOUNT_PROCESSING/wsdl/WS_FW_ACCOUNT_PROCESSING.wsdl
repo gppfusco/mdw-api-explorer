@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://services.olg.oss.fastweb.it/fly/sky2fw/cm/AccountProcessingServices/" schemaLocation="SkyXSD_AccountProcessing.xsd" /> 
+   <xsd:complexType name="AccountProcessing_Input" xmlns:fw="http://services.olg.oss.fastweb.it/fly/sky2fw/cm/AccountProcessingServices/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="fw:AccountProcessing_Input" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="AccountProcessing_Output" xmlns:fw="http://services.olg.oss.fastweb.it/fly/sky2fw/cm/AccountProcessingServices/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="fw:AccountProcessing_Output" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opAccountProcessing"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="AccountProcessing_Input" type="eb:AccountProcessing_Input" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAccountProcessingResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="AccountProcessing_Output" type="eb:AccountProcessing_Output" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opAccountProcessingRequest"> 
+  <wsdl:part element="eb:opAccountProcessing" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAccountProcessingResponse"> 
+  <wsdl:part element="eb:opAccountProcessingResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_FW_ACCOUNT_PROCESSINGSoap"> 
+  <wsdl:operation name="opAccountProcessing"> 
+   <wsdl:input message="eb:opAccountProcessingRequest" name="opAccountProcessingRequest" /> 
+   <wsdl:output message="eb:opAccountProcessingResponse" name="opAccountProcessingResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_FW_ACCOUNT_PROCESSINGSoap" type="eb:WS_FW_ACCOUNT_PROCESSINGSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opAccountProcessing"> 
+   <soap:operation soapAction="WS_FW_ACCOUNT_PROCESSING/opAccountProcessing" style="document" /> 
+   <wsdl:input name="opAccountProcessingRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAccountProcessingResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_FW_ACCOUNT_PROCESSING"> 
+  <wsdl:port binding="eb:WS_FW_ACCOUNT_PROCESSINGSoap" name="WS_FW_ACCOUNT_PROCESSINGSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_FW_ACCOUNT_PROCESSING" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

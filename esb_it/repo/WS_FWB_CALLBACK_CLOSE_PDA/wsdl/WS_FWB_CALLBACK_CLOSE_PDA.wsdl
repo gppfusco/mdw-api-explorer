@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://it.fastweb.esb.org/CallbackClosePDA" schemaLocation="xsdFWB/SkyXSD_FWB_CallbackClosePDA.xsd" /> 
+   <xsd:complexType name="OperationDataType" xmlns:tns="http://it.fastweb.esb.org/CallbackClosePDA"> 
+    <xsd:complexContent> 
+     <xsd:extension base="tns:OperationDataType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="CallbackClosePDAOp"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:OperationDataType" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="CallbackClosePDAOpResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ErrorCode" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="ErrorMessage" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="CallbackClosePDAOpRequest"> 
+  <wsdl:part element="eb:CallbackClosePDAOp" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="CallbackClosePDAOpResponse"> 
+  <wsdl:part element="eb:CallbackClosePDAOpResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_FWB_CALLBACK_CLOSE_PDASoap"> 
+  <wsdl:operation name="CallbackClosePDAOp"> 
+   <wsdl:input message="eb:CallbackClosePDAOpRequest" name="CallbackClosePDAOpRequest" /> 
+   <wsdl:output message="eb:CallbackClosePDAOpResponse" name="CallbackClosePDAOpResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_FWB_CALLBACK_CLOSE_PDASoap" type="eb:WS_FWB_CALLBACK_CLOSE_PDASoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="CallbackClosePDAOp"> 
+   <soap:operation soapAction="WS_FWB_CALLBACK_CLOSE_PDA/CallbackClosePDAOp" style="document" /> 
+   <wsdl:input name="CallbackClosePDAOpRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="CallbackClosePDAOpResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_FWB_CALLBACK_CLOSE_PDA"> 
+  <wsdl:port binding="eb:WS_FWB_CALLBACK_CLOSE_PDASoap" name="WS_FWB_CALLBACK_CLOSE_PDASoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_FWB_CALLBACK_CLOSE_PDA" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

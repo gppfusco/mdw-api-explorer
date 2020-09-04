@@ -1,0 +1,310 @@
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by *__________* (*__________*) -->
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/EligibilityCheckServices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/EligibilityCheckServices/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/EligibilityCheckServices/" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xsd:element name="InputMessage" type="tns:OperationDataType" /> 
+ <xsd:complexType name="InputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="TransactionData" type="tns:TransactionDataType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OperationDataType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="tns:InputMessageType"> 
+    <xsd:sequence> 
+     <xsd:element name="OperationData" type="tns:EligibilityCheckInput_Type" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:element name="OutputMessage" type="tns:OutputMessageType" /> 
+ <xsd:complexType name="OutputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="OperationData" type="tns:EligibilityCheck_OutputType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="TransactionDataType"> 
+  <xsd:sequence> 
+   <xsd:element name="SenderName" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:maxLength value="50" /> 
+      <xsd:minLength value="1" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="UserName" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:maxLength value="50" /> 
+      <xsd:minLength value="1" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="TransactionId"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:maxLength value="42" /> 
+      <xsd:minLength value="1" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="Version" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:maxLength value="50" /> 
+      <xsd:minLength value="1" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="TransactionTime"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:length value="19" /> 
+      <xsd:pattern value="(0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])[/](19|20)\d\d\s([0-1]\d|[2][0-3]):[0-5]\d:[0-5]\d" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element name="Cliente" type="tns:Cliente" /> 
+ <xsd:complexType name="ClienteTopElmt"> 
+  <xsd:sequence> 
+   <xsd:element name="Cliente" type="tns:Cliente" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Cliente"> 
+  <xsd:sequence> 
+   <xsd:element name="CodiceClienteFW" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="CodiceFiscalePIva" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="Nome" type="tns:String100" /> 
+   <xsd:element name="Cognome" type="tns:String100" /> 
+   <xsd:element name="Sesso" type="tns:String1" minOccurs="0" /> 
+   <xsd:element name="DataNascita" type="tns:dateString15" minOccurs="0" /> 
+   <xsd:element name="SiglaProvinciaNascita" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="ComuneNascita" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="NazioneNascita" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="TelefonoFisso" type="tns:String40" minOccurs="0" /> 
+   <xsd:element name="Cellulare" type="tns:String40" minOccurs="0" /> 
+   <xsd:element name="Email" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="TipoDocumento" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="NazionalitaDocumento" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="NumeroDocumento" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="EnteRilascioDocumento" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="DataRilascioDocumento" type="tns:dateString10" minOccurs="0" /> 
+   <xsd:element name="SiglaProvinciaDocumento" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="ComuneDocumento" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="NumeroPermessoSoggiorno" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="ScadenzaPermessoSoggiorno" type="tns:dateString15" minOccurs="0" /> 
+   <xsd:element name="IndirizzoCliente" type="tns:IndirizzoCliente" minOccurs="0" /> 
+   <xsd:element name="ListaCentroFatturazione" type="tns:ListaCentroFatturazione" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ListaCentroFatturazione"> 
+  <xsd:sequence> 
+   <xsd:element name="CentroFatturazione" type="tns:CentroFatturazione2" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CentroFatturazione2"> 
+  <xsd:sequence> 
+   <xsd:element name="Tecnologia" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="Ownership" type="tns:String1" minOccurs="0" /> 
+   <xsd:element name="BundleAvailability" type="tns:String1" /> 
+   <xsd:element name="Causale" type="tns:String255" /> 
+   <xsd:element name="CustomerBase" type="tns:String100" /> 
+   <xsd:element name="CreditCheckScore" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="DettaglioCentroFatturazione" type="tns:DettaglioCentroFatturazione" /> 
+   <xsd:element name="IndirizzoSede" type="tns:IndirizzoSede" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="IndirizzoCliente"> 
+  <xsd:sequence> 
+   <xsd:element name="Toponomastica" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="Indirizzo" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="Civico" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="CAP" type="tns:String5" minOccurs="0" /> 
+   <xsd:element name="Comune" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="Provincia" type="tns:String2" minOccurs="0" /> 
+   <xsd:element name="Stato" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="Localita" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="Scala" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="Interno" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="Piano" type="tns:String30" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="GetSkyBundleAvailabilityInput"> 
+  <xsd:sequence> 
+   <xsd:element name="EligibilityCheck_Input" type="tns:EligibilityCheckInput_Type" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="EligibilityCheckInput_Type"> 
+  <xsd:sequence> 
+   <xsd:element name="Source" type="tns:String30" /> 
+   <xsd:element name="IdPDA" type="tns:String30" /> 
+   <xsd:element name="CodiceClienteFW" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="CodiceFiscalePIva" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="IndirizzoSede" type="tns:IndirizzoSede" minOccurs="0" /> 
+   <xsd:element name="TelefonoCellulare" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="NumeroTelefono" type="tns:String30" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="EligibilityCheck_OutputType"> 
+  <xsd:sequence> 
+   <xsd:element name="CustomerBase" type="tns:String1" /> 
+   <xsd:element name="BundleAvailability" type="tns:String1" /> 
+   <xsd:element name="Causale" type="tns:String255" minOccurs="0" /> 
+   <xsd:element name="Cliente" type="tns:Cliente" minOccurs="0" /> 
+   <xsd:element name="Status" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="ErrorCode" type="tns:String30" /> 
+   <xsd:element name="ErrorMessage" type="tns:String255" minOccurs="0" /> 
+   <xsd:element name="IgfsSky" type="tns:IGFSType" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="IGFSType"> 
+  <xsd:sequence> 
+   <xsd:element name="tid" type="xsd:string" minOccurs="1" /> 
+   <xsd:element name="shopID" type="xsd:string" minOccurs="1" /> 
+   <xsd:element name="paymentID" type="xsd:string" minOccurs="1" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element name="IndirizzoSede" type="tns:IndirizzoSede" /> 
+ <xsd:complexType name="IndirizzoSedeTopElmt"> 
+  <xsd:sequence> 
+   <xsd:element name="IndirizzoSede" type="tns:IndirizzoSede" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="IndirizzoSede"> 
+  <xsd:sequence> 
+   <xsd:element name="Toponomastica" type="tns:String100" /> 
+   <xsd:element name="Indirizzo" type="tns:String100" /> 
+   <xsd:element name="Civico" type="tns:String30" /> 
+   <xsd:element name="CAP" type="tns:String5" /> 
+   <xsd:element name="Comune" type="tns:String100" /> 
+   <xsd:element name="SiglaProvincia" type="tns:String2" /> 
+   <xsd:element name="Stato" type="tns:String30" /> 
+   <xsd:element name="Localita" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="Scala" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="Interno" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="Piano" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="IdIndirizzoFW" type="tns:String100" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="DettaglioCentroFatturazione"> 
+  <xsd:sequence> 
+   <xsd:element name="AccountNumber" type="tns:String30" /> 
+   <xsd:element name="MetodoPagamento" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="MetodoSpedizioneFattura" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="CircuitoCartaCredito" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="TipoCartaCredito" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="NumeroCartaCredito" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="DataScadenzaCartaCredito" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="CodicePinPad" type="tns:String20" minOccurs="0" /> 
+   <xsd:element name="CodiceInfoFinax" type="tns:String11" minOccurs="0" /> 
+   <xsd:element name="NumeroContoCorrente" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="CodicePaese" type="tns:String2" minOccurs="0" /> 
+   <xsd:element name="CodiceControllo" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="CIN" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="ABI" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="CAB" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="TipoIntestatarioConto" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="CognomeTitolare" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="NomeTitolare" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="CodiceFiscalePIVATitolare" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="SessoTitolare" type="tns:String1" minOccurs="0" /> 
+   <xsd:element name="SiglaProvinciaNascitaTitolare" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="DataNascitaTitolare" type="tns:String15" minOccurs="0" /> 
+   <xsd:element name="ComuneNascitaTitolare" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="RegimeIvaTitolare" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="IndirizzoTitolare" type="tns:String200" minOccurs="0" /> 
+   <xsd:element name="SiglaProvinciaTitolare" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="ComuneTitolare" type="tns:String100" minOccurs="0" /> 
+   <xsd:element name="CAPTitolare" type="tns:String30" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="String30"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="30" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String200"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="200" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String100"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="100" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String20"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="20" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String11"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="11" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String5"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="5" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String2"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="2" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String1"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="1" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String255"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="255" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String50"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="50" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String15"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="15" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String40"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="40" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String42"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="42" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String19"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="19" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="dateString10"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="10" /> 
+   <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="dateString15"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="15" /> 
+   <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="dateString19"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="19" /> 
+   <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+</xsd:schema>

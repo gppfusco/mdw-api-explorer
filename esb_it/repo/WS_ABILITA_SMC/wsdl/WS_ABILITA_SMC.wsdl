@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="OP_ABILITA_SMC"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_UTENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_HOTEL" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_FLAG_ABILITAZIONE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_SMC" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_ABILITA_SMCResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_ABILITA_SMCRequest"> 
+  <wsdl:part element="eb:OP_ABILITA_SMC" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_ABILITA_SMCResponse"> 
+  <wsdl:part element="eb:OP_ABILITA_SMCResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_ABILITA_SMCSoap"> 
+  <wsdl:operation name="OP_ABILITA_SMC"> 
+   <wsdl:input message="eb:OP_ABILITA_SMCRequest" name="OP_ABILITA_SMCRequest" /> 
+   <wsdl:output message="eb:OP_ABILITA_SMCResponse" name="OP_ABILITA_SMCResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_ABILITA_SMCSoap" type="eb:WS_ABILITA_SMCSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_ABILITA_SMC"> 
+   <soap:operation soapAction="WS_ABILITA_SMC/OP_ABILITA_SMC" style="document" /> 
+   <wsdl:input name="OP_ABILITA_SMCRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_ABILITA_SMCResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_ABILITA_SMC"> 
+  <wsdl:port binding="eb:WS_ABILITA_SMCSoap" name="WS_ABILITA_SMCSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_ABILITA_SMC" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

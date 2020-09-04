@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="requestENBPRD"> 
+    <xsd:sequence> 
+     <xsd:element name="flagsync" type="xsd:string" /> 
+     <xsd:element name="clientid" type="xsd:string" /> 
+     <xsd:element name="box" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="stbkind" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="stbkindhw" type="xsd:string" /> 
+     <xsd:element name="operator" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="execdate" type="xsd:string"> 
+      <xsd:annotation> 
+       <xsd:documentation>
+        formato YYYYMMDDHH24MISS
+       </xsd:documentation> 
+      </xsd:annotation> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="priority" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="funcname" type="xsd:string" /> 
+     <xsd:element name="authocodesnum" type="xsd:string" /> 
+     <xsd:element maxOccurs="unbounded" name="authocodes" type="xsd:string" /> 
+     <xsd:element name="zipcode" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="tokens" type="xsd:string" /> 
+     <xsd:element name="account" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="flagrefresh" type="xsd:string" /> 
+     <xsd:element name="ppvkey" type="xsd:string" /> 
+     <xsd:element name="decoderid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="flagpriority" type="xsd:string" /> 
+     <xsd:element name="customerid" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="responseENBPRD"> 
+    <xsd:sequence> 
+     <xsd:element name="result" type="xsd:string" /> 
+     <xsd:element name="descriptionerr" type="xsd:string" /> 
+     <xsd:element name="transid" type="xsd:string" /> 
+     <xsd:element name="ndserr" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opENBPRD"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestENBPRD" type="eb:requestENBPRD" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opENBPRDResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseENBPRD" type="eb:responseENBPRD" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opENBPRDRequest"> 
+  <wsdl:part element="eb:opENBPRD" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opENBPRDResponse"> 
+  <wsdl:part element="eb:opENBPRDResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_EXECUTE_ENBPRDSoap"> 
+  <wsdl:operation name="opENBPRD"> 
+   <wsdl:input message="eb:opENBPRDRequest" name="opENBPRDRequest" /> 
+   <wsdl:output message="eb:opENBPRDResponse" name="opENBPRDResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_EXECUTE_ENBPRDSoap" type="eb:WS_SCMS_EXECUTE_ENBPRDSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opENBPRD"> 
+   <soap:operation soapAction="WS_SCMS_EXECUTE_ENBPRD/opENBPRD" style="document" /> 
+   <wsdl:input name="opENBPRDRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opENBPRDResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_EXECUTE_ENBPRD"> 
+  <wsdl:port binding="eb:WS_SCMS_EXECUTE_ENBPRDSoap" name="WS_SCMS_EXECUTE_ENBPRDSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_scms/WS_SCMS_EXECUTE_ENBPRD" /> 
+  </wsdl:port> 
+ </wsdl:service>
+</wsdl:definitions>

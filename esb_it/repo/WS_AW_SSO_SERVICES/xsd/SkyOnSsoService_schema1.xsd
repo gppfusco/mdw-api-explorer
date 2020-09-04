@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://inBound.ws.skyOn.skytv.it/" targetNamespace="http://inBound.ws.skyOn.skytv.it/" version="1.0"> 
+ <xsd:complexType name="entitleCustomer"> 
+  <xsd:sequence> 
+   <xsd:element name="customerId" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="accs" type="tns:accounts" minOccurs="0" /> 
+   <xsd:element name="prts" type="tns:products" minOccurs="0" /> 
+   <xsd:element name="authcode" type="tns:authocodes" minOccurs="0" /> 
+   <xsd:element name="waveId" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="elegibilityDeviceDays" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="environment" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="accounts"> 
+  <xsd:sequence> 
+   <xsd:element name="account" nillable="true" minOccurs="0" maxOccurs="unbounded"> 
+    <xsd:complexType> 
+     <xsd:simpleContent> 
+      <xsd:extension base="xsd:string"> 
+       <xsd:attribute name="hh" type="xsd:string" /> 
+      </xsd:extension> 
+     </xsd:simpleContent> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="products"> 
+  <xsd:sequence> 
+   <xsd:element name="product" type="tns:productDetail" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="productDetail"> 
+  <xsd:simpleContent> 
+   <xsd:extension base="xsd:string"> 
+    <xsd:attribute name="issueDate" type="xsd:string" /> 
+   </xsd:extension> 
+  </xsd:simpleContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="authocodes"> 
+  <xsd:sequence> 
+   <xsd:element name="authocode" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="entitleCustomerResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="return" type="tns:dataOutput" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="dataOutput"> 
+  <xsd:sequence> 
+   <xsd:element name="code" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="descrizione" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="esito" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="setCustomerVisionDetails"> 
+  <xsd:sequence> 
+   <xsd:element name="arg0" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="arg1" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="arg2" type="tns:visionByDevice" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="arg3" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="arg4" type="tns:deviceByDevice" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="visionByDevice"> 
+  <xsd:sequence> 
+   <xsd:element name="devType" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="maxSpecVision" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="deviceByDevice"> 
+  <xsd:sequence> 
+   <xsd:element name="devType" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="maxSpecDevice" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="setCustomerVisionDetailsResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="return" type="tns:dataOutput" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="disableCustomer"> 
+  <xsd:sequence> 
+   <xsd:element name="arg0" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="disableCustomerResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="return" type="tns:dataOutput" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="resetCustomerPin"> 
+  <xsd:sequence> 
+   <xsd:element name="arg0" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="resetCustomerPinResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="return" type="tns:dataOutput" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="getUserCredentials"> 
+  <xsd:sequence> 
+   <xsd:element name="customerId" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="skyId" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="getUserCredentialsResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="return" type="tns:userCredential" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="userCredential"> 
+  <xsd:sequence> 
+   <xsd:element name="descrizione" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="digest" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="esito" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="username" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

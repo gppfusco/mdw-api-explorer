@@ -1,0 +1,37 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bt="http://com/pilatmedia/ibmssales/customer_mngmt_types_v1_0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com/pilatmedia/ibmssales/Customer_mngmt_service_v1_0.wsdl/types/" elementFormDefault="qualified"> 
+ <import namespace="http://com/pilatmedia/ibmssales/customer_mngmt_types_v1_0" schemaLocation="customer_mngmt_types_v1_0.xsd" /> 
+ <complexType name="createClientProductElement"> 
+  <sequence> 
+   <element name="requestXml" type="bt:requestXml" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="createClientProductResponseElement"> 
+  <sequence> 
+   <element name="result"> 
+    <complexType> 
+     <sequence> 
+      <element name="faultxmlOut" type="string" nillable="true" /> 
+      <element name="responsexmlOut" type="string" nillable="true" /> 
+     </sequence> 
+    </complexType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="updateClientProductElement"> 
+  <sequence> 
+   <element name="requestXml" type="bt:requestXml" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="updateClientProductResponseElement"> 
+  <sequence> 
+   <element name="result"> 
+    <complexType> 
+     <sequence> 
+      <element name="faultxmlOut" type="string" nillable="true" /> 
+      <element name="responsexmlOut" type="string" nillable="true" /> 
+     </sequence> 
+    </complexType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+</schema>

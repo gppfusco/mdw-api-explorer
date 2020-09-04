@@ -1,0 +1,197 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/RetrieveOfferListServices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/RetrieveOfferListServices/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/RetrieveOfferListServices/" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <simpleType name="string255"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="255" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string50"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="50" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string42"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="42" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string30"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="30" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string19"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="19" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string1"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="1" /> 
+  </restriction> 
+ </simpleType> 
+ <element name="InputMessage" type="tns:OperationDataType" /> 
+ <element name="OutputMessage" type="tns:OutputMessageType" /> 
+ <complexType name="InputMessageType"> 
+  <sequence> 
+   <element name="TransactionData" type="tns:TransactionDataType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OperationDataType"> 
+  <complexContent> 
+   <extension base="tns:InputMessageType"> 
+    <sequence> 
+     <element name="OperationData" type="tns:RetrieveOfferList_InputType" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="OutputMessageType"> 
+  <sequence> 
+   <element name="OperationData" type="tns:RetrieveOfferList_OutputType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="TransactionDataType"> 
+  <sequence> 
+   <element name="SenderName"> 
+    <simpleType> 
+     <restriction base="tns:string50"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="UserName" type="tns:string50" minOccurs="0" /> 
+   <element name="TransactionId"> 
+    <simpleType> 
+     <restriction base="tns:string42"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Version" type="tns:string50" minOccurs="0" /> 
+   <element name="TransactionTime"> 
+    <simpleType> 
+     <restriction base="tns:string19"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <element name="TransactionData" type="tns:TransactionDataType" /> 
+ <complexType name="RetrieveOfferList_InputType"> 
+  <sequence> 
+   <element name="Source" type="tns:string30" minOccurs="1" /> 
+   <element name="IdPDA" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="AccountNumber" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="MetodoPagamento" minOccurs="0" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <enumeration value="BOLLETTINO POSTALE" /> 
+      <enumeration value="CARTA DI CREDITO" /> 
+      <enumeration value="DIRECT DEBIT" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Tecnologia" minOccurs="0" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <enumeration value="FIBRA" /> 
+      <enumeration value="ADSL" /> 
+      <enumeration value="ADSL_WS" /> 
+      <enumeration value="SUBULL" /> 
+      <enumeration value="VULA" /> 
+      <enumeration value="ULL_VULA" /> 
+      <enumeration value="NGN GPON" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CreditCheckScore" minOccurs="0" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <enumeration value="VERDE" /> 
+      <enumeration value="ROSSO" /> 
+      <enumeration value="GIALLO" /> 
+      <enumeration value="NA" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CanaleVendita" minOccurs="0" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <enumeration value="AGENTE" /> 
+      <enumeration value="AOL" /> 
+      <enumeration value="CANALISKY" /> 
+      <enumeration value="CCSME" /> 
+      <enumeration value="CUSTOMER CARE" /> 
+      <enumeration value="DEALER" /> 
+      <enumeration value="MFP" /> 
+      <enumeration value="RETENTION" /> 
+      <enumeration value="TELESALES IN" /> 
+      <enumeration value="TELESALES OUT" /> 
+      <enumeration value="UPSALES IN" /> 
+      <enumeration value="UPSALES OUT" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ClusterNumber" minOccurs="0" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <enumeration value="1" /> 
+      <enumeration value="2" /> 
+      <enumeration value="3" /> 
+      <enumeration value="4" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="RichiestaNP" minOccurs="0" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <enumeration value="Y" /> 
+      <enumeration value="N" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="LineaAttiva" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <enumeration value="Y" /> 
+      <enumeration value="N" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="RetrieveOfferList_OutputType"> 
+  <sequence> 
+   <element ref="tns:ListOfPromotion" minOccurs="0" /> 
+   <element name="Status" minOccurs="0" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <enumeration value="Success" /> 
+      <enumeration value="Error" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ErrorCode" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="ErrorMessage" type="tns:string255" minOccurs="0" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <element name="ListOfPromotion" type="tns:ListOfPromotion" /> 
+ <complexType name="ListOfPromotionTopElmt"> 
+  <sequence> 
+   <element name="ListOfPromotion" type="tns:ListOfPromotion" minOccurs="1" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ListOfPromotion"> 
+  <sequence> 
+   <element name="Promotion" type="tns:Promotion" minOccurs="0" maxOccurs="unbounded" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="Promotion"> 
+  <sequence> 
+   <element name="IdOfferta" type="xsd:string" minOccurs="0" maxOccurs="1" /> 
+   <element name="DescrizioneCarrello" type="xsd:string" minOccurs="0" maxOccurs="1" /> 
+   <element name="NoteCarrello" type="xsd:string" minOccurs="0" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+</schema>

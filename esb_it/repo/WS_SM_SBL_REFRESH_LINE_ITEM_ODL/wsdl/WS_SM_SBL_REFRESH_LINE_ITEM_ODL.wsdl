@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdSiebel/xsdSM/SkyXSD_SM_SBL_REFRESH_LINE_ITEM_ODL.xsd" /> 
+   <xsd:complexType name="InputRefreshLineItemODL"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:RequestRefreshLineItemODLType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="OutputRefreshLineItemODL"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:ResponseRefreshLineItemODLType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opRefreshLineItemODL"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestRefreshLineItemODL" type="eb:InputRefreshLineItemODL" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRefreshLineItemODLResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseRefreshLineItemODL" type="eb:OutputRefreshLineItemODL" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opRefreshLineItemODLRequest"> 
+  <wsdl:part element="eb:opRefreshLineItemODL" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRefreshLineItemODLResponse"> 
+  <wsdl:part element="eb:opRefreshLineItemODLResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SM_SBL_REFRESH_LINE_ITEM_ODLSoap"> 
+  <wsdl:operation name="opRefreshLineItemODL"> 
+   <wsdl:input message="eb:opRefreshLineItemODLRequest" name="opRefreshLineItemODLRequest" /> 
+   <wsdl:output message="eb:opRefreshLineItemODLResponse" name="opRefreshLineItemODLResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SM_SBL_REFRESH_LINE_ITEM_ODLSoap" type="eb:WS_SM_SBL_REFRESH_LINE_ITEM_ODLSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opRefreshLineItemODL"> 
+   <soap:operation soapAction="WS_SM_SBL_REFRESH_LINE_ITEM_ODL/opRefreshLineItemODL" style="document" /> 
+   <wsdl:input name="opRefreshLineItemODLRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opRefreshLineItemODLResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SM_SBL_REFRESH_LINE_ITEM_ODL"> 
+  <wsdl:port binding="eb:WS_SM_SBL_REFRESH_LINE_ITEM_ODLSoap" name="WS_SM_SBL_REFRESH_LINE_ITEM_ODLSoap"> 
+   <soap:address location="https://wssvil.sky.it/wsexistbus/ws_sf/WS_SM_SBL_REFRESH_LINE_ITEM_ODL" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

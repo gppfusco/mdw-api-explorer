@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="ASSOCIATION_SMC"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPPV_PROVENIENZA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_MRM_HIDDEN_NUMBER" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SMART_CARD" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_TRANSACTION_ID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="ASSOCIATION_SMCResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ERRORE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="ASSOCIATION_SMCRequest"> 
+  <wsdl:part element="eb:ASSOCIATION_SMC" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="ASSOCIATION_SMCResponse"> 
+  <wsdl:part element="eb:ASSOCIATION_SMCResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="AssociaSmcSoap"> 
+  <wsdl:operation name="ASSOCIATION_SMC"> 
+   <wsdl:input message="eb:ASSOCIATION_SMCRequest" name="ASSOCIATION_SMCRequest" /> 
+   <wsdl:output message="eb:ASSOCIATION_SMCResponse" name="ASSOCIATION_SMCResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="AssociaSmcSoap" type="eb:AssociaSmcSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="ASSOCIATION_SMC"> 
+   <soap:operation soapAction="AssociaSmc/ASSOCIATION_SMC" style="document" /> 
+   <wsdl:input name="ASSOCIATION_SMCRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="ASSOCIATION_SMCResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="AssociaSmc"> 
+  <wsdl:port binding="eb:AssociaSmcSoap" name="AssociaSmcSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/AssociaSmc" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

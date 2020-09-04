@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_LEGGI_CODICE_UNIVOCO",
+    "name" : "WS_LEGGI_CODICE_UNIVOCO",
+    "localPath" : "esb_it\\repo\\WS_LEGGI_CODICE_UNIVOCO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_LEGGI_CODICE_UNIVOCO?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOX",
+    "name" : "WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOX",
+    "localPath" : "esb_it\\repo\\WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOX",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOX?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "SkyXSD_Custvox_sbl_to_custvox.xsd",
+        "xsdNameSpace" : "https://lite.custrics.org/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

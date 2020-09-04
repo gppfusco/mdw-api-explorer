@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_WSC_LEGGIGENERICOMPATIBILI.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opLeggiGeneriCompatibili"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLeggiGeneriCompatibiliResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opLeggiGeneriCompatibiliRequest"> 
+  <wsdl:part element="eb:opLeggiGeneriCompatibili" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLeggiGeneriCompatibiliResponse"> 
+  <wsdl:part element="eb:opLeggiGeneriCompatibiliResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_WSC_LEGGIGENERICOMPATIBILISoap"> 
+  <wsdl:operation name="opLeggiGeneriCompatibili"> 
+   <wsdl:input message="eb:opLeggiGeneriCompatibiliRequest" name="opLeggiGeneriCompatibiliRequest" /> 
+   <wsdl:output message="eb:opLeggiGeneriCompatibiliResponse" name="opLeggiGeneriCompatibiliResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_WSC_LEGGIGENERICOMPATIBILISoap" type="eb:WS_WSC_LEGGIGENERICOMPATIBILISoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opLeggiGeneriCompatibili"> 
+   <soap:operation soapAction="WS_WSC_LEGGIGENERICOMPATIBILI/opLeggiGeneriCompatibili" style="document" /> 
+   <wsdl:input name="opLeggiGeneriCompatibiliRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opLeggiGeneriCompatibiliResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_WSC_LEGGIGENERICOMPATIBILI"> 
+  <wsdl:port binding="eb:WS_WSC_LEGGIGENERICOMPATIBILISoap" name="WS_WSC_LEGGIGENERICOMPATIBILISoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_WSC_LEGGIGENERICOMPATIBILI" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

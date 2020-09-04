@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="urn:authentication.soap.sforce.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:urn="urn:authentication.soap.sforce.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="urn:authentication.soap.sforce.com" xmlns:urn="urn:authentication.soap.sforce.com"> 
+   <xsd:element name="Authenticate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="username" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="password" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="sourceIp" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="system" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="AuthenticateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Authenticated" type="xsd:boolean" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="AuthenticateRequest"> 
+  <wsdl:part element="urn:Authenticate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="AuthenticateResponse"> 
+  <wsdl:part element="urn:AuthenticateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SFNS_AUTHENTICATION_SERVICESoap"> 
+  <wsdl:operation name="Authenticate"> 
+   <wsdl:input message="urn:AuthenticateRequest" name="AuthenticateRequest" /> 
+   <wsdl:output message="urn:AuthenticateResponse" name="AuthenticateResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SFNS_AUTHENTICATION_SERVICESoap" type="urn:WS_SFNS_AUTHENTICATION_SERVICESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="Authenticate"> 
+   <soap:operation soapAction="WS_SFNS_AUTHENTICATION_SERVICE/Authenticate" style="document" /> 
+   <wsdl:input name="AuthenticateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="AuthenticateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SFNS_AUTHENTICATION_SERVICE"> 
+  <wsdl:port binding="urn:WS_SFNS_AUTHENTICATION_SERVICESoap" name="WS_SFNS_AUTHENTICATION_SERVICESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/ws_sf_auth/WS_SFNS_AUTHENTICATION_SERVICE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

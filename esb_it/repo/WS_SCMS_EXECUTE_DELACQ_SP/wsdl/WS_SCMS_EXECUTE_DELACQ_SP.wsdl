@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="requestDELACQ"> 
+    <xsd:sequence> 
+     <xsd:element name="flagsync" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="clientid" type="xsd:string" /> 
+     <xsd:element name="box" type="xsd:string" /> 
+     <xsd:element name="refid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="operator" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="execdate" type="xsd:string" /> 
+     <xsd:element name="idcaller" type="xsd:string" /> 
+     <xsd:element name="eventtrasmdate" type="xsd:string" /> 
+     <xsd:element name="typesrvreq" type="xsd:string" /> 
+     <xsd:element name="method" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="responseDELACQ"> 
+    <xsd:sequence> 
+     <xsd:element name="result" type="xsd:string" /> 
+     <xsd:element name="descriptionerr" type="xsd:string" /> 
+     <xsd:element name="transid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="ndserr" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="typesmc" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="flaglive" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="flagreqpin" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="Eventtrasmdate" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="title" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="typeevent" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="eventcost" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="servicecost" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="targetaudience" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="promokind" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="promodetails" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="originalcost" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="paytype" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opDELACQ"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestDELACQ" type="eb:requestDELACQ" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opDELACQResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseDELACQ" type="eb:responseDELACQ" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opDELACQRequest"> 
+  <wsdl:part element="eb:opDELACQ" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opDELACQResponse"> 
+  <wsdl:part element="eb:opDELACQResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_EXECUTE_DELACQ_SPSoap"> 
+  <wsdl:operation name="opDELACQ"> 
+   <wsdl:input message="eb:opDELACQRequest" name="opDELACQRequest" /> 
+   <wsdl:output message="eb:opDELACQResponse" name="opDELACQResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_EXECUTE_DELACQ_SPSoap" type="eb:WS_SCMS_EXECUTE_DELACQ_SPSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opDELACQ"> 
+   <soap:operation soapAction="WS_SCMS_EXECUTE_DELACQ_SP/opDELACQ" style="document" /> 
+   <wsdl:input name="opDELACQRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opDELACQResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_EXECUTE_DELACQ_SP"> 
+ </wsdl:service>
+</wsdl:definitions>

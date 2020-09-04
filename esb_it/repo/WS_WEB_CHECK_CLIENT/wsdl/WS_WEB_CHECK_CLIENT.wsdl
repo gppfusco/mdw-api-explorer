@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="DocumentData"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="param" type="eb:param" /> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="record" type="eb:record" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="param"> 
+    <xsd:attribute name="name" type="xsd:string" use="required" /> 
+    <xsd:attribute name="value" type="xsd:string" use="required" /> 
+   </xsd:complexType> 
+   <xsd:complexType name="record"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="param" type="eb:param" /> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="record" type="eb:record" /> 
+    </xsd:sequence> 
+    <xsd:attribute name="name" type="xsd:string" use="required" /> 
+    <xsd:attribute name="value" type="xsd:string" use="required" /> 
+   </xsd:complexType> 
+   <xsd:element name="opCheckFruitorePagatore"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentData" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCheckFruitorePagatoreResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentData" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCheckFruitorePagatoreRequest"> 
+  <wsdl:part element="eb:opCheckFruitorePagatore" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCheckFruitorePagatoreResponse"> 
+  <wsdl:part element="eb:opCheckFruitorePagatoreResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_WEB_CHECK_CLIENTSoap"> 
+  <wsdl:operation name="opCheckFruitorePagatore"> 
+   <wsdl:input message="eb:opCheckFruitorePagatoreRequest" name="opCheckFruitorePagatoreRequest" /> 
+   <wsdl:output message="eb:opCheckFruitorePagatoreResponse" name="opCheckFruitorePagatoreResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_WEB_CHECK_CLIENTSoap" type="eb:WS_WEB_CHECK_CLIENTSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCheckFruitorePagatore"> 
+   <soap:operation soapAction="WS_WEB_CHECK_CLIENT/opCheckFruitorePagatore" style="document" /> 
+   <wsdl:input name="opCheckFruitorePagatoreRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCheckFruitorePagatoreResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_WEB_CHECK_CLIENT"> 
+  <wsdl:port binding="eb:WS_WEB_CHECK_CLIENTSoap" name="WS_WEB_CHECK_CLIENTSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_WEB_CHECK_CLIENT" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,385 @@
+<xsd:schema xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.sforce.com/schemas/class/WS_IBMS_Input" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://soap.sforce.com/schemas/class/WS_IBMS_Input" elementFormDefault="qualified"> 
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" /> 
+ <xsd:element name="AllowFieldTruncationHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="allowFieldTruncation" type="xsd:boolean" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="CallOptions"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="client" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="DebuggingHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="categories" type="tns:LogInfo" minOccurs="0" maxOccurs="unbounded" /> 
+    <xsd:element name="debugLevel" type="tns:LogType" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:complexType name="LogInfo"> 
+  <xsd:sequence> 
+   <xsd:element name="category" type="tns:LogCategory" /> 
+   <xsd:element name="level" type="tns:LogCategoryLevel" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="LogCategory"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="Db" /> 
+   <xsd:enumeration value="Workflow" /> 
+   <xsd:enumeration value="Validation" /> 
+   <xsd:enumeration value="Callout" /> 
+   <xsd:enumeration value="Apex_code" /> 
+   <xsd:enumeration value="Apex_profiling" /> 
+   <xsd:enumeration value="Visualforce" /> 
+   <xsd:enumeration value="System" /> 
+   <xsd:enumeration value="All" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="LogCategoryLevel"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="None" /> 
+   <xsd:enumeration value="Finest" /> 
+   <xsd:enumeration value="Finer" /> 
+   <xsd:enumeration value="Fine" /> 
+   <xsd:enumeration value="Debug" /> 
+   <xsd:enumeration value="Info" /> 
+   <xsd:enumeration value="Warn" /> 
+   <xsd:enumeration value="Error" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="LogType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="None" /> 
+   <xsd:enumeration value="Debugonly" /> 
+   <xsd:enumeration value="Db" /> 
+   <xsd:enumeration value="Profiling" /> 
+   <xsd:enumeration value="Callout" /> 
+   <xsd:enumeration value="Detail" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:element name="DebuggingInfo"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="debugLog" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="SessionHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="sessionId" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:simpleType name="ID"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:length value="18" /> 
+   <xsd:pattern value="[a-zA-Z0-9]{18}" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:complexType name="Adsmart"> 
+  <xsd:sequence> 
+   <xsd:element name="adsmart_suspend" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="adsmartCampaignValue" type="xsd:decimal" nillable="true" minOccurs="0" /> 
+   <xsd:element name="adsmartSalesType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="audienceProfile" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="dailyCap" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="impressionType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="priorityFactor" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="pvrMaxCap" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="sepSpacing" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="totalCap" type="xsd:int" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ArrayOfBookingLineID"> 
+  <xsd:sequence> 
+   <xsd:element name="bookingLineID" type="tns:BookingLineID" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ArrayOfBookingLines"> 
+  <xsd:sequence> 
+   <xsd:element name="bookingLine" type="tns:BookingLine" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ArrayOfCampaignID"> 
+  <xsd:sequence> 
+   <xsd:element name="campaignID" type="tns:CampaignID" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ArrayOfCampaignOptionID"> 
+  <xsd:sequence> 
+   <xsd:element name="campaignOptionID" type="tns:CampaignOptionID" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ArrayOfCampaignOptions"> 
+  <xsd:sequence> 
+   <xsd:element name="campaignOption" type="tns:CampaignOption" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ArrayOfDayParts"> 
+  <xsd:sequence> 
+   <xsd:element name="dayPart" type="tns:DayPart" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ArrayOfNotes"> 
+  <xsd:sequence> 
+   <xsd:element name="note" type="tns:Note" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ArrayOfSpotsPerWeek"> 
+  <xsd:sequence> 
+   <xsd:element name="spotsPerWeek" type="tns:SpotsPerWeek" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="BookingLine"> 
+  <xsd:sequence> 
+   <xsd:element name="availType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="billboardType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="bookingGroupID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="clientProductID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolations" type="tns:ItemLevelIsolations" nillable="true" minOccurs="0" /> 
+   <xsd:element name="keys" type="tns:ArrayOfBookingLineID" nillable="true" minOccurs="0" /> 
+   <xsd:element name="notes" type="tns:ArrayOfNotes" nillable="true" minOccurs="0" /> 
+   <xsd:element name="revenueType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="salesProductID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="spotDetailsByWeek" type="tns:ArrayOfSpotsPerWeek" nillable="true" minOccurs="0" /> 
+   <xsd:element name="spotTypeID" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="BookingLineID"> 
+  <xsd:sequence> 
+   <xsd:element name="id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="idType" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Campaign"> 
+  <xsd:sequence> 
+   <xsd:element name="agencyClientID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="campaignClass" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="campaignName" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="campaignOptions" type="tns:ArrayOfCampaignOptions" nillable="true" minOccurs="0" /> 
+   <xsd:element name="customerID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="dateRaised" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="dealAgencyID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="keys" type="tns:ArrayOfCampaignID" nillable="true" minOccurs="0" /> 
+   <xsd:element name="notes" type="tns:ArrayOfNotes" nillable="true" minOccurs="0" /> 
+   <xsd:element name="referenceID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="salesGroupID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="salesRepID" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CampaignID"> 
+  <xsd:sequence> 
+   <xsd:element name="id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="idType" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CampaignOption"> 
+  <xsd:sequence> 
+   <xsd:element name="accountCat" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="adsmart" type="tns:Adsmart" nillable="true" minOccurs="0" /> 
+   <xsd:element name="adsmartSubstitutionType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="agreementBand" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="bookingLines" type="tns:ArrayOfBookingLines" nillable="true" minOccurs="0" /> 
+   <xsd:element name="businessCategory" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="businessType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="campaignOptionLinks" type="tns:CampaignOptionLinks" nillable="true" minOccurs="0" /> 
+   <xsd:element name="clauses" type="tns:CampaignOptionClauses" nillable="true" minOccurs="0" /> 
+   <xsd:element name="contractBand" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="contractType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="dateFrom" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="dateRaised" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="dateTo" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="dayParts" type="tns:ArrayOfDayParts" nillable="true" minOccurs="0" /> 
+   <xsd:element name="defaultSpotType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="demographic" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="grossValue" type="tns:Price" nillable="true" minOccurs="0" /> 
+   <xsd:element name="is_adsmart" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolations" type="tns:Isolations" nillable="true" minOccurs="0" /> 
+   <xsd:element name="keys" type="tns:ArrayOfCampaignOptionID" nillable="true" minOccurs="0" /> 
+   <xsd:element name="netValue" type="tns:Price" nillable="true" minOccurs="0" /> 
+   <xsd:element name="notes" type="tns:ArrayOfNotes" nillable="true" minOccurs="0" /> 
+   <xsd:element name="numberSpots" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="optionBookingStatus" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="optionDescription" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="pricingType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="productID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="revenueType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="spend" type="xsd:decimal" nillable="true" minOccurs="0" /> 
+   <xsd:element name="spreadType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="version" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CampaignOptionClauses"> 
+  <xsd:sequence> 
+   <xsd:element name="clientDiscount" type="tns:ClientDiscountClause" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CampaignOptionID"> 
+  <xsd:sequence> 
+   <xsd:element name="id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="idType" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CampaignOptionLink"> 
+  <xsd:sequence> 
+   <xsd:element name="keys" type="tns:ArrayOfCampaignOptionID" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CampaignOptionLinks"> 
+  <xsd:sequence> 
+   <xsd:element name="campaignOptionLink" type="tns:CampaignOptionLink" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Campaign_mngmt_service_v1_0User_createCampaign_Out"> 
+  <xsd:sequence> 
+   <xsd:element name="faultxmlOut" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="responsexmlOut" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Campaign_mngmt_service_v1_0User_updateCampaign_Out"> 
+  <xsd:sequence> 
+   <xsd:element name="faultxmlOut" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="responsexmlOut" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ClientDiscountClause"> 
+  <xsd:sequence> 
+   <xsd:element name="endDate" type="xsd:dateTime" nillable="true" minOccurs="0" /> 
+   <xsd:element name="note" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="percentage" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="priority" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="startDate" type="xsd:dateTime" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CreateCampaignRequest"> 
+  <xsd:sequence> 
+   <xsd:element name="campaign" type="tns:Campaign" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="header" type="tns:MessageHeader" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Currency_x"> 
+  <xsd:sequence> 
+   <xsd:element name="isoCode" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="DayPart"> 
+  <xsd:sequence> 
+   <xsd:element name="dayPartID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="default_x" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="timeFrom" type="xsd:time" nillable="true" minOccurs="0" /> 
+   <xsd:element name="timeTo" type="xsd:time" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Isolations"> 
+  <xsd:sequence> 
+   <xsd:element name="isolationDay1" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay2" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay3" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay4" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay5" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay6" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay7" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationType" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ItemLevelIsolations"> 
+  <xsd:sequence> 
+   <xsd:element name="isolationDay1" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay2" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay3" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay4" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay5" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay6" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationDay7" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="isolationType" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="premiumPosition" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="restrictFrom" type="xsd:time" nillable="true" minOccurs="0" /> 
+   <xsd:element name="restrictTo" type="xsd:time" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="MessageHeader"> 
+  <xsd:sequence> 
+   <xsd:element name="correlationID" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="timestamp" type="xsd:dateTime" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Note"> 
+  <xsd:sequence> 
+   <xsd:element name="noteText" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="noteType" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Price"> 
+  <xsd:sequence> 
+   <xsd:element name="amount" type="xsd:decimal" nillable="true" minOccurs="0" /> 
+   <xsd:element name="currency_x" type="tns:Currency_x" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="RequestXml"> 
+  <xsd:sequence> 
+   <xsd:element name="createCampaignRequest" type="tns:CreateCampaignRequest" nillable="true" minOccurs="0" /> 
+   <xsd:element name="updateCampaignRequest" type="tns:UpdateCampaignRequest" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SpotsPerWeek"> 
+  <xsd:sequence> 
+   <xsd:element name="grossCost" type="tns:Price" nillable="true" minOccurs="0" /> 
+   <xsd:element name="netCost" type="tns:Price" nillable="true" minOccurs="0" /> 
+   <xsd:element name="spotNumber" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="weekStart" type="xsd:date" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="UpdateCampaignRequest"> 
+  <xsd:sequence> 
+   <xsd:element name="campaign" type="tns:Campaign" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="header" type="tns:MessageHeader" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="createCampaignElement"> 
+  <xsd:sequence> 
+   <xsd:element name="requestXml" type="tns:RequestXml" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="createCampaignResponseElement"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:Campaign_mngmt_service_v1_0User_createCampaign_Out" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="updateCampaignElement"> 
+  <xsd:sequence> 
+   <xsd:element name="requestXml" type="tns:RequestXml" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="updateCampaignResponseElement"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:Campaign_mngmt_service_v1_0User_updateCampaign_Out" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="opCreateCampaign"> 
+  <xsd:sequence> 
+   <xsd:element name="InputMessage" type="tns:createCampaignElement" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="opCreateCampaignResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:createCampaignResponseElement" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="opUpdateCampaign"> 
+  <xsd:sequence> 
+   <xsd:element name="InputMessage" type="tns:updateCampaignElement" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="opUpdateCampaignResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:updateCampaignResponseElement" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

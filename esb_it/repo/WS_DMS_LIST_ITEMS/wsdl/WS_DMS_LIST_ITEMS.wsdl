@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://schemas.microsoft.com/sharepoint/soap/" schemaLocation="xsdDMS/SkyXSD_lists.xsd" /> 
+   <xsd:complexType name="UpdateListItems" xmlns:dms="http://schemas.microsoft.com/sharepoint/soap/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="dms:UpdateListItems" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="UpdateListItemsResponse" xmlns:dms="http://schemas.microsoft.com/sharepoint/soap/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="dms:UpdateListItemsResultType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="GetListItems" xmlns:dms="http://schemas.microsoft.com/sharepoint/soap/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="dms:GetListItems" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="GetListItemsResponse" xmlns:dms="http://schemas.microsoft.com/sharepoint/soap/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="dms:GetListItemsResultType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opGetListItem"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="GetListItems" type="eb:GetListItems" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetListItemResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="GetListItemsResponse" type="eb:GetListItemsResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpdateListItem"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="UpdateListItems" type="eb:UpdateListItems" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpdateListItemResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="UpdateListItemsResponse" type="eb:UpdateListItemsResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opGetListItemRequest"> 
+  <wsdl:part element="eb:opGetListItem" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetListItemResponse"> 
+  <wsdl:part element="eb:opGetListItemResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpdateListItemRequest"> 
+  <wsdl:part element="eb:opUpdateListItem" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpdateListItemResponse"> 
+  <wsdl:part element="eb:opUpdateListItemResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_DMS_LIST_ITEMSSoap"> 
+  <wsdl:operation name="opGetListItem"> 
+   <wsdl:input message="eb:opGetListItemRequest" name="opGetListItemRequest" /> 
+   <wsdl:output message="eb:opGetListItemResponse" name="opGetListItemResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpdateListItem"> 
+   <wsdl:input message="eb:opUpdateListItemRequest" name="opUpdateListItemRequest" /> 
+   <wsdl:output message="eb:opUpdateListItemResponse" name="opUpdateListItemResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_DMS_LIST_ITEMSSoap" type="eb:WS_DMS_LIST_ITEMSSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opGetListItem"> 
+   <soap:operation soapAction="WS_DMS_LIST_ITEMS/opGetListItem" style="document" /> 
+   <wsdl:input name="opGetListItemRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGetListItemResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpdateListItem"> 
+   <soap:operation soapAction="WS_DMS_LIST_ITEMS/opUpdateListItem" style="document" /> 
+   <wsdl:input name="opUpdateListItemRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opUpdateListItemResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_DMS_LIST_ITEMS"> 
+  <wsdl:port binding="eb:WS_DMS_LIST_ITEMSSoap" name="WS_DMS_LIST_ITEMSSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_DMS_LIST_ITEMS" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

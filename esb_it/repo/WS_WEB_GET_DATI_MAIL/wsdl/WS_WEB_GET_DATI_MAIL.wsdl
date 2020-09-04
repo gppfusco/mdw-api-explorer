@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="Web/SkyXSD_WS_WEB_GET_DATI_MAIL.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opGetDatiMail"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetDatiMailResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opGetDatiMailRequest"> 
+  <wsdl:part element="eb:opGetDatiMail" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetDatiMailResponse"> 
+  <wsdl:part element="eb:opGetDatiMailResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_WEB_GET_DATI_MAILSoap"> 
+  <wsdl:operation name="opGetDatiMail"> 
+   <wsdl:input message="eb:opGetDatiMailRequest" name="opGetDatiMailRequest" /> 
+   <wsdl:output message="eb:opGetDatiMailResponse" name="opGetDatiMailResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_WEB_GET_DATI_MAILSoap" type="eb:WS_WEB_GET_DATI_MAILSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opGetDatiMail"> 
+   <soap:operation soapAction="WS_WEB_GET_DATI_MAIL/opGetDatiMail" style="document" /> 
+   <wsdl:input name="opGetDatiMailRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGetDatiMailResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_WEB_GET_DATI_MAIL"> 
+  <wsdl:port binding="eb:WS_WEB_GET_DATI_MAILSoap" name="WS_WEB_GET_DATI_MAILSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_WEB_GET_DATI_MAIL" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

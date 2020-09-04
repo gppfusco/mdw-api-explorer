@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.skytv.it/sms/SmsSendAnonymousWS" elementFormDefault="qualified"> 
+ <complexType name="SmsSendAnonymousWSRequestType"> 
+  <sequence> 
+   <element name="PHONE"> 
+    <simpleType> 
+     <restriction base="string"> 
+      <minLength value="6" /> 
+      <maxLength value="10" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="TEXT"> 
+    <simpleType> 
+     <restriction base="string"> 
+      <minLength value="1" /> 
+      <maxLength value="480" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="SERVICE_TYPE"> 
+    <simpleType> 
+     <restriction base="string"> 
+      <minLength value="3" /> 
+      <maxLength value="8" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="OPERATOR"> 
+    <simpleType> 
+     <restriction base="string"> 
+      <minLength value="1" /> 
+      <maxLength value="16" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="SCHEDULED_DATE" minOccurs="0"> 
+    <simpleType> 
+     <restriction base="string"> 
+      <minLength value="19" /> 
+      <maxLength value="19" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="SmsSendAnonymousWSResponseType"> 
+  <sequence> 
+   <element name="SRVZ_CODE"> 
+    <simpleType> 
+     <restriction base="string"> 
+      <minLength value="1" /> 
+      <maxLength value="4" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="SRVZ_DESCRIZIONE"> 
+    <simpleType> 
+     <restriction base="string"> 
+      <minLength value="1" /> 
+      <maxLength value="150" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+</schema>

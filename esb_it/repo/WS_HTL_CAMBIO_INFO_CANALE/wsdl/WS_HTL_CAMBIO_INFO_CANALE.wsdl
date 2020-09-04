@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opCambioInfoCanale"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SID_OLD" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="DISEQC_OLD" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="DISEQC" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="FREQUENZA_OLD" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="FREQUENZA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="NOME_CANALE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCambioInfoCanaleResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCambioInfoCanaleRequest"> 
+  <wsdl:part element="eb:opCambioInfoCanale" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCambioInfoCanaleResponse"> 
+  <wsdl:part element="eb:opCambioInfoCanaleResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_HTL_CAMBIO_INFO_CANALESoap"> 
+  <wsdl:operation name="opCambioInfoCanale"> 
+   <wsdl:input message="eb:opCambioInfoCanaleRequest" name="opCambioInfoCanaleRequest" /> 
+   <wsdl:output message="eb:opCambioInfoCanaleResponse" name="opCambioInfoCanaleResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_HTL_CAMBIO_INFO_CANALESoap" type="eb:WS_HTL_CAMBIO_INFO_CANALESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCambioInfoCanale"> 
+   <soap:operation soapAction="WS_HTL_CAMBIO_INFO_CANALE/opCambioInfoCanale" style="document" /> 
+   <wsdl:input name="opCambioInfoCanaleRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCambioInfoCanaleResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_HTL_CAMBIO_INFO_CANALE"> 
+  <wsdl:port binding="eb:WS_HTL_CAMBIO_INFO_CANALESoap" name="WS_HTL_CAMBIO_INFO_CANALESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_HTL_CAMBIO_INFO_CANALE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

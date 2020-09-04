@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SELFCARE_STORICO_BORSELLINO_SP_V2",
+    "name" : "WS_SELFCARE_STORICO_BORSELLINO_SP_V2",
+    "localPath" : "esb_it\\repo\\WS_SELFCARE_STORICO_BORSELLINO_SP_V2",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SELFCARE_STORICO_BORSELLINO_SP_V2?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

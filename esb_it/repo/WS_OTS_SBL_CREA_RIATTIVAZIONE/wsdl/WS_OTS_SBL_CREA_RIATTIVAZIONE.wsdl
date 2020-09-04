@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdReitek/SkyXSD_OTS_SBL_CREA_RIATTIVAZIONE.xsd" /> 
+   <xsd:complexType name="DocumentDataIn"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:COMPLEX_INPUT" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOut"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:COMPLEX_OUTPUT" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opCreaRiattivazione"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:DocumentDataIn" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCreaRiattivazioneResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:DocumentDataOut" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCreaRiattivazioneRequest"> 
+  <wsdl:part element="eb:opCreaRiattivazione" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCreaRiattivazioneResponse"> 
+  <wsdl:part element="eb:opCreaRiattivazioneResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_OTS_SBL_CREA_RIATTIVAZIONESoap"> 
+  <wsdl:operation name="opCreaRiattivazione"> 
+   <wsdl:input message="eb:opCreaRiattivazioneRequest" name="opCreaRiattivazioneRequest" /> 
+   <wsdl:output message="eb:opCreaRiattivazioneResponse" name="opCreaRiattivazioneResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_OTS_SBL_CREA_RIATTIVAZIONESoap" type="eb:WS_OTS_SBL_CREA_RIATTIVAZIONESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCreaRiattivazione"> 
+   <soap:operation soapAction="WS_OTS_SBL_CREA_RIATTIVAZIONE/opCreaRiattivazione" style="document" /> 
+   <wsdl:input name="opCreaRiattivazioneRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCreaRiattivazioneResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_OTS_SBL_CREA_RIATTIVAZIONE"> 
+  <wsdl:port binding="eb:WS_OTS_SBL_CREA_RIATTIVAZIONESoap" name="WS_OTS_SBL_CREA_RIATTIVAZIONESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_OTS_SBL_CREA_RIATTIVAZIONE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="OP_SEND_TEXT"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_NUM_SC" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPERATORE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TEXT_MSG" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_SEND_TEXTResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SRVZ_RET_CODE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_SEND_TEXTRequest"> 
+  <wsdl:part element="eb:OP_SEND_TEXT" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_SEND_TEXTResponse"> 
+  <wsdl:part element="eb:OP_SEND_TEXTResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SEND_TEXTSoap"> 
+  <wsdl:operation name="OP_SEND_TEXT"> 
+   <wsdl:input message="eb:OP_SEND_TEXTRequest" name="OP_SEND_TEXTRequest" /> 
+   <wsdl:output message="eb:OP_SEND_TEXTResponse" name="OP_SEND_TEXTResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SEND_TEXTSoap" type="eb:WS_SEND_TEXTSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_SEND_TEXT"> 
+   <soap:operation soapAction="WS_SEND_TEXT/OP_SEND_TEXT" style="document" /> 
+   <wsdl:input name="OP_SEND_TEXTRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_SEND_TEXTResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SEND_TEXT"> 
+  <wsdl:port binding="eb:WS_SEND_TEXTSoap" name="WS_SEND_TEXTSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SEND_TEXT" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

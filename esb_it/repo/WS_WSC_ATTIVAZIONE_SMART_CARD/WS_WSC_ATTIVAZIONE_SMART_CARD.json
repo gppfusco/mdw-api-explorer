@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_WSC_ATTIVAZIONE_SMART_CARD",
+    "name" : "WS_WSC_ATTIVAZIONE_SMART_CARD",
+    "localPath" : "esb_it\\repo\\WS_WSC_ATTIVAZIONE_SMART_CARD",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_WSC_ATTIVAZIONE_SMART_CARD?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

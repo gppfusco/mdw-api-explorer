@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_IGFS_VERIFY_PAYMENT_TEST",
+    "name" : "WS_IGFS_VERIFY_PAYMENT_TEST",
+    "localPath" : "esb_it\\repo\\WS_IGFS_VERIFY_PAYMENT_TEST",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_IGFS_VERIFY_PAYMENT_TEST?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdIGFS/PaymentInitGateway.xsd",
+        "xsdNameSpace" : "http://services.api.web.cg.igfs.apps.netsw.it/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

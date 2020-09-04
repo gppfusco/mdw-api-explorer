@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler" schemaLocation="xsdSF/SkyXSD_AOL_SF_Lead_Handler.xsd" /> 
+   <xsd:complexType name="callMeNowMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:callMeNow" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="callMeNowResponseMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:callMeNowResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="checkLeadMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:checkLead" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="checkLeadResponseMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:checkLeadResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="confirmLeadMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:confirmLead" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="confirmLeadResponseMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:confirmLeadResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="getLeadMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:getLead" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="getLeadResponseMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:getLeadResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="insertLeadMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:insertLead" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="insertLeadResponseMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:insertLeadResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="retrieveLeadMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:retrieveLead" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="retrieveLeadResponseMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:retrieveLeadResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="retrieveTipoVenditoreMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:retrieveTipoVenditore" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="retrieveTipoVenditoreResponseMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:retrieveTipoVenditoreResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="revokeLeadMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:revokeLead" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="revokeLeadResponseMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:revokeLeadResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opConfirmLead"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="confirmLead" type="eb:confirmLeadMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opConfirmLeadResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="confirmLeadResponse" type="eb:confirmLeadResponseMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRetrieveLead"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="retrieveLead" type="eb:retrieveLeadMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRetrieveLeadResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="retrieveLeadResponse" type="eb:retrieveLeadResponseMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRevokeLead"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="revokeLead" type="eb:revokeLeadMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRevokeLeadResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="revokeLeadResponse" type="eb:revokeLeadResponseMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCheckLead"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="checkLead" type="eb:checkLeadMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCheckLeadResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="checkLeadResponse" type="eb:checkLeadResponseMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCallMeNow"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="callMeNow" type="eb:callMeNowMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCallMeNowResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="callMeNowResponse" type="eb:callMeNowResponseMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetLead"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="getLead" type="eb:getLeadMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetLeadResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="getLeadResponse" type="eb:getLeadResponseMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opInsertLead"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="insertLead" type="eb:insertLeadMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opInsertLeadResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="insertLeadResponse" type="eb:insertLeadResponseMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRetrieveTipoVenditore"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="retrieveTipoVenditore" type="eb:retrieveTipoVenditoreMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRetrieveTipoVenditoreResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="retrieveTipoVenditoreResponse" type="eb:retrieveTipoVenditoreResponseMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opConfirmLeadRequest"> 
+  <wsdl:part element="eb:opConfirmLead" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opConfirmLeadResponse"> 
+  <wsdl:part element="eb:opConfirmLeadResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRetrieveLeadRequest"> 
+  <wsdl:part element="eb:opRetrieveLead" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRetrieveLeadResponse"> 
+  <wsdl:part element="eb:opRetrieveLeadResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRevokeLeadRequest"> 
+  <wsdl:part element="eb:opRevokeLead" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRevokeLeadResponse"> 
+  <wsdl:part element="eb:opRevokeLeadResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCheckLeadRequest"> 
+  <wsdl:part element="eb:opCheckLead" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCheckLeadResponse"> 
+  <wsdl:part element="eb:opCheckLeadResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCallMeNowRequest"> 
+  <wsdl:part element="eb:opCallMeNow" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCallMeNowResponse"> 
+  <wsdl:part element="eb:opCallMeNowResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetLeadRequest"> 
+  <wsdl:part element="eb:opGetLead" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetLeadResponse"> 
+  <wsdl:part element="eb:opGetLeadResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opInsertLeadRequest"> 
+  <wsdl:part element="eb:opInsertLead" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opInsertLeadResponse"> 
+  <wsdl:part element="eb:opInsertLeadResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRetrieveTipoVenditoreRequest"> 
+  <wsdl:part element="eb:opRetrieveTipoVenditore" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRetrieveTipoVenditoreResponse"> 
+  <wsdl:part element="eb:opRetrieveTipoVenditoreResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_AOL_SF_LEAD_HANDLERSoap"> 
+  <wsdl:operation name="opConfirmLead"> 
+   <wsdl:input message="eb:opConfirmLeadRequest" name="opConfirmLeadRequest" /> 
+   <wsdl:output message="eb:opConfirmLeadResponse" name="opConfirmLeadResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opRetrieveLead"> 
+   <wsdl:input message="eb:opRetrieveLeadRequest" name="opRetrieveLeadRequest" /> 
+   <wsdl:output message="eb:opRetrieveLeadResponse" name="opRetrieveLeadResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opRevokeLead"> 
+   <wsdl:input message="eb:opRevokeLeadRequest" name="opRevokeLeadRequest" /> 
+   <wsdl:output message="eb:opRevokeLeadResponse" name="opRevokeLeadResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opCheckLead"> 
+   <wsdl:input message="eb:opCheckLeadRequest" name="opCheckLeadRequest" /> 
+   <wsdl:output message="eb:opCheckLeadResponse" name="opCheckLeadResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opCallMeNow"> 
+   <wsdl:input message="eb:opCallMeNowRequest" name="opCallMeNowRequest" /> 
+   <wsdl:output message="eb:opCallMeNowResponse" name="opCallMeNowResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opGetLead"> 
+   <wsdl:input message="eb:opGetLeadRequest" name="opGetLeadRequest" /> 
+   <wsdl:output message="eb:opGetLeadResponse" name="opGetLeadResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opInsertLead"> 
+   <wsdl:input message="eb:opInsertLeadRequest" name="opInsertLeadRequest" /> 
+   <wsdl:output message="eb:opInsertLeadResponse" name="opInsertLeadResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opRetrieveTipoVenditore"> 
+   <wsdl:input message="eb:opRetrieveTipoVenditoreRequest" name="opRetrieveTipoVenditoreRequest" /> 
+   <wsdl:output message="eb:opRetrieveTipoVenditoreResponse" name="opRetrieveTipoVenditoreResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_AOL_SF_LEAD_HANDLERSoap" type="eb:WS_AOL_SF_LEAD_HANDLERSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opConfirmLead"> 
+   <soap:operation soapAction="WS_AOL_SF_LEAD_HANDLER/opConfirmLead" style="document" /> 
+   <wsdl:input name="opConfirmLeadRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opConfirmLeadResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opRetrieveLead"> 
+   <soap:operation soapAction="WS_AOL_SF_LEAD_HANDLER/opRetrieveLead" style="document" /> 
+   <wsdl:input name="opRetrieveLeadRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opRetrieveLeadResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opRevokeLead"> 
+   <soap:operation soapAction="WS_AOL_SF_LEAD_HANDLER/opRevokeLead" style="document" /> 
+   <wsdl:input name="opRevokeLeadRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opRevokeLeadResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opCheckLead"> 
+   <soap:operation soapAction="WS_AOL_SF_LEAD_HANDLER/opCheckLead" style="document" /> 
+   <wsdl:input name="opCheckLeadRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCheckLeadResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opCallMeNow"> 
+   <soap:operation soapAction="WS_AOL_SF_LEAD_HANDLER/opCallMeNow" style="document" /> 
+   <wsdl:input name="opCallMeNowRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCallMeNowResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opGetLead"> 
+   <soap:operation soapAction="WS_AOL_SF_LEAD_HANDLER/opGetLead" style="document" /> 
+   <wsdl:input name="opGetLeadRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGetLeadResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opInsertLead"> 
+   <soap:operation soapAction="WS_AOL_SF_LEAD_HANDLER/opInsertLead" style="document" /> 
+   <wsdl:input name="opInsertLeadRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opInsertLeadResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opRetrieveTipoVenditore"> 
+   <soap:operation soapAction="WS_AOL_SF_LEAD_HANDLER/opRetrieveTipoVenditore" style="document" /> 
+   <wsdl:input name="opRetrieveTipoVenditoreRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opRetrieveTipoVenditoreResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_AOL_SF_LEAD_HANDLER"> 
+  <wsdl:port binding="eb:WS_AOL_SF_LEAD_HANDLERSoap" name="WS_AOL_SF_LEAD_HANDLERSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_AOL_SF_LEAD_HANDLER" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

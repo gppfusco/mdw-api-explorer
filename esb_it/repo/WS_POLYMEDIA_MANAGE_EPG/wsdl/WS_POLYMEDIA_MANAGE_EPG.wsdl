@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://epg.sky.it/service/events" schemaLocation="xsdEPG/SkyXSD_Polymedia_Manage_EPG_2-2.xsd" /> 
+   <xsd:complexType name="getPvodDetails" xmlns:epg="http://epg.sky.it/service/events"> 
+    <xsd:complexContent> 
+     <xsd:extension base="epg:getPvodDetails" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="getPvodDetailsResponse" xmlns:epg="http://epg.sky.it/service/events"> 
+    <xsd:complexContent> 
+     <xsd:extension base="epg:getPvodDetailsResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opGetPvodEvent"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:getPvodDetails" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetPvodEventResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:getPvodDetailsResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opGetPvodEventRequest"> 
+  <wsdl:part element="eb:opGetPvodEvent" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetPvodEventResponse"> 
+  <wsdl:part element="eb:opGetPvodEventResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_POLYMEDIA_MANAGE_EPGSoap"> 
+  <wsdl:operation name="opGetPvodEvent"> 
+   <wsdl:input message="eb:opGetPvodEventRequest" name="opGetPvodEventRequest" /> 
+   <wsdl:output message="eb:opGetPvodEventResponse" name="opGetPvodEventResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_POLYMEDIA_MANAGE_EPGSoap" type="eb:WS_POLYMEDIA_MANAGE_EPGSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opGetPvodEvent"> 
+   <soap:operation soapAction="WS_POLYMEDIA_MANAGE_EPG/opGetPvodEvent" style="document" /> 
+   <wsdl:input name="opGetPvodEventRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGetPvodEventResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_POLYMEDIA_MANAGE_EPG"> 
+  <wsdl:port binding="eb:WS_POLYMEDIA_MANAGE_EPGSoap" name="WS_POLYMEDIA_MANAGE_EPGSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_epg_plmd/WS_POLYMEDIA_MANAGE_EPG" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

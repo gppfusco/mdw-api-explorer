@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WSIbmsSfCustomerNotification",
+    "name" : "WSIbmsSfCustomerNotification",
+    "localPath" : "esb_it\\repo\\WSIbmsSfCustomerNotification",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WSIbmsSfCustomerNotification?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdSF/SkyXSD_WS_IBMS_CustomerNotification.xsd",
+        "xsdNameSpace" : "http://soap.sforce.com/schemas/class/WS_IBMS_CustomerNotification"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

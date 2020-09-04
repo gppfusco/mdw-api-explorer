@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WSIbmsInput",
+    "name" : "WSIbmsInput",
+    "localPath" : "esb_it\\repo\\WSIbmsInput",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WSIbmsInput?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "SkyXSD_IbmsInput.xsd",
+        "xsdNameSpace" : "http://soap.sforce.com/schemas/class/WS_IBMS_Input"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

@@ -1,0 +1,69 @@
+<xs:schema xmlns:tns="http://ws.drmrepl.skyOn.skytv.it/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://ws.drmrepl.skyOn.skytv.it/" elementFormDefault="qualified" version="1.0"> 
+ <xs:complexType name="requestQRYDEV"> 
+  <xs:sequence> 
+   <xs:element name="customerid" type="xs:string" minOccurs="0" /> 
+   <xs:element name="deviceuuid" type="xs:string" minOccurs="0" /> 
+   <xs:element name="deviceid" type="xs:string" minOccurs="0" /> 
+   <xs:element name="devicetype" type="xs:string" minOccurs="0" /> 
+   <xs:element name="alldevices" type="xs:string" minOccurs="0" /> 
+   <xs:element name="history" type="xs:string" minOccurs="0" /> 
+   <xs:element name="historystart" type="xs:string" minOccurs="0" /> 
+   <xs:element name="operator" type="xs:string" minOccurs="0" /> 
+   <xs:element name="flagsync" type="xs:string" minOccurs="0" /> 
+   <xs:element name="typesrvreq" type="xs:string" minOccurs="0" /> 
+   <xs:element name="idcaller" type="xs:string" minOccurs="0" /> 
+   <xs:element name="clientid" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="requestQRYDEVResponse"> 
+  <xs:sequence> 
+   <xs:element name="descriptionerr" type="xs:string" minOccurs="0" /> 
+   <xs:element name="devicehistory" type="tns:devicehistory" minOccurs="0" /> 
+   <xs:element name="devices" type="tns:devices" minOccurs="0" /> 
+   <xs:element name="ndserr" type="xs:string" minOccurs="0" /> 
+   <xs:element name="result" type="xs:string" minOccurs="0" /> 
+   <xs:element name="transid" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="devicehistory"> 
+  <xs:sequence> 
+   <xs:element name="item" type="tns:item" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="item"> 
+  <xs:sequence> 
+   <xs:element name="action_code" type="xs:string" minOccurs="0" /> 
+   <xs:element name="action_date" type="xs:string" minOccurs="0" /> 
+   <xs:element name="brand" type="xs:string" minOccurs="0" /> 
+   <xs:element name="caller_id" type="xs:string" minOccurs="0" /> 
+   <xs:element name="friendly_name" type="xs:string" minOccurs="0" /> 
+   <xs:element name="id" type="xs:string" minOccurs="0" /> 
+   <xs:element name="model" type="xs:string" minOccurs="0" /> 
+   <xs:element name="notes" type="xs:string" minOccurs="0" /> 
+   <xs:element name="status" type="xs:string" minOccurs="0" /> 
+   <xs:element name="trans_id" type="xs:string" minOccurs="0" /> 
+   <xs:element name="type" type="xs:string" minOccurs="0" /> 
+   <xs:element name="uuid" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="devices"> 
+  <xs:sequence> 
+   <xs:element name="device" type="tns:device" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="device"> 
+  <xs:sequence> 
+   <xs:element name="brand" type="xs:string" minOccurs="0" /> 
+   <xs:element name="friendly_name" type="xs:string" minOccurs="0" /> 
+   <xs:element name="id" type="xs:string" minOccurs="0" /> 
+   <xs:element name="insert_date" type="xs:string" minOccurs="0" /> 
+   <xs:element name="last_mod_date" type="xs:string" minOccurs="0" /> 
+   <xs:element name="last_reset_date" type="xs:string" minOccurs="0" /> 
+   <xs:element name="last_trans_id" type="xs:string" minOccurs="0" /> 
+   <xs:element name="model" type="xs:string" minOccurs="0" /> 
+   <xs:element name="status" type="xs:string" minOccurs="0" /> 
+   <xs:element name="type" type="xs:string" minOccurs="0" /> 
+   <xs:element name="uuid" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

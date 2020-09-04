@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://it.fastweb.esb.org/FraudCheckSky" schemaLocation="xsdFWB/SkyXSD_FWB_FraudCheck.xsd" /> 
+   <xsd:complexType name="OperationDataType" xmlns:tns="http://it.fastweb.esb.org/FraudCheckSky"> 
+    <xsd:complexContent> 
+     <xsd:extension base="tns:OperationDataType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="OutputMessageType" xmlns:tns="http://it.fastweb.esb.org/FraudCheckSky"> 
+    <xsd:complexContent> 
+     <xsd:extension base="tns:OutputMessageType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="FraudCheckOp"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:OperationDataType" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="FraudCheckOpResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:OutputMessageType" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="FraudCheckOpRequest"> 
+  <wsdl:part element="eb:FraudCheckOp" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="FraudCheckOpResponse"> 
+  <wsdl:part element="eb:FraudCheckOpResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_FWB_FRAUD_CHECKSoap"> 
+  <wsdl:operation name="FraudCheckOp"> 
+   <wsdl:input message="eb:FraudCheckOpRequest" name="FraudCheckOpRequest" /> 
+   <wsdl:output message="eb:FraudCheckOpResponse" name="FraudCheckOpResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_FWB_FRAUD_CHECKSoap" type="eb:WS_FWB_FRAUD_CHECKSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="FraudCheckOp"> 
+   <soap:operation soapAction="WS_FWB_FRAUD_CHECK/FraudCheckOp" style="document" /> 
+   <wsdl:input name="FraudCheckOpRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="FraudCheckOpResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_FWB_FRAUD_CHECK"> 
+  <wsdl:port binding="eb:WS_FWB_FRAUD_CHECKSoap" name="WS_FWB_FRAUD_CHECKSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_FWB_FRAUD_CHECK" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

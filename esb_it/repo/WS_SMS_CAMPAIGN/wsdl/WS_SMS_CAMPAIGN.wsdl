@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opCampaign"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="CA_NUMERO_CELLULARE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="CA_OPPV_SMS" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_VALIDATOR" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="CA_OPPV_COSTO_SERVIZIO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_CARRIERID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="CA_ENDDATE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="CRM_CODICE_CAMPAGNA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="CRM_DATA_SPEDIZIONE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCampaignResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_RET_CODE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCampaignRequest"> 
+  <wsdl:part element="eb:opCampaign" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCampaignResponse"> 
+  <wsdl:part element="eb:opCampaignResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SMS_CAMPAIGNSoap"> 
+  <wsdl:operation name="opCampaign"> 
+   <wsdl:input message="eb:opCampaignRequest" name="opCampaignRequest" /> 
+   <wsdl:output message="eb:opCampaignResponse" name="opCampaignResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SMS_CAMPAIGNSoap" type="eb:WS_SMS_CAMPAIGNSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCampaign"> 
+   <soap:operation soapAction="WS_SMS_CAMPAIGN/opCampaign" style="document" /> 
+   <wsdl:input name="opCampaignRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCampaignResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SMS_CAMPAIGN"> 
+  <wsdl:port binding="eb:WS_SMS_CAMPAIGNSoap" name="WS_SMS_CAMPAIGNSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SMS_CAMPAIGN" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

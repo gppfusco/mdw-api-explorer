@@ -1,0 +1,23 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://inBound.ws.skyOn.skytv.it/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://inBound.ws.skyOn.skytv.it/"> 
+ <element name="resetDevice" type="tns:resetDevice" /> 
+ <element name="resetDeviceResponse" type="tns:resetDeviceResponse" /> 
+ <complexType name="resetDevice"> 
+  <sequence> 
+   <element name="customerid" type="xsd:string" minOccurs="0" /> 
+   <element name="devicefamily" type="xsd:string" minOccurs="0" /> 
+   <element name="deviceid" type="xsd:string" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="resetDeviceResponse"> 
+  <sequence> 
+   <element name="return" type="tns:dataOutput" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="dataOutput"> 
+  <sequence> 
+   <element name="code" type="xsd:string" minOccurs="0" /> 
+   <element name="descrizione" type="xsd:string" minOccurs="0" /> 
+   <element name="esito" type="xsd:string" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+</schema>

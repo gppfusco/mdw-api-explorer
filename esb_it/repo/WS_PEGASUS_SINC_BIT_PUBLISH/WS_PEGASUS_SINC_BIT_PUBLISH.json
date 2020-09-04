@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_PEGASUS_SINC_BIT_PUBLISH",
+    "name" : "WS_PEGASUS_SINC_BIT_PUBLISH",
+    "localPath" : "esb_it\\repo\\WS_PEGASUS_SINC_BIT_PUBLISH",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_PEGASUS_SINC_BIT_PUBLISH?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdPegasus/SkyXSD_WS_PEGASUS_SINC_BIT_PUBLISH.xsd",
+        "xsdNameSpace" : ""
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://services.olg.oss.fastweb.it/fly/sky2fw/o2d/OrderProcessingServices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.olg.oss.fastweb.it/fly/sky2fw/o2d/OrderProcessingServices/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://services.olg.oss.fastweb.it/fly/sky2fw/o2d/OrderProcessingServices/" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xsd:complexType name="InputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="TransactionData" type="tns:TransactionDataType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OperationDataType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="tns:InputMessageType"> 
+    <xsd:sequence> 
+     <xsd:element name="OperationData" type="tns:OrderProcessing_Input_Type" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="OutputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="OperationData" type="tns:OrderProcessing_Output_Type" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="TransactionDataType"> 
+  <xsd:sequence> 
+   <xsd:element name="SenderName" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="UserName" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="TransactionId" type="tns:String42" /> 
+   <xsd:element name="Version" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="TransactionTime" type="tns:String19" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OrderProcessing_Input_Type"> 
+  <xsd:sequence> 
+   <xsd:element name="Source" type="tns:String30" /> 
+   <xsd:element name="IdPDA" type="tns:String30" /> 
+   <xsd:element name="ChiaviSKY" type="tns:ChiaviSKYType" /> 
+   <xsd:element name="ChiaviFW" type="tns:ChiaviFWType" /> 
+   <xsd:element name="Azione" type="tns:String30" /> 
+   <xsd:element name="ClusterNumber" type="tns:String2" /> 
+   <xsd:element name="IdCausale" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="Causale" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="TipoProvisioning" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="DataAzione" type="tns:String15" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OrderProcessing_Output_Type"> 
+  <xsd:sequence> 
+   <xsd:element name="Status" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="ErrorCode" type="tns:String30" /> 
+   <xsd:element name="ErrorMessage" type="tns:String255" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ChiaviSKYType"> 
+  <xsd:sequence> 
+   <xsd:element name="CodiceContrattoSky" type="tns:String30" /> 
+   <xsd:element name="IntegrationIdSky" type="tns:String30" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ChiaviFWType"> 
+  <xsd:sequence> 
+   <xsd:element name="IdHeaderFW" type="tns:String30" /> 
+   <xsd:element name="IdInstanceFW" type="tns:String30" /> 
+   <xsd:element name="IdAssetFW" type="tns:String30" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="String2"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="2" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String30"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="30" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String255"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="255" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String50"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="50" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String42"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="42" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String15"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="15" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String19"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="19" /> 
+   <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+</xsd:schema>

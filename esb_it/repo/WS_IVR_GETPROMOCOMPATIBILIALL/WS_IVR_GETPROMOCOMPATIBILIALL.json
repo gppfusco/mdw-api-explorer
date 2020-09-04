@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_IVR_GETPROMOCOMPATIBILIALL",
+    "name" : "WS_IVR_GETPROMOCOMPATIBILIALL",
+    "localPath" : "esb_it\\repo\\WS_IVR_GETPROMOCOMPATIBILIALL",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_IVR_GETPROMOCOMPATIBILIALL?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

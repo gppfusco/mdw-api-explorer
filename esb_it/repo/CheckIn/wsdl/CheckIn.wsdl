@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="checkin"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="codice_hotel" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="id_chiave_hotel" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="descr_camera" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="data_apertura" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="checkinResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="id_esito" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="descr_esito" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="pin_corrente" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="checkinRequest"> 
+  <wsdl:part element="eb:checkin" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="checkinResponse"> 
+  <wsdl:part element="eb:checkinResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="CheckInSoap"> 
+  <wsdl:operation name="checkin"> 
+   <wsdl:input message="eb:checkinRequest" name="checkinRequest" /> 
+   <wsdl:output message="eb:checkinResponse" name="checkinResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="CheckInSoap" type="eb:CheckInSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="checkin"> 
+   <soap:operation soapAction="CheckIn/checkin" style="document" /> 
+   <wsdl:input name="checkinRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="checkinResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="CheckIn"> 
+  <wsdl:port binding="eb:CheckInSoap" name="CheckInSoap"> 
+   <soap:address location="https://ws.sky.it/wsexistbus/openws/CheckIn" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

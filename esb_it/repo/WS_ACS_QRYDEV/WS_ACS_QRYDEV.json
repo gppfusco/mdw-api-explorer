@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_ACS_QRYDEV",
+    "name" : "WS_ACS_QRYDEV",
+    "localPath" : "esb_it\\repo\\WS_ACS_QRYDEV",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_ACS_QRYDEV?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdACS/SkyXSD_WS_ASC_QRYDEV.xsd",
+        "xsdNameSpace" : "http://ws.drmrepl.skyOn.skytv.it/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

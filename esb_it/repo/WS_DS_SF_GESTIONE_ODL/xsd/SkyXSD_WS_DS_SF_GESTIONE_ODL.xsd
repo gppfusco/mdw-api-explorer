@@ -1,0 +1,575 @@
+<xsd:schema xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.sforce.com/schemas/class/WS_Inbound_ODL_Handler" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://soap.sforce.com/schemas/class/WS_Inbound_ODL_Handler" elementFormDefault="qualified"> 
+ <xsd:element name="AllowFieldTruncationHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="allowFieldTruncation" type="xsd:boolean" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="CallOptions"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="client" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="DebuggingHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="categories" type="tns:LogInfo" minOccurs="0" maxOccurs="unbounded" /> 
+    <xsd:element name="debugLevel" type="tns:LogType" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:complexType name="LogInfo"> 
+  <xsd:sequence> 
+   <xsd:element name="category" type="tns:LogCategory" /> 
+   <xsd:element name="level" type="tns:LogCategoryLevel" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="LogCategory"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="Db" /> 
+   <xsd:enumeration value="Workflow" /> 
+   <xsd:enumeration value="Validation" /> 
+   <xsd:enumeration value="Callout" /> 
+   <xsd:enumeration value="Apex_code" /> 
+   <xsd:enumeration value="Apex_profiling" /> 
+   <xsd:enumeration value="Visualforce" /> 
+   <xsd:enumeration value="System" /> 
+   <xsd:enumeration value="All" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="LogCategoryLevel"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="Internal" /> 
+   <xsd:enumeration value="Finest" /> 
+   <xsd:enumeration value="Finer" /> 
+   <xsd:enumeration value="Fine" /> 
+   <xsd:enumeration value="Debug" /> 
+   <xsd:enumeration value="Info" /> 
+   <xsd:enumeration value="Warn" /> 
+   <xsd:enumeration value="Error" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="LogType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="None" /> 
+   <xsd:enumeration value="Debugonly" /> 
+   <xsd:enumeration value="Db" /> 
+   <xsd:enumeration value="Profiling" /> 
+   <xsd:enumeration value="Callout" /> 
+   <xsd:enumeration value="Detail" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:element name="DebuggingInfo"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="debugLog" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="SessionHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="sessionId" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:simpleType name="ID"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:length value="18" /> 
+   <xsd:pattern value="[a-zA-Z0-9]{18}" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:complexType name="Accessori"> 
+  <xsd:sequence> 
+   <xsd:element name="CREATED" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESC_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CONTRATTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_PADRE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="LOG_FILE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUOVO_ACCESSORIO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_ACCESSORIO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TUX_SERVER_ID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="VECCHIO_ACCESSORIO" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AdesioneParcoProspect"> 
+  <xsd:sequence> 
+   <xsd:element name="CREATED" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESC_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="FAM_STB_ARRIVO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="FAM_STB_RICHIESTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CONTRATTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_PADRE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="INTERESSE_SOD" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ITEM_STB_PARTENZA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="LOG_FILE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MODELLO_ITEM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NOME_PROMO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="NUM_DK_CONSEGNARE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUM_SMC_CONSEGNARE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUM_STB_CONSEGNARE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUMERO_DEVICE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="OPZIONE_OLD_STB" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PACCHETTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PROMOZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PROSPECT_FLAG" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SERVIZIO_VISIONE_DESTINAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SERVIZIO_VISIONE_FINALE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SERVIZIO_VISIONE_RICHIESTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STB_APPARATO_RICHIESTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TECN_APPARATO_RICHIESTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TECNOLOGIA_DESTINAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TECNOLOGIA_INIZIALE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TEM_STB_ARRIVO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_CONNETTIVITA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_INTERVENTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_PACCHETTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TUX_SERVER_ID" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Apparati"> 
+  <xsd:sequence> 
+   <xsd:element name="CONSEGNA_CAVO_FLAG" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CREATED" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_CALLBACK" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_FINE_GARANZIA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_INIZIO_GARANZIA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESC_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_CALLBACK" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_RILEVAZIONE_DIAGNOSTICA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CONTRATTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_PADRE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="LOG_FILE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MATRICOLA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MATRICOLA_OLD" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MATRICOLA_STB" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PACCHETTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SOSTITUZIONE_CAVO_FLAG" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_CONN_INTERNET" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_PACCHETTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TUX_SERVER_ID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="WIFI_RICONNESSO_FLAG" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Complex"> 
+  <xsd:sequence> 
+   <xsd:element name="CODICE_COMPLEX_FIGLIO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CODICE_COMPLEX_PADRE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CREATED" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_CERTIFICAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESC_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CONTRATTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_PADRE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IMPIANTO_DTT_PRONTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="LOG_FILE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MARCA_COMPONENTI_DISTRIB" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MODELLO_COMPONENTI_DISTRIB" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUMERO_APPARTAMENTI" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUMERO_FABBRICATI" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUMERO_SCALE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SCALA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SKY_READY" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STRUTTURA_IMPIANTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TECNOLOGIA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TUX_SERVER_ID" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="EsitoWSOdl"> 
+  <xsd:sequence> 
+   <xsd:element name="descrizioneEsito" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="esito" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="LineItemInbound"> 
+  <xsd:sequence> 
+   <xsd:element name="Apparati" type="tns:Apparati" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="OdlLineItem" type="tns:OdlLineItem" nillable="true" minOccurs="0" /> 
+   <xsd:element name="OrderItem" type="tns:OrderItem" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="MaterialiGaranzia"> 
+  <xsd:sequence> 
+   <xsd:element name="CREATED" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESC_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESCR_RATE_CODE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESCRIZIONE_STAMPA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="GIORNI_GARANZIA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CONTRATTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_PADRE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="INSTAL_RIF_TOT" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="LOG_FILE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PER_RIF_TOT" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PERIODO_RIFERIMENTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="RATE_CODE_INIZIALE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="RATE_CODE_TOT" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPIZZAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TUX_SERVER_ID" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Note"> 
+  <xsd:sequence> 
+   <xsd:element name="CREATED" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_CREAZIONE_NOTA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESC_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CONTRATTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_PADRE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="LOG_FILE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NOTE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_NOTA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TUX_SERVER_ID" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Odl"> 
+  <xsd:sequence> 
+   <xsd:element name="ABI" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ACC_SERV_SKY_ONDEM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ALTRO_NUM_TEL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="AMBIENTE_SERVIZIO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ANNO_SCADENZA_CC" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CAB" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CAP" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CAUSALE_MANCATA_ATT_SERV_SKY" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CELLULARE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CENTRO_SERVIZI_SKY" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CIN" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CITOFONO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="COD_COMPLEX_PADRE_CONTR" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="COD_FISC_SOTTOSCRITTORE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CODICE_INSTALLATORE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CODICE_INSTALLATORE_INT" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CODICE_PROMOZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CODICE_SUBINST" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="COGNOME_CLI" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="COMPLESSO_SKY" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="CREATED" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_APERTURA_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_APPUNTAMENTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_APPUNTAMENTO_PREFERITA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_CALL_IVR_INSTALLER" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_CHIUSURA_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_DISP_SERV_SKY_ONDEM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_ESEC_LAVORI" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_ESECUZIONE_CALLBACK" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_SOLLECITO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_TRIGGER" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESC_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESC_PROMO_WIFI" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESC_PROMOZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESCR_VARIAZIONE_MOBILE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DICH_CONF_FIRM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_CALLBACK" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_COLLAUDO_IMPIANT" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBAN" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ACC_SIEBEL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_BILL_ACC_SIEBEL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CONTRATTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_EVENTO_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_MOP_SIEBEL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ODL_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IMPIANTO_ESIST_ADEG" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="INDIRIZZO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="INDIRIZZO_AGENZIA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="INST_MANUT_EFFETTUATA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="INTERNO_SKY" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="INTERVENTO_CONSIGLIATO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="INTERVENTO_FAST" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="LOCALITA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="LOG_FILE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MESE_SCADENZA_CC" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="METODO_PAGAMENTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MOBILE_FLAG" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MOTIVO_MANC_INST_CONN_RETE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NOME_AGENZIA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NOME_BANCA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NOME_CLI" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NOMINATIVO_SOTTOSCRITTORE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NOTE_SOLLECITO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUM_CIVICO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUMERO_CC" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUMERO_CONTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUMERO_CONTRATTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUMERO_DDT" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUMERO_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ODL_MONITORATO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="PARCO_PS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PARTICELLA_TOPONOMASTICA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PERIODICITA_FATTURAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PERIODO_RIFERIMENTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PIANO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PRESENZA_MV_FLAG" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PROMOZIONE_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PROMOZIONE_WIFI" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PROVINCIA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="RAG_SOC_CS_SKY" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="RAG_SOC_SUBINST" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="RAGI_SOC_INST_SKY" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SCALA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SOLLECITO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SOTTOSTATO_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STAMPA_CONTRATTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_APPUNTAMENTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_CONTRATTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TECNOLOGIA_MV" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TELEFONO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_ADEG_TRASLOCO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TIPO_CC" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_PRODOTTO_INSTALLATO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_PRONTO_SKY_CONTR" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_TECNOLOGIA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_TECNOLOGIA_ADEG" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TIPO_VISITA_CQ" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TUX_SERVER_ID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TYPE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="VISIONE_FINALE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="VISIONE_INIZIALE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="X_DOWN_PAYMENT" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OdlInbound"> 
+  <xsd:sequence> 
+   <xsd:element name="Accessori" type="tns:Accessori" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="AdesioneParcoProspect" type="tns:AdesioneParcoProspect" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="Apparati" type="tns:Apparati" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="Complex" type="tns:Complex" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="MaterialiGaranzia" type="tns:MaterialiGaranzia" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="Note" type="tns:Note" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="Odl" type="tns:Odl" nillable="true" minOccurs="0" /> 
+   <xsd:element name="OrderItem" type="tns:OrderItem" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="StoricoRateCodeInterventi" minOccurs="0" maxOccurs="unbounded" type="tns:StoricoRateCodeInterventi" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OdlLineItem"> 
+  <xsd:sequence> 
+   <xsd:element name="DESCRIZ_ESITO_KO_ATTIVAZ" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_PRODOTTO_INSTALLATO" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OrderItem"> 
+  <xsd:sequence> 
+   <xsd:element name="CAMBIO_CONFIGURAZIONE_FLAG" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CAUSA_GUASTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CAUSALE_SOSTITUZIONE_STB" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CAUSALE_TECNICA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CODICE_PARTE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CREATED" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_ESECUZIONE_CALLBACK" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_FINE_GARANZIA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DATA_SCADENZA_GARANZIA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESC_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DESCRIZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_AUTODIAGNOSTICA_STB" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ESITO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="FURTO_SMARRIMENTO_FLAG" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="FUSION_COMPATIBILE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="GUASTO_RILEVATO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CONTRATTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ITEM_SIEBEL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ODL" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ORDER_ITEM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_PADRE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="INSISTENZA_CLT" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="INTERVENTO_CONSIGLIATO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="LOG_FILE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MARCHIO_MODELLO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MATRICOLA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MODELLO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NESSUN_ACCESSORIO_FLAG" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="NUOVA_CONFIGURAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PREZZO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PRODOTTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="QUANTITA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="RATE_CODE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SEQUENCE_PACK_ITEM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SERVIZIO_VISIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_ELABORAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_MATRICOLA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_SERVIZIO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="STATO_VECCHIA_MATRICOLA" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_APPARATO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_CONNETTIVITA_STB" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TIPO_PRODOTTO" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TUX_SERVER_ID" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="VECCHIA_CONFIGURAZIONE" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="VECCHIA_MATRICOLA" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="StoricoRateCodeInterventi"> 
+  <xsd:sequence> 
+   <xsd:element name="CODICE_CENTRO_SERVIZI_SKY" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="CODICE_INSTALLATORE_EST" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="CODICE_INSTALLATORE_INT" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="CODIFICA_ALBERATURA" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="CREATED" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="DATA_APERTURA_ODL" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="DATA_CHIAMATA_IVR_INSTALLER" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="DATA_CHIUSURA_ODL" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="DATA_ELABORAZIONE" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="DESC_ELABORAZIONE" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="DESC_PROMOZIONE" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="DESCRIZIONE_INTERVENTO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="DETTAGLIO_INTERVENTO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="DETTAGLIO_TECNOLOGIA_IMPIANTO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="ESITO_ELABORAZIONE" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="ID_CONTRATTO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="ID_ODL" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="ID_PADRE" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="ID_SM" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="IMPIANTO_CENTRALIZZATO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="INSTALL_MANUTENZ_EFFETTUATA" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="INTERVENTO_CONSIGLIATO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="LOG_FILE" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="MODALITA_ODL" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="NOME_CENTRO_SERVIZI_SKY" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="NOME_INSTALLATORE_ESTERNO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="NOME_INSTALLATORE_INTERNO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="NUMERO_ODL" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="ODL_MONITORATO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="PARCO_CLIENTI" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="PERIODO_RIFERIMENTO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="PROMOZIONE" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="RATE_CODE_BASE_DS" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="RATE_CODE_STORICO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="SERVIZIO_FAST_FLG" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="SOTTOSTATO_ODL" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="SPECIFICA_SERVIZIO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="STATO_ELABORAZIONE" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="STATO_ODL" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TECNOLOGIA" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TID" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TIPO_IMPIANTO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TIPO_INSTALLER" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TIPO_INTERVENTO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TIPO_ODL" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TIPO_PRODOTTO_INSTALLATO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TIPO_PRONTO_SKY_CONTRATTO" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TIPOLOGIA_RECORD" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="TUX_SERVER_ID" minOccurs="0" type="xsd:string" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="outputCreation"> 
+  <xsd:sequence> 
+   <xsd:element name="descrizioneEsito" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="esito" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ACCOUNT_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_BILL_ACC_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CMPX_FG_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CMPX_PA_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CONTACT_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_CONTRACT_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_EVENTO_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_MOP_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ID_ODL_SM" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="outputLineItemAlignment"> 
+  <xsd:sequence> 
+   <xsd:element name="descrizioneEsito" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="esito" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="address"> 
+  <xsd:complexContent> 
+   <xsd:extension base="tns:location"> 
+    <xsd:sequence> 
+     <xsd:element name="city" type="xsd:string" /> 
+     <xsd:element name="country" type="xsd:string" /> 
+     <xsd:element name="countryCode" type="xsd:string" /> 
+     <xsd:element name="postalCode" type="xsd:string" /> 
+     <xsd:element name="state" type="xsd:string" /> 
+     <xsd:element name="stateCode" type="xsd:string" /> 
+     <xsd:element name="street" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="location"> 
+  <xsd:sequence> 
+   <xsd:element name="latitude" type="xsd:double" /> 
+   <xsd:element name="longitude" type="xsd:double" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="createOdl"> 
+  <xsd:sequence> 
+   <xsd:element name="odlInput" type="tns:OdlInbound" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="createOdlResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:outputCreation" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="handleEsitoNamirial"> 
+  <xsd:sequence> 
+   <xsd:element name="WorkOrderNumber" type="xsd:string" nillable="true" /> 
+   <xsd:element name="EsitoFirma" type="xsd:string" nillable="true" /> 
+   <xsd:element name="MessaggioDiErrore" type="xsd:string" nillable="true" /> 
+   <xsd:element name="EsitoFirmaPath" type="xsd:string" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="handleEsitoNamirialResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:EsitoWSOdl" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="lineItemAlignment"> 
+  <xsd:sequence> 
+   <xsd:element name="lineItemInput" type="tns:LineItemInbound" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="lineItemAlignmentResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:outputLineItemAlignment" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

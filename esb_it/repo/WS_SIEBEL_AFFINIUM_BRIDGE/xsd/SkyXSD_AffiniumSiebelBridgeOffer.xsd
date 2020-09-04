@@ -1,0 +1,38 @@
+<xsd:schema xmlns:ns="http://ws.affinium.icare.it" xmlns:ns0="http://dom.affinium.icare.it/xsd" xmlns:ns1="http://ws.affinium.icare.it" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://ws.affinium.icare.it" elementFormDefault="qualified" attributeFormDefault="qualified"> 
+ <xsd:import namespace="http://dom.affinium.icare.it/xsd" schemaLocation="SkyXSD_AffiniumSiebelBridge.xsd" /> 
+ <xsd:complexType name="offerInsertOrUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="siebelPromotionId" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="siebelPromotionCode" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="desc" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="effectiveDate" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="expirationDate" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="tipoPromozione" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="canalePromo" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="statoContratto" type="ns0:StatoContratto" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="tecnologiaSTB" type="ns0:TecnologiaSTB" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="promoBloccante" type="ns0:PromoBloccante" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="ambienteServizio" type="ns0:AmbienteServizio" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="mOP" type="ns0:MOP" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="tipoMOP" type="ns0:TipoMOP" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="pacchettiBaseUpg" type="ns0:PacchettiBase" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="promoPropedeutiche" type="ns0:PromoPropedeutiche" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="consistenzaServizi" type="ns0:ConsistenzaServizi" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="listiniCRM" type="ns0:ListiniCRM" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="category" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="promoFittiziaFlag" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="productSubtype" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="tipoTreatment" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="classeTreatment" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element minOccurs="0" name="sottoclasseTreatment" nillable="true" type="xsd:string" /> 
+   <xsd:element name="canaleVenditoreAbilitato" type="ns0:CanaleVenditoreAbilitato" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+   <xsd:element name="dummyMode" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="offerInsertOrUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="return" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

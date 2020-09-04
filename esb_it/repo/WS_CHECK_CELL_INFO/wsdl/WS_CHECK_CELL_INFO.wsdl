@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="OP_CHECK_CELL_INFO"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_NUMERO_CELLULARE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_CHECK_CELL_INFOResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_LIST_NAME" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DATA_ORA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DATA_INIZIO_PERIODO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_FLAG_ABILITAZIONE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CHANNEL_ID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_TYPE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_CHECK_CELL_INFORequest"> 
+  <wsdl:part element="eb:OP_CHECK_CELL_INFO" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_CHECK_CELL_INFOResponse"> 
+  <wsdl:part element="eb:OP_CHECK_CELL_INFOResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_CHECK_CELL_INFOSoap"> 
+  <wsdl:operation name="OP_CHECK_CELL_INFO"> 
+   <wsdl:input message="eb:OP_CHECK_CELL_INFORequest" name="OP_CHECK_CELL_INFORequest" /> 
+   <wsdl:output message="eb:OP_CHECK_CELL_INFOResponse" name="OP_CHECK_CELL_INFOResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_CHECK_CELL_INFOSoap" type="eb:WS_CHECK_CELL_INFOSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_CHECK_CELL_INFO"> 
+   <soap:operation soapAction="WS_CHECK_CELL_INFO/OP_CHECK_CELL_INFO" style="document" /> 
+   <wsdl:input name="OP_CHECK_CELL_INFORequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_CHECK_CELL_INFOResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_CHECK_CELL_INFO"> 
+  <wsdl:port binding="eb:WS_CHECK_CELL_INFOSoap" name="WS_CHECK_CELL_INFOSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_CHECK_CELL_INFO" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

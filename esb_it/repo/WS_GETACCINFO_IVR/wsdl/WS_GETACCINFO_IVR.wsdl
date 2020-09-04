@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="GETACCINFO_IVR"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="CODICE_CONTRATTO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_TRANSACTION_ID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CONNID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="ConnId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="TransId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="GETACCINFO_IVRResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="CODICE_RISPOSTA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="DESCRIZIONE_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="NOME_FILELOG" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="TIPO_PAGAMENTO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="NOME_CLIENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="COGNOME_CLIENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="STATO_CONTRATTO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="NOME_COGNOME_CLIENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="FORMATO_FATTURA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="CATEGORIA_LISTINO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="CODICE_LISTINO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="TIPO_INVIO_FATTURA" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="GETACCINFO_IVRRequest"> 
+  <wsdl:part element="eb:GETACCINFO_IVR" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="GETACCINFO_IVRResponse"> 
+  <wsdl:part element="eb:GETACCINFO_IVRResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_GETACCINFO_IVRSoap"> 
+  <wsdl:operation name="GETACCINFO_IVR"> 
+   <wsdl:input message="eb:GETACCINFO_IVRRequest" name="GETACCINFO_IVRRequest" /> 
+   <wsdl:output message="eb:GETACCINFO_IVRResponse" name="GETACCINFO_IVRResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_GETACCINFO_IVRSoap" type="eb:WS_GETACCINFO_IVRSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="GETACCINFO_IVR"> 
+   <soap:operation soapAction="WS_GETACCINFO_IVR/GETACCINFO_IVR" style="document" /> 
+   <wsdl:input name="GETACCINFO_IVRRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="GETACCINFO_IVRResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_GETACCINFO_IVR"> 
+  <wsdl:port binding="eb:WS_GETACCINFO_IVRSoap" name="WS_GETACCINFO_IVRSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_GETACCINFO_IVR" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

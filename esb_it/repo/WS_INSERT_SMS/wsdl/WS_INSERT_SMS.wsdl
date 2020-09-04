@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="OpINSERT"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TEXT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ORIGINATOR" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_WASP_DATE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CARRIER_ID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TRANS_ID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OpINSERTResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_MSG_ID_SEQUENCE_OUT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ESITO_OUT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_OUT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ERR_OUT" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OpINSERTRequest"> 
+  <wsdl:part element="eb:OpINSERT" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OpINSERTResponse"> 
+  <wsdl:part element="eb:OpINSERTResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_INSERT_SMSSoap"> 
+  <wsdl:operation name="OpINSERT"> 
+   <wsdl:input message="eb:OpINSERTRequest" name="OpINSERTRequest" /> 
+   <wsdl:output message="eb:OpINSERTResponse" name="OpINSERTResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_INSERT_SMSSoap" type="eb:WS_INSERT_SMSSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OpINSERT"> 
+   <soap:operation soapAction="WS_INSERT_SMS/OpINSERT" style="document" /> 
+   <wsdl:input name="OpINSERTRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OpINSERTResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_INSERT_SMS"> 
+  <wsdl:port binding="eb:WS_INSERT_SMSSoap" name="WS_INSERT_SMSSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_sms/WS_INSERT_SMS" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

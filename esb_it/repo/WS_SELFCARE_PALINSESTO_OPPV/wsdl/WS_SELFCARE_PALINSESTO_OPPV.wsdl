@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="Rows"> 
+    <xsd:sequence> 
+     <xsd:element name="REF_ID" type="xsd:string" /> 
+     <xsd:element name="TITLE" type="xsd:string" /> 
+     <xsd:element name="EVENT_DATE" type="xsd:string" /> 
+     <xsd:element name="PRICE" type="xsd:string" /> 
+     <xsd:element name="CPI_FLAG" type="xsd:string" /> 
+     <xsd:element name="LIVE_FLAG" type="xsd:string" /> 
+     <xsd:element name="CONTENT_CODE" type="xsd:string" /> 
+     <xsd:element name="TARGET_AUDIENCE" type="xsd:string" /> 
+     <xsd:element name="DESCRIZIONE_HOTEL" type="xsd:string" /> 
+     <xsd:element name="CHANNEL_TYPE" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="Record_List"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="Rows" type="eb:Rows" /> 
+     <xsd:element name="id_esito" type="xsd:string" /> 
+     <xsd:element name="descr_esito" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opPALINSESTO_OPPV"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPPV_WINDOW" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opPALINSESTO_OPPVResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Record_List" type="eb:Record_List" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opPALINSESTO_OPPVRequest"> 
+  <wsdl:part element="eb:opPALINSESTO_OPPV" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opPALINSESTO_OPPVResponse"> 
+  <wsdl:part element="eb:opPALINSESTO_OPPVResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SELFCARE_PALINSESTO_OPPVSoap"> 
+  <wsdl:operation name="opPALINSESTO_OPPV"> 
+   <wsdl:input message="eb:opPALINSESTO_OPPVRequest" name="opPALINSESTO_OPPVRequest" /> 
+   <wsdl:output message="eb:opPALINSESTO_OPPVResponse" name="opPALINSESTO_OPPVResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SELFCARE_PALINSESTO_OPPVSoap" type="eb:WS_SELFCARE_PALINSESTO_OPPVSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opPALINSESTO_OPPV"> 
+   <soap:operation soapAction="WS_SELFCARE_PALINSESTO_OPPV/opPALINSESTO_OPPV" style="document" /> 
+   <wsdl:input name="opPALINSESTO_OPPVRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opPALINSESTO_OPPVResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SELFCARE_PALINSESTO_OPPV"> 
+  <wsdl:port binding="eb:WS_SELFCARE_PALINSESTO_OPPVSoap" name="WS_SELFCARE_PALINSESTO_OPPVSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_selfcare/WS_SELFCARE_PALINSESTO_OPPV" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

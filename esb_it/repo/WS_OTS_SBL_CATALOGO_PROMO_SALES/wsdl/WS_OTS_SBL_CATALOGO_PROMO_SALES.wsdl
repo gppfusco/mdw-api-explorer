@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdReitek/SkyXSD_OTS_SBL_CATALOGO_PROMO_SALES.xsd" /> 
+   <xsd:complexType name="DocumentDataIn"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:COMPLEX_INPUT" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOut"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:COMPLEX_OUTPUT" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opCatalogoPromoSales"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:DocumentDataIn" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCatalogoPromoSalesResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:DocumentDataOut" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCatalogoPromoSalesRequest"> 
+  <wsdl:part element="eb:opCatalogoPromoSales" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCatalogoPromoSalesResponse"> 
+  <wsdl:part element="eb:opCatalogoPromoSalesResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_OTS_SBL_CATALOGO_PROMO_SALESSoap"> 
+  <wsdl:operation name="opCatalogoPromoSales"> 
+   <wsdl:input message="eb:opCatalogoPromoSalesRequest" name="opCatalogoPromoSalesRequest" /> 
+   <wsdl:output message="eb:opCatalogoPromoSalesResponse" name="opCatalogoPromoSalesResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_OTS_SBL_CATALOGO_PROMO_SALESSoap" type="eb:WS_OTS_SBL_CATALOGO_PROMO_SALESSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCatalogoPromoSales"> 
+   <soap:operation soapAction="WS_OTS_SBL_CATALOGO_PROMO_SALES/opCatalogoPromoSales" style="document" /> 
+   <wsdl:input name="opCatalogoPromoSalesRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCatalogoPromoSalesResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_OTS_SBL_CATALOGO_PROMO_SALES"> 
+  <wsdl:port binding="eb:WS_OTS_SBL_CATALOGO_PROMO_SALESSoap" name="WS_OTS_SBL_CATALOGO_PROMO_SALESSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_OTS_SBL_CATALOGO_PROMO_SALES" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

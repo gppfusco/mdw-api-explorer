@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="ACT_SKY_PASS"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_MRM_HIDDEN_NUMBER" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_OPPV_PROVENIENZA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_TRANSACTION_ID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="ACT_SKY_PASSResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ERRORE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="ACT_SKY_PASSRequest"> 
+  <wsdl:part element="eb:ACT_SKY_PASS" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="ACT_SKY_PASSResponse"> 
+  <wsdl:part element="eb:ACT_SKY_PASSResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="AttivaRicaricabileSoap"> 
+  <wsdl:operation name="ACT_SKY_PASS"> 
+   <wsdl:input message="eb:ACT_SKY_PASSRequest" name="ACT_SKY_PASSRequest" /> 
+   <wsdl:output message="eb:ACT_SKY_PASSResponse" name="ACT_SKY_PASSResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="AttivaRicaricabileSoap" type="eb:AttivaRicaricabileSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="ACT_SKY_PASS"> 
+   <soap:operation soapAction="AttivaRicaricabile/ACT_SKY_PASS" style="document" /> 
+   <wsdl:input name="ACT_SKY_PASSRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="ACT_SKY_PASSResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="AttivaRicaricabile"> 
+  <wsdl:port binding="eb:AttivaRicaricabileSoap" name="AttivaRicaricabileSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/AttivaRicaricabile" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

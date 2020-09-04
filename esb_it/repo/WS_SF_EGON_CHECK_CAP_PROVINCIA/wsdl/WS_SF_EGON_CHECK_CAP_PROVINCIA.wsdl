@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="unqualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="DATI"> 
+    <xsd:sequence> 
+     <xsd:element name="NORM"> 
+      <xsd:complexType> 
+       <xsd:sequence> 
+        <xsd:element name="AREA_OUTPUT"> 
+         <xsd:complexType> 
+          <xsd:sequence> 
+           <xsd:element name="RAGSOC" type="xsd:string" /> 
+           <xsd:element name="TINATG" type="xsd:string" /> 
+           <xsd:element name="SESSO" type="xsd:string" /> 
+           <xsd:element name="STATO" type="xsd:string" /> 
+           <xsd:element name="PROV" type="xsd:string" /> 
+           <xsd:element name="COMU_UF" type="xsd:string" /> 
+           <xsd:element name="COMU_AB" type="xsd:string" /> 
+           <xsd:element name="FRAZ_UF" type="xsd:string" /> 
+           <xsd:element name="FRAZ_AB" type="xsd:string" /> 
+           <xsd:element name="LOCP_UF" type="xsd:string" /> 
+           <xsd:element name="LOCP_AB" type="xsd:string" /> 
+           <xsd:element name="VIA_UF" type="xsd:string" /> 
+           <xsd:element name="VIA_AB" type="xsd:string" /> 
+           <xsd:element name="CAP" type="xsd:short" /> 
+          </xsd:sequence> 
+         </xsd:complexType> 
+        </xsd:element> 
+        <xsd:element name="AREA_SINGOLI"> 
+         <xsd:complexType> 
+          <xsd:sequence> 
+           <xsd:element name="ONLY_DEN" type="xsd:string" /> 
+           <xsd:element name="ONLY_VIA" type="xsd:string" /> 
+           <xsd:element name="ONLY_CIV" type="xsd:string" /> 
+           <xsd:element name="ONLY_NUM" type="xsd:string" /> 
+           <xsd:element name="ONLY_ESP" type="xsd:string" /> 
+           <xsd:element name="ONLY_NOME" type="xsd:string" /> 
+           <xsd:element name="ONLY_COGNO" type="xsd:string" /> 
+          </xsd:sequence> 
+         </xsd:complexType> 
+        </xsd:element> 
+        <xsd:element name="AREA_CODICI"> 
+         <xsd:complexType> 
+          <xsd:sequence> 
+           <xsd:element name="CODE_CAP" type="xsd:short" /> 
+           <xsd:element name="CODE_PROV" type="xsd:long" /> 
+           <xsd:element name="CODE_COMU" type="xsd:long" /> 
+           <xsd:element name="CODE_FRAZ" type="xsd:byte" /> 
+           <xsd:element name="CODE_LOCP" type="xsd:byte" /> 
+           <xsd:element name="CODE_DEN" type="xsd:string" /> 
+           <xsd:element name="CODE_VIA" type="xsd:string" /> 
+           <xsd:element name="CODE_CIV" type="xsd:string" /> 
+           <xsd:element name="CODE_NOME" type="xsd:string" /> 
+           <xsd:element name="CODE_COGNO" type="xsd:string" /> 
+           <xsd:element name="MATCH_CODE" type="xsd:string" /> 
+          </xsd:sequence> 
+         </xsd:complexType> 
+        </xsd:element> 
+        <xsd:element name="AREA_ERRORI"> 
+         <xsd:complexType> 
+          <xsd:sequence> 
+           <xsd:element maxOccurs="unbounded" minOccurs="0" name="ERRORE"> 
+            <xsd:complexType> 
+             <xsd:sequence> 
+              <xsd:element name="F_ERR" type="xsd:string" /> 
+              <xsd:element name="C_ERR" type="xsd:byte" /> 
+              <xsd:element name="D_ERR" type="xsd:string" /> 
+             </xsd:sequence> 
+             <xsd:attribute name="value" type="xsd:string" use="optional" /> 
+            </xsd:complexType> 
+           </xsd:element> 
+          </xsd:sequence> 
+         </xsd:complexType> 
+        </xsd:element> 
+       </xsd:sequence> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opCheckCapProvincia"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_PROVINCIA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_LOCALITA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CAP" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCheckCapProvinciaResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="DATI" type="eb:DATI" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCheckCapProvinciaRequest"> 
+  <wsdl:part element="eb:opCheckCapProvincia" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCheckCapProvinciaResponse"> 
+  <wsdl:part element="eb:opCheckCapProvinciaResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SF_EGON_CHECK_CAP_PROVINCIASoap"> 
+  <wsdl:operation name="opCheckCapProvincia"> 
+   <wsdl:input message="eb:opCheckCapProvinciaRequest" name="opCheckCapProvinciaRequest" /> 
+   <wsdl:output message="eb:opCheckCapProvinciaResponse" name="opCheckCapProvinciaResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SF_EGON_CHECK_CAP_PROVINCIASoap" type="eb:WS_SF_EGON_CHECK_CAP_PROVINCIASoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCheckCapProvincia"> 
+   <soap:operation soapAction="WS_SF_EGON_CHECK_CAP_PROVINCIA/opCheckCapProvincia" style="document" /> 
+   <wsdl:input name="opCheckCapProvinciaRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCheckCapProvinciaResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SF_EGON_CHECK_CAP_PROVINCIA"> 
+  <wsdl:port binding="eb:WS_SF_EGON_CHECK_CAP_PROVINCIASoap" name="WS_SF_EGON_CHECK_CAP_PROVINCIASoap"> 
+   <soap:address location="https://wscolprj.sky.it/wsexistbus/ws_sf_ns/WS_SF_EGON_CHECK_CAP_PROVINCIA" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

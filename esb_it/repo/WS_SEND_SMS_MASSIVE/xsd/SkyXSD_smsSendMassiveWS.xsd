@@ -1,0 +1,45 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.skytv.it/sms/SmsSendMassiveWS" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.skytv.it/sms/SmsSendMassiveWS" elementFormDefault="qualified"> 
+ <complexType name="SmsSendMassiveWSRequest"> 
+  <sequence> 
+   <element name="MESSAGES"> 
+    <complexType> 
+     <sequence> 
+      <element name="MESSAGE" maxOccurs="unbounded"> 
+       <complexType> 
+        <sequence> 
+         <element name="PHONE" type="xsd:string" /> 
+         <element name="TEXT" type="xsd:string" /> 
+         <element name="SERVICE_TYPE" type="xsd:string" /> 
+         <element name="OPERATOR" type="xsd:string" /> 
+         <element name="PRIORITY" type="xsd:string" minOccurs="0" /> 
+         <element name="SCHEDULED_DATE" type="xsd:string" minOccurs="0" /> 
+        </sequence> 
+       </complexType> 
+      </element> 
+     </sequence> 
+    </complexType> 
+   </element> 
+   <element name="FORCE_EXECUTION" type="xsd:boolean" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="SmsSendMassiveWSResponse"> 
+  <sequence> 
+   <element name="MESSAGES"> 
+    <complexType> 
+     <sequence> 
+      <element name="MESSAGE" maxOccurs="unbounded"> 
+       <complexType> 
+        <sequence> 
+         <element name="SRVZ_CODE" type="xsd:string" /> 
+         <element name="SRVZ_DESCRIZIONE" type="xsd:string" /> 
+        </sequence> 
+       </complexType> 
+      </element> 
+     </sequence> 
+    </complexType> 
+   </element> 
+   <element name="SRVZ_CODE" type="xsd:string" /> 
+   <element name="SRVZ_DESCRIZIONE" type="xsd:string" /> 
+  </sequence> 
+ </complexType> 
+</schema>

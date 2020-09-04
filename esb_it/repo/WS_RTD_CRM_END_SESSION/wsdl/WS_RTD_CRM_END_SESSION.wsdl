@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdRTD/SkyXSD_RTD_END_SESSION.xsd" /> 
+   <xsd:complexType name="request"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:COMPLEX_INPUT" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="response"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:COMPLEX_OUTPUT" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opEndSession"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:request" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opEndSessionResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:response" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opEndSessionRequest"> 
+  <wsdl:part element="eb:opEndSession" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opEndSessionResponse"> 
+  <wsdl:part element="eb:opEndSessionResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_RTD_CRM_END_SESSIONSoap"> 
+  <wsdl:operation name="opEndSession"> 
+   <wsdl:input message="eb:opEndSessionRequest" name="opEndSessionRequest" /> 
+   <wsdl:output message="eb:opEndSessionResponse" name="opEndSessionResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_RTD_CRM_END_SESSIONSoap" type="eb:WS_RTD_CRM_END_SESSIONSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opEndSession"> 
+   <soap:operation soapAction="WS_RTD_CRM_END_SESSION/opEndSession" style="document" /> 
+   <wsdl:input name="opEndSessionRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opEndSessionResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_RTD_CRM_END_SESSION"> 
+  <wsdl:port binding="eb:WS_RTD_CRM_END_SESSIONSoap" name="WS_RTD_CRM_END_SESSIONSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_RTD_CRM_END_SESSION" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

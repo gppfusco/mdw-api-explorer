@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="requestADDDEV"> 
+    <xsd:sequence> 
+     <xsd:element name="flagsync" type="xsd:string" /> 
+     <xsd:element name="clientid" type="xsd:string" /> 
+     <xsd:element name="operator" type="xsd:string" /> 
+     <xsd:element name="idcaller" type="xsd:string" /> 
+     <xsd:element name="typesrvreq" type="xsd:string" /> 
+     <xsd:element name="customerid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="deviceid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="deviceuuid" type="xsd:string" /> 
+     <xsd:element name="devicetype" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="devicefriendlyname" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="devicebrand" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="devicemodel" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="responseADDDEV"> 
+    <xsd:sequence> 
+     <xsd:element name="result" type="xsd:string" /> 
+     <xsd:element name="descriptionerr" type="xsd:string" /> 
+     <xsd:element name="transid" type="xsd:string" /> 
+     <xsd:element name="ndserr" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="householdid" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opADDDEV"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestADDDEV" type="eb:requestADDDEV" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opADDDEVResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseADDDEV" type="eb:responseADDDEV" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opADDDEVRequest"> 
+  <wsdl:part element="eb:opADDDEV" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opADDDEVResponse"> 
+  <wsdl:part element="eb:opADDDEVResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_EXECUTE_ADDDEVSoap"> 
+  <wsdl:operation name="opADDDEV"> 
+   <wsdl:input message="eb:opADDDEVRequest" name="opADDDEVRequest" /> 
+   <wsdl:output message="eb:opADDDEVResponse" name="opADDDEVResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_EXECUTE_ADDDEVSoap" type="eb:WS_SCMS_EXECUTE_ADDDEVSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opADDDEV"> 
+   <soap:operation soapAction="WS_SCMS_EXECUTE_ADDDEV/opADDDEV" style="document" /> 
+   <wsdl:input name="opADDDEVRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opADDDEVResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_EXECUTE_ADDDEV"> 
+  <wsdl:port binding="eb:WS_SCMS_EXECUTE_ADDDEVSoap" name="WS_SCMS_EXECUTE_ADDDEVSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_scms/WS_SCMS_EXECUTE_ADDDEV" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

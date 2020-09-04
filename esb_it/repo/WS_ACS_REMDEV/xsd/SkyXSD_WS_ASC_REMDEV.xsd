@@ -1,0 +1,24 @@
+<xs:schema xmlns:tns="http://ws.drmrepl.skyOn.skytv.it/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://ws.drmrepl.skyOn.skytv.it/" elementFormDefault="qualified" version="1.0"> 
+ <xs:complexType name="resetDevice"> 
+  <xs:sequence> 
+   <xs:element name="customerid" type="xs:string" minOccurs="0" /> 
+   <xs:element name="deviceuuid" type="xs:string" minOccurs="0" /> 
+   <xs:element name="deviceid" type="xs:string" minOccurs="0" /> 
+   <xs:element name="devicetype" type="xs:string" minOccurs="0" /> 
+   <xs:element name="superusermode" type="xs:string" minOccurs="0" /> 
+   <xs:element name="operator" type="xs:string" minOccurs="0" /> 
+   <xs:element name="flagsync" type="xs:string" minOccurs="0" /> 
+   <xs:element name="typesrvreq" type="xs:string" minOccurs="0" /> 
+   <xs:element name="idcaller" type="xs:string" minOccurs="0" /> 
+   <xs:element name="clientid" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="resetDeviceResponse"> 
+  <xs:sequence> 
+   <xs:element name="descriptionerr" type="xs:string" minOccurs="0" /> 
+   <xs:element name="ndserr" type="xs:string" minOccurs="0" /> 
+   <xs:element name="result" type="xs:string" minOccurs="0" /> 
+   <xs:element name="transid" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

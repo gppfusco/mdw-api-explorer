@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_LEGGIDATICONTRATTO.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opLeggiDatiContratto"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLeggiDatiContrattoResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opLeggiDatiContrattoRequest"> 
+  <wsdl:part element="eb:opLeggiDatiContratto" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLeggiDatiContrattoResponse"> 
+  <wsdl:part element="eb:opLeggiDatiContrattoResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_IVR_LEGGIDATICONTRATTO_ASYNCSoap"> 
+  <wsdl:operation name="opLeggiDatiContratto"> 
+   <wsdl:input message="eb:opLeggiDatiContrattoRequest" name="opLeggiDatiContrattoRequest" /> 
+   <wsdl:output message="eb:opLeggiDatiContrattoResponse" name="opLeggiDatiContrattoResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_IVR_LEGGIDATICONTRATTO_ASYNCSoap" type="eb:WS_IVR_LEGGIDATICONTRATTO_ASYNCSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opLeggiDatiContratto"> 
+   <soap:operation soapAction="WS_IVR_LEGGIDATICONTRATTO_ASYNC/opLeggiDatiContratto" style="document" /> 
+   <wsdl:input name="opLeggiDatiContrattoRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opLeggiDatiContrattoResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_IVR_LEGGIDATICONTRATTO_ASYNC"> 
+  <wsdl:port binding="eb:WS_IVR_LEGGIDATICONTRATTO_ASYNCSoap" name="WS_IVR_LEGGIDATICONTRATTO_ASYNCSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_IVR_LEGGIDATICONTRATTO_ASYNC" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

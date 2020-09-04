@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opAggiornaFirmware"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="HTL_CODICE_HOTEL" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="HTL_CODICE_UTENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="TYPE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="DATA" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAggiornaFirmwareResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opAggiornaFirmwareRequest"> 
+  <wsdl:part element="eb:opAggiornaFirmware" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAggiornaFirmwareResponse"> 
+  <wsdl:part element="eb:opAggiornaFirmwareResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_HTL_AGGIORNA_FIRMWARESoap"> 
+  <wsdl:operation name="opAggiornaFirmware"> 
+   <wsdl:input message="eb:opAggiornaFirmwareRequest" name="opAggiornaFirmwareRequest" /> 
+   <wsdl:output message="eb:opAggiornaFirmwareResponse" name="opAggiornaFirmwareResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_HTL_AGGIORNA_FIRMWARESoap" type="eb:WS_HTL_AGGIORNA_FIRMWARESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opAggiornaFirmware"> 
+   <soap:operation soapAction="WS_HTL_AGGIORNA_FIRMWARE/opAggiornaFirmware" style="document" /> 
+   <wsdl:input name="opAggiornaFirmwareRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAggiornaFirmwareResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_HTL_AGGIORNA_FIRMWARE"> 
+  <wsdl:port binding="eb:WS_HTL_AGGIORNA_FIRMWARESoap" name="WS_HTL_AGGIORNA_FIRMWARESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_HTL_AGGIORNA_FIRMWARE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

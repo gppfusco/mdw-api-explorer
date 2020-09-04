@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="requestPIN"> 
+    <xsd:sequence> 
+     <xsd:element name="box" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="callSET" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="callSMS" type="xsd:string" /> 
+     <xsd:element name="clientid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="execdate" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="flaglock" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="flagset" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="flagsync" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="funcname" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="operator" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="parentalpin" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="pincontrol" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="priority" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="stbkind" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="telephonenumber" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="transId" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="ConnId" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="TransId" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="responsePIN"> 
+    <xsd:sequence> 
+     <xsd:element name="result" type="xsd:string" /> 
+     <xsd:element name="descriptionerr" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="ndserr" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="transid" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opManagePin"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestPIN" type="eb:requestPIN" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opManagePinResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responsePIN" type="eb:responsePIN" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opManagePinRequest"> 
+  <wsdl:part element="eb:opManagePin" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opManagePinResponse"> 
+  <wsdl:part element="eb:opManagePinResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_IVR_SCMS_MANAGE_PINSoap"> 
+  <wsdl:operation name="opManagePin"> 
+   <wsdl:input message="eb:opManagePinRequest" name="opManagePinRequest" /> 
+   <wsdl:output message="eb:opManagePinResponse" name="opManagePinResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_IVR_SCMS_MANAGE_PINSoap" type="eb:WS_IVR_SCMS_MANAGE_PINSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opManagePin"> 
+   <soap:operation soapAction="WS_IVR_SCMS_MANAGE_PIN/opManagePin" style="document" /> 
+   <wsdl:input name="opManagePinRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opManagePinResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_IVR_SCMS_MANAGE_PIN"> 
+  <wsdl:port binding="eb:WS_IVR_SCMS_MANAGE_PINSoap" name="WS_IVR_SCMS_MANAGE_PINSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_scms/WS_IVR_SCMS_MANAGE_PIN" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

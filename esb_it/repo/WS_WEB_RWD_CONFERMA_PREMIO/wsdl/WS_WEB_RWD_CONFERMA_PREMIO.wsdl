@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="Web/SkyXSD_WS_WEB_RWD_CONFERMA_PREMIO.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opConfermaPremio"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opConfermaPremioResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opConfermaPremioRequest"> 
+  <wsdl:part element="eb:opConfermaPremio" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opConfermaPremioResponse"> 
+  <wsdl:part element="eb:opConfermaPremioResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_WEB_RWD_CONFERMA_PREMIOSoap"> 
+  <wsdl:operation name="opConfermaPremio"> 
+   <wsdl:input message="eb:opConfermaPremioRequest" name="opConfermaPremioRequest" /> 
+   <wsdl:output message="eb:opConfermaPremioResponse" name="opConfermaPremioResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_WEB_RWD_CONFERMA_PREMIOSoap" type="eb:WS_WEB_RWD_CONFERMA_PREMIOSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opConfermaPremio"> 
+   <soap:operation soapAction="WS_WEB_RWD_CONFERMA_PREMIO/opConfermaPremio" style="document" /> 
+   <wsdl:input name="opConfermaPremioRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opConfermaPremioResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_WEB_RWD_CONFERMA_PREMIO"> 
+  <wsdl:port binding="eb:WS_WEB_RWD_CONFERMA_PREMIOSoap" name="WS_WEB_RWD_CONFERMA_PREMIOSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_WEB_RWD_CONFERMA_PREMIO" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

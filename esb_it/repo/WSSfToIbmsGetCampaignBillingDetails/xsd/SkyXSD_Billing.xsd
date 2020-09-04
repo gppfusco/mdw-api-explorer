@@ -1,0 +1,19 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com/pilatmedia/ibmssales/Billing_service_v1_0.wsdl/types/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema" xmlns:soap12-enc="http://www.w3.org/2003/05/soap-encoding" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns0="http://com/pilatmedia/ibmssales/Billing_service_v1_0.wsdl/types/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" xmlns:bt="http://com/pilatmedia/ibmssales/billing_types_v1_0" targetNamespace="http://com/pilatmedia/ibmssales/Billing_service_v1_0.wsdl/types/" elementFormDefault="qualified"> 
+ <import namespace="http://com/pilatmedia/ibmssales/billing_types_v1_0" schemaLocation="billing_types_v1_0.xsd" /> 
+ <complexType name="getCampaignBillingDetailsElement"> 
+  <sequence> 
+   <element name="requestXml" type="bt:requestXml" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="getCampaignBillingDetailsResponseElement"> 
+  <sequence> 
+   <element name="result" type="tns:Billing_service_v1_0User_getCampaignBillingDetails_Out" nillable="true" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="Billing_service_v1_0User_getCampaignBillingDetails_Out"> 
+  <sequence> 
+   <element name="faultxmlOut" type="string" nillable="true" /> 
+   <element name="responsexmlOut" type="string" nillable="true" /> 
+  </sequence> 
+ </complexType> 
+</schema>

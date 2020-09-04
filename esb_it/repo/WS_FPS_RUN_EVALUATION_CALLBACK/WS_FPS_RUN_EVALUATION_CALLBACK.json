@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_FPS_RUN_EVALUATION_CALLBACK",
+    "name" : "WS_FPS_RUN_EVALUATION_CALLBACK",
+    "localPath" : "esb_it\\repo\\WS_FPS_RUN_EVALUATION_CALLBACK",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_FPS_RUN_EVALUATION_CALLBACK?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

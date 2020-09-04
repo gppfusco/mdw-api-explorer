@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="VERIFICA_SMC_HOTEL"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPPV_PROVENIENZA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SMART_CARD" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_OPPV_PIN_STANZA" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="VERIFICA_SMC_HOTELResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ERRORE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="VERIFICA_SMC_HOTELRequest"> 
+  <wsdl:part element="eb:VERIFICA_SMC_HOTEL" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="VERIFICA_SMC_HOTELResponse"> 
+  <wsdl:part element="eb:VERIFICA_SMC_HOTELResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_VERIFICA_SMC_HOTELSoap"> 
+  <wsdl:operation name="VERIFICA_SMC_HOTEL"> 
+   <wsdl:input message="eb:VERIFICA_SMC_HOTELRequest" name="VERIFICA_SMC_HOTELRequest" /> 
+   <wsdl:output message="eb:VERIFICA_SMC_HOTELResponse" name="VERIFICA_SMC_HOTELResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_VERIFICA_SMC_HOTELSoap" type="eb:WS_VERIFICA_SMC_HOTELSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="VERIFICA_SMC_HOTEL"> 
+   <soap:operation soapAction="WS_VERIFICA_SMC_HOTEL/VERIFICA_SMC_HOTEL" style="document" /> 
+   <wsdl:input name="VERIFICA_SMC_HOTELRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="VERIFICA_SMC_HOTELResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_VERIFICA_SMC_HOTEL"> 
+  <wsdl:port binding="eb:WS_VERIFICA_SMC_HOTELSoap" name="WS_VERIFICA_SMC_HOTELSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_VERIFICA_SMC_HOTEL" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

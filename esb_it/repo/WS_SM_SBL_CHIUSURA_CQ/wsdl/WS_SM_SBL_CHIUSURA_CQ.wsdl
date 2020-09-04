@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdSiebel/xsdSM/SkyXSD_SM_SBL_CHIUSURA_CQ.xsd" /> 
+   <xsd:complexType name="InputChiusuraCQ"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:RequestChiusuraCQType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="OutputChiusuraCQ"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:ResponseChiusuraCQType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opChiusuraCQ"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestChiusuraCQ" type="eb:InputChiusuraCQ" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opChiusuraCQResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseChiusuraCQ" type="eb:OutputChiusuraCQ" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opChiusuraCQRequest"> 
+  <wsdl:part element="eb:opChiusuraCQ" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opChiusuraCQResponse"> 
+  <wsdl:part element="eb:opChiusuraCQResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SM_SBL_CHIUSURA_CQSoap"> 
+  <wsdl:operation name="opChiusuraCQ"> 
+   <wsdl:input message="eb:opChiusuraCQRequest" name="opChiusuraCQRequest" /> 
+   <wsdl:output message="eb:opChiusuraCQResponse" name="opChiusuraCQResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SM_SBL_CHIUSURA_CQSoap" type="eb:WS_SM_SBL_CHIUSURA_CQSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opChiusuraCQ"> 
+   <soap:operation soapAction="WS_SM_SBL_CHIUSURA_CQ/opChiusuraCQ" style="document" /> 
+   <wsdl:input name="opChiusuraCQRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opChiusuraCQResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SM_SBL_CHIUSURA_CQ"> 
+  <wsdl:port binding="eb:WS_SM_SBL_CHIUSURA_CQSoap" name="WS_SM_SBL_CHIUSURA_CQSoap"> 
+   <soap:address location="https://wssvil.sky.it/wsexistbus/ws_sf/WS_SM_SBL_CHIUSURA_CQ" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

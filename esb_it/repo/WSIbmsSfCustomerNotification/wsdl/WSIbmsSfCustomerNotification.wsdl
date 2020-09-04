@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://soap.sforce.com/schemas/class/WS_IBMS_CustomerNotification" schemaLocation="xsdSF/SkyXSD_WS_IBMS_CustomerNotification.xsd" /> 
+   <xsd:complexType name="HandleCustomerStatusChangeEventRequest" xmlns:sf="http://soap.sforce.com/schemas/class/WS_IBMS_CustomerNotification"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:HandleCustomerStatusChangeEventRequest" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="HandleCustomerStatusChangeEventResponse" xmlns:sf="http://soap.sforce.com/schemas/class/WS_IBMS_CustomerNotification"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:HandleCustomerStatusChangeEventResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="handleCustomerStatusChangeEvent"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="handleCustomerStatusChangeEventRequest" type="eb:HandleCustomerStatusChangeEventRequest" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="handleCustomerStatusChangeEventResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="result" type="eb:HandleCustomerStatusChangeEventResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="handleCustomerStatusChangeEventRequest"> 
+  <wsdl:part element="eb:handleCustomerStatusChangeEvent" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="handleCustomerStatusChangeEventResponse"> 
+  <wsdl:part element="eb:handleCustomerStatusChangeEventResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WSIbmsSfCustomerNotificationSoap"> 
+  <wsdl:operation name="handleCustomerStatusChangeEvent"> 
+   <wsdl:input message="eb:handleCustomerStatusChangeEventRequest" name="handleCustomerStatusChangeEventRequest" /> 
+   <wsdl:output message="eb:handleCustomerStatusChangeEventResponse" name="handleCustomerStatusChangeEventResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WSIbmsSfCustomerNotificationSoap" type="eb:WSIbmsSfCustomerNotificationSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="handleCustomerStatusChangeEvent"> 
+   <soap:operation soapAction="WSIbmsSfCustomerNotification/handleCustomerStatusChangeEvent" style="document" /> 
+   <wsdl:input name="handleCustomerStatusChangeEventRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="handleCustomerStatusChangeEventResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WSIbmsSfCustomerNotification"> 
+  <wsdl:port binding="eb:WSIbmsSfCustomerNotificationSoap" name="WSIbmsSfCustomerNotificationSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WSIbmsSfCustomerNotification" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

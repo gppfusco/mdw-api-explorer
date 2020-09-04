@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="retrive_ikusi_events"> 
+    <xsd:sequence> 
+     <xsd:element name="codicehotel" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="inizio_periodo" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="fine_periodo" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="only_actual" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="filters" type="eb:c_filters" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="c_filters"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="filter" type="eb:c_filter" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="c_filter"> 
+    <xsd:complexType name="retrive_ikusi_events"> 
+     <xsd:sequence> 
+      <xsd:element name="codicehotel" type="xsd:string" /> 
+      <xsd:element minOccurs="0" name="inizio_periodo" type="xsd:string" /> 
+      <xsd:element minOccurs="0" name="fine_periodo" type="xsd:string" /> 
+      <xsd:element minOccurs="0" name="only_actual" type="xsd:string" /> 
+      <xsd:element minOccurs="0" name="filters" type="eb:c_filters" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:complexType> 
+   <xsd:complexType name="c_values"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="value" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="ikusi_events"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="events" type="eb:c_events" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="c_events"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="event" type="eb:c_event" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="c_event"> 
+    <xsd:sequence> 
+     <xsd:element name="codice_hotel" type="xsd:string" /> 
+     <xsd:element name="module_number" type="xsd:string" /> 
+     <xsd:element name="type" type="xsd:string" /> 
+     <xsd:element name="source_command" type="xsd:string" /> 
+     <xsd:element name="code" type="xsd:string" /> 
+     <xsd:element name="description" type="xsd:string" /> 
+     <xsd:element name="start_date" type="xsd:string" /> 
+     <xsd:element name="end_date" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opRecuperoAllarmi"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="retrive_ikusi_events" type="eb:retrive_ikusi_events" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="HTL_CODICE_UTENTE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRecuperoAllarmiResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ikusi_events" type="eb:ikusi_events" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opRecuperoAllarmiRequest"> 
+  <wsdl:part element="eb:opRecuperoAllarmi" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRecuperoAllarmiResponse"> 
+  <wsdl:part element="eb:opRecuperoAllarmiResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_HTL_RECUPERO_INFO_ALLARMISoap"> 
+  <wsdl:operation name="opRecuperoAllarmi"> 
+   <wsdl:input message="eb:opRecuperoAllarmiRequest" name="opRecuperoAllarmiRequest" /> 
+   <wsdl:output message="eb:opRecuperoAllarmiResponse" name="opRecuperoAllarmiResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_HTL_RECUPERO_INFO_ALLARMISoap" type="eb:WS_HTL_RECUPERO_INFO_ALLARMISoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opRecuperoAllarmi"> 
+   <soap:operation soapAction="WS_HTL_RECUPERO_INFO_ALLARMI/opRecuperoAllarmi" style="document" /> 
+   <wsdl:input name="opRecuperoAllarmiRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opRecuperoAllarmiResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_HTL_RECUPERO_INFO_ALLARMI"> 
+  <wsdl:port binding="eb:WS_HTL_RECUPERO_INFO_ALLARMISoap" name="WS_HTL_RECUPERO_INFO_ALLARMISoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_HTL_RECUPERO_INFO_ALLARMI" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

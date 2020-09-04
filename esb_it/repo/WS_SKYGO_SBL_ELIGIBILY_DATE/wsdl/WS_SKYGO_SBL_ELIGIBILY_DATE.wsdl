@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdSiebel/xsdSKYGO/SkyXSD_WS_SKYGO_SBL_ELIGIBILY_DATE.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opEligibilyDate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opEligibilyDateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opEligibilyDateRequest"> 
+  <wsdl:part element="eb:opEligibilyDate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opEligibilyDateResponse"> 
+  <wsdl:part element="eb:opEligibilyDateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SKYGO_SBL_ELIGIBILY_DATESoap"> 
+  <wsdl:operation name="opEligibilyDate"> 
+   <wsdl:input message="eb:opEligibilyDateRequest" name="opEligibilyDateRequest" /> 
+   <wsdl:output message="eb:opEligibilyDateResponse" name="opEligibilyDateResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SKYGO_SBL_ELIGIBILY_DATESoap" type="eb:WS_SKYGO_SBL_ELIGIBILY_DATESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opEligibilyDate"> 
+   <soap:operation soapAction="WS_SKYGO_SBL_ELIGIBILY_DATE/opEligibilyDate" style="document" /> 
+   <wsdl:input name="opEligibilyDateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opEligibilyDateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SKYGO_SBL_ELIGIBILY_DATE"> 
+  <wsdl:port binding="eb:WS_SKYGO_SBL_ELIGIBILY_DATESoap" name="WS_SKYGO_SBL_ELIGIBILY_DATESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SKYGO_SBL_ELIGIBILY_DATE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

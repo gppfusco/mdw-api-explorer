@@ -1,0 +1,47 @@
+<xs:schema xmlns:tns="http://sync.wml.spy.sky.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://sync.wml.spy.sky.com/" version="1.0"> 
+ <xs:element name="inputParameters" type="tns:inputParametersType" /> 
+ <xs:complexType name="runWMLSync"> 
+  <xs:sequence> 
+   <xs:element name="input" type="tns:inputParametersType" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="inputParametersType"> 
+  <xs:sequence> 
+   <xs:element name="surname" type="xs:string" /> 
+   <xs:element name="codFiscale" type="xs:string" /> 
+   <xs:element name="address" type="xs:string" /> 
+   <xs:element name="phoneNumber1" type="xs:string" minOccurs="0" /> 
+   <xs:element name="phoneNumber2" type="xs:string" minOccurs="0" /> 
+   <xs:element name="phoneNumber3" type="xs:string" minOccurs="0" /> 
+   <xs:element name="creditCardNumber" type="xs:string" minOccurs="0" /> 
+   <xs:element name="iban" type="xs:string" minOccurs="0" /> 
+   <xs:element name="email" type="xs:string" minOccurs="0" /> 
+   <xs:element name="promotion" type="xs:string" minOccurs="0" /> 
+   <xs:element name="pricelist" type="xs:string" minOccurs="0" /> 
+   <xs:element name="account" type="xs:string" minOccurs="0" /> 
+   <xs:element name="dealerID" type="xs:string" minOccurs="0" /> 
+   <xs:element name="dealer1" type="xs:string" minOccurs="0" /> 
+   <xs:element name="dealer2" type="xs:string" minOccurs="0" /> 
+   <xs:element name="transId" type="xs:string" /> 
+   <xs:element name="counter" type="xs:int" /> 
+   <xs:element name="channel" type="xs:string" /> 
+   <xs:element name="flagTryAndBuy" type="xs:string" minOccurs="0" /> 
+   <xs:element name="serviceType" type="xs:string" minOccurs="0" /> 
+   <xs:element minOccurs="0" name="materialAddress" type="xs:string" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="runWMLSyncResponse"> 
+  <xs:sequence> 
+   <xs:element name="return" type="tns:responseWMLight" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="responseWMLight"> 
+  <xs:sequence> 
+   <xs:element name="account" type="xs:string" minOccurs="0" /> 
+   <xs:element name="channel" type="xs:string" minOccurs="0" /> 
+   <xs:element name="counter" type="xs:int" /> 
+   <xs:element name="esito" type="xs:int" /> 
+   <xs:element name="transId" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

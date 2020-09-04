@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="unqualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import schemaLocation="xsdElaide/SkyXSD_Elaide_firma_digitale.xsd" /> 
+   <xsd:complexType name="PdfSignatureRequest"> 
+    <xsd:complexContent> 
+     <xsd:extension base="PdfSignatureRequestType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="PdfSignResponse"> 
+    <xsd:complexContent> 
+     <xsd:extension base="PdfSignResponseType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opPdfSign"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="RequestIN" type="eb:PdfSignatureRequest" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opPdfSignResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ResponseOUT" type="eb:PdfSignResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opPdfSignRequest"> 
+  <wsdl:part element="eb:opPdfSign" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opPdfSignResponse"> 
+  <wsdl:part element="eb:opPdfSignResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_ELAIDE_FIRMA_DIGITALESoap"> 
+  <wsdl:operation name="opPdfSign"> 
+   <wsdl:input message="eb:opPdfSignRequest" name="opPdfSignRequest" /> 
+   <wsdl:output message="eb:opPdfSignResponse" name="opPdfSignResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_ELAIDE_FIRMA_DIGITALESoap" type="eb:WS_ELAIDE_FIRMA_DIGITALESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opPdfSign"> 
+   <soap:operation soapAction="WS_ELAIDE_FIRMA_DIGITALE/opPdfSign" style="document" /> 
+   <wsdl:input name="opPdfSignRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opPdfSignResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_ELAIDE_FIRMA_DIGITALE"> 
+  <wsdl:port binding="eb:WS_ELAIDE_FIRMA_DIGITALESoap" name="WS_ELAIDE_FIRMA_DIGITALESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_ELAIDE_FIRMA_DIGITALE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

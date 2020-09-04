@@ -1,0 +1,907 @@
+<xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF" elementFormDefault="qualified"> 
+ <xsd:element name="DebuggingInfo"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="debugLog" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:simpleType name="ID"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:length value="18" /> 
+   <xsd:pattern value="[a-zA-Z0-9]{18}" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="LogCategory"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="Db" /> 
+   <xsd:enumeration value="Workflow" /> 
+   <xsd:enumeration value="Validation" /> 
+   <xsd:enumeration value="Callout" /> 
+   <xsd:enumeration value="Apex_code" /> 
+   <xsd:enumeration value="Apex_profiling" /> 
+   <xsd:enumeration value="Visualforce" /> 
+   <xsd:enumeration value="System" /> 
+   <xsd:enumeration value="All" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="LogCategoryLevel"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="Internal" /> 
+   <xsd:enumeration value="Finest" /> 
+   <xsd:enumeration value="Finer" /> 
+   <xsd:enumeration value="Fine" /> 
+   <xsd:enumeration value="Debug" /> 
+   <xsd:enumeration value="Info" /> 
+   <xsd:enumeration value="Warn" /> 
+   <xsd:enumeration value="Error" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:complexType name="LogInfo"> 
+  <xsd:sequence> 
+   <xsd:element name="category" type="tns:LogCategory" /> 
+   <xsd:element name="level" type="tns:LogCategoryLevel" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="LogType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="None" /> 
+   <xsd:enumeration value="Debugonly" /> 
+   <xsd:enumeration value="Db" /> 
+   <xsd:enumeration value="Profiling" /> 
+   <xsd:enumeration value="Callout" /> 
+   <xsd:enumeration value="Detail" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:element name="DebuggingHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="categories" type="tns:LogInfo" minOccurs="0" maxOccurs="unbounded" /> 
+    <xsd:element name="debugLevel" type="tns:LogType" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="CallOptions"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="client" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="SessionHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="sessionId" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="AllowFieldTruncationHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="allowFieldTruncation" type="xsd:boolean" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:complexType name="ValidateChannel"> 
+  <xsd:sequence> 
+   <xsd:element name="Channel_IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ValidFrom" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ValidTo" type="xsd:date" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="DataSegments"> 
+  <xsd:sequence> 
+   <xsd:element name="FreeWheel_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Id" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PredictedDisableDate" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Reach" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ReachLastUpdate" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SegmentLastUpdated" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SegmentName" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SegmentShortName" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Status" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ImpressionType"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ImpressionName" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesTypeData"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SalesTypeName" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SubstitutinType"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SubstitutinTypeName" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AgencyCustomer"> 
+  <xsd:sequence> 
+   <xsd:element name="Billing_Country" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="BillingAddress" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="BillingCity" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="BillingPostalCode" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="BillingState" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Expiary_date" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_billing_Id" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="IBMS_Client_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Media_Agent_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Registration_date" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Status" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Avail"> 
+  <xsd:sequence> 
+   <xsd:element name="Avail_prenotato" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Avail_totale" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Data" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_10" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_105" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_115" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_120" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_130" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_15" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_150" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_160" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_180" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_20" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_240" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_25" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_3" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_30" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_300" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_35" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_40" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_420" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_45" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_450" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_5" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_50" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_55" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_60" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_65" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_7" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_70" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_75" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_90" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Avail_Type_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Booking_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Content_Category_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Sales_Product_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Sales_Product_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AvailType"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Content_Categroy_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Network_Spots_only" type="xsd:int" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Barter_Office"> 
+  <xsd:sequence> 
+   <xsd:element name="Barter_Status" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Expiary_date" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_billing_Id" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Organization_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Country" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Municipality" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Province" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Street" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_ZIP" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Nome" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Registration_date" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="VAT_Number" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Billboard_Type"> 
+  <xsd:sequence> 
+   <xsd:element name="Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="BookingGroup"> 
+  <xsd:sequence> 
+   <xsd:element name="Bookable" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Nome" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Priority" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Station_name" minOccurs="0" type="xsd:string" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="BookingGroup_AvailType"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Avail_Type_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Booking_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="BookingGroup_Channel"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Booking_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Channel_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Tx_Source_Flag" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Business_Category"> 
+  <xsd:sequence> 
+   <xsd:element name="Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Business_Type"> 
+  <xsd:sequence> 
+   <xsd:element name="Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Channel"> 
+  <xsd:sequence> 
+   <xsd:element name="Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ClientCustomer"> 
+  <xsd:sequence> 
+   <xsd:element name="Billing_Country" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="BillingAddress" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="BillingCity" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="BillingPostalCode" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="BillingState" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Expiry_date" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Agency_Client_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Agency_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_billing_Id" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="IBMS_Client_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Registration_date" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Status" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Thirdparty_payer_status" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CommercialProduct"> 
+  <xsd:sequence> 
+   <xsd:element name="Category" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Client_Id" type="xsd:string" nillable="true" minOccurs="0" /> <!-- new 20120529--> 
+   <xsd:element name="IBMS_Product_Type_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Primary_Category" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Prodotto_Disabilitato" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Sub_Category" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ContentCategory"> 
+  <xsd:sequence> 
+   <xsd:element name="Billboard" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Contract"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Nome" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valid_from" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valid_to" type="xsd:date" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Contract_Options_Length_Factor"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Content_category_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Contract_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Length_factor_Pr" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Option_type" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Spot_duration" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valid_from" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valid_to" type="xsd:date" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Contract_Options_Premium_Position"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Contract_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Premium_Position_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Option_type" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Premium_Position_Pr" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valid_from" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valid_to" type="xsd:date" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Contract_Options_Spot_Type"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Contract_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Spot_type_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Option_type" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Spot_type_Pr" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valid_from" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valid_to" type="xsd:date" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Organization_Agent"> 
+  <xsd:sequence> 
+   <xsd:element name="Address" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Agente_Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CompanyName" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Email" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Fax" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="FirstName" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Sales_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Sales_Group_Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Sales_Group_Type_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Sales_Group_Type_Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="LastName" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="MobilPhone" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Personal_Id_code" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Phone" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Organization_Barter"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Country" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Municipality" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Province" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Street" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_ZIP" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Organization_Type" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Personal_Id_code" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="VAT_Number" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Organization_Clienti_Agenzie"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Country" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Municipality" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Province" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_Street" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Legal_Off_ZIP" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Organization_Type" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Personal_Id_code" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="VAT_Number" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Portafoglio_Agente_Barter"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Agent_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Barter_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valid_from" type="xsd:date" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Portafoglio_Agente_Customer"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Agent_id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Customer_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Tipo_Agente" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valid_from" type="xsd:date" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Portafoglio_Barter"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Barter_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Customer_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valid_from" type="xsd:date" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="PremiumPositions"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Premium_Position_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Nome" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Ratecard"> 
+  <xsd:sequence> 
+   <xsd:element name="Data_fine" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Data_inizio" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Booking_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Content_Category_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Sales_Product" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Nome" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Valore" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Version" type="xsd:int" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Revenue_Type"> 
+  <xsd:sequence> 
+   <xsd:element name="Free" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Not_Bookable" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesGroup_BookingGroup"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Booking_Group" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Sales_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Nome" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesGroup_Customer"> 
+  <xsd:sequence> 
+   <xsd:element name="Data_inizio" type="xsd:date" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Customer_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Sales_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Sales_Group_Type_Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesProduct"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Day_Sales_Product_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Default_Sales_Product_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_League_Sales_Product_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Team_at_Home_Sales_Product_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Team_Away_Sales_Product_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Nome" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesProductGroup"> 
+  <xsd:sequence> 
+   <xsd:element name="Active" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TypeV" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesProduct_BookingGroup"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Booking_Group_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Sales_Product_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SpotType"> 
+  <xsd:sequence> 
+   <xsd:element name="Active" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_unit_1" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_unit_2" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_unit_3" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Duration_unit_4" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Content_Category_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Id_IBMS" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Number_of_spot_units" type="xsd:int" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> <!-- new 20120529--> 
+ <xsd:complexType name="ProductType"> 
+  <xsd:sequence> 
+   <xsd:element name="IBMS_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="IBMS_Parent_Id" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="level" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="name" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ResponseData"> 
+  <xsd:sequence> 
+   <xsd:element name="code" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="objectName" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="timestamp" type="xsd:dateTime" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AgencyCustomerUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:AgencyCustomer" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AgencyCustomerUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AvailTypeUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:AvailType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AvailTypeUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AvailUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Avail" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AvailUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Barter_OfficeUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Barter_Office" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Barter_OfficeUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Billboard_TypeUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Billboard_Type" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Billboard_TypeUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="BookingGroup_AvailTypeUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:BookingGroup_AvailType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="BookingGroup_AvailTypeUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="BookingGroup_ChannelUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:BookingGroup_Channel" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="BookingGroup_ChannelUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="BookingGroupUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:BookingGroup" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="BookingGroupUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Business_CategoryUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Business_Category" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Business_CategoryUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Business_TypeUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Business_Type" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Business_TypeUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ChannelUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Channel" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ChannelUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ClientCustomerUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:ClientCustomer" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ClientCustomerUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CommercialProductUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:CommercialProduct" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CommercialProductUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ContentCategoryUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:ContentCategory" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ContentCategoryUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Contract_Options_Length_FactorUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Contract_Options_Length_Factor" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Contract_Options_Length_FactorUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Contract_Options_Premium_PositionUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Contract_Options_Premium_Position" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Contract_Options_Premium_PositionUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Contract_Options_Spot_TypeUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Contract_Options_Spot_Type" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Contract_Options_Spot_TypeUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ContractUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Contract" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ContractUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="doRollback"> 
+  <xsd:sequence /> 
+ </xsd:complexType> 
+ <xsd:complexType name="doRollbackResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="xsd:boolean" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Organization_AgentUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Organization_Agent" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Organization_AgentUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Organization_BarterUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Organization_Barter" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Organization_BarterUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Organization_Clienti_AgenzieUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Organization_Clienti_Agenzie" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Organization_Clienti_AgenzieUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Portafoglio_Agente_BarterUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Portafoglio_Agente_Barter" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Portafoglio_Agente_BarterUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Portafoglio_Agente_CustomerUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Portafoglio_Agente_Customer" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Portafoglio_Agente_CustomerUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Portafoglio_BarterUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Portafoglio_Barter" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Portafoglio_BarterUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="PremiumPositionsUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:PremiumPositions" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="PremiumPositionsUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="RatecardUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Ratecard" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="RatecardUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Revenue_TypeUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Revenue_Type" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Revenue_TypeUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesGroup_BookingGroupUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:SalesGroup_BookingGroup" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesGroup_BookingGroupUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesGroup_CustomerUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:SalesGroup_Customer" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesGroup_CustomerUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesProduct_BookingGroupUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:SalesProduct_BookingGroup" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesProduct_BookingGroupUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesProductGroupUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:SalesProductGroup" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesProductGroupUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesProductUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:SalesProduct" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesProductUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="setSavepoint"> 
+  <xsd:sequence /> 
+ </xsd:complexType> 
+ <xsd:complexType name="setSavepointResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="xsd:boolean" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="setEndpoint"> 
+  <xsd:sequence /> 
+ </xsd:complexType> 
+ <xsd:complexType name="setEndpointResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="xsd:boolean" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SpotTypeUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:SpotType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SpotTypeUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ProductTypeUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:ProductType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ProductTypeUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> <!-- new ADSMART --> 
+ <xsd:complexType name="ValidateChannelUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:ValidateChannel" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ValidateChannelUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="DataSegmentsUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:DataSegments" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="DataSegmentsUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ImpressionTypeUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:ImpressionType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ImpressionTypeUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesTypeDataUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:SalesTypeData" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SalesTypeDataUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SubstitutinTypeUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:SubstitutinType" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SubstitutinTypeUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:ResponseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://services.olg.oss.fastweb.it/fly/sky2fw/CheckCoverageServices/" schemaLocation="SkyXSD_CheckCoverage.xsd" /> 
+   <xsd:complexType name="OperationDataType" xmlns:fw="http://services.olg.oss.fastweb.it/fly/sky2fw/CheckCoverageServices/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="fw:OperationDataType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="OutputMessageType" xmlns:fw="http://services.olg.oss.fastweb.it/fly/sky2fw/CheckCoverageServices/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="fw:OutputMessageType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="CheckCoverageOp"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:OperationDataType" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="CheckCoverageOpResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:OutputMessageType" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="CheckCoverageOpRequest"> 
+  <wsdl:part element="eb:CheckCoverageOp" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="CheckCoverageOpResponse"> 
+  <wsdl:part element="eb:CheckCoverageOpResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SF_FW_CHECK_COVERAGESoap"> 
+  <wsdl:operation name="CheckCoverageOp"> 
+   <wsdl:input message="eb:CheckCoverageOpRequest" name="CheckCoverageOpRequest" /> 
+   <wsdl:output message="eb:CheckCoverageOpResponse" name="CheckCoverageOpResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SF_FW_CHECK_COVERAGESoap" type="eb:WS_SF_FW_CHECK_COVERAGESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="CheckCoverageOp"> 
+   <soap:operation soapAction="WS_SF_FW_CHECK_COVERAGE/CheckCoverageOp" style="document" /> 
+   <wsdl:input name="CheckCoverageOpRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="CheckCoverageOpResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SF_FW_CHECK_COVERAGE"> 
+  <wsdl:port binding="eb:WS_SF_FW_CHECK_COVERAGESoap" name="WS_SF_FW_CHECK_COVERAGESoap"> 
+   <soap:address location="https://wscolprj.sky.it/wsexistbus/ws_sf_ns/WS_SF_FW_CHECK_COVERAGE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

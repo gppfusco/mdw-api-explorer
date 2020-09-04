@@ -1,0 +1,17 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.skytv.it/sms/SmsSendWS" xmlns:tns="http://www.skytv.it/sms/SmsSendWS" xmlns:sch="http://www.skytv.it/sms/SmsSendWS" targetNamespace="http://www.skytv.it/sms/SmsSendWS" elementFormDefault="qualified"> 
+ <complexType name="SmsSendWSRequest"> 
+  <sequence> 
+   <element name="PHONE" type="string" /> 
+   <element name="TEXT" type="string" /> 
+   <element name="SERVICE_TYPE" type="string" /> 
+   <element name="OPERATOR" type="string" /> 
+   <element name="SCHEDULED_DATE" type="string" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="SmsSendWSResponse"> 
+  <sequence> 
+   <element name="SRVZ_CODE" type="string" /> 
+   <element name="SRVZ_DESCRIZIONE" type="string" /> 
+  </sequence> 
+ </complexType> 
+</schema>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="requestINFOVC"> 
+    <xsd:sequence> 
+     <xsd:element name="flagsync" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="clientid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="operator" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="execdate" type="xsd:string" /> 
+     <xsd:element name="typesrvreq" type="xsd:string" /> 
+     <xsd:element name="idcaller" type="xsd:string" /> 
+     <xsd:element name="idrecharge" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="responseINFOVC"> 
+    <xsd:sequence> 
+     <xsd:element name="result" type="xsd:string" /> 
+     <xsd:element name="descriptionerr" type="xsd:string" /> 
+     <xsd:element name="transid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="ndserr" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="expiredate" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="credit" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="voucher" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="voucherserial" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="cardstatus" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opINFOVC"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestINFOVC" type="eb:requestINFOVC" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opINFOVCResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseINFOVC" type="eb:responseINFOVC" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opINFOVCRequest"> 
+  <wsdl:part element="eb:opINFOVC" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opINFOVCResponse"> 
+  <wsdl:part element="eb:opINFOVCResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_EXECUTE_INFOVC_SPSoap"> 
+  <wsdl:operation name="opINFOVC"> 
+   <wsdl:input message="eb:opINFOVCRequest" name="opINFOVCRequest" /> 
+   <wsdl:output message="eb:opINFOVCResponse" name="opINFOVCResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_EXECUTE_INFOVC_SPSoap" type="eb:WS_SCMS_EXECUTE_INFOVC_SPSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opINFOVC"> 
+   <soap:operation soapAction="WS_SCMS_EXECUTE_INFOVC_SP/opINFOVC" style="document" /> 
+   <wsdl:input name="opINFOVCRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opINFOVCResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_EXECUTE_INFOVC_SP"> 
+  <wsdl:port binding="eb:WS_SCMS_EXECUTE_INFOVC_SPSoap" name="WS_SCMS_EXECUTE_INFOVC_SPSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_scms/WS_SCMS_EXECUTE_INFOVC_SP" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

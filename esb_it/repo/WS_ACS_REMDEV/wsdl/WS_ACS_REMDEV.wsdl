@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://ws.drmrepl.skyOn.skytv.it/" schemaLocation="xsdACS/SkyXSD_WS_ASC_REMDEV.xsd" /> 
+   <xsd:complexType name="requestREMDEV" xmlns:acs="http://ws.drmrepl.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="acs:resetDevice" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="responseREMDEV" xmlns:acs="http://ws.drmrepl.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="acs:resetDeviceResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opREMDEV"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestREMDEV" type="eb:requestREMDEV" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opREMDEVResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseREMDEV" type="eb:responseREMDEV" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opREMDEVRequest"> 
+  <wsdl:part element="eb:opREMDEV" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opREMDEVResponse"> 
+  <wsdl:part element="eb:opREMDEVResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_ACS_REMDEVSoap"> 
+  <wsdl:operation name="opREMDEV"> 
+   <wsdl:input message="eb:opREMDEVRequest" name="opREMDEVRequest" /> 
+   <wsdl:output message="eb:opREMDEVResponse" name="opREMDEVResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_ACS_REMDEVSoap" type="eb:WS_ACS_REMDEVSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opREMDEV"> 
+   <soap:operation soapAction="WS_ACS_REMDEV/opREMDEV" style="document" /> 
+   <wsdl:input name="opREMDEVRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opREMDEVResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_ACS_REMDEV"> 
+  <wsdl:port binding="eb:WS_ACS_REMDEVSoap" name="WS_ACS_REMDEVSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_ACS_REMDEV" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

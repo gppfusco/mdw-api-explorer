@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opVALIDA_CC"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_NTS_DATA_CC" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_NTS_NUM_CC" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opVALIDA_CCResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_NTS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_NTS_COD_AUT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opVALIDA_CC_CID"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_NTS_DATA_CC" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_NTS_NUM_CC" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_NTS_CID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opVALIDA_CC_CIDResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_NTS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_NTS_COD_AUT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_NTS_CID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opVALIDA_CCRequest"> 
+  <wsdl:part element="eb:opVALIDA_CC" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opVALIDA_CCResponse"> 
+  <wsdl:part element="eb:opVALIDA_CCResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opVALIDA_CC_CIDRequest"> 
+  <wsdl:part element="eb:opVALIDA_CC_CID" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opVALIDA_CC_CIDResponse"> 
+  <wsdl:part element="eb:opVALIDA_CC_CIDResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SF_MTFS_VALIDA_CCSoap"> 
+  <wsdl:operation name="opVALIDA_CC"> 
+   <wsdl:input message="eb:opVALIDA_CCRequest" name="opVALIDA_CCRequest" /> 
+   <wsdl:output message="eb:opVALIDA_CCResponse" name="opVALIDA_CCResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opVALIDA_CC_CID"> 
+   <wsdl:input message="eb:opVALIDA_CC_CIDRequest" name="opVALIDA_CC_CIDRequest" /> 
+   <wsdl:output message="eb:opVALIDA_CC_CIDResponse" name="opVALIDA_CC_CIDResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SF_MTFS_VALIDA_CCSoap" type="eb:WS_SF_MTFS_VALIDA_CCSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opVALIDA_CC"> 
+   <soap:operation soapAction="WS_SF_MTFS_VALIDA_CC/opVALIDA_CC" style="document" /> 
+   <wsdl:input name="opVALIDA_CCRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opVALIDA_CCResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opVALIDA_CC_CID"> 
+   <soap:operation soapAction="WS_SF_MTFS_VALIDA_CC/opVALIDA_CC_CID" style="document" /> 
+   <wsdl:input name="opVALIDA_CC_CIDRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opVALIDA_CC_CIDResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SF_MTFS_VALIDA_CC"> 
+  <wsdl:port binding="eb:WS_SF_MTFS_VALIDA_CCSoap" name="WS_SF_MTFS_VALIDA_CCSoap"> 
+   <soap:address location="https://wssvil.sky.it/wsexistbus/ws_sf_ns/WS_SF_MTFS_VALIDA_CC" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="ComplexInput"> 
+    <xsd:sequence> 
+     <xsd:element name="WS_TID" type="xsd:string" /> 
+     <xsd:element name="BA_NAME" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="ComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="SRVZ_RET_CODE" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="BA_NAME" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="PY_X_IMPORTO_SCADUTO" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="PY_X_FATTURE_SKY" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opBadPayer"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="RequestWS" type="eb:ComplexInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBadPayerResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ResponseWS" type="eb:ComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opBadPayerRequest"> 
+  <wsdl:part element="eb:opBadPayer" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBadPayerResponse"> 
+  <wsdl:part element="eb:opBadPayerResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SF_BBH_KENAN_BAD_PAYERSoap"> 
+  <wsdl:operation name="opBadPayer"> 
+   <wsdl:input message="eb:opBadPayerRequest" name="opBadPayerRequest" /> 
+   <wsdl:output message="eb:opBadPayerResponse" name="opBadPayerResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SF_BBH_KENAN_BAD_PAYERSoap" type="eb:WS_SF_BBH_KENAN_BAD_PAYERSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opBadPayer"> 
+   <soap:operation soapAction="WS_SF_BBH_KENAN_BAD_PAYER/opBadPayer" style="document" /> 
+   <wsdl:input name="opBadPayerRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opBadPayerResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SF_BBH_KENAN_BAD_PAYER"> 
+  <wsdl:port binding="eb:WS_SF_BBH_KENAN_BAD_PAYERSoap" name="WS_SF_BBH_KENAN_BAD_PAYERSoap"> 
+   <soap:address location="https://wssvil.sky.it:19100/wsexistbus/ws_sf_bbh/WS_SF_BBH_KENAN_BAD_PAYER" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_Web_Ts_AutorizzazioneSwapMateriale.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DataInput" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DataOutput" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opAutorizzazioneSwapMateriale"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAutorizzazioneSwapMaterialeResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opAutorizzazioneSwapMaterialeRequest"> 
+  <wsdl:part element="eb:opAutorizzazioneSwapMateriale" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAutorizzazioneSwapMaterialeResponse"> 
+  <wsdl:part element="eb:opAutorizzazioneSwapMaterialeResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_WEB_TS_AUTORIZZAZIONE_SWAP_MATERIALESoap"> 
+  <wsdl:operation name="opAutorizzazioneSwapMateriale"> 
+   <wsdl:input message="eb:opAutorizzazioneSwapMaterialeRequest" name="opAutorizzazioneSwapMaterialeRequest" /> 
+   <wsdl:output message="eb:opAutorizzazioneSwapMaterialeResponse" name="opAutorizzazioneSwapMaterialeResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_WEB_TS_AUTORIZZAZIONE_SWAP_MATERIALESoap" type="eb:WS_WEB_TS_AUTORIZZAZIONE_SWAP_MATERIALESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opAutorizzazioneSwapMateriale"> 
+   <soap:operation soapAction="WS_WEB_TS_AUTORIZZAZIONE_SWAP_MATERIALE/opAutorizzazioneSwapMateriale" style="document" /> 
+   <wsdl:input name="opAutorizzazioneSwapMaterialeRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAutorizzazioneSwapMaterialeResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_WEB_TS_AUTORIZZAZIONE_SWAP_MATERIALE"> 
+  <wsdl:port binding="eb:WS_WEB_TS_AUTORIZZAZIONE_SWAP_MATERIALESoap" name="WS_WEB_TS_AUTORIZZAZIONE_SWAP_MATERIALESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_WEB_TS_AUTORIZZAZIONE_SWAP_MATERIALE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

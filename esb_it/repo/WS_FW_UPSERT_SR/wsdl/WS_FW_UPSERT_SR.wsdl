@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://services.olg.oss.fastweb.it/fly/sky2fw/cm/UpsertServiceRequestServices/" schemaLocation="SkyXSD_UpsertServiceRequest.xsd" /> 
+   <xsd:complexType name="OperationDataType" xmlns:fw="http://services.olg.oss.fastweb.it/fly/sky2fw/cm/UpsertServiceRequestServices/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="fw:OperationDataType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="UpsertSrOp"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:OperationDataType" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="UpsertSrOpResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ErrorCode" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ErrorMessage" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="UpsertSrOpRequest"> 
+  <wsdl:part element="eb:UpsertSrOp" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="UpsertSrOpResponse"> 
+  <wsdl:part element="eb:UpsertSrOpResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_FW_UPSERT_SRSoap"> 
+  <wsdl:operation name="UpsertSrOp"> 
+   <wsdl:input message="eb:UpsertSrOpRequest" name="UpsertSrOpRequest" /> 
+   <wsdl:output message="eb:UpsertSrOpResponse" name="UpsertSrOpResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_FW_UPSERT_SRSoap" type="eb:WS_FW_UPSERT_SRSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="UpsertSrOp"> 
+   <soap:operation soapAction="WS_FW_UPSERT_SR/UpsertSrOp" style="document" /> 
+   <wsdl:input name="UpsertSrOpRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="UpsertSrOpResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_FW_UPSERT_SR"> 
+  <wsdl:port binding="eb:WS_FW_UPSERT_SRSoap" name="WS_FW_UPSERT_SRSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_FW_UPSERT_SR" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

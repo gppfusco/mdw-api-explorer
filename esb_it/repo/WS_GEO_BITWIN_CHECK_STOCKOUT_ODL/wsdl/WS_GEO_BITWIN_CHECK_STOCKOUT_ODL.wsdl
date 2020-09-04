@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdGeocall/SkyXSD_WS_GEO_BITWIN_CHECK_STOCKOUT_ODL.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opCheckStockoutODL"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCheckStockoutODLResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCheckStockoutODLRequest"> 
+  <wsdl:part element="eb:opCheckStockoutODL" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCheckStockoutODLResponse"> 
+  <wsdl:part element="eb:opCheckStockoutODLResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_GEO_BITWIN_CHECK_STOCKOUT_ODLSoap"> 
+  <wsdl:operation name="opCheckStockoutODL"> 
+   <wsdl:input message="eb:opCheckStockoutODLRequest" name="opCheckStockoutODLRequest" /> 
+   <wsdl:output message="eb:opCheckStockoutODLResponse" name="opCheckStockoutODLResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_GEO_BITWIN_CHECK_STOCKOUT_ODLSoap" type="eb:WS_GEO_BITWIN_CHECK_STOCKOUT_ODLSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCheckStockoutODL"> 
+   <soap:operation soapAction="WS_GEO_BITWIN_CHECK_STOCKOUT_ODL/opCheckStockoutODL" style="document" /> 
+   <wsdl:input name="opCheckStockoutODLRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCheckStockoutODLResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_GEO_BITWIN_CHECK_STOCKOUT_ODL"> 
+  <wsdl:port binding="eb:WS_GEO_BITWIN_CHECK_STOCKOUT_ODLSoap" name="WS_GEO_BITWIN_CHECK_STOCKOUT_ODLSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/ws_geocall/WS_GEO_BITWIN_CHECK_STOCKOUT_ODL" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

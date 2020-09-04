@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opMigraPasswd"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_CLIENT_API" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_OPERATORE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opMigraPasswdResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_ERROR_TYPE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opResetPasswd"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_CLIENT_API" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_OPERATORE_API" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_OPERATORE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opResetPasswdResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_ERROR_TYPE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBloccaPasswd"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_CLIENT_API" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_OPERATORE_API" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_OPERATORE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBloccaPasswdResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_ERROR_TYPE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSbloccaPasswd"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_CLIENT_API" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_OPERATORE_API" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_OPERATORE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSbloccaPasswdResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_ERROR_TYPE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opMigraPasswdRequest"> 
+  <wsdl:part element="eb:opMigraPasswd" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opMigraPasswdResponse"> 
+  <wsdl:part element="eb:opMigraPasswdResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opResetPasswdRequest"> 
+  <wsdl:part element="eb:opResetPasswd" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opResetPasswdResponse"> 
+  <wsdl:part element="eb:opResetPasswdResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBloccaPasswdRequest"> 
+  <wsdl:part element="eb:opBloccaPasswd" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBloccaPasswdResponse"> 
+  <wsdl:part element="eb:opBloccaPasswdResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSbloccaPasswdRequest"> 
+  <wsdl:part element="eb:opSbloccaPasswd" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSbloccaPasswdResponse"> 
+  <wsdl:part element="eb:opSbloccaPasswdResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_CONNECTOR_ADPSoap"> 
+  <wsdl:operation name="opMigraPasswd"> 
+   <wsdl:input message="eb:opMigraPasswdRequest" name="opMigraPasswdRequest" /> 
+   <wsdl:output message="eb:opMigraPasswdResponse" name="opMigraPasswdResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opResetPasswd"> 
+   <wsdl:input message="eb:opResetPasswdRequest" name="opResetPasswdRequest" /> 
+   <wsdl:output message="eb:opResetPasswdResponse" name="opResetPasswdResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBloccaPasswd"> 
+   <wsdl:input message="eb:opBloccaPasswdRequest" name="opBloccaPasswdRequest" /> 
+   <wsdl:output message="eb:opBloccaPasswdResponse" name="opBloccaPasswdResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSbloccaPasswd"> 
+   <wsdl:input message="eb:opSbloccaPasswdRequest" name="opSbloccaPasswdRequest" /> 
+   <wsdl:output message="eb:opSbloccaPasswdResponse" name="opSbloccaPasswdResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_CONNECTOR_ADPSoap" type="eb:WS_CONNECTOR_ADPSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opMigraPasswd"> 
+   <soap:operation soapAction="WS_CONNECTOR_ADP/opMigraPasswd" style="document" /> 
+   <wsdl:input name="opMigraPasswdRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opMigraPasswdResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opResetPasswd"> 
+   <soap:operation soapAction="WS_CONNECTOR_ADP/opResetPasswd" style="document" /> 
+   <wsdl:input name="opResetPasswdRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opResetPasswdResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBloccaPasswd"> 
+   <soap:operation soapAction="WS_CONNECTOR_ADP/opBloccaPasswd" style="document" /> 
+   <wsdl:input name="opBloccaPasswdRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opBloccaPasswdResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSbloccaPasswd"> 
+   <soap:operation soapAction="WS_CONNECTOR_ADP/opSbloccaPasswd" style="document" /> 
+   <wsdl:input name="opSbloccaPasswdRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSbloccaPasswdResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_CONNECTOR_ADP"> 
+  <wsdl:port binding="eb:WS_CONNECTOR_ADPSoap" name="WS_CONNECTOR_ADPSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_CONNECTOR_ADP" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

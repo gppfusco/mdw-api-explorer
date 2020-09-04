@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_MTFS_PAG_ONLINE_CIRCUITO",
+    "name" : "WS_MTFS_PAG_ONLINE_CIRCUITO",
+    "localPath" : "esb_it\\repo\\WS_MTFS_PAG_ONLINE_CIRCUITO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_MTFS_PAG_ONLINE_CIRCUITO?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

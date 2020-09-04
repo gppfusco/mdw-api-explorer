@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="mod_email_operation"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OPERATORE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="EMAIL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="mod_email_operationResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="DESCRIZIONE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="mod_email_operationRequest"> 
+  <wsdl:part element="eb:mod_email_operation" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="mod_email_operationResponse"> 
+  <wsdl:part element="eb:mod_email_operationResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_MOD_EMAILSoap"> 
+  <wsdl:operation name="mod_email_operation"> 
+   <wsdl:input message="eb:mod_email_operationRequest" name="mod_email_operationRequest" /> 
+   <wsdl:output message="eb:mod_email_operationResponse" name="mod_email_operationResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_MOD_EMAILSoap" type="eb:WS_MOD_EMAILSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="mod_email_operation"> 
+   <soap:operation soapAction="WS_MOD_EMAIL/mod_email_operation" style="document" /> 
+   <wsdl:input name="mod_email_operationRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="mod_email_operationResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_MOD_EMAIL"> 
+  <wsdl:port binding="eb:WS_MOD_EMAILSoap" name="WS_MOD_EMAILSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_MOD_EMAIL" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,327 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://it.fastweb.esb.org/EligibilityCheck" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://it.fastweb.esb.org/EligibilityCheck" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://it.fastweb.esb.org/EligibilityCheck" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <element name="InputMessage" type="tns:OperationDataType" /> 
+ <complexType name="InputMessageType"> 
+  <sequence> 
+   <element name="TransactionData" type="tns:TransactionDataType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OperationDataType"> 
+  <complexContent> 
+   <extension base="tns:InputMessageType"> 
+    <sequence> 
+     <element name="OperationData" type="tns:EligibilityCheckInput_Type" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="OutputMessage" type="tns:OutputMessageType" /> 
+ <complexType name="OutputMessageType"> 
+  <sequence> 
+   <element name="OperationData" type="tns:EligibilityCheck_OutputType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="TransactionDataType"> 
+  <sequence> 
+   <element name="SenderName" minOccurs="0" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <maxLength value="50" /> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="UserName" minOccurs="0" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <maxLength value="50" /> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="TransactionId" minOccurs="1" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <maxLength value="42" /> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Version" minOccurs="0" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <maxLength value="50" /> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="TransactionTime" minOccurs="1" maxOccurs="1"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <length value="19" /> 
+      <pattern value="(0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])[/](19|20)\d\d\s([0-1]\d|[2][0-3]):[0-5]\d:[0-5]\d" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <element name="Cliente" type="tns:Cliente" /> 
+ <complexType name="ClienteTopElmt"> 
+  <sequence> 
+   <element name="Cliente" type="tns:Cliente" minOccurs="0" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="Cliente"> 
+  <sequence> 
+   <element name="CodiceClienteFW" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="CodiceFiscalePIva" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="Nome" type="tns:String100" minOccurs="1" maxOccurs="1" /> 
+   <element name="Cognome" type="tns:String100" minOccurs="1" maxOccurs="1" /> 
+   <element name="Sesso" type="tns:String1" minOccurs="0" maxOccurs="1" /> 
+   <element name="DataNascita" type="tns:dateString15" minOccurs="0" maxOccurs="1" /> 
+   <element name="SiglaProvinciaNascita" type="tns:String50" minOccurs="0" maxOccurs="1" /> 
+   <element name="ComuneNascita" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="NazioneNascita" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="TelefonoFisso" type="tns:String40" minOccurs="0" maxOccurs="1" /> 
+   <element name="Cellulare" type="tns:String40" minOccurs="0" maxOccurs="1" /> 
+   <element name="Email" type="tns:String50" minOccurs="0" maxOccurs="1" /> 
+   <element name="TipoDocumento" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="NazionalitaDocumento" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="NumeroDocumento" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="EnteRilascioDocumento" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="DataRilascioDocumento" type="tns:dateString10" minOccurs="0" maxOccurs="1" /> 
+   <element name="SiglaProvinciaDocumento" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="ComuneDocumento" type="tns:String50" minOccurs="0" maxOccurs="1" /> 
+   <element name="NumeroPermessoSoggiorno" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="ScadenzaPermessoSoggiorno" type="tns:dateString15" minOccurs="0" maxOccurs="1" /> 
+   <element name="IndirizzoCliente" type="tns:IndirizzoCliente" minOccurs="0" maxOccurs="1" /> 
+   <element name="ListaCentroFatturazione" type="tns:ListaCentroFatturazione" minOccurs="0" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ListaCentroFatturazione"> 
+  <sequence> 
+   <element name="CentroFatturazione" type="tns:CentroFatturazione2" minOccurs="0" maxOccurs="unbounded" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="CentroFatturazione2"> 
+  <sequence> 
+   <element name="Tecnologia" type="tns:String30" minOccurs="0" /> 
+   <element name="Ownership" type="tns:String1" minOccurs="0" /> 
+   <element name="BundleAvailability" type="tns:String1" minOccurs="1" maxOccurs="1" /> 
+   <element name="Causale" type="tns:String255" minOccurs="1" /> 
+   <element name="CustomerBase" type="tns:String100" minOccurs="1" /> 
+   <element name="CreditCheckScore" type="tns:String30" minOccurs="0" /> 
+   <element name="DettaglioCentroFatturazione" type="tns:DettaglioCentroFatturazione" minOccurs="1" maxOccurs="1" /> 
+   <element name="IndirizzoSede" type="tns:IndirizzoSede" minOccurs="1" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="IndirizzoCliente"> 
+  <sequence> 
+   <element name="Toponomastica" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="Indirizzo" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="Civico" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="CAP" type="tns:String5" minOccurs="0" maxOccurs="1" /> 
+   <element name="Comune" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="Provincia" type="tns:String2" minOccurs="0" maxOccurs="1" /> 
+   <element name="Stato" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="Localita" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="Scala" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="Interno" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="Piano" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="GetSkyBundleAvailabilityInput"> 
+  <sequence> 
+   <element name="EligibilityCheck_Input" type="tns:EligibilityCheckInput_Type" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="EligibilityCheckInput_Type"> 
+  <sequence> 
+   <element name="Source" type="tns:String30" /> 
+   <element name="IdPDA" type="tns:String30" /> 
+   <element name="CodiceClienteFW" type="tns:String30" minOccurs="0" /> 
+   <element name="CodiceFiscalePIva" type="tns:String100" minOccurs="0" /> 
+   <element name="IndirizzoSede" type="tns:IndirizzoSede" minOccurs="0" /> 
+   <element name="TelefonoCellulare" type="tns:String30" minOccurs="0" /> 
+   <element name="NumeroTelefono" type="tns:String30" minOccurs="0" /> 
+   <element name="FlagBS" type="tns:String1" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="EligibilityCheck_OutputType"> 
+  <sequence> 
+   <element name="CustomerBase" type="tns:String1" /> 
+   <element name="BundleAvailability" type="tns:String1" /> 
+   <element name="Causale" type="tns:String255" minOccurs="0" /> 
+   <element name="Cliente" type="tns:Cliente" minOccurs="0" /> 
+   <element name="Status" type="tns:String30" minOccurs="0" /> 
+   <element name="ErrorCode" type="tns:String30" /> 
+   <element name="ErrorMessage" type="tns:String255" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <element name="IndirizzoSede" type="tns:IndirizzoSede" /> 
+ <complexType name="IndirizzoSedeTopElmt"> 
+  <sequence> 
+   <element name="IndirizzoSede" type="tns:IndirizzoSede" minOccurs="1" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="IndirizzoSede"> 
+  <sequence> 
+   <element name="Toponomastica" type="tns:String100" /> 
+   <element name="Indirizzo" type="tns:String100" /> 
+   <element name="Civico" type="tns:String30" /> 
+   <element name="CAP" type="tns:String5" /> 
+   <element name="Comune" type="tns:String100" /> 
+   <element name="SiglaProvincia" type="tns:String2" /> 
+   <element name="Stato" type="tns:String30" /> 
+   <element name="Localita" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="Scala" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="Interno" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="Piano" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="IdIndirizzoFW" type="tns:String100" minOccurs="1" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="IgfsSky"> 
+  <sequence> 
+   <element name="tid" type="tns:String16" minOccurs="0" maxOccurs="1" /> 
+   <element name="shopID" type="tns:String256" minOccurs="0" maxOccurs="1" /> 
+   <element name="paymentID" type="tns:String16" minOccurs="0" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="DettaglioCentroFatturazione"> 
+  <sequence> 
+   <element name="AccountNumber" type="tns:String30" /> 
+   <element name="MetodoPagamento" type="tns:String30" minOccurs="0" /> 
+   <element name="MetodoSpedizioneFattura" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="CircuitoCartaCredito" type="tns:String50" minOccurs="0" maxOccurs="1" /> 
+   <element name="TipoCartaCredito" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="NumeroCartaCredito" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="DataScadenzaCartaCredito" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="CodicePinPad" type="tns:String20" minOccurs="0" maxOccurs="1" /> 
+   <element name="CodiceInfoFinax" type="tns:String11" minOccurs="0" maxOccurs="1" /> 
+   <element name="NumeroContoCorrente" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="CodicePaese" type="tns:String2" minOccurs="0" maxOccurs="1" /> 
+   <element name="CodiceControllo" type="tns:String50" minOccurs="0" maxOccurs="1" /> 
+   <element name="CIN" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="ABI" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="CAB" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="TipoIntestatarioConto" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="CognomeTitolare" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="NomeTitolare" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="CodiceFiscalePIVATitolare" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="SessoTitolare" type="tns:String1" minOccurs="0" maxOccurs="1" /> 
+   <element name="SiglaProvinciaNascitaTitolare" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="DataNascitaTitolare" type="tns:String15" minOccurs="0" maxOccurs="1" /> 
+   <element name="ComuneNascitaTitolare" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="RegimeIvaTitolare" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="IndirizzoTitolare" type="tns:String200" minOccurs="0" maxOccurs="1" /> 
+   <element name="SiglaProvinciaTitolare" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="ComuneTitolare" type="tns:String100" minOccurs="0" maxOccurs="1" /> 
+   <element name="CAPTitolare" type="tns:String30" minOccurs="0" maxOccurs="1" /> 
+   <element name="IgfsSky" type="tns:IgfsSky" minOccurs="0" maxOccurs="1" /> 
+   <xsd:element name="EmailPec" minOccurs="0" type="tns:String100" /> 
+   <xsd:element name="CodiceDestinatario" minOccurs="0" type="tns:String7" /> 
+  </sequence> 
+ </complexType> 
+ <xsd:simpleType name="String7"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="7" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <simpleType name="String30"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="30" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String200"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="200" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String100"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="100" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String20"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="20" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String11"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="11" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String5"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="5" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String2"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="2" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String1"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="1" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String255"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="255" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String50"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="50" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String15"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="15" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String256"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="256" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String16"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="16" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String40"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="40" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String42"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="42" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String19"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="19" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="dateString10"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="10" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="dateString15"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="15" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="dateString19"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="19" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+</schema>

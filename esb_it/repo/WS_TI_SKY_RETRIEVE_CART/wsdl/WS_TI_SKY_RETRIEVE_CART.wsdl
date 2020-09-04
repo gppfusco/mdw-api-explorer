@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdTelecom/SkyXSD_TI_AOL_Retrieve_Cart.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="ElementHeaderResponse" type="eb:ElementHeaderType" /> 
+   <xsd:element name="ElementHeader" type="eb:ElementHeaderType" /> 
+   <xsd:complexType name="ElementHeaderType"> 
+    <xsd:sequence> 
+     <xsd:element name="sourceSystem" type="xsd:string" /> 
+     <xsd:element name="interactionDate"> 
+      <xsd:complexType> 
+       <xsd:sequence> 
+        <xsd:element name="Date" type="xsd:string" /> 
+        <xsd:element name="Time" type="xsd:string" /> 
+       </xsd:sequence> 
+      </xsd:complexType> 
+     </xsd:element> 
+     <xsd:element name="businessId" type="xsd:string" /> 
+     <xsd:element name="transactionId" type="xsd:string" /> 
+     <xsd:element name="messageId" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opRetrieveCart"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRetrieveCartResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opRetrieveCartRequest"> 
+  <wsdl:part element="eb:opRetrieveCart" name="parameters" /> 
+  <wsdl:part element="eb:ElementHeader" name="PartHeader" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRetrieveCartResponse"> 
+  <wsdl:part element="eb:opRetrieveCartResponse" name="parameters" /> 
+  <wsdl:part element="eb:ElementHeaderResponse" name="PartHeaderResponse" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_TI_SKY_RETRIEVE_CARTSoap"> 
+  <wsdl:operation name="opRetrieveCart"> 
+   <wsdl:input message="eb:opRetrieveCartRequest" name="opRetrieveCartRequest" /> 
+   <wsdl:output message="eb:opRetrieveCartResponse" name="opRetrieveCartResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_TI_SKY_RETRIEVE_CARTSoap" type="eb:WS_TI_SKY_RETRIEVE_CARTSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opRetrieveCart"> 
+   <soap:operation soapAction="WS_TI_SKY_RETRIEVE_CART/opRetrieveCart" style="document" /> 
+   <wsdl:input name="opRetrieveCartRequest"> 
+    <soap:header encodingStyle="" message="eb:opRetrieveCartRequest" part="PartHeader" use="literal" /> 
+    <soap:body parts="parameters" use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opRetrieveCartResponse"> 
+    <soap:header encodingStyle="" message="eb:opRetrieveCartResponse" part="PartHeaderResponse" use="literal" /> 
+    <soap:body parts="parameters" use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_TI_SKY_RETRIEVE_CART"> 
+  <wsdl:port binding="eb:WS_TI_SKY_RETRIEVE_CARTSoap" name="WS_TI_SKY_RETRIEVE_CARTSoap"> 
+   <soap:address location="https://wssvil.skytv.it/wsexistbus/ws_iptv_telecom/WS_TI_SKY_RETRIEVE_CART" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

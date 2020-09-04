@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_IVR_LEGGIDATICLIENTE_ASYNC",
+    "name" : "WS_IVR_LEGGIDATICLIENTE_ASYNC",
+    "localPath" : "esb_it\\repo\\WS_IVR_LEGGIDATICLIENTE_ASYNC",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_IVR_LEGGIDATICLIENTE_ASYNC?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

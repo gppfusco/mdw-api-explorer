@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdSiebel/xsdExtranet/SkyXSD_WS_HTL_SBL_APPLICA_PROMO_HD.xsd" /> 
+   <xsd:complexType name="ApplicaPromoInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:ApplicaPromoIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ApplicaPromoOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:ApplicaPromoOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opApplicaPromoHD"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ApplicaPromoInput" type="eb:ApplicaPromoInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opApplicaPromoHDResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ApplicaPromoOutput" type="eb:ApplicaPromoOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opApplicaPromoHDRequest"> 
+  <wsdl:part element="eb:opApplicaPromoHD" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opApplicaPromoHDResponse"> 
+  <wsdl:part element="eb:opApplicaPromoHDResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_HTL_SBL_APPLICA_PROMO_HDSoap"> 
+  <wsdl:operation name="opApplicaPromoHD"> 
+   <wsdl:input message="eb:opApplicaPromoHDRequest" name="opApplicaPromoHDRequest" /> 
+   <wsdl:output message="eb:opApplicaPromoHDResponse" name="opApplicaPromoHDResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_HTL_SBL_APPLICA_PROMO_HDSoap" type="eb:WS_HTL_SBL_APPLICA_PROMO_HDSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opApplicaPromoHD"> 
+   <soap:operation soapAction="WS_HTL_SBL_APPLICA_PROMO_HD/opApplicaPromoHD" style="document" /> 
+   <wsdl:input name="opApplicaPromoHDRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opApplicaPromoHDResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_HTL_SBL_APPLICA_PROMO_HD"> 
+  <wsdl:port binding="eb:WS_HTL_SBL_APPLICA_PROMO_HDSoap" name="WS_HTL_SBL_APPLICA_PROMO_HDSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_HTL_SBL_APPLICA_PROMO_HD" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

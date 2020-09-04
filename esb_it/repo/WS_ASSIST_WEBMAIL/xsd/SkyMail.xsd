@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:tns="http://firstel.it/SmsPlatform/SkyMailWebService" targetNamespace="http://firstel.it/SmsPlatform/SkyMailWebService" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xs:complexType name="webmail_categorizer"> 
+  <xs:sequence> 
+   <xs:element minOccurs="0" maxOccurs="1" name="CODICE_CLIENTE" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="CODICE_CONTRATTO" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="TESTO" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="OGGETTO" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="CROSSREFERENCEID" type="xs:string" /> 
+   <xs:element minOccurs="1" maxOccurs="1" name="DATA" type="xs:dateTime" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="webmail_categorizerResponse"> 
+  <xs:sequence> 
+   <xs:element minOccurs="0" maxOccurs="1" name="webmail_categorizerResult" type="tns:output_webmail_categorizer" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="output_webmail_categorizer"> 
+  <xs:complexContent mixed="false"> 
+   <xs:extension base="tns:output_generic"> 
+    <xs:sequence> 
+     <xs:element minOccurs="0" maxOccurs="1" name="GESTIONE" type="xs:string" /> 
+     <xs:element minOccurs="0" maxOccurs="1" name="CODICETEMPLATE" type="xs:string" /> 
+     <xs:element minOccurs="0" maxOccurs="1" name="CODICETRACCIAMENTO" type="xs:string" /> 
+     <xs:element minOccurs="0" maxOccurs="1" name="CROSSREFERENCEID" type="xs:string" /> 
+     <xs:element minOccurs="0" maxOccurs="1" name="TESTO" type="xs:string" /> 
+     <xs:element minOccurs="0" maxOccurs="1" name="AZIONE_DISPOSITIVA" type="xs:string" /> 
+    </xs:sequence> 
+   </xs:extension> 
+  </xs:complexContent> 
+ </xs:complexType> 
+ <xs:complexType name="output_generic"> 
+  <xs:sequence> 
+   <xs:element minOccurs="1" maxOccurs="1" name="ESITO" type="xs:int" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="ERRORDESCRIPTION" type="xs:string" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="processing_sky_agent"> 
+  <xs:sequence> 
+   <xs:element minOccurs="0" maxOccurs="1" name="CROSSREFERENCEID" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="CODICETEMPLATE" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="TESTO" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="CODTRACCIAMENTO" type="xs:string" /> 
+   <xs:element minOccurs="1" maxOccurs="1" name="DATA" type="xs:dateTime" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="processing_sky_agentResponse"> 
+  <xs:sequence> 
+   <xs:element minOccurs="0" maxOccurs="1" name="processing_sky_agentResult" type="tns:output_generic" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

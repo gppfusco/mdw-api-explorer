@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="contentFatture"> 
+    <xsd:sequence> 
+     <xsd:element name="TOTALE_FATTURA" type="xsd:string" /> 
+     <xsd:element name="CREDITO_PRECEDENTE" type="xsd:string" /> 
+     <xsd:element name="IMPORTO_DOVUTO" type="xsd:string" /> 
+     <xsd:element name="DATA_SCADENZA" type="xsd:string" /> 
+     <xsd:element name="DATA_CHIUSURA" type="xsd:string" /> 
+     <xsd:element name="ADJ_COMPLESSIVI" type="xsd:string" /> 
+     <xsd:element name="IMPORTO_SALDATO" type="xsd:string" /> 
+     <xsd:element name="TOTALE_DA_PAGARE" type="xsd:string" /> 
+     <xsd:element name="FATTURA" type="xsd:string" /> 
+     <xsd:element name="ACCOUNT_NO" type="xsd:string" /> 
+     <xsd:element name="BILL_REF_NO" type="xsd:string" /> 
+     <xsd:element name="BILL_REF_RESETS" type="xsd:string" /> 
+     <xsd:element name="INDEX_BILL_REF" type="xsd:string" /> 
+     <xsd:element name="INDEX_BILL_REF_RESETS" type="xsd:string" /> 
+     <xsd:element name="INTERIM_BILL_FLAG" type="xsd:string" /> 
+     <xsd:element name="DATA_S" type="xsd:string" /> 
+     <xsd:element name="DATA_EMISSIONE" type="xsd:string" /> 
+     <xsd:element name="STATO_DEPOSITO" type="xsd:string" /> 
+     <xsd:element name="INIZIO_ELABORAZIONE" type="xsd:string" /> 
+     <xsd:element name="DEPOSIT_AMOUNT" type="xsd:string" /> 
+     <xsd:element name="CONTESTO" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="ListFatture"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="Record" type="eb:contentFatture" /> 
+     <xsd:element name="id_esito" type="xsd:string" /> 
+     <xsd:element name="descr_esito" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="op_vbc_fatture"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="BILLING_ACCOUNT" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="op_vbc_fattureResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Record_List" type="eb:ListFatture" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="op_vbc_fattureRequest"> 
+  <wsdl:part element="eb:op_vbc_fatture" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="op_vbc_fattureResponse"> 
+  <wsdl:part element="eb:op_vbc_fattureResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SELFCARE_FATTURESoap"> 
+  <wsdl:operation name="op_vbc_fatture"> 
+   <wsdl:input message="eb:op_vbc_fattureRequest" name="op_vbc_fattureRequest" /> 
+   <wsdl:output message="eb:op_vbc_fattureResponse" name="op_vbc_fattureResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SELFCARE_FATTURESoap" type="eb:WS_SELFCARE_FATTURESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="op_vbc_fatture"> 
+   <soap:operation soapAction="WS_SELFCARE_FATTURE/op_vbc_fatture" style="document" /> 
+   <wsdl:input name="op_vbc_fattureRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="op_vbc_fattureResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SELFCARE_FATTURE"> 
+  <wsdl:port binding="eb:WS_SELFCARE_FATTURESoap" name="WS_SELFCARE_FATTURESoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_selfcare/WS_SELFCARE_FATTURE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

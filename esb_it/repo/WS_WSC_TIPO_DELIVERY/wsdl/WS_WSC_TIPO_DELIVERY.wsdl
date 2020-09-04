@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_WSC_TIPO_DELIVERY.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opTipoDelivery"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opTipoDeliveryResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opTipoDeliveryRequest"> 
+  <wsdl:part element="eb:opTipoDelivery" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opTipoDeliveryResponse"> 
+  <wsdl:part element="eb:opTipoDeliveryResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_WSC_TIPO_DELIVERYSoap"> 
+  <wsdl:operation name="opTipoDelivery"> 
+   <wsdl:input message="eb:opTipoDeliveryRequest" name="opTipoDeliveryRequest" /> 
+   <wsdl:output message="eb:opTipoDeliveryResponse" name="opTipoDeliveryResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_WSC_TIPO_DELIVERYSoap" type="eb:WS_WSC_TIPO_DELIVERYSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opTipoDelivery"> 
+   <soap:operation soapAction="WS_WSC_TIPO_DELIVERY/opTipoDelivery" style="document" /> 
+   <wsdl:input name="opTipoDeliveryRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opTipoDeliveryResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_WSC_TIPO_DELIVERY"> 
+  <wsdl:port binding="eb:WS_WSC_TIPO_DELIVERYSoap" name="WS_WSC_TIPO_DELIVERYSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_WSC_TIPO_DELIVERY" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

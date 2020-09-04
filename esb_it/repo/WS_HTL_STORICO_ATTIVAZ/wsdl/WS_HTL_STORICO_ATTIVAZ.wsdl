@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="EventContent"> 
+    <xsd:sequence> 
+     <xsd:element name="DATA_ATTIVAZIONE" type="xsd:string" /> 
+     <xsd:element name="DATA_DISATTIVAZIONE" type="xsd:string" /> 
+     <xsd:element name="STATO_CONSUMO" type="xsd:string" /> 
+     <xsd:element name="PREZZO" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="List"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="Event" type="eb:EventContent" /> 
+     <xsd:element name="id_esito" type="xsd:string" /> 
+     <xsd:element name="descr_esito" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="OpStoricoAttivaz"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_UTENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_HOTEL" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_STANZA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_DATA_INIZIO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DATA_FINE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_STATO_CONSUMO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OpStoricoAttivazResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Event_List" type="eb:List" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OpStoricoAttivazRequest"> 
+  <wsdl:part element="eb:OpStoricoAttivaz" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OpStoricoAttivazResponse"> 
+  <wsdl:part element="eb:OpStoricoAttivazResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_HTL_STORICO_ATTIVAZSoap"> 
+  <wsdl:operation name="OpStoricoAttivaz"> 
+   <wsdl:input message="eb:OpStoricoAttivazRequest" name="OpStoricoAttivazRequest" /> 
+   <wsdl:output message="eb:OpStoricoAttivazResponse" name="OpStoricoAttivazResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_HTL_STORICO_ATTIVAZSoap" type="eb:WS_HTL_STORICO_ATTIVAZSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OpStoricoAttivaz"> 
+   <soap:operation soapAction="WS_HTL_STORICO_ATTIVAZ/OpStoricoAttivaz" style="document" /> 
+   <wsdl:input name="OpStoricoAttivazRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OpStoricoAttivazResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_HTL_STORICO_ATTIVAZ"> 
+  <wsdl:port binding="eb:WS_HTL_STORICO_ATTIVAZSoap" name="WS_HTL_STORICO_ATTIVAZSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_HTL_STORICO_ATTIVAZ" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

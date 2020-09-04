@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONE",
+    "name" : "WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONE",
+    "localPath" : "esb_it\\repo\\WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONE?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

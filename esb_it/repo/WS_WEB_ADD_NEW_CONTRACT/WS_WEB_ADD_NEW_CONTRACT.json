@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_WEB_ADD_NEW_CONTRACT",
+    "name" : "WS_WEB_ADD_NEW_CONTRACT",
+    "localPath" : "esb_it\\repo\\WS_WEB_ADD_NEW_CONTRACT",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_WEB_ADD_NEW_CONTRACT?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "addNewContract.xsd",
+        "xsdNameSpace" : "http://utils.sky.it"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

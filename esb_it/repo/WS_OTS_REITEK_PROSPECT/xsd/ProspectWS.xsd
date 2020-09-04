@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. -->
+<xs:schema xmlns:tns="http://services.siebel.sky.integrationlayer.reitek.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+ <xs:element name="esitoAttivazioneProspect" type="tns:esitoAttivazioneProspect"></xs:element> 
+ <xs:element name="esitoAttivazioneProspectResponse" type="tns:esitoAttivazioneProspectResponse"></xs:element> 
+ <xs:element name="esitoLavorazioneProspect" type="tns:esitoLavorazioneProspect"></xs:element> 
+ <xs:element name="esitoLavorazioneProspectResponse" type="tns:esitoLavorazioneProspectResponse"></xs:element> 
+ <xs:complexType name="esitoAttivazioneProspect"> 
+  <xs:sequence> 
+   <xs:element name="esitoAttivazione" type="tns:esitoAttivazioneProspectInput" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="esitoAttivazioneProspectInput"> 
+  <xs:sequence> 
+   <xs:element name="CF" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="campaignCode" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="cellCode" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="contratto" type="xs:int" minOccurs="0"></xs:element> 
+   <xs:element name="descSiebel" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="esitoSiebel" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="id" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="treatmentCode" type="xs:string" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="esitoAttivazioneProspectResponse"> 
+  <xs:sequence> 
+   <xs:element name="return" type="tns:resultWS" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="resultWS"> 
+  <xs:sequence> 
+   <xs:element name="descrizione" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="esito" type="xs:string" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="esitoLavorazioneProspect"> 
+  <xs:sequence> 
+   <xs:element name="esitoLavorazione" type="tns:esitoLavorazioneInput" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="esitoLavorazioneInput"> 
+  <xs:sequence> 
+   <xs:element name="acquisizione" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="campaignCode" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="cellCode" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="codiceFiscale" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="descSiebel" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="esitoSiebel" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="id" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="numeroContratto" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="treatmentCode" type="xs:string" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="esitoLavorazioneProspectResponse"> 
+  <xs:sequence> 
+   <xs:element name="return" type="tns:resultWS" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

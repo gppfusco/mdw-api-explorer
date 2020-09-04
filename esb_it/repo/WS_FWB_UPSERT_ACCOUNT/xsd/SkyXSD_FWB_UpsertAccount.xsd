@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:tns="http://it.fastweb.esb.org/UpsertAccount" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://it.fastweb.esb.org/UpsertAccount" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <complexType name="InputMessageType"> 
+  <sequence> 
+   <element name="TransactionData" type="tns:TransactionDataType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OperationDataType"> 
+  <complexContent> 
+   <extension base="tns:InputMessageType"> 
+    <sequence> 
+     <element name="OperationData" type="tns:UpsertAccountInput_Type" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="OutputMessage" type="tns:OutputMessageType" /> 
+ <complexType name="OutputMessageType"> 
+  <sequence> 
+   <element name="OperationData" type="tns:UpsertAccount_OutputType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="TransactionDataType"> 
+  <sequence> 
+   <element name="SenderName" type="tns:string50" minOccurs="0" /> 
+   <element name="UserName" type="tns:string50" minOccurs="0" /> 
+   <element name="TransactionId" type="tns:string42" /> 
+   <element name="Version" type="tns:string50" minOccurs="0" /> 
+   <element name="TransactionTime" type="tns:dateString19" /> 
+  </sequence> 
+ </complexType> 
+ <simpleType name="string1"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="1" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string100"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="100" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string11"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="11" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string2"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="2" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string20"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="20" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string200"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="200" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string255"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="255" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string30"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="30" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string40"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="40" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string5"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="5" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string50"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="50" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string75"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="75" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string90"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="90" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string42"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="42" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string19"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="19" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="dateString10"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="10" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="dateString15"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="15" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="dateString19"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="19" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="dateString4"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="10" /> 
+   <pattern value="|(\d\d/\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+ <xsd:simpleType name="string7"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="7" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <element name="Cliente" type="tns:Cliente" /> 
+ <complexType name="ClienteTopElmt"> 
+  <sequence> 
+   <element name="Cliente" type="tns:Cliente" minOccurs="1" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="Cliente"> 
+  <sequence> 
+   <element name="CodiceClienteFW" type="tns:string30" minOccurs="1" maxOccurs="1" /> 
+   <element name="CodiceFiscalePIva" type="tns:string100" minOccurs="1" maxOccurs="1" /> 
+   <element name="Nome" type="tns:string100" minOccurs="0" maxOccurs="1" /> 
+   <element name="Cognome" type="tns:string100" minOccurs="0" maxOccurs="1" /> 
+   <element name="Sesso" type="tns:string1" minOccurs="0" maxOccurs="1" /> 
+   <element name="DataNascita" type="tns:dateString10" minOccurs="0" maxOccurs="1" /> 
+   <element name="SiglaProvinciaNascita" type="tns:string50" minOccurs="0" maxOccurs="1" /> 
+   <element name="ComuneNascita" type="tns:string100" minOccurs="0" maxOccurs="1" /> 
+   <element name="NazioneNascita" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="TipoDocumento" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="NazionalitaDocumento" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="NumeroDocumento" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="EnteRilascioDocumento" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="DataRilascioDocumento" type="tns:dateString10" minOccurs="0" maxOccurs="1" /> 
+   <element name="SiglaProvinciaDocumento" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="ComuneDocumento" type="tns:string50" minOccurs="0" maxOccurs="1" /> 
+   <element name="NumeroPermessoSoggiorno" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="ScadenzaPermessoSoggiorno" type="tns:dateString15" minOccurs="0" maxOccurs="1" /> 
+   <element name="IndirizzoCliente" type="tns:IndirizzoCliente" minOccurs="0" maxOccurs="1" /> 
+   <element name="Sede_CDF" type="tns:Sede_CDF" minOccurs="0" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="IndirizzoCliente"> 
+  <sequence> 
+   <element name="Indirizzo" type="tns:string100" /> 
+   <element name="CAP" type="tns:string5" /> 
+   <element name="Comune" type="tns:string100" /> 
+   <element name="SiglaProvincia" type="tns:string2" /> 
+   <element name="Nazione" type="tns:string30" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="Sede_CDF"> 
+  <sequence> 
+   <element name="CodiceCDFFW" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="ConsensoAnalisiPreferenzeSKY" type="tns:string1" minOccurs="0" maxOccurs="1" /> 
+   <element name="ConsensoComunicazioneDatiSKY" type="tns:string1" minOccurs="0" maxOccurs="1" /> 
+   <element name="ConsensoElabStudiSky" type="tns:string1" minOccurs="0" maxOccurs="1" /> 
+   <element name="TelefonoFisso" type="tns:string50" minOccurs="0" maxOccurs="1" /> 
+   <element name="Cellulare" type="tns:string50" minOccurs="0" maxOccurs="1" /> 
+   <element name="Email" type="tns:string100" minOccurs="0" maxOccurs="1" /> 
+   <element name="IndirizzoSpedizioneConto" type="tns:IndirizzoSpedizioneConto" minOccurs="0" maxOccurs="1" /> 
+   <element name="DettaglioCDF" type="tns:DettaglioCDF" minOccurs="0" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="IndirizzoSpedizioneConto"> 
+  <sequence> 
+   <element name="CognomeReferenteCdF" type="tns:string90" minOccurs="1" maxOccurs="1" /> 
+   <element name="NomeReferenteCdF" type="tns:string90" minOccurs="1" maxOccurs="1" /> 
+   <element name="IndirizzoSpedizioneConto" type="tns:string200" minOccurs="1" maxOccurs="1" /> 
+   <element name="SiglaProvinciaSpedizioneConto" type="tns:string50" minOccurs="1" maxOccurs="1" /> 
+   <element name="ComuneSpedizioneConto" type="tns:string100" minOccurs="1" maxOccurs="1" /> 
+   <element name="CAPSpedizioneConto" type="tns:string30" minOccurs="1" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="DettaglioCDF"> 
+  <sequence> 
+   <element name="MetodoPagamento" type="tns:string30" minOccurs="1" maxOccurs="1" /> 
+   <element name="MetodoSpedizioneFattura" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <xsd:element name="CodiceDestinatario" maxOccurs="1" minOccurs="0" type="tns:string7" /> 
+   <xsd:element name="EmailPec" maxOccurs="1" minOccurs="0" type="tns:string100" /> 
+   <element name="CircuitoCartaCredito" type="tns:string50" minOccurs="0" maxOccurs="1" /> 
+   <element name="NumeroCartaCredito" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="DataScadenzaCartaCredito" type="tns:dateString4" minOccurs="0" maxOccurs="1" /> 
+   <element name="IBAN" type="tns:string100" minOccurs="0" maxOccurs="1" /> 
+   <element name="CognomeTitolare" type="tns:string100" minOccurs="0" maxOccurs="1" /> 
+   <element name="NomeTitolare" type="tns:string100" minOccurs="0" maxOccurs="1" /> 
+   <element name="CodiceFiscalePIVATitolare" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+   <element name="SessoTitolare" type="tns:string1" minOccurs="0" maxOccurs="1" /> 
+   <element name="SiglaProvinciaNascitaTitolare" type="tns:string100" minOccurs="0" maxOccurs="1" /> 
+   <element name="DataNascitaTitolare" type="tns:dateString10" minOccurs="0" maxOccurs="1" /> 
+   <element name="ComuneNascitaTitolare" type="tns:string100" minOccurs="0" maxOccurs="1" /> 
+   <element name="IndirizzoTitolare" type="tns:string200" minOccurs="0" maxOccurs="1" /> 
+   <element name="SiglaProvinciaTitolare" type="tns:string100" minOccurs="0" maxOccurs="1" /> 
+   <element name="ComuneTitolare" type="tns:string100" minOccurs="0" maxOccurs="1" /> 
+   <element name="CAPTitolare" type="tns:string30" minOccurs="0" maxOccurs="1" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="UpsertAccountInput_Type"> 
+  <sequence> 
+   <element name="CodiceContrattoSKY" type="tns:string30" /> 
+   <element ref="tns:Cliente" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="UpsertAccount_OutputType"> 
+  <sequence> 
+   <element name="Status" type="tns:string30" minOccurs="0" /> 
+   <element name="ErrorCode" type="tns:string30" /> 
+   <element name="ErrorMessage" type="tns:string255" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+</schema>

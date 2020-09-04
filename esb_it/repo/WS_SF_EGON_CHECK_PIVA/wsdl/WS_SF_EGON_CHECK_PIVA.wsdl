@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="unqualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="DATI"> 
+    <xsd:sequence> 
+     <xsd:element name="PIVA"> 
+      <xsd:complexType> 
+       <xsd:sequence> 
+        <xsd:element name="AREA_OUTPUT"> 
+         <xsd:complexType> 
+          <xsd:sequence> 
+           <xsd:element name="PARTITA_IVA" type="xsd:long" /> 
+          </xsd:sequence> 
+         </xsd:complexType> 
+        </xsd:element> 
+        <xsd:element name="AREA_ERRORI"> 
+         <xsd:complexType> 
+          <xsd:sequence> 
+           <xsd:element name="ERRORE"> 
+            <xsd:complexType> 
+             <xsd:sequence> 
+              <xsd:element name="F_ERR" type="xsd:byte" /> 
+              <xsd:element name="C_ERR" type="xsd:byte" /> 
+              <xsd:element name="D_ERR" type="xsd:string" /> 
+             </xsd:sequence> 
+             <xsd:attribute name="value" type="xsd:string" /> 
+            </xsd:complexType> 
+           </xsd:element> 
+          </xsd:sequence> 
+         </xsd:complexType> 
+        </xsd:element> 
+       </xsd:sequence> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opCheckPartitaIva"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_PARTITA_IVA" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCheckPartitaIvaResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="DATI" type="eb:DATI" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCheckPartitaIvaRequest"> 
+  <wsdl:part element="eb:opCheckPartitaIva" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCheckPartitaIvaResponse"> 
+  <wsdl:part element="eb:opCheckPartitaIvaResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SF_EGON_CHECK_PIVASoap"> 
+  <wsdl:operation name="opCheckPartitaIva"> 
+   <wsdl:input message="eb:opCheckPartitaIvaRequest" name="opCheckPartitaIvaRequest" /> 
+   <wsdl:output message="eb:opCheckPartitaIvaResponse" name="opCheckPartitaIvaResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SF_EGON_CHECK_PIVASoap" type="eb:WS_SF_EGON_CHECK_PIVASoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCheckPartitaIva"> 
+   <soap:operation soapAction="WS_SF_EGON_CHECK_PIVA/opCheckPartitaIva" style="document" /> 
+   <wsdl:input name="opCheckPartitaIvaRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCheckPartitaIvaResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SF_EGON_CHECK_PIVA"> 
+  <wsdl:port binding="eb:WS_SF_EGON_CHECK_PIVASoap" name="WS_SF_EGON_CHECK_PIVASoap"> 
+   <soap:address location="https://wscolprj.sky.it/wsexistbus/ws_sf_ns/WS_SF_EGON_CHECK_PIVA" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

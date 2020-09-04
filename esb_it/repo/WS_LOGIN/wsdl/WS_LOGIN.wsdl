@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="LOGIN"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_CLIENT_API" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_OPERATORE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_MSG" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_AMBIENTE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="LOGINResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CA_PRIORITY" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CA_LOGIN_ID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CA_AMBIENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CA_CODE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="LOGINRequest"> 
+  <wsdl:part element="eb:LOGIN" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="LOGINResponse"> 
+  <wsdl:part element="eb:LOGINResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_LOGINSoap"> 
+  <wsdl:operation name="LOGIN"> 
+   <wsdl:input message="eb:LOGINRequest" name="LOGINRequest" /> 
+   <wsdl:output message="eb:LOGINResponse" name="LOGINResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_LOGINSoap" type="eb:WS_LOGINSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="LOGIN"> 
+   <soap:operation soapAction="WS_LOGIN/LOGIN" style="document" /> 
+   <wsdl:input name="LOGINRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="LOGINResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_LOGIN"> 
+  <wsdl:port binding="eb:WS_LOGINSoap" name="WS_LOGINSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_LOGIN" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdTelecom/SkyXSD_SCMS_SBL_CAMBIO_CLUSTER_RENDICONT.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opCambioClusterRendicont"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCambioClusterRendicontResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCambioClusterRendicontRequest"> 
+  <wsdl:part element="eb:opCambioClusterRendicont" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCambioClusterRendicontResponse"> 
+  <wsdl:part element="eb:opCambioClusterRendicontResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONESoap"> 
+  <wsdl:operation name="opCambioClusterRendicont"> 
+   <wsdl:input message="eb:opCambioClusterRendicontRequest" name="opCambioClusterRendicontRequest" /> 
+   <wsdl:output message="eb:opCambioClusterRendicontResponse" name="opCambioClusterRendicontResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONESoap" type="eb:WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCambioClusterRendicont"> 
+   <soap:operation soapAction="WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONE/opCambioClusterRendicont" style="document" /> 
+   <wsdl:input name="opCambioClusterRendicontRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCambioClusterRendicontResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONE"> 
+  <wsdl:port binding="eb:WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONESoap" name="WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SCMS_SBL_CAMBIO_CLUSTER_RENDICONTAZIONE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

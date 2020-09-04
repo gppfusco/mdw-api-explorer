@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opSendMessage"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_PHONE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SMS_TEXT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_SCH_DATE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_TYPE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_PRIORITY" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SMS_PROVENIENZA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_CARRIERID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_FLAG_ENABLED" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_ACCOUNT_NUMBER" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_NUM_SMC" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_TRANSACTION_ID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_SUB_TYPE_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_ESITO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSendMessageResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SMS_ROW_ID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_RET_CODE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opSendMessageRequest"> 
+  <wsdl:part element="eb:opSendMessage" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSendMessageResponse"> 
+  <wsdl:part element="eb:opSendMessageResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SMS_SEND_MESSAGE_OLDSoap"> 
+  <wsdl:operation name="opSendMessage"> 
+   <wsdl:input message="eb:opSendMessageRequest" name="opSendMessageRequest" /> 
+   <wsdl:output message="eb:opSendMessageResponse" name="opSendMessageResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SMS_SEND_MESSAGE_OLDSoap" type="eb:WS_SMS_SEND_MESSAGE_OLDSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opSendMessage"> 
+   <soap:operation soapAction="WS_SMS_SEND_MESSAGE_OLD/opSendMessage" style="document" /> 
+   <wsdl:input name="opSendMessageRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSendMessageResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SMS_SEND_MESSAGE_OLD"> 
+  <wsdl:port binding="eb:WS_SMS_SEND_MESSAGE_OLDSoap" name="WS_SMS_SEND_MESSAGE_OLDSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SMS_SEND_MESSAGE_OLD" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

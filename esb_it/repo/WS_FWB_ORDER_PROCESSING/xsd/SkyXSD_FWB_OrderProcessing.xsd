@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://it.fastweb.esb.org/OrderProcessing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://it.fastweb.esb.org/OrderProcessing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://it.fastweb.esb.org/OrderProcessing" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <complexType name="InputMessageType"> 
+  <sequence> 
+   <element name="TransactionData" type="tns:TransactionDataType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OperationDataType"> 
+  <complexContent> 
+   <extension base="tns:InputMessageType"> 
+    <sequence> 
+     <element name="OperationData" type="tns:OrderProcessing_Input_Type" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="OutputMessageType"> 
+  <sequence> 
+   <element name="OperationData" type="tns:OrderProcessing_Output_Type" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="TransactionDataType"> 
+  <sequence> 
+   <element name="SenderName" type="tns:String50" minOccurs="0" /> 
+   <element name="UserName" type="tns:String50" minOccurs="0" /> 
+   <element name="TransactionId" type="tns:String42" /> 
+   <element name="Version" type="tns:String50" minOccurs="0" /> 
+   <element name="TransactionTime" type="tns:String19" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OrderProcessing_Input_Type"> 
+  <sequence> 
+   <element name="Source" type="tns:String30" minOccurs="1" /> 
+   <element name="IdPDA" type="tns:String30" minOccurs="1" /> 
+   <element name="ChiaviSKY" type="tns:ChiaviSKYType" minOccurs="1" /> 
+   <element name="ChiaviFW" type="tns:ChiaviFWType" minOccurs="1" /> 
+   <element name="Azione" type="tns:String30" minOccurs="1" /> 
+   <element name="ClusterNumber" type="tns:String2" minOccurs="1" /> 
+   <element name="IdCausale" type="tns:String30" minOccurs="0" /> 
+   <element name="Causale" type="tns:String30" minOccurs="0" /> 
+   <element name="TipoProvisioning" type="tns:String30" minOccurs="0" /> 
+   <element name="DataAzione" type="tns:String15" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OrderProcessing_Output_Type"> 
+  <sequence> 
+   <element name="Status" type="tns:String30" minOccurs="0" /> 
+   <element name="ErrorCode" type="tns:String30" minOccurs="1" /> 
+   <element name="ErrorMessage" type="tns:String255" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ChiaviSKYType"> 
+  <sequence> 
+   <element name="CodiceContrattoSky" type="tns:String30" minOccurs="1" /> 
+   <element name="IntegrationIdSky" type="tns:String30" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ChiaviFWType"> 
+  <sequence> 
+   <element name="IdHeaderFW" type="tns:String30" minOccurs="1" /> 
+   <element name="IdInstanceFW" type="tns:String30" minOccurs="1" /> 
+   <element name="IdAssetFW" type="tns:String30" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <simpleType name="String2"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="2" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String30"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="30" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String255"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="255" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String50"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="50" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String42"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="42" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String15"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="15" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String19"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="19" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+</schema>

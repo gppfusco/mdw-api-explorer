@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SF_FWB_RETRIEVE_PROMO_LIST",
+    "name" : "WS_SF_FWB_RETRIEVE_PROMO_LIST",
+    "localPath" : "esb_it\\repo\\WS_SF_FWB_RETRIEVE_PROMO_LIST",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SF_FWB_RETRIEVE_PROMO_LIST?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdFWB/SkyXSD_FWB_RetrievePromoList.xsd",
+        "xsdNameSpace" : "http://it.fastweb.esb.org/RetrievePromoList"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

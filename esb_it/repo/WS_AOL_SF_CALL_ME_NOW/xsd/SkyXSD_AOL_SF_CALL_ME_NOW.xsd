@@ -1,0 +1,23 @@
+<xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler" elementFormDefault="qualified"> 
+ <xsd:complexType name="callMeNow"> 
+  <xsd:sequence> 
+   <xsd:element name="lead_input" type="tns:LeadInputElementCallMeNow" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="LeadInputElementCallMeNow"> 
+  <xsd:sequence> 
+   <xsd:element name="CapCritico" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="CodicePromo" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="DirettriceDiAccesso" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Name" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Note" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PacchettiSelezionati" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="PrivacyFlag1" minOccurs="0" type="xsd:string" nillable="true" /> 
+   <xsd:element name="ServiceEnvironment" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="SKYDealerCode" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Surname" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Tecnologia" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="TelephoneNumber" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

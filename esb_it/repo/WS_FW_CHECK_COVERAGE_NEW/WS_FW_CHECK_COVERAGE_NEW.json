@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_FW_CHECK_COVERAGE_NEW",
+    "name" : "WS_FW_CHECK_COVERAGE_NEW",
+    "localPath" : "esb_it\\repo\\WS_FW_CHECK_COVERAGE_NEW",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_FW_CHECK_COVERAGE_NEW?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "SkyXSD_CheckCoverage.xsd",
+        "xsdNameSpace" : "http://services.olg.oss.fastweb.it/fly/sky2fw/CheckCoverageServices/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

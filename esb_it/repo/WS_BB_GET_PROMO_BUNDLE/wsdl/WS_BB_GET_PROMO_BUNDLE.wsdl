@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="DocumentDataIN"> 
+    <xsd:sequence> 
+     <xsd:element name="FWTransactionData" type="eb:FWTransactionData" /> 
+     <xsd:element name="IdPDA"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="CodiceComsy"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="MetodoPagamento"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="CodiceDealerSky"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="CodiceTecnologia"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="Tecnologia"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="Cliente" type="eb:Cliente" /> 
+     <xsd:element name="CreditCheckScore"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="CodiceContratto"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="15" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOUT"> 
+    <xsd:sequence> 
+     <xsd:element name="ErrorCode"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="ErrorMessage"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="255" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="PromoList" type="eb:PromoList" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FWTransactionData"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="SenderName"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="50" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="UserName"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="50" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="TransactionId"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="42" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="Version"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="50" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="TransactionTime"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="19" /> 
+        <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="Cliente"> 
+    <xsd:sequence> 
+     <xsd:element name="DataNascita"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="15" /> 
+        <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="CAP"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="30" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="Provincia"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="30" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="PromoList"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="Promo" type="eb:Promo" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="Promo"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="ClaimPromo"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="255" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="IdPromoBundle"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="30" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="NomePromo"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="100" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opSiebel"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataIN" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSiebelResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOUT" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opSiebelRequest"> 
+  <wsdl:part element="eb:opSiebel" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSiebelResponse"> 
+  <wsdl:part element="eb:opSiebelResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_BB_GET_PROMO_BUNDLESoap"> 
+  <wsdl:operation name="opSiebel"> 
+   <wsdl:input message="eb:opSiebelRequest" name="opSiebelRequest" /> 
+   <wsdl:output message="eb:opSiebelResponse" name="opSiebelResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_BB_GET_PROMO_BUNDLESoap" type="eb:WS_BB_GET_PROMO_BUNDLESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opSiebel"> 
+   <soap:operation soapAction="WS_BB_GET_PROMO_BUNDLE/opSiebel" style="document" /> 
+   <wsdl:input name="opSiebelRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSiebelResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_BB_GET_PROMO_BUNDLE"> 
+  <wsdl:port binding="eb:WS_BB_GET_PROMO_BUNDLESoap" name="WS_BB_GET_PROMO_BUNDLESoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_bb/WS_BB_GET_PROMO_BUNDLE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

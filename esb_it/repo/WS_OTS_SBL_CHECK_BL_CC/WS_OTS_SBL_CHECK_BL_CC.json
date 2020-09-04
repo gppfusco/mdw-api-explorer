@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_OTS_SBL_CHECK_BL_CC",
+    "name" : "WS_OTS_SBL_CHECK_BL_CC",
+    "localPath" : "esb_it\\repo\\WS_OTS_SBL_CHECK_BL_CC",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_OTS_SBL_CHECK_BL_CC?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

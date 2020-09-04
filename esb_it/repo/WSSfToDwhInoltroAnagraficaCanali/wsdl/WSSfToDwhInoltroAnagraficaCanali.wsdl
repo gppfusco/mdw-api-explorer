@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="ComplexChannelInput"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="SF_CHANNEL_GRP_DATA" type="eb:ComplexChannel" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="ComplexChannel"> 
+    <xsd:sequence> 
+     <xsd:element name="SF_ID_IBMS" type="xsd:string" /> 
+     <xsd:element name="SF_NAME" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_VALID_FROM" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_VALID_TO" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_CHANNEL" type="xsd:string" /> 
+     <xsd:element name="SF_POSITION" type="xsd:string" /> 
+     <xsd:element name="SF_CHANNEL_MASTER" type="xsd:string" /> 
+     <xsd:element name="SF_MASTER_CHANNEL_ID" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_DAYS_FOR_REFERNCE_CHANNEL" type="xsd:string" /> 
+     <xsd:element name="SF_CCHANNEL_GENRE" type="xsd:string" /> 
+     <xsd:element name="SF_CREVENUE_GROUP" type="xsd:string" /> 
+     <xsd:element name="SF_FBELONGS_TO_FOX9" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_TINSERT" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="ComplexChannelOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="SRVZ_RET_CODE" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opInoltroAnagraficaCanali"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request_ws" type="eb:ComplexChannelInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opInoltroAnagraficaCanaliResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response_ws" type="eb:ComplexChannelOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opInoltroAnagraficaCanaliRequest"> 
+  <wsdl:part element="eb:opInoltroAnagraficaCanali" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opInoltroAnagraficaCanaliResponse"> 
+  <wsdl:part element="eb:opInoltroAnagraficaCanaliResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WSSfToDwhInoltroAnagraficaCanaliSoap"> 
+  <wsdl:operation name="opInoltroAnagraficaCanali"> 
+   <wsdl:input message="eb:opInoltroAnagraficaCanaliRequest" name="opInoltroAnagraficaCanaliRequest" /> 
+   <wsdl:output message="eb:opInoltroAnagraficaCanaliResponse" name="opInoltroAnagraficaCanaliResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WSSfToDwhInoltroAnagraficaCanaliSoap" type="eb:WSSfToDwhInoltroAnagraficaCanaliSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opInoltroAnagraficaCanali"> 
+   <soap:operation soapAction="WSSfToDwhInoltroAnagraficaCanali/opInoltroAnagraficaCanali" style="document" /> 
+   <wsdl:input name="opInoltroAnagraficaCanaliRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opInoltroAnagraficaCanaliResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WSSfToDwhInoltroAnagraficaCanali"> 
+  <wsdl:port binding="eb:WSSfToDwhInoltroAnagraficaCanaliSoap" name="WSSfToDwhInoltroAnagraficaCanaliSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_sf/WSSfToDwhInoltroAnagraficaCanali" /> 
+  </wsdl:port>
+ </wsdl:service>
+</wsdl:definitions>

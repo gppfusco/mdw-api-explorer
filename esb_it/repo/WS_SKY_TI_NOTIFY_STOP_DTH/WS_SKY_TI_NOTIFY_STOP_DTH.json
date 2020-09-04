@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SKY_TI_NOTIFY_STOP_DTH",
+    "name" : "WS_SKY_TI_NOTIFY_STOP_DTH",
+    "localPath" : "esb_it\\repo\\WS_SKY_TI_NOTIFY_STOP_DTH",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SKY_TI_NOTIFY_STOP_DTH?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdTelecom/SkyXSD_SKY_TI_NotifyStopDTH.xsd",
+        "xsdNameSpace" : "http://telecomitalia.it/SOA/WS_SKY_TI_NOTIFY_STOP_DTH/2014-09-04"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

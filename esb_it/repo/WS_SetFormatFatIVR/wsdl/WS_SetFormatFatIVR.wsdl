@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="SetFormatoFatturaIVR"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="NUMERO_ACCOUNT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CONNID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="ConnId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="TransId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="SetFormatoFatturaIVRResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="CODICE_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="DESCRIZIONE_MESSAGGIO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="SetFormatoFatturaIVRRequest"> 
+  <wsdl:part element="eb:SetFormatoFatturaIVR" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="SetFormatoFatturaIVRResponse"> 
+  <wsdl:part element="eb:SetFormatoFatturaIVRResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SetFormatFatIVRSoap"> 
+  <wsdl:operation name="SetFormatoFatturaIVR"> 
+   <wsdl:input message="eb:SetFormatoFatturaIVRRequest" name="SetFormatoFatturaIVRRequest" /> 
+   <wsdl:output message="eb:SetFormatoFatturaIVRResponse" name="SetFormatoFatturaIVRResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SetFormatFatIVRSoap" type="eb:WS_SetFormatFatIVRSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="SetFormatoFatturaIVR"> 
+   <soap:operation soapAction="WS_SetFormatFatIVR/SetFormatoFatturaIVR" style="document" /> 
+   <wsdl:input name="SetFormatoFatturaIVRRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="SetFormatoFatturaIVRResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SetFormatFatIVR"> 
+  <wsdl:port binding="eb:WS_SetFormatFatIVRSoap" name="WS_SetFormatFatIVRSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SetFormatFatIVR" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

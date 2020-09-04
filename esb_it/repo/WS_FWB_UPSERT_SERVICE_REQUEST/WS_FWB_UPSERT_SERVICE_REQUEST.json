@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_FWB_UPSERT_SERVICE_REQUEST",
+    "name" : "WS_FWB_UPSERT_SERVICE_REQUEST",
+    "localPath" : "esb_it\\repo\\WS_FWB_UPSERT_SERVICE_REQUEST",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_FWB_UPSERT_SERVICE_REQUEST?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdFWB/SkyXSD_FWB_UpsertServiceRequest.xsd",
+        "xsdNameSpace" : "http://it.fastweb.esb.org/UpsertServiceRequest"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sm="http://telecomitalia.it/SOA/WS_SKY_TI_NOTIFY_STOP_DTH/2014-09-04" targetNamespace="http://telecomitalia.it/SOA/WS_SKY_TI_NOTIFY_STOP_DTH/2014-09-04" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xsd:element name="ceaseContractRequest" type="sm:ceaseContractRequestType" /> 
+ <xsd:complexType name="DocumentDataInput"> 
+  <xsd:sequence> 
+   <xsd:element name="ceaseContractRequest" type="sm:ceaseContractRequestType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="DocumentDataOutput"> 
+  <xsd:sequence> 
+   <xsd:element name="Esito" nillable="false" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="DescrizioneEsito" nillable="false" type="sm:noEmptyFieldType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ceaseContractRequestType"> 
+  <xsd:sequence> 
+   <xsd:element name="IdPDA" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="DataCessazione" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="RowIdContrattoSkyCessato" type="sm:noEmptyFieldType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> <!-- updateStatus END --> <!-- SimpleTypes START --> 
+ <xsd:simpleType name="noEmptyFieldType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="1" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+</xsd:schema>

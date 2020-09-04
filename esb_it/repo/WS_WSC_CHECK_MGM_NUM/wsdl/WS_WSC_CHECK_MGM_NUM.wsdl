@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_WSC_CHECK_MGM_NUM.xsd" /> 
+   <xsd:complexType name="DocumentDataIn"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:COMPLEX_INPUT" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOut"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:COMPLEX_OUTPUT" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opGetCheckMgmNum"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataIn" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetCheckMgmNumResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOut" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opGetCheckMgmNumRequest"> 
+  <wsdl:part element="eb:opGetCheckMgmNum" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetCheckMgmNumResponse"> 
+  <wsdl:part element="eb:opGetCheckMgmNumResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_WSC_CHECK_MGM_NUMSoap"> 
+  <wsdl:operation name="opGetCheckMgmNum"> 
+   <wsdl:input message="eb:opGetCheckMgmNumRequest" name="opGetCheckMgmNumRequest" /> 
+   <wsdl:output message="eb:opGetCheckMgmNumResponse" name="opGetCheckMgmNumResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_WSC_CHECK_MGM_NUMSoap" type="eb:WS_WSC_CHECK_MGM_NUMSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opGetCheckMgmNum"> 
+   <soap:operation soapAction="WS_WSC_CHECK_MGM_NUM/opGetCheckMgmNum" style="document" /> 
+   <wsdl:input name="opGetCheckMgmNumRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGetCheckMgmNumResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_WSC_CHECK_MGM_NUM"> 
+  <wsdl:port binding="eb:WS_WSC_CHECK_MGM_NUMSoap" name="WS_WSC_CHECK_MGM_NUMSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_WSC_CHECK_MGM_NUM" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

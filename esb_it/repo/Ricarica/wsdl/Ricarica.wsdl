@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="RICARICA"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_MRM_HIDDEN_NUMBER" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_MRM_RIC_HIDDEN_NUMBER" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_OPPV_PROVENIENZA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_TRANSACTION_ID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="RICARICAResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ERRORE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CA_PREPAID_CREDIT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_OPPV_SMS" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CA_PREPAID_CREDIT_TOKENS" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="RICARICARequest"> 
+  <wsdl:part element="eb:RICARICA" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="RICARICAResponse"> 
+  <wsdl:part element="eb:RICARICAResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="RicaricaSoap"> 
+  <wsdl:operation name="RICARICA"> 
+   <wsdl:input message="eb:RICARICARequest" name="RICARICARequest" /> 
+   <wsdl:output message="eb:RICARICAResponse" name="RICARICAResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="RicaricaSoap" type="eb:RicaricaSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="RICARICA"> 
+   <soap:operation soapAction="Ricarica/RICARICA" style="document" /> 
+   <wsdl:input name="RICARICARequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="RICARICAResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="Ricarica"> 
+  <wsdl:port binding="eb:RicaricaSoap" name="RicaricaSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/Ricarica" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

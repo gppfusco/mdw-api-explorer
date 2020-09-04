@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.tribold.com/integration/trigger/3_1" xmlns:s1="http://www.tribold.com/integration/trigger/3_1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.tribold.com/integration/trigger/3_1" xmlns:s1="http://www.tribold.com/integration/trigger/3_1"> 
+   <xsd:complexType name="Request"> 
+    <xsd:sequence> 
+     <xsd:element name="LaunchGuid" type="s1:guid" /> 
+     <xsd:element minOccurs="0" name="LaunchReason" type="xsd:string" /> 
+     <xsd:element name="LaunchDate" type="xsd:dateTime" /> 
+     <xsd:element minOccurs="0" name="EntityBusinessId" type="xsd:string" /> 
+     <xsd:element name="EntityId" type="xsd:int" /> 
+     <xsd:element name="EntityGuid" type="s1:guid" /> 
+     <xsd:element minOccurs="0" name="EntityDisplayName" type="xsd:string" /> 
+     <xsd:element name="EntityTypeGuid" type="s1:guid" /> 
+     <xsd:element minOccurs="0" name="EntityTypeName" type="xsd:string" /> 
+     <xsd:element name="BaseEntityTypeGuid" type="s1:guid" /> 
+     <xsd:element minOccurs="0" name="BaseEntityTypeName" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="LaunchOriginatorEntityBusinessId" type="xsd:string" /> 
+     <xsd:element name="LaunchOriginatorEntityId" type="xsd:int" /> 
+     <xsd:element name="LaunchOriginatorEntityGuid" type="s1:guid" /> 
+     <xsd:element minOccurs="0" name="LaunchOriginatorEntityDisplayName" type="xsd:string" /> 
+     <xsd:element name="LaunchOriginatorEntityTypeGuid" type="s1:guid" /> 
+     <xsd:element minOccurs="0" name="LaunchOriginatorEntityTypeName" type="xsd:string" /> 
+     <xsd:element name="LaunchOriginatorBaseEntityTypeGuid" type="s1:guid" /> 
+     <xsd:element minOccurs="0" name="LaunchOriginatorBaseEntityTypeName" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="Reply"> 
+    <xsd:complexType name="Request"> 
+     <xsd:sequence> 
+      <xsd:element name="LaunchGuid" type="s1:guid" /> 
+      <xsd:element minOccurs="0" name="LaunchReason" type="xsd:string" /> 
+      <xsd:element name="LaunchDate" type="xsd:dateTime" /> 
+      <xsd:element minOccurs="0" name="EntityBusinessId" type="xsd:string" /> 
+      <xsd:element name="EntityId" type="xsd:int" /> 
+      <xsd:element name="EntityGuid" type="s1:guid" /> 
+      <xsd:element minOccurs="0" name="EntityDisplayName" type="xsd:string" /> 
+      <xsd:element name="EntityTypeGuid" type="s1:guid" /> 
+      <xsd:element minOccurs="0" name="EntityTypeName" type="xsd:string" /> 
+      <xsd:element name="BaseEntityTypeGuid" type="s1:guid" /> 
+      <xsd:element minOccurs="0" name="BaseEntityTypeName" type="xsd:string" /> 
+      <xsd:element minOccurs="0" name="LaunchOriginatorEntityBusinessId" type="xsd:string" /> 
+      <xsd:element name="LaunchOriginatorEntityId" type="xsd:int" /> 
+      <xsd:element name="LaunchOriginatorEntityGuid" type="s1:guid" /> 
+      <xsd:element minOccurs="0" name="LaunchOriginatorEntityDisplayName" type="xsd:string" /> 
+      <xsd:element name="LaunchOriginatorEntityTypeGuid" type="s1:guid" /> 
+      <xsd:element minOccurs="0" name="LaunchOriginatorEntityTypeName" type="xsd:string" /> 
+      <xsd:element name="LaunchOriginatorBaseEntityTypeGuid" type="s1:guid" /> 
+      <xsd:element minOccurs="0" name="LaunchOriginatorBaseEntityTypeName" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:complexType> 
+   <xsd:simpleType name="guid"> 
+    <xsd:restriction base="xsd:string"> 
+     <xsd:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9afA-F]{12}" /> 
+    </xsd:restriction> 
+   </xsd:simpleType> 
+   <xsd:element name="TriggerWSOperation"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="req" type="s1:Request" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="TriggerWSOperationResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="TriggerWSOperationResult" type="s1:Reply" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="TriggerWSOperationRequest"> 
+  <wsdl:part element="s1:TriggerWSOperation" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="TriggerWSOperationResponse"> 
+  <wsdl:part element="s1:TriggerWSOperationResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_TRIBOLD_SIEBEL_TRIGGER_PUBLISH_2Soap"> 
+  <wsdl:operation name="TriggerWSOperation"> 
+   <wsdl:input message="s1:TriggerWSOperationRequest" name="TriggerWSOperationRequest" /> 
+   <wsdl:output message="s1:TriggerWSOperationResponse" name="TriggerWSOperationResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_TRIBOLD_SIEBEL_TRIGGER_PUBLISH_2Soap" type="s1:WS_TRIBOLD_SIEBEL_TRIGGER_PUBLISH_2Soap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="TriggerWSOperation"> 
+   <soap:operation soapAction="WS_TRIBOLD_SIEBEL_TRIGGER_PUBLISH_2/TriggerWSOperation" style="document" /> 
+   <wsdl:input name="TriggerWSOperationRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="TriggerWSOperationResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_TRIBOLD_SIEBEL_TRIGGER_PUBLISH_2"> 
+  <wsdl:port binding="s1:WS_TRIBOLD_SIEBEL_TRIGGER_PUBLISH_2Soap" name="WS_TRIBOLD_SIEBEL_TRIGGER_PUBLISH_2Soap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_TRIBOLD_SIEBEL_TRIGGER_PUBLISH_2" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SBL_INSERIMENTO_RID_DEC",
+    "name" : "WS_SBL_INSERIMENTO_RID_DEC",
+    "localPath" : "esb_it\\repo\\WS_SBL_INSERIMENTO_RID_DEC",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SBL_INSERIMENTO_RID_DEC?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

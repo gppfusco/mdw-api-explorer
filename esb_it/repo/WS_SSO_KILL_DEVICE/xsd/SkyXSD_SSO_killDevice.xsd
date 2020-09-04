@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://inBound.ws.skyOn.skytv.it/" version="1.0" xmlns:tns="http://inBound.ws.skyOn.skytv.it/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+ <xsd:complexType name="killDevice"> 
+  <xsd:sequence> 
+   <xsd:element minOccurs="0" name="username" type="xsd:string" /> 
+   <xsd:element minOccurs="0" name="customerid" type="xsd:string" /> 
+   <xsd:element minOccurs="0" name="deviceid" type="xsd:string" /> 
+   <xsd:element minOccurs="0" name="deviceuuid" type="xsd:string" /> 
+   <xsd:element minOccurs="0" name="devicetrialid" type="xsd:string" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="killDeviceResponse"> 
+  <xsd:sequence> 
+   <xsd:element minOccurs="0" name="return" type="tns:dataOutput" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="dataOutput"> 
+  <xsd:sequence> 
+   <xsd:element minOccurs="0" name="code" type="xsd:string" /> 
+   <xsd:element minOccurs="0" name="descrizione" type="xsd:string" /> 
+   <xsd:element minOccurs="0" name="esito" type="xsd:string" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

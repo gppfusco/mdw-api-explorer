@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_FWB_CHECK_COVERAGE",
+    "name" : "WS_FWB_CHECK_COVERAGE",
+    "localPath" : "esb_it\\repo\\WS_FWB_CHECK_COVERAGE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_FWB_CHECK_COVERAGE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdFWB/SkyXSD_FWB_CheckCoverage.xsd",
+        "xsdNameSpace" : "http://it.fastweb.esb.org/CheckCoverage"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

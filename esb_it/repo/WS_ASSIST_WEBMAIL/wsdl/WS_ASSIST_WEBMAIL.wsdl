@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://firstel.it/SmsPlatform/SkyMailWebService" schemaLocation="xsdAssist/SkyMail.xsd" /> 
+   <xsd:complexType name="webmail_categorizer" xmlns:ast="http://firstel.it/SmsPlatform/SkyMailWebService"> 
+    <xsd:complexContent> 
+     <xsd:extension base="ast:webmail_categorizer" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="webmail_categorizerResponse" xmlns:ast="http://firstel.it/SmsPlatform/SkyMailWebService"> 
+    <xsd:complexContent> 
+     <xsd:extension base="ast:webmail_categorizerResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="processing_sky_agent" xmlns:ast="http://firstel.it/SmsPlatform/SkyMailWebService"> 
+    <xsd:complexContent> 
+     <xsd:extension base="ast:processing_sky_agent" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="processing_sky_agentResponse" xmlns:ast="http://firstel.it/SmsPlatform/SkyMailWebService"> 
+    <xsd:complexContent> 
+     <xsd:extension base="ast:processing_sky_agentResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opWebmail_categorizer"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:webmail_categorizer" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opWebmail_categorizerResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:webmail_categorizerResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opProcessing_sky_agent"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:processing_sky_agent" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opProcessing_sky_agentResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:processing_sky_agentResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opWebmail_categorizerRequest"> 
+  <wsdl:part element="eb:opWebmail_categorizer" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opWebmail_categorizerResponse"> 
+  <wsdl:part element="eb:opWebmail_categorizerResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opProcessing_sky_agentRequest"> 
+  <wsdl:part element="eb:opProcessing_sky_agent" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opProcessing_sky_agentResponse"> 
+  <wsdl:part element="eb:opProcessing_sky_agentResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_ASSIST_WEBMAILSoap"> 
+  <wsdl:operation name="opWebmail_categorizer"> 
+   <wsdl:input message="eb:opWebmail_categorizerRequest" name="opWebmail_categorizerRequest" /> 
+   <wsdl:output message="eb:opWebmail_categorizerResponse" name="opWebmail_categorizerResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opProcessing_sky_agent"> 
+   <wsdl:input message="eb:opProcessing_sky_agentRequest" name="opProcessing_sky_agentRequest" /> 
+   <wsdl:output message="eb:opProcessing_sky_agentResponse" name="opProcessing_sky_agentResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_ASSIST_WEBMAILSoap" type="eb:WS_ASSIST_WEBMAILSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opWebmail_categorizer"> 
+   <soap:operation soapAction="WS_ASSIST_WEBMAIL/opWebmail_categorizer" style="document" /> 
+   <wsdl:input name="opWebmail_categorizerRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opWebmail_categorizerResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opProcessing_sky_agent"> 
+   <soap:operation soapAction="WS_ASSIST_WEBMAIL/opProcessing_sky_agent" style="document" /> 
+   <wsdl:input name="opProcessing_sky_agentRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opProcessing_sky_agentResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_ASSIST_WEBMAIL"> 
+  <wsdl:port binding="eb:WS_ASSIST_WEBMAILSoap" name="WS_ASSIST_WEBMAILSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_ASSIST_WEBMAIL" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

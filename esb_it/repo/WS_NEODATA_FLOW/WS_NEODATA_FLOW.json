@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_NEODATA_FLOW",
+    "name" : "WS_NEODATA_FLOW",
+    "localPath" : "esb_it\\repo\\WS_NEODATA_FLOW",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_NEODATA_FLOW?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdNeodata/SkyXSD_Neodata.xsd",
+        "xsdNameSpace" : "http://sandbox.api.neodatagroup.it/ui/Soap2/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

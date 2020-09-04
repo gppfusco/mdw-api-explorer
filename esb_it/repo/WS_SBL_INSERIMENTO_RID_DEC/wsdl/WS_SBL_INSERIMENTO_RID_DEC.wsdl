@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLComplexInput"> 
+    <xsd:sequence> 
+     <xsd:element name="BA_NAME" type="xsd:string" /> 
+     <xsd:element name="PY_X_IMPORTO_SCADUTO" type="xsd:string" /> 
+     <xsd:element name="NTS_CID" type="xsd:string" /> 
+     <xsd:element name="PY_ROW_ID" type="xsd:string" /> 
+     <xsd:element name="PY_CREATED" type="xsd:string" /> 
+     <xsd:element name="PY_X_COD_SIA" type="xsd:string" /> 
+     <xsd:element name="PY_X_COD_AUT_RID" type="xsd:string" /> 
+     <xsd:element name="PY_DESIRED_PAY_DT" type="xsd:string" /> 
+     <xsd:element name="PY_X_NOMINATIVO_SOTTOSCRITTORE" type="xsd:string" /> 
+     <xsd:element name="PY_X_IBAN" type="xsd:string" /> 
+     <xsd:element name="PY_X_COD_FISC_SOTTOSCRITTORE" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="PY_X_FLG_IBAN_EU" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="PY_X_BIC" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="CRM_INDIRIZZO" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="SRVZ_RET_CODE" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opSBL_InserimentoRIDDeca"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ws_request" type="eb:FMLComplexInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSBL_InserimentoRIDDecaResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ws_response" type="eb:FMLComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opSBL_InserimentoRIDDecaRequest"> 
+  <wsdl:part element="eb:opSBL_InserimentoRIDDeca" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSBL_InserimentoRIDDecaResponse"> 
+  <wsdl:part element="eb:opSBL_InserimentoRIDDecaResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SBL_INSERIMENTO_RID_DECSoap"> 
+  <wsdl:operation name="opSBL_InserimentoRIDDeca"> 
+   <wsdl:input message="eb:opSBL_InserimentoRIDDecaRequest" name="opSBL_InserimentoRIDDecaRequest" /> 
+   <wsdl:output message="eb:opSBL_InserimentoRIDDecaResponse" name="opSBL_InserimentoRIDDecaResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SBL_INSERIMENTO_RID_DECSoap" type="eb:WS_SBL_INSERIMENTO_RID_DECSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opSBL_InserimentoRIDDeca"> 
+   <soap:operation soapAction="WS_SBL_INSERIMENTO_RID_DEC/opSBL_InserimentoRIDDeca" style="document" /> 
+   <wsdl:input name="opSBL_InserimentoRIDDecaRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSBL_InserimentoRIDDecaResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SBL_INSERIMENTO_RID_DEC"> 
+  <wsdl:port binding="eb:WS_SBL_INSERIMENTO_RID_DECSoap" name="WS_SBL_INSERIMENTO_RID_DECSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SBL_INSERIMENTO_RID_DEC" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

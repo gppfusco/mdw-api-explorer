@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SSO_KILL_DEVICE",
+    "name" : "WS_SSO_KILL_DEVICE",
+    "localPath" : "esb_it\\repo\\WS_SSO_KILL_DEVICE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SSO_KILL_DEVICE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "SkyXSD_SSO_killDevice.xsd",
+        "xsdNameSpace" : "http://inBound.ws.skyOn.skytv.it/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

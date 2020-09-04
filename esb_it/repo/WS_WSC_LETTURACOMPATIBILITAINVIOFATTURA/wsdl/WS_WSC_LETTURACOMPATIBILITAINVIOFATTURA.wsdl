@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_WSC_LETTURACOMPATIBILITAINVIOFATTURA.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opLetturaCompatibilitaInvioFattura"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLetturaCompatibilitaInvioFatturaResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opLetturaCompatibilitaInvioFatturaRequest"> 
+  <wsdl:part element="eb:opLetturaCompatibilitaInvioFattura" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLetturaCompatibilitaInvioFatturaResponse"> 
+  <wsdl:part element="eb:opLetturaCompatibilitaInvioFatturaResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_WSC_LETTURACOMPATIBILITAINVIOFATTURASoap"> 
+  <wsdl:operation name="opLetturaCompatibilitaInvioFattura"> 
+   <wsdl:input message="eb:opLetturaCompatibilitaInvioFatturaRequest" name="opLetturaCompatibilitaInvioFatturaRequest" /> 
+   <wsdl:output message="eb:opLetturaCompatibilitaInvioFatturaResponse" name="opLetturaCompatibilitaInvioFatturaResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_WSC_LETTURACOMPATIBILITAINVIOFATTURASoap" type="eb:WS_WSC_LETTURACOMPATIBILITAINVIOFATTURASoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opLetturaCompatibilitaInvioFattura"> 
+   <soap:operation soapAction="WS_WSC_LETTURACOMPATIBILITAINVIOFATTURA/opLetturaCompatibilitaInvioFattura" style="document" /> 
+   <wsdl:input name="opLetturaCompatibilitaInvioFatturaRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opLetturaCompatibilitaInvioFatturaResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_WSC_LETTURACOMPATIBILITAINVIOFATTURA"> 
+  <wsdl:port binding="eb:WS_WSC_LETTURACOMPATIBILITAINVIOFATTURASoap" name="WS_WSC_LETTURACOMPATIBILITAINVIOFATTURASoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_WSC_LETTURACOMPATIBILITAINVIOFATTURA" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

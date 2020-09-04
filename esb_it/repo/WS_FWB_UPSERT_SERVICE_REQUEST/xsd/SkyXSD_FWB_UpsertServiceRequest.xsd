@@ -1,0 +1,118 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://it.fastweb.esb.org/UpsertServiceRequest" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://it.fastweb.esb.org/UpsertServiceRequest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://it.fastweb.esb.org/UpsertServiceRequest" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <complexType name="InputMessageType"> 
+  <sequence> 
+   <element name="TransactionData" type="tns:TransactionDataType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OperationDataType"> 
+  <complexContent> 
+   <extension base="tns:InputMessageType"> 
+    <sequence> 
+     <element name="OperationData" type="tns:OperationData" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="OperationData"> 
+  <sequence> 
+   <element name="Cliente" type="tns:Cliente" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="Cliente"> 
+  <sequence> 
+   <element name="CodiceClienteFW" maxOccurs="1" minOccurs="1" type="tns:String30" /> 
+   <element name="Sede_CDF" maxOccurs="1" minOccurs="1" type="tns:Sede_CDF" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="Sede_CDF"> 
+  <sequence> 
+   <element name="CodiceCDFFW" default="CodiceCDFFW" maxOccurs="1" minOccurs="1" /> 
+   <element name="ServiceRequest" maxOccurs="1" minOccurs="1" type="tns:ServiceRequest" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ServiceRequest"> 
+  <sequence> 
+   <element name="SRNum" maxOccurs="1" minOccurs="1" type="tns:String30" /> 
+   <element name="CodiceSRFW" maxOccurs="1" minOccurs="0" type="xsd:string" /> 
+   <element name="CodiceEsigenza" maxOccurs="1" minOccurs="1" type="tns:String30" /> 
+   <element name="Ambito" maxOccurs="1" minOccurs="0" type="tns:String30" /> 
+   <element name="Area" maxOccurs="1" minOccurs="0" type="tns:String30" /> 
+   <element name="SubArea" maxOccurs="1" minOccurs="0" type="tns:String50" /> 
+   <element name="Esito" maxOccurs="1" minOccurs="0" type="tns:String50" /> 
+   <element name="Note" maxOccurs="1" minOccurs="0" type="xsd:string" /> 
+   <element name="Stato" maxOccurs="1" minOccurs="1" type="tns:String30" /> 
+   <element name="DataModifica" maxOccurs="1" minOccurs="1" type="tns:String15" /> 
+   <element name="TipoDisdetta" maxOccurs="1" minOccurs="0" type="tns:String50" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OutputMessageType"> 
+  <sequence> 
+   <element name="OperationData" type="tns:UpsertServiceRequest_Output_Type" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="UpsertServiceRequest_Output_Type"> 
+  <sequence> 
+   <element name="Status" minOccurs="0" type="xsd:string" /> 
+   <element name="ErrorCode" type="xsd:string" /> 
+   <element name="ErrorMessage" minOccurs="0" type="xsd:string" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="TransactionDataType"> 
+  <sequence> 
+   <element name="SenderName" type="tns:String50" minOccurs="0" /> 
+   <element name="UserName" type="tns:String50" minOccurs="0" /> 
+   <element name="TransactionId" type="tns:String42" /> 
+   <element name="Version" type="tns:String50" minOccurs="0" /> 
+   <element name="TransactionTime" type="tns:String19" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ChiaviSKYType"> 
+  <sequence> 
+   <element name="CodiceContrattoSky" type="tns:String30" minOccurs="1" /> 
+   <element name="IntegrationIdSky" type="tns:String30" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ChiaviFWType"> 
+  <sequence> 
+   <element name="IdHeaderFW" type="tns:String30" minOccurs="1" /> 
+   <element name="IdInstanceFW" type="tns:String30" minOccurs="1" /> 
+   <element name="IdAssetFW" type="tns:String30" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <simpleType name="String2"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="2" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String30"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="30" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String255"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="255" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String50"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="50" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String42"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="42" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String15"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="15" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String19"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="19" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+</schema>

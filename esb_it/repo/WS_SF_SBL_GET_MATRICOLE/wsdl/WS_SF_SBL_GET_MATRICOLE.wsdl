@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_SF_SBL_GET_MATRICOLE.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opGetMatricole"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetMatricoleResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opGetMatricoleRequest"> 
+  <wsdl:part element="eb:opGetMatricole" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetMatricoleResponse"> 
+  <wsdl:part element="eb:opGetMatricoleResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SF_SBL_GET_MATRICOLESoap"> 
+  <wsdl:operation name="opGetMatricole"> 
+   <wsdl:input message="eb:opGetMatricoleRequest" name="opGetMatricoleRequest" /> 
+   <wsdl:output message="eb:opGetMatricoleResponse" name="opGetMatricoleResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SF_SBL_GET_MATRICOLESoap" type="eb:WS_SF_SBL_GET_MATRICOLESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opGetMatricole"> 
+   <soap:operation soapAction="WS_SF_SBL_GET_MATRICOLE/opGetMatricole" style="document" /> 
+   <wsdl:input name="opGetMatricoleRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGetMatricoleResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SF_SBL_GET_MATRICOLE"> 
+  <wsdl:port binding="eb:WS_SF_SBL_GET_MATRICOLESoap" name="WS_SF_SBL_GET_MATRICOLESoap"> 
+   <soap:address location="https://wssvil.sky.it/wsexistbus/ws_sf_ns/WS_SF_SBL_GET_MATRICOLE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

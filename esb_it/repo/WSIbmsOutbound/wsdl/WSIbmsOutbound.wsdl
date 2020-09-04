@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://soap.sforce.com/schemas/class/IBMS_WS_Outbound_Response_def" schemaLocation="SkyXSD_Outbound.xsd" /> 
+   <xsd:complexType name="opCreateCampaignResponse" xmlns:sf="http://soap.sforce.com/schemas/class/IBMS_WS_Outbound_Response_def"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:opCreateCampaignResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="opCreateCampaignResponseResponse" xmlns:sf="http://soap.sforce.com/schemas/class/IBMS_WS_Outbound_Response_def"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:opCreateCampaignResponseResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="opUpdateCampaignResponse" xmlns:sf="http://soap.sforce.com/schemas/class/IBMS_WS_Outbound_Response_def"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:opUpdateCampaignResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="opUpdateCampaignResponseResponse" xmlns:sf="http://soap.sforce.com/schemas/class/IBMS_WS_Outbound_Response_def"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:opUpdateCampaignResponseResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opCreateCampaignResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:opCreateCampaignResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCreateCampaignResponseResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:opCreateCampaignResponseResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpdateCampaignResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:opUpdateCampaignResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpdateCampaignResponseResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:opUpdateCampaignResponseResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCreateCampaignResponseRequest"> 
+  <wsdl:part element="eb:opCreateCampaignResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCreateCampaignResponseResponse"> 
+  <wsdl:part element="eb:opCreateCampaignResponseResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpdateCampaignResponseRequest"> 
+  <wsdl:part element="eb:opUpdateCampaignResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpdateCampaignResponseResponse"> 
+  <wsdl:part element="eb:opUpdateCampaignResponseResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WSIbmsOutboundSoap"> 
+  <wsdl:operation name="opCreateCampaignResponse"> 
+   <wsdl:input message="eb:opCreateCampaignResponseRequest" name="opCreateCampaignResponseRequest" /> 
+   <wsdl:output message="eb:opCreateCampaignResponseResponse" name="opCreateCampaignResponseResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpdateCampaignResponse"> 
+   <wsdl:input message="eb:opUpdateCampaignResponseRequest" name="opUpdateCampaignResponseRequest" /> 
+   <wsdl:output message="eb:opUpdateCampaignResponseResponse" name="opUpdateCampaignResponseResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WSIbmsOutboundSoap" type="eb:WSIbmsOutboundSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCreateCampaignResponse"> 
+   <soap:operation soapAction="WSIbmsOutbound/opCreateCampaignResponse" style="document" /> 
+   <wsdl:input name="opCreateCampaignResponseRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCreateCampaignResponseResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpdateCampaignResponse"> 
+   <soap:operation soapAction="WSIbmsOutbound/opUpdateCampaignResponse" style="document" /> 
+   <wsdl:input name="opUpdateCampaignResponseRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opUpdateCampaignResponseResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WSIbmsOutbound"> 
+  <wsdl:port binding="eb:WSIbmsOutboundSoap" name="WSIbmsOutboundSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WSIbmsOutbound" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

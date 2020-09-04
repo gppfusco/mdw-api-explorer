@@ -1,0 +1,53 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:cvx="https://lite.custrics.org/" targetNamespace="https://lite.custrics.org/"> 
+ <xsd:complexType name="InserisciQuestionarioRequestType"> 
+  <xsd:sequence> 
+   <xsd:element name="IdFlusso" type="xsd:string" /> 
+   <xsd:element name="IdCom" type="xsd:string" /> 
+   <xsd:element name="TID" type="xsd:string" /> 
+   <xsd:element name="Esito" type="xsd:string" /> 
+   <xsd:element name="Desc" type="xsd:string" /> 
+   <xsd:element name="Questionario" type="cvx:QuestionarioArray" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="QuestionarioArray"> 
+  <xsd:sequence> 
+   <xsd:element name="ItemQuestionario" type="cvx:Questionario" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="QuestionarioArrayElement" type="cvx:QuestionarioArray" /> 
+ <xsd:complexType name="Questionario"> 
+  <xsd:sequence> 
+   <xsd:element name="ErrorCode" type="xsd:string" /> 
+   <xsd:element name="ErrorMessage" type="xsd:string" /> 
+   <xsd:element name="Codice" type="xsd:string" /> 
+   <xsd:element name="Date" type="xsd:string" /> 
+   <xsd:element name="CodiceCliente" type="xsd:string" /> 
+   <xsd:element name="CodiceContratto" type="xsd:string" /> 
+   <xsd:element name="CodiceCustvox" type="xsd:string" /> 
+   <xsd:element name="Domanda" type="cvx:DomandaArray" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="QuestionarioElement" type="cvx:Questionario" /> 
+ <xsd:complexType name="DomandaArray"> 
+  <xsd:sequence> 
+   <xsd:element name="ItemDomanda" type="cvx:Domanda" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DomandaArrayElement" type="cvx:DomandaArray" /> 
+ <xsd:complexType name="Domanda"> 
+  <xsd:sequence> 
+   <xsd:element name="ErrorCode" type="xsd:string" /> 
+   <xsd:element name="ErrorMessage" type="xsd:string" /> 
+   <xsd:element name="Codice" type="xsd:string" /> 
+   <xsd:element name="CodiceCustvox" type="xsd:string" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DomandaElement" type="cvx:Domanda" /> 
+ <xsd:complexType name="InserisciQuestionarioResponseType"> 
+  <xsd:sequence> 
+   <xsd:element name="SRVZ_RET_CODE" type="xsd:string" /> 
+   <xsd:element name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+   <xsd:element name="WS_TID" type="xsd:string" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

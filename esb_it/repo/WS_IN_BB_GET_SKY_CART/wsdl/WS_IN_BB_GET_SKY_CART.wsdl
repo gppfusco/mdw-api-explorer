@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opSiebel"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="IdPDA" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSiebelResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SkyCart" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ErrorCode" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ErrorMessage" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opSiebelRequest"> 
+  <wsdl:part element="eb:opSiebel" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSiebelResponse"> 
+  <wsdl:part element="eb:opSiebelResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_IN_BB_GET_SKY_CARTSoap"> 
+  <wsdl:operation name="opSiebel"> 
+   <wsdl:input message="eb:opSiebelRequest" name="opSiebelRequest" /> 
+   <wsdl:output message="eb:opSiebelResponse" name="opSiebelResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_IN_BB_GET_SKY_CARTSoap" type="eb:WS_IN_BB_GET_SKY_CARTSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opSiebel"> 
+   <soap:operation soapAction="WS_IN_BB_GET_SKY_CART/opSiebel" style="document" /> 
+   <wsdl:input name="opSiebelRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSiebelResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_IN_BB_GET_SKY_CART"> 
+  <wsdl:port binding="eb:WS_IN_BB_GET_SKY_CARTSoap" name="WS_IN_BB_GET_SKY_CARTSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_IN_BB_GET_SKY_CART" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

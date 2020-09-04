@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="https://lite.custrics.org/" schemaLocation="SkyXSD_Custvox_sbl_to_custvox.xsd" /> 
+   <xsd:complexType name="InserisciQuestionario" xmlns:cvx="https://lite.custrics.org/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="cvx:InserisciQuestionarioRequestType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="InserisciQuestionarioResponse" xmlns:cvx="https://lite.custrics.org/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="cvx:InserisciQuestionarioResponseType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opInserisciEsiti"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:InserisciQuestionario" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opInserisciEsitiResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:InserisciQuestionarioResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opInserisciEsitiRequest"> 
+  <wsdl:part element="eb:opInserisciEsiti" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opInserisciEsitiResponse"> 
+  <wsdl:part element="eb:opInserisciEsitiResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOXSoap"> 
+  <wsdl:operation name="opInserisciEsiti"> 
+   <wsdl:input message="eb:opInserisciEsitiRequest" name="opInserisciEsitiRequest" /> 
+   <wsdl:output message="eb:opInserisciEsitiResponse" name="opInserisciEsitiResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOXSoap" type="eb:WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOXSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opInserisciEsiti"> 
+   <soap:operation soapAction="WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOX/opInserisciEsiti" style="document" /> 
+   <wsdl:input name="opInserisciEsitiRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opInserisciEsitiResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOX"> 
+  <wsdl:port binding="eb:WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOXSoap" name="WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOXSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_CUSTVOX_INSERIMENTO_ESITI_SBL_TO_CUSTVOX" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

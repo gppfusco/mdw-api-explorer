@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://inBound.ws.skyOn.skytv.it/" schemaLocation="SkyOnSsoService_schema1.xsd" /> 
+   <xsd:complexType name="disableCustomer" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:disableCustomer" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="disableCustomerResponse" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:disableCustomerResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="entitleCustomer" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:entitleCustomer" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="entitleCustomerResponse" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:entitleCustomerResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="resetCustomerPin" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:resetCustomerPin" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="resetCustomerPinResponse" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:resetCustomerPinResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="setCustomerVisionDetails" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:setCustomerVisionDetails" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="setCustomerVisionDetailsResponse" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:setCustomerVisionDetailsResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="getUserCredentials" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:getUserCredentials" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="getUserCredentialsResponse" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:getUserCredentialsResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opEntitleCustomer"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="entitleCustomerRequest" type="eb:entitleCustomer" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opEntitleCustomerResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="entitleCustomerResponse" type="eb:entitleCustomerResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSetCustomerVisionDetails"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="setCustomerVisionDetailsRequest" type="eb:setCustomerVisionDetails" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSetCustomerVisionDetailsResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="setCustomerVisionDetailsResponse" type="eb:setCustomerVisionDetailsResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opDisableCustomer"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="disableCustomerRequest" type="eb:disableCustomer" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opDisableCustomerResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="disableCustomerResponse" type="eb:disableCustomerResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opResetCustomerPin"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="resetCustomerPinRequest" type="eb:resetCustomerPin" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opResetCustomerPinResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="resetCustomerPinResponse" type="eb:resetCustomerPinResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetUserCredentials"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="getUserCredentials" type="eb:getUserCredentials" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetUserCredentialsResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="getUserCredentialsResponse" type="eb:getUserCredentialsResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opEntitleCustomerRequest"> 
+  <wsdl:part element="eb:opEntitleCustomer" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opEntitleCustomerResponse"> 
+  <wsdl:part element="eb:opEntitleCustomerResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSetCustomerVisionDetailsRequest"> 
+  <wsdl:part element="eb:opSetCustomerVisionDetails" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSetCustomerVisionDetailsResponse"> 
+  <wsdl:part element="eb:opSetCustomerVisionDetailsResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opDisableCustomerRequest"> 
+  <wsdl:part element="eb:opDisableCustomer" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opDisableCustomerResponse"> 
+  <wsdl:part element="eb:opDisableCustomerResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opResetCustomerPinRequest"> 
+  <wsdl:part element="eb:opResetCustomerPin" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opResetCustomerPinResponse"> 
+  <wsdl:part element="eb:opResetCustomerPinResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetUserCredentialsRequest"> 
+  <wsdl:part element="eb:opGetUserCredentials" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetUserCredentialsResponse"> 
+  <wsdl:part element="eb:opGetUserCredentialsResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_AW_SSO_SERVICESSoap"> 
+  <wsdl:operation name="opEntitleCustomer"> 
+   <wsdl:input message="eb:opEntitleCustomerRequest" name="opEntitleCustomerRequest" /> 
+   <wsdl:output message="eb:opEntitleCustomerResponse" name="opEntitleCustomerResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSetCustomerVisionDetails"> 
+   <wsdl:input message="eb:opSetCustomerVisionDetailsRequest" name="opSetCustomerVisionDetailsRequest" /> 
+   <wsdl:output message="eb:opSetCustomerVisionDetailsResponse" name="opSetCustomerVisionDetailsResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opDisableCustomer"> 
+   <wsdl:input message="eb:opDisableCustomerRequest" name="opDisableCustomerRequest" /> 
+   <wsdl:output message="eb:opDisableCustomerResponse" name="opDisableCustomerResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opResetCustomerPin"> 
+   <wsdl:input message="eb:opResetCustomerPinRequest" name="opResetCustomerPinRequest" /> 
+   <wsdl:output message="eb:opResetCustomerPinResponse" name="opResetCustomerPinResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opGetUserCredentials"> 
+   <wsdl:input message="eb:opGetUserCredentialsRequest" name="opGetUserCredentialsRequest" /> 
+   <wsdl:output message="eb:opGetUserCredentialsResponse" name="opGetUserCredentialsResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_AW_SSO_SERVICESSoap" type="eb:WS_AW_SSO_SERVICESSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opEntitleCustomer"> 
+   <soap:operation soapAction="WS_AW_SSO_SERVICES/opEntitleCustomer" style="document" /> 
+   <wsdl:input name="opEntitleCustomerRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opEntitleCustomerResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSetCustomerVisionDetails"> 
+   <soap:operation soapAction="WS_AW_SSO_SERVICES/opSetCustomerVisionDetails" style="document" /> 
+   <wsdl:input name="opSetCustomerVisionDetailsRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSetCustomerVisionDetailsResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opDisableCustomer"> 
+   <soap:operation soapAction="WS_AW_SSO_SERVICES/opDisableCustomer" style="document" /> 
+   <wsdl:input name="opDisableCustomerRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opDisableCustomerResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opResetCustomerPin"> 
+   <soap:operation soapAction="WS_AW_SSO_SERVICES/opResetCustomerPin" style="document" /> 
+   <wsdl:input name="opResetCustomerPinRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opResetCustomerPinResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opGetUserCredentials"> 
+   <soap:operation soapAction="WS_AW_SSO_SERVICES/opGetUserCredentials" style="document" /> 
+   <wsdl:input name="opGetUserCredentialsRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGetUserCredentialsResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_AW_SSO_SERVICES"> 
+  <wsdl:port binding="eb:WS_AW_SSO_SERVICESSoap" name="WS_AW_SSO_SERVICESSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_AW_SSO_SERVICES" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:int" use="required" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+    <xsd:attribute name="occur" type="xsd:int" use="required" /> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexInput"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="SRVZ_PARAM_1" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CA_USERNAME" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CA_PASSWORD" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CA_SID" type="eb:FMLFieldType" /> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="FML_ROOT" type="eb:FMLComplexInputChild" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexInputChild"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="CRM_EMAIL" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CRM_FLAG_APPARATO" type="eb:FMLFieldType" /> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="FML_CHILD" type="eb:FMLComplexInputChildField" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexInputChildField"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="CRM_CODE_FASE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CRM_CODE_FISCALE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="CRM_CODICE_PROMOZIONE" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="WS_FML32" type="eb:FMLComplexOutputChild" /> 
+     <xsd:element minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutputChild"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="SRVZ_PARAM_1" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="SRVZ_PARAM_2" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="SRVZ_RET_CODE" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="OPERAZIONE_TOUPPER"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="StrIn" type="eb:FMLComplexInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OPERAZIONE_TOUPPERResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="StrOut" type="eb:FMLComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OPERAZIONE_TOUPPERRequest"> 
+  <wsdl:part element="eb:OPERAZIONE_TOUPPER" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OPERAZIONE_TOUPPERResponse"> 
+  <wsdl:part element="eb:OPERAZIONE_TOUPPERResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_CHECKALIVESoap"> 
+  <wsdl:operation name="OPERAZIONE_TOUPPER"> 
+   <wsdl:input message="eb:OPERAZIONE_TOUPPERRequest" name="OPERAZIONE_TOUPPERRequest" /> 
+   <wsdl:output message="eb:OPERAZIONE_TOUPPERResponse" name="OPERAZIONE_TOUPPERResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_CHECKALIVESoap" type="eb:WS_CHECKALIVESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OPERAZIONE_TOUPPER"> 
+   <soap:operation soapAction="WS_CHECKALIVE/OPERAZIONE_TOUPPER" style="document" /> 
+   <wsdl:input name="OPERAZIONE_TOUPPERRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OPERAZIONE_TOUPPERResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_CHECKALIVE"> 
+  <wsdl:port binding="eb:WS_CHECKALIVESoap" name="WS_CHECKALIVESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_CHECKALIVE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

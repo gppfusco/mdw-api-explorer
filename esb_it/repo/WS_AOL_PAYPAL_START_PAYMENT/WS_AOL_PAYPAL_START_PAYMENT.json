@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_AOL_PAYPAL_START_PAYMENT",
+    "name" : "WS_AOL_PAYPAL_START_PAYMENT",
+    "localPath" : "esb_it\\repo\\WS_AOL_PAYPAL_START_PAYMENT",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_AOL_PAYPAL_START_PAYMENT?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdPayPal/SkyXSD_PayPal_Complete.xsd",
+        "xsdNameSpace" : "urn:ebay:api:PayPalAPI"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

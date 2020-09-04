@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdSiebel/xsdSM/SkyXSD_SM_SBL_PRECHIUSURA_ALIGNMENT.xsd" /> 
+   <xsd:complexType name="InputPrechiusuraAlignment"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:RequestPrechiusuraAlignmentType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="OutputPrechiusuraAlignment"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:ResponsePrechiusuraAlignmentType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opPrechiusuraAlignment"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestPrechiusuraAlignment" type="eb:InputPrechiusuraAlignment" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opPrechiusuraAlignmentResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responsePrechiusuraAlignment" type="eb:OutputPrechiusuraAlignment" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opPrechiusuraAlignmentRequest"> 
+  <wsdl:part element="eb:opPrechiusuraAlignment" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opPrechiusuraAlignmentResponse"> 
+  <wsdl:part element="eb:opPrechiusuraAlignmentResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SM_SBL_PRECHIUSURA_ALIGNMENTSoap"> 
+  <wsdl:operation name="opPrechiusuraAlignment"> 
+   <wsdl:input message="eb:opPrechiusuraAlignmentRequest" name="opPrechiusuraAlignmentRequest" /> 
+   <wsdl:output message="eb:opPrechiusuraAlignmentResponse" name="opPrechiusuraAlignmentResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SM_SBL_PRECHIUSURA_ALIGNMENTSoap" type="eb:WS_SM_SBL_PRECHIUSURA_ALIGNMENTSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opPrechiusuraAlignment"> 
+   <soap:operation soapAction="WS_SM_SBL_PRECHIUSURA_ALIGNMENT/opPrechiusuraAlignment" style="document" /> 
+   <wsdl:input name="opPrechiusuraAlignmentRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opPrechiusuraAlignmentResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SM_SBL_PRECHIUSURA_ALIGNMENT"> 
+  <wsdl:port binding="eb:WS_SM_SBL_PRECHIUSURA_ALIGNMENTSoap" name="WS_SM_SBL_PRECHIUSURA_ALIGNMENTSoap"> 
+   <soap:address location="https://wssvil.sky.it/wsexistbus/ws_sf/WS_SM_SBL_PRECHIUSURA_ALIGNMENT" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

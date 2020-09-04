@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_FW_UPSERT_ACCOUNT",
+    "name" : "WS_FW_UPSERT_ACCOUNT",
+    "localPath" : "esb_it\\repo\\WS_FW_UPSERT_ACCOUNT",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_FW_UPSERT_ACCOUNT?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "SkyXSD_UpsertAccount.xsd",
+        "xsdNameSpace" : "http://services.olg.oss.fastweb.it/fly/sky2fw/cm/UpsertAccountServices/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:string" use="required" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="HTL_TIPO_EVENTO" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_COSTO_EVENTO" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_IVA_EVENTO" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_RET_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_DESCRIZ_ESITO" type="eb:FMLFieldType" /> 
+     <xsd:any processContents="lax" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="OP_LEGGI_PREZZI_HOTEL"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="CODICE_UTENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="CODICE_HOTEL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_LEGGI_PREZZI_HOTELResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="LEGGI_PREZZI_HOTEL_OUTPUT" type="eb:FMLComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_LEGGI_PREZZI_HOTELRequest"> 
+  <wsdl:part element="eb:OP_LEGGI_PREZZI_HOTEL" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_LEGGI_PREZZI_HOTELResponse"> 
+  <wsdl:part element="eb:OP_LEGGI_PREZZI_HOTELResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_LEGGI_PREZZI_HOTELSoap"> 
+  <wsdl:operation name="OP_LEGGI_PREZZI_HOTEL"> 
+   <wsdl:input message="eb:OP_LEGGI_PREZZI_HOTELRequest" name="OP_LEGGI_PREZZI_HOTELRequest" /> 
+   <wsdl:output message="eb:OP_LEGGI_PREZZI_HOTELResponse" name="OP_LEGGI_PREZZI_HOTELResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_LEGGI_PREZZI_HOTELSoap" type="eb:WS_LEGGI_PREZZI_HOTELSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_LEGGI_PREZZI_HOTEL"> 
+   <soap:operation soapAction="WS_LEGGI_PREZZI_HOTEL/OP_LEGGI_PREZZI_HOTEL" style="document" /> 
+   <wsdl:input name="OP_LEGGI_PREZZI_HOTELRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_LEGGI_PREZZI_HOTELResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_LEGGI_PREZZI_HOTEL"> 
+  <wsdl:port binding="eb:WS_LEGGI_PREZZI_HOTELSoap" name="WS_LEGGI_PREZZI_HOTELSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_LEGGI_PREZZI_HOTEL" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

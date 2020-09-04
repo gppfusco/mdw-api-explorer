@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="unqualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://www.skytv.it/sms/SmsSendMassiveWS" schemaLocation="xsdSMS/SkyXSD_smsSendMassiveWS.xsd" /> 
+   <xsd:complexType name="SmsSendMassiveWSRequest" xmlns:sms="http://www.skytv.it/sms/SmsSendMassiveWS"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sms:SmsSendMassiveWSRequest" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SmsSendMassiveWSResponse" xmlns:sms="http://www.skytv.it/sms/SmsSendMassiveWS"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sms:SmsSendMassiveWSResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opSendSmsMassive"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SmsSendMassiveWSRequest" type="eb:SmsSendMassiveWSRequest" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSendSmsMassiveResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SmsSendMassiveWSResponse" type="eb:SmsSendMassiveWSResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opSendSmsMassiveRequest"> 
+  <wsdl:part element="eb:opSendSmsMassive" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSendSmsMassiveResponse"> 
+  <wsdl:part element="eb:opSendSmsMassiveResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SEND_SMS_MASSIVESoap"> 
+  <wsdl:operation name="opSendSmsMassive"> 
+   <wsdl:input message="eb:opSendSmsMassiveRequest" name="opSendSmsMassiveRequest" /> 
+   <wsdl:output message="eb:opSendSmsMassiveResponse" name="opSendSmsMassiveResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SEND_SMS_MASSIVESoap" type="eb:WS_SEND_SMS_MASSIVESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opSendSmsMassive"> 
+   <soap:operation soapAction="WS_SEND_SMS_MASSIVE/opSendSmsMassive" style="document" /> 
+   <wsdl:input name="opSendSmsMassiveRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSendSmsMassiveResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SEND_SMS_MASSIVE"> 
+  <wsdl:port binding="eb:WS_SEND_SMS_MASSIVESoap" name="WS_SEND_SMS_MASSIVESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SEND_SMS_MASSIVE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

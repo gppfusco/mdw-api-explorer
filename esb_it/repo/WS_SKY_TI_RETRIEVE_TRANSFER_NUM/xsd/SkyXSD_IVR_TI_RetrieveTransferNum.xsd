@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cst="http://sky.telecomitalia.it/types" targetNamespace="http://sky.telecomitalia.it/types" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xsd:element name="RetrieveTransferNumRequest" type="cst:RetrieveTransferNumRequestType" /> 
+ <xsd:element name="COMPLEX_OUTPUT" type="cst:DocumentDataOutput" /> 
+ <xsd:complexType name="DocumentDataInput"> 
+  <xsd:sequence> 
+   <xsd:element name="RetrieveTransferNumRequest" type="cst:RetrieveTransferNumRequestType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="DocumentDataOutput"> 
+  <xsd:sequence> 
+   <xsd:element name="RetrieveTransferNumResponse" type="cst:RetrieveTransferNumResponseType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="RetrieveTransferNumRequestType"> 
+  <xsd:sequence> 
+   <xsd:element name="servizioTarget" type="cst:servizioTargetType" nillable="false" /> 
+   <xsd:element name="provenienza" type="cst:provenienzaType" nillable="false" /> 
+   <xsd:element name="numeroTelefonoTI" type="cst:numeroTelefonoTIType" nillable="false" /> 
+   <xsd:element name="ani" type="cst:aniType" nillable="false" /> 
+   <xsd:element name="idPda" type="cst:idPdaType" nillable="false" /> 
+   <xsd:element name="codContrattoSKY" type="cst:codContrattoSKYType" nillable="false" /> 
+   <xsd:element name="connID" type="cst:connIDType" nillable="false" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="RetrieveTransferNumResponseType"> 
+  <xsd:sequence> 
+   <xsd:element name="esito" type="cst:esitoType" nillable="false" /> 
+   <xsd:element name="errore" type="cst:erroreType" nillable="false" minOccurs="0" /> 
+   <xsd:element name="numeroDest" type="cst:numeroDestType" nillable="false" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="servizioTargetType"> 
+  <xsd:annotation> 
+   <xsd:documentation>
+    assume 3 valori da TI verso Sky e viceversa
+   </xsd:documentation> 
+  </xsd:annotation> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="1" /> 
+   <xsd:maxLength value="50" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="provenienzaType"> 
+  <xsd:annotation> 
+   <xsd:documentation>
+    assume 3 valori da TI verso Sky e viceversa
+   </xsd:documentation> 
+  </xsd:annotation> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="1" /> 
+   <xsd:maxLength value="50" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="numeroTelefonoTIType"> 
+  <xsd:annotation> 
+   <xsd:documentation>
+    numero telefono cliente TI
+   </xsd:documentation> 
+  </xsd:annotation> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="1" /> 
+   <xsd:maxLength value="15" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="aniType"> 
+  <xsd:annotation> 
+   <xsd:documentation>
+    numero telefono chiamante
+   </xsd:documentation> 
+  </xsd:annotation> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="1" /> 
+   <xsd:maxLength value="15" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="idPdaType"> 
+  <xsd:annotation> 
+   <xsd:documentation>
+    codice contratto bundle univico
+   </xsd:documentation> 
+  </xsd:annotation> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="1" /> 
+   <xsd:maxLength value="20" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="codContrattoSKYType"> 
+  <xsd:annotation> 
+   <xsd:documentation>
+    codice contratto cliente Sky
+   </xsd:documentation> 
+  </xsd:annotation> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="1" /> 
+   <xsd:maxLength value="20" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="esitoType"> 
+  <xsd:annotation> 
+   <xsd:documentation>
+    esito dell'operazione
+   </xsd:documentation> 
+  </xsd:annotation> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="1" /> 
+   <xsd:maxLength value="15" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="erroreType"> 
+  <xsd:annotation> 
+   <xsd:documentation>
+    codice errore
+   </xsd:documentation> 
+  </xsd:annotation> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="1" /> 
+   <xsd:maxLength value="15" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="numeroDestType"> 
+  <xsd:annotation> 
+   <xsd:documentation>
+    progressivo per trasferimento
+   </xsd:documentation> 
+  </xsd:annotation> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="3" /> 
+   <xsd:maxLength value="3" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="connIDType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="32" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+</xsd:schema>

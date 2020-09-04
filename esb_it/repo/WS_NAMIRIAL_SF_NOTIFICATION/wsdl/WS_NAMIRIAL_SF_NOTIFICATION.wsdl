@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://soap.sforce.com/schemas/class/WS_SF_NAMIRIAL_NOTIFICATION" schemaLocation="xsdSF/SkyXSD_WS_SF_NAMIRIAL_NOTIFICATION.xsd" /> 
+   <xsd:complexType name="handleNotification" xmlns:sf="http://soap.sforce.com/schemas/class/WS_SF_NAMIRIAL_NOTIFICATION"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:handleNotification" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="handleNotificationResponse" xmlns:sf="http://soap.sforce.com/schemas/class/WS_SF_NAMIRIAL_NOTIFICATION"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:handleNotificationResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opNotification"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="handleNotification" type="eb:handleNotification" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opNotificationResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="handleNotificationResponse" type="eb:handleNotificationResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opNotificationRequest"> 
+  <wsdl:part element="eb:opNotification" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opNotificationResponse"> 
+  <wsdl:part element="eb:opNotificationResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_NAMIRIAL_SF_NOTIFICATIONSoap"> 
+  <wsdl:operation name="opNotification"> 
+   <wsdl:input message="eb:opNotificationRequest" name="opNotificationRequest" /> 
+   <wsdl:output message="eb:opNotificationResponse" name="opNotificationResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_NAMIRIAL_SF_NOTIFICATIONSoap" type="eb:WS_NAMIRIAL_SF_NOTIFICATIONSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opNotification"> 
+   <soap:operation soapAction="WS_NAMIRIAL_SF_NOTIFICATION/opNotification" style="document" /> 
+   <wsdl:input name="opNotificationRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opNotificationResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_NAMIRIAL_SF_NOTIFICATION"> 
+  <wsdl:port binding="eb:WS_NAMIRIAL_SF_NOTIFICATIONSoap" name="WS_NAMIRIAL_SF_NOTIFICATIONSoap"> 
+   <soap:address location="https://wssvil.sky.it/wsexistbus/ws_mobile/WS_NAMIRIAL_SF_NOTIFICATION" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

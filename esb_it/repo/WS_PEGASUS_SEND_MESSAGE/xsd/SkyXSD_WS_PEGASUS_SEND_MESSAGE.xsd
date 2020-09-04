@@ -1,0 +1,293 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:java="java:pegasows.input" xmlns:ns1="java:pegasows.output" xmlns:ns2="http://sky.it" elementFormDefault="unqualified" attributeFormDefault="unqualified"> 
+ <xs:complexType name="sendMessage"> 
+  <xs:sequence> 
+   <xs:element name="input"> 
+    <xs:complexType> 
+     <xs:sequence> 
+      <xs:element name="Funzionalita" minOccurs="0"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="SRNumber" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Simulato" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Attivita" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CandidatoFinaleFlag" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CandidatoInizialeFlag" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Categoria" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CausaleCessazione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="ClienteBBFlag" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CodiceLavorazione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="EsitoEsigenza" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FeeCambioPiano" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FreeVision" type="xs:string" minOccurs="0" /> 
+         <xs:element name="MOPPO" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Movimentazione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="ODLFlag" type="xs:string" minOccurs="0" /> 
+         <xs:element name="OnDemand" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PDISCFinale" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PDISCIniziale" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PREPDISCFinale" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PREPDISCIniziale" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Procedura" type="xs:string" minOccurs="0" /> 
+         <xs:element name="SKYId" type="xs:string" minOccurs="0" /> 
+         <xs:element name="SottoCategoria" type="xs:string" minOccurs="0" /> 
+         <xs:element name="StatoContrattoFinale" type="xs:string" minOccurs="0" /> 
+         <xs:element name="StatoContrattoIniziale" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TipologiaCliente" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TipoOperazione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TipoProcedura" type="xs:string" minOccurs="0" /> 
+         <xs:element name="UpgradeDowngradeFlag" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Motivo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="StoriaCliente" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataAttivazioneFutura" type="xs:string" minOccurs="0" /> 
+         <xs:element name="LinkRegistrazioneSkyId" type="xs:string" minOccurs="0" /> 
+         <xs:element name="LinkValidazioneMail" type="xs:string" minOccurs="0" /> 
+         <xs:element name="LinkLandingPage" type="xs:string" minOccurs="0" /> 
+         <xs:element name="RateCode" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FlagConsensoDati" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizioneElaborazione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TipoOfferta" type="xs:string" minOccurs="0" /> 
+         <xs:element name="EsitoUpgrade" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Canale" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TipoOffertaRTD" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TipoInvioRTD" type="xs:string" minOccurs="0" /> 
+         <xs:element name="ProvenienzaRTD" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PathDeliveryPDF" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataValidita" type="xs:string" minOccurs="0" /> 
+         <xs:element name="IDCo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="IDOdl" type="xs:string" minOccurs="0" /> 
+         <xs:element name="IDOds" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Sezione1" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Sezione2" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Sezione3" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Reminder" type="xs:string" minOccurs="0" /> 
+         <xs:element name="EsitoAdesione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Migrazione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="ProceduraSR" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TIDPGS" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TipoCategoria" type="xs:string" minOccurs="0" /> 
+         <xs:element name="SRId" type="xs:string" minOccurs="0" /> 
+         <xs:element name="InvioCtrFlag" type="xs:string" minOccurs="0" /> 
+         <xs:element name="IdCXWEBLOG" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizioneEsito" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizioneMotivo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TipoCanale" type="xs:string" minOccurs="0" /> 
+         <xs:element name="SRStatus" type="xs:string" minOccurs="0" /> 
+         <xs:element name="IdRetail" type="xs:string" minOccurs="0" /> 
+         <xs:element name="SRProvenienza" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CanaleChiamante" type="xs:string" minOccurs="0" /> 
+         <xs:element name="ID_COM_SF" type="xs:string" minOccurs="0" /> 
+         <xs:element name="IdCaseSalesforce" type="xs:string" minOccurs="0" /> 
+         <xs:element name="IdActivitySaleseforce" type="xs:string" minOccurs="0" /> 
+         <xs:element name="IdInteractionSaleseforce" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Pagatore" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PIN" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FirmaDigitaleFlag" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Service" minOccurs="0" type="xs:string" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+      <xs:element name="Contesto" minOccurs="0"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="Data" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TestoCentrale" type="xs:string" minOccurs="0" /> 
+         <xs:element name="SEZ1" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CodiceEsigenza" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataPagamento" type="xs:string" minOccurs="0" /> 
+         <xs:element name="NoteAttivita" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Importo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TestoLibero" type="xs:string" minOccurs="0" /> 
+         <xs:element name="StoricoMail" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CreditoResiduo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CodiceRicarica" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CodiceSeriale" type="xs:string" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+      <xs:element name="Contratto" minOccurs="0"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="CodiceContratto" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizionePacc" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizionePaccPar" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizionePaccArr" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataRichAttivazione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataRichCessazione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataScadContratto" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataUltimaModifica" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizioneTipoUpg" type="xs:string" minOccurs="0" /> 
+         <xs:element name="ExitFee" type="xs:string" minOccurs="0" /> 
+         <xs:element name="MatricolaSMC" type="xs:string" minOccurs="0" /> 
+         <xs:element name="AmbienteServizio" type="xs:string" minOccurs="0" /> 
+         <xs:element name="ExitFeeFlag" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CategoriaContratto" type="xs:string" minOccurs="0" /> 
+         <xs:element name="EmailContratto" type="xs:string" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+      <xs:element name="Promozione" minOccurs="0"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="ServizioDowngrade" type="xs:string" minOccurs="0" /> 
+         <xs:element name="ServizioPremium" type="xs:string" minOccurs="0" /> 
+         <xs:element name="ClassePromozione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CodicePromozione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CodicePromozioneAgg" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CodiceServPremium" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CodiceServPremiumAgg" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataAdesionePromo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="NomePromo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataRichiestaPromozione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizionePromo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FrasePromozioneSKY" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CodiceLandingPage" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizionePromoperLettera" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizionePromoperBMAIL" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FineValidita" type="xs:string" minOccurs="0" /> 
+         <xs:element name="EsitoPremio" type="xs:string" minOccurs="0" /> 
+         <xs:element name="NomePremio" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescPremio" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DurataPromo" type="xs:string" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+      <xs:element name="Account" minOccurs="0"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="FruPiano" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruProvincia" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruScala" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruNumeroCivico" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruIndirizzo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruInterno" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruCAP" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruCitta" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruCodiceCliente" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruNome" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruCognome" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruEmail" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruCellulare" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruFlagSesso" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruPivaCodF" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruTelefono" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruAltroNumeroTel" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruDataNascitaSKY" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruMNTAnalisiPreferenze" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruStatisticheFlagSKY" type="xs:string" minOccurs="0" /> 
+         <xs:element name="FruTemporaryEmailAddressSKY" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagPiano" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagProvincia" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagScala" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagNumeroCivico" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagIndirizzo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagInterno" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagCAP" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagCitta" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagCodiceCliente" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagNome" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagCognome" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagEmail" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagCellulare" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagFlagSesso" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagPivaCodF" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagTelefono" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagAltroNumeroTel" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagDataNascitaSKY" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagMNTAnalisiPreferenze" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagStatisticheFlagSKY" type="xs:string" minOccurs="0" /> 
+         <xs:element name="PagTemporaryEmailAddressSKY" type="xs:string" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+      <xs:element name="Reinvio" minOccurs="0"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="IdComunicazione" type="xs:string" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+      <xs:element name="Attachments" minOccurs="0"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="Attachment" minOccurs="0" maxOccurs="unbounded"> 
+          <xs:complexType> 
+           <xs:sequence> 
+            <xs:element name="AttachmentRecordId" type="xs:string" minOccurs="0" /> 
+            <xs:element name="Name" type="xs:string" minOccurs="0" /> 
+            <xs:element name="NameVersion" type="xs:string" minOccurs="0" /> 
+            <xs:element name="Type" type="xs:string" minOccurs="0" /> 
+            <xs:element name="OrderNumber" type="xs:string" minOccurs="0" /> 
+            <xs:element name="FileName" type="xs:string" minOccurs="0" /> 
+            <xs:element name="FilePath" type="xs:string" minOccurs="0" /> 
+           </xs:sequence> 
+          </xs:complexType> 
+         </xs:element> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+      <xs:element name="Lettera" minOccurs="0"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="CodiceContratto" type="xs:string" minOccurs="0" /> 
+         <xs:element name="MOP" type="xs:string" minOccurs="0" /> 
+         <xs:element name="StatoContratto" type="xs:string" minOccurs="0" /> 
+         <xs:element name="StatoContrattoPart" type="xs:string" minOccurs="0" /> 
+         <xs:element name="TipoRecord" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescPackPartenza" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescPackArrivo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizioneTipoUpg" type="xs:string" minOccurs="0" /> 
+         <xs:element name="OggettoRichiesta" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizioneRichiesta" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataAdesionePromo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DescrizionePromo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="NomePromo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataRichAttivazione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataScadContratto" type="xs:string" minOccurs="0" /> 
+         <xs:element name="MatricolaSMC" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataRichCessazione" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DataUltimaModifica" type="xs:string" minOccurs="0" /> 
+         <xs:element name="ExitFee" type="xs:string" minOccurs="0" /> 
+         <xs:element name="CodiceLettera" type="xs:string" minOccurs="0" /> 
+         <xs:element name="ElencoSMC" type="xs:string" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+      <xs:element name="ComManuale" minOccurs="0"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="Template" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Canale" type="xs:string" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+      <xs:element name="ContestoEmail" minOccurs="0"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="EmailTo" type="xs:string" minOccurs="0" /> 
+         <xs:element name="EmailCC" type="xs:string" minOccurs="0" /> 
+         <xs:element name="EmailCCN" type="xs:string" minOccurs="0" /> 
+         <xs:element name="EmailOggetto" type="xs:string" minOccurs="0" /> 
+         <xs:element name="EmailAlias" type="xs:string" minOccurs="0" /> 
+         <xs:element name="EmailMittente" type="xs:string" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+     </xs:sequence> 
+    </xs:complexType> 
+   </xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="sendMessageResponse"> 
+  <xs:sequence> 
+   <xs:element name="OutputPegasusSend"> 
+    <xs:complexType> 
+     <xs:sequence> 
+      <xs:element name="DescrizioneEsito" type="xs:string" minOccurs="0" /> 
+      <xs:element name="Esito" type="xs:string" minOccurs="0" /> 
+      <xs:element name="TIDPGS" type="xs:string" minOccurs="0" /> 
+     </xs:sequence> 
+    </xs:complexType> 
+   </xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

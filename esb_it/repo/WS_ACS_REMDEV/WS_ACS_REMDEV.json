@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_ACS_REMDEV",
+    "name" : "WS_ACS_REMDEV",
+    "localPath" : "esb_it\\repo\\WS_ACS_REMDEV",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_ACS_REMDEV?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdACS/SkyXSD_WS_ASC_REMDEV.xsd",
+        "xsdNameSpace" : "http://ws.drmrepl.skyOn.skytv.it/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

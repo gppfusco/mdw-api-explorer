@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by *__________* (*__________*) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/CreditCheckServices/" targetNamespace="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/CreditCheckServices/" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xsd:complexType name="InputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="TransactionData" type="tns:TransactionDataType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OperationDataType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="tns:InputMessageType"> 
+    <xsd:sequence> 
+     <xsd:element name="OperationData" type="tns:CreditCheckRESIDENTIAL" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:element name="OutputMessage" type="tns:OutputMessageType" /> 
+ <xsd:complexType name="OutputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="OperationData" type="tns:CreditCheckRESIDENTIALResponse" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CreditCheckRESIDENTIAL"> 
+  <xsd:sequence> 
+   <xsd:element name="Source" type="tns:String30" /> 
+   <xsd:element name="IdPDA" type="tns:String30" /> 
+   <xsd:element name="CodiceDealerSKY" type="tns:String18" /> 
+   <xsd:element name="Nome" type="tns:String100" /> 
+   <xsd:element name="Cognome" type="tns:String100" /> 
+   <xsd:element name="CodiceFiscale" type="tns:String16" /> 
+   <xsd:element name="Toponomastica" type="tns:String100" /> 
+   <xsd:element name="Indirizzo" type="tns:String100" /> 
+   <xsd:element name="Civico" type="tns:String30" /> 
+   <xsd:element name="Comune" type="tns:String100" /> 
+   <xsd:element name="Provincia" type="tns:String2" /> 
+   <xsd:element name="CAP" type="tns:String5" /> 
+   <xsd:element name="NumberPortability" type="tns:FlagType" /> 
+   <xsd:element name="Canale" type="tns:CanaleType" /> 
+   <xsd:element name="DataNascita" type="tns:DataNascitaType" /> 
+   <xsd:element name="NazioneNascita" type="tns:String2" /> 
+   <xsd:element name="NumeroContattoMobile" type="tns:String30" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CreditCheckRESIDENTIALResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="IDRichiesta" type="tns:String50" /> 
+   <xsd:element name="Score" type="tns:ScoreType" /> 
+   <xsd:element name="StatoRichiesta" type="tns:StatoRichiestaType" /> 
+   <xsd:element name="DescrizioneEsito" type="tns:String255" minOccurs="0" /> 
+   <xsd:element name="Forzatura" type="tns:FlagType" /> 
+   <xsd:element name="Status" type="tns:StatusType" minOccurs="0" /> 
+   <xsd:element name="ErrorCode" type="tns:String30" /> 
+   <xsd:element name="ErrorMessage" type="tns:String255" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="TransactionDataType"> 
+  <xsd:sequence> 
+   <xsd:element name="SenderName" type="tns:String50" minOccurs="0"> 
+    <xsd:annotation> 
+     <xsd:documentation>
+      Sistema sorgente, es. 'SKY'
+     </xsd:documentation> 
+    </xsd:annotation> 
+   </xsd:element> 
+   <xsd:element name="UserName" type="tns:String50" minOccurs="0"> 
+    <xsd:annotation> 
+     <xsd:documentation>
+      UserName del Sistema
+     </xsd:documentation> 
+    </xsd:annotation> 
+   </xsd:element> 
+   <xsd:element name="TransactionId" type="tns:String42"> 
+    <xsd:annotation> 
+     <xsd:documentation>
+      Identificativo univoco del messaggio
+     </xsd:documentation> 
+    </xsd:annotation> 
+   </xsd:element> 
+   <xsd:element name="Version" type="tns:String50" minOccurs="0"> 
+    <xsd:annotation> 
+     <xsd:documentation>
+      Versione del sistema generante la chiamata
+     </xsd:documentation> 
+    </xsd:annotation> 
+   </xsd:element> 
+   <xsd:element name="TransactionTime" type="tns:DateString19"> 
+    <xsd:annotation> 
+     <xsd:documentation>
+      Timestamp del messaggio, es: 26/10/10 21:32:52
+     </xsd:documentation> 
+    </xsd:annotation> 
+   </xsd:element> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="String50"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="50" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String42"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="42" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String18"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="18" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String30"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="30" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String100"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="100" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String16"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="16" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String2"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="2" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String5"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="5" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String20"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="20" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String255"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="255" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="DateString19"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="19" /> 
+   <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="DataNascitaType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="10" /> 
+   <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="FlagType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="1" /> 
+   <xsd:enumeration value="Y" /> 
+   <xsd:enumeration value="N" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="CanaleType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="30" /> 
+   <xsd:enumeration value="Agenzie" /> 
+   <xsd:enumeration value="Dealer" /> 
+   <xsd:enumeration value="TelesalesIn" /> 
+   <xsd:enumeration value="TelesalesOut" /> 
+   <xsd:enumeration value="SelfProvisioning" /> 
+   <xsd:enumeration value="Missing" /> 
+   <xsd:enumeration value="Diretto" /> 
+   <xsd:enumeration value="AOL Regioni" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="ScoreType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="20" /> 
+   <xsd:enumeration value="ROSSO" /> 
+   <xsd:enumeration value="VERDE" /> 
+   <xsd:enumeration value="GIALLO" /> 
+   <xsd:enumeration value="NA" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="StatoRichiestaType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="20" /> 
+   <xsd:enumeration value="RETRY" /> 
+   <xsd:enumeration value="INVALID" /> 
+   <xsd:enumeration value="COMPLETED" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="StatusType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="30" /> 
+   <xsd:enumeration value="Success" /> 
+   <xsd:enumeration value="Error" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="SessoType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="2" /> 
+   <xsd:enumeration value="M" /> 
+   <xsd:enumeration value="F" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="TipoDocumentoType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="30" /> 
+   <xsd:enumeration value="CARTA DI IDENTITA" /> 
+   <xsd:enumeration value="PASSAPORTO" /> 
+   <xsd:enumeration value="PATENTE" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="DataDocumentoType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="10" /> 
+   <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="EsitoType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="2" /> 
+   <xsd:enumeration value="OK" /> 
+   <xsd:enumeration value="KO" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+</xsd:schema>

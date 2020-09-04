@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SKY_TI_RETRIEVE_DATA",
+    "name" : "WS_SKY_TI_RETRIEVE_DATA",
+    "localPath" : "esb_it\\repo\\WS_SKY_TI_RETRIEVE_DATA",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SKY_TI_RETRIEVE_DATA?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdTelecom/SkyXSD_IVR_TI_RetrieveData.xsd",
+        "xsdNameSpace" : "http://sky.telecomitalia.it/types"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

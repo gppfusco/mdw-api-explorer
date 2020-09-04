@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_DS_SF_GESTIONE_ODL",
+    "name" : "WS_DS_SF_GESTIONE_ODL",
+    "localPath" : "esb_it\\repo\\WS_DS_SF_GESTIONE_ODL",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_DS_SF_GESTIONE_ODL?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdSFDS/SkyXSD_WS_DS_SF_GESTIONE_ODL.xsd",
+        "xsdNameSpace" : "http://soap.sforce.com/schemas/class/WS_Inbound_ODL_Handler"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

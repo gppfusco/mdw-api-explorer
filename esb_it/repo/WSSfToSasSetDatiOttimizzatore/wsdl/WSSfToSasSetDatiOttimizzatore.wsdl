@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="ComplexInput"> 
+    <xsd:sequence> 
+     <xsd:element name="SF_TID_SF" type="xsd:string" /> 
+     <xsd:element maxOccurs="unbounded" name="SF_OPTIMIZER_DATA" type="eb:ComplexOptimixerData" /> 
+     <xsd:element maxOccurs="unbounded" name="SF_EXCLUSION_DATA" type="eb:ComplexExclusionData" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="ComplexOptimixerData"> 
+    <xsd:sequence> 
+     <xsd:element name="SF_IBMS_CONTENT_TYPE" type="xsd:string" /> 
+     <xsd:element name="SF_IBMS_SPOT_TYPE" type="xsd:string" /> 
+     <xsd:element name="SF_DURATION" type="xsd:string" /> 
+     <xsd:element name="SF_TARGET" type="xsd:string" /> 
+     <xsd:element name="SF_AFFINITY_TARGET" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_ALFA" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_BETA" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_CPG_MAX" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_AFFINITY" type="xsd:string" /> 
+     <xsd:element name="SF_OPTIMIZATION_MODE" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_TOTAL_DISCOUNT" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_CINEMA_CH_DISCOUNT" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_FOX_CH_DISCOUNT" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_SPORT_CH_DISCOUNT" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_SKY_CH_DISCOUNT" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_THIRDPARTY_CH_DISCOUNT" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_MORNING_WEIGTH" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_DAY_WEIGTH" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_PRIME_WEIGTH" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_SECONF_PRIME_WEIGTH" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_NIGHT_WEIGTH" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_FOX_CH_WEIGTH" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_THIRDPART_CH_WEIGTH" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_BUDGET" type="xsd:string" /> 
+     <xsd:element name="SF_YEAR" type="xsd:string" /> 
+     <xsd:element name="SF_MONTH" type="xsd:string" /> 
+     <xsd:element name="SF_OPTIMIZE" type="xsd:string" /> 
+     <xsd:element name="SF_OPTIMIZE_BY_PLAN_OR_AFFINITY" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_POSITION" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_WEIGHT_RUBRICA_1" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_WEIGHT_RUBRICA_2" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_WEIGHT_RUBRICA_3" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_WEIGHT_RUBRICA_4" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_WEIGHT_RUBRICA_5" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_DISCOUNT_RUBRICA_1" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_DISCOUNT_RUBRICA_2" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_DISCOUNT_RUBRICA_3" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_DISCOUNT_RUBRICA_4" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_DISCOUNT_RUBRICA_5" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="ComplexExclusionData"> 
+    <xsd:sequence> 
+     <xsd:element name="SF_CHANNEL" type="xsd:string" /> 
+     <xsd:element name="SF_SALES_PRODUCT_GROUP" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_MIN" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_MAX" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SF_EXCLUSION" type="xsd:string" /> 
+     <xsd:element name="SF_RUBRICA" type="xsd:string" /> 
+     <xsd:element name="SF_MINIMO_NASCOSTO_MODIFICATO" type="xsd:boolean" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="ComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="SRVZ_RET_CODE" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opSetDatiOttimizzatore"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request_ws" type="eb:ComplexInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSetDatiOttimizzatoreResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response_ws" type="eb:ComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opSetDatiOttimizzatoreRequest"> 
+  <wsdl:part element="eb:opSetDatiOttimizzatore" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSetDatiOttimizzatoreResponse"> 
+  <wsdl:part element="eb:opSetDatiOttimizzatoreResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WSSfToSasSetDatiOttimizzatoreSoap"> 
+  <wsdl:operation name="opSetDatiOttimizzatore"> 
+   <wsdl:input message="eb:opSetDatiOttimizzatoreRequest" name="opSetDatiOttimizzatoreRequest" /> 
+   <wsdl:output message="eb:opSetDatiOttimizzatoreResponse" name="opSetDatiOttimizzatoreResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WSSfToSasSetDatiOttimizzatoreSoap" type="eb:WSSfToSasSetDatiOttimizzatoreSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opSetDatiOttimizzatore"> 
+   <soap:operation soapAction="WSSfToSasSetDatiOttimizzatore/opSetDatiOttimizzatore" style="document" /> 
+   <wsdl:input name="opSetDatiOttimizzatoreRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSetDatiOttimizzatoreResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WSSfToSasSetDatiOttimizzatore"> 
+  <wsdl:port binding="eb:WSSfToSasSetDatiOttimizzatoreSoap" name="WSSfToSasSetDatiOttimizzatoreSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_sf/WSSfToSasSetDatiOttimizzatore" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

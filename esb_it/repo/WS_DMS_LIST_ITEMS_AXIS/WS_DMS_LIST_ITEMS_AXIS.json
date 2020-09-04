@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_DMS_LIST_ITEMS_AXIS",
+    "name" : "WS_DMS_LIST_ITEMS_AXIS",
+    "localPath" : "esb_it\\repo\\WS_DMS_LIST_ITEMS_AXIS",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_DMS_LIST_ITEMS_AXIS?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdDMS/SkyXSD_lists.xsd",
+        "xsdNameSpace" : "http://schemas.microsoft.com/sharepoint/soap/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

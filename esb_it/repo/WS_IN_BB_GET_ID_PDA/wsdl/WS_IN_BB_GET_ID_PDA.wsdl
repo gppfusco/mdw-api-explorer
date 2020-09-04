@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opGetIdPda"> 
+    <xsd:complexType> 
+     <xsd:sequence /> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetIdPdaResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="IdPDA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="Esito" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="DescrizioneEsito" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="ErrorCode" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="ErrorMessage" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opGetIdPdaRequest"> 
+  <wsdl:part element="eb:opGetIdPda" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetIdPdaResponse"> 
+  <wsdl:part element="eb:opGetIdPdaResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_IN_BB_GET_ID_PDASoap"> 
+  <wsdl:operation name="opGetIdPda"> 
+   <wsdl:input message="eb:opGetIdPdaRequest" name="opGetIdPdaRequest" /> 
+   <wsdl:output message="eb:opGetIdPdaResponse" name="opGetIdPdaResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_IN_BB_GET_ID_PDASoap" type="eb:WS_IN_BB_GET_ID_PDASoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opGetIdPda"> 
+   <soap:operation soapAction="WS_IN_BB_GET_ID_PDA/opGetIdPda" style="document" /> 
+   <wsdl:input name="opGetIdPdaRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGetIdPdaResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_IN_BB_GET_ID_PDA"> 
+  <wsdl:port binding="eb:WS_IN_BB_GET_ID_PDASoap" name="WS_IN_BB_GET_ID_PDASoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_IN_BB_GET_ID_PDA" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,69 @@
+<xs:schema xmlns:s0="http://schemas.xmlsoap.org/wsdl/" xmlns:s1="http://sky.it" xmlns:s2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:java="java:pegasows.input" xmlns:ns1="java:pegasows.output" elementFormDefault="unqualified" attributeFormDefault="unqualified"> 
+ <xs:complexType name="sincBit2Publish"> 
+  <xs:sequence> 
+   <xs:element name="input"> 
+    <xs:complexType> 
+     <xs:sequence> 
+      <xs:element name="DocumentComponentHeader" minOccurs="0" maxOccurs="unbounded"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="CreatedBy" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Name" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Owner" type="xs:string" minOccurs="0" /> 
+         <xs:element name="LastModifiedBy" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Description" type="xs:string" minOccurs="0" /> 
+         <xs:element name="EndDate" type="xs:string" minOccurs="0" /> 
+         <xs:element name="MainDocument" type="xs:string" minOccurs="0" /> 
+         <xs:element name="SourceDCHId" type="xs:string" minOccurs="0" /> 
+         <xs:element name="StartDate" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Type" type="xs:string" minOccurs="0" /> 
+         <xs:element name="Modificabile" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DeleteDCH" type="xs:string" minOccurs="0" /> 
+         <xs:element name="DocumentComponent" minOccurs="0" maxOccurs="unbounded"> 
+          <xs:complexType> 
+           <xs:sequence> 
+            <xs:element name="CreatedBy" type="xs:string" minOccurs="0" /> 
+            <xs:element name="Name" type="xs:string" minOccurs="0" /> 
+            <xs:element name="RecordType" type="xs:string" minOccurs="0" /> 
+            <xs:element name="LastModifiedBy" type="xs:string" minOccurs="0" /> 
+            <xs:element name="ContainingComponents" type="xs:string" minOccurs="0" /> 
+            <xs:element name="Description" type="xs:string" minOccurs="0" /> 
+            <xs:element name="EndDate" type="xs:string" minOccurs="0" /> 
+            <xs:element name="FooterDocument" type="xs:string" minOccurs="0" /> 
+            <xs:element name="HeaderDocument" type="xs:string" minOccurs="0" /> 
+            <xs:element name="HeaderNumber" type="xs:string" minOccurs="0" /> 
+            <xs:element name="Locked" type="xs:string" minOccurs="0" /> 
+            <xs:element name="PublishDate" type="xs:string" minOccurs="0" /> 
+            <xs:element name="Published" type="xs:string" minOccurs="0" /> 
+            <xs:element name="PublishedBy" type="xs:string" minOccurs="0" /> 
+            <xs:element name="SourceDCId" type="xs:string" minOccurs="0" /> 
+            <xs:element name="StartDate" type="xs:string" minOccurs="0" /> 
+            <xs:element name="State" type="xs:string" minOccurs="0" /> 
+            <xs:element name="Type" type="xs:string" minOccurs="0" /> 
+            <xs:element name="Waitingforapproval" type="xs:string" minOccurs="0" /> 
+            <xs:element name="WorkSpace" type="xs:string" minOccurs="0" /> 
+           </xs:sequence> 
+          </xs:complexType> 
+         </xs:element> 
+         <xs:element name="FlagNotification" type="xs:string" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+     </xs:sequence> 
+    </xs:complexType> 
+   </xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="sincBit2PublishResponse"> 
+  <xs:sequence> 
+   <xs:element name="OutputPegasusSinc"> 
+    <xs:complexType> 
+     <xs:sequence> 
+      <xs:element name="DescrizioneEsito" type="xs:string" minOccurs="0" /> 
+      <xs:element name="Esito" type="xs:string" minOccurs="0" /> 
+     </xs:sequence> 
+    </xs:complexType> 
+   </xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

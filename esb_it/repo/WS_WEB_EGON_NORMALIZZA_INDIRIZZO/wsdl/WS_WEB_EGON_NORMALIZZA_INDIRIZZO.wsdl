@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opNormalizzaIndirizzo"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_PROVINCIA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_COMUNE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_VIA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CAP" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_PARTICELLA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CIVICO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opNormalizzaIndirizzoResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CAP" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CIVICO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_PARTICELLA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_PROVINCIA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_COMUNE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_COMPLETA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_MATCH_CODE_DWI" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO2" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO3" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO3" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO2" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_0" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_1" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_2" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_3" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_4" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_5" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_6" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_7" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_8" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_9" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_BES_1_X_M" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_BES_1_Y_M" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_BES_1_X_G" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_BES_1_Y_G" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_BES_VLXBES" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ATT_VLXATT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ID_CIV" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_FLX_CTX" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_N_AB" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_N_AB_ALL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opNormalizzaIndirizzoRequest"> 
+  <wsdl:part element="eb:opNormalizzaIndirizzo" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opNormalizzaIndirizzoResponse"> 
+  <wsdl:part element="eb:opNormalizzaIndirizzoResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_WEB_EGON_NORMALIZZA_INDIRIZZOSoap"> 
+  <wsdl:operation name="opNormalizzaIndirizzo"> 
+   <wsdl:input message="eb:opNormalizzaIndirizzoRequest" name="opNormalizzaIndirizzoRequest" /> 
+   <wsdl:output message="eb:opNormalizzaIndirizzoResponse" name="opNormalizzaIndirizzoResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_WEB_EGON_NORMALIZZA_INDIRIZZOSoap" type="eb:WS_WEB_EGON_NORMALIZZA_INDIRIZZOSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opNormalizzaIndirizzo"> 
+   <soap:operation soapAction="WS_WEB_EGON_NORMALIZZA_INDIRIZZO/opNormalizzaIndirizzo" style="document" /> 
+   <wsdl:input name="opNormalizzaIndirizzoRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opNormalizzaIndirizzoResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_WEB_EGON_NORMALIZZA_INDIRIZZO"> 
+  <wsdl:port binding="eb:WS_WEB_EGON_NORMALIZZA_INDIRIZZOSoap" name="WS_WEB_EGON_NORMALIZZA_INDIRIZZOSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_WEB_EGON_NORMALIZZA_INDIRIZZO" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

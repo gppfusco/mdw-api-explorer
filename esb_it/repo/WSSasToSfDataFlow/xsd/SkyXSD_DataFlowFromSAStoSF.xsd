@@ -1,0 +1,189 @@
+<xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF" elementFormDefault="qualified"> 
+ <xsd:element name="DebuggingInfo"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="debugLog" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:simpleType name="ID"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:length value="18" /> 
+   <xsd:pattern value="[a-zA-Z0-9]{18}" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="LogCategory"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="Db" /> 
+   <xsd:enumeration value="Workflow" /> 
+   <xsd:enumeration value="Validation" /> 
+   <xsd:enumeration value="Callout" /> 
+   <xsd:enumeration value="Apex_code" /> 
+   <xsd:enumeration value="Apex_profiling" /> 
+   <xsd:enumeration value="Visualforce" /> 
+   <xsd:enumeration value="System" /> 
+   <xsd:enumeration value="All" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="LogCategoryLevel"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="Internal" /> 
+   <xsd:enumeration value="Finest" /> 
+   <xsd:enumeration value="Finer" /> 
+   <xsd:enumeration value="Fine" /> 
+   <xsd:enumeration value="Debug" /> 
+   <xsd:enumeration value="Info" /> 
+   <xsd:enumeration value="Warn" /> 
+   <xsd:enumeration value="Error" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:complexType name="LogInfo"> 
+  <xsd:sequence> 
+   <xsd:element name="category" type="tns:LogCategory" /> 
+   <xsd:element name="level" type="tns:LogCategoryLevel" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="LogType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="None" /> 
+   <xsd:enumeration value="Debugonly" /> 
+   <xsd:enumeration value="Db" /> 
+   <xsd:enumeration value="Profiling" /> 
+   <xsd:enumeration value="Callout" /> 
+   <xsd:enumeration value="Detail" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:element name="DebuggingHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="categories" type="tns:LogInfo" minOccurs="0" maxOccurs="unbounded" /> 
+    <xsd:element name="debugLevel" type="tns:LogType" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="CallOptions"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="client" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="SessionHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="sessionId" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="AllowFieldTruncationHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="allowFieldTruncation" type="xsd:boolean" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:complexType name="Output_Optimizer"> 
+  <xsd:sequence> 
+   <xsd:element name="End_of_optimization" type="xsd:dateTime" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Errors" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Ottimizzatore_Input" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Request_timestamp" minOccurs="0" type="xsd:dateTime" nillable="true" /> 
+   <xsd:element name="Session_code" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Start_of_optimization" type="xsd:dateTime" nillable="true" minOccurs="0" /> 
+   <xsd:element name="State" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Universe_target" minOccurs="0" type="xsd:int" nillable="true" /> 
+   <xsd:element name="Universe_target_affinity" minOccurs="0" type="xsd:int" nillable="true" /> 
+   <xsd:element name="Universe_target_affinity_pay_tv" minOccurs="0" type="xsd:int" nillable="true" /> 
+   <xsd:element name="Universe_target_pay_tv" minOccurs="0" type="xsd:int" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Output_OptimizerDetail"> 
+  <xsd:sequence> 
+   <xsd:element name="Approx_audience_dp_2nd_prime" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Approx_audience_dp_day" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Approx_audience_dp_morning" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Approx_audience_dp_night" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Approx_audience_dp_prime" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Audience_approx_dp_2nd_prime" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Audience_approx_dp_day" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Audience_approx_dp_morning" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Audience_approx_dp_night" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Audience_approx_dp_prime" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Channel_code" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Cinema" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Cpu_for_dp_2nd_prime" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Cpu_for_dp_day" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Cpu_for_dp_morning" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Cpu_for_dp_night" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Cpu_for_dp_prime" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Estimation_type" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Fox" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Number_of_spots_dp_2nd_prime" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Number_of_spots_dp_day" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Number_of_spots_dp_morning" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Number_of_spots_dp_night" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Number_of_spots_dp_prime" type="xsd:int" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Optimizer_output" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Price_dp_2nd_prime" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Price_dp_day" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Price_dp_morning" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Price_dp_night" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Price_dp_prime" type="xsd:double" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Session_code" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Sky" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Sport" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+   <xsd:element name="Thirdparty" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="responseData"> 
+  <xsd:sequence> 
+   <xsd:element name="code" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="objectName" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="timestamp" type="xsd:dateTime" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="doRollback"> 
+  <xsd:sequence /> 
+ </xsd:complexType> 
+ <xsd:complexType name="doRollbackResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="xsd:boolean" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Output_OptimizerDetailUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Output_OptimizerDetail" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Output_OptimizerDetailUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:responseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Output_OptimizerUpdate"> 
+  <xsd:sequence> 
+   <xsd:element name="inputStruct" type="tns:Output_Optimizer" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Output_OptimizerUpdateResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:responseData" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="setEndpoint"> 
+  <xsd:sequence /> 
+ </xsd:complexType> 
+ <xsd:complexType name="setEndpointResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="xsd:boolean" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="setSavepoint"> 
+  <xsd:sequence /> 
+ </xsd:complexType> 
+ <xsd:complexType name="setSavepointResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="xsd:boolean" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

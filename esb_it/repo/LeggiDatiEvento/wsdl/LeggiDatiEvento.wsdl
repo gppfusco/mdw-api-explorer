@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="OpLeggiDatiEvento"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPPV_REFID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPPV_PROVENIENZA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_TRANSACTION_ID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OpLeggiDatiEventoResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_OPPV_FLAG_DIRETTA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_OPPV_TITOLO_EVENTO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_OPPV_TIPO_EVENTO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_OPPV_COSTO_EVENTO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_OPPV_UTENZE_ABILITATE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ERRORE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_OPPV_FLAG_RICH_CPI" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OpLeggiDatiEventoRequest"> 
+  <wsdl:part element="eb:OpLeggiDatiEvento" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OpLeggiDatiEventoResponse"> 
+  <wsdl:part element="eb:OpLeggiDatiEventoResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="LeggiDatiEventoSoap"> 
+  <wsdl:operation name="OpLeggiDatiEvento"> 
+   <wsdl:input message="eb:OpLeggiDatiEventoRequest" name="OpLeggiDatiEventoRequest" /> 
+   <wsdl:output message="eb:OpLeggiDatiEventoResponse" name="OpLeggiDatiEventoResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="LeggiDatiEventoSoap" type="eb:LeggiDatiEventoSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OpLeggiDatiEvento"> 
+   <soap:operation soapAction="LeggiDatiEvento/OpLeggiDatiEvento" style="document" /> 
+   <wsdl:input name="OpLeggiDatiEventoRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OpLeggiDatiEventoResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="LeggiDatiEvento"> 
+  <wsdl:port binding="eb:LeggiDatiEventoSoap" name="LeggiDatiEventoSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/LeggiDatiEvento" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

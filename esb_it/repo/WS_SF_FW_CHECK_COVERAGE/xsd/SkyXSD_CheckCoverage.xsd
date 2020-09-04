@@ -1,0 +1,327 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://services.olg.oss.fastweb.it/fly/sky2fw/CheckCoverageServices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.olg.oss.fastweb.it/fly/sky2fw/CheckCoverageServices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://services.olg.oss.fastweb.it/fly/sky2fw/CheckCoverageServices/" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <element name="InputMessage" type="tns:OperationDataType" /> 
+ <complexType name="InputMessageType"> 
+  <sequence> 
+   <element name="TransactionData" type="tns:TransactionDataType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OperationDataType"> 
+  <complexContent> 
+   <extension base="tns:InputMessageType"> 
+    <sequence> 
+     <element name="OperationData" type="tns:RequestCheckCoverageType" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="OutputMessage" type="tns:OutputMessageType" /> 
+ <complexType name="OutputMessageType"> 
+  <sequence> 
+   <element name="OperationData" type="tns:ResponseCheckCoverageSky" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="TransactionDataType"> 
+  <sequence> 
+   <element name="SenderName" type="tns:String50" minOccurs="0" /> 
+   <element name="UserName" type="tns:String50" minOccurs="0" /> 
+   <element name="TransactionId" type="tns:String42" /> 
+   <element name="Version" type="tns:String50" minOccurs="0" /> 
+   <element name="TransactionTime" type="tns:DateString19" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="RequestCheckCoverageType"> 
+  <sequence> <!--FB:2011-03-08 - F2-Start--> 
+   <element name="Source" type="tns:String30" /> 
+   <element name="IdPDA" type="tns:String30_MinL1" /> 
+   <element name="CodiceDealerSKY" type="tns:String18" /> 
+   <element name="Canale" type="tns:CanaleType" /> <!--FB:2011-03-08 - F2-End--> 
+   <element name="CheckCoverage" type="tns:check-coverage-type" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="check-coverage-type"> 
+  <sequence> 
+   <element name="NumeroTelefono" type="tns:String75" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+      Numero di telefono da portare caso di richiesta NP
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="Indirizzo" type="tns:indirizzo-req-type"> 
+    <annotation> 
+     <documentation>
+      Struttura contenenti i dati del civico per il quale verificare la copertura
+     </documentation> 
+    </annotation> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="indirizzo-req-type"> 
+  <sequence> 
+   <element name="Comune" type="tns:String100" /> 
+   <element name="CodiceIstat" type="tns:String10" minOccurs="0" /> 
+   <element name="Provincia" type="tns:String2" /> 
+   <element name="Toponomastica" type="tns:String30" /> 
+   <element name="NomeVia" type="tns:String100" /> 
+   <element name="Civico" type="tns:String30" /> 
+   <element name="CAP" type="tns:String10" minOccurs="0" /> 
+   <element name="MatchCode" type="tns:String200" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ResponseCheckCoverageSky"> 
+  <annotation> 
+   <documentation>
+    Struttura dati contenente l'output dell'invocazione della funzionalita' skyCheckCoverageResponse
+   </documentation> 
+  </annotation> 
+  <sequence> 
+   <element name="CheckCoverageResponse" type="tns:check-coverage-response-type" /> 
+   <element name="Status" type="tns:StatusType" minOccurs="0" /> 
+   <element name="ErrorCode" type="tns:String30" /> 
+   <element name="ErrorMessage" type="tns:String255" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="check-coverage-response-type"> 
+  <annotation> 
+   <documentation>
+    Struttura dati contenente l'output dell'invocazione della funzionalita' checkCoverageResponse
+   </documentation> 
+  </annotation> 
+  <sequence> 
+   <element name="IndirizzoRiconosciuto" type="tns:FlagType"> 
+    <annotation> 
+     <documentation>
+      Flag che indica se il riconoscimento dell'indirizzo ha avuto esito positivo. In caso contrario, potranno essere restituiti piu' di un indirizzo in match
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="Indirizzi" type="tns:indirizzi-type" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+      Struttura contenente il civico in input con i dati di vendibilita'
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="VerificaPortability" type="tns:verifica-portability-type" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+      Struttura contenente l'esito della verifica possibilita' di effettuare number portability sul telefono indicato in input 
+     </documentation> 
+    </annotation> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="indirizzi-type"> 
+  <annotation> 
+   <documentation>
+    Struttura contenente il civico in output
+   </documentation> 
+  </annotation> 
+  <sequence> 
+   <element name="Indirizzo" type="tns:indirizzo-type" maxOccurs="10" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="indirizzo-type"> 
+  <sequence> 
+   <element name="Provincia" type="tns:String2" /> 
+   <element name="Comune" type="tns:String100" /> 
+   <element name="Toponomastica" type="tns:String30" /> 
+   <element name="NomeVia" type="tns:String100" /> 
+   <element name="Civico" type="tns:String30" /> 
+   <element name="CAP" type="tns:String10" minOccurs="0" /> 
+   <element name="Vendibile" type="tns:FlagVendibileType" minOccurs="0" /> 
+   <element name="CodiceTecnologia" type="tns:CodiceTecnologiaType" minOccurs="0" /> 
+   <element name="Tecnologia" type="tns:TecnologiaType" minOccurs="0" /> 
+   <element name="CodiceSGU" type="tns:String20" minOccurs="0" /> 
+   <element name="DNAppoggio" type="tns:String75" minOccurs="0" /> 
+   <element name="DescrizioneSGU" type="tns:String256" minOccurs="0" /> 
+   <element name="IDanello" type="tns:String67" minOccurs="0" /> 
+   <element name="IdIndirizzoFW" type="tns:String100" /> 
+   <element name="RisorseComboPots" type="tns:String1" minOccurs="0" /> 
+   <element name="UBBPlus" type="tns:String1" minOccurs="0" /> 
+   <element name="Prevendita" type="tns:prevendita-type" minOccurs="0" /> 
+   <element minOccurs="0" name="GPON" type="tns:GPONType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="verifica-portability-type"> 
+  <sequence> 
+   <element name="FlagRichiestaNP" type="tns:FlagType" /> 
+   <element name="CodiceCowDonor" type="tns:String50" minOccurs="0" /> 
+   <element name="DescrizioneOperatoreDonor" type="tns:String50" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="prevendita-type"> 
+  <sequence> 
+   <element name="FlagPrevendita" type="tns:String1" /> 
+   <element name="IDcabinet" type="tns:String30" minOccurs="0" /> 
+   <element name="IDSGU" type="tns:String30" minOccurs="0" /> 
+   <element name="DataAttivazione" type="tns:DateString10" minOccurs="0" /> 
+   <element name="Tecnologia" type="tns:String30" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="GPONType"> 
+  <sequence> 
+   <element maxOccurs="1" minOccurs="0" name="Provider" type="xsd:string" /> 
+   <element maxOccurs="1" minOccurs="0" name="IdBuilding" type="xsd:string" /> 
+   <element maxOccurs="1" minOccurs="0" name="StatoBuilding" type="xsd:string" /> 
+   <element maxOccurs="1" minOccurs="0" name="IdGPON" type="xsd:string" /> 
+   <element maxOccurs="1" minOccurs="0" name="IdPOP" type="xsd:string" /> 
+  </sequence> 
+ </complexType> 
+ <simpleType name="String3"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="3" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String75"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="75" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String100"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="100" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String10"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="10" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String30"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="30" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String2"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="2" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String200"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="200" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String42"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="42" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String50"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="50" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String1"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="1" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String20"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="20" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String256"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="256" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String67"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="67" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String255"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="255" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="DateString19"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="19" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="DateString10"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="10" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="FlagType"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="1" /> 
+   <enumeration value="Y" /> 
+   <enumeration value="N" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="FlagVendibileType"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="2" /> 
+   <enumeration value="Y" /> 
+   <enumeration value="N" /> 
+   <enumeration value="NA" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="CodiceTecnologiaType"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="20" /> 
+   <enumeration value="F2R" /> 
+   <enumeration value="DSR" /> 
+   <enumeration value="D2R" /> 
+   <enumeration value="F1R" /> 
+   <enumeration value="WHR" /> 
+   <enumeration value="W2R" /> 
+   <enumeration value="V1R" /> 
+   <enumeration value="Y1R" /> 
+   <enumeration value="XSR" /> 
+   <enumeration value="X2R" /> 
+   <enumeration value="G1R" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="TecnologiaType"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="20" /> 
+   <enumeration value="FIBRA" /> 
+   <enumeration value="ADSL" /> 
+   <enumeration value="ADSL_WS" /> 
+   <enumeration value="SUBULL" /> 
+   <enumeration value="VULA" /> 
+   <enumeration value="ULL_VULA" /> 
+   <enumeration value="NGN GPON" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="StatusType"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="30" /> 
+   <enumeration value="Success" /> 
+   <enumeration value="Error" /> 
+  </restriction> 
+ </simpleType> <!--FB:2011-03-08 - F2-Start--> 
+ <simpleType name="String18"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="18" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="String30_MinL1"> 
+  <restriction base="xsd:string"> 
+   <minLength value="1" /> 
+   <maxLength value="30" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="CanaleType"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="30" /> 
+   <enumeration value="Agenzie" /> 
+   <enumeration value="Dealer" /> 
+   <enumeration value="TelesalesIn" /> 
+   <enumeration value="TelesalesOut" /> 
+   <enumeration value="SelfProvisioning" /> 
+   <enumeration value="Missing" /> 
+   <enumeration value="Diretto" /> 
+   <enumeration value="AOL Regioni" /> 
+  </restriction> 
+ </simpleType> <!--FB:2011-03-08 - F2-End--> 
+</schema>

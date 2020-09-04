@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:tns1="http://utils.sky.it" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://utils.sky.it" xmlns="http://www.w3.org/2001/XMLSchema"> 
+ <xsd:complexType name="addNewContractResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="addNewContractReturn" type="tns1:ReturnObject" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ReturnObject"> 
+  <xsd:sequence> 
+   <xsd:element name="code" nillable="true" type="xsd:string" /> 
+   <xsd:element name="description" nillable="true" type="xsd:string" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

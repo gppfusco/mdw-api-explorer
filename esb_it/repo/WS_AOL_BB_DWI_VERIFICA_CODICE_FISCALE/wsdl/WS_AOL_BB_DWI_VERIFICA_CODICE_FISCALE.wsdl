@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opDwiVerificaAnagCF"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_FISCALE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_COGNOME" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_NOME" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ANNO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_MESE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_GIORNO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_COMUNE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_PROVINCIA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SESSO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opDwiVerificaAnagCFResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_COMUNE_NASCITA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SESSO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DATA_NASCITA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO2" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO3" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO3" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO2" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opDwiVerificaCF"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_FISCALE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opDwiVerificaCFResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SESSO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_COMUNE_NASCITA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DATA_NASCITA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO2" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO3" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO3" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO2" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_COGNOME" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_NOME" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_LOCALITA_NASCITA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_PROVINCIA_NASCITA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_CHECK_DIGIT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ANNO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_MESE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_GIORNO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opDwiVerificaAnagCFRequest"> 
+  <wsdl:part element="eb:opDwiVerificaAnagCF" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opDwiVerificaAnagCFResponse"> 
+  <wsdl:part element="eb:opDwiVerificaAnagCFResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opDwiVerificaCFRequest"> 
+  <wsdl:part element="eb:opDwiVerificaCF" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opDwiVerificaCFResponse"> 
+  <wsdl:part element="eb:opDwiVerificaCFResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_AOL_BB_DWI_VERIFICA_CODICE_FISCALESoap"> 
+  <wsdl:operation name="opDwiVerificaAnagCF"> 
+   <wsdl:input message="eb:opDwiVerificaAnagCFRequest" name="opDwiVerificaAnagCFRequest" /> 
+   <wsdl:output message="eb:opDwiVerificaAnagCFResponse" name="opDwiVerificaAnagCFResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opDwiVerificaCF"> 
+   <wsdl:input message="eb:opDwiVerificaCFRequest" name="opDwiVerificaCFRequest" /> 
+   <wsdl:output message="eb:opDwiVerificaCFResponse" name="opDwiVerificaCFResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_AOL_BB_DWI_VERIFICA_CODICE_FISCALESoap" type="eb:WS_AOL_BB_DWI_VERIFICA_CODICE_FISCALESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opDwiVerificaAnagCF"> 
+   <soap:operation soapAction="WS_AOL_BB_DWI_VERIFICA_CODICE_FISCALE/opDwiVerificaAnagCF" style="document" /> 
+   <wsdl:input name="opDwiVerificaAnagCFRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opDwiVerificaAnagCFResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opDwiVerificaCF"> 
+   <soap:operation soapAction="WS_AOL_BB_DWI_VERIFICA_CODICE_FISCALE/opDwiVerificaCF" style="document" /> 
+   <wsdl:input name="opDwiVerificaCFRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opDwiVerificaCFResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_AOL_BB_DWI_VERIFICA_CODICE_FISCALE"> 
+  <wsdl:port binding="eb:WS_AOL_BB_DWI_VERIFICA_CODICE_FISCALESoap" name="WS_AOL_BB_DWI_VERIFICA_CODICE_FISCALESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_AOL_BB_DWI_VERIFICA_CODICE_FISCALE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

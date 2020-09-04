@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_WSC_INVIO_ESTREMI_PAGAMENTO.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opWSC_INVIO_ESTREMI_PAGAMENTO"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opWSC_INVIO_ESTREMI_PAGAMENTOResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opWSC_INVIO_ESTREMI_PAGAMENTORequest"> 
+  <wsdl:part element="eb:opWSC_INVIO_ESTREMI_PAGAMENTO" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opWSC_INVIO_ESTREMI_PAGAMENTOResponse"> 
+  <wsdl:part element="eb:opWSC_INVIO_ESTREMI_PAGAMENTOResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_WSC_INVIO_ESTREMI_PAGAMENTOSoap"> 
+  <wsdl:operation name="opWSC_INVIO_ESTREMI_PAGAMENTO"> 
+   <wsdl:input message="eb:opWSC_INVIO_ESTREMI_PAGAMENTORequest" name="opWSC_INVIO_ESTREMI_PAGAMENTORequest" /> 
+   <wsdl:output message="eb:opWSC_INVIO_ESTREMI_PAGAMENTOResponse" name="opWSC_INVIO_ESTREMI_PAGAMENTOResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_WSC_INVIO_ESTREMI_PAGAMENTOSoap" type="eb:WS_WSC_INVIO_ESTREMI_PAGAMENTOSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opWSC_INVIO_ESTREMI_PAGAMENTO"> 
+   <soap:operation soapAction="WS_WSC_INVIO_ESTREMI_PAGAMENTO/opWSC_INVIO_ESTREMI_PAGAMENTO" style="document" /> 
+   <wsdl:input name="opWSC_INVIO_ESTREMI_PAGAMENTORequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opWSC_INVIO_ESTREMI_PAGAMENTOResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_WSC_INVIO_ESTREMI_PAGAMENTO"> 
+  <wsdl:port binding="eb:WS_WSC_INVIO_ESTREMI_PAGAMENTOSoap" name="WS_WSC_INVIO_ESTREMI_PAGAMENTOSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_WSC_INVIO_ESTREMI_PAGAMENTO" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

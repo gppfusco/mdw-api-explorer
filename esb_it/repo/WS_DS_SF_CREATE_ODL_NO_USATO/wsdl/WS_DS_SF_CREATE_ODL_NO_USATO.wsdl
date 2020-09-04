@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://soap.sforce.com/schemas/class/WS_Inbound_ODL_Handler" schemaLocation="xsdSFDS/SkyXSD_WS_DS_SF_GESTIONE_ODL.xsd" /> 
+   <xsd:complexType name="createOdlMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_ODL_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:createOdl" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="createOdlResponseMDW" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_ODL_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:createOdlResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opCreateODL"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SESSION_ID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SESSION_URL" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="createOdl" type="eb:createOdlMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCreateODLResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="createOdlResponse" type="eb:createOdlResponseMDW" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCreateODLRequest"> 
+  <wsdl:part element="eb:opCreateODL" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCreateODLResponse"> 
+  <wsdl:part element="eb:opCreateODLResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_DS_SF_CREATE_ODL_NO_USATOSoap"> 
+  <wsdl:operation name="opCreateODL"> 
+   <wsdl:input message="eb:opCreateODLRequest" name="opCreateODLRequest" /> 
+   <wsdl:output message="eb:opCreateODLResponse" name="opCreateODLResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_DS_SF_CREATE_ODL_NO_USATOSoap" type="eb:WS_DS_SF_CREATE_ODL_NO_USATOSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCreateODL"> 
+   <soap:operation soapAction="WS_DS_SF_CREATE_ODL_NO_USATO/opCreateODL" style="document" /> 
+   <wsdl:input name="opCreateODLRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCreateODLResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_DS_SF_CREATE_ODL_NO_USATO"> 
+  <wsdl:port binding="eb:WS_DS_SF_CREATE_ODL_NO_USATOSoap" name="WS_DS_SF_CREATE_ODL_NO_USATOSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_DS_SF_CREATE_ODL_NO_USATO" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

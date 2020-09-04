@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_NAMIRIAL_SF_NOTIFICATION",
+    "name" : "WS_NAMIRIAL_SF_NOTIFICATION",
+    "localPath" : "esb_it\\repo\\WS_NAMIRIAL_SF_NOTIFICATION",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_NAMIRIAL_SF_NOTIFICATION?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdSF/SkyXSD_WS_SF_NAMIRIAL_NOTIFICATION.xsd",
+        "xsdNameSpace" : "http://soap.sforce.com/schemas/class/WS_SF_NAMIRIAL_NOTIFICATION"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

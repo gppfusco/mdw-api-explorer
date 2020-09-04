@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://services.siebel.sky.integrationlayer.reitek.com/" schemaLocation="xsdReitek/ProspectWS.xsd" /> 
+   <xsd:complexType name="esitoAttivazioneProspect" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:esitoAttivazioneProspect" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="esitoAttivazioneProspectResponse" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:esitoAttivazioneProspectResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="esitoLavorazioneProspect" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:esitoLavorazioneProspect" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="esitoLavorazioneProspectResponse" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:esitoLavorazioneProspectResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opEsitoAttivazioneProspect"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:esitoAttivazioneProspect" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opEsitoAttivazioneProspectResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:esitoAttivazioneProspectResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opEsitoLavorazioneProspect"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:esitoLavorazioneProspect" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opEsitoLavorazioneProspectResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:esitoLavorazioneProspectResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opEsitoAttivazioneProspectRequest"> 
+  <wsdl:part element="eb:opEsitoAttivazioneProspect" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opEsitoAttivazioneProspectResponse"> 
+  <wsdl:part element="eb:opEsitoAttivazioneProspectResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opEsitoLavorazioneProspectRequest"> 
+  <wsdl:part element="eb:opEsitoLavorazioneProspect" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opEsitoLavorazioneProspectResponse"> 
+  <wsdl:part element="eb:opEsitoLavorazioneProspectResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_OTS_REITEK_PROSPECTSoap"> 
+  <wsdl:operation name="opEsitoAttivazioneProspect"> 
+   <wsdl:input message="eb:opEsitoAttivazioneProspectRequest" name="opEsitoAttivazioneProspectRequest" /> 
+   <wsdl:output message="eb:opEsitoAttivazioneProspectResponse" name="opEsitoAttivazioneProspectResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opEsitoLavorazioneProspect"> 
+   <wsdl:input message="eb:opEsitoLavorazioneProspectRequest" name="opEsitoLavorazioneProspectRequest" /> 
+   <wsdl:output message="eb:opEsitoLavorazioneProspectResponse" name="opEsitoLavorazioneProspectResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_OTS_REITEK_PROSPECTSoap" type="eb:WS_OTS_REITEK_PROSPECTSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opEsitoAttivazioneProspect"> 
+   <soap:operation soapAction="WS_OTS_REITEK_PROSPECT/opEsitoAttivazioneProspect" style="document" /> 
+   <wsdl:input name="opEsitoAttivazioneProspectRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opEsitoAttivazioneProspectResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opEsitoLavorazioneProspect"> 
+   <soap:operation soapAction="WS_OTS_REITEK_PROSPECT/opEsitoLavorazioneProspect" style="document" /> 
+   <wsdl:input name="opEsitoLavorazioneProspectRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opEsitoLavorazioneProspectResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_OTS_REITEK_PROSPECT"> 
+  <wsdl:port binding="eb:WS_OTS_REITEK_PROSPECTSoap" name="WS_OTS_REITEK_PROSPECTSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_OTS_REITEK_PROSPECT" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

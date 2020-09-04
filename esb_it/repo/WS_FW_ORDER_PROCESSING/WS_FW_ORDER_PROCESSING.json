@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_FW_ORDER_PROCESSING",
+    "name" : "WS_FW_ORDER_PROCESSING",
+    "localPath" : "esb_it\\repo\\WS_FW_ORDER_PROCESSING",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_FW_ORDER_PROCESSING?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "SkyXSD_OrderProcessing.xsd",
+        "xsdNameSpace" : "http://services.olg.oss.fastweb.it/fly/sky2fw/o2d/OrderProcessingServices/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

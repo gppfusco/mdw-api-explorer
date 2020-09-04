@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="unqualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="DATI"> 
+    <xsd:sequence> 
+     <xsd:element name="CFIS"> 
+      <xsd:complexType> 
+       <xsd:sequence> 
+        <xsd:element name="AREA_OUTPUT"> 
+         <xsd:complexType> 
+          <xsd:sequence> 
+           <xsd:element name="COGNOME" type="xsd:string" /> 
+           <xsd:element name="NOME" type="xsd:string" /> 
+           <xsd:element name="ANNO" type="xsd:string" /> 
+           <xsd:element name="MESE" type="xsd:string" /> 
+           <xsd:element name="GIORNO" type="xsd:string" /> 
+           <xsd:element name="DATA" type="xsd:string" /> 
+           <xsd:element name="LOCALITA" type="xsd:string" /> 
+           <xsd:element name="LOC_UFF" type="xsd:string" /> 
+           <xsd:element name="PROV" type="xsd:string" /> 
+           <xsd:element name="PROV_UFF" type="xsd:string" /> 
+           <xsd:element name="COD_PRO" type="xsd:string" /> 
+           <xsd:element name="COD_COM" type="xsd:string" /> 
+           <xsd:element name="COD_FRA" type="xsd:string" /> 
+           <xsd:element name="COD_SPE" type="xsd:string" /> 
+           <xsd:element name="COD_FIS" type="xsd:string" /> 
+           <xsd:element name="SESSO" type="xsd:string" /> 
+           <xsd:element name="CHECK" type="xsd:string" /> 
+           <xsd:element name="DESCRIZIONE" type="xsd:string" /> 
+           <xsd:element name="COD_PCF" type="xsd:string" /> 
+          </xsd:sequence> 
+         </xsd:complexType> 
+        </xsd:element> 
+        <xsd:element name="AREA_ERRORI"> 
+         <xsd:complexType> 
+          <xsd:sequence> 
+           <xsd:element maxOccurs="unbounded" minOccurs="0" name="ERRORE"> 
+            <xsd:complexType> 
+             <xsd:sequence> 
+              <xsd:element name="F_ERR" type="xsd:string" /> 
+              <xsd:element name="C_ERR" type="xsd:string" /> 
+              <xsd:element name="D_ERR" type="xsd:string" /> 
+             </xsd:sequence> 
+             <xsd:attribute name="value" type="xsd:byte" use="optional" /> 
+            </xsd:complexType> 
+           </xsd:element> 
+          </xsd:sequence> 
+         </xsd:complexType> 
+        </xsd:element> 
+       </xsd:sequence> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opCheckDatiCodiceFiscale"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_FISCALE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_NOME" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_COGNOME" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SESSO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_GIORNO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_MESE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_ANNO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_LOCALITA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_PROVINCIA" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCheckDatiCodiceFiscaleResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="DATI" type="eb:DATI" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCheckDatiCodiceFiscaleRequest"> 
+  <wsdl:part element="eb:opCheckDatiCodiceFiscale" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCheckDatiCodiceFiscaleResponse"> 
+  <wsdl:part element="eb:opCheckDatiCodiceFiscaleResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SF_EGON_CHECK_DATI_CFSoap"> 
+  <wsdl:operation name="opCheckDatiCodiceFiscale"> 
+   <wsdl:input message="eb:opCheckDatiCodiceFiscaleRequest" name="opCheckDatiCodiceFiscaleRequest" /> 
+   <wsdl:output message="eb:opCheckDatiCodiceFiscaleResponse" name="opCheckDatiCodiceFiscaleResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SF_EGON_CHECK_DATI_CFSoap" type="eb:WS_SF_EGON_CHECK_DATI_CFSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCheckDatiCodiceFiscale"> 
+   <soap:operation soapAction="WS_SF_EGON_CHECK_DATI_CF/opCheckDatiCodiceFiscale" style="document" /> 
+   <wsdl:input name="opCheckDatiCodiceFiscaleRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCheckDatiCodiceFiscaleResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SF_EGON_CHECK_DATI_CF"> 
+  <wsdl:port binding="eb:WS_SF_EGON_CHECK_DATI_CFSoap" name="WS_SF_EGON_CHECK_DATI_CFSoap"> 
+   <soap:address location="https://wscolprj.sky.it/wsexistbus/ws_sf_ns/WS_SF_EGON_CHECK_DATI_CF" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

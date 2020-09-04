@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_AGGIUNGI_BLL_LEAD_CMN.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opAggiungiBLLeadCMN"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAggiungiBLLeadCMNResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opAggiungiBLLeadCMNRequest"> 
+  <wsdl:part element="eb:opAggiungiBLLeadCMN" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAggiungiBLLeadCMNResponse"> 
+  <wsdl:part element="eb:opAggiungiBLLeadCMNResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SF_SBL_AGGIUNGI_BLLEAD_CALLMENOWSoap"> 
+  <wsdl:operation name="opAggiungiBLLeadCMN"> 
+   <wsdl:input message="eb:opAggiungiBLLeadCMNRequest" name="opAggiungiBLLeadCMNRequest" /> 
+   <wsdl:output message="eb:opAggiungiBLLeadCMNResponse" name="opAggiungiBLLeadCMNResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SF_SBL_AGGIUNGI_BLLEAD_CALLMENOWSoap" type="eb:WS_SF_SBL_AGGIUNGI_BLLEAD_CALLMENOWSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opAggiungiBLLeadCMN"> 
+   <soap:operation soapAction="WS_SF_SBL_AGGIUNGI_BLLEAD_CALLMENOW/opAggiungiBLLeadCMN" style="document" /> 
+   <wsdl:input name="opAggiungiBLLeadCMNRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAggiungiBLLeadCMNResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SF_SBL_AGGIUNGI_BLLEAD_CALLMENOW"> 
+  <wsdl:port binding="eb:WS_SF_SBL_AGGIUNGI_BLLEAD_CALLMENOWSoap" name="WS_SF_SBL_AGGIUNGI_BLLEAD_CALLMENOWSoap"> 
+   <soap:address location="https://wssvil.sky.it/wsexistbus/ws_sf_ns/WS_SF_SBL_AGGIUNGI_BLLEAD_CALLMENOW" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

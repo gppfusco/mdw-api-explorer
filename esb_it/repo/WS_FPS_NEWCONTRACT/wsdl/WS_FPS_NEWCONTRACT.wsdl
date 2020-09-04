@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="unqualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="NewContractData"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="record" type="eb:record" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="param"> 
+    <xsd:attribute name="name" type="xsd:string" use="required" /> 
+    <xsd:attribute name="value" type="xsd:string" use="required" /> 
+   </xsd:complexType> 
+   <xsd:complexType name="record"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="param" type="eb:param" /> 
+    </xsd:sequence> 
+    <xsd:attribute name="name" type="xsd:string" use="required" /> 
+   </xsd:complexType> 
+   <xsd:element name="FPSNewContractOperation"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="NewContractInput" type="eb:NewContractData" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="FPSNewContractOperationResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Esito" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Descrizione" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="FPSNewContractOperationRequest"> 
+  <wsdl:part element="eb:FPSNewContractOperation" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="FPSNewContractOperationResponse"> 
+  <wsdl:part element="eb:FPSNewContractOperationResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_FPS_NEWCONTRACTSoap"> 
+  <wsdl:operation name="FPSNewContractOperation"> 
+   <wsdl:input message="eb:FPSNewContractOperationRequest" name="FPSNewContractOperationRequest" /> 
+   <wsdl:output message="eb:FPSNewContractOperationResponse" name="FPSNewContractOperationResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_FPS_NEWCONTRACTSoap" type="eb:WS_FPS_NEWCONTRACTSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="FPSNewContractOperation"> 
+   <soap:operation soapAction="WS_FPS_NEWCONTRACT/FPSNewContractOperation" style="document" /> 
+   <wsdl:input name="FPSNewContractOperationRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="FPSNewContractOperationResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_FPS_NEWCONTRACT"> 
+  <wsdl:port binding="eb:WS_FPS_NEWCONTRACTSoap" name="WS_FPS_NEWCONTRACTSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_FPS_NEWCONTRACT" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

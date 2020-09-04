@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="checkout"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="codice_hotel" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="id_chiave_hotel" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="descr_camera" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="data_chiusura" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="checkoutResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="id_esito" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="descr_esito" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="checkoutRequest"> 
+  <wsdl:part element="eb:checkout" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="checkoutResponse"> 
+  <wsdl:part element="eb:checkoutResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="CheckOutSoap"> 
+  <wsdl:operation name="checkout"> 
+   <wsdl:input message="eb:checkoutRequest" name="checkoutRequest" /> 
+   <wsdl:output message="eb:checkoutResponse" name="checkoutResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="CheckOutSoap" type="eb:CheckOutSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="checkout"> 
+   <soap:operation soapAction="CheckOut/checkout" style="document" /> 
+   <wsdl:input name="checkoutRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="checkoutResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="CheckOut"> 
+  <wsdl:port binding="eb:CheckOutSoap" name="CheckOutSoap"> 
+   <soap:address location="https://ws.sky.it/wsexistbus/openws/CheckOut" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

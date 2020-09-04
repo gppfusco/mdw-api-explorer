@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opResetModuliCam"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="HTL_CODICE_HOTEL" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="NUMERO_MODULO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="CODICE_UTENTE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opResetModuliCamResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opResetModuliCamRequest"> 
+  <wsdl:part element="eb:opResetModuliCam" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opResetModuliCamResponse"> 
+  <wsdl:part element="eb:opResetModuliCamResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_HTL_RESET_MODULI_CAMSoap"> 
+  <wsdl:operation name="opResetModuliCam"> 
+   <wsdl:input message="eb:opResetModuliCamRequest" name="opResetModuliCamRequest" /> 
+   <wsdl:output message="eb:opResetModuliCamResponse" name="opResetModuliCamResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_HTL_RESET_MODULI_CAMSoap" type="eb:WS_HTL_RESET_MODULI_CAMSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opResetModuliCam"> 
+   <soap:operation soapAction="WS_HTL_RESET_MODULI_CAM/opResetModuliCam" style="document" /> 
+   <wsdl:input name="opResetModuliCamRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opResetModuliCamResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_HTL_RESET_MODULI_CAM"> 
+  <wsdl:port binding="eb:WS_HTL_RESET_MODULI_CAMSoap" name="WS_HTL_RESET_MODULI_CAMSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_HTL_RESET_MODULI_CAM" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

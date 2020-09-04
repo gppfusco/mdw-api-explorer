@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="DocumentDataIN"> 
+    <xsd:sequence> 
+     <xsd:element name="FWTransactionData" type="eb:FWTransactionData" /> 
+     <xsd:element name="IdPDA"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="AzioneFW"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="IntegrationIdSKY"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="ClusterNumber"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="2" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="ChiaviFW" type="eb:ChiaviFW" /> 
+     <xsd:element name="CustomerBaseFW"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="5" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="BundlePrecedente"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="IdPDAPrecedente"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="0" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="ClusterPSPMPrecedente"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="DataCessazioneBundlePrecedente"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="15" /> 
+        <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOUT"> 
+    <xsd:sequence> 
+     <xsd:element name="ErrorCode"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="ErrorMessage"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="255" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FWTransactionData"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="SenderName"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="50" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="UserName"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="50" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="TransactionId"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="42" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="Version"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="50" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="TransactionTime"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="19" /> 
+        <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="ChiaviFW"> 
+    <xsd:sequence> 
+     <xsd:element name="IdHeaderFW"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="IdInstanceFW"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="IdAssetFW"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="CodiceClienteFW"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="CodiceCDFFW"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opSiebel"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataIN" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSiebelResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOUT" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opSiebelRequest"> 
+  <wsdl:part element="eb:opSiebel" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSiebelResponse"> 
+  <wsdl:part element="eb:opSiebelResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_BB_CONFIRM_PDA_OKSoap"> 
+  <wsdl:operation name="opSiebel"> 
+   <wsdl:input message="eb:opSiebelRequest" name="opSiebelRequest" /> 
+   <wsdl:output message="eb:opSiebelResponse" name="opSiebelResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_BB_CONFIRM_PDA_OKSoap" type="eb:WS_BB_CONFIRM_PDA_OKSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opSiebel"> 
+   <soap:operation soapAction="WS_BB_CONFIRM_PDA_OK/opSiebel" style="document" /> 
+   <wsdl:input name="opSiebelRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSiebelResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_BB_CONFIRM_PDA_OK"> 
+  <wsdl:port binding="eb:WS_BB_CONFIRM_PDA_OKSoap" name="WS_BB_CONFIRM_PDA_OKSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_bb/WS_BB_CONFIRM_PDA_OK" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

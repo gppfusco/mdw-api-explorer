@@ -1,0 +1,255 @@
+<xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="unqualified" version="1.0"> 
+ <xsd:complexType name="AccountRequestType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="Request"> 
+    <xsd:sequence> 
+     <xsd:element name="opType" type="opType" minOccurs="0" /> 
+     <xsd:element name="pecUid" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="pecPwd" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="accountId" type="xsd:long" minOccurs="0" /> 
+     <xsd:element name="displayName" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="email" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="userRef" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="imapHost" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="smtpHost" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="imapPort" type="xsd:long" minOccurs="0" /> 
+     <xsd:element name="smtpPort" type="xsd:long" minOccurs="0" /> 
+     <xsd:element name="maxRetry" type="xsd:long" minOccurs="0" /> 
+     <xsd:element name="retryDelay" type="xsd:long" minOccurs="0" /> 
+     <xsd:element name="fiscalCode" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="address" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="postalCode" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="locality" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="country" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="prov" type="xsd:string" minOccurs="0" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="AccountResponseType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="Response"> 
+    <xsd:sequence> 
+     <xsd:element name="accountId" type="xsd:long" minOccurs="0" /> 
+     <xsd:element name="userRef" type="xsd:string" minOccurs="0" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="MessagesRequestType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="Request"> 
+    <xsd:sequence> 
+     <xsd:element name="accountId" type="xsd:long" minOccurs="0" /> 
+     <xsd:element name="userRef" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="folder" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="filter" type="MessagesFilter" minOccurs="0" /> 
+     <xsd:element name="headerOnly" type="xsd:boolean" minOccurs="0" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="Request" abstract="true"> 
+  <xsd:sequence> 
+   <xsd:element name="authUserParam" type="AuthUserParam" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="MessagesFilter"> 
+  <xsd:sequence> 
+   <xsd:element name="after" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="before" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="messageId" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="from" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="subject" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="offset" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="limit" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="orderBy" type="orderBy" minOccurs="0" /> 
+   <xsd:element name="orderMode" type="orderMode" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AuthUserParam"> 
+  <xsd:sequence> 
+   <xsd:element name="userName" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="userPwd" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="MessagesResponseType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="Response"> 
+    <xsd:sequence> 
+     <xsd:element name="messages" type="Message" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="Response"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="ReturnedCode" minOccurs="0" /> 
+   <xsd:element name="sessUUID" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Message"> 
+  <xsd:sequence> 
+   <xsd:element name="from" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="to" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="subject" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="eml" type="xsd:base64Binary" minOccurs="0" /> 
+   <xsd:element name="body" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="sentDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="messageId" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="xRicevuta" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="xRiferimentoMessageId" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="attachments" type="Attachment" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Attachment"> 
+  <xsd:sequence> 
+   <xsd:element name="name" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="content" type="xsd:base64Binary" minOccurs="0" /> 
+   <xsd:element name="mimeType" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="progr" type="xsd:int" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ReturnedCode"> 
+  <xsd:sequence> 
+   <xsd:element name="code" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="description" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SendRequestType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="Request"> 
+    <xsd:sequence> 
+     <xsd:element name="accountId" type="xsd:long" minOccurs="0" /> 
+     <xsd:element name="userRef" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="subject" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="body" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="receiptType" type="receiptType" minOccurs="0" /> 
+     <xsd:element name="attachments" type="Attachment" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+     <xsd:element name="messages" type="SendMessage" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="SendMessage"> 
+  <xsd:sequence> 
+   <xsd:element name="customMessageRef" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="subject" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="to" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="body" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="flagPec" type="xsd:boolean" minOccurs="0" /> 
+   <xsd:element name="receiptType" type="receiptType" minOccurs="0" /> 
+   <xsd:element name="attachments" type="Attachment" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="SendResponseType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="Response"> 
+    <xsd:sequence> 
+     <xsd:element name="transactionId" type="xsd:long" minOccurs="0" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="StatusRequestType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="Request"> 
+    <xsd:sequence> 
+     <xsd:element name="accountId" type="xsd:long" minOccurs="0" /> 
+     <xsd:element name="userRef" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="transactionId" type="xsd:long" minOccurs="0" /> 
+     <xsd:element name="customMessageRef" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="forceElaboration" type="xsd:boolean" minOccurs="0" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="StatusResponseType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="Response"> 
+    <xsd:sequence> 
+     <xsd:element name="accountId" type="xsd:long" minOccurs="0" /> 
+     <xsd:element name="userRef" type="xsd:string" minOccurs="0" /> 
+     <xsd:element name="transaction" type="Transaction" minOccurs="0" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="Transaction"> 
+  <xsd:sequence> 
+   <xsd:element name="transactionId" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="userRef" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="accountId" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="insertDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="startDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="lastUpdDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="totLoaded" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="totSent" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="totReceived" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="totFailed" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="status" type="transactionStatus" minOccurs="0" /> 
+   <xsd:element name="errorCode" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="messages" type="MessageReport" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="MessageReport"> 
+  <xsd:sequence> 
+   <xsd:element name="customMessageRef" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="from" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="to" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="subject" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="sentDate" type="xsd:dateTime" minOccurs="0" /> 
+   <xsd:element name="messageId" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="messageStatus" type="messageStatus" minOccurs="0" /> 
+   <xsd:element name="errorDesc" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="orderBy"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="FROM" /> 
+   <xsd:enumeration value="TO" /> 
+   <xsd:enumeration value="SUBJECT" /> 
+   <xsd:enumeration value="SENT_DATE" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="orderMode"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="ASC" /> 
+   <xsd:enumeration value="DESC" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="opType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="NEW" /> 
+   <xsd:enumeration value="UPDATE" /> 
+   <xsd:enumeration value="SUSPEND" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="receiptType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="COMPLETA" /> 
+   <xsd:enumeration value="BREVE" /> 
+   <xsd:enumeration value="SINTETICA" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="transactionStatus"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="SCHEDULATO" /> 
+   <xsd:enumeration value="PRESO_IN_CARICO" /> 
+   <xsd:enumeration value="COMPLETATO" /> 
+   <xsd:enumeration value="COMPLETATO_CON_ERRORI" /> 
+   <xsd:enumeration value="CONSEGNATO" /> 
+   <xsd:enumeration value="CONSEGNATO_CON_ERRORI" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="messageStatus"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="NON_INVIATO" /> 
+   <xsd:enumeration value="INVIATO" /> 
+   <xsd:enumeration value="ACCETTATO" /> 
+   <xsd:enumeration value="CONSEGNATO" /> 
+   <xsd:enumeration value="ERRORE_ACC" /> 
+   <xsd:enumeration value="ERRORE_CON" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+</xsd:schema>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://services.olg.oss.fastweb.it/fly/sky2fw/o2d/OrderProcessingServices/" schemaLocation="SkyXSD_OrderProcessing.xsd" /> 
+   <xsd:complexType name="OperationDataType" xmlns:tns="http://services.olg.oss.fastweb.it/fly/sky2fw/o2d/OrderProcessingServices/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="tns:OperationDataType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="OrderProcessingOp"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:OperationDataType" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OrderProcessingOpResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Esito" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="DescrizioneEsito" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OrderProcessingOpRequest"> 
+  <wsdl:part element="eb:OrderProcessingOp" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OrderProcessingOpResponse"> 
+  <wsdl:part element="eb:OrderProcessingOpResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_FW_ORDER_PROCESSINGSoap"> 
+  <wsdl:operation name="OrderProcessingOp"> 
+   <wsdl:input message="eb:OrderProcessingOpRequest" name="OrderProcessingOpRequest" /> 
+   <wsdl:output message="eb:OrderProcessingOpResponse" name="OrderProcessingOpResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_FW_ORDER_PROCESSINGSoap" type="eb:WS_FW_ORDER_PROCESSINGSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OrderProcessingOp"> 
+   <soap:operation soapAction="WS_FW_ORDER_PROCESSING/OrderProcessingOp" style="document" /> 
+   <wsdl:input name="OrderProcessingOpRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OrderProcessingOpResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_FW_ORDER_PROCESSING"> 
+  <wsdl:port binding="eb:WS_FW_ORDER_PROCESSINGSoap" name="WS_FW_ORDER_PROCESSINGSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_FW_ORDER_PROCESSING" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

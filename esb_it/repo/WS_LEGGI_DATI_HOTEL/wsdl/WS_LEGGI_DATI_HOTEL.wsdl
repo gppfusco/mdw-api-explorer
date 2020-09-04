@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="OP_LEGGI_DATI_HOTEL"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_UTENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_HOTEL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_LEGGI_DATI_HOTELResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_NUMERO_STANZE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DENOMINAZIONE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_GENERAZIONE_PIN" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_BLOCCA_CANALI_FLG" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_AGGIORNA_CANALI_FLG" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_TECNOLOGIA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_HTL_FLG_AUTOCERT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_HTL_FLG_FLEXI" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_HTL_FLAG_STAG_FLEX" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_LEGGI_DATI_HOTELRequest"> 
+  <wsdl:part element="eb:OP_LEGGI_DATI_HOTEL" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_LEGGI_DATI_HOTELResponse"> 
+  <wsdl:part element="eb:OP_LEGGI_DATI_HOTELResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_LEGGI_DATI_HOTELSoap"> 
+  <wsdl:operation name="OP_LEGGI_DATI_HOTEL"> 
+   <wsdl:input message="eb:OP_LEGGI_DATI_HOTELRequest" name="OP_LEGGI_DATI_HOTELRequest" /> 
+   <wsdl:output message="eb:OP_LEGGI_DATI_HOTELResponse" name="OP_LEGGI_DATI_HOTELResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_LEGGI_DATI_HOTELSoap" type="eb:WS_LEGGI_DATI_HOTELSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_LEGGI_DATI_HOTEL"> 
+   <soap:operation soapAction="WS_LEGGI_DATI_HOTEL/OP_LEGGI_DATI_HOTEL" style="document" /> 
+   <wsdl:input name="OP_LEGGI_DATI_HOTELRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_LEGGI_DATI_HOTELResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_LEGGI_DATI_HOTEL"> 
+  <wsdl:port binding="eb:WS_LEGGI_DATI_HOTELSoap" name="WS_LEGGI_DATI_HOTELSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_LEGGI_DATI_HOTEL" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

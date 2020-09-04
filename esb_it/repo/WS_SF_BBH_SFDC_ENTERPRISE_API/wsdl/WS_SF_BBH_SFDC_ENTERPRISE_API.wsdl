@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="urn:enterprise.soap.sforce.com" schemaLocation="xsdSFBBH/SkyXSD_BBH_TypeDefinitions.xsd" /> 
+   <xsd:import namespace="urn:fault.enterprise.soap.sforce.com" schemaLocation="xsdSFBBH/SkyXSD_BBH_FaultDefinitions.xsd" /> 
+   <xsd:complexType name="login" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:login" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="loginResponse" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:loginResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="upsert" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:upsert" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="upsertResponse" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:upsertResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="convertLead" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:convertLead" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="convertLeadResponse" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:convertLeadResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="create" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:create" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="createResponse" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:createResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="update" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:update" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="updateResponse" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:updateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="logout" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:logout" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="logoutResponse" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:logoutResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="invalidateSessions" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:invalidateSessions" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="invalidateSessionsResponse" xmlns:sf="urn:enterprise.soap.sforce.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:invalidateSessionsResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opLogin"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:login" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLoginResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:loginResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpsert"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:upsert" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="UseDefaultRule" type="xsd:boolean" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionUrl" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="AssignmentRuleId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpsertResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:upsertResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpsertEmail"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:upsert" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="UseDefaultRule" type="xsd:boolean" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionUrl" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="AssignmentRuleId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpsertEmailResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:upsertResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opConvertLead"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionUrl" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:convertLead" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opConvertLeadResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:convertLeadResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCreate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:create" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="UseDefaultRule" type="xsd:boolean" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionUrl" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="AssignmentRuleId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCreateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:createResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:update" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="UseDefaultRule" type="xsd:boolean" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionUrl" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="AssignmentRuleId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:updateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLogout"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:logout" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLogoutResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:logoutResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opInvalidateSessions"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:invalidateSessions" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionUrl" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opInvalidateSessionsResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:invalidateSessionsResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opLoginRequest"> 
+  <wsdl:part element="eb:opLogin" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLoginResponse"> 
+  <wsdl:part element="eb:opLoginResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpsertRequest"> 
+  <wsdl:part element="eb:opUpsert" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpsertResponse"> 
+  <wsdl:part element="eb:opUpsertResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpsertEmailRequest"> 
+  <wsdl:part element="eb:opUpsertEmail" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpsertEmailResponse"> 
+  <wsdl:part element="eb:opUpsertEmailResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opConvertLeadRequest"> 
+  <wsdl:part element="eb:opConvertLead" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opConvertLeadResponse"> 
+  <wsdl:part element="eb:opConvertLeadResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCreateRequest"> 
+  <wsdl:part element="eb:opCreate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCreateResponse"> 
+  <wsdl:part element="eb:opCreateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpdateRequest"> 
+  <wsdl:part element="eb:opUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpdateResponse"> 
+  <wsdl:part element="eb:opUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLogoutRequest"> 
+  <wsdl:part element="eb:opLogout" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLogoutResponse"> 
+  <wsdl:part element="eb:opLogoutResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opInvalidateSessionsRequest"> 
+  <wsdl:part element="eb:opInvalidateSessions" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opInvalidateSessionsResponse"> 
+  <wsdl:part element="eb:opInvalidateSessionsResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SF_BBH_SFDC_ENTERPRISE_APISoap"> 
+  <wsdl:operation name="opLogin"> 
+   <wsdl:input message="eb:opLoginRequest" name="opLoginRequest" /> 
+   <wsdl:output message="eb:opLoginResponse" name="opLoginResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpsert"> 
+   <wsdl:input message="eb:opUpsertRequest" name="opUpsertRequest" /> 
+   <wsdl:output message="eb:opUpsertResponse" name="opUpsertResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpsertEmail"> 
+   <wsdl:input message="eb:opUpsertEmailRequest" name="opUpsertEmailRequest" /> 
+   <wsdl:output message="eb:opUpsertEmailResponse" name="opUpsertEmailResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opConvertLead"> 
+   <wsdl:input message="eb:opConvertLeadRequest" name="opConvertLeadRequest" /> 
+   <wsdl:output message="eb:opConvertLeadResponse" name="opConvertLeadResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opCreate"> 
+   <wsdl:input message="eb:opCreateRequest" name="opCreateRequest" /> 
+   <wsdl:output message="eb:opCreateResponse" name="opCreateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpdate"> 
+   <wsdl:input message="eb:opUpdateRequest" name="opUpdateRequest" /> 
+   <wsdl:output message="eb:opUpdateResponse" name="opUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opLogout"> 
+   <wsdl:input message="eb:opLogoutRequest" name="opLogoutRequest" /> 
+   <wsdl:output message="eb:opLogoutResponse" name="opLogoutResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opInvalidateSessions"> 
+   <wsdl:input message="eb:opInvalidateSessionsRequest" name="opInvalidateSessionsRequest" /> 
+   <wsdl:output message="eb:opInvalidateSessionsResponse" name="opInvalidateSessionsResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SF_BBH_SFDC_ENTERPRISE_APISoap" type="eb:WS_SF_BBH_SFDC_ENTERPRISE_APISoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opLogin"> 
+   <soap:operation soapAction="WS_SF_BBH_SFDC_ENTERPRISE_API/opLogin" style="document" /> 
+   <wsdl:input name="opLoginRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opLoginResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpsert"> 
+   <soap:operation soapAction="WS_SF_BBH_SFDC_ENTERPRISE_API/opUpsert" style="document" /> 
+   <wsdl:input name="opUpsertRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opUpsertResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpsertEmail"> 
+   <soap:operation soapAction="WS_SF_BBH_SFDC_ENTERPRISE_API/opUpsertEmail" style="document" /> 
+   <wsdl:input name="opUpsertEmailRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opUpsertEmailResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opConvertLead"> 
+   <soap:operation soapAction="WS_SF_BBH_SFDC_ENTERPRISE_API/opConvertLead" style="document" /> 
+   <wsdl:input name="opConvertLeadRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opConvertLeadResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opCreate"> 
+   <soap:operation soapAction="WS_SF_BBH_SFDC_ENTERPRISE_API/opCreate" style="document" /> 
+   <wsdl:input name="opCreateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCreateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpdate"> 
+   <soap:operation soapAction="WS_SF_BBH_SFDC_ENTERPRISE_API/opUpdate" style="document" /> 
+   <wsdl:input name="opUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opLogout"> 
+   <soap:operation soapAction="WS_SF_BBH_SFDC_ENTERPRISE_API/opLogout" style="document" /> 
+   <wsdl:input name="opLogoutRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opLogoutResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opInvalidateSessions"> 
+   <soap:operation soapAction="WS_SF_BBH_SFDC_ENTERPRISE_API/opInvalidateSessions" style="document" /> 
+   <wsdl:input name="opInvalidateSessionsRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opInvalidateSessionsResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SF_BBH_SFDC_ENTERPRISE_API"> 
+  <wsdl:port binding="eb:WS_SF_BBH_SFDC_ENTERPRISE_APISoap" name="WS_SF_BBH_SFDC_ENTERPRISE_APISoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SF_BBH_SFDC_ENTERPRISE_API" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

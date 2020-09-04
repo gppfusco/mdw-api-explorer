@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF" schemaLocation="SkyXSD_DataFlowFromSAStoSF.xsd" /> 
+   <xsd:complexType name="doRollback" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:doRollback" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="doRollbackResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:doRollbackResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Output_OptimizerDetailUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Output_OptimizerDetailUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Output_OptimizerDetailUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Output_OptimizerDetailUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Output_OptimizerUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Output_OptimizerUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Output_OptimizerUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Output_OptimizerUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="setSavepoint" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:setSavepoint" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="setSavepointResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:setSavepointResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="setEndpoint" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:setEndpoint" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="setEndpointResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:setEndpointResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opDoRollback"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:doRollback" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opDoRollbackResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:doRollbackResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opOutputOptimizerDetailUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Output_OptimizerDetailUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opOutputOptimizerDetailUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Output_OptimizerDetailUpdateResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opOutputOptimizerUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Output_OptimizerUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opOutputOptimizerUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Output_OptimizerUpdateResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSetSavepoint"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:setSavepoint" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSetSavepointResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:setSavepointResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSetEndpoint"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:setEndpoint" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSetEndpointResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:setEndpointResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLogin"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Password" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Username" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLoginResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ServerUrl" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLogout"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ServerUrl" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLogoutResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence /> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opDoRollbackRequest"> 
+  <wsdl:part element="eb:opDoRollback" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opDoRollbackResponse"> 
+  <wsdl:part element="eb:opDoRollbackResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opOutputOptimizerDetailUpdateRequest"> 
+  <wsdl:part element="eb:opOutputOptimizerDetailUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opOutputOptimizerDetailUpdateResponse"> 
+  <wsdl:part element="eb:opOutputOptimizerDetailUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opOutputOptimizerUpdateRequest"> 
+  <wsdl:part element="eb:opOutputOptimizerUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opOutputOptimizerUpdateResponse"> 
+  <wsdl:part element="eb:opOutputOptimizerUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSetSavepointRequest"> 
+  <wsdl:part element="eb:opSetSavepoint" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSetSavepointResponse"> 
+  <wsdl:part element="eb:opSetSavepointResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSetEndpointRequest"> 
+  <wsdl:part element="eb:opSetEndpoint" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSetEndpointResponse"> 
+  <wsdl:part element="eb:opSetEndpointResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLoginRequest"> 
+  <wsdl:part element="eb:opLogin" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLoginResponse"> 
+  <wsdl:part element="eb:opLoginResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLogoutRequest"> 
+  <wsdl:part element="eb:opLogout" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLogoutResponse"> 
+  <wsdl:part element="eb:opLogoutResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WSSasToSfDataFlowSoap"> 
+  <wsdl:operation name="opDoRollback"> 
+   <wsdl:input message="eb:opDoRollbackRequest" name="opDoRollbackRequest" /> 
+   <wsdl:output message="eb:opDoRollbackResponse" name="opDoRollbackResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opOutputOptimizerDetailUpdate"> 
+   <wsdl:input message="eb:opOutputOptimizerDetailUpdateRequest" name="opOutputOptimizerDetailUpdateRequest" /> 
+   <wsdl:output message="eb:opOutputOptimizerDetailUpdateResponse" name="opOutputOptimizerDetailUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opOutputOptimizerUpdate"> 
+   <wsdl:input message="eb:opOutputOptimizerUpdateRequest" name="opOutputOptimizerUpdateRequest" /> 
+   <wsdl:output message="eb:opOutputOptimizerUpdateResponse" name="opOutputOptimizerUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSetSavepoint"> 
+   <wsdl:input message="eb:opSetSavepointRequest" name="opSetSavepointRequest" /> 
+   <wsdl:output message="eb:opSetSavepointResponse" name="opSetSavepointResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSetEndpoint"> 
+   <wsdl:input message="eb:opSetEndpointRequest" name="opSetEndpointRequest" /> 
+   <wsdl:output message="eb:opSetEndpointResponse" name="opSetEndpointResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opLogin"> 
+   <wsdl:input message="eb:opLoginRequest" name="opLoginRequest" /> 
+   <wsdl:output message="eb:opLoginResponse" name="opLoginResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opLogout"> 
+   <wsdl:input message="eb:opLogoutRequest" name="opLogoutRequest" /> 
+   <wsdl:output message="eb:opLogoutResponse" name="opLogoutResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WSSasToSfDataFlowSoap" type="eb:WSSasToSfDataFlowSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opDoRollback"> 
+   <soap:operation soapAction="WSSasToSfDataFlow/opDoRollback" style="document" /> 
+   <wsdl:input name="opDoRollbackRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opDoRollbackResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opOutputOptimizerDetailUpdate"> 
+   <soap:operation soapAction="WSSasToSfDataFlow/opOutputOptimizerDetailUpdate" style="document" /> 
+   <wsdl:input name="opOutputOptimizerDetailUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opOutputOptimizerDetailUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opOutputOptimizerUpdate"> 
+   <soap:operation soapAction="WSSasToSfDataFlow/opOutputOptimizerUpdate" style="document" /> 
+   <wsdl:input name="opOutputOptimizerUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opOutputOptimizerUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSetSavepoint"> 
+   <soap:operation soapAction="WSSasToSfDataFlow/opSetSavepoint" style="document" /> 
+   <wsdl:input name="opSetSavepointRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSetSavepointResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSetEndpoint"> 
+   <soap:operation soapAction="WSSasToSfDataFlow/opSetEndpoint" style="document" /> 
+   <wsdl:input name="opSetEndpointRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSetEndpointResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opLogin"> 
+   <soap:operation soapAction="WSSasToSfDataFlow/opLogin" style="document" /> 
+   <wsdl:input name="opLoginRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opLoginResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opLogout"> 
+   <soap:operation soapAction="WSSasToSfDataFlow/opLogout" style="document" /> 
+   <wsdl:input name="opLogoutRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opLogoutResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WSSasToSfDataFlow"> 
+  <wsdl:port binding="eb:WSSasToSfDataFlowSoap" name="WSSasToSfDataFlowSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WSSasToSfDataFlow" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

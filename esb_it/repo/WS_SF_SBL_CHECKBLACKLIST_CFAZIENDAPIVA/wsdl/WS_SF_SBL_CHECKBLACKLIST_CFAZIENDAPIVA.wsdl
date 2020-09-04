@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_CHECK_BL_CFAZIENDAPIVA.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opCheckBlackListCFAziendaPIVA"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCheckBlackListCFAziendaPIVAResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCheckBlackListCFAziendaPIVARequest"> 
+  <wsdl:part element="eb:opCheckBlackListCFAziendaPIVA" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCheckBlackListCFAziendaPIVAResponse"> 
+  <wsdl:part element="eb:opCheckBlackListCFAziendaPIVAResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SF_SBL_CHECKBLACKLIST_CFAZIENDAPIVASoap"> 
+  <wsdl:operation name="opCheckBlackListCFAziendaPIVA"> 
+   <wsdl:input message="eb:opCheckBlackListCFAziendaPIVARequest" name="opCheckBlackListCFAziendaPIVARequest" /> 
+   <wsdl:output message="eb:opCheckBlackListCFAziendaPIVAResponse" name="opCheckBlackListCFAziendaPIVAResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SF_SBL_CHECKBLACKLIST_CFAZIENDAPIVASoap" type="eb:WS_SF_SBL_CHECKBLACKLIST_CFAZIENDAPIVASoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCheckBlackListCFAziendaPIVA"> 
+   <soap:operation soapAction="WS_SF_SBL_CHECKBLACKLIST_CFAZIENDAPIVA/opCheckBlackListCFAziendaPIVA" style="document" /> 
+   <wsdl:input name="opCheckBlackListCFAziendaPIVARequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCheckBlackListCFAziendaPIVAResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SF_SBL_CHECKBLACKLIST_CFAZIENDAPIVA"> 
+  <wsdl:port binding="eb:WS_SF_SBL_CHECKBLACKLIST_CFAZIENDAPIVASoap" name="WS_SF_SBL_CHECKBLACKLIST_CFAZIENDAPIVASoap"> 
+   <soap:address location="https://wssvil.sky.it/wsexistbus/ws_sf_ns/WS_SF_SBL_CHECKBLACKLIST_CFAZIENDAPIVA" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

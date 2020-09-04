@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://inBound.ws.skyOn.skytv.it/" schemaLocation="SkyXSD_SSO_killDevice.xsd" /> 
+   <xsd:complexType name="killDevice" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:killDevice" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="killDeviceResponse" xmlns:sso="http://inBound.ws.skyOn.skytv.it/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sso:killDeviceResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opKillDevice"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="killDeviceRequest" type="eb:killDevice" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opKillDeviceResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="killDeviceResponse" type="eb:killDeviceResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opKillDeviceRequest"> 
+  <wsdl:part element="eb:opKillDevice" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opKillDeviceResponse"> 
+  <wsdl:part element="eb:opKillDeviceResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SSO_KILL_DEVICESoap"> 
+  <wsdl:operation name="opKillDevice"> 
+   <wsdl:input message="eb:opKillDeviceRequest" name="opKillDeviceRequest" /> 
+   <wsdl:output message="eb:opKillDeviceResponse" name="opKillDeviceResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SSO_KILL_DEVICESoap" type="eb:WS_SSO_KILL_DEVICESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opKillDevice"> 
+   <soap:operation soapAction="WS_SSO_KILL_DEVICE/opKillDevice" style="document" /> 
+   <wsdl:input name="opKillDeviceRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opKillDeviceResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SSO_KILL_DEVICE"> 
+  <wsdl:port binding="eb:WS_SSO_KILL_DEVICESoap" name="WS_SSO_KILL_DEVICESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SSO_KILL_DEVICE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

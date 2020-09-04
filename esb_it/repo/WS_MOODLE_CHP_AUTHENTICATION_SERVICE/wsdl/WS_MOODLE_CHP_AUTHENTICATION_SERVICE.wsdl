@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="Authenticate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="username" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="password" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="sourceIp" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="AuthenticateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Authenticated" type="xsd:boolean" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="AuthenticateRequest"> 
+  <wsdl:part element="eb:Authenticate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="AuthenticateResponse"> 
+  <wsdl:part element="eb:AuthenticateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_MOODLE_CHP_AUTHENTICATION_SERVICESoap"> 
+  <wsdl:operation name="Authenticate"> 
+   <wsdl:input message="eb:AuthenticateRequest" name="AuthenticateRequest" /> 
+   <wsdl:output message="eb:AuthenticateResponse" name="AuthenticateResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_MOODLE_CHP_AUTHENTICATION_SERVICESoap" type="eb:WS_MOODLE_CHP_AUTHENTICATION_SERVICESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="Authenticate"> 
+   <soap:operation soapAction="WS_MOODLE_CHP_AUTHENTICATION_SERVICE/Authenticate" style="document" /> 
+   <wsdl:input name="AuthenticateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="AuthenticateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_MOODLE_CHP_AUTHENTICATION_SERVICE"> 
+  <wsdl:port binding="eb:WS_MOODLE_CHP_AUTHENTICATION_SERVICESoap" name="WS_MOODLE_CHP_AUTHENTICATION_SERVICESoap"> 
+   <soap:address location="http://10.207.123.11:19100/wsexistbus/ws_moodle/WS_MOODLE_CHP_AUTHENTICATION_SERVICE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

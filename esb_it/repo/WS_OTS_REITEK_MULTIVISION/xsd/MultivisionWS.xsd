@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. -->
+<xs:schema xmlns:tns="http://services.siebel.sky.integrationlayer.reitek.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://services.siebel.sky.integrationlayer.reitek.com/" xmlns="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+ <xs:element name="attivazioneMultivision" type="tns:attivazioneMultivision" /> 
+ <xs:element name="attivazioneMultivisionResponse" type="tns:attivazioneMultivisionResponse" /> 
+ <xs:element name="elaborazioneMultivision" type="tns:elaborazioneMultivision" /> 
+ <xs:element name="elaborazioneMultivisionResponse" type="tns:elaborazioneMultivisionResponse" /> 
+ <xs:complexType name="attivazioneMultivision"> 
+  <xs:sequence> 
+   <xs:element name="esitoAttivazioneMultivision" type="tns:esitoAttivazioneMultivisionInput" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="esitoAttivazioneMultivisionInput"> 
+  <xs:sequence> 
+   <xs:element name="campaignCode" type="xs:string" minOccurs="0" /> 
+   <xs:element name="cellCode" type="xs:string" minOccurs="0" /> 
+   <xs:element name="contratto" type="xs:int" minOccurs="0" /> 
+   <xs:element name="descrizione" type="xs:string" minOccurs="0" /> 
+   <xs:element name="esito" type="xs:string" minOccurs="0" /> 
+   <xs:element name="id" type="xs:string" minOccurs="0" /> 
+   <xs:element name="treatmentCode" type="xs:string" minOccurs="0" /> 
+   <xs:element name="type" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="attivazioneMultivisionResponse"> 
+  <xs:sequence> 
+   <xs:element name="return" type="tns:resultWS" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="resultWS"> 
+  <xs:sequence> 
+   <xs:element name="descrizione" type="xs:string" minOccurs="0" /> 
+   <xs:element name="esito" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="elaborazioneMultivision"> 
+  <xs:sequence> 
+   <xs:element name="esitoElaborazioneMultivision" type="tns:esitoElaborazioneMultivisionInput" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="esitoElaborazioneMultivisionInput"> 
+  <xs:sequence> 
+   <xs:element name="campaignCode" type="xs:string" minOccurs="0" /> 
+   <xs:element name="cellCode" type="xs:string" minOccurs="0" /> 
+   <xs:element name="contratto" type="xs:int" minOccurs="0" /> 
+   <xs:element name="descrizione" type="xs:string" minOccurs="0" /> 
+   <xs:element name="esito" type="xs:string" minOccurs="0" /> 
+   <xs:element name="id" type="xs:string" minOccurs="0" /> 
+   <xs:element name="promo" type="xs:string" minOccurs="0" /> 
+   <xs:element name="treatmentCode" type="xs:string" minOccurs="0" /> 
+   <xs:element name="type" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="elaborazioneMultivisionResponse"> 
+  <xs:sequence> 
+   <xs:element name="return" type="tns:resultWS" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="OP_MOSTRA_NUMERO_EVENTI"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_UTENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_HOTEL" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DATA_INIZIO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DATA_FINE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_MOSTRA_NUMERO_EVENTIResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_NUM_TOT_EVENTI" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_NUM_TOT_EVENTI_GRATIS" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_MOSTRA_NUMERO_EVENTIRequest"> 
+  <wsdl:part element="eb:OP_MOSTRA_NUMERO_EVENTI" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_MOSTRA_NUMERO_EVENTIResponse"> 
+  <wsdl:part element="eb:OP_MOSTRA_NUMERO_EVENTIResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_MOSTRA_NUMERO_EVENTISoap"> 
+  <wsdl:operation name="OP_MOSTRA_NUMERO_EVENTI"> 
+   <wsdl:input message="eb:OP_MOSTRA_NUMERO_EVENTIRequest" name="OP_MOSTRA_NUMERO_EVENTIRequest" /> 
+   <wsdl:output message="eb:OP_MOSTRA_NUMERO_EVENTIResponse" name="OP_MOSTRA_NUMERO_EVENTIResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_MOSTRA_NUMERO_EVENTISoap" type="eb:WS_MOSTRA_NUMERO_EVENTISoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_MOSTRA_NUMERO_EVENTI"> 
+   <soap:operation soapAction="WS_MOSTRA_NUMERO_EVENTI/OP_MOSTRA_NUMERO_EVENTI" style="document" /> 
+   <wsdl:input name="OP_MOSTRA_NUMERO_EVENTIRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_MOSTRA_NUMERO_EVENTIResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_MOSTRA_NUMERO_EVENTI"> 
+  <wsdl:port binding="eb:WS_MOSTRA_NUMERO_EVENTISoap" name="WS_MOSTRA_NUMERO_EVENTISoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_MOSTRA_NUMERO_EVENTI" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

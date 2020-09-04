@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="DocumentData"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="param" type="eb:param" /> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="record" type="eb:record" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="param"> 
+    <xsd:attribute name="name" type="xsd:string" use="required" /> 
+    <xsd:attribute name="value" type="xsd:string" use="required" /> 
+   </xsd:complexType> 
+   <xsd:complexType name="record"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="param" type="eb:param" /> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="record" type="eb:record" /> 
+    </xsd:sequence> 
+    <xsd:attribute name="name" type="xsd:string" use="required" /> 
+    <xsd:attribute name="value" type="xsd:string" use="required" /> 
+   </xsd:complexType> 
+   <xsd:element name="InstallazioneAdeguamentoIVR"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentData" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="InstallazioneAdeguamentoIVRResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentData" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="InstallazioneAdeguamentoIVRRequest"> 
+  <wsdl:part element="eb:InstallazioneAdeguamentoIVR" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="InstallazioneAdeguamentoIVRResponse"> 
+  <wsdl:part element="eb:InstallazioneAdeguamentoIVRResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_IVR_ATT_ADEG_INSTALLERSoap"> 
+  <wsdl:operation name="InstallazioneAdeguamentoIVR"> 
+   <wsdl:input message="eb:InstallazioneAdeguamentoIVRRequest" name="InstallazioneAdeguamentoIVRRequest" /> 
+   <wsdl:output message="eb:InstallazioneAdeguamentoIVRResponse" name="InstallazioneAdeguamentoIVRResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_IVR_ATT_ADEG_INSTALLERSoap" type="eb:WS_IVR_ATT_ADEG_INSTALLERSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="InstallazioneAdeguamentoIVR"> 
+   <soap:operation soapAction="WS_IVR_ATT_ADEG_INSTALLER/InstallazioneAdeguamentoIVR" style="document" /> 
+   <wsdl:input name="InstallazioneAdeguamentoIVRRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="InstallazioneAdeguamentoIVRResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_IVR_ATT_ADEG_INSTALLER"> 
+  <wsdl:port binding="eb:WS_IVR_ATT_ADEG_INSTALLERSoap" name="WS_IVR_ATT_ADEG_INSTALLERSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_IVR_ATT_ADEG_INSTALLER" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

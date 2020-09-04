@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="OP_SELFCARE_GET_COBROWS_URL"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="CodiceCliente" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="CodiceContratto" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="Cobrowsing" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_SELFCARE_GET_COBROWS_URLResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Esito" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="Url" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_SELFCARE_GET_COBROWS_URLRequest"> 
+  <wsdl:part element="eb:OP_SELFCARE_GET_COBROWS_URL" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_SELFCARE_GET_COBROWS_URLResponse"> 
+  <wsdl:part element="eb:OP_SELFCARE_GET_COBROWS_URLResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SELFCARE_GET_COBROWS_URLSoap"> 
+  <wsdl:operation name="OP_SELFCARE_GET_COBROWS_URL"> 
+   <wsdl:input message="eb:OP_SELFCARE_GET_COBROWS_URLRequest" name="OP_SELFCARE_GET_COBROWS_URLRequest" /> 
+   <wsdl:output message="eb:OP_SELFCARE_GET_COBROWS_URLResponse" name="OP_SELFCARE_GET_COBROWS_URLResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SELFCARE_GET_COBROWS_URLSoap" type="eb:WS_SELFCARE_GET_COBROWS_URLSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_SELFCARE_GET_COBROWS_URL"> 
+   <soap:operation soapAction="WS_SELFCARE_GET_COBROWS_URL/OP_SELFCARE_GET_COBROWS_URL" style="document" /> 
+   <wsdl:input name="OP_SELFCARE_GET_COBROWS_URLRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_SELFCARE_GET_COBROWS_URLResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SELFCARE_GET_COBROWS_URL"> 
+  <wsdl:port binding="eb:WS_SELFCARE_GET_COBROWS_URLSoap" name="WS_SELFCARE_GET_COBROWS_URLSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_selfcare/WS_SELFCARE_GET_COBROWS_URL" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

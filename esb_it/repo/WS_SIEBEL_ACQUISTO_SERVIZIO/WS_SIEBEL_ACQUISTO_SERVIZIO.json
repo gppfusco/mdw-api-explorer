@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SIEBEL_ACQUISTO_SERVIZIO",
+    "name" : "WS_SIEBEL_ACQUISTO_SERVIZIO",
+    "localPath" : "esb_it\\repo\\WS_SIEBEL_ACQUISTO_SERVIZIO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SIEBEL_ACQUISTO_SERVIZIO?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_TECH_SBL_ATTIVASERVIZI_SOD",
+    "name" : "WS_TECH_SBL_ATTIVASERVIZI_SOD",
+    "localPath" : "esb_it\\repo\\WS_TECH_SBL_ATTIVASERVIZI_SOD",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_TECH_SBL_ATTIVASERVIZI_SOD?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

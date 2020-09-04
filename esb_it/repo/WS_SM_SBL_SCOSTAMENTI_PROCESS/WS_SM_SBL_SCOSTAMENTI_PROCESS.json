@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SM_SBL_SCOSTAMENTI_PROCESS",
+    "name" : "WS_SM_SBL_SCOSTAMENTI_PROCESS",
+    "localPath" : "esb_it\\repo\\WS_SM_SBL_SCOSTAMENTI_PROCESS",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SM_SBL_SCOSTAMENTI_PROCESS?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

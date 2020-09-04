@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_FW_CREDIT_CHECK",
+    "name" : "WS_FW_CREDIT_CHECK",
+    "localPath" : "esb_it\\repo\\WS_FW_CREDIT_CHECK",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_FW_CREDIT_CHECK?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "SkyXSD_CreditCheck.xsd",
+        "xsdNameSpace" : "http://services.olg.oss.fastweb.it/fly/sky2fw/ot/CreditCheckServices/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

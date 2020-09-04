@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SF_BBH_SFDC_ENTERPRISE_API",
+    "name" : "WS_SF_BBH_SFDC_ENTERPRISE_API",
+    "localPath" : "esb_it\\repo\\WS_SF_BBH_SFDC_ENTERPRISE_API",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SF_BBH_SFDC_ENTERPRISE_API?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdSFBBH/SkyXSD_BBH_TypeDefinitions.xsd",
+        "xsdNameSpace" : "urn:enterprise.soap.sforce.com"
+      }, {
+        "xsdPath" : "xsdSFBBH/SkyXSD_BBH_FaultDefinitions.xsd",
+        "xsdNameSpace" : "urn:fault.enterprise.soap.sforce.com"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

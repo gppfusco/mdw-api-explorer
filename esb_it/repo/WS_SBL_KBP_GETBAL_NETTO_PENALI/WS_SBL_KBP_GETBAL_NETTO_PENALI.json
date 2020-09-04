@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SBL_KBP_GETBAL_NETTO_PENALI",
+    "name" : "WS_SBL_KBP_GETBAL_NETTO_PENALI",
+    "localPath" : "esb_it\\repo\\WS_SBL_KBP_GETBAL_NETTO_PENALI",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SBL_KBP_GETBAL_NETTO_PENALI?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

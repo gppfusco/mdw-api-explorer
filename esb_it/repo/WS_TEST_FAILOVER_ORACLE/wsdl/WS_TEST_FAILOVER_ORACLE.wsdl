@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="RecordContent"> 
+    <xsd:sequence> 
+     <xsd:element name="ID" type="xsd:string" /> 
+     <xsd:element name="NOME" type="xsd:string" /> 
+     <xsd:element name="COGNOME" type="xsd:string" /> 
+     <xsd:element name="INDIRIZZO" type="xsd:string" /> 
+     <xsd:element name="TELEFONO" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="Record"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="Rows" type="eb:RecordContent" /> 
+     <xsd:element name="id_esito" type="xsd:string" /> 
+     <xsd:element name="descr_esito" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="OP_TEST_FAILOVER"> 
+    <xsd:complexType> 
+     <xsd:sequence /> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_TEST_FAILOVERResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="LISTA_DEI_RECORD" type="eb:Record" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_TEST_FAILOVERRequest"> 
+  <wsdl:part element="eb:OP_TEST_FAILOVER" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_TEST_FAILOVERResponse"> 
+  <wsdl:part element="eb:OP_TEST_FAILOVERResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_TEST_FAILOVER_ORACLESoap"> 
+  <wsdl:operation name="OP_TEST_FAILOVER"> 
+   <wsdl:input message="eb:OP_TEST_FAILOVERRequest" name="OP_TEST_FAILOVERRequest" /> 
+   <wsdl:output message="eb:OP_TEST_FAILOVERResponse" name="OP_TEST_FAILOVERResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_TEST_FAILOVER_ORACLESoap" type="eb:WS_TEST_FAILOVER_ORACLESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_TEST_FAILOVER"> 
+   <soap:operation soapAction="WS_TEST_FAILOVER_ORACLE/OP_TEST_FAILOVER" style="document" /> 
+   <wsdl:input name="OP_TEST_FAILOVERRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_TEST_FAILOVERResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_TEST_FAILOVER_ORACLE"> 
+  <wsdl:port binding="eb:WS_TEST_FAILOVER_ORACLESoap" name="WS_TEST_FAILOVER_ORACLESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_TEST_FAILOVER_ORACLE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

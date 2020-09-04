@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_OTS_DENES_ESTRAZIONE_LOCALITA",
+    "name" : "WS_OTS_DENES_ESTRAZIONE_LOCALITA",
+    "localPath" : "esb_it\\repo\\WS_OTS_DENES_ESTRAZIONE_LOCALITA",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_OTS_DENES_ESTRAZIONE_LOCALITA?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

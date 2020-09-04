@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:s0="http://services.olg.oss.fastweb.it/fly/sky2fw/o2d/InstallazioneBBServices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.olg.oss.fastweb.it/fly/sky2fw/o2d/InstallazioneBBServices/" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xsd:complexType name="InputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="TransactionData" type="s0:TransactionDataType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OperationDataType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="s0:InputMessageType"> 
+    <xsd:sequence> 
+     <xsd:element name="OperationData" type="s0:InputMapping1" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="TransactionDataType"> 
+  <xsd:sequence> 
+   <xsd:element name="SenderName" type="s0:String50" minOccurs="0" /> 
+   <xsd:element name="UserName" type="s0:String50" minOccurs="0" /> 
+   <xsd:element name="TransactionId" type="s0:String42" /> 
+   <xsd:element name="Version" type="s0:String50" minOccurs="0" /> 
+   <xsd:element name="TransactionTime" type="s0:dateString19" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="InputMapping1"> 
+  <xsd:sequence> 
+   <xsd:element name="IdPDA" type="xsd:string" /> 
+   <xsd:element name="Source" type="xsd:string" /> 
+   <xsd:element name="ChiaviSKY"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element name="CodiceContrattoSky" type="xsd:string" /> 
+      <xsd:element name="IntegrationIdSky" type="xsd:string" minOccurs="0" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="ChiaviFW"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element name="IdHeaderFW" type="xsd:string" /> 
+      <xsd:element name="IdInstanceFW" type="xsd:string" /> 
+      <xsd:element name="IdAssetFW" type="xsd:string" minOccurs="0" /> 
+      <xsd:element name="Order_Id" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="ClusterNumber" type="xsd:string" /> 
+   <xsd:element name="Azione" type="xsd:string" /> 
+   <xsd:element name="DataAppuntamento" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="Lista_Codici_Materiali" minOccurs="0" maxOccurs="unbounded"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element name="Id_Materiale" type="xsd:string" /> 
+      <xsd:element name="Codice_SAP_Materiale" type="xsd:string" minOccurs="0" /> 
+      <xsd:element name="MAC_Address" type="xsd:string" minOccurs="0" /> 
+      <xsd:element name="Stato_CPE" type="xsd:string" minOccurs="0" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="Tipo_Intervento" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="Codice_OdL_BB" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="Data_Intervento" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="Cod_Installer" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OutputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="OperationData" type="s0:OutputMapping1" /> 
+  </xsd:sequence> 
+ </xsd:complexType> <!-- xsd:element name="AggiornaOrdineResponse" type="s0:OutputMapping1"/ --> 
+ <xsd:complexType name="OutputMapping1"> 
+  <xsd:sequence> 
+   <xsd:element name="Status" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="ErrorCode" type="xsd:string" nillable="true" /> 
+   <xsd:element name="ErrorMessage" type="xsd:string" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="String50"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="50" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String42"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="42" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="dateString19"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="19" /> 
+   <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+</xsd:schema>

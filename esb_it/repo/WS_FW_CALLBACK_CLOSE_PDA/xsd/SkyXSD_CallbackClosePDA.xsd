@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:tns="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/CallbackClosePDAServices/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/CallbackClosePDAServices/" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xsd:complexType name="InputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="TransactionData" type="tns:TransactionDataType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OperationDataType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="tns:InputMessageType"> 
+    <xsd:sequence> 
+     <xsd:element name="OperationData" type="tns:CallbackClosePDA_Input_Type" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="OutputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="OperationData" type="tns:CallbackClosePDA_Output_Type" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="TransactionDataType"> 
+  <xsd:sequence> 
+   <xsd:element name="SenderName" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="UserName" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="TransactionId" type="tns:String42" /> 
+   <xsd:element name="Version" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="TransactionTime" type="tns:dateString19" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CallbackClosePDA_Input_Type"> 
+  <xsd:sequence> 
+   <xsd:element name="IdPDA" minOccurs="1" type="tns:String30" /> 
+   <xsd:element name="Esito" minOccurs="1" type="tns:String30" /> 
+   <xsd:element name="CausaleEsito" minOccurs="0" type="tns:String255" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="CallbackClosePDA_Output_Type"> 
+  <xsd:sequence> 
+   <xsd:element name="Status" minOccurs="0" type="tns:String30" /> 
+   <xsd:element name="ErrorCode" minOccurs="1" type="tns:String30" /> 
+   <xsd:element name="ErrorMessage" minOccurs="0" type="tns:String255" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="String19"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="19" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String30"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="30" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String42"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="42" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String50"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="50" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String255"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="255" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="dateString19"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="19" /> 
+   <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+</xsd:schema>

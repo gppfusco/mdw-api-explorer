@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opEnablePayPerNight"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_TRANS_ID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_TP_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SMART_CARD" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opEnablePayPerNightResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_RESULT" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIPTION" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opEnablePayPerNightRequest"> 
+  <wsdl:part element="eb:opEnablePayPerNight" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opEnablePayPerNightResponse"> 
+  <wsdl:part element="eb:opEnablePayPerNightResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="EnablePayPerNightSoap"> 
+  <wsdl:operation name="opEnablePayPerNight"> 
+   <wsdl:input message="eb:opEnablePayPerNightRequest" name="opEnablePayPerNightRequest" /> 
+   <wsdl:output message="eb:opEnablePayPerNightResponse" name="opEnablePayPerNightResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="EnablePayPerNightSoap" type="eb:EnablePayPerNightSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opEnablePayPerNight"> 
+   <soap:operation soapAction="EnablePayPerNight/opEnablePayPerNight" style="document" /> 
+   <wsdl:input name="opEnablePayPerNightRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opEnablePayPerNightResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="EnablePayPerNight"> 
+  <wsdl:port binding="eb:EnablePayPerNightSoap" name="EnablePayPerNightSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/EnablePayPerNight" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

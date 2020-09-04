@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdTelecom/SkyXSD_TI_SBL_UPSERT_DATA.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="ElementHeaderResponse" type="eb:ElementHeaderType" /> 
+   <xsd:element name="ElementHeader" type="eb:ElementHeaderType" /> 
+   <xsd:complexType name="ElementHeaderType"> 
+    <xsd:sequence> 
+     <xsd:element name="sourceSystem" type="xsd:string" /> 
+     <xsd:element name="interactionDate"> 
+      <xsd:complexType> 
+       <xsd:sequence> 
+        <xsd:element name="Date" type="xsd:string" /> 
+        <xsd:element name="Time" type="xsd:string" /> 
+       </xsd:sequence> 
+      </xsd:complexType> 
+     </xsd:element> 
+     <xsd:element name="businessId" type="xsd:string" /> 
+     <xsd:element name="transactionId" type="xsd:string" /> 
+     <xsd:element name="messageId" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opUpsertDATA"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpsertDATAResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opUpsertDATARequest"> 
+  <wsdl:part element="eb:opUpsertDATA" name="parameters" /> 
+  <wsdl:part element="eb:ElementHeader" name="PartHeader" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpsertDATAResponse"> 
+  <wsdl:part element="eb:opUpsertDATAResponse" name="parameters" /> 
+  <wsdl:part element="eb:ElementHeaderResponse" name="PartHeaderResponse" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_TI_SKY_UPSERT_DATASoap"> 
+  <wsdl:operation name="opUpsertDATA"> 
+   <wsdl:input message="eb:opUpsertDATARequest" name="opUpsertDATARequest" /> 
+   <wsdl:output message="eb:opUpsertDATAResponse" name="opUpsertDATAResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_TI_SKY_UPSERT_DATASoap" type="eb:WS_TI_SKY_UPSERT_DATASoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opUpsertDATA"> 
+   <soap:operation soapAction="WS_TI_SKY_UPSERT_DATA/opUpsertDATA" style="document" /> 
+   <wsdl:input name="opUpsertDATARequest"> 
+    <soap:header encodingStyle="" message="eb:opUpsertDATARequest" part="PartHeader" use="literal" /> 
+    <soap:body parts="parameters" use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opUpsertDATAResponse"> 
+    <soap:header encodingStyle="" message="eb:opUpsertDATAResponse" part="PartHeaderResponse" use="literal" /> 
+    <soap:body parts="parameters" use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_TI_SKY_UPSERT_DATA"> 
+  <wsdl:port binding="eb:WS_TI_SKY_UPSERT_DATASoap" name="WS_TI_SKY_UPSERT_DATASoap"> 
+   <soap:address location="https://wssvil.skytv.it/wsexistbus/ws_iptv_telecom/WS_TI_SKY_UPSERT_DATA" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

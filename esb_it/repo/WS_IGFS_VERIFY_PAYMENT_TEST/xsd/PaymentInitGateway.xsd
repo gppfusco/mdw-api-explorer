@@ -1,0 +1,54 @@
+<xs:schema xmlns:tns="http://services.api.web.cg.igfs.apps.netsw.it/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.api.web.cg.igfs.apps.netsw.it/" elementFormDefault="unqualified" version="1.0"> 
+ <xs:include schemaLocation="dto/init/PaymentInit.xsd" /> 
+ <xs:include schemaLocation="dto/init/PaymentCheckout.xsd" /> 
+ <xs:include schemaLocation="dto/init/PaymentVerify.xsd" /> 
+ <xs:include schemaLocation="dto/init/PaymentSelector.xsd" /> 
+ <xs:element name="Init" type="tns:Init" /> 
+ <xs:complexType name="Init"> 
+  <xs:sequence> 
+   <xs:element name="request" type="tns:PaymentInitRequest" minOccurs="1" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:element name="InitResponse" type="tns:InitResponse" /> 
+ <xs:complexType name="InitResponse"> 
+  <xs:sequence> 
+   <xs:element name="response" type="tns:PaymentInitResponse" minOccurs="1" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:element name="Checkout" type="tns:Checkout" /> 
+ <xs:complexType name="Checkout"> 
+  <xs:sequence> 
+   <xs:element name="request" type="tns:PaymentCheckoutRequest" minOccurs="1" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:element name="CheckoutResponse" type="tns:CheckoutResponse" /> 
+ <xs:complexType name="CheckoutResponse"> 
+  <xs:sequence> 
+   <xs:element name="response" type="tns:PaymentCheckoutResponse" minOccurs="1" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:element name="Verify" type="tns:Verify" /> 
+ <xs:complexType name="Verify"> 
+  <xs:sequence> 
+   <xs:element name="request" type="tns:PaymentVerifyRequest" minOccurs="1" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:element name="VerifyResponse" type="tns:VerifyResponse" /> 
+ <xs:complexType name="VerifyResponse"> 
+  <xs:sequence> 
+   <xs:element name="response" type="tns:PaymentVerifyResponse" minOccurs="1" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:element name="Selector" type="tns:Selector" /> 
+ <xs:complexType name="Selector"> 
+  <xs:sequence> 
+   <xs:element name="request" type="tns:PaymentSelectorRequest" minOccurs="1" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:element name="SelectorResponse" type="tns:SelectorResponse" /> 
+ <xs:complexType name="SelectorResponse"> 
+  <xs:sequence> 
+   <xs:element name="response" type="tns:PaymentSelectorResponse" minOccurs="1" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

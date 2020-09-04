@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_ASSIST_WEBMAIL",
+    "name" : "WS_ASSIST_WEBMAIL",
+    "localPath" : "esb_it\\repo\\WS_ASSIST_WEBMAIL",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_ASSIST_WEBMAIL?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdAssist/SkyMail.xsd",
+        "xsdNameSpace" : "http://firstel.it/SmsPlatform/SkyMailWebService"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

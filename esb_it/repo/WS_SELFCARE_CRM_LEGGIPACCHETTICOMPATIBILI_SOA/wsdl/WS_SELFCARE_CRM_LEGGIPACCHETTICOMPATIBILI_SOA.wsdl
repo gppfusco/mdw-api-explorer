@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="DocumentDataIN"> 
+    <xsd:sequence> 
+     <xsd:element name="RateCodePkt" type="xsd:string" /> 
+     <xsd:element name="CodiceContratto" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentData"> 
+    <xsd:sequence> 
+     <xsd:element name="Esito" type="xsd:string" /> 
+     <xsd:element name="DescrizioneEsito" type="xsd:string" /> 
+     <xsd:element name="PromozioniCompatibili" type="PromozioniCompatibili" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="PromozioniCompatibili"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="PromozioneCompatibile" type="PromozioneCompatibile" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="PromozioneCompatibile"> 
+    <xsd:sequence> 
+     <xsd:element name="CodicePromo" type="xsd:string" /> 
+     <xsd:element name="NomePromo" type="xsd:string" /> 
+     <xsd:element name="FrasePromo" type="xsd:string" /> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="PacchettiCompatibili" type="PacchettiCompatibili" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="PacchettiCompatibili"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="PacchettoCompatibile" type="PacchettoCompatibile" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="PacchettoCompatibile"> 
+    <xsd:sequence> 
+     <xsd:element name="Type" type="xsd:string" /> 
+     <xsd:element name="BitmapPremium" type="xsd:string" /> 
+     <xsd:element name="PeriodicitaAddebito" type="xsd:string" /> 
+     <xsd:element name="RateCode" type="xsd:string" /> 
+     <xsd:element name="Peso" type="xsd:string" /> 
+     <xsd:element name="TipoPkt" type="xsd:string" /> 
+     <xsd:element name="NomePacc" type="xsd:string" /> 
+     <xsd:element name="TipoPrezzo" type="xsd:string" /> 
+     <xsd:element name="Nome" type="xsd:string" /> 
+     <xsd:element name="PartNum" type="xsd:string" /> 
+     <xsd:element name="Prezzo" type="xsd:string" /> 
+     <xsd:element name="NumPremium" type="xsd:string" /> 
+     <xsd:element name="IdPacchetto" type="xsd:string" /> 
+     <xsd:element name="NumGeneri" type="xsd:string" /> 
+     <xsd:element name="TipoProdotto" type="xsd:string" /> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="GeneriCompatibili" type="GeneriCompatibili" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="GeneriCompatibili"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="GenereCompatibile" type="GenereCompatibile" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="GenereCompatibile"> 
+    <xsd:sequence> 
+     <xsd:element name="Type" type="xsd:string" /> 
+     <xsd:element name="Descrizione" type="xsd:string" /> 
+     <xsd:element name="RateCode" type="xsd:string" /> 
+     <xsd:element name="IdGenere" type="xsd:string" /> 
+     <xsd:element name="NomeGenere" type="xsd:string" /> 
+     <xsd:element name="Nome" type="xsd:string" /> 
+     <xsd:element name="Ordine" type="xsd:string" /> 
+     <xsd:element name="CodiceCombinazione" type="xsd:string" /> 
+     <xsd:element name="Bitmap" type="xsd:string" /> 
+     <xsd:element name="DescrizioneCombinazione" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="Servizio"> 
+    <xsd:sequence> 
+     <xsd:element name="PeriodicitaAddebito" type="xsd:string" /> 
+     <xsd:element name="Peso" type="xsd:string" /> 
+     <xsd:element name="RateCode" type="xsd:string" /> 
+     <xsd:element name="TipoPrezzo" type="xsd:string" /> 
+     <xsd:element name="Nome" type="xsd:string" /> 
+     <xsd:element name="FrasePromozionale" type="xsd:string" /> 
+     <xsd:element name="IdServizio" type="xsd:string" /> 
+     <xsd:element name="Prezzo" type="xsd:string" /> 
+     <xsd:element name="CodicePromozione" type="xsd:string" /> 
+     <xsd:element name="TipoProdotto" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="Log"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="LOGGING" type="LOGGING" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="LOGGING"> 
+    <xsd:sequence> 
+     <xsd:element name="Severity" type="xsd:string" /> 
+     <xsd:element name="Time" type="xsd:string" /> 
+     <xsd:element name="Description" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="SIEBEL_ADP_OPERATION"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataIN" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="SIEBEL_ADP_OPERATIONResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentData" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="SIEBEL_ADP_OPERATIONRequest"> 
+  <wsdl:part element="eb:SIEBEL_ADP_OPERATION" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="SIEBEL_ADP_OPERATIONResponse"> 
+  <wsdl:part element="eb:SIEBEL_ADP_OPERATIONResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SELFCARE_CRM_LEGGIPACCHETTICOMPATIBILI_SOASoap"> 
+  <wsdl:operation name="SIEBEL_ADP_OPERATION"> 
+   <wsdl:input message="eb:SIEBEL_ADP_OPERATIONRequest" name="SIEBEL_ADP_OPERATIONRequest" /> 
+   <wsdl:output message="eb:SIEBEL_ADP_OPERATIONResponse" name="SIEBEL_ADP_OPERATIONResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SELFCARE_CRM_LEGGIPACCHETTICOMPATIBILI_SOASoap" type="eb:WS_SELFCARE_CRM_LEGGIPACCHETTICOMPATIBILI_SOASoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="SIEBEL_ADP_OPERATION"> 
+   <soap:operation soapAction="WS_SELFCARE_CRM_LEGGIPACCHETTICOMPATIBILI_SOA/SIEBEL_ADP_OPERATION" style="document" /> 
+   <wsdl:input name="SIEBEL_ADP_OPERATIONRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="SIEBEL_ADP_OPERATIONResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SELFCARE_CRM_LEGGIPACCHETTICOMPATIBILI_SOA"> 
+  <wsdl:port binding="eb:WS_SELFCARE_CRM_LEGGIPACCHETTICOMPATIBILI_SOASoap" name="WS_SELFCARE_CRM_LEGGIPACCHETTICOMPATIBILI_SOASoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SELFCARE_CRM_LEGGIPACCHETTICOMPATIBILI_SOA" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

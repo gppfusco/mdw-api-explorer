@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://com/pilatmedia/ibmssales/Customer_mngmt_service_v1_0.wsdl/types/" schemaLocation="xsdSF/SkyXSD_ProductManagement.xsd" /> 
+   <xsd:complexType name="createClientProductElement" xmlns:cp="http://com/pilatmedia/ibmssales/Customer_mngmt_service_v1_0.wsdl/types/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="cp:createClientProductElement" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="createClientProductResponseElement" xmlns:cp="http://com/pilatmedia/ibmssales/Customer_mngmt_service_v1_0.wsdl/types/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="cp:createClientProductResponseElement" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="updateClientProductElement" xmlns:cp="http://com/pilatmedia/ibmssales/Customer_mngmt_service_v1_0.wsdl/types/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="cp:updateClientProductElement" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="updateClientProductResponseElement" xmlns:cp="http://com/pilatmedia/ibmssales/Customer_mngmt_service_v1_0.wsdl/types/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="cp:updateClientProductResponseElement" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opCreateClientProduct"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:createClientProductElement" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCreateClientProductResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:createClientProductResponseElement" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpdateClientProduct"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:updateClientProductElement" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpdateClientProductResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:updateClientProductResponseElement" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCreateClientProductRequest"> 
+  <wsdl:part element="eb:opCreateClientProduct" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCreateClientProductResponse"> 
+  <wsdl:part element="eb:opCreateClientProductResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpdateClientProductRequest"> 
+  <wsdl:part element="eb:opUpdateClientProduct" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpdateClientProductResponse"> 
+  <wsdl:part element="eb:opUpdateClientProductResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WSSfIbmsProductsManagementSoap"> 
+  <wsdl:operation name="opCreateClientProduct"> 
+   <wsdl:input message="eb:opCreateClientProductRequest" name="opCreateClientProductRequest" /> 
+   <wsdl:output message="eb:opCreateClientProductResponse" name="opCreateClientProductResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpdateClientProduct"> 
+   <wsdl:input message="eb:opUpdateClientProductRequest" name="opUpdateClientProductRequest" /> 
+   <wsdl:output message="eb:opUpdateClientProductResponse" name="opUpdateClientProductResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WSSfIbmsProductsManagementSoap" type="eb:WSSfIbmsProductsManagementSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCreateClientProduct"> 
+   <soap:operation soapAction="WSSfIbmsProductsManagement/opCreateClientProduct" style="document" /> 
+   <wsdl:input name="opCreateClientProductRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCreateClientProductResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opUpdateClientProduct"> 
+   <soap:operation soapAction="WSSfIbmsProductsManagement/opUpdateClientProduct" style="document" /> 
+   <wsdl:input name="opUpdateClientProductRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opUpdateClientProductResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WSSfIbmsProductsManagement"> 
+  <wsdl:port binding="eb:WSSfIbmsProductsManagementSoap" name="WSSfIbmsProductsManagementSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_sf/WSSfIbmsProductsManagement" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_CAIF_SPY_MULTIVISION",
+    "name" : "WS_CAIF_SPY_MULTIVISION",
+    "localPath" : "esb_it\\repo\\WS_CAIF_SPY_MULTIVISION",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_CAIF_SPY_MULTIVISION?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdSPY/SkyXSD_WS_CAIF_SPY_MULTIVISION.xsd",
+        "xsdNameSpace" : ""
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

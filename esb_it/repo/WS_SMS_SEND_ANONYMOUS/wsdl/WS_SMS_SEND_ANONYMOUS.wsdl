@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://www.skytv.it/sms/SmsSendAnonymousWS" schemaLocation="xsdSMS/SkyXSD_Sms_SendAnonymous.xsd" /> 
+   <xsd:complexType name="SmsSendAnonymousWSRequest" xmlns:m="http://www.skytv.it/sms/SmsSendAnonymousWS"> 
+    <xsd:complexContent> 
+     <xsd:extension base="m:SmsSendAnonymousWSRequestType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SmsSendAnonymousWSResponse" xmlns:m="http://www.skytv.it/sms/SmsSendAnonymousWS"> 
+    <xsd:complexContent> 
+     <xsd:extension base="m:SmsSendAnonymousWSResponseType" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opSmsSendAnonymous"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SmsSendAnonymousWSRequest" type="eb:SmsSendAnonymousWSRequest" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSmsSendAnonymousResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SmsSendAnonymousWSResponse" type="eb:SmsSendAnonymousWSResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opSmsSendAnonymousRequest"> 
+  <wsdl:part element="eb:opSmsSendAnonymous" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSmsSendAnonymousResponse"> 
+  <wsdl:part element="eb:opSmsSendAnonymousResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SMS_SEND_ANONYMOUSSoap"> 
+  <wsdl:operation name="opSmsSendAnonymous"> 
+   <wsdl:input message="eb:opSmsSendAnonymousRequest" name="opSmsSendAnonymousRequest" /> 
+   <wsdl:output message="eb:opSmsSendAnonymousResponse" name="opSmsSendAnonymousResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SMS_SEND_ANONYMOUSSoap" type="eb:WS_SMS_SEND_ANONYMOUSSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opSmsSendAnonymous"> 
+   <soap:operation soapAction="WS_SMS_SEND_ANONYMOUS/opSmsSendAnonymous" style="document" /> 
+   <wsdl:input name="opSmsSendAnonymousRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSmsSendAnonymousResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SMS_SEND_ANONYMOUS"> 
+  <wsdl:port binding="eb:WS_SMS_SEND_ANONYMOUSSoap" name="WS_SMS_SEND_ANONYMOUSSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SMS_SEND_ANONYMOUS" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

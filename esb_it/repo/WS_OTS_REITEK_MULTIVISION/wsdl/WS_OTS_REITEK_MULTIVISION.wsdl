@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://services.siebel.sky.integrationlayer.reitek.com/" schemaLocation="xsdReitek/MultivisionWS.xsd" /> 
+   <xsd:complexType name="attivazioneMultivision" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:attivazioneMultivision" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="attivazioneMultivisionResponse" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:attivazioneMultivisionResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="elaborazioneMultivision" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:elaborazioneMultivision" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="elaborazioneMultivisionResponse" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:elaborazioneMultivisionResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opAttivazioneMultivision"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:attivazioneMultivision" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAttivazioneMultivisionResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:attivazioneMultivisionResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opElaborazioneMultivision"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:elaborazioneMultivision" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opElaborazioneMultivisionResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:elaborazioneMultivisionResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opAttivazioneMultivisionRequest"> 
+  <wsdl:part element="eb:opAttivazioneMultivision" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAttivazioneMultivisionResponse"> 
+  <wsdl:part element="eb:opAttivazioneMultivisionResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opElaborazioneMultivisionRequest"> 
+  <wsdl:part element="eb:opElaborazioneMultivision" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opElaborazioneMultivisionResponse"> 
+  <wsdl:part element="eb:opElaborazioneMultivisionResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_OTS_REITEK_MULTIVISIONSoap"> 
+  <wsdl:operation name="opAttivazioneMultivision"> 
+   <wsdl:input message="eb:opAttivazioneMultivisionRequest" name="opAttivazioneMultivisionRequest" /> 
+   <wsdl:output message="eb:opAttivazioneMultivisionResponse" name="opAttivazioneMultivisionResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opElaborazioneMultivision"> 
+   <wsdl:input message="eb:opElaborazioneMultivisionRequest" name="opElaborazioneMultivisionRequest" /> 
+   <wsdl:output message="eb:opElaborazioneMultivisionResponse" name="opElaborazioneMultivisionResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_OTS_REITEK_MULTIVISIONSoap" type="eb:WS_OTS_REITEK_MULTIVISIONSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opAttivazioneMultivision"> 
+   <soap:operation soapAction="WS_OTS_REITEK_MULTIVISION/opAttivazioneMultivision" style="document" /> 
+   <wsdl:input name="opAttivazioneMultivisionRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAttivazioneMultivisionResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opElaborazioneMultivision"> 
+   <soap:operation soapAction="WS_OTS_REITEK_MULTIVISION/opElaborazioneMultivision" style="document" /> 
+   <wsdl:input name="opElaborazioneMultivisionRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opElaborazioneMultivisionResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_OTS_REITEK_MULTIVISION"> 
+  <wsdl:port binding="eb:WS_OTS_REITEK_MULTIVISIONSoap" name="WS_OTS_REITEK_MULTIVISIONSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_OTS_REITEK_MULTIVISION" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.3.1-hudson-749-SNAPSHOT. -->
+<xs:schema xmlns:tns="http://services.siebel.sky.integrationlayer.reitek.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+ <xs:element name="elaborazioneUpgradePacchetto" type="tns:elaborazioneUpgradePacchetto"></xs:element> 
+ <xs:element name="elaborazioneUpgradePacchettoNoPromo" type="tns:elaborazioneUpgradePacchettoNoPromo"></xs:element> 
+ <xs:element name="elaborazioneUpgradePacchettoNoPromoResponse" type="tns:elaborazioneUpgradePacchettoNoPromoResponse"></xs:element> 
+ <xs:element name="elaborazioneUpgradePacchettoResponse" type="tns:elaborazioneUpgradePacchettoResponse"></xs:element> 
+ <xs:complexType name="elaborazioneUpgradePacchettoNoPromo"> 
+  <xs:sequence> 
+   <xs:element name="esitoElaborazionePacchettoNoPromo" type="tns:esitoElaborazioneUpgradePacchettoNoPromoInput" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="esitoElaborazioneUpgradePacchettoNoPromoInput"> 
+  <xs:sequence> 
+   <xs:element name="campaignCode" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="cellCode" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="contratto" type="xs:int" minOccurs="0"></xs:element> 
+   <xs:element name="descrizione" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="esito" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="id" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="treatmentCode" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="type" type="xs:string" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="elaborazioneUpgradePacchettoNoPromoResponse"> 
+  <xs:sequence> 
+   <xs:element name="return" type="tns:resultWS" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="resultWS"> 
+  <xs:sequence> 
+   <xs:element name="descrizione" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="esito" type="xs:string" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="elaborazioneUpgradePacchetto"> 
+  <xs:sequence> 
+   <xs:element name="esitoElaborazioneUpgradePacchetto" type="tns:esitoElaborazioneUpgradePacchettoInput" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="esitoElaborazioneUpgradePacchettoInput"> 
+  <xs:sequence> 
+   <xs:element name="campaignCode" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="cellCode" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="contratto" type="xs:int" minOccurs="0"></xs:element> 
+   <xs:element name="descrizione" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="esito" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="id" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="treatmentCode" type="xs:string" minOccurs="0"></xs:element> 
+   <xs:element name="type" type="xs:string" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="elaborazioneUpgradePacchettoResponse"> 
+  <xs:sequence> 
+   <xs:element name="return" type="tns:resultWS" minOccurs="0"></xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

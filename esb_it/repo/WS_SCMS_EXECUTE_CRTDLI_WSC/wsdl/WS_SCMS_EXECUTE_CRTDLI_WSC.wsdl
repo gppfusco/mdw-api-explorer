@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdSCMS/SkyXSD_WS_SCMS_EXECUTE_CRTDLI_WSC.xsd" /> 
+   <xsd:complexType name="requestCRTDLI"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:request" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="responseCRTDLI"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:response" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opCRTDLI"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestCRTDLI" type="eb:requestCRTDLI" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCRTDLIResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseCRTDLI" type="eb:responseCRTDLI" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCRTDLIRequest"> 
+  <wsdl:part element="eb:opCRTDLI" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCRTDLIResponse"> 
+  <wsdl:part element="eb:opCRTDLIResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_EXECUTE_CRTDLI_WSCSoap"> 
+  <wsdl:operation name="opCRTDLI"> 
+   <wsdl:input message="eb:opCRTDLIRequest" name="opCRTDLIRequest" /> 
+   <wsdl:output message="eb:opCRTDLIResponse" name="opCRTDLIResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_EXECUTE_CRTDLI_WSCSoap" type="eb:WS_SCMS_EXECUTE_CRTDLI_WSCSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCRTDLI"> 
+   <soap:operation soapAction="WS_SCMS_EXECUTE_CRTDLI_WSC/opCRTDLI" style="document" /> 
+   <wsdl:input name="opCRTDLIRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCRTDLIResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_EXECUTE_CRTDLI_WSC"> 
+  <wsdl:port binding="eb:WS_SCMS_EXECUTE_CRTDLI_WSCSoap" name="WS_SCMS_EXECUTE_CRTDLI_WSCSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_scms/WS_SCMS_EXECUTE_CRTDLI_WSC" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_IN_BB_ORDER_ENTRY_VALIDATION",
+    "name" : "WS_IN_BB_ORDER_ENTRY_VALIDATION",
+    "localPath" : "esb_it\\repo\\WS_IN_BB_ORDER_ENTRY_VALIDATION",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_IN_BB_ORDER_ENTRY_VALIDATION?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

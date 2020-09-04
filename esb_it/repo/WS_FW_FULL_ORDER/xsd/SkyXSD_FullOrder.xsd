@@ -1,0 +1,1056 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/FullOrderServices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/FullOrderServices/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://services.olg.oss.fastweb.it/fly/sky2fw/ot/FullOrderServices/" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <element name="InputMessage" type="tns:OperationDataType" /> 
+ <complexType name="InputMessageType"> 
+  <sequence> 
+   <element name="TransactionData" type="tns:TransactionDataType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OperationDataType"> 
+  <complexContent> 
+   <extension base="tns:InputMessageType"> 
+    <sequence> 
+     <element name="OperationData" type="tns:InsertFullOrderInput_Type" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="OutputMessage" type="tns:OutputMessageType" /> 
+ <complexType name="OutputMessageType"> 
+  <sequence> 
+   <element name="OperationData" type="tns:InsertFullOrder_OutputType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="TransactionDataType"> 
+  <sequence> 
+   <element name="SenderName" minOccurs="0"> 
+    <simpleType> 
+     <restriction base="tns:string50"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="UserName" type="tns:string50" minOccurs="0" /> 
+   <element name="TransactionId"> 
+    <simpleType> 
+     <restriction base="tns:string42"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Version" type="tns:string50" minOccurs="0" /> 
+   <element name="TransactionTime" type="tns:dateString19" /> 
+  </sequence> 
+ </complexType> 
+ <simpleType name="string1"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="1" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string2"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="2" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string5"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="5" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string11"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="11" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string15"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="15" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string19"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="19" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string20"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="20" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string30"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="30" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string40"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="40" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string42"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="42" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string50"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="50" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string75"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="75" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string90"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="90" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string100"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="100" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string200"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="200" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="string255"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="255" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="dateString10"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="10" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="dateString15"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="15" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+ <simpleType name="dateString19"> 
+  <restriction base="xsd:string"> 
+   <maxLength value="19" /> 
+   <pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </restriction> 
+ </simpleType> 
+ <complexType name="HeaderSKYType"> 
+  <sequence> 
+   <element name="CodiceDealerSky"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CanaleVendita"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CodiceComsy"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CodicePromoterFW" type="tns:string30" minOccurs="0" /> 
+   <element name="CodicePromoterSKY" type="tns:string30" minOccurs="0" /> 
+   <element name="LoginOperatore" type="tns:string30" minOccurs="0" /> 
+   <element name="CodiceContrattoOrigineSky" type="tns:string30" minOccurs="0" /> 
+   <element name="CodiceDealerOrigineSky" type="tns:string30" minOccurs="0" /> 
+   <element name="DataAnnullamentoContrattoOrigineSky" type="tns:dateString10" minOccurs="0" /> 
+   <element name="CausaleInserimento" type="tns:string255" minOccurs="0" /> 
+   <element name="CodiceCarrelloSKY" type="tns:string30" minOccurs="0" /> 
+   <element name="IndirizzoMateriali" type="tns:IndirizzoMaterialiType" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="IndirizzoMaterialiType"> 
+  <sequence> 
+   <element name="Toponomastica"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Indirizzo"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Civico"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CAP"> 
+    <simpleType> 
+     <restriction base="tns:string5"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Comune"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="SiglaProvincia"> 
+    <simpleType> 
+     <restriction base="tns:string2"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Stato"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Localita" type="tns:string30" minOccurs="0" /> 
+   <element name="Scala" type="tns:string30" minOccurs="0" /> 
+   <element name="Interno" type="tns:string30" minOccurs="0" /> 
+   <element name="Piano" type="tns:string30" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="Dati_NPType"> 
+  <sequence> 
+   <element name="FlagRichiestaNP"> 
+    <simpleType> 
+     <restriction base="tns:string1"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="NumeroDaPortare"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="DonorOLOvoce"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="DonorOLOdati" minOccurs="0"> 
+    <simpleType> 
+     <restriction base="tns:string30" /> 
+    </simpleType> 
+   </element> 
+   <element name="CDMvoce" type="tns:string30" minOccurs="0" /> 
+   <element name="CDMdati" type="tns:string30" minOccurs="0" /> 
+   <element name="PINtelecom" type="tns:string30" minOccurs="0" /> 
+   <element name="CNP" type="tns:string30" minOccurs="0" /> 
+   <element name="IntestatarioTI" type="tns:IntestatarioTIType" /> 
+   <element name="DatiNumero" type="tns:DatiNumeroType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="DatiNumeroType"> 
+  <sequence> 
+   <element name="TipoLinea"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="TipoDN"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="IntestatarioTIType"> 
+  <sequence> 
+   <element name="FlagAzienda"> 
+    <simpleType> 
+     <restriction base="tns:string1"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Nome" type="tns:string100" minOccurs="0" /> 
+   <element name="Cognome"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CodiceFiscale"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Localita"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Provincia"> 
+    <simpleType> 
+     <restriction base="tns:string2"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Stato"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Toponomastica"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Via"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Civico"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CAP"> 
+    <simpleType> 
+     <restriction base="tns:string5"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Scala" type="tns:string30" minOccurs="0" /> 
+   <element name="Interno" type="tns:string30" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ClienteType"> 
+  <sequence> 
+   <element name="Nome"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Cognome"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CodiceFiscalePIva"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Sesso"> 
+    <simpleType> 
+     <restriction base="tns:string1"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="DataNascita"> 
+    <simpleType> 
+     <restriction base="tns:dateString10"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="SiglaProvinciaNascita"> 
+    <simpleType> 
+     <restriction base="tns:string50"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ComuneNascita"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="NazioneNascita"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="TipoDocumento"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+      <enumeration value="CARTA DI IDENTITA" /> 
+      <enumeration value="PASSAPORTO" /> 
+      <enumeration value="PATENTE" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="NazionalitaDocumento"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="NumeroDocumento"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="EnteRilascioDocumento"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+      <enumeration value="COMUNE" /> 
+      <enumeration value="MOTORIZZAZIONE" /> 
+      <enumeration value="PREFETTURA" /> 
+      <enumeration value="QUESTURA" /> 
+      <enumeration value="STATO ESTERO" /> 
+      <enumeration value="U.C.O." /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="DataRilascioDocumento"> 
+    <simpleType> 
+     <restriction base="tns:dateString10"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="SiglaProvinciaDocumento"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ComuneDocumento"> 
+    <simpleType> 
+     <restriction base="tns:string50"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="NumeroPermessoSoggiorno" type="tns:string30" minOccurs="0" /> 
+   <element name="ScadenzaPermessoSoggiorno" type="tns:dateString15" minOccurs="0" /> 
+   <element name="IndirizzoCliente" type="tns:IndirizzoClienteType" /> 
+   <element name="Sede_CDF" type="tns:Sede_CDFType" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="Sede_CDFType"> 
+  <sequence> 
+   <element name="CodiceTecnologia"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+      <enumeration value="F1R" /> 
+      <enumeration value="F2R" /> 
+      <enumeration value="DSR" /> 
+      <enumeration value="D2R" /> 
+      <enumeration value="WHR" /> 
+      <enumeration value="W2R" /> 
+      <enumeration value="V1R" /> 
+      <enumeration value="Y1R" /> 
+      <enumeration value="XSR" /> 
+      <enumeration value="X2R" /> 
+      <enumeration value="G1R" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Tecnologia"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+      <enumeration value="FIBRA" /> 
+      <enumeration value="ADSL" /> 
+      <enumeration value="ADSL_WS" /> 
+      <enumeration value="SUBULL" /> 
+      <enumeration value="VULA" /> 
+      <enumeration value="NGN GPON" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CodiceSGU" type="tns:string30" minOccurs="0" /> 
+   <element name="DNAppoggio" type="tns:string30" minOccurs="0" /> 
+   <element name="FlagLineaPresente"> 
+    <simpleType> 
+     <restriction base="tns:string1"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="RisorseComboPots" type="tns:string1" minOccurs="0" /> 
+   <element name="FlagVPlus" type="tns:string1" minOccurs="1" /> 
+   <element name="CodiceTecnologiaCopertura" minOccurs="0"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <minLength value="0" /> 
+      <enumeration value="F1R" /> 
+      <enumeration value="F2R" /> 
+      <enumeration value="DSR" /> 
+      <enumeration value="D2R" /> 
+      <enumeration value="WHR" /> 
+      <enumeration value="W2R" /> 
+      <enumeration value="V1R" /> 
+      <enumeration value="Y1R" /> 
+      <enumeration value="XSR" /> 
+      <enumeration value="X2R" /> 
+      <enumeration value="G1R" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element maxOccurs="1" minOccurs="0" name="Provider" type="xsd:string" /> 
+   <element maxOccurs="1" minOccurs="0" name="IdBuilding" type="xsd:string" /> 
+   <element maxOccurs="1" minOccurs="0" name="StatoBuilding" type="xsd:string" /> 
+   <element maxOccurs="1" minOccurs="0" name="IdGPON" type="xsd:string" /> 
+   <element maxOccurs="1" minOccurs="0" name="IdPOP" type="xsd:string" /> 
+   <element name="ConsensoScambioDatiBundle"> 
+    <simpleType> 
+     <restriction base="tns:string1"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ConsensoGestioneContrattoFW"> 
+    <simpleType> 
+     <restriction base="tns:string1"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ConsensoTutelaRischioCredito"> 
+    <simpleType> 
+     <restriction base="tns:string1"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ConsensoInvioDatiPersonali"> 
+    <simpleType> 
+     <restriction base="tns:string1"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ConsensoAnalisiFW"> 
+    <simpleType> 
+     <restriction base="tns:string1"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ConsensoPubblicazioneElenchi"> 
+    <simpleType> 
+     <restriction base="tns:string1"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ConsensoAnalisiPreferenzeSKY" type="tns:string1" minOccurs="0" /> 
+   <element name="ConsensoComunicazioneDatiSKY" type="tns:string1" minOccurs="0" /> 
+   <element name="ConsensoElabStudiSKY" type="tns:string1" minOccurs="0" /> 
+   <element name="CreditCheckIDRichiesta"> 
+    <simpleType> 
+     <restriction base="tns:string30" /> 
+    </simpleType> 
+   </element> 
+   <element name="CreditCheckScore"> 
+    <simpleType> 
+     <restriction base="tns:string30" /> 
+    </simpleType> 
+   </element> 
+   <element name="CreditCheckStatoRichiesta" type="tns:string30" minOccurs="0" /> 
+   <element name="TelefonoFisso" type="tns:string40" minOccurs="0" /> 
+   <element name="Cellulare"> 
+    <simpleType> 
+     <restriction base="tns:string40"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Email" type="tns:string50" minOccurs="0" /> 
+   <element name="Prevendita" type="tns:PrevenditaType" minOccurs="0" /> 
+   <element name="IndirizzoSede" type="tns:IndirizzoSedeType" /> 
+   <element name="DettaglioCDF" type="tns:DettaglioCDF" /> 
+   <element name="IndirizzoSpedizioneConto" type="tns:IndirizzoSpedizioneConto" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="PrevenditaType"> 
+  <sequence> 
+   <element name="FlagPrevendita"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <minLength value="1" /> 
+      <maxLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="IDcabinet" minOccurs="0"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <minLength value="0" /> 
+      <maxLength value="30" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="IDSGU" minOccurs="0"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <minLength value="0" /> 
+      <maxLength value="30" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="DataAttivazione" minOccurs="0"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <maxLength value="10" /> 
+      <pattern value="|(\d\d/\d\d/\d\d\d\d)|('')" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Tecnologia" minOccurs="0"> 
+    <simpleType> 
+     <restriction base="xsd:string"> 
+      <minLength value="0" /> 
+      <maxLength value="30" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="IndirizzoSedeType"> 
+  <sequence> 
+   <element name="Toponomastica"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Indirizzo"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Civico"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CAP"> 
+    <simpleType> 
+     <restriction base="tns:string5"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Comune"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="SiglaProvincia"> 
+    <simpleType> 
+     <restriction base="tns:string2"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Stato"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Localita" type="tns:string30" minOccurs="0" /> 
+   <element name="Scala" type="tns:string30" minOccurs="0" /> 
+   <element name="Interno" type="tns:string30" minOccurs="0" /> 
+   <element name="Piano" type="tns:string30" minOccurs="0" /> 
+   <element name="IdIndirizzoFW" type="tns:string100" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="IndirizzoClienteType"> 
+  <sequence> 
+   <element name="Indirizzo"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CAP"> 
+    <simpleType> 
+     <restriction base="tns:string5"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Comune"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="SiglaProvincia"> 
+    <simpleType> 
+     <restriction base="tns:string2"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Nazione"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="IndirizzoSpedizioneConto"> 
+  <sequence> 
+   <element name="CognomeReferenteCdF"> 
+    <simpleType> 
+     <restriction base="tns:string90"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="NomeReferenteCdF"> 
+    <simpleType> 
+     <restriction base="tns:string90"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="TitoloReferenteCdF" type="tns:string75" minOccurs="0" /> 
+   <element name="IndirizzoSpedizioneConto"> 
+    <simpleType> 
+     <restriction base="tns:string200"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="SiglaProvinciaSpedizioneConto"> 
+    <simpleType> 
+     <restriction base="tns:string50"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ComuneSpedizioneConto"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CAPSpedizioneConto"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="DettaglioCDF"> 
+  <sequence> 
+   <element name="MetodoPagamento"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+      <enumeration value="BOLLETTINO POSTALE" /> 
+      <enumeration value="CARTA DI CREDITO" /> 
+      <enumeration value="DIRECT DEBIT" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="MetodoSpedizioneFattura"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+      <enumeration value="NO INVIO" /> 
+      <enumeration value="INVIO ELETTRONICO" /> 
+      <enumeration value="INVIO CARTACEO" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CognomeTitolare"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="NomeTitolare"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CodiceFiscalePIVATitolare" type="tns:string30" minOccurs="0" /> 
+   <element name="SessoTitolare" type="tns:string1" minOccurs="0" /> 
+   <element name="SiglaProvinciaNascitaTitolare" type="tns:string100" minOccurs="0" /> 
+   <element name="DataNascitaTitolare" type="tns:dateString10" minOccurs="0" /> 
+   <element name="ComuneNascitaTitolare" type="tns:string100" minOccurs="0" /> 
+   <element name="RegimeIvaTitolare"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+      <enumeration value="CLIENTE NORMALE" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="IndirizzoTitolare" type="tns:string200" minOccurs="0" /> 
+   <element name="SiglaProvinciaTitolare" type="tns:string100" minOccurs="0" /> 
+   <element name="ComuneTitolare" type="tns:string100" minOccurs="0" /> 
+   <element name="CAPTitolare" type="tns:string30" minOccurs="0" /> 
+   <element name="CodiceInfoFinax" type="tns:string11" minOccurs="0" /> 
+   <element name="CodicePINPAD" type="tns:string20" minOccurs="0" /> 
+   <element name="IBAN" type="tns:string50" minOccurs="0" /> 
+   <element name="NumeroCartaCredito" type="tns:string30" minOccurs="0" /> 
+   <element name="CircuitoCartaCredito" type="tns:string50" minOccurs="0" /> 
+   <element name="TipoCartaCredito" type="tns:string30" minOccurs="0" /> 
+   <element name="DataScadenzaCartaCredito" type="tns:string30" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="CarrelloSKYType"> 
+  <sequence> 
+   <element name="Item" type="tns:ItemType" maxOccurs="unbounded" /> 
+   <element name="CodiceCarrelloSKY" type="tns:string30" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ItemType"> 
+  <sequence> 
+   <element name="CodiceIstanza" type="tns:string30" minOccurs="0" /> 
+   <element name="CodiceProdotto"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="TipoProdotto"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="NomeProdotto"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="TipoPrezzo"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="PrezzoProdotto"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="InsertFullOrderInput_Type"> 
+  <sequence> 
+   <element name="Source"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="IdPDA"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ClusterNumber"> 
+    <simpleType> 
+     <restriction base="tns:string2"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="IdBundle"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="IdPromoBundle"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ClaimPromo"> 
+    <simpleType> 
+     <restriction base="tns:string255"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="ProdottiOpzionali" type="tns:ProdottiOpzionaliType" minOccurs="0" /> 
+   <element name="HeaderSKY" type="tns:HeaderSKYType" /> 
+   <element name="Cliente" type="tns:ClienteType" /> 
+   <element name="Dati_NP" type="tns:Dati_NPType" minOccurs="0" /> 
+   <element name="OffertaAggiuntiva" minOccurs="0"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CodicePromozionale" type="tns:string30" minOccurs="0" /> 
+   <element name="CodiceMgm" type="tns:string30" minOccurs="0" /> 
+   <element name="CarrelloFW" type="tns:CarrelloFWType" minOccurs="0" /> 
+   <element name="CarrelloSKY" type="tns:CarrelloSKYType" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="CarrelloFWType"> 
+  <sequence> 
+   <element name="Item" type="tns:ItemCarrelloFW" maxOccurs="unbounded" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ItemCarrelloFW"> 
+  <sequence> 
+   <element name="CodiceIstanza"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="CodiceProdotto"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="TipoProdotto"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="NomeProdotto"> 
+    <simpleType> 
+     <restriction base="tns:string100"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="TipoPrezzo" type="tns:string30" minOccurs="0" /> 
+   <element name="PrezzoProdotto"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ParametersType"> 
+  <sequence> 
+   <element name="Name" type="tns:string255" /> 
+   <element name="Value" type="tns:string255" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ProdottoType"> 
+  <sequence> 
+   <element name="OpzProductId"> 
+    <simpleType> 
+     <restriction base="tns:string30"> 
+      <minLength value="1" /> 
+     </restriction> 
+    </simpleType> 
+   </element> 
+   <element name="Parameters" type="tns:ParametersType" minOccurs="0" maxOccurs="unbounded" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ProdottiOpzionaliType"> 
+  <sequence> 
+   <element name="Prodotto" type="tns:ProdottoType" maxOccurs="unbounded" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="InsertFullOrder_OutputType"> 
+  <sequence> 
+   <element name="Status" type="tns:string30" minOccurs="0" /> 
+   <element name="ErrorCode" type="tns:string30" /> 
+   <element name="ErrorMessage" type="tns:string255" minOccurs="0" /> 
+  </sequence> 
+ </complexType> 
+</schema>

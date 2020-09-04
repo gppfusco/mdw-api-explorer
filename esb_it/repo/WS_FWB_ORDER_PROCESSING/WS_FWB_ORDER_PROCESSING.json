@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_FWB_ORDER_PROCESSING",
+    "name" : "WS_FWB_ORDER_PROCESSING",
+    "localPath" : "esb_it\\repo\\WS_FWB_ORDER_PROCESSING",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_FWB_ORDER_PROCESSING?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdFWB/SkyXSD_FWB_OrderProcessing.xsd",
+        "xsdNameSpace" : "http://it.fastweb.esb.org/OrderProcessing"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

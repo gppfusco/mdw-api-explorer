@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_ELAIDE_FIRMA_DIGITALE",
+    "name" : "WS_ELAIDE_FIRMA_DIGITALE",
+    "localPath" : "esb_it\\repo\\WS_ELAIDE_FIRMA_DIGITALE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_ELAIDE_FIRMA_DIGITALE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdElaide/SkyXSD_Elaide_firma_digitale.xsd",
+        "xsdNameSpace" : ""
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

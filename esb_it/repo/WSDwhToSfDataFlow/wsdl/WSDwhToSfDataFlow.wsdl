@@ -1,0 +1,2020 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF" schemaLocation="xsdSF/SkyXSD_DataFlowFromDWHtoSF.xsd" /> 
+   <xsd:complexType name="AgencyCustomerUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:AgencyCustomerUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="AgencyCustomerUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:AgencyCustomerUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="AvailTypeUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:AvailTypeUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="AvailTypeUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:AvailTypeUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="AvailUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:AvailUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="AvailUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:AvailUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Barter_OfficeUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Barter_OfficeUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Barter_OfficeUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Barter_OfficeUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Billboard_TypeUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Billboard_TypeUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Billboard_TypeUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Billboard_TypeUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="BookingGroup_AvailTypeUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:BookingGroup_AvailTypeUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="BookingGroup_AvailTypeUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:BookingGroup_AvailTypeUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="BookingGroup_ChannelUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:BookingGroup_ChannelUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="BookingGroup_ChannelUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:BookingGroup_ChannelUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="BookingGroupUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:BookingGroupUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="BookingGroupUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:BookingGroupUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Business_CategoryUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Business_CategoryUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Business_CategoryUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Business_CategoryUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Business_TypeUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Business_TypeUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Business_TypeUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Business_TypeUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ChannelUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ChannelUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ChannelUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ChannelUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ClientCustomerUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ClientCustomerUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ClientCustomerUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ClientCustomerUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="CommercialProductUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:CommercialProductUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="CommercialProductUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:CommercialProductUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ContentCategoryUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ContentCategoryUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ContentCategoryUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ContentCategoryUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Contract_Options_Length_FactorUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Contract_Options_Length_FactorUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Contract_Options_Length_FactorUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Contract_Options_Length_FactorUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Contract_Options_Premium_PositionUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Contract_Options_Premium_PositionUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Contract_Options_Premium_PositionUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Contract_Options_Premium_PositionUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Contract_Options_Spot_TypeUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Contract_Options_Spot_TypeUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Contract_Options_Spot_TypeUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Contract_Options_Spot_TypeUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ContractUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ContractUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ContractUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ContractUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="doRollback" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:doRollback" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="doRollbackResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:doRollbackResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Organization_AgentUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Organization_AgentUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Organization_AgentUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Organization_AgentUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Organization_BarterUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Organization_BarterUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Organization_BarterUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Organization_BarterUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Organization_Clienti_AgenzieUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Organization_Clienti_AgenzieUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Organization_Clienti_AgenzieUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Organization_Clienti_AgenzieUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Portafoglio_Agente_BarterUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Portafoglio_Agente_BarterUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Portafoglio_Agente_BarterUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Portafoglio_Agente_BarterUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Portafoglio_Agente_CustomerUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Portafoglio_Agente_CustomerUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Portafoglio_Agente_CustomerUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Portafoglio_Agente_CustomerUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Portafoglio_BarterUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Portafoglio_BarterUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Portafoglio_BarterUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Portafoglio_BarterUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="PremiumPositionsUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:PremiumPositionsUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="PremiumPositionsUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:PremiumPositionsUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="RatecardUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:RatecardUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="RatecardUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:RatecardUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Revenue_TypeUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Revenue_TypeUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="Revenue_TypeUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:Revenue_TypeUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesGroup_BookingGroupUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesGroup_BookingGroupUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesGroup_BookingGroupUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesGroup_BookingGroupUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesGroup_CustomerUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesGroup_CustomerUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesGroup_CustomerUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesGroup_CustomerUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesProduct_BookingGroupUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesProduct_BookingGroupUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesProduct_BookingGroupUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesProduct_BookingGroupUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesProduct_GroupUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesProductGroupUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesProduct_GroupUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesProductGroupUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesProduct_Update" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesProductUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesProduct_UpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesProductUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="setEndpoint" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:setEndpoint" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="setEndpointResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:setEndpointResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="setSavepoint" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:setSavepoint" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="setSavepointResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:setSavepointResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SpotTypeUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SpotTypeUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SpotTypeUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SpotTypeUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ProductTypeUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ProductTypeUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ProductTypeUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ProductTypeUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ValidateChannelUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ValidateChannelUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ValidateChannelUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ValidateChannelUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DataSegmentsUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:DataSegmentsUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DataSegmentsUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:DataSegmentsUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ImpressionTypeUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ImpressionTypeUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="ImpressionTypeUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:ImpressionTypeUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesTypeDataUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesTypeDataUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SalesTypeDataUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SalesTypeDataUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SubstitutinTypeUpdate" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SubstitutinTypeUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="SubstitutinTypeUpdateResponse" xmlns:sf="http://soap.sforce.com/schemas/class/DataFlowFromDWHtoSF"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:SubstitutinTypeUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opDoRollback"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:doRollback" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opDoRollbackResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:doRollbackResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAgencyCustomerUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:AgencyCustomerUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAgencyCustomerUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:AgencyCustomerUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAvailTypeUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:AvailTypeUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAvailTypeUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:AvailTypeUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAvailUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:AvailUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAvailUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:AvailUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBarterOfficeUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Barter_OfficeUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBarterOfficeUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Barter_OfficeUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBillboardTypeUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Billboard_TypeUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBillboardTypeUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Billboard_TypeUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBookingGroupAvailTypeUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:BookingGroup_AvailTypeUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBookingGroupAvailTypeUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:BookingGroup_AvailTypeUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBookingGroupChannelUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:BookingGroup_ChannelUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBookingGroupChannelUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:BookingGroup_ChannelUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBookingGroupUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:BookingGroupUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBookingGroupUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:BookingGroupUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBusinessCategoryUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Business_CategoryUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBusinessCategoryUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Business_CategoryUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBusinessTypeUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Business_TypeUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opBusinessTypeUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Business_TypeUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opChannelUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:ChannelUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opChannelUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:ChannelUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opClientCustomerUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:ClientCustomerUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opClientCustomerUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:ClientCustomerUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCommercialProductUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:CommercialProductUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCommercialProductUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:CommercialProductUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opContentCategoryUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:ContentCategoryUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opContentCategoryUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:ContentCategoryUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opContractOptionsLengthFactorUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Contract_Options_Length_FactorUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opContractOptionsLengthFactorUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Contract_Options_Length_FactorUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opContractOptionsPremiumPositionUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Contract_Options_Premium_PositionUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opContractOptionsPremiumPositionUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Contract_Options_Premium_PositionUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opContractOptionsSpotTypeUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Contract_Options_Spot_TypeUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opContractOptionsSpotTypeUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Contract_Options_Spot_TypeUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opContractUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:ContractUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opContractUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:ContractUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opOrganizationAgentUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Organization_AgentUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opOrganizationAgentUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Organization_AgentUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opOrganizationBarterUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Organization_BarterUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opOrganizationBarterUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Organization_BarterUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opOrganizationClientiAgenzieUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Organization_Clienti_AgenzieUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opOrganizationClientiAgenzieUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Organization_Clienti_AgenzieUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opPortafoglioAgenteBarterUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Portafoglio_Agente_BarterUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opPortafoglioAgenteBarterUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Portafoglio_Agente_BarterUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opPortafoglioAgenteCustomerUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Portafoglio_Agente_CustomerUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opPortafoglioAgenteCustomerUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Portafoglio_Agente_CustomerUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opPortafoglioBarterUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Portafoglio_BarterUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opPortafoglioBarterUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Portafoglio_BarterUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opPremiumPositionUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:PremiumPositionsUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opPremiumPositionUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:PremiumPositionsUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRatecardUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:RatecardUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRatecardUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:RatecardUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRevenueTypeUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:Revenue_TypeUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRevenueTypeUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:Revenue_TypeUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesGroupBookingGroupUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:SalesGroup_BookingGroupUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesGroupBookingGroupUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:SalesGroup_BookingGroupUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesGroupCustomerUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:SalesGroup_CustomerUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesGroupCustomerUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:SalesGroup_CustomerUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesProductBookingGroupUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:SalesProduct_BookingGroupUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesProductBookingGroupUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:SalesProduct_BookingGroupUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesProductGroupUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:SalesProduct_GroupUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesProductGroupUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:SalesProduct_GroupUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesProductUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:SalesProduct_Update" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesProductUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:SalesProduct_UpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSetSavepoint"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:setSavepoint" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSetSavepointResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:setSavepointResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSetEndpoint"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:setEndpoint" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSetEndpointResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:setEndpointResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSpotTypeUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:SpotTypeUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSpotTypeUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:SpotTypeUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLogin"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Password" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="Username" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLoginResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ServerUrl" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLogout"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ServerUrl" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLogoutResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opProductTypeUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:ProductTypeUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opProductTypeUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:ProductTypeUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opValidateChannelUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:ValidateChannelUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opValidateChannelUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:ValidateChannelUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opDataSegmentsUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:DataSegmentsUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opDataSegmentsUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:DataSegmentsUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opImpressionTypeUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:ImpressionTypeUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opImpressionTypeUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:ImpressionTypeUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesTypeDataUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:SalesTypeDataUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSalesTypeDataUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:SalesTypeDataUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSubstitutinTypeUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="InputMessage" type="eb:SubstitutinTypeUpdate" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionId" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SFSessionURL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opSubstitutinTypeUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="OutputMessage" type="eb:SubstitutinTypeUpdateResponse" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opDoRollbackRequest"> 
+  <wsdl:part element="eb:opDoRollback" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opDoRollbackResponse"> 
+  <wsdl:part element="eb:opDoRollbackResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAgencyCustomerUpdateRequest"> 
+  <wsdl:part element="eb:opAgencyCustomerUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAgencyCustomerUpdateResponse"> 
+  <wsdl:part element="eb:opAgencyCustomerUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAvailTypeUpdateRequest"> 
+  <wsdl:part element="eb:opAvailTypeUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAvailTypeUpdateResponse"> 
+  <wsdl:part element="eb:opAvailTypeUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAvailUpdateRequest"> 
+  <wsdl:part element="eb:opAvailUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAvailUpdateResponse"> 
+  <wsdl:part element="eb:opAvailUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBarterOfficeUpdateRequest"> 
+  <wsdl:part element="eb:opBarterOfficeUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBarterOfficeUpdateResponse"> 
+  <wsdl:part element="eb:opBarterOfficeUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBillboardTypeUpdateRequest"> 
+  <wsdl:part element="eb:opBillboardTypeUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBillboardTypeUpdateResponse"> 
+  <wsdl:part element="eb:opBillboardTypeUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBookingGroupAvailTypeUpdateRequest"> 
+  <wsdl:part element="eb:opBookingGroupAvailTypeUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBookingGroupAvailTypeUpdateResponse"> 
+  <wsdl:part element="eb:opBookingGroupAvailTypeUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBookingGroupChannelUpdateRequest"> 
+  <wsdl:part element="eb:opBookingGroupChannelUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBookingGroupChannelUpdateResponse"> 
+  <wsdl:part element="eb:opBookingGroupChannelUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBookingGroupUpdateRequest"> 
+  <wsdl:part element="eb:opBookingGroupUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBookingGroupUpdateResponse"> 
+  <wsdl:part element="eb:opBookingGroupUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBusinessCategoryUpdateRequest"> 
+  <wsdl:part element="eb:opBusinessCategoryUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBusinessCategoryUpdateResponse"> 
+  <wsdl:part element="eb:opBusinessCategoryUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBusinessTypeUpdateRequest"> 
+  <wsdl:part element="eb:opBusinessTypeUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opBusinessTypeUpdateResponse"> 
+  <wsdl:part element="eb:opBusinessTypeUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opChannelUpdateRequest"> 
+  <wsdl:part element="eb:opChannelUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opChannelUpdateResponse"> 
+  <wsdl:part element="eb:opChannelUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opClientCustomerUpdateRequest"> 
+  <wsdl:part element="eb:opClientCustomerUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opClientCustomerUpdateResponse"> 
+  <wsdl:part element="eb:opClientCustomerUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCommercialProductUpdateRequest"> 
+  <wsdl:part element="eb:opCommercialProductUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCommercialProductUpdateResponse"> 
+  <wsdl:part element="eb:opCommercialProductUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opContentCategoryUpdateRequest"> 
+  <wsdl:part element="eb:opContentCategoryUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opContentCategoryUpdateResponse"> 
+  <wsdl:part element="eb:opContentCategoryUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opContractOptionsLengthFactorUpdateRequest"> 
+  <wsdl:part element="eb:opContractOptionsLengthFactorUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opContractOptionsLengthFactorUpdateResponse"> 
+  <wsdl:part element="eb:opContractOptionsLengthFactorUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opContractOptionsPremiumPositionUpdateRequest"> 
+  <wsdl:part element="eb:opContractOptionsPremiumPositionUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opContractOptionsPremiumPositionUpdateResponse"> 
+  <wsdl:part element="eb:opContractOptionsPremiumPositionUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opContractOptionsSpotTypeUpdateRequest"> 
+  <wsdl:part element="eb:opContractOptionsSpotTypeUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opContractOptionsSpotTypeUpdateResponse"> 
+  <wsdl:part element="eb:opContractOptionsSpotTypeUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opContractUpdateRequest"> 
+  <wsdl:part element="eb:opContractUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opContractUpdateResponse"> 
+  <wsdl:part element="eb:opContractUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opOrganizationAgentUpdateRequest"> 
+  <wsdl:part element="eb:opOrganizationAgentUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opOrganizationAgentUpdateResponse"> 
+  <wsdl:part element="eb:opOrganizationAgentUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opOrganizationBarterUpdateRequest"> 
+  <wsdl:part element="eb:opOrganizationBarterUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opOrganizationBarterUpdateResponse"> 
+  <wsdl:part element="eb:opOrganizationBarterUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opOrganizationClientiAgenzieUpdateRequest"> 
+  <wsdl:part element="eb:opOrganizationClientiAgenzieUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opOrganizationClientiAgenzieUpdateResponse"> 
+  <wsdl:part element="eb:opOrganizationClientiAgenzieUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opPortafoglioAgenteBarterUpdateRequest"> 
+  <wsdl:part element="eb:opPortafoglioAgenteBarterUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opPortafoglioAgenteBarterUpdateResponse"> 
+  <wsdl:part element="eb:opPortafoglioAgenteBarterUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opPortafoglioAgenteCustomerUpdateRequest"> 
+  <wsdl:part element="eb:opPortafoglioAgenteCustomerUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opPortafoglioAgenteCustomerUpdateResponse"> 
+  <wsdl:part element="eb:opPortafoglioAgenteCustomerUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opPortafoglioBarterUpdateRequest"> 
+  <wsdl:part element="eb:opPortafoglioBarterUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opPortafoglioBarterUpdateResponse"> 
+  <wsdl:part element="eb:opPortafoglioBarterUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opPremiumPositionUpdateRequest"> 
+  <wsdl:part element="eb:opPremiumPositionUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opPremiumPositionUpdateResponse"> 
+  <wsdl:part element="eb:opPremiumPositionUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRatecardUpdateRequest"> 
+  <wsdl:part element="eb:opRatecardUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRatecardUpdateResponse"> 
+  <wsdl:part element="eb:opRatecardUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRevenueTypeUpdateRequest"> 
+  <wsdl:part element="eb:opRevenueTypeUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRevenueTypeUpdateResponse"> 
+  <wsdl:part element="eb:opRevenueTypeUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesGroupBookingGroupUpdateRequest"> 
+  <wsdl:part element="eb:opSalesGroupBookingGroupUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesGroupBookingGroupUpdateResponse"> 
+  <wsdl:part element="eb:opSalesGroupBookingGroupUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesGroupCustomerUpdateRequest"> 
+  <wsdl:part element="eb:opSalesGroupCustomerUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesGroupCustomerUpdateResponse"> 
+  <wsdl:part element="eb:opSalesGroupCustomerUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesProductBookingGroupUpdateRequest"> 
+  <wsdl:part element="eb:opSalesProductBookingGroupUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesProductBookingGroupUpdateResponse"> 
+  <wsdl:part element="eb:opSalesProductBookingGroupUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesProductGroupUpdateRequest"> 
+  <wsdl:part element="eb:opSalesProductGroupUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesProductGroupUpdateResponse"> 
+  <wsdl:part element="eb:opSalesProductGroupUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesProductUpdateRequest"> 
+  <wsdl:part element="eb:opSalesProductUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesProductUpdateResponse"> 
+  <wsdl:part element="eb:opSalesProductUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSetSavepointRequest"> 
+  <wsdl:part element="eb:opSetSavepoint" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSetSavepointResponse"> 
+  <wsdl:part element="eb:opSetSavepointResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSetEndpointRequest"> 
+  <wsdl:part element="eb:opSetEndpoint" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSetEndpointResponse"> 
+  <wsdl:part element="eb:opSetEndpointResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSpotTypeUpdateRequest"> 
+  <wsdl:part element="eb:opSpotTypeUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSpotTypeUpdateResponse"> 
+  <wsdl:part element="eb:opSpotTypeUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLoginRequest"> 
+  <wsdl:part element="eb:opLogin" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLoginResponse"> 
+  <wsdl:part element="eb:opLoginResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLogoutRequest"> 
+  <wsdl:part element="eb:opLogout" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLogoutResponse"> 
+  <wsdl:part element="eb:opLogoutResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opProductTypeUpdateRequest"> 
+  <wsdl:part element="eb:opProductTypeUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opProductTypeUpdateResponse"> 
+  <wsdl:part element="eb:opProductTypeUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opValidateChannelUpdateRequest"> 
+  <wsdl:part element="eb:opValidateChannelUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opValidateChannelUpdateResponse"> 
+  <wsdl:part element="eb:opValidateChannelUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opDataSegmentsUpdateRequest"> 
+  <wsdl:part element="eb:opDataSegmentsUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opDataSegmentsUpdateResponse"> 
+  <wsdl:part element="eb:opDataSegmentsUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opImpressionTypeUpdateRequest"> 
+  <wsdl:part element="eb:opImpressionTypeUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opImpressionTypeUpdateResponse"> 
+  <wsdl:part element="eb:opImpressionTypeUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesTypeDataUpdateRequest"> 
+  <wsdl:part element="eb:opSalesTypeDataUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSalesTypeDataUpdateResponse"> 
+  <wsdl:part element="eb:opSalesTypeDataUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSubstitutinTypeUpdateRequest"> 
+  <wsdl:part element="eb:opSubstitutinTypeUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opSubstitutinTypeUpdateResponse"> 
+  <wsdl:part element="eb:opSubstitutinTypeUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WSDwhToSfDataFlowSoap"> 
+  <wsdl:operation name="opDoRollback"> 
+   <wsdl:input message="eb:opDoRollbackRequest" name="opDoRollbackRequest" /> 
+   <wsdl:output message="eb:opDoRollbackResponse" name="opDoRollbackResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opAgencyCustomerUpdate"> 
+   <wsdl:input message="eb:opAgencyCustomerUpdateRequest" name="opAgencyCustomerUpdateRequest" /> 
+   <wsdl:output message="eb:opAgencyCustomerUpdateResponse" name="opAgencyCustomerUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opAvailTypeUpdate"> 
+   <wsdl:input message="eb:opAvailTypeUpdateRequest" name="opAvailTypeUpdateRequest" /> 
+   <wsdl:output message="eb:opAvailTypeUpdateResponse" name="opAvailTypeUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opAvailUpdate"> 
+   <wsdl:input message="eb:opAvailUpdateRequest" name="opAvailUpdateRequest" /> 
+   <wsdl:output message="eb:opAvailUpdateResponse" name="opAvailUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBarterOfficeUpdate"> 
+   <wsdl:input message="eb:opBarterOfficeUpdateRequest" name="opBarterOfficeUpdateRequest" /> 
+   <wsdl:output message="eb:opBarterOfficeUpdateResponse" name="opBarterOfficeUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBillboardTypeUpdate"> 
+   <wsdl:input message="eb:opBillboardTypeUpdateRequest" name="opBillboardTypeUpdateRequest" /> 
+   <wsdl:output message="eb:opBillboardTypeUpdateResponse" name="opBillboardTypeUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBookingGroupAvailTypeUpdate"> 
+   <wsdl:input message="eb:opBookingGroupAvailTypeUpdateRequest" name="opBookingGroupAvailTypeUpdateRequest" /> 
+   <wsdl:output message="eb:opBookingGroupAvailTypeUpdateResponse" name="opBookingGroupAvailTypeUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBookingGroupChannelUpdate"> 
+   <wsdl:input message="eb:opBookingGroupChannelUpdateRequest" name="opBookingGroupChannelUpdateRequest" /> 
+   <wsdl:output message="eb:opBookingGroupChannelUpdateResponse" name="opBookingGroupChannelUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBookingGroupUpdate"> 
+   <wsdl:input message="eb:opBookingGroupUpdateRequest" name="opBookingGroupUpdateRequest" /> 
+   <wsdl:output message="eb:opBookingGroupUpdateResponse" name="opBookingGroupUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBusinessCategoryUpdate"> 
+   <wsdl:input message="eb:opBusinessCategoryUpdateRequest" name="opBusinessCategoryUpdateRequest" /> 
+   <wsdl:output message="eb:opBusinessCategoryUpdateResponse" name="opBusinessCategoryUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBusinessTypeUpdate"> 
+   <wsdl:input message="eb:opBusinessTypeUpdateRequest" name="opBusinessTypeUpdateRequest" /> 
+   <wsdl:output message="eb:opBusinessTypeUpdateResponse" name="opBusinessTypeUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opChannelUpdate"> 
+   <wsdl:input message="eb:opChannelUpdateRequest" name="opChannelUpdateRequest" /> 
+   <wsdl:output message="eb:opChannelUpdateResponse" name="opChannelUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opClientCustomerUpdate"> 
+   <wsdl:input message="eb:opClientCustomerUpdateRequest" name="opClientCustomerUpdateRequest" /> 
+   <wsdl:output message="eb:opClientCustomerUpdateResponse" name="opClientCustomerUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opCommercialProductUpdate"> 
+   <wsdl:input message="eb:opCommercialProductUpdateRequest" name="opCommercialProductUpdateRequest" /> 
+   <wsdl:output message="eb:opCommercialProductUpdateResponse" name="opCommercialProductUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opContentCategoryUpdate"> 
+   <wsdl:input message="eb:opContentCategoryUpdateRequest" name="opContentCategoryUpdateRequest" /> 
+   <wsdl:output message="eb:opContentCategoryUpdateResponse" name="opContentCategoryUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opContractOptionsLengthFactorUpdate"> 
+   <wsdl:input message="eb:opContractOptionsLengthFactorUpdateRequest" name="opContractOptionsLengthFactorUpdateRequest" /> 
+   <wsdl:output message="eb:opContractOptionsLengthFactorUpdateResponse" name="opContractOptionsLengthFactorUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opContractOptionsPremiumPositionUpdate"> 
+   <wsdl:input message="eb:opContractOptionsPremiumPositionUpdateRequest" name="opContractOptionsPremiumPositionUpdateRequest" /> 
+   <wsdl:output message="eb:opContractOptionsPremiumPositionUpdateResponse" name="opContractOptionsPremiumPositionUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opContractOptionsSpotTypeUpdate"> 
+   <wsdl:input message="eb:opContractOptionsSpotTypeUpdateRequest" name="opContractOptionsSpotTypeUpdateRequest" /> 
+   <wsdl:output message="eb:opContractOptionsSpotTypeUpdateResponse" name="opContractOptionsSpotTypeUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opContractUpdate"> 
+   <wsdl:input message="eb:opContractUpdateRequest" name="opContractUpdateRequest" /> 
+   <wsdl:output message="eb:opContractUpdateResponse" name="opContractUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opOrganizationAgentUpdate"> 
+   <wsdl:input message="eb:opOrganizationAgentUpdateRequest" name="opOrganizationAgentUpdateRequest" /> 
+   <wsdl:output message="eb:opOrganizationAgentUpdateResponse" name="opOrganizationAgentUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opOrganizationBarterUpdate"> 
+   <wsdl:input message="eb:opOrganizationBarterUpdateRequest" name="opOrganizationBarterUpdateRequest" /> 
+   <wsdl:output message="eb:opOrganizationBarterUpdateResponse" name="opOrganizationBarterUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opOrganizationClientiAgenzieUpdate"> 
+   <wsdl:input message="eb:opOrganizationClientiAgenzieUpdateRequest" name="opOrganizationClientiAgenzieUpdateRequest" /> 
+   <wsdl:output message="eb:opOrganizationClientiAgenzieUpdateResponse" name="opOrganizationClientiAgenzieUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opPortafoglioAgenteBarterUpdate"> 
+   <wsdl:input message="eb:opPortafoglioAgenteBarterUpdateRequest" name="opPortafoglioAgenteBarterUpdateRequest" /> 
+   <wsdl:output message="eb:opPortafoglioAgenteBarterUpdateResponse" name="opPortafoglioAgenteBarterUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opPortafoglioAgenteCustomerUpdate"> 
+   <wsdl:input message="eb:opPortafoglioAgenteCustomerUpdateRequest" name="opPortafoglioAgenteCustomerUpdateRequest" /> 
+   <wsdl:output message="eb:opPortafoglioAgenteCustomerUpdateResponse" name="opPortafoglioAgenteCustomerUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opPortafoglioBarterUpdate"> 
+   <wsdl:input message="eb:opPortafoglioBarterUpdateRequest" name="opPortafoglioBarterUpdateRequest" /> 
+   <wsdl:output message="eb:opPortafoglioBarterUpdateResponse" name="opPortafoglioBarterUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opPremiumPositionUpdate"> 
+   <wsdl:input message="eb:opPremiumPositionUpdateRequest" name="opPremiumPositionUpdateRequest" /> 
+   <wsdl:output message="eb:opPremiumPositionUpdateResponse" name="opPremiumPositionUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opRatecardUpdate"> 
+   <wsdl:input message="eb:opRatecardUpdateRequest" name="opRatecardUpdateRequest" /> 
+   <wsdl:output message="eb:opRatecardUpdateResponse" name="opRatecardUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opRevenueTypeUpdate"> 
+   <wsdl:input message="eb:opRevenueTypeUpdateRequest" name="opRevenueTypeUpdateRequest" /> 
+   <wsdl:output message="eb:opRevenueTypeUpdateResponse" name="opRevenueTypeUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesGroupBookingGroupUpdate"> 
+   <wsdl:input message="eb:opSalesGroupBookingGroupUpdateRequest" name="opSalesGroupBookingGroupUpdateRequest" /> 
+   <wsdl:output message="eb:opSalesGroupBookingGroupUpdateResponse" name="opSalesGroupBookingGroupUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesGroupCustomerUpdate"> 
+   <wsdl:input message="eb:opSalesGroupCustomerUpdateRequest" name="opSalesGroupCustomerUpdateRequest" /> 
+   <wsdl:output message="eb:opSalesGroupCustomerUpdateResponse" name="opSalesGroupCustomerUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesProductBookingGroupUpdate"> 
+   <wsdl:input message="eb:opSalesProductBookingGroupUpdateRequest" name="opSalesProductBookingGroupUpdateRequest" /> 
+   <wsdl:output message="eb:opSalesProductBookingGroupUpdateResponse" name="opSalesProductBookingGroupUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesProductGroupUpdate"> 
+   <wsdl:input message="eb:opSalesProductGroupUpdateRequest" name="opSalesProductGroupUpdateRequest" /> 
+   <wsdl:output message="eb:opSalesProductGroupUpdateResponse" name="opSalesProductGroupUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesProductUpdate"> 
+   <wsdl:input message="eb:opSalesProductUpdateRequest" name="opSalesProductUpdateRequest" /> 
+   <wsdl:output message="eb:opSalesProductUpdateResponse" name="opSalesProductUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSetSavepoint"> 
+   <wsdl:input message="eb:opSetSavepointRequest" name="opSetSavepointRequest" /> 
+   <wsdl:output message="eb:opSetSavepointResponse" name="opSetSavepointResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSetEndpoint"> 
+   <wsdl:input message="eb:opSetEndpointRequest" name="opSetEndpointRequest" /> 
+   <wsdl:output message="eb:opSetEndpointResponse" name="opSetEndpointResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSpotTypeUpdate"> 
+   <wsdl:input message="eb:opSpotTypeUpdateRequest" name="opSpotTypeUpdateRequest" /> 
+   <wsdl:output message="eb:opSpotTypeUpdateResponse" name="opSpotTypeUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opLogin"> 
+   <wsdl:input message="eb:opLoginRequest" name="opLoginRequest" /> 
+   <wsdl:output message="eb:opLoginResponse" name="opLoginResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opLogout"> 
+   <wsdl:input message="eb:opLogoutRequest" name="opLogoutRequest" /> 
+   <wsdl:output message="eb:opLogoutResponse" name="opLogoutResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opProductTypeUpdate"> 
+   <wsdl:input message="eb:opProductTypeUpdateRequest" name="opProductTypeUpdateRequest" /> 
+   <wsdl:output message="eb:opProductTypeUpdateResponse" name="opProductTypeUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opValidateChannelUpdate"> 
+   <wsdl:input message="eb:opValidateChannelUpdateRequest" name="opValidateChannelUpdateRequest" /> 
+   <wsdl:output message="eb:opValidateChannelUpdateResponse" name="opValidateChannelUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opDataSegmentsUpdate"> 
+   <wsdl:input message="eb:opDataSegmentsUpdateRequest" name="opDataSegmentsUpdateRequest" /> 
+   <wsdl:output message="eb:opDataSegmentsUpdateResponse" name="opDataSegmentsUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opImpressionTypeUpdate"> 
+   <wsdl:input message="eb:opImpressionTypeUpdateRequest" name="opImpressionTypeUpdateRequest" /> 
+   <wsdl:output message="eb:opImpressionTypeUpdateResponse" name="opImpressionTypeUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesTypeDataUpdate"> 
+   <wsdl:input message="eb:opSalesTypeDataUpdateRequest" name="opSalesTypeDataUpdateRequest" /> 
+   <wsdl:output message="eb:opSalesTypeDataUpdateResponse" name="opSalesTypeDataUpdateResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSubstitutinTypeUpdate"> 
+   <wsdl:input message="eb:opSubstitutinTypeUpdateRequest" name="opSubstitutinTypeUpdateRequest" /> 
+   <wsdl:output message="eb:opSubstitutinTypeUpdateResponse" name="opSubstitutinTypeUpdateResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WSDwhToSfDataFlowSoap" type="eb:WSDwhToSfDataFlowSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opDoRollback"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opDoRollback" style="document" /> 
+   <wsdl:input name="opDoRollbackRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opDoRollbackResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opAgencyCustomerUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opAgencyCustomerUpdate" style="document" /> 
+   <wsdl:input name="opAgencyCustomerUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAgencyCustomerUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opAvailTypeUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opAvailTypeUpdate" style="document" /> 
+   <wsdl:input name="opAvailTypeUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAvailTypeUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opAvailUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opAvailUpdate" style="document" /> 
+   <wsdl:input name="opAvailUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAvailUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBarterOfficeUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opBarterOfficeUpdate" style="document" /> 
+   <wsdl:input name="opBarterOfficeUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opBarterOfficeUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBillboardTypeUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opBillboardTypeUpdate" style="document" /> 
+   <wsdl:input name="opBillboardTypeUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opBillboardTypeUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBookingGroupAvailTypeUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opBookingGroupAvailTypeUpdate" style="document" /> 
+   <wsdl:input name="opBookingGroupAvailTypeUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opBookingGroupAvailTypeUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBookingGroupChannelUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opBookingGroupChannelUpdate" style="document" /> 
+   <wsdl:input name="opBookingGroupChannelUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opBookingGroupChannelUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBookingGroupUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opBookingGroupUpdate" style="document" /> 
+   <wsdl:input name="opBookingGroupUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opBookingGroupUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBusinessCategoryUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opBusinessCategoryUpdate" style="document" /> 
+   <wsdl:input name="opBusinessCategoryUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opBusinessCategoryUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opBusinessTypeUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opBusinessTypeUpdate" style="document" /> 
+   <wsdl:input name="opBusinessTypeUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opBusinessTypeUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opChannelUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opChannelUpdate" style="document" /> 
+   <wsdl:input name="opChannelUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opChannelUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opClientCustomerUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opClientCustomerUpdate" style="document" /> 
+   <wsdl:input name="opClientCustomerUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opClientCustomerUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opCommercialProductUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opCommercialProductUpdate" style="document" /> 
+   <wsdl:input name="opCommercialProductUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCommercialProductUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opContentCategoryUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opContentCategoryUpdate" style="document" /> 
+   <wsdl:input name="opContentCategoryUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opContentCategoryUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opContractOptionsLengthFactorUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opContractOptionsLengthFactorUpdate" style="document" /> 
+   <wsdl:input name="opContractOptionsLengthFactorUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opContractOptionsLengthFactorUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opContractOptionsPremiumPositionUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opContractOptionsPremiumPositionUpdate" style="document" /> 
+   <wsdl:input name="opContractOptionsPremiumPositionUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opContractOptionsPremiumPositionUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opContractOptionsSpotTypeUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opContractOptionsSpotTypeUpdate" style="document" /> 
+   <wsdl:input name="opContractOptionsSpotTypeUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opContractOptionsSpotTypeUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opContractUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opContractUpdate" style="document" /> 
+   <wsdl:input name="opContractUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opContractUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opOrganizationAgentUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opOrganizationAgentUpdate" style="document" /> 
+   <wsdl:input name="opOrganizationAgentUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opOrganizationAgentUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opOrganizationBarterUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opOrganizationBarterUpdate" style="document" /> 
+   <wsdl:input name="opOrganizationBarterUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opOrganizationBarterUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opOrganizationClientiAgenzieUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opOrganizationClientiAgenzieUpdate" style="document" /> 
+   <wsdl:input name="opOrganizationClientiAgenzieUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opOrganizationClientiAgenzieUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opPortafoglioAgenteBarterUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opPortafoglioAgenteBarterUpdate" style="document" /> 
+   <wsdl:input name="opPortafoglioAgenteBarterUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opPortafoglioAgenteBarterUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opPortafoglioAgenteCustomerUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opPortafoglioAgenteCustomerUpdate" style="document" /> 
+   <wsdl:input name="opPortafoglioAgenteCustomerUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opPortafoglioAgenteCustomerUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opPortafoglioBarterUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opPortafoglioBarterUpdate" style="document" /> 
+   <wsdl:input name="opPortafoglioBarterUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opPortafoglioBarterUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opPremiumPositionUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opPremiumPositionUpdate" style="document" /> 
+   <wsdl:input name="opPremiumPositionUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opPremiumPositionUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opRatecardUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opRatecardUpdate" style="document" /> 
+   <wsdl:input name="opRatecardUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opRatecardUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opRevenueTypeUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opRevenueTypeUpdate" style="document" /> 
+   <wsdl:input name="opRevenueTypeUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opRevenueTypeUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesGroupBookingGroupUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opSalesGroupBookingGroupUpdate" style="document" /> 
+   <wsdl:input name="opSalesGroupBookingGroupUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSalesGroupBookingGroupUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesGroupCustomerUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opSalesGroupCustomerUpdate" style="document" /> 
+   <wsdl:input name="opSalesGroupCustomerUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSalesGroupCustomerUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesProductBookingGroupUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opSalesProductBookingGroupUpdate" style="document" /> 
+   <wsdl:input name="opSalesProductBookingGroupUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSalesProductBookingGroupUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesProductGroupUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opSalesProductGroupUpdate" style="document" /> 
+   <wsdl:input name="opSalesProductGroupUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSalesProductGroupUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesProductUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opSalesProductUpdate" style="document" /> 
+   <wsdl:input name="opSalesProductUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSalesProductUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSetSavepoint"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opSetSavepoint" style="document" /> 
+   <wsdl:input name="opSetSavepointRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSetSavepointResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSetEndpoint"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opSetEndpoint" style="document" /> 
+   <wsdl:input name="opSetEndpointRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSetEndpointResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSpotTypeUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opSpotTypeUpdate" style="document" /> 
+   <wsdl:input name="opSpotTypeUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSpotTypeUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opLogin"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opLogin" style="document" /> 
+   <wsdl:input name="opLoginRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opLoginResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opLogout"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opLogout" style="document" /> 
+   <wsdl:input name="opLogoutRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opLogoutResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opProductTypeUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opProductTypeUpdate" style="document" /> 
+   <wsdl:input name="opProductTypeUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opProductTypeUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opValidateChannelUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opValidateChannelUpdate" style="document" /> 
+   <wsdl:input name="opValidateChannelUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opValidateChannelUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opDataSegmentsUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opDataSegmentsUpdate" style="document" /> 
+   <wsdl:input name="opDataSegmentsUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opDataSegmentsUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opImpressionTypeUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opImpressionTypeUpdate" style="document" /> 
+   <wsdl:input name="opImpressionTypeUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opImpressionTypeUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSalesTypeDataUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opSalesTypeDataUpdate" style="document" /> 
+   <wsdl:input name="opSalesTypeDataUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSalesTypeDataUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opSubstitutinTypeUpdate"> 
+   <soap:operation soapAction="WSDwhToSfDataFlow/opSubstitutinTypeUpdate" style="document" /> 
+   <wsdl:input name="opSubstitutinTypeUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opSubstitutinTypeUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WSDwhToSfDataFlow"> 
+  <wsdl:port binding="eb:WSDwhToSfDataFlowSoap" name="WSDwhToSfDataFlowSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WSDwhToSfDataFlow" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

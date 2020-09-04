@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_FPS_RUN_EVALUATION",
+    "name" : "WS_FPS_RUN_EVALUATION",
+    "localPath" : "esb_it\\repo\\WS_FPS_RUN_EVALUATION",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_FPS_RUN_EVALUATION?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdFPS/SkyXSD_WS_FPS_RUN_EVALUATION.xsd",
+        "xsdNameSpace" : "http://wml.spy.sky.com/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

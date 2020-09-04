@@ -1,0 +1,106 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://mvc.spy.sky.com" elementFormDefault="unqualified" attributeFormDefault="qualified"> 
+ <xs:complexType name="householdReader_base"> 
+  <xs:sequence> 
+   <xs:element name="contractId" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="householdReaderResponse_base"> 
+  <xs:sequence> 
+   <xs:element name="householdReader" minOccurs="0" xmlns="http://www.ibm.com/ia/xmlns/default/MultiVisionConnectedBOM/model"> 
+    <xs:complexType> 
+     <xs:sequence> 
+      <xs:element name="contractId" type="xs:string" minOccurs="0" /> 
+      <xs:element minOccurs="0" name="control" type="xs:string" /> 
+      <xs:element name="repeater" type="xs:string" minOccurs="0" /> 
+      <xs:element name="status" type="xs:string" minOccurs="0" /> 
+      <xs:element name="statusChangeDate" type="xs:dateTime" minOccurs="0" /> 
+      <xs:element name="totale" type="xs:int" /> 
+      <xs:element minOccurs="0" name="whiteList" type="xs:string" /> 
+     </xs:sequence> 
+    </xs:complexType> 
+   </xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="MessageException"> 
+  <xs:sequence> 
+   <xs:element name="message" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="historyReader_base"> 
+  <xs:sequence> 
+   <xs:element name="contractId" type="xs:string" minOccurs="0" /> 
+   <xs:element name="data_from" type="xs:dateTime" minOccurs="0" /> 
+   <xs:element name="data_to" type="xs:dateTime" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="historyReaderResponse_base"> 
+  <xs:sequence> 
+   <xs:element minOccurs="0" name="historyReader"> 
+    <xs:complexType> 
+     <xs:sequence> 
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="historyHouseholds" nillable="true" xmlns="http://www.ibm.com/ia/xmlns/default/MultiVisionConnectedBOM/model"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="contractId" type="xs:string" minOccurs="0" /> 
+         <xs:element minOccurs="0" name="control" type="xs:string" /> 
+         <xs:element name="repeater" type="xs:string" minOccurs="0" /> 
+         <xs:element name="status" type="xs:string" minOccurs="0" /> 
+         <xs:element name="statusChangeDate" type="xs:dateTime" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+     </xs:sequence> 
+    </xs:complexType> 
+   </xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="householdUpdater_base"> 
+  <xs:sequence> 
+   <xs:element name="contractId" type="xs:string" minOccurs="0" /> 
+   <xs:element name="operator" type="xs:string" minOccurs="0" /> 
+   <xs:element name="action" type="xs:string" minOccurs="0" /> 
+   <xs:element name="flag" type="xs:string" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="householdUpdaterResponse_base"> 
+  <xs:sequence> 
+   <xs:element name="householdUpdater" minOccurs="0" xmlns="http://www.ibm.com/ia/xmlns/default/MultiVisionConnectedBOM/model"> 
+    <xs:complexType> 
+     <xs:sequence> 
+      <xs:element name="descrizione" type="xs:string" minOccurs="0" /> 
+      <xs:element name="esito" type="xs:int" /> 
+     </xs:sequence> 
+    </xs:complexType> 
+   </xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="historyUpdater_base"> 
+  <xs:sequence> 
+   <xs:element name="contractId" type="xs:string" minOccurs="0" /> 
+   <xs:element name="type" type="xs:string" minOccurs="0" /> 
+   <xs:element name="data_from" type="xs:dateTime" minOccurs="0" /> 
+   <xs:element name="data_to" type="xs:dateTime" minOccurs="0" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="historyUpdaterResponse_base"> 
+  <xs:sequence> 
+   <xs:element minOccurs="0" name="historyUpdater"> 
+    <xs:complexType> 
+     <xs:sequence> 
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="readHistoryHousehold" nillable="true" xmlns="http://www.ibm.com/ia/xmlns/default/MultiVisionConnectedBOM/model"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="contractId" type="xs:string" minOccurs="0" /> 
+         <xs:element name="operationDate" type="xs:dateTime" minOccurs="0" /> 
+         <xs:element name="operationType" type="xs:string" minOccurs="0" /> 
+         <xs:element name="operationValue" type="xs:string" minOccurs="0" /> 
+         <xs:element name="operator" type="xs:string" minOccurs="0" /> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+     </xs:sequence> 
+    </xs:complexType> 
+   </xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

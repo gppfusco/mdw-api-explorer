@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_OTS_REITEK_MULTIVISION",
+    "name" : "WS_OTS_REITEK_MULTIVISION",
+    "localPath" : "esb_it\\repo\\WS_OTS_REITEK_MULTIVISION",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_OTS_REITEK_MULTIVISION?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdReitek/MultivisionWS.xsd",
+        "xsdNameSpace" : "http://services.siebel.sky.integrationlayer.reitek.com/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:string" use="required" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="HTL_CODICE_STANZA" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_CODICE_GRUPPO" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_DESCRIZIONE_GRUPPO" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_DESCRIZIONE_STANZA" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_PIN_CORRENTE" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_SMC_PRESENTE" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_CODICE_SMC" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_FLAG_ACQUISTI_PPV" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_TIPO_APERTURA" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_DATA_APERTURA" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_PPV_ABILITATA" type="eb:FMLFieldType" /> 
+     <xsd:element name="HTL_SMC_ABILITATA" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_RET_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_DESCRIZ_ESITO" type="eb:FMLFieldType" /> 
+     <xsd:any processContents="lax" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="OP_MOSTRA_ELENCO_STANZE"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_UTENTE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CODICE_HOTEL" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_MOSTRA_ELENCO_STANZEResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="MOSTRA_ELENCO_STANZE_OUTPUT" type="eb:FMLComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_MOSTRA_ELENCO_STANZERequest"> 
+  <wsdl:part element="eb:OP_MOSTRA_ELENCO_STANZE" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_MOSTRA_ELENCO_STANZEResponse"> 
+  <wsdl:part element="eb:OP_MOSTRA_ELENCO_STANZEResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_MOSTRA_ELENCO_STANZESoap"> 
+  <wsdl:operation name="OP_MOSTRA_ELENCO_STANZE"> 
+   <wsdl:input message="eb:OP_MOSTRA_ELENCO_STANZERequest" name="OP_MOSTRA_ELENCO_STANZERequest" /> 
+   <wsdl:output message="eb:OP_MOSTRA_ELENCO_STANZEResponse" name="OP_MOSTRA_ELENCO_STANZEResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_MOSTRA_ELENCO_STANZESoap" type="eb:WS_MOSTRA_ELENCO_STANZESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_MOSTRA_ELENCO_STANZE"> 
+   <soap:operation soapAction="WS_MOSTRA_ELENCO_STANZE/OP_MOSTRA_ELENCO_STANZE" style="document" /> 
+   <wsdl:input name="OP_MOSTRA_ELENCO_STANZERequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_MOSTRA_ELENCO_STANZEResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+</wsdl:definitions>

@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_GEO_BITWIN_CHECK_STOCKOUT_ODL",
+    "name" : "WS_GEO_BITWIN_CHECK_STOCKOUT_ODL",
+    "localPath" : "esb_it\\repo\\WS_GEO_BITWIN_CHECK_STOCKOUT_ODL",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_GEO_BITWIN_CHECK_STOCKOUT_ODL?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

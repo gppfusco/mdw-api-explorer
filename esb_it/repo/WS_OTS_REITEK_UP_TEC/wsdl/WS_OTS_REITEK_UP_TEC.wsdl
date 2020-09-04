@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://services.siebel.sky.integrationlayer.reitek.com/" schemaLocation="xsdReitek/UpgradeTecWS.xsd" /> 
+   <xsd:complexType name="elaborazioneTecnologico" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:elaborazioneTecnologico" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="elaborazioneTecnologicoResponse" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:elaborazioneTecnologicoResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="attivazioneTecnologico" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:attivazioneTecnologico" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="attivazioneTecnologicoResponse" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:attivazioneTecnologicoResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opElaborazioneTecnologico"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:elaborazioneTecnologico" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opElaborazioneTecnologicoResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:elaborazioneTecnologicoResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAttivazioneTecnologico"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:attivazioneTecnologico" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAttivazioneTecnologicoResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:attivazioneTecnologicoResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opElaborazioneTecnologicoRequest"> 
+  <wsdl:part element="eb:opElaborazioneTecnologico" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opElaborazioneTecnologicoResponse"> 
+  <wsdl:part element="eb:opElaborazioneTecnologicoResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAttivazioneTecnologicoRequest"> 
+  <wsdl:part element="eb:opAttivazioneTecnologico" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAttivazioneTecnologicoResponse"> 
+  <wsdl:part element="eb:opAttivazioneTecnologicoResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_OTS_REITEK_UP_TECSoap"> 
+  <wsdl:operation name="opElaborazioneTecnologico"> 
+   <wsdl:input message="eb:opElaborazioneTecnologicoRequest" name="opElaborazioneTecnologicoRequest" /> 
+   <wsdl:output message="eb:opElaborazioneTecnologicoResponse" name="opElaborazioneTecnologicoResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opAttivazioneTecnologico"> 
+   <wsdl:input message="eb:opAttivazioneTecnologicoRequest" name="opAttivazioneTecnologicoRequest" /> 
+   <wsdl:output message="eb:opAttivazioneTecnologicoResponse" name="opAttivazioneTecnologicoResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_OTS_REITEK_UP_TECSoap" type="eb:WS_OTS_REITEK_UP_TECSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opElaborazioneTecnologico"> 
+   <soap:operation soapAction="WS_OTS_REITEK_UP_TEC/opElaborazioneTecnologico" style="document" /> 
+   <wsdl:input name="opElaborazioneTecnologicoRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opElaborazioneTecnologicoResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opAttivazioneTecnologico"> 
+   <soap:operation soapAction="WS_OTS_REITEK_UP_TEC/opAttivazioneTecnologico" style="document" /> 
+   <wsdl:input name="opAttivazioneTecnologicoRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAttivazioneTecnologicoResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_OTS_REITEK_UP_TEC"> 
+  <wsdl:port binding="eb:WS_OTS_REITEK_UP_TECSoap" name="WS_OTS_REITEK_UP_TECSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_OTS_REITEK_UP_TEC" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

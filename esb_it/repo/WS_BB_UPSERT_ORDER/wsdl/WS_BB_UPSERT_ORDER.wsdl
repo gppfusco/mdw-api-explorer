@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="DocumentDataIN"> 
+    <xsd:sequence> 
+     <xsd:element name="FWTransactionData" type="eb:FWTransactionData" /> 
+     <xsd:element name="IdPDA"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="CodiceContrattoSKY"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="15" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="IntegrationIdSKY"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="0" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="ClusterNumber"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="CodiceTecnologia"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="Tecnologia"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="IndirizzoUbicazione" type="eb:IndirizzoUbicazione" /> 
+     <xsd:element name="FlagLineaPresente"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="FlagNP"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="Migrazione"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="RichiestaRicalcolo"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOUT"> 
+    <xsd:sequence> 
+     <xsd:element name="ErrorCode"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="ErrorMessage"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="255" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FWTransactionData"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="SenderName"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="50" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="UserName"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="50" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="TransactionId"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="42" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="Version"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="50" /> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="TransactionTime"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:maxLength value="19" /> 
+        <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="IndirizzoUbicazione"> 
+    <xsd:sequence> 
+     <xsd:element name="Toponomastica"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="100" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="Indirizzo"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="100" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="Civico"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="CAP"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="5" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="Comune"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="100" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="SiglaProvincia"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="2" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element name="Stato"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="Localita"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="Scala"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="Interno"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="Piano"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="30" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+     <xsd:element minOccurs="0" name="IdIndirizzoFW"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+        <xsd:maxLength value="100" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opUpsertOrder"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataIN" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opUpsertOrderResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOUT" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opUpsertOrderRequest"> 
+  <wsdl:part element="eb:opUpsertOrder" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opUpsertOrderResponse"> 
+  <wsdl:part element="eb:opUpsertOrderResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_BB_UPSERT_ORDERSoap"> 
+  <wsdl:operation name="opUpsertOrder"> 
+   <wsdl:input message="eb:opUpsertOrderRequest" name="opUpsertOrderRequest" /> 
+   <wsdl:output message="eb:opUpsertOrderResponse" name="opUpsertOrderResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_BB_UPSERT_ORDERSoap" type="eb:WS_BB_UPSERT_ORDERSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opUpsertOrder"> 
+   <soap:operation soapAction="WS_BB_UPSERT_ORDER/opUpsertOrder" style="document" /> 
+   <wsdl:input name="opUpsertOrderRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opUpsertOrderResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_BB_UPSERT_ORDER"> 
+  <wsdl:port binding="eb:WS_BB_UPSERT_ORDERSoap" name="WS_BB_UPSERT_ORDERSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_bb/WS_BB_UPSERT_ORDER" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

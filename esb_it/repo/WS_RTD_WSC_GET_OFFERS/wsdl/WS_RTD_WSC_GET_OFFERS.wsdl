@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdRTD/SkyXSD_RTD_GET_OFFERS.xsd" /> 
+   <xsd:complexType name="request"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:COMPLEX_INPUT" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="response"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:COMPLEX_OUTPUT" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opGetOffers"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:request" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetOffersResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:response" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opGetOffersRequest"> 
+  <wsdl:part element="eb:opGetOffers" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetOffersResponse"> 
+  <wsdl:part element="eb:opGetOffersResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_RTD_WSC_GET_OFFERSSoap"> 
+  <wsdl:operation name="opGetOffers"> 
+   <wsdl:input message="eb:opGetOffersRequest" name="opGetOffersRequest" /> 
+   <wsdl:output message="eb:opGetOffersResponse" name="opGetOffersResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_RTD_WSC_GET_OFFERSSoap" type="eb:WS_RTD_WSC_GET_OFFERSSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opGetOffers"> 
+   <soap:operation soapAction="WS_RTD_WSC_GET_OFFERS/opGetOffers" style="document" /> 
+   <wsdl:input name="opGetOffersRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGetOffersResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_RTD_WSC_GET_OFFERS"> 
+  <wsdl:port binding="eb:WS_RTD_WSC_GET_OFFERSSoap" name="WS_RTD_WSC_GET_OFFERSSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_RTD_WSC_GET_OFFERS" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

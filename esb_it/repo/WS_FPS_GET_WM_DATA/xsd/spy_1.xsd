@@ -1,0 +1,18 @@
+<schema elementFormDefault="qualified" targetNamespace="http://ws.spy.sky.it" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns1="http://beans.spy.sky.it" xmlns:xsd="http://www.w3.org/2001/XMLSchema"> 
+ <import namespace="http://beans.spy.sky.it" schemaLocation="spy_2.xsd" /> 
+ <complexType name="getWsWmData"> 
+  <sequence> 
+   <element name="contractId" type="xsd:string" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="getWsWmDataResponse"> 
+  <sequence> 
+   <element name="getWsWmDataReturn" type="tns1:ResponseBean" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="ArrayOf_xsd_string"> 
+  <sequence> 
+   <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:string" /> 
+  </sequence> 
+ </complexType> 
+</schema>

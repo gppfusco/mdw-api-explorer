@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://ws.affinium.icare.it" schemaLocation="Affinium/SkyXSD_AffiniumSiebelBridgeOffer.xsd" /> 
+   <xsd:complexType name="offerInsertOrUpdate" xmlns:af="http://ws.affinium.icare.it"> 
+    <xsd:complexContent> 
+     <xsd:extension base="af:offerInsertOrUpdate" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="offerInsertOrUpdateResponse" xmlns:af="http://ws.affinium.icare.it"> 
+    <xsd:complexContent> 
+     <xsd:extension base="af:offerInsertOrUpdateResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opOfferInsertOrUpdate"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:offerInsertOrUpdate" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opOfferInsertOrUpdateResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:offerInsertOrUpdateResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opOfferInsertOrUpdateRequest"> 
+  <wsdl:part element="eb:opOfferInsertOrUpdate" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opOfferInsertOrUpdateResponse"> 
+  <wsdl:part element="eb:opOfferInsertOrUpdateResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SIEBEL_AFFINIUM_BRIDGESoap"> 
+  <wsdl:operation name="opOfferInsertOrUpdate"> 
+   <wsdl:input message="eb:opOfferInsertOrUpdateRequest" name="opOfferInsertOrUpdateRequest" /> 
+   <wsdl:output message="eb:opOfferInsertOrUpdateResponse" name="opOfferInsertOrUpdateResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SIEBEL_AFFINIUM_BRIDGESoap" type="eb:WS_SIEBEL_AFFINIUM_BRIDGESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opOfferInsertOrUpdate"> 
+   <soap:operation soapAction="WS_SIEBEL_AFFINIUM_BRIDGE/opOfferInsertOrUpdate" style="document" /> 
+   <wsdl:input name="opOfferInsertOrUpdateRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opOfferInsertOrUpdateResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SIEBEL_AFFINIUM_BRIDGE"> 
+  <wsdl:port binding="eb:WS_SIEBEL_AFFINIUM_BRIDGESoap" name="WS_SIEBEL_AFFINIUM_BRIDGESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SIEBEL_AFFINIUM_BRIDGE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

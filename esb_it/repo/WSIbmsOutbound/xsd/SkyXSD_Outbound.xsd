@@ -1,0 +1,130 @@
+<xsd:schema xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.sforce.com/schemas/class/IBMS_WS_Outbound_Response_def" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://soap.sforce.com/schemas/class/IBMS_WS_Outbound_Response_def" elementFormDefault="qualified"> 
+ <xsd:element name="DebuggingInfo"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="debugLog" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:simpleType name="ID"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:length value="18" /> 
+   <xsd:pattern value="[a-zA-Z0-9]{18}" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="LogCategory"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="Db" /> 
+   <xsd:enumeration value="Workflow" /> 
+   <xsd:enumeration value="Validation" /> 
+   <xsd:enumeration value="Callout" /> 
+   <xsd:enumeration value="Apex_code" /> 
+   <xsd:enumeration value="Apex_profiling" /> 
+   <xsd:enumeration value="Visualforce" /> 
+   <xsd:enumeration value="System" /> 
+   <xsd:enumeration value="All" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="LogCategoryLevel"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="Internal" /> 
+   <xsd:enumeration value="Finest" /> 
+   <xsd:enumeration value="Finer" /> 
+   <xsd:enumeration value="Fine" /> 
+   <xsd:enumeration value="Debug" /> 
+   <xsd:enumeration value="Info" /> 
+   <xsd:enumeration value="Warn" /> 
+   <xsd:enumeration value="Error" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:complexType name="LogInfo"> 
+  <xsd:sequence> 
+   <xsd:element name="category" type="tns:LogCategory" /> 
+   <xsd:element name="level" type="tns:LogCategoryLevel" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="LogType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:enumeration value="None" /> 
+   <xsd:enumeration value="Debugonly" /> 
+   <xsd:enumeration value="Db" /> 
+   <xsd:enumeration value="Profiling" /> 
+   <xsd:enumeration value="Callout" /> 
+   <xsd:enumeration value="Detail" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:complexType name="payload"> 
+  <xsd:sequence> 
+   <xsd:any /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element name="DebuggingHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="categories" type="tns:LogInfo" minOccurs="0" maxOccurs="unbounded" /> 
+    <xsd:element name="debugLevel" type="tns:LogType" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="CallOptions"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="client" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="SessionHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="sessionId" type="xsd:string" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="AllowFieldTruncationHeader"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="allowFieldTruncation" type="xsd:boolean" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:complexType name="createCampaignResponseElement"> 
+  <xsd:sequence> 
+   <xsd:element name="faultxmlOut" type="tns:payload" nillable="true" minOccurs="0" /> 
+   <xsd:element name="responsexmlOut" type="tns:payload" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="opResult"> 
+  <xsd:sequence> 
+   <xsd:element name="errorCode" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="errorMsg" type="xsd:string" nillable="true" minOccurs="0" /> 
+   <xsd:element name="status" type="xsd:boolean" nillable="true" minOccurs="0" /> 
+   <xsd:element name="timestamp" type="xsd:dateTime" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="updateCampaignResponseElement"> 
+  <xsd:sequence> 
+   <xsd:element name="faultxmlOut" type="tns:payload" nillable="true" minOccurs="0" /> 
+   <xsd:element name="responsexmlOut" type="tns:payload" nillable="true" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="opCreateCampaignResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="InputMessage" type="tns:createCampaignResponseElement" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="opCreateCampaignResponseResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:opResult" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="opUpdateCampaignResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="InputMessage" type="tns:updateCampaignResponseElement" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="opUpdateCampaignResponseResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="tns:opResult" nillable="true" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

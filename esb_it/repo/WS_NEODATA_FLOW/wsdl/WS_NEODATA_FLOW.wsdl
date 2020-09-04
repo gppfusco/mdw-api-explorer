@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://sandbox.api.neodatagroup.it/ui/Soap2/" schemaLocation="xsdNeodata/SkyXSD_Neodata.xsd" /> 
+   <xsd:complexType name="AdvertiserResponse" xmlns:nd="http://sandbox.api.neodatagroup.it/ui/Soap2/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="nd:Advertiser" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opGetAdvertiserByExtCode"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="advertiserExtCode" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetAdvertiserByExtCodeResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:AdvertiserResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opGetAdvertiserByExtCodeRequest"> 
+  <wsdl:part element="eb:opGetAdvertiserByExtCode" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetAdvertiserByExtCodeResponse"> 
+  <wsdl:part element="eb:opGetAdvertiserByExtCodeResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_NEODATA_FLOWSoap"> 
+  <wsdl:operation name="opGetAdvertiserByExtCode"> 
+   <wsdl:input message="eb:opGetAdvertiserByExtCodeRequest" name="opGetAdvertiserByExtCodeRequest" /> 
+   <wsdl:output message="eb:opGetAdvertiserByExtCodeResponse" name="opGetAdvertiserByExtCodeResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_NEODATA_FLOWSoap" type="eb:WS_NEODATA_FLOWSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opGetAdvertiserByExtCode"> 
+   <soap:operation soapAction="WS_NEODATA_FLOW/opGetAdvertiserByExtCode" style="document" /> 
+   <wsdl:input name="opGetAdvertiserByExtCodeRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGetAdvertiserByExtCodeResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_NEODATA_FLOW"> 
+  <wsdl:port binding="eb:WS_NEODATA_FLOWSoap" name="WS_NEODATA_FLOWSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_NEODATA_FLOW" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

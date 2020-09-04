@@ -1,0 +1,46 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:java="java:pegasows.input" xmlns:ns1="java:pegasows.output" xmlns:ns2="http://sky.it" elementFormDefault="unqualified" attributeFormDefault="unqualified"> 
+ <xs:complexType name="sendMessage"> 
+  <xs:sequence> 
+   <xs:element name="input"> 
+    <xs:complexType> 
+     <xs:sequence> 
+      <xs:element name="canale" type="xs:string" /> 
+      <xs:element name="azione" minOccurs="0" type="xs:string" /> 
+      <xs:element name="ConnId" minOccurs="0" type="xs:string" /> 
+      <xs:element name="TransId" minOccurs="0" type="xs:string" /> 
+      <xs:element name="area" maxOccurs="unbounded"> 
+       <xs:complexType> 
+        <xs:sequence> 
+         <xs:element name="id_area" type="xs:string" /> 
+         <xs:element name="entita" minOccurs="0" maxOccurs="unbounded"> 
+          <xs:complexType> 
+           <xs:sequence> 
+            <xs:element name="chiave" type="xs:string" /> 
+            <xs:element name="valore" type="xs:string" /> 
+           </xs:sequence> 
+          </xs:complexType> 
+         </xs:element> 
+         <xs:element name="sottoarea" minOccurs="0" maxOccurs="unbounded"> 
+          <xs:complexType> 
+           <xs:sequence> 
+            <xs:element name="id_sottoarea" type="xs:string" /> 
+            <xs:element name="entita" maxOccurs="unbounded"> 
+             <xs:complexType> 
+              <xs:sequence> 
+               <xs:element name="chiave" type="xs:string" /> 
+               <xs:element name="valore" type="xs:string" /> 
+              </xs:sequence> 
+             </xs:complexType> 
+            </xs:element> 
+           </xs:sequence> 
+          </xs:complexType> 
+         </xs:element> 
+        </xs:sequence> 
+       </xs:complexType> 
+      </xs:element> 
+     </xs:sequence> 
+    </xs:complexType> 
+   </xs:element> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

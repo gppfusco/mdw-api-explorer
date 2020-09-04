@@ -1,0 +1,173 @@
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.olg.oss.fastweb.it/fly/sky2fw/cm/AccountProcessingServices/" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://services.olg.oss.fastweb.it/fly/sky2fw/cm/AccountProcessingServices/" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xsd:complexType name="TransactionData"> 
+  <xsd:sequence> 
+   <xsd:element name="SenderName"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:minLength value="1" /> 
+      <xsd:maxLength value="50" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="UserName" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:minLength value="0" /> 
+      <xsd:maxLength value="50" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="TransactionId"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:minLength value="1" /> 
+      <xsd:maxLength value="42" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="Version" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:minLength value="0" /> 
+      <xsd:maxLength value="50" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="TransactionTime"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:pattern value="(0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])[/](19|20)\d\d\s([0-1]\d|[2][0-3]):[0-5]\d:[0-5]\d" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AccountProcessing_Input"> 
+  <xsd:sequence> 
+   <xsd:element name="TransactionData" type="tns:TransactionData" /> 
+   <xsd:element name="Source" type="xsd:string" /> 
+   <xsd:element ref="tns:ChiaviSKY" /> 
+   <xsd:element ref="tns:ChiaviFW" /> 
+   <xsd:element name="Azione"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:enumeration value="APERTURA PRE" /> 
+      <xsd:enumeration value="APERTURA POST" /> 
+      <xsd:enumeration value="CHIUSURA" /> 
+      <xsd:enumeration value="SOSPENSIONE" /> 
+      <xsd:enumeration value="DISATTIVAZIONE" /> 
+      <xsd:enumeration value="RIATTIVAZIONE" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="TipoDisdetta" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:enumeration value="Bundle" /> 
+      <xsd:enumeration value="Solo FW" /> 
+      <xsd:enumeration value="Solo SKY" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="CanaleDisdetta" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:enumeration value="Raccomandata A/R" /> 
+      <xsd:enumeration value="Telefono" /> 
+      <xsd:enumeration value="FAX" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="ScenarioDisdettaFW" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:enumeration value="RETENTION POST BUNDLE" /> 
+      <xsd:enumeration value="RETENTION PRE BUNDLE" /> 
+      <xsd:enumeration value="RETENTION VERTICALE PRE" /> 
+      <xsd:enumeration value="RETENTION VERTICALE POST" /> 
+      <xsd:enumeration value="COLLECTION" /> 
+      <xsd:enumeration value="OLO2OLO" /> 
+      <xsd:enumeration value="TRAFFICO ANOMALO" /> 
+      <xsd:enumeration value="FRODE" /> 
+      <xsd:enumeration value="IRREPERIBILE" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="RecessoFW"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:enumeration value="SI" /> 
+      <xsd:enumeration value="NO" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="DataRicezioneRaccomandata" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:pattern value="(0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])[/](19|20)\d\d" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="DataPrevistaDisattivazione" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:pattern value="(0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])[/](19|20)\d\d" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="LoginUser" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AccountProcessing_Output"> 
+  <xsd:sequence> 
+   <xsd:element name="Status" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:minLength value="0" /> 
+      <xsd:maxLength value="30" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="ErrorCode"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:minLength value="1" /> 
+      <xsd:maxLength value="30" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+   <xsd:element name="ErrorMessage" minOccurs="0"> 
+    <xsd:simpleType> 
+     <xsd:restriction base="xsd:string"> 
+      <xsd:minLength value="0" /> 
+      <xsd:maxLength value="255" /> 
+     </xsd:restriction> 
+    </xsd:simpleType> 
+   </xsd:element> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element name="ChiaviSKY" type="tns:ChiaviSKY" /> 
+ <xsd:complexType name="ChiaviSKYTopElmt"> 
+  <xsd:sequence> 
+   <xsd:element name="ChiaviSKY" type="tns:ChiaviSKY" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ChiaviSKY"> 
+  <xsd:sequence> 
+   <xsd:element name="IdClienteSky" type="xsd:string" /> 
+   <xsd:element name="IdBillingAccountSky" type="xsd:string" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element name="ChiaviFW" type="tns:ChiaviFW" /> 
+ <xsd:complexType name="ChiaviFWTopElmt"> 
+  <xsd:sequence> 
+   <xsd:element name="ChiaviFW" type="tns:ChiaviFW" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ChiaviFW"> 
+  <xsd:sequence> 
+   <xsd:element name="CodiceClienteFW" type="xsd:string" /> 
+   <xsd:element name="CodiceCDFFW" type="xsd:string" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

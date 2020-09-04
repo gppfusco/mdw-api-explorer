@@ -1,0 +1,184 @@
+<xsd:schema xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://schemas.microsoft.com/sharepoint/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://schemas.microsoft.com/sharepoint/soap/" elementFormDefault="qualified"> 
+ <xsd:complexType name="GetListItems"> 
+  <xsd:sequence> 
+   <xsd:element name="listName" type="xsd:string" /> 
+   <xsd:element name="viewName" type="xsd:string" /> 
+   <xsd:element name="Query" type="xsd:string" /> 
+   <xsd:element name="ViewFields" type="xsd:string" /> 
+   <xsd:element name="rowLimit" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="QueryOptions" type="xsd:string" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="GetListItemsResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="GetListItemsResult" type="tns:GetListItemsResultType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="GetListItemsResultType"> 
+  <xsd:sequence> 
+   <xsd:element ref="tns:listitems" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element name="listitems"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element ref="tns:data" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="data"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element ref="tns:row" maxOccurs="unbounded" /> 
+   </xsd:sequence> 
+   <xsd:attribute name="ItemCount" type="xsd:string" use="optional" /> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="row"> 
+  <xsd:complexType> 
+   <xsd:attribute name="ows_owshiddenversion" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows__ModerationStatus" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows__Level" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_UniqueId" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_Tipo_Segnalazione" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_Stato" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_PermMask" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_Modified" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_MetaInfo" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_ID_Modulo" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_ID" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_Gruppo" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_FileRef" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_FSObjType" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_ExtraDMS" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_Desc_Segnalazione" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_Da" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_Created" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_Attachments" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_Account" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ows_A" type="xsd:string" use="optional" /> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:complexType name="UpdateListItems"> 
+  <xsd:sequence> 
+   <xsd:element name="listName" type="xsd:string" /> 
+   <xsd:element name="updates"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element ref="tns:Batch" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element name="Batch"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element ref="tns:Method" maxOccurs="unbounded" /> 
+   </xsd:sequence> 
+   <xsd:attribute name="OnError" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="ViewName" type="xsd:string" use="optional" /> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="Method"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element ref="tns:Field" maxOccurs="unbounded" /> 
+   </xsd:sequence> 
+   <xsd:attribute name="ID" type="xsd:string" use="optional" /> 
+   <xsd:attribute name="Cmd" type="xsd:string" use="optional" /> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="Field"> 
+  <xsd:complexType> 
+   <xsd:simpleContent> 
+    <xsd:extension base="xsd:string"> 
+     <xsd:attribute name="Name" type="xsd:string" use="optional" /> 
+    </xsd:extension> 
+   </xsd:simpleContent> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:complexType name="UpdateListItemsResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="UpdateListItemsResult" type="tns:UpdateListItemsResultType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="UpdateListItemsResultType"> 
+  <xsd:sequence> 
+   <xsd:element ref="tns:Results" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:element name="Results"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element ref="tns:Result" /> 
+   </xsd:sequence> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="Result"> 
+  <xsd:complexType> 
+   <xsd:sequence> 
+    <xsd:element name="ErrorText" type="xsd:string" minOccurs="0" /> 
+    <xsd:element name="ErrorCode" type="xsd:string" minOccurs="0" /> 
+    <xsd:element name="row" minOccurs="0"> 
+     <xsd:complexType> 
+      <xsd:attribute name="ows_owshiddenversion" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows__dlc_ExpireDate" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows__UIVersionString" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows__UIVersion" type="xsd:short" use="optional" /> 
+      <xsd:attribute name="ows__ModerationStatus" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows__Level" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows__IsCurrentVersion" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows__EditMenuTableStart2" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows__EditMenuTableStart" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows__EditMenuTableEnd" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_WorkflowVersion" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_UniqueId" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Tipo_Segnalazione" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Stato" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_SortBehavior" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_ServerUrl" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_SelectTitle" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_ScopeId" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_ProgId" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_PermMask" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Order" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Modified" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_MetaInfo" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_LinkFilenameNoMenu" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_LinkFilename2" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_LinkFilename" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Last_x0020_Modified" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_ItemChildCount" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_ID_Modulo" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_ID" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Gruppo" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_GUID" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_FolderChildCount" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_FileRef" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_FileLeafRef" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_FileDirRef" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_FSObjType" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_ExtraDMS" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_EncodedAbsUrl" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Editor" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Desc_Segnalazione" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Da" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Created_x0020_Date" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Created" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_ContentTypeId" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_ContentType" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_BaseName" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Author" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Attachments" type="xsd:string" use="optional" /> 
+      <xsd:attribute name="ows_Account" type="xsd:int" use="optional" /> 
+      <xsd:attribute name="ows_A" type="xsd:string" use="optional" /> 
+     </xsd:complexType> 
+    </xsd:element> 
+   </xsd:sequence> 
+   <xsd:attribute name="ID" type="xsd:string" use="optional" /> 
+  </xsd:complexType> 
+ </xsd:element> 
+ <xsd:element name="provaIstanziazioneResuUpdate" type="tns:UpdateListItemsResultType" /> 
+ <xsd:element name="provaIstanziazioneResuGet" type="tns:GetListItemsResultType" /> 
+</xsd:schema>

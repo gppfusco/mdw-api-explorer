@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="ResponseConf"> 
+    <xsd:sequence> 
+     <xsd:element name="esito" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="descr_esito" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="List_ConfigurationResponse" type="eb:List_ConfigurationResponse" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="List_ConfigurationResponse"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="ConfigurationResponse" type="eb:ConfigurationResponse" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="ConfigurationResponse"> 
+    <xsd:sequence> 
+     <xsd:element name="key" type="xsd:string" /> 
+     <xsd:element name="value" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opWebConfClient"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="client" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="key" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opWebConfClientResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="ResponseConf" type="eb:ResponseConf" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opWebConfClientRequest"> 
+  <wsdl:part element="eb:opWebConfClient" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opWebConfClientResponse"> 
+  <wsdl:part element="eb:opWebConfClientResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_GET_WEB_CONF_CLIENTSoap"> 
+  <wsdl:operation name="opWebConfClient"> 
+   <wsdl:input message="eb:opWebConfClientRequest" name="opWebConfClientRequest" /> 
+   <wsdl:output message="eb:opWebConfClientResponse" name="opWebConfClientResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_GET_WEB_CONF_CLIENTSoap" type="eb:WS_GET_WEB_CONF_CLIENTSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opWebConfClient"> 
+   <soap:operation soapAction="WS_GET_WEB_CONF_CLIENT/opWebConfClient" style="document" /> 
+   <wsdl:input name="opWebConfClientRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opWebConfClientResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_GET_WEB_CONF_CLIENT"> 
+  <wsdl:port binding="eb:WS_GET_WEB_CONF_CLIENTSoap" name="WS_GET_WEB_CONF_CLIENTSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_GET_WEB_CONF_CLIENT" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,188 @@
+<xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" version="1.0"> 
+ <xsd:complexType name="Taxonomy"> 
+  <xsd:sequence> 
+   <xsd:element name="Categories" maxOccurs="unbounded"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element name="Category" maxOccurs="unbounded"> 
+       <xsd:complexType> 
+        <xsd:simpleContent> 
+         <xsd:extension base="xsd:string"> 
+          <xsd:attribute name="type" default="N"> 
+           <xsd:simpleType> 
+            <xsd:restriction base="xsd:string"> 
+             <xsd:pattern value="N|S|C" /> 
+            </xsd:restriction> 
+           </xsd:simpleType> 
+          </xsd:attribute> 
+          <xsd:attribute name="parent_type" default="N"> 
+           <xsd:simpleType> 
+            <xsd:restriction base="xsd:string"> 
+             <xsd:pattern value="N|S|C" /> 
+            </xsd:restriction> 
+           </xsd:simpleType> 
+          </xsd:attribute> 
+          <xsd:attribute name="id" use="required"> 
+           <xsd:simpleType> 
+            <xsd:restriction base="xsd:string"> 
+             <xsd:minLength value="1" /> 
+            </xsd:restriction> 
+           </xsd:simpleType> 
+          </xsd:attribute> 
+          <xsd:attribute name="parent_id" type="xsd:string" use="optional" /> 
+          <xsd:attribute name="has_children" type="xsd:string" default="false" /> 
+          <xsd:attribute name="label" type="xsd:string" use="optional" /> 
+          <xsd:attribute name="update_ts" type="xsd:string" use="required" /> 
+          <xsd:attribute name="visible" type="xsd:string" default="false" /> 
+         </xsd:extension> 
+        </xsd:simpleContent> 
+       </xsd:complexType> 
+      </xsd:element> 
+     </xsd:sequence> 
+     <xsd:attribute name="platform" use="required"> 
+      <xsd:simpleType> 
+       <xsd:restriction base="xsd:string"> 
+        <xsd:minLength value="1" /> 
+       </xsd:restriction> 
+      </xsd:simpleType> 
+     </xsd:attribute> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="TaxonomyResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="ResultCode" type="xsd:string" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Assets"> 
+  <xsd:sequence> 
+   <xsd:element name="Asset"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element name="Cms_Id" type="xsd:string" /> 
+      <xsd:element name="Brand_Channel"> 
+       <xsd:complexType> 
+        <xsd:simpleContent> 
+         <xsd:extension base="xsd:string"> 
+          <xsd:attribute name="id" type="xsd:string" /> 
+         </xsd:extension> 
+        </xsd:simpleContent> 
+       </xsd:complexType> 
+      </xsd:element> 
+      <xsd:element name="Content_Provider" type="xsd:string" /> 
+      <xsd:element name="Taxonomy"> 
+       <xsd:complexType> 
+        <xsd:sequence> 
+         <xsd:element name="Categories" minOccurs="0" maxOccurs="unbounded"> 
+          <xsd:complexType> 
+           <xsd:sequence> 
+            <xsd:element name="Category" minOccurs="0" maxOccurs="unbounded"> 
+             <xsd:complexType> 
+              <xsd:simpleContent> 
+               <xsd:extension base="xsd:string"> 
+                <xsd:attribute name="id" type="xsd:string" /> 
+                <xsd:attribute name="type" default="N"> 
+                 <xsd:simpleType> 
+                  <xsd:restriction base="xsd:string"> 
+                   <xsd:pattern value="N|S|C" /> 
+                  </xsd:restriction> 
+                 </xsd:simpleType> 
+                </xsd:attribute> 
+               </xsd:extension> 
+              </xsd:simpleContent> 
+             </xsd:complexType> 
+            </xsd:element> 
+           </xsd:sequence> 
+           <xsd:attribute name="platform" type="xsd:string" /> 
+          </xsd:complexType> 
+         </xsd:element> 
+        </xsd:sequence> 
+       </xsd:complexType> 
+      </xsd:element> 
+      <xsd:element name="ParentalRating"> 
+       <xsd:complexType> 
+        <xsd:simpleContent> 
+         <xsd:extension base="xsd:string"> 
+          <xsd:attribute name="id" type="xsd:string" /> 
+          <xsd:attribute name="name" type="xsd:string" /> 
+         </xsd:extension> 
+        </xsd:simpleContent> 
+       </xsd:complexType> 
+      </xsd:element> 
+      <xsd:element name="Genre"> 
+       <xsd:complexType> 
+        <xsd:simpleContent> 
+         <xsd:extension base="xsd:string"> 
+          <xsd:attribute name="id" type="xsd:string" /> 
+         </xsd:extension> 
+        </xsd:simpleContent> 
+       </xsd:complexType> 
+      </xsd:element> 
+      <xsd:element name="Subgenre"> 
+       <xsd:complexType> 
+        <xsd:simpleContent> 
+         <xsd:extension base="xsd:string"> 
+          <xsd:attribute name="id" type="xsd:string" /> 
+         </xsd:extension> 
+        </xsd:simpleContent> 
+       </xsd:complexType> 
+      </xsd:element> 
+      <xsd:element name="Title" type="xsd:string" /> 
+      <xsd:element name="Year" type="xsd:string" /> 
+      <xsd:element name="Duration" type="xsd:string" /> 
+      <xsd:element name="Cast"> 
+       <xsd:complexType> 
+        <xsd:sequence> 
+         <xsd:element name="person" maxOccurs="unbounded"> 
+          <xsd:complexType> 
+           <xsd:simpleContent> 
+            <xsd:extension base="xsd:string"> 
+             <xsd:attribute name="role" default="a"> 
+              <xsd:simpleType> 
+               <xsd:restriction base="xsd:string"> 
+                <xsd:pattern value="a|d|p" /> 
+               </xsd:restriction> 
+              </xsd:simpleType> 
+             </xsd:attribute> 
+             <xsd:attribute name="value" type="xsd:string" /> 
+            </xsd:extension> 
+           </xsd:simpleContent> 
+          </xsd:complexType> 
+         </xsd:element> 
+        </xsd:sequence> 
+       </xsd:complexType> 
+      </xsd:element> 
+      <xsd:element name="Validity_Start" type="xsd:string" /> 
+      <xsd:element name="Validity_End" type="xsd:string" /> 
+      <xsd:element name="Status" type="xsd:string" default="1" /> 
+      <xsd:element name="Breaks"> 
+       <xsd:complexType> 
+        <xsd:sequence> 
+         <xsd:element name="Break"> 
+          <xsd:complexType> 
+           <xsd:simpleContent> 
+            <xsd:extension base="xsd:string"> 
+             <xsd:attribute name="seqid" type="xsd:string" /> 
+             <xsd:attribute name="type" type="xsd:string" /> 
+             <xsd:attribute name="category" type="xsd:string" /> 
+             <xsd:attribute name="duration" type="xsd:string" /> 
+             <xsd:attribute name="start" type="xsd:string" /> 
+            </xsd:extension> 
+           </xsd:simpleContent> 
+          </xsd:complexType> 
+         </xsd:element> 
+        </xsd:sequence> 
+       </xsd:complexType> 
+      </xsd:element> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AssetsResponse"> 
+  <xsd:sequence> 
+   <xsd:element name="ResultCode" type="xsd:string" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

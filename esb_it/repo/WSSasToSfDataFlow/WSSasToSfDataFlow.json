@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WSSasToSfDataFlow",
+    "name" : "WSSasToSfDataFlow",
+    "localPath" : "esb_it\\repo\\WSSasToSfDataFlow",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WSSasToSfDataFlow?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "SkyXSD_DataFlowFromSAStoSF.xsd",
+        "xsdNameSpace" : "http://soap.sforce.com/schemas/class/DataFlowFromSAStoSF"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

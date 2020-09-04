@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="OrderItemType"> 
+    <xsd:sequence> 
+     <xsd:element name="CAMBIO_CONFIGURAZIONE_FLAG" type="xsd:string" /> 
+     <xsd:element name="CAUSA_GUASTO" type="xsd:string" /> 
+     <xsd:element name="CAUSALE_SOSTITUZIONE_STB" type="xsd:string" /> 
+     <xsd:element name="CAUSALE_TECNICA" type="xsd:string" /> 
+     <xsd:element name="CODICE_PARTE" type="xsd:string" /> 
+     <xsd:element name="CREATED" type="xsd:string" /> 
+     <xsd:element name="DATA_ELABORAZIONE" type="xsd:string" /> 
+     <xsd:element name="DATA_ESECUZIONE_CALLBACK" type="xsd:string" /> 
+     <xsd:element name="DATA_FINE_GARANZIA" type="xsd:string" /> 
+     <xsd:element name="DATA_SCADENZA_GARANZIA" type="xsd:string" /> 
+     <xsd:element name="DESC_ELABORAZIONE" type="xsd:string" /> 
+     <xsd:element name="DESCRIZIONE" type="xsd:string" /> 
+     <xsd:element name="ESITO_AUTODIAGNOSTICA_STB" type="xsd:string" /> 
+     <xsd:element name="ESITO_ELABORAZIONE" type="xsd:string" /> 
+     <xsd:element name="FURTO_SMARRIMENTO_FLAG" type="xsd:string" /> 
+     <xsd:element name="FUSION_COMPATIBILE" type="xsd:string" /> 
+     <xsd:element name="GUASTO_RILEVATO" type="xsd:string" /> 
+     <xsd:element name="ID_CONTRATTO" type="xsd:string" /> 
+     <xsd:element name="ID_ITEM_SIEBEL" type="xsd:string" /> 
+     <xsd:element name="ID_ODL" type="xsd:string" /> 
+     <xsd:element name="ID_ORDER_ITEM" type="xsd:string" /> 
+     <xsd:element name="ID_PADRE" type="xsd:string" /> 
+     <xsd:element name="ID_SM" type="xsd:string" /> 
+     <xsd:element name="INSISTENZA_CLT" type="xsd:string" /> 
+     <xsd:element name="INTERVENTO_CONSIGLIATO" type="xsd:string" /> 
+     <xsd:element name="LOG_FILE" type="xsd:string" /> 
+     <xsd:element name="MARCHIO_MODELLO" type="xsd:string" /> 
+     <xsd:element name="MATRICOLA" type="xsd:string" /> 
+     <xsd:element name="MODELLO" type="xsd:string" /> 
+     <xsd:element name="NESSUN_ACCESSORIO_FLAG" type="xsd:string" /> 
+     <xsd:element name="NUOVA_CONFIGURAZIONE" type="xsd:string" /> 
+     <xsd:element name="PREZZO" type="xsd:string" /> 
+     <xsd:element name="PRODOTTO" type="xsd:string" /> 
+     <xsd:element name="QUANTITA" type="xsd:string" /> 
+     <xsd:element name="RATE_CODE" type="xsd:string" /> 
+     <xsd:element name="SERVIZIO_VISIONE" type="xsd:string" /> 
+     <xsd:element name="SEQUENCE_PACK_ITEM" type="xsd:string" /> 
+     <xsd:element name="STATO_ELABORAZIONE" type="xsd:string" /> 
+     <xsd:element name="STATO_MATRICOLA" type="xsd:string" /> 
+     <xsd:element name="STATO_SERVIZIO" type="xsd:string" /> 
+     <xsd:element name="STATO_VECCHIA_MATRICOLA" type="xsd:string" /> 
+     <xsd:element name="TID" type="xsd:string" /> 
+     <xsd:element name="TIPO_APPARATO" type="xsd:string" /> 
+     <xsd:element name="TIPO_PRODOTTO" type="xsd:string" /> 
+     <xsd:element name="TUX_SERVER_ID" type="xsd:string" /> 
+     <xsd:element name="VECCHIA_CONFIGURAZIONE" type="xsd:string" /> 
+     <xsd:element name="VECCHIA_MATRICOLA" type="xsd:string" /> 
+     <xsd:element name="X_SFM_FLG" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="OdlLineItemType"> 
+    <xsd:sequence> 
+     <xsd:element name="TIPO_PRODOTTO_INSTALLATO" type="xsd:string" /> 
+     <xsd:element name="DATA_CALL_IVR_INSTALLER" type="xsd:string" /> 
+     <xsd:element name="DESCRIZ_ESITO_KO_ATTIVAZ" type="xsd:string" /> 
+     <xsd:element name="ID_ODL" type="xsd:string" /> 
+     <xsd:element name="TYPE" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="ApparatiType"> 
+    <xsd:sequence> 
+     <xsd:element name="CONSEGNA_CAVO_FLAG" type="xsd:string" /> 
+     <xsd:element name="CREATED" type="xsd:string" /> 
+     <xsd:element name="DATA_CALLBACK" type="xsd:string" /> 
+     <xsd:element name="DATA_ELABORAZIONE" type="xsd:string" /> 
+     <xsd:element name="DATA_FINE_GARANZIA" type="xsd:string" /> 
+     <xsd:element name="DATA_INIZIO_GARANZIA" type="xsd:string" /> 
+     <xsd:element name="DESC_ELABORAZIONE" type="xsd:string" /> 
+     <xsd:element name="ESITO_CALLBACK" type="xsd:string" /> 
+     <xsd:element name="ESITO_ELABORAZIONE" type="xsd:string" /> 
+     <xsd:element name="ESITO_RILEVAZIONE_DIAGNOSTICA" type="xsd:string" /> 
+     <xsd:element name="ID_CONTRATTO" type="xsd:string" /> 
+     <xsd:element name="ID_ODL" type="xsd:string" /> 
+     <xsd:element name="ID_PADRE" type="xsd:string" /> 
+     <xsd:element name="ID_SM" type="xsd:string" /> 
+     <xsd:element name="LOG_FILE" type="xsd:string" /> 
+     <xsd:element name="MATRICOLA" type="xsd:string" /> 
+     <xsd:element name="MATRICOLA_OLD" type="xsd:string" /> 
+     <xsd:element name="MATRICOLA_STB" type="xsd:string" /> 
+     <xsd:element name="PACCHETTO" type="xsd:string" /> 
+     <xsd:element name="SOSTITUZIONE_CAVO_FLAG" type="xsd:string" /> 
+     <xsd:element name="STATO" type="xsd:string" /> 
+     <xsd:element name="STATO_ELABORAZIONE" type="xsd:string" /> 
+     <xsd:element name="TID" type="xsd:string" /> 
+     <xsd:element name="TIPO_CONN_INTERNET" type="xsd:string" /> 
+     <xsd:element name="TIPO_PACCHETTO" type="xsd:string" /> 
+     <xsd:element name="TUX_SERVER_ID" type="xsd:string" /> 
+     <xsd:element name="WIFI_RICONNESSO_FLAG" type="xsd:string" /> 
+     <xsd:element name="TIPO_CONN_BOOSTER" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="lineItemInputType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="OrderItem" type="eb:OrderItemType" /> 
+     <xsd:element maxOccurs="unbounded" name="OdlLineItem" type="eb:OdlLineItemType" /> 
+     <xsd:element maxOccurs="unbounded" name="Apparati" type="eb:ApparatiType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="opAggiornamentoLineItem"> 
+    <xsd:sequence> 
+     <xsd:element name="lineItemInput" type="eb:lineItemInputType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="opAggiornamentoLineItemResponse"> 
+    <xsd:sequence> 
+     <xsd:element name="descrizioneEsito" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="esito" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opAggiornamentoLineItem"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="COMPLEX_INPUT" type="eb:opAggiornamentoLineItem" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAggiornamentoLineItemResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:opAggiornamentoLineItemResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opAggiornamentoLineItemRequest"> 
+  <wsdl:part element="eb:opAggiornamentoLineItem" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAggiornamentoLineItemResponse"> 
+  <wsdl:part element="eb:opAggiornamentoLineItemResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_DS_SF_LINE_ITEM_ALIGNMENTSoap"> 
+  <wsdl:operation name="opAggiornamentoLineItem"> 
+   <wsdl:input message="eb:opAggiornamentoLineItemRequest" name="opAggiornamentoLineItemRequest" /> 
+   <wsdl:output message="eb:opAggiornamentoLineItemResponse" name="opAggiornamentoLineItemResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_DS_SF_LINE_ITEM_ALIGNMENTSoap" type="eb:WS_DS_SF_LINE_ITEM_ALIGNMENTSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opAggiornamentoLineItem"> 
+   <soap:operation soapAction="WS_DS_SF_LINE_ITEM_ALIGNMENT/opAggiornamentoLineItem" style="document" /> 
+   <wsdl:input name="opAggiornamentoLineItemRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAggiornamentoLineItemResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_DS_SF_LINE_ITEM_ALIGNMENT"> 
+  <wsdl:port binding="eb:WS_DS_SF_LINE_ITEM_ALIGNMENTSoap" name="WS_DS_SF_LINE_ITEM_ALIGNMENTSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_DS_SF_LINE_ITEM_ALIGNMENT" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

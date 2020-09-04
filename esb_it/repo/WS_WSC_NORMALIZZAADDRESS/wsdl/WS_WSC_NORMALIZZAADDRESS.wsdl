@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_WSC_NORMALIZZAADDRESS.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opNormalizzaAddress"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opNormalizzaAddressResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opNormalizzaAddressRequest"> 
+  <wsdl:part element="eb:opNormalizzaAddress" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opNormalizzaAddressResponse"> 
+  <wsdl:part element="eb:opNormalizzaAddressResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_WSC_NORMALIZZAADDRESSSoap"> 
+  <wsdl:operation name="opNormalizzaAddress"> 
+   <wsdl:input message="eb:opNormalizzaAddressRequest" name="opNormalizzaAddressRequest" /> 
+   <wsdl:output message="eb:opNormalizzaAddressResponse" name="opNormalizzaAddressResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_WSC_NORMALIZZAADDRESSSoap" type="eb:WS_WSC_NORMALIZZAADDRESSSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opNormalizzaAddress"> 
+   <soap:operation soapAction="WS_WSC_NORMALIZZAADDRESS/opNormalizzaAddress" style="document" /> 
+   <wsdl:input name="opNormalizzaAddressRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opNormalizzaAddressResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_WSC_NORMALIZZAADDRESS"> 
+  <wsdl:port binding="eb:WS_WSC_NORMALIZZAADDRESSSoap" name="WS_WSC_NORMALIZZAADDRESSSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_WSC_NORMALIZZAADDRESS" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdSCMS/SkyXSD_WS_SCMS_EXECUTE_INFOCT_WSC.xsd" /> 
+   <xsd:complexType name="requestINFOCT"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:request" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="responseINFOCT"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:response" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opINFOCT"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestINFOCT" type="eb:requestINFOCT" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opINFOCTResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseINFOCT" type="eb:responseINFOCT" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opINFOCTRequest"> 
+  <wsdl:part element="eb:opINFOCT" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opINFOCTResponse"> 
+  <wsdl:part element="eb:opINFOCTResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_EXECUTE_INFOCT_WSCSoap"> 
+  <wsdl:operation name="opINFOCT"> 
+   <wsdl:input message="eb:opINFOCTRequest" name="opINFOCTRequest" /> 
+   <wsdl:output message="eb:opINFOCTResponse" name="opINFOCTResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_EXECUTE_INFOCT_WSCSoap" type="eb:WS_SCMS_EXECUTE_INFOCT_WSCSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opINFOCT"> 
+   <soap:operation soapAction="WS_SCMS_EXECUTE_INFOCT_WSC/opINFOCT" style="document" /> 
+   <wsdl:input name="opINFOCTRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opINFOCTResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_EXECUTE_INFOCT_WSC"> 
+  <wsdl:port binding="eb:WS_SCMS_EXECUTE_INFOCT_WSCSoap" name="WS_SCMS_EXECUTE_INFOCT_WSCSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_scms/WS_SCMS_EXECUTE_INFOCT_WSC" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

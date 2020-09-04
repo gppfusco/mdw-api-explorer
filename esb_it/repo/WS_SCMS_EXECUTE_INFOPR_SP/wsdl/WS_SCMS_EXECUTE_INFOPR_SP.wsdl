@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="requestINFOPR"> 
+    <xsd:sequence> 
+     <xsd:element name="flagsync" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="clientid" type="xsd:string" /> 
+     <xsd:element name="box" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="operator" type="xsd:string" /> 
+     <xsd:element name="idcaller" type="xsd:string" /> 
+     <xsd:element name="typesrvreq" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="flagpromoscadute" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="flagpromoesaurite" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="flagpromogeneriche" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="flagpromomedia" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="responseINFOPR"> 
+    <xsd:sequence> 
+     <xsd:element name="result" type="xsd:string" /> 
+     <xsd:element name="descriptionerr" type="xsd:string" /> 
+     <xsd:element name="transid" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="ndserr" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="promoinfos" type="eb:t_promoinfos" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="t_promoinfos"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="promoinfo" type="eb:t_promoinfo" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="t_promoinfo"> 
+    <xsd:sequence> 
+     <xsd:element name="catalogid" type="xsd:string" /> 
+     <xsd:element name="kind" type="xsd:string" /> 
+     <xsd:element name="details" type="xsd:string" /> 
+     <xsd:element name="name" type="xsd:string" /> 
+     <xsd:element name="event_residual" type="xsd:string" /> 
+     <xsd:element name="start_date" type="xsd:string" /> 
+     <xsd:element name="end_date" type="xsd:string" /> 
+     <xsd:element name="purchase_method" type="xsd:string" /> 
+     <xsd:element name="priority" type="xsd:string" /> 
+     <xsd:element name="content_codes" type="xsd:string" /> 
+     <xsd:element name="ref_id" type="xsd:string" /> 
+     <xsd:element name="pay_method" type="xsd:string" /> 
+     <xsd:element name="media" type="xsd:string" /> 
+     <xsd:element name="generic" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opINFOPR"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestINFOPR" type="eb:requestINFOPR" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opINFOPRResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseINFOPR" type="eb:responseINFOPR" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opINFOPRRequest"> 
+  <wsdl:part element="eb:opINFOPR" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opINFOPRResponse"> 
+  <wsdl:part element="eb:opINFOPRResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_EXECUTE_INFOPR_SPSoap"> 
+  <wsdl:operation name="opINFOPR"> 
+   <wsdl:input message="eb:opINFOPRRequest" name="opINFOPRRequest" /> 
+   <wsdl:output message="eb:opINFOPRResponse" name="opINFOPRResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_EXECUTE_INFOPR_SPSoap" type="eb:WS_SCMS_EXECUTE_INFOPR_SPSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opINFOPR"> 
+   <soap:operation soapAction="WS_SCMS_EXECUTE_INFOPR_SP/opINFOPR" style="document" /> 
+   <wsdl:input name="opINFOPRRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opINFOPRResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_EXECUTE_INFOPR_SP"> 
+  <wsdl:port binding="eb:WS_SCMS_EXECUTE_INFOPR_SPSoap" name="WS_SCMS_EXECUTE_INFOPR_SPSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_scms/WS_SCMS_EXECUTE_INFOPR_SP" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

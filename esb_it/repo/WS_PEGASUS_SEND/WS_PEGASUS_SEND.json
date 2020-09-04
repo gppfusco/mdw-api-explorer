@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_PEGASUS_SEND",
+    "name" : "WS_PEGASUS_SEND",
+    "localPath" : "esb_it\\repo\\WS_PEGASUS_SEND",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_PEGASUS_SEND?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdPegasus/SkyXSD_WS_PEGASUS_SEND.xsd",
+        "xsdNameSpace" : ""
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

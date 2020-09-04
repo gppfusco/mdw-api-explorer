@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://firstel.it/SmsPlatform/SkyMailWebService" schemaLocation="xsdAssist/Corrispondenza.asmx.xsd" /> 
+   <xsd:complexType name="COMPLEX_INPUT" xmlns:dms="http://dms_corrispondenza/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="dms:GetAccountDocInfo" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="COMPLEX_OUTPUT" xmlns:dms="http://dms_corrispondenza/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="dms:GetAccountDocInfoResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opGetAccountDocInfo"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:COMPLEX_INPUT" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opGetAccountDocInfoResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:COMPLEX_OUTPUT" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opGetAccountDocInfoRequest"> 
+  <wsdl:part element="eb:opGetAccountDocInfo" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opGetAccountDocInfoResponse"> 
+  <wsdl:part element="eb:opGetAccountDocInfoResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_ASSIST_DMS_RECUPERA_INFO_RACCOMANDATASoap"> 
+  <wsdl:operation name="opGetAccountDocInfo"> 
+   <wsdl:input message="eb:opGetAccountDocInfoRequest" name="opGetAccountDocInfoRequest" /> 
+   <wsdl:output message="eb:opGetAccountDocInfoResponse" name="opGetAccountDocInfoResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_ASSIST_DMS_RECUPERA_INFO_RACCOMANDATASoap" type="eb:WS_ASSIST_DMS_RECUPERA_INFO_RACCOMANDATASoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opGetAccountDocInfo"> 
+   <soap:operation soapAction="WS_ASSIST_DMS_RECUPERA_INFO_RACCOMANDATA/opGetAccountDocInfo" style="document" /> 
+   <wsdl:input name="opGetAccountDocInfoRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opGetAccountDocInfoResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_ASSIST_DMS_RECUPERA_INFO_RACCOMANDATA"> 
+  <wsdl:port binding="eb:WS_ASSIST_DMS_RECUPERA_INFO_RACCOMANDATASoap" name="WS_ASSIST_DMS_RECUPERA_INFO_RACCOMANDATASoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_ASSIST_DMS_RECUPERA_INFO_RACCOMANDATA" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

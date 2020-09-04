@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="opRimuoviCarta"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_OPERATORE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_NUM_SMC" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRimuoviCartaResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opRimuoviCartaRequest"> 
+  <wsdl:part element="eb:opRimuoviCarta" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRimuoviCartaResponse"> 
+  <wsdl:part element="eb:opRimuoviCartaResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_RIMUOVI_CARTASoap"> 
+  <wsdl:operation name="opRimuoviCarta"> 
+   <wsdl:input message="eb:opRimuoviCartaRequest" name="opRimuoviCartaRequest" /> 
+   <wsdl:output message="eb:opRimuoviCartaResponse" name="opRimuoviCartaResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_RIMUOVI_CARTASoap" type="eb:WS_SCMS_RIMUOVI_CARTASoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opRimuoviCarta"> 
+   <soap:operation soapAction="WS_SCMS_RIMUOVI_CARTA/opRimuoviCarta" style="document" /> 
+   <wsdl:input name="opRimuoviCartaRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opRimuoviCartaResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_RIMUOVI_CARTA"> 
+  <wsdl:port binding="eb:WS_SCMS_RIMUOVI_CARTASoap" name="WS_SCMS_RIMUOVI_CARTASoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_SCMS_RIMUOVI_CARTA" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

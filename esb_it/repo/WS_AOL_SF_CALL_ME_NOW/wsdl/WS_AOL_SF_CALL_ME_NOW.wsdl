@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler" schemaLocation="xsdSF/SkyXSD_AOL_SF_CALL_ME_NOW.xsd" /> 
+   <xsd:complexType name="callMeNow" xmlns:sf="http://soap.sforce.com/schemas/class/WS_Inbound_Lead_Handler"> 
+    <xsd:complexContent> 
+     <xsd:extension base="sf:callMeNow" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="callMeNowResponse"> 
+    <xsd:sequence> 
+     <xsd:element name="Esito" type="xsd:string" /> 
+     <xsd:element name="DescrizioneEsito" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opCallMeNow"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="callMeNow" type="eb:callMeNow" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="DataOra" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCallMeNowResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="callMeNowResponse" type="eb:callMeNowResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCallMeNowRequest"> 
+  <wsdl:part element="eb:opCallMeNow" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCallMeNowResponse"> 
+  <wsdl:part element="eb:opCallMeNowResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_AOL_SF_CALL_ME_NOWSoap"> 
+  <wsdl:operation name="opCallMeNow"> 
+   <wsdl:input message="eb:opCallMeNowRequest" name="opCallMeNowRequest" /> 
+   <wsdl:output message="eb:opCallMeNowResponse" name="opCallMeNowResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_AOL_SF_CALL_ME_NOWSoap" type="eb:WS_AOL_SF_CALL_ME_NOWSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCallMeNow"> 
+   <soap:operation soapAction="WS_AOL_SF_CALL_ME_NOW/opCallMeNow" style="document" /> 
+   <wsdl:input name="opCallMeNowRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCallMeNowResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_AOL_SF_CALL_ME_NOW"> 
+  <wsdl:port binding="eb:WS_AOL_SF_CALL_ME_NOWSoap" name="WS_AOL_SF_CALL_ME_NOWSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_AOL_SF_CALL_ME_NOW" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

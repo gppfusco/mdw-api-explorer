@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import schemaLocation="xsdSPY/SkyXSD_WS_CAIF_SPY_MULTIVISION.xsd" /> 
+   <xsd:complexType name="householdReader" xmlns="http://mvc.spy.sky.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="householdReader_base" xmlns="" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="householdReaderResponse" xmlns="http://mvc.spy.sky.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="householdReaderResponse_base" xmlns="" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="householdUpdater" xmlns="http://mvc.spy.sky.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="householdUpdater_base" xmlns="" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="householdUpdaterResponse" xmlns="http://mvc.spy.sky.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="householdUpdaterResponse_base" xmlns="" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="historyUpdater" xmlns="http://mvc.spy.sky.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="historyUpdater_base" xmlns="" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="historyUpdaterResponse" xmlns="http://mvc.spy.sky.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="historyUpdaterResponse_base" xmlns="" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="historyReader" xmlns="http://mvc.spy.sky.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="historyReader_base" xmlns="" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="historyReaderResponse" xmlns="http://mvc.spy.sky.com"> 
+    <xsd:complexContent> 
+     <xsd:extension base="historyReaderResponse_base" xmlns="" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opHouseholdReader"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:householdReader" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opHouseholdReaderResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:householdReaderResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opHouseholdUpdater"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:householdUpdater" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opHouseholdUpdaterResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:householdUpdaterResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opHistoryReader"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:historyReader" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opHistoryReaderResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:historyReaderResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opHistoryUpdater"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:historyUpdater" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opHistoryUpdaterResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:historyUpdaterResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opHouseholdReaderRequest"> 
+  <wsdl:part element="eb:opHouseholdReader" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opHouseholdReaderResponse"> 
+  <wsdl:part element="eb:opHouseholdReaderResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opHouseholdUpdaterRequest"> 
+  <wsdl:part element="eb:opHouseholdUpdater" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opHouseholdUpdaterResponse"> 
+  <wsdl:part element="eb:opHouseholdUpdaterResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opHistoryReaderRequest"> 
+  <wsdl:part element="eb:opHistoryReader" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opHistoryReaderResponse"> 
+  <wsdl:part element="eb:opHistoryReaderResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opHistoryUpdaterRequest"> 
+  <wsdl:part element="eb:opHistoryUpdater" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opHistoryUpdaterResponse"> 
+  <wsdl:part element="eb:opHistoryUpdaterResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_CAIF_SPY_MULTIVISIONSoap"> 
+  <wsdl:operation name="opHouseholdReader"> 
+   <wsdl:input message="eb:opHouseholdReaderRequest" name="opHouseholdReaderRequest" /> 
+   <wsdl:output message="eb:opHouseholdReaderResponse" name="opHouseholdReaderResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opHouseholdUpdater"> 
+   <wsdl:input message="eb:opHouseholdUpdaterRequest" name="opHouseholdUpdaterRequest" /> 
+   <wsdl:output message="eb:opHouseholdUpdaterResponse" name="opHouseholdUpdaterResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opHistoryReader"> 
+   <wsdl:input message="eb:opHistoryReaderRequest" name="opHistoryReaderRequest" /> 
+   <wsdl:output message="eb:opHistoryReaderResponse" name="opHistoryReaderResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opHistoryUpdater"> 
+   <wsdl:input message="eb:opHistoryUpdaterRequest" name="opHistoryUpdaterRequest" /> 
+   <wsdl:output message="eb:opHistoryUpdaterResponse" name="opHistoryUpdaterResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_CAIF_SPY_MULTIVISIONSoap" type="eb:WS_CAIF_SPY_MULTIVISIONSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opHouseholdReader"> 
+   <soap:operation soapAction="WS_CAIF_SPY_MULTIVISION/opHouseholdReader" style="document" /> 
+   <wsdl:input name="opHouseholdReaderRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opHouseholdReaderResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opHouseholdUpdater"> 
+   <soap:operation soapAction="WS_CAIF_SPY_MULTIVISION/opHouseholdUpdater" style="document" /> 
+   <wsdl:input name="opHouseholdUpdaterRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opHouseholdUpdaterResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opHistoryReader"> 
+   <soap:operation soapAction="WS_CAIF_SPY_MULTIVISION/opHistoryReader" style="document" /> 
+   <wsdl:input name="opHistoryReaderRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opHistoryReaderResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opHistoryUpdater"> 
+   <soap:operation soapAction="WS_CAIF_SPY_MULTIVISION/opHistoryUpdater" style="document" /> 
+   <wsdl:input name="opHistoryUpdaterRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opHistoryUpdaterResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_CAIF_SPY_MULTIVISION"> 
+  <wsdl:port binding="eb:WS_CAIF_SPY_MULTIVISIONSoap" name="WS_CAIF_SPY_MULTIVISIONSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_CAIF_SPY_MULTIVISION" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

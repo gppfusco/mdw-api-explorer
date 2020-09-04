@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="xsdSCMS/SkyXSD_WS_SCMS_EXECUTE_CRTADD_WSC.xsd" /> 
+   <xsd:complexType name="requestAcquisto"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:requestACQ" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="responseAcquisto"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:responseACQ" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opAcquistoPrepagato"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestAcquisto" type="eb:requestAcquisto" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAcquistoPrepagatoResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseAcquisto" type="eb:responseAcquisto" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAcquistoPostpagato"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestAcquisto" type="eb:requestAcquisto" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opAcquistoPostpagatoResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseAcquisto" type="eb:responseAcquisto" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opAcquistoPrepagatoRequest"> 
+  <wsdl:part element="eb:opAcquistoPrepagato" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAcquistoPrepagatoResponse"> 
+  <wsdl:part element="eb:opAcquistoPrepagatoResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAcquistoPostpagatoRequest"> 
+  <wsdl:part element="eb:opAcquistoPostpagato" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opAcquistoPostpagatoResponse"> 
+  <wsdl:part element="eb:opAcquistoPostpagatoResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_EXECUTE_CRTADD_WSCSoap"> 
+  <wsdl:operation name="opAcquistoPrepagato"> 
+   <wsdl:input message="eb:opAcquistoPrepagatoRequest" name="opAcquistoPrepagatoRequest" /> 
+   <wsdl:output message="eb:opAcquistoPrepagatoResponse" name="opAcquistoPrepagatoResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opAcquistoPostpagato"> 
+   <wsdl:input message="eb:opAcquistoPostpagatoRequest" name="opAcquistoPostpagatoRequest" /> 
+   <wsdl:output message="eb:opAcquistoPostpagatoResponse" name="opAcquistoPostpagatoResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_EXECUTE_CRTADD_WSCSoap" type="eb:WS_SCMS_EXECUTE_CRTADD_WSCSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opAcquistoPrepagato"> 
+   <soap:operation soapAction="WS_SCMS_EXECUTE_CRTADD_WSC/opAcquistoPrepagato" style="document" /> 
+   <wsdl:input name="opAcquistoPrepagatoRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAcquistoPrepagatoResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opAcquistoPostpagato"> 
+   <soap:operation soapAction="WS_SCMS_EXECUTE_CRTADD_WSC/opAcquistoPostpagato" style="document" /> 
+   <wsdl:input name="opAcquistoPostpagatoRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opAcquistoPostpagatoResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_EXECUTE_CRTADD_WSC"> 
+  <wsdl:port binding="eb:WS_SCMS_EXECUTE_CRTADD_WSCSoap" name="WS_SCMS_EXECUTE_CRTADD_WSCSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_scms/WS_SCMS_EXECUTE_CRTADD_WSC" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

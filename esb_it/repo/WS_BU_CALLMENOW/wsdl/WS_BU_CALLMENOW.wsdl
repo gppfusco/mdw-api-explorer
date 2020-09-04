@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="DocumentData"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="param" type="eb:param" /> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="record" type="eb:record" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="param"> 
+    <xsd:attribute name="name" type="xsd:string" use="required" /> 
+    <xsd:attribute name="value" type="xsd:string" use="required" /> 
+   </xsd:complexType> 
+   <xsd:complexType name="record"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="param" type="eb:param" /> 
+     <xsd:element maxOccurs="unbounded" minOccurs="0" name="record" type="eb:record" /> 
+    </xsd:sequence> 
+    <xsd:attribute name="name" type="xsd:string" use="required" /> 
+    <xsd:attribute name="value" type="xsd:string" use="required" /> 
+   </xsd:complexType> 
+   <xsd:element name="opCallMeNow"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentData" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCallMeNowResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentData" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opCallMeNowRequest"> 
+  <wsdl:part element="eb:opCallMeNow" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCallMeNowResponse"> 
+  <wsdl:part element="eb:opCallMeNowResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_BU_CALLMENOWSoap"> 
+  <wsdl:operation name="opCallMeNow"> 
+   <wsdl:input message="eb:opCallMeNowRequest" name="opCallMeNowRequest" /> 
+   <wsdl:output message="eb:opCallMeNowResponse" name="opCallMeNowResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_BU_CALLMENOWSoap" type="eb:WS_BU_CALLMENOWSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opCallMeNow"> 
+   <soap:operation soapAction="WS_BU_CALLMENOW/opCallMeNow" style="document" /> 
+   <wsdl:input name="opCallMeNowRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCallMeNowResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_BU_CALLMENOW"> 
+  <wsdl:port binding="eb:WS_BU_CALLMENOWSoap" name="WS_BU_CALLMENOWSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_bu/WS_BU_CALLMENOW" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

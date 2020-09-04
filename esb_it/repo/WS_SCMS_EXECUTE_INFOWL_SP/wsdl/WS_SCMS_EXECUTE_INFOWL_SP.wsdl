@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="requestINFOWL"> 
+    <xsd:sequence> 
+     <xsd:element name="flagsync" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="clientid" type="xsd:string" /> 
+     <xsd:element name="box" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="creditexpired" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="operator" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="execdate" type="xsd:string" /> 
+     <xsd:element name="idcaller" type="xsd:string" /> 
+     <xsd:element name="typesrvreq" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="trans_id" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="ConnId" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="TransId" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="responseINFOWL"> 
+    <xsd:sequence> 
+     <xsd:element name="result" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="ndserr" type="xsd:string" /> 
+     <xsd:element name="transid" type="xsd:string" /> 
+     <xsd:element name="descriptionerr" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="wallet" type="eb:t_wallet" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="t_wallet"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="smcs" type="eb:t_smcs" /> 
+     <xsd:element minOccurs="0" name="credits" type="eb:t_credits" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="t_smcs"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="smc" type="eb:t_smc" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="t_credits"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="credit" type="eb:t_credit" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="t_credit"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="priority" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="creationdate" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="expirationdate" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="amount" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="typename" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="description" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="t_smc"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="box" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="lastpdate" type="xsd:string" /> 
+     <xsd:element minOccurs="0" name="lastpref" type="xsd:string" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opINFOWL"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="requestINFOWL" type="eb:requestINFOWL" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opINFOWLResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="responseINFOWL" type="eb:responseINFOWL" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opINFOWLRequest"> 
+  <wsdl:part element="eb:opINFOWL" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opINFOWLResponse"> 
+  <wsdl:part element="eb:opINFOWLResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_SCMS_EXECUTE_INFOWL_SPSoap"> 
+  <wsdl:operation name="opINFOWL"> 
+   <wsdl:input message="eb:opINFOWLRequest" name="opINFOWLRequest" /> 
+   <wsdl:output message="eb:opINFOWLResponse" name="opINFOWLResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_SCMS_EXECUTE_INFOWL_SPSoap" type="eb:WS_SCMS_EXECUTE_INFOWL_SPSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opINFOWL"> 
+   <soap:operation soapAction="WS_SCMS_EXECUTE_INFOWL_SP/opINFOWL" style="document" /> 
+   <wsdl:input name="opINFOWLRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opINFOWLResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_SCMS_EXECUTE_INFOWL_SP"> 
+  <wsdl:port binding="eb:WS_SCMS_EXECUTE_INFOWL_SPSoap" name="WS_SCMS_EXECUTE_INFOWL_SPSoap"> 
+   <soap:address location="http://wssvil.sky.it:19100/wsexistbus/ws_scms/WS_SCMS_EXECUTE_INFOWL_SP" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:import namespace="http://services.siebel.sky.integrationlayer.reitek.com/" schemaLocation="xsdReitek/TicketWS.xsd" /> 
+   <xsd:complexType name="elaborazioneTicket" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:elaborazioneTicket" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="elaborazioneTicketResponse" xmlns:rk="http://services.siebel.sky.integrationlayer.reitek.com/"> 
+    <xsd:complexContent> 
+     <xsd:extension base="rk:elaborazioneTicketResponse" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opElaborazioneTicket"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request" type="eb:elaborazioneTicket" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opElaborazioneTicketResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response" type="eb:elaborazioneTicketResponse" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opElaborazioneTicketRequest"> 
+  <wsdl:part element="eb:opElaborazioneTicket" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opElaborazioneTicketResponse"> 
+  <wsdl:part element="eb:opElaborazioneTicketResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_OTS_REITEK_TICKETSoap"> 
+  <wsdl:operation name="opElaborazioneTicket"> 
+   <wsdl:input message="eb:opElaborazioneTicketRequest" name="opElaborazioneTicketRequest" /> 
+   <wsdl:output message="eb:opElaborazioneTicketResponse" name="opElaborazioneTicketResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_OTS_REITEK_TICKETSoap" type="eb:WS_OTS_REITEK_TICKETSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opElaborazioneTicket"> 
+   <soap:operation soapAction="WS_OTS_REITEK_TICKET/opElaborazioneTicket" style="document" /> 
+   <wsdl:input name="opElaborazioneTicketRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opElaborazioneTicketResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_OTS_REITEK_TICKET"> 
+  <wsdl:port binding="eb:WS_OTS_REITEK_TICKETSoap" name="WS_OTS_REITEK_TICKETSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_OTS_REITEK_TICKET" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

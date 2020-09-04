@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_IVR_KBP_GET_BALANCE_A_SCADERE",
+    "name" : "WS_IVR_KBP_GET_BALANCE_A_SCADERE",
+    "localPath" : "esb_it\\repo\\WS_IVR_KBP_GET_BALANCE_A_SCADERE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_IVR_KBP_GET_BALANCE_A_SCADERE?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

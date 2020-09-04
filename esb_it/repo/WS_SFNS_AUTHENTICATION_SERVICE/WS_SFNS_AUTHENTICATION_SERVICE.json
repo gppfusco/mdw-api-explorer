@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SFNS_AUTHENTICATION_SERVICE",
+    "name" : "WS_SFNS_AUTHENTICATION_SERVICE",
+    "localPath" : "esb_it\\repo\\WS_SFNS_AUTHENTICATION_SERVICE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SFNS_AUTHENTICATION_SERVICE?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

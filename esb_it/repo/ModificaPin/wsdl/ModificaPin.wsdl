@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="ASSPINTOVOUCHER"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_MRM_HIDDEN_NUMBER" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPPV_PROVENIENZA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_CA_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_TRANSACTION_ID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="ASSPINTOVOUCHERResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ERRORE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="ASSPINTOVOUCHERRequest"> 
+  <wsdl:part element="eb:ASSPINTOVOUCHER" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="ASSPINTOVOUCHERResponse"> 
+  <wsdl:part element="eb:ASSPINTOVOUCHERResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="ModificaPinSoap"> 
+  <wsdl:operation name="ASSPINTOVOUCHER"> 
+   <wsdl:input message="eb:ASSPINTOVOUCHERRequest" name="ASSPINTOVOUCHERRequest" /> 
+   <wsdl:output message="eb:ASSPINTOVOUCHERResponse" name="ASSPINTOVOUCHERResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="ModificaPinSoap" type="eb:ModificaPinSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="ASSPINTOVOUCHER"> 
+   <soap:operation soapAction="ModificaPin/ASSPINTOVOUCHER" style="document" /> 
+   <wsdl:input name="ASSPINTOVOUCHERRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="ASSPINTOVOUCHERResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="ModificaPin"> 
+  <wsdl:port binding="eb:ModificaPinSoap" name="ModificaPinSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/ModificaPin" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

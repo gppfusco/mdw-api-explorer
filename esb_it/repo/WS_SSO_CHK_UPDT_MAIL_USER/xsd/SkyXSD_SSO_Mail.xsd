@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://skyid.ws.sky.it" targetNamespace="http://skyid.ws.sky.it" elementFormDefault="unqualified" attributeFormDefault="unqualified"> 
+ <xs:element name="checkUpdateSSOUserMail" type="tns:checkUpdateSSOUserMail" /> 
+ <xs:complexType name="checkUpdateSSOUserMail"> 
+  <xs:sequence> 
+   <xs:element name="client_code" type="xs:string" nillable="true" /> 
+   <xs:element name="email_force_write" nillable="true" type="xs:string" /> 
+   <xs:element name="email_siebel" type="xs:string" nillable="false" /> 
+   <xs:element name="email_write_flag" type="xs:string" nillable="true" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:element name="checkUpdateSSOUserMailResponse" type="tns:checkUpdateSSOUserMailResponse" /> 
+ <xs:complexType name="checkUpdateSSOUserMailResponse"> 
+  <xs:sequence> 
+   <xs:element name="client_code" type="xs:string" nillable="false" /> 
+   <xs:element name="desc_esito" type="xs:string" nillable="true" /> 
+   <xs:element name="ret_code" type="xs:string" nillable="false" /> 
+   <xs:element name="srvz_check_mail" type="xs:string" nillable="false" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

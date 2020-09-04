@@ -1,0 +1,119 @@
+<!-- edited with XMLSpy v2007 sp2 (http://www.altova.com) by *__________* (*__________*) -->
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:schema="http://services.olg.oss.fastweb.it/fly/sky2fw/cm/UpsertServiceRequestServices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://services.olg.oss.fastweb.it/fly/sky2fw/cm/UpsertServiceRequestServices/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://services.olg.oss.fastweb.it/fly/sky2fw/cm/UpsertServiceRequestServices/" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xsd:complexType name="InputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="TransactionData" type="tns:TransactionDataType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OperationDataType"> 
+  <xsd:complexContent> 
+   <xsd:extension base="tns:InputMessageType"> 
+    <xsd:sequence> 
+     <xsd:element name="OperationData" type="tns:OperationData" /> 
+    </xsd:sequence> 
+   </xsd:extension> 
+  </xsd:complexContent> 
+ </xsd:complexType> 
+ <xsd:complexType name="OperationData"> 
+  <xsd:sequence> 
+   <xsd:element name="Cliente" type="tns:Cliente" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Cliente"> 
+  <xsd:sequence> 
+   <xsd:element name="CodiceClienteFW" type="tns:String30" /> 
+   <xsd:element name="Sede_CDF" type="tns:Sede_CDF" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Sede_CDF"> 
+  <xsd:sequence> 
+   <xsd:element name="CodiceCDFFW" type="tns:String30" default="CodiceCDFFW" /> 
+   <xsd:element name="ServiceRequest" type="tns:ServiceRequest" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ServiceRequest"> 
+  <xsd:sequence> 
+   <xsd:element name="SRNum" type="tns:String30" /> 
+   <xsd:element name="CodiceSRFW" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="CodiceEsigenza" type="tns:String30" /> 
+   <xsd:element name="Ambito" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="Area" type="tns:String30" minOccurs="0" /> 
+   <xsd:element name="SubArea" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="Esito" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="Note" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="Stato" type="tns:String30" /> 
+   <xsd:element name="DataModifica" type="tns:String15" /> 
+   <xsd:element name="TipoDisdetta" type="tns:String50" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="OutputMessageType"> 
+  <xsd:sequence> 
+   <xsd:element name="OperationData" type="tns:UpsertServiceRequest_Output_Type" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="UpsertServiceRequest_Output_Type"> 
+  <xsd:sequence> 
+   <xsd:element name="Status" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="ErrorCode" type="xsd:string" /> 
+   <xsd:element name="ErrorMessage" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="TransactionDataType"> 
+  <xsd:sequence> 
+   <xsd:element name="SenderName" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="UserName" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="TransactionId" type="tns:String42" /> 
+   <xsd:element name="Version" type="tns:String50" minOccurs="0" /> 
+   <xsd:element name="TransactionTime" type="tns:String19" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ChiaviSKYType"> 
+  <xsd:sequence> 
+   <xsd:element name="CodiceContrattoSky" type="tns:String30" /> 
+   <xsd:element name="IntegrationIdSky" type="tns:String30" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="ChiaviFWType"> 
+  <xsd:sequence> 
+   <xsd:element name="IdHeaderFW" type="tns:String30" /> 
+   <xsd:element name="IdInstanceFW" type="tns:String30" /> 
+   <xsd:element name="IdAssetFW" type="tns:String30" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="String2"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="2" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String30"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="30" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String255"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="255" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String50"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="50" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String42"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="42" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String15"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="15" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+ <xsd:simpleType name="String19"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:maxLength value="19" /> 
+   <xsd:pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+</xsd:schema>

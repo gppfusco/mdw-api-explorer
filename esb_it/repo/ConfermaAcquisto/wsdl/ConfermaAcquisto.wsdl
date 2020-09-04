@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="OpConfermaAcquisto"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_SMART_CARD" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPPV_REFID" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPPV_DATA_EVENTO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPPV_DATA_ACQUISTO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPPV_CHIAVE_ACQUISTO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="WS_OPPV_PROVENIENZA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_SRVZ_TRANSACTION_ID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OpConfermaAcquistoResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ERRORE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_OPPV_MSG_CONFERMA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_ESITO2" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OpConfermaAcquistoRequest"> 
+  <wsdl:part element="eb:OpConfermaAcquisto" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OpConfermaAcquistoResponse"> 
+  <wsdl:part element="eb:OpConfermaAcquistoResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="ConfermaAcquistoSoap"> 
+  <wsdl:operation name="OpConfermaAcquisto"> 
+   <wsdl:input message="eb:OpConfermaAcquistoRequest" name="OpConfermaAcquistoRequest" /> 
+   <wsdl:output message="eb:OpConfermaAcquistoResponse" name="OpConfermaAcquistoResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="ConfermaAcquistoSoap" type="eb:ConfermaAcquistoSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OpConfermaAcquisto"> 
+   <soap:operation soapAction="ConfermaAcquisto/OpConfermaAcquisto" style="document" /> 
+   <wsdl:input name="OpConfermaAcquistoRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OpConfermaAcquistoResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="ConfermaAcquisto"> 
+  <wsdl:port binding="eb:ConfermaAcquistoSoap" name="ConfermaAcquistoSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/ConfermaAcquisto" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

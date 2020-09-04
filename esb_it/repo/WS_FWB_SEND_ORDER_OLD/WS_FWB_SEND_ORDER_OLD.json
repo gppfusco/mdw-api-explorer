@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_FWB_SEND_ORDER_OLD",
+    "name" : "WS_FWB_SEND_ORDER_OLD",
+    "localPath" : "esb_it\\repo\\WS_FWB_SEND_ORDER_OLD",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_FWB_SEND_ORDER_OLD?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdFWB/SkyXSD_FWB_SendOrder.xsd",
+        "xsdNameSpace" : "http://it.fastweb.esb.org/SendOrder"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

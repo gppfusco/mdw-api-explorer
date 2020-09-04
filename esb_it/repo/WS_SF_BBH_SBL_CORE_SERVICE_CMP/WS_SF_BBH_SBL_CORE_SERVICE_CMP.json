@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_SF_BBH_SBL_CORE_SERVICE_CMP",
+    "name" : "WS_SF_BBH_SBL_CORE_SERVICE_CMP",
+    "localPath" : "esb_it\\repo\\WS_SF_BBH_SBL_CORE_SERVICE_CMP",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_SF_BBH_SBL_CORE_SERVICE_CMP?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

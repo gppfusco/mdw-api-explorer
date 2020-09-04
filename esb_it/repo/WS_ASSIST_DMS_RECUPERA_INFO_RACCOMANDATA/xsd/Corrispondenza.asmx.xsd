@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:tns="http://dms_corrispondenza/" targetNamespace="http://dms_corrispondenza/"> 
+ <xs:complexType name="GetAccountDocInfo"> 
+  <xs:sequence> 
+   <xs:element minOccurs="0" maxOccurs="1" name="Account" type="xs:string" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="GetAccountDocInfoResponse"> 
+  <xs:sequence> 
+   <xs:element minOccurs="0" maxOccurs="1" name="GetAccountDocInfoResult" type="tns:DMSDocuments" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="DMSDocuments"> 
+  <xs:sequence> 
+   <xs:element minOccurs="0" maxOccurs="1" name="DMSDocuments" type="tns:ArrayOfDMSDocument" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="ArrayOfDMSDocument"> 
+  <xs:sequence> 
+   <xs:element minOccurs="0" maxOccurs="unbounded" name="DMSDocument" nillable="true" type="tns:DMSDocument" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+ <xs:complexType name="DMSDocument"> 
+  <xs:sequence> 
+   <xs:element minOccurs="0" maxOccurs="1" name="Account" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="Docid" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="Categoria" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="Sottocategoria" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="DataRicezione" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="DataIndicizzazione" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="NumRaccomandata" type="xs:string" /> 
+   <xs:element minOccurs="0" maxOccurs="1" name="TipoSpedizione" type="xs:string" /> 
+  </xs:sequence> 
+ </xs:complexType> 
+</xs:schema>

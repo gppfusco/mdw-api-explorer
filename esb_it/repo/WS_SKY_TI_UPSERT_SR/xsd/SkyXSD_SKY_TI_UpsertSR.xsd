@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sm="http://telecomitalia.it/SOA/WS_TI_SKY_UPSERT_SR_SKY/2014-09-04" targetNamespace="http://telecomitalia.it/SOA/WS_TI_SKY_UPSERT_SR_SKY/2014-09-04" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <xsd:element name="updateSRRequest" type="sm:updateSRRequestType" /> 
+ <xsd:element name="COMPLEX_OUTPUT" type="sm:DocumentDataOutput" /> 
+ <xsd:complexType name="DocumentDataInput"> 
+  <xsd:sequence> 
+   <xsd:element name="updateSRRequest" type="sm:updateSRRequestType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="DocumentDataOutput"> 
+  <xsd:sequence> 
+   <xsd:element name="updateSRResponse" type="sm:updateSRResponseType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="updateSRRequestType"> 
+  <xsd:sequence> 
+   <xsd:element name="IdPDA" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="CodiceFiscale" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="NumeroTelefonoImpianto" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="Origine" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="IdSRTI" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="IdSRSKY" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="Ambito" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="CodiceScambioSR" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="Stato" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="DataApertura" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="DataChiusura" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="Categoria" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="Sottocategoria" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="IdDocumento" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="Competenza" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="Recapito" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="Esito" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="Note" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="DataPrevistaCessazione" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="Exitfee" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="TipoContatto" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="CanaleAcquisizione" type="sm:noEmptyFieldType" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="updateSRResponseType"> 
+  <xsd:sequence> 
+   <xsd:element name="CodiceEsito" type="sm:noEmptyFieldType" /> 
+   <xsd:element name="DescrizioneEsito" type="sm:noEmptyFieldType" minOccurs="0" /> 
+   <xsd:element name="IdSRTI" type="sm:noEmptyFieldType" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:simpleType name="noEmptyFieldType"> 
+  <xsd:restriction base="xsd:string"> 
+   <xsd:minLength value="1" /> 
+  </xsd:restriction> 
+ </xsd:simpleType> 
+</xsd:schema>

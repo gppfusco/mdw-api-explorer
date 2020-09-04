@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_POLYMEDIA_MANAGE_EPG",
+    "name" : "WS_POLYMEDIA_MANAGE_EPG",
+    "localPath" : "esb_it\\repo\\WS_POLYMEDIA_MANAGE_EPG",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_POLYMEDIA_MANAGE_EPG?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdEPG/SkyXSD_Polymedia_Manage_EPG_2-2.xsd",
+        "xsdNameSpace" : "http://epg.sky.it/service/events"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

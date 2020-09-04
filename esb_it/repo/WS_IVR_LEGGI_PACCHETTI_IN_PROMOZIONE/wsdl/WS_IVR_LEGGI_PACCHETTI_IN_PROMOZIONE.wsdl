@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_LEGGI_PACCHETTI_IN_PROMOZIONE.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opLEGGI_PACCHETTI_IN_PROMOZIONE"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLEGGI_PACCHETTI_IN_PROMOZIONEResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opLEGGI_PACCHETTI_IN_PROMOZIONERequest"> 
+  <wsdl:part element="eb:opLEGGI_PACCHETTI_IN_PROMOZIONE" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLEGGI_PACCHETTI_IN_PROMOZIONEResponse"> 
+  <wsdl:part element="eb:opLEGGI_PACCHETTI_IN_PROMOZIONEResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_IVR_LEGGI_PACCHETTI_IN_PROMOZIONESoap"> 
+  <wsdl:operation name="opLEGGI_PACCHETTI_IN_PROMOZIONE"> 
+   <wsdl:input message="eb:opLEGGI_PACCHETTI_IN_PROMOZIONERequest" name="opLEGGI_PACCHETTI_IN_PROMOZIONERequest" /> 
+   <wsdl:output message="eb:opLEGGI_PACCHETTI_IN_PROMOZIONEResponse" name="opLEGGI_PACCHETTI_IN_PROMOZIONEResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_IVR_LEGGI_PACCHETTI_IN_PROMOZIONESoap" type="eb:WS_IVR_LEGGI_PACCHETTI_IN_PROMOZIONESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opLEGGI_PACCHETTI_IN_PROMOZIONE"> 
+   <soap:operation soapAction="WS_IVR_LEGGI_PACCHETTI_IN_PROMOZIONE/opLEGGI_PACCHETTI_IN_PROMOZIONE" style="document" /> 
+   <wsdl:input name="opLEGGI_PACCHETTI_IN_PROMOZIONERequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opLEGGI_PACCHETTI_IN_PROMOZIONEResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_IVR_LEGGI_PACCHETTI_IN_PROMOZIONE"> 
+  <wsdl:port binding="eb:WS_IVR_LEGGI_PACCHETTI_IN_PROMOZIONESoap" name="WS_IVR_LEGGI_PACCHETTI_IN_PROMOZIONESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_IVR_LEGGI_PACCHETTI_IN_PROMOZIONE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

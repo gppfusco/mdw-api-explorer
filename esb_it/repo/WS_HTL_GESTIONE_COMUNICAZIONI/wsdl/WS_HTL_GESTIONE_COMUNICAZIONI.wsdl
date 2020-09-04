@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:string" use="optional" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexInputInserisci"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="HTL_OGGETTO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_FRASE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_MODALITA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_TIPOLOGIA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DATA_INIZIO" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_DATA_FINE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_LISTA_HOTEL_FML32" type="eb:FMLListaHotel" /> 
+     <xsd:element minOccurs="0" name="HTL_LISTINI_FML32" type="eb:FMLListini" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLListaHotel"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="HTL_CODICE_HOTEL" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLListini"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="HTL_CODICE_LISTINO" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexInputModifica"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="HTL_ID_FRASE" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="HTL_FRASE" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexInputCancella"> 
+    <xsd:sequence> 
+     <xsd:element minOccurs="0" name="HTL_ID_FRASE" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:element name="opInserisciFrasi"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request_ws" type="eb:FMLComplexInputInserisci" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opInserisciFrasiResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opModicaFrasi"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request_ws" type="eb:FMLComplexInputModifica" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opModicaFrasiResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCancellaFrasi"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="request_ws" type="eb:FMLComplexInputCancella" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opCancellaFrasiResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="WS_TID" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opInserisciFrasiRequest"> 
+  <wsdl:part element="eb:opInserisciFrasi" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opInserisciFrasiResponse"> 
+  <wsdl:part element="eb:opInserisciFrasiResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opModicaFrasiRequest"> 
+  <wsdl:part element="eb:opModicaFrasi" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opModicaFrasiResponse"> 
+  <wsdl:part element="eb:opModicaFrasiResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCancellaFrasiRequest"> 
+  <wsdl:part element="eb:opCancellaFrasi" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opCancellaFrasiResponse"> 
+  <wsdl:part element="eb:opCancellaFrasiResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_HTL_GESTIONE_COMUNICAZIONISoap"> 
+  <wsdl:operation name="opInserisciFrasi"> 
+   <wsdl:input message="eb:opInserisciFrasiRequest" name="opInserisciFrasiRequest" /> 
+   <wsdl:output message="eb:opInserisciFrasiResponse" name="opInserisciFrasiResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opModicaFrasi"> 
+   <wsdl:input message="eb:opModicaFrasiRequest" name="opModicaFrasiRequest" /> 
+   <wsdl:output message="eb:opModicaFrasiResponse" name="opModicaFrasiResponse" /> 
+  </wsdl:operation> 
+  <wsdl:operation name="opCancellaFrasi"> 
+   <wsdl:input message="eb:opCancellaFrasiRequest" name="opCancellaFrasiRequest" /> 
+   <wsdl:output message="eb:opCancellaFrasiResponse" name="opCancellaFrasiResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_HTL_GESTIONE_COMUNICAZIONISoap" type="eb:WS_HTL_GESTIONE_COMUNICAZIONISoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opInserisciFrasi"> 
+   <soap:operation soapAction="WS_HTL_GESTIONE_COMUNICAZIONI/opInserisciFrasi" style="document" /> 
+   <wsdl:input name="opInserisciFrasiRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opInserisciFrasiResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opModicaFrasi"> 
+   <soap:operation soapAction="WS_HTL_GESTIONE_COMUNICAZIONI/opModicaFrasi" style="document" /> 
+   <wsdl:input name="opModicaFrasiRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opModicaFrasiResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+  <wsdl:operation name="opCancellaFrasi"> 
+   <soap:operation soapAction="WS_HTL_GESTIONE_COMUNICAZIONI/opCancellaFrasi" style="document" /> 
+   <wsdl:input name="opCancellaFrasiRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opCancellaFrasiResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_HTL_GESTIONE_COMUNICAZIONI"> 
+  <wsdl:port binding="eb:WS_HTL_GESTIONE_COMUNICAZIONISoap" name="WS_HTL_GESTIONE_COMUNICAZIONISoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_HTL_GESTIONE_COMUNICAZIONI" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

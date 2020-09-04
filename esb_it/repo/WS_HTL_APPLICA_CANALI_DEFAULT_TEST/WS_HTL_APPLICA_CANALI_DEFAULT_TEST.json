@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_HTL_APPLICA_CANALI_DEFAULT_TEST",
+    "name" : "WS_HTL_APPLICA_CANALI_DEFAULT_TEST",
+    "localPath" : "esb_it\\repo\\WS_HTL_APPLICA_CANALI_DEFAULT_TEST",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_HTL_APPLICA_CANALI_DEFAULT_TEST?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

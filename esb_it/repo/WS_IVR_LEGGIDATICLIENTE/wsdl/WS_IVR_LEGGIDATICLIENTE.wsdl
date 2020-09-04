@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:include schemaLocation="SkyXSD_WS_LEGGIDATICLIENTE.xsd" /> 
+   <xsd:complexType name="DocumentDataInput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataIn" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:complexType name="DocumentDataOutput"> 
+    <xsd:complexContent> 
+     <xsd:extension base="eb:DocumentDataOut" /> 
+    </xsd:complexContent> 
+   </xsd:complexType> 
+   <xsd:element name="opLeggiDatiCliente"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_INPUT" type="eb:DocumentDataInput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opLeggiDatiClienteResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="COMPLEX_OUTPUT" type="eb:DocumentDataOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opLeggiDatiClienteRequest"> 
+  <wsdl:part element="eb:opLeggiDatiCliente" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opLeggiDatiClienteResponse"> 
+  <wsdl:part element="eb:opLeggiDatiClienteResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_IVR_LEGGIDATICLIENTESoap"> 
+  <wsdl:operation name="opLeggiDatiCliente"> 
+   <wsdl:input message="eb:opLeggiDatiClienteRequest" name="opLeggiDatiClienteRequest" /> 
+   <wsdl:output message="eb:opLeggiDatiClienteResponse" name="opLeggiDatiClienteResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_IVR_LEGGIDATICLIENTESoap" type="eb:WS_IVR_LEGGIDATICLIENTESoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opLeggiDatiCliente"> 
+   <soap:operation soapAction="WS_IVR_LEGGIDATICLIENTE/opLeggiDatiCliente" style="document" /> 
+   <wsdl:input name="opLeggiDatiClienteRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opLeggiDatiClienteResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_IVR_LEGGIDATICLIENTE"> 
+  <wsdl:port binding="eb:WS_IVR_LEGGIDATICLIENTESoap" name="WS_IVR_LEGGIDATICLIENTESoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/WS_IVR_LEGGIDATICLIENTE" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

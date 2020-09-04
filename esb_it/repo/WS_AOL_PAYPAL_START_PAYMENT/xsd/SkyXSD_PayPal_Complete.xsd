@@ -1,0 +1,3771 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:cc="urn:ebay:apis:CoreComponentTypes" xmlns:ebl="urn:ebay:apis:eBLBaseComponents" xmlns:ed="urn:ebay:apis:EnhancedDataTypes" xmlns:ns="urn:ebay:api:PayPalAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:ebay:api:PayPalAPI" elementFormDefault="qualified" attributeFormDefault="unqualified"> 
+ <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" /> 
+ <import namespace="urn:ebay:apis:CoreComponentTypes" schemaLocation="CoreComponentTypes.xsd" /> 
+ <import namespace="urn:ebay:apis:eBLBaseComponents" schemaLocation="eBLBaseComponents.xsd" /> 
+ <import namespace="urn:ebay:apis:EnhancedDataTypes" schemaLocation="EnhancedDataTypes.xsd" /> <!-- Custom Security header element--> 
+ <element name="RequesterCredentials" type="ebl:CustomSecurityHeaderType" /> <!-- API Request/Responses --> <!-- Complex data types that BMCreateButtonRequestType, BMUpdateButtonRequestType, and BMGetButtonDetailsResponseType reference. --> <!-- We *should* define these types in eBLBaseComponents.xsd (and actually we used to), but the PayPal Java SDK test SOAP client --> <!-- was (for some reason) unable to serialize or deserialize the elements correctly.  The problem may have something to do with --> <!-- namespace resolution issues.  For now, we'll leave these definitions here.  When we figure out a solution to the problem,   --> <!-- we'll move the definitions back to eBLBaseComponents.xsd.                                                                   --> 
+ <complexType name="InstallmentDetailsType"> 
+  <sequence> 
+   <element name="BillingPeriod" type="ebl:BillingPeriodType" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+       Installment Period. 
+      <br /> 
+      <b>Optional</b> 
+      <br /> 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="BillingFrequency" type="xs:int" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+       Installment Frequency. 
+      <br /> 
+      <b>Optional</b> 
+      <br /> 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="TotalBillingCycles" type="xs:int" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+       Installment Cycles. 
+      <br /> 
+      <b>Optional</b> 
+      <br /> 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="Amount" type="xs:string" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+       Installment Amount. 
+      <br /> 
+      <b>Optional</b> 
+      <br /> 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="ShippingAmount" type="xs:string" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+       Installment Amount. 
+      <br /> 
+      <b>Optional</b> 
+      <br /> 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="TaxAmount" type="xs:string" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+       Installment Amount. 
+      <br /> 
+      <b>Optional</b> 
+      <br /> 
+     </documentation> 
+    </annotation> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OptionSelectionDetailsType"> 
+  <sequence> 
+   <element name="OptionSelection" type="xs:string"> 
+    <annotation> 
+     <documentation>
+       Option Selection. 
+      <br /> 
+      <b>Required</b> 
+      <br /> Character length and limitations: 12 single-byte alphanumeric characters 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="Price" type="xs:string" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+       Option Price. 
+      <br /> 
+      <b>Optional</b> 
+      <br /> 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="OptionType" type="ebl:OptionTypeListType" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+       Option Type 
+      <br /> 
+      <b>Optional</b> 
+      <br /> 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="PaymentPeriod" type="ns:InstallmentDetailsType" minOccurs="0" maxOccurs="10" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="OptionDetailsType"> 
+  <sequence> 
+   <element name="OptionName" type="xs:string"> 
+    <annotation> 
+     <documentation>
+       Option Name. 
+      <br /> 
+      <b>Optional</b> 
+      <br /> 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="OptionSelectionDetails" type="ns:OptionSelectionDetailsType" minOccurs="0" maxOccurs="100" /> 
+  </sequence> 
+ </complexType> <!-- API Request/Responses --> 
+ <element name="BMCreateButtonRequest" type="ns:BMCreateButtonRequestType" /> 
+ <element name="BMCreateButtonResponse" type="ns:BMCreateButtonResponseType" /> 
+ <element name="BMCreateButtonReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:BMCreateButtonRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="BMCreateButtonRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="ButtonType" type="ebl:ButtonTypeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Type of Button to create. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Must be one of the following: BUYNOW, CART, GIFTCERTIFICATE. SUBSCRIBE, PAYMENTPLAN, AUTOBILLING, DONATE, VIEWCART or UNSUBSCRIBE 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonCode" type="ebl:ButtonCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         button code. 
+        <br /> 
+        <br /> 
+        <b>optional</b> 
+        <br /> 
+        <br /> Must be one of the following: hosted, encrypted or cleartext 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonSubType" type="ebl:ButtonSubTypeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button sub type. 
+        <br /> 
+        <br /> 
+        <b>optional for button types buynow and cart only</b> 
+        <br /> 
+        <br /> Must Be either PRODUCTS or SERVICES 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonVar" type="xs:string" minOccurs="0" maxOccurs="1000"> 
+      <annotation> 
+       <documentation>
+         Button Variable information 
+        <br /> 
+        <br /> 
+        <b>At least one required recurring</b> 
+        <br /> 
+        <br /> Character length and limitations: 63 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="OptionDetails" type="ns:OptionDetailsType" minOccurs="0" maxOccurs="5" /> 
+     <element name="TextBox" type="xs:string" minOccurs="0" maxOccurs="2"> 
+      <annotation> 
+       <documentation>
+         Details of each option for the button. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonImage" type="ebl:ButtonImageType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button image to use. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Must be one of: REG, SML, or CC 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonImageURL" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button URL for custom button image. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Character length and limitations: 127 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="BuyNowText" type="ebl:BuyNowTextType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Text to use on Buy Now Button. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Must be either BUYNOW or PAYNOW 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="SubscribeText" type="ebl:SubscribeTextType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Text to use on Subscribe button. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Must be either BUYNOW or SUBSCRIBE 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonCountry" type="ebl:CountryCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button Country. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Must be valid ISO country code 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonLanguage" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button language code. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Character length and limitations: 3 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="BMCreateButtonResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Website" type="xs:string" /> 
+     <element name="Email" type="xs:string" minOccurs="0" /> 
+     <element name="Mobile" type="xs:string" minOccurs="0" /> 
+     <element name="HostedButtonID" type="xs:string" minOccurs="0" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="BMUpdateButtonRequest" type="ns:BMUpdateButtonRequestType" /> 
+ <element name="BMUpdateButtonResponse" type="ns:BMUpdateButtonResponseType" /> 
+ <element name="BMUpdateButtonReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:BMUpdateButtonRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="BMUpdateButtonRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="HostedButtonID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+         Hosted Button id of the button to update. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 10 single-byte numeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonType" type="ebl:ButtonTypeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Type of Button to create. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Must be one of the following: BUYNOW, CART, GIFTCERTIFICATE. SUBSCRIBE, PAYMENTPLAN, AUTOBILLING, DONATE, VIEWCART or UNSUBSCRIBE 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonCode" type="ebl:ButtonCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         button code. 
+        <br /> 
+        <br /> 
+        <b>optional</b> 
+        <br /> 
+        <br /> Must be one of the following: hosted, encrypted or cleartext 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonSubType" type="ebl:ButtonSubTypeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button sub type. 
+        <br /> 
+        <br /> 
+        <b>optional for button types buynow and cart only</b> 
+        <br /> 
+        <br /> Must Be either PRODUCTS or SERVICES 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonVar" type="xs:string" minOccurs="0" maxOccurs="1000"> 
+      <annotation> 
+       <documentation>
+         Button Variable information 
+        <br /> 
+        <br /> 
+        <b>At least one required recurring</b> 
+        <br /> 
+        <br /> Character length and limitations: 63 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="OptionDetails" type="ns:OptionDetailsType" minOccurs="0" maxOccurs="5" /> 
+     <element name="TextBox" type="xs:string" minOccurs="0" maxOccurs="2"> 
+      <annotation> 
+       <documentation>
+         Details of each option for the button. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonImage" type="ebl:ButtonImageType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button image to use. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Must be one of: REG, SML, or CC 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonImageURL" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button URL for custom button image. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Character length and limitations: 127 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="BuyNowText" type="ebl:BuyNowTextType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Text to use on Buy Now Button. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Must be either BUYNOW or PAYNOW 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="SubscribeText" type="ebl:SubscribeTextType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Text to use on Subscribe button. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Must be either BUYNOW or SUBSCRIBE 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonCountry" type="ebl:CountryCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button Country. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Must be valid ISO country code 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonLanguage" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button language code. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Character length and limitations: 2 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="BMUpdateButtonResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Website" type="xs:string" /> 
+     <element name="Email" type="xs:string" minOccurs="0" /> 
+     <element name="Mobile" type="xs:string" minOccurs="0" /> 
+     <element name="HostedButtonID" type="xs:string" minOccurs="0" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="BMManageButtonStatusRequest" type="ns:BMManageButtonStatusRequestType" /> 
+ <element name="BMManageButtonStatusResponse" type="ns:BMManageButtonStatusResponseType" /> 
+ <element name="BMManageButtonStatusReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:BMManageButtonStatusRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="BMManageButtonStatusRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="HostedButtonID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button ID of Hosted button. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 10 single-byte numeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonStatus" type="ebl:ButtonStatusType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Requested Status change for hosted button. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 1 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="BMManageButtonStatusResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType" /> 
+  </complexContent> 
+ </complexType> 
+ <element name="BMGetButtonDetailsRequest" type="ns:BMGetButtonDetailsRequestType" /> 
+ <element name="BMGetButtonDetailsResponse" type="ns:BMGetButtonDetailsResponseType" /> 
+ <element name="BMGetButtonDetailsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:BMGetButtonDetailsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="BMGetButtonDetailsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="HostedButtonID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+         Button ID of button to return. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 10 single-byte numeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="BMGetButtonDetailsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Website" type="xs:string" minOccurs="0" /> 
+     <element name="Email" type="xs:string" minOccurs="0" /> 
+     <element name="Mobile" type="xs:string" minOccurs="0" /> 
+     <element name="HostedButtonID" type="xs:string" minOccurs="0" /> 
+     <element name="ButtonType" type="ebl:ButtonTypeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Type of button. 
+        <br /> 
+        <br /> One of the following: BUYNOW, CART, GIFTCERTIFICATE. SUBSCRIBE, PAYMENTPLAN, AUTOBILLING, DONATE, VIEWCART or UNSUBSCRIBE 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonCode" type="ebl:ButtonCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Type of button code. 
+        <br /> 
+        <br /> One of the following: hosted, encrypted or cleartext 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonSubType" type="ebl:ButtonSubTypeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button sub type. 
+        <br /> 
+        <br /> 
+        <b>optional for button types buynow and cart only</b> 
+        <br /> 
+        <br /> Either PRODUCTS or SERVICES 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonVar" type="xs:string" minOccurs="0" maxOccurs="1000"> 
+      <annotation> 
+       <documentation>
+         Button Variable information 
+        <br /> 
+        <br /> Character length and limitations: 63 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="OptionDetails" type="ns:OptionDetailsType" minOccurs="0" maxOccurs="5" /> 
+     <element name="TextBox" type="xs:string" minOccurs="0" maxOccurs="2"> 
+      <annotation> 
+       <documentation>
+         Text field 
+        <br /> 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonImage" type="ebl:ButtonImageType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button image to use. 
+        <br /> 
+        <br /> One of: REG, SML, or CC 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonImageURL" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button URL for custom button image. 
+        <br /> 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="BuyNowText" type="ebl:BuyNowTextType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Text to use on Buy Now Button. 
+        <br /> 
+        <br /> Either BUYNOW or PAYNOW 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="SubscribeText" type="ebl:SubscribeTextType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Text to use on Subscribe button. 
+        <br /> 
+        <br /> Must be either BUYNOW or SUBSCRIBE 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonCountry" type="ebl:CountryCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button Country. 
+        <br /> 
+        <br /> Valid ISO country code or 'International' 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonLanguage" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Button language code. 
+        <br /> 
+        <br /> Character length and limitations: 3 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="BMSetInventoryRequest" type="ns:BMSetInventoryRequestType" /> 
+ <element name="BMSetInventoryResponse" type="ns:BMSetInventoryResponseType" /> 
+ <element name="BMSetInventoryReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:BMSetInventoryRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="BMSetInventoryRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="HostedButtonID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+         Hosted Button ID of button you wish to change. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 10 single-byte numeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="TrackInv" type="xs:string"> 
+      <annotation> 
+       <documentation>
+         Is Inventory tracked. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> 0 or 1 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="TrackPnl" type="xs:string"> 
+      <annotation> 
+       <documentation>
+         Is PNL Tracked. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> 0 or 1 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:ItemTrackingDetails" minOccurs="0" /> 
+     <element name="OptionIndex" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Option Index. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Character length and limitations: 1 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:OptionTrackingDetails" minOccurs="0" maxOccurs="10" /> 
+     <element name="SoldoutURL" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         URL of page to display when an item is soldout. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Character length and limitations: 127 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ReuseDigitalDownloadKeys" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Whether to use the same digital download key repeatedly. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="AppendDigitalDownloadKeys" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Whether to append these keys to the list or not (replace). 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="DigitalDownloadKeys" type="xs:string" minOccurs="0" maxOccurs="1000"> 
+      <annotation> 
+       <documentation>
+         Zero or more digital download keys to distribute to customers after transaction is completed. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Character length and limitations: 1000 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="BMSetInventoryResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType" /> 
+  </complexContent> 
+ </complexType> 
+ <element name="BMGetInventoryRequest" type="ns:BMGetInventoryRequestType" /> 
+ <element name="BMGetInventoryResponse" type="ns:BMGetInventoryResponseType" /> 
+ <element name="BMGetInventoryReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:BMGetInventoryRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="BMGetInventoryRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="HostedButtonID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+         Hosted Button ID of the button to return inventory for. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 10 single-byte numeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="BMGetInventoryResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="HostedButtonID" type="xs:string" /> 
+     <element name="TrackInv" type="xs:string" /> 
+     <element name="TrackPnl" type="xs:string" /> 
+     <element ref="ebl:ItemTrackingDetails" minOccurs="0" /> 
+     <element name="OptionIndex" type="xs:string" minOccurs="0" /> 
+     <element name="OptionName" type="xs:string" minOccurs="0" /> 
+     <element ref="ebl:OptionTrackingDetails" minOccurs="0" maxOccurs="10" /> 
+     <element name="SoldoutURL" type="xs:string" minOccurs="0" /> 
+     <element name="DigitalDownloadKeys" type="xs:string" minOccurs="0" maxOccurs="1000" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="BMButtonSearchRequest" type="ns:BMButtonSearchRequestType" /> 
+ <element name="BMButtonSearchResponse" type="ns:BMButtonSearchResponseType" /> 
+ <element name="BMButtonSearchReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:BMButtonSearchRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="BMButtonSearchRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="StartDate" type="xs:dateTime" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         The earliest transaction date at which to start the search. No wildcards are allowed. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="EndDate" type="xs:dateTime" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         The latest transaction date to be included in the search 
+        <br /> 
+        <br /> Optional 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="BMButtonSearchResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:ButtonSearchResult" minOccurs="0" maxOccurs="100" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="RefundTransactionRequest" type="ns:RefundTransactionRequestType" /> 
+ <element name="RefundTransactionResponse" type="ns:RefundTransactionResponseType" /> 
+ <element name="RefundTransactionReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:RefundTransactionRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="RefundTransactionRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="TransactionID" type="ebl:TransactionId" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Unique identifier of the transaction you are refunding. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Character length and limitations: 17 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="PayerID" type="ebl:UserIDType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Encrypted PayPal customer account identification number. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Character length and limitations: 127 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="InvoiceID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Invoice number corresponding to transaction details for tracking the refund of a payment. This parameter is passed by the merchant or recipient while refunding the transaction. This parameter does not affect the business logic, it is persisted in the DB for transaction reference 
+        <br /> 
+        <b>Optional</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="RefundType" type="ebl:RefundType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Type of refund you are making 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Amount" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Refund amount. 
+        <br /> 
+        <br /> Amount is 
+        <b>required</b> if RefundType is Partial. 
+        <br /> 
+        <br /> NOTE: If RefundType is Full, do not set Amount. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Memo" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Custom memo about the refund. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> Character length and limitations: 255 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="RetryUntil" type="xs:dateTime" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        The maximum time till which refund must be tried. 
+        <br /> 
+        <br /> Optional 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="RefundSource" type="ebl:RefundSourceCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        The type of funding source for refund. 
+        <br /> 
+        <br /> Optional 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="RefundAdvice" type="xs:boolean" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Flag to indicate that the customer was already given store credit for a given transaction. This will allow us to make sure we do not double refund. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:MerchantStoreDetails" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        To pass the Merchant store information
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:RefundItemDetails" minOccurs="0" maxOccurs="unbounded"> 
+      <annotation> 
+       <documentation>
+        Information about the individual details of the items to be refunded.
+        <br /> 
+        <b>Optional</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Unique id for each API request to prevent duplicate payments. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br />Character length and limits: 38 single-byte characters maximum. 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="RefundTransactionResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="RefundTransactionID" type="ebl:TransactionId" nillable="true" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Unique transaction ID of the refund. 
+        <br /> 
+        <br /> Character length and limitations:17 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="NetRefundAmount" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Amount subtracted from PayPal balance of original recipient of payment to make this refund 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="FeeRefundAmount" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Transaction fee refunded to original recipient of payment 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="GrossRefundAmount" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Amount of money refunded to original payer 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="TotalRefundedAmount" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Total of all previous refunds
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:RefundInfo" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Contains Refund Payment status information.
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ReceiptData" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Any general information like offer details that is reinstated or any other marketing data
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Return msgsubid back to merchant
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="InitiateRecoupRequest" type="ns:InitiateRecoupRequestType" /> 
+ <element name="InitiateRecoupResponse" type="ns:InitiateRecoupResponseType" /> 
+ <element name="InitiateRecoupReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:InitiateRecoupRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="InitiateRecoupRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ed:EnhancedInitiateRecoupRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="InitiateRecoupResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType" /> 
+  </complexContent> 
+ </complexType> 
+ <element name="CompleteRecoupRequest" type="ns:CompleteRecoupRequestType" /> 
+ <element name="CompleteRecoupResponse" type="ns:CompleteRecoupResponseType" /> 
+ <element name="CompleteRecoupReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:CompleteRecoupRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="CompleteRecoupRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ed:EnhancedCompleteRecoupRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="CompleteRecoupResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ed:EnhancedCompleteRecoupResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="CancelRecoupRequest" type="ns:CancelRecoupRequestType" /> 
+ <element name="CancelRecoupResponse" type="ns:CancelRecoupResponseType" /> 
+ <element name="CancelRecoupReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:CancelRecoupRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="CancelRecoupRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ed:EnhancedCancelRecoupRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="CancelRecoupResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType" /> 
+  </complexContent> 
+ </complexType> 
+ <element name="GetTransactionDetailsRequest" type="ns:GetTransactionDetailsRequestType" /> 
+ <element name="GetTransactionDetailsResponse" type="ns:GetTransactionDetailsResponseType" /> 
+ <element name="GetTransactionDetailsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:GetTransactionDetailsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="GetTransactionDetailsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="TransactionID" type="ebl:TransactionId"> 
+      <annotation> 
+       <documentation>
+        Unique identifier of a transaction. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> The details for some kinds of transactions cannot be retrieved with GetTransactionDetailsRequest. You cannot obtain details of bank transfer withdrawals, for example. 
+        <br /> 
+        <br /> Character length and limitations: 17 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="GetTransactionDetailsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:PaymentTransactionDetails" /> 
+     <element ref="ebl:ThreeDSecureDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="BillUserRequest" type="ns:BillUserRequestType" /> 
+ <element name="BillUserResponse" type="ns:BillUserResponseType" /> 
+ <element name="BillUserReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:BillUserRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="BillUserRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:MerchantPullPaymentDetails" /> 
+     <element name="ReturnFMFDetails" type="xs:int" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        This flag indicates that the response should include FMFDetails
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="BillUserResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:BillUserResponseDetails" /> 
+     <element name="FMFDetails" type="ebl:FMFDetailsType" minOccurs="0" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="TransactionSearchRequest" type="ns:TransactionSearchRequestType" /> 
+ <element name="TransactionSearchResponse" type="ns:TransactionSearchResponseType" /> 
+ <element name="TransactionSearchReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:TransactionSearchRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="TransactionSearchRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="StartDate" type="xs:dateTime"> 
+      <annotation> 
+       <documentation>
+        The earliest transaction date at which to start the search. No wildcards are allowed. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="EndDate" type="xs:dateTime" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        The latest transaction date to be included in the search 
+        <br /> 
+        <br /> Optional 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Payer" type="ebl:EmailAddressType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Search by the buyer's email address 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> Character length and limitations: 127 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Receiver" type="ebl:EmailAddressType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Search by the receiver's email address. If the merchant account has only one email, this is the primary email. Can also be a non-primary email. 
+        <br /> 
+        <br /> Optional 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ReceiptID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Search by the PayPal Account Optional receipt ID 
+        <br /> 
+        <br /> Optional 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="TransactionID" type="ebl:TransactionId" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Search by the transaction ID. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> The returned results are from the merchant's transaction records. 
+        <br /> 
+        <br /> Character length and limitations: 19 single-byte characters maximum 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ProfileID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Search by Recurring Payment Profile id. The ProfileID is returned as part of the CreateRecurringPaymentsProfile API response. 
+        <br /> 
+        <br /> Optional 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="PayerName" type="ebl:PersonNameType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Search by the buyer's name 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> Salutation: 20 single-byte character limit. 
+        <br /> 
+        <br /> FirstName: 25 single-byte character limit. 
+        <br /> 
+        <br /> MiddleName: 25 single-byte character limit. 
+        <br /> 
+        <br /> LastName: 25 single-byte character limit. 
+        <br /> 
+        <br /> Suffix: 12 single-byte character limit. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="AuctionItemNumber" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Search by item number of the purchased goods. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> To search for purchased items not related to auctions, set the AuctionItemNumber element to the value of the HTML item_number variable set in the shopping cart for the original transaction.
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="InvoiceID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Search by invoice identification key, as set by you for the original transaction. InvoiceID searches the invoice records for items sold by the merchant, not the items purchased. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> The value for InvoiceID must exactly match an invoice identification number. No wildcards are allowed. 
+        <br /> 
+        <br /> Character length and limitations: 127 single-byte characters maximum
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="CardNumber" type="xs:string" minOccurs="0" /> 
+     <element name="TransactionClass" type="ebl:PaymentTransactionClassCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Search by classification of transaction. Some kinds of possible classes of transactions are not searchable with TransactionSearchRequest. You cannot search for bank transfer withdrawals, for example. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> All: all transaction classifications. 
+        <br /> 
+        <br /> Sent: only payments sent. 
+        <br /> 
+        <br /> Received: only payments received. 
+        <br /> 
+        <br /> MassPay: only mass payments. 
+        <br /> 
+        <br /> MoneyRequest: only money requests. 
+        <br /> 
+        <br /> FundsAdded: only funds added to balance. 
+        <br /> 
+        <br /> FundsWithdrawn: only funds withdrawn from balance. 
+        <br /> 
+        <br /> Referral: only transactions involving referrals. 
+        <br /> 
+        <br /> Fee: only transactions involving fees. 
+        <br /> 
+        <br /> Subscription: only transactions involving subscriptions. 
+        <br /> 
+        <br /> Dividend: only transactions involving dividends. 
+        <br /> 
+        <br /> Billpay: only transactions involving BillPay Transactions. 
+        <br /> 
+        <br /> Refund: only transactions involving funds. 
+        <br /> 
+        <br /> CurrencyConversions: only transactions involving currency conversions. 
+        <br /> 
+        <br /> BalanceTransfer: only transactions involving balance transfers. 
+        <br /> 
+        <br /> Reversal: only transactions involving BillPay reversals. 
+        <br /> 
+        <br /> Shipping: only transactions involving UPS shipping fees. 
+        <br /> 
+        <br /> BalanceAffecting: only transactions that affect the account balance. 
+        <br /> 
+        <br /> ECheck: only transactions involving eCheck 
+        <br /> 
+        <br /> ForcedPostTransaction: forced post transaction. 
+        <br /> 
+        <br /> NonReferencedRefunds: non-referenced refunds. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Amount" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Search by transaction amount 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> You must set the currencyID attribute to one of the three-character currency codes for any of the supported PayPal currencies. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="CurrencyCode" type="ebl:CurrencyCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Search by currency code 
+        <br /> 
+        <br /> Optional 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Status" type="ebl:PaymentTransactionStatusCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Search by transaction status 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> Pending: The payment is pending. The specific reason the payment is pending is returned by the GetTransactionDetails APIPendingReason element. For more information, see PendingReason. 
+        <br /> 
+        <br /> Processing: The payment is being processed. 
+        <br /> 
+        <br /> Success: The payment has been completed and the funds have been added successfully to your account balance. 
+        <br /> 
+        <br /> Denied: You denied the payment. This happens only if the payment was previously pending. 
+        <br /> 
+        <br /> Reversed: A payment was reversed due to a chargeback or other type of reversal. The funds have been removed from your account balance and returned to the buyer. 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="TransactionSearchResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:PaymentTransactions" minOccurs="0" maxOccurs="unbounded"> 
+      <annotation> 
+       <documentation>
+        Results of a Transaction Search.
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="MassPayRequest" type="ns:MassPayRequestType" /> 
+ <element name="MassPayResponse" type="ns:MassPayResponseType" /> 
+ <element name="MassPayReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:MassPayRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="MassPayRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="EmailSubject" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Subject line of the email sent to all recipients. This subject is not contained in the input file; you must create it with your application. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> Character length and limitations: 255 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ReceiverType" type="ebl:ReceiverInfoCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Indicates how you identify the recipients of payments in all MassPayItems: either by EmailAddress (ReceiverEmail in MassPayItem), PhoneNumber (ReceiverPhone in MassPayItem), or by UserID (ReceiverID in MassPayItem). 
+        <br /> 
+        <br /> 
+        <b>Required. </b>You must specify one or the other of EmailAddress or UserID. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ButtonSource" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Known as BN code, to track the partner referred merchant transactions. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> Character length and limitations: 32 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="MassPayItem" type="ns:MassPayRequestItemType" maxOccurs="250"> 
+      <annotation> 
+       <documentation>
+        Details of each payment. A single MassPayRequest can include up to 250 MassPayItems. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="MassPayResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType" /> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="MassPayRequestItemType"> 
+  <annotation> 
+   <documentation>
+     MassPayRequestItemType 
+   </documentation> 
+  </annotation> 
+  <sequence> 
+   <element name="ReceiverEmail" type="ebl:EmailAddressType" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+      Email address of recipient. 
+      <br /> 
+      <br /> 
+      <b>Required</b> 
+      <br /> 
+      <br /> You must specify ReceiverEmail, ReceiverPhone, or ReceiverID, but all MassPayItems in a request must use the same field to specify recipients. 
+      <br /> 
+      <br /> Character length and limitations: 127 single-byte characters maximum. 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="ReceiverPhone" type="xs:string" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+      Phone number of recipient. 
+      <br /> 
+      <br /> 
+      <b>Required</b> 
+      <br /> 
+      <br /> You must specify ReceiverEmail, ReceiverPhone, or ReceiverID, but all MassPayItems in a request must use the same field to specify recipients. 
+      <br /> 
+      <br /> 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="ReceiverID" type="ebl:UserIDType" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+      Unique PayPal customer account number. This value corresponds to the value of PayerID returned by GetTransactionDetails. 
+      <br /> 
+      <br /> 
+      <b>Required</b> 
+      <br /> 
+      <br /> You must specify ReceiverEmail, ReceiverPhone, or ReceiverID, but all MassPayItems in a request must use the same field to specify recipients. 
+      <br /> 
+      <br /> Character length and limitations: 17 single-byte characters maximum. 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="Amount" type="cc:BasicAmountType"> 
+    <annotation> 
+     <documentation>
+      Payment amount. You must set the currencyID attribute to one of the three-character currency codes for any of the supported PayPal currencies. 
+      <br /> 
+      <br /> 
+      <b>Required</b> 
+      <br /> 
+      <br /> You cannot mix currencies in a single MassPayRequest. A single request must include items that are of the same currency. 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="UniqueId" type="xs:string" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+      Transaction-specific identification number for tracking in an accounting system. 
+      <br /> 
+      <br /> Optional 
+      <br /> 
+      <br /> Character length and limitations: 30 single-byte characters. No whitespace allowed. 
+     </documentation> 
+    </annotation> 
+   </element> 
+   <element name="Note" type="xs:string" minOccurs="0"> 
+    <annotation> 
+     <documentation>
+      Custom note for each recipient. 
+      <br /> 
+      <br /> Optional 
+      <br /> 
+      <br /> Character length and limitations: 4,000 single-byte alphanumeric characters 
+     </documentation> 
+    </annotation> 
+   </element> 
+  </sequence> 
+ </complexType> 
+ <element name="BAUpdateRequest" type="ns:BAUpdateRequestType" /> 
+ <element name="BAUpdateResponse" type="ns:BAUpdateResponseType" /> 
+ <element name="BillAgreementUpdateReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:BAUpdateRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="BAUpdateRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="ReferenceID" type="xs:string"> 
+      <annotation> 
+       <documentation> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="BillingAgreementDescription" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="BillingAgreementStatus" type="ebl:MerchantPullStatusCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="BillingAgreementCustom" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation> 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="BAUpdateResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:BAUpdateResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="AddressVerifyRequest" type="ns:AddressVerifyRequestType" /> 
+ <element name="AddressVerifyResponse" type="ns:AddressVerifyResponseType" /> 
+ <element name="AddressVerifyReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:AddressVerifyRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="AddressVerifyRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="Email" type="ebl:EmailAddressType"> 
+      <annotation> 
+       <documentation>
+        Email address of buyer to be verified. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Maximum string length: 255 single-byte characters Input mask: ?@?.?? 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Street" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        First line of buyer’s billing or shipping street address to be verified. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br />For verification, input value of street address must match the first three single-byte characters of the street address on file for the PayPal account. 
+        <br /> 
+        <br /> Maximum string length: 35 single-byte characters Alphanumeric plus - , . ‘ # \ Whitespace and case of input value are ignored. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Zip" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        Postal code to be verified. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> For verification, input value of postal code must match the first five single-byte characters of the postal code on file for the PayPal account. 
+        <br /> 
+        <br /> Maximum string length: 16 single-byte characters Whitespace and case of input value are ignored. 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="AddressVerifyResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="ConfirmationCode" type="ebl:AddressStatusCodeType"> 
+      <annotation> 
+       <documentation>
+        Confirmation of a match, with one of the following tokens: 
+        <br /> 
+        <br /> None: The input value of the Email object does not match any email address on file at PayPal. 
+        <br /> 
+        <br /> Confirmed: If the value of the StreetMatch object is Matched, PayPal responds that the entire postal address is confirmed. 
+        <br /> 
+        <br /> Unconfirmed: PayPal responds that the postal address is unconfirmed
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="StreetMatch" type="ebl:MatchStatusCodeType"> 
+      <annotation> 
+       <documentation>
+        PayPal has compared the postal address you want to verify with the postal address on file at PayPal. 
+        <br /> 
+        <br /> None: The input value of the Email object does not match any email address on file at PayPal. In addition, an error response is returned. No further comparison of other input values has been made. 
+        <br /> 
+        <br /> Matched: The street address matches the street address on file at PayPal. 
+        <br /> 
+        <br /> Unmatched: The street address does not match the street address on file at PayPal. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ZipMatch" type="ebl:MatchStatusCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        PayPal has compared the zip code you want to verify with the zip code on file for the email address. 
+        <br /> 
+        <br /> None: The street address was unmatched. No further comparison of other input values has been made. 
+        <br /> 
+        <br />Matched: The zip code matches the zip code on file at PayPal. 
+        <br /> 
+        <br />Unmatched: The zip code does not match the zip code on file at PayPal. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="CountryCode" type="ebl:CountryCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Two-character country code (ISO 3166) on file for the PayPal email address. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="PayPalToken" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        The token prevents a buyer from using any street address other than the address on file at PayPal during additional purchases he might make from the merchant. It contains encrypted information about the user’s street address and email address. You can pass the value of the token with the Buy Now button HTML address_api_token variable so that PayPal prevents the buyer from using any street address or email address other than those verified by PayPal. The token is valid for 24 hours. 
+        <br /> Character length and limitations: 94 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="EnterBoardingRequest" type="ns:EnterBoardingRequestType" /> 
+ <element name="EnterBoardingResponse" type="ns:EnterBoardingResponseType" /> 
+ <element name="EnterBoardingReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:EnterBoardingRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="EnterBoardingRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:EnterBoardingRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="EnterBoardingResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Token" type="ebl:ExpressCheckoutTokenType"> 
+      <annotation> 
+       <documentation>
+         A unique token that identifies this boarding session. Use this token with the GetBoarding Details API call. 
+        <br /> 
+        <br /> Character length and limitations: 64 alphanumeric characters. The token has the following format: 
+        <br /> 
+        <br /> OB-61characterstring
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="GetBoardingDetailsRequest" type="ns:GetBoardingDetailsRequestType" /> 
+ <element name="GetBoardingDetailsResponse" type="ns:GetBoardingDetailsResponseType" /> 
+ <element name="GetBoardingDetailsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:GetBoardingDetailsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="GetBoardingDetailsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="Token" type="ebl:ExpressCheckoutTokenType"> 
+      <annotation> 
+       <documentation>
+         A unique token returned by the EnterBoarding API call that identifies this boarding session. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 64 alphanumeric characters. The token has the following format: 
+        <br /> 
+        <br /> OB-61characterstring
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="GetBoardingDetailsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:GetBoardingDetailsResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="SetAuthFlowParamRequest" type="ns:SetAuthFlowParamRequestType" /> 
+ <element name="SetAuthFlowParamResponse" type="ns:SetAuthFlowParamResponseType" /> 
+ <element name="SetAuthFlowParamReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:SetAuthFlowParamRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="SetAuthFlowParamRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:SetAuthFlowParamRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="SetAuthFlowParamResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Token" type="ebl:AuthFlowTokenType"> 
+      <annotation> 
+       <documentation>
+        A timestamped token by which you identify to PayPal that you are processing this user. The token expires after three hours. 
+        <br /> 
+        <br /> Character length and limitations: 20 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="GetAuthDetailsRequest" type="ns:GetAuthDetailsRequestType" /> 
+ <element name="GetAuthDetailsResponse" type="ns:GetAuthDetailsResponseType" /> 
+ <element name="GetAuthDetailsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:GetAuthDetailsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="GetAuthDetailsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="Token" type="ebl:AuthFlowTokenType"> 
+      <annotation> 
+       <documentation>
+        A timestamped token, the value of which was returned by SetAuthFlowParam Response. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 20 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="GetAuthDetailsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:GetAuthDetailsResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="SetAccessPermissionsRequest" type="ns:SetAccessPermissionsRequestType" /> 
+ <element name="SetAccessPermissionsResponse" type="ns:SetAccessPermissionsResponseType" /> 
+ <element name="SetAccessPermissionsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:SetAccessPermissionsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="SetAccessPermissionsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:SetAccessPermissionsRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="SetAccessPermissionsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Token" type="ebl:AuthFlowTokenType"> 
+      <annotation> 
+       <documentation>
+        A timestamped token by which you identify to PayPal that you are processing this user. The token expires after three hours. 
+        <br /> 
+        <br /> Character length and limitations: 20 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="UpdateAccessPermissionsRequest" type="ns:UpdateAccessPermissionsRequestType" /> 
+ <element name="UpdateAccessPermissionsResponse" type="ns:UpdateAccessPermissionsResponseType" /> 
+ <element name="UpdateAccessPermissionsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:UpdateAccessPermissionsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="UpdateAccessPermissionsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="PayerID" type="ebl:UserIDType"> 
+      <annotation> 
+       <documentation>
+        Unique PayPal customer account number, the value of which was returned by GetAuthDetails Response. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 20 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="UpdateAccessPermissionsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Status" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        The status of the update call, Success/Failure. 
+        <br /> 
+        <br /> Character length and limitations: 20 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="GetAccessPermissionDetailsRequest" type="ns:GetAccessPermissionDetailsRequestType" /> 
+ <element name="GetAccessPermissionDetailsResponse" type="ns:GetAccessPermissionDetailsResponseType" /> 
+ <element name="GetAccessPermissionDetailsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:GetAccessPermissionDetailsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="GetAccessPermissionDetailsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="Token" type="ebl:AuthFlowTokenType"> 
+      <annotation> 
+       <documentation>
+        A timestamped token, the value of which was returned by SetAuthFlowParam Response. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 20 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="GetAccessPermissionDetailsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:GetAccessPermissionDetailsResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="GetIncentiveEvaluationRequest" type="ns:GetIncentiveEvaluationRequestType" /> 
+ <element name="GetIncentiveEvaluationResponse" type="ns:GetIncentiveEvaluationResponseType" /> 
+ <element name="GetIncentiveEvaluationReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:GetIncentiveEvaluationRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="GetIncentiveEvaluationRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:GetIncentiveEvaluationRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="GetIncentiveEvaluationResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:GetIncentiveEvaluationResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="SetExpressCheckoutRequest" type="ns:SetExpressCheckoutRequestType" /> 
+ <complexType name="SetExpressCheckoutResponse"> 
+  <complexContent> 
+   <extension base="ns:SetExpressCheckoutResponseType" /> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="SetExpressCheckoutReq"> 
+  <sequence> 
+   <element ref="ns:SetExpressCheckoutRequest" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="SetExpressCheckoutRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:SetExpressCheckoutRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="SetExpressCheckoutResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Token" type="ebl:ExpressCheckoutTokenType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        A timestamped token by which you identify to PayPal that you are processing this payment with Express Checkout. The token expires after three hours. If you set Token in the SetExpressCheckoutRequest, the value of Token in the response is identical to the value in the request. 
+        <br /> 
+        <br /> Character length and limitations: 20 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="ExecuteCheckoutOperationsRequest" type="ns:ExecuteCheckoutOperationsRequestType" /> 
+ <element name="ExecuteCheckoutOperationsResponse" type="ns:ExecuteCheckoutOperationsResponseType" /> 
+ <element name="ExecuteCheckoutOperationsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:ExecuteCheckoutOperationsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="ExecuteCheckoutOperationsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:ExecuteCheckoutOperationsRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="ExecuteCheckoutOperationsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:ExecuteCheckoutOperationsResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="GetExpressCheckoutDetailsRequest" type="ns:GetExpressCheckoutDetailsRequestType" /> 
+ <element name="GetExpressCheckoutDetailsResponse" type="ns:GetExpressCheckoutDetailsResponseType" /> 
+ <element name="GetExpressCheckoutDetailsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:GetExpressCheckoutDetailsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="GetExpressCheckoutDetailsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="Token" type="ebl:ExpressCheckoutTokenType"> 
+      <annotation> 
+       <documentation>
+        A timestamped token, the value of which was returned by SetExpressCheckoutResponse. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 20 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="GetExpressCheckoutDetailsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:GetExpressCheckoutDetailsResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoExpressCheckoutPaymentRequest" type="ns:DoExpressCheckoutPaymentRequestType" /> 
+ <complexType name="DoExpressCheckoutPaymentResponse"> 
+  <complexContent> 
+   <extension base="ns:DoExpressCheckoutPaymentResponseType" /> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoExpressCheckoutPaymentReq"> 
+  <sequence> 
+   <element ref="ns:DoExpressCheckoutPaymentRequest" /> 
+  </sequence> 
+ </complexType> 
+ <complexType name="DoExpressCheckoutPaymentRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:DoExpressCheckoutPaymentRequestDetails" /> 
+     <element name="ReturnFMFDetails" type="xs:int" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        This flag indicates that the response should include FMFDetails
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoExpressCheckoutPaymentResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:DoExpressCheckoutPaymentResponseDetails" /> 
+     <element name="FMFDetails" type="ebl:FMFDetailsType" minOccurs="0" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoUATPExpressCheckoutPaymentRequest" type="ns:DoUATPExpressCheckoutPaymentRequestType" /> 
+ <element name="DoUATPExpressCheckoutPaymentResponse" type="ns:DoUATPExpressCheckoutPaymentResponseType" /> 
+ <element name="DoUATPExpressCheckoutPaymentReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:DoUATPExpressCheckoutPaymentRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="DoUATPExpressCheckoutPaymentRequestType"> 
+  <complexContent> 
+   <extension base="ns:DoExpressCheckoutPaymentRequestType" /> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoUATPExpressCheckoutPaymentResponseType"> 
+  <complexContent> 
+   <extension base="ns:DoExpressCheckoutPaymentResponseType"> 
+    <sequence> 
+     <element ref="ebl:UATPDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="ManagePendingTransactionStatusRequest" type="ns:ManagePendingTransactionStatusRequestType" /> 
+ <element name="ManagePendingTransactionStatusResponse" type="ns:ManagePendingTransactionStatusResponseType" /> 
+ <element name="ManagePendingTransactionStatusReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:ManagePendingTransactionStatusRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="ManagePendingTransactionStatusRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="TransactionID" type="ebl:TransactionId" /> 
+     <element name="Action" type="ebl:FMFPendingTransactionActionType" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="ManagePendingTransactionStatusResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="TransactionID" type="ebl:TransactionId" /> 
+     <element name="Status" type="xs:string" minOccurs="0" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoDirectPaymentRequest" type="ns:DoDirectPaymentRequestType" /> 
+ <element name="DoDirectPaymentResponse" type="ns:DoDirectPaymentResponseType" /> 
+ <element name="DoDirectPaymentReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:DoDirectPaymentRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="DoDirectPaymentRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:DoDirectPaymentRequestDetails" /> 
+     <element name="ReturnFMFDetails" type="xs:int" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        This flag indicates that the response should include FMFDetails
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoDirectPaymentResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Amount" type="cc:BasicAmountType"> 
+      <annotation> 
+       <documentation>
+         The amount of the payment as specified by you on DoDirectPaymentRequest.
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="AVSCode" type="xs:string"> 
+      <annotation> 
+       <documentation>
+         Address Verification System response code. Character limit: One single-byte alphanumeric character 
+        <table> 
+         <tr> 
+          <th>AVS Code</th> 
+          <th>Meaning</th> 
+          <th>Matched Details</th> 
+         </tr> 
+         <tr> 
+          <td>A </td> 
+          <td>Address</td> 
+          <td>Address only (no ZIP) </td> 
+         </tr> 
+         <tr> 
+          <td>B </td> 
+          <td>International “A”</td> 
+          <td>Address only (no ZIP)</td> 
+         </tr> 
+         <tr> 
+          <td>C</td> 
+          <td>International “N”</td> 
+          <td> None </td> 
+         </tr> 
+         <tr> 
+          <td>D</td> 
+          <td>International “X” </td> 
+          <td>Address and Postal Code</td> 
+         </tr> 
+         <tr> 
+          <td>E </td> 
+          <td>Not allowed for MOTO (Internet/Phone) transactions </td> 
+          <td>Not applicable</td> 
+         </tr> 
+         <tr> 
+          <td>F </td> 
+          <td>UK-specific “X”</td> 
+          <td>Address and Postal Code </td> 
+         </tr> 
+         <tr> 
+          <td>G </td> 
+          <td>Global Unavailable</td> 
+          <td> Not applicable </td> 
+         </tr> 
+         <tr> 
+          <td>I </td> 
+          <td>International Unavailable</td> 
+          <td>Not applicable </td> 
+         </tr> 
+         <tr> 
+          <td>N </td> 
+          <td>No</td> 
+          <td>None</td> 
+         </tr> 
+         <tr> 
+          <td>P</td> 
+          <td>Postal (International “Z”)</td> 
+          <td>Postal Code only (no Address) </td> 
+         </tr> 
+         <tr> 
+          <td>R</td> 
+          <td>Retry</td> 
+          <td>Not applicable</td> 
+         </tr> 
+         <tr> 
+          <td>S </td> 
+          <td>Service not Supported </td> 
+          <td>Not applicable </td> 
+         </tr> 
+         <tr> 
+          <td>U </td> 
+          <td>Unavailable</td> 
+          <td>Not applicable </td> 
+         </tr> 
+         <tr> 
+          <td>W </td> 
+          <td>Whole ZIP</td> 
+          <td>Nine-digit ZIP code (no Address) </td> 
+         </tr> 
+         <tr> 
+          <td>X </td> 
+          <td>Exact match </td> 
+          <td>Address and nine-digit ZIP code</td> 
+         </tr> 
+         <tr> 
+          <td>Y </td> 
+          <td>Yes</td> 
+          <td>Address and five-digit ZIP</td> 
+         </tr> 
+         <tr> 
+          <td>Z </td> 
+          <td>ZIP</td> 
+          <td> Five-digit ZIP code (no Address)</td> 
+         </tr> 
+         <tr> 
+          <td>All others </td> 
+          <td>Error Not applicable</td> 
+          <td></td> 
+         </tr> 
+        </table> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="CVV2Code" type="xs:string"> 
+      <annotation> 
+       <documentation>
+         Result of the CVV2 check by PayPal. 
+        <table> 
+         <tr> 
+          <th>CVV2 Code</th> 
+          <th>Meaning</th> 
+          <th>Matched Details</th> 
+         </tr> 
+         <tr> 
+          <td>M </td> 
+          <td>Match</td> 
+          <td>CVV2 </td> 
+         </tr> 
+         <tr> 
+          <td>N </td> 
+          <td>No match </td> 
+          <td>None</td> 
+         </tr> 
+         <tr> 
+          <td>P </td> 
+          <td>Not Processed</td> 
+          <td>Not applicable</td> 
+         </tr> 
+         <tr> 
+          <td>S</td> 
+          <td>Service not Supported</td> 
+          <td>Not applicable</td> 
+         </tr> 
+         <tr> 
+          <td>U </td> 
+          <td>Unavailable</td> 
+          <td>Not applicable</td> 
+         </tr> 
+         <tr> 
+          <td>X</td> 
+          <td>No response</td> 
+          <td> Not applicable</td> 
+         </tr> 
+         <tr> 
+          <td>All others </td> 
+          <td>Error</td> 
+          <td>Not applicable </td> 
+         </tr> 
+        </table> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="TransactionID" type="ebl:TransactionId"> 
+      <annotation> 
+       <documentation>
+         Transaction identification number. 
+        <br /> 
+        <br /> Character length and limitations: 19 characters maximum.
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="PendingReason" type="ebl:PendingStatusCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         The reason why a particular transaction went in pending. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="PaymentStatus" type="ebl:PaymentStatusCodeType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         This will identify the actual transaction status. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="FMFDetails" type="ebl:FMFDetailsType" minOccurs="0" /> 
+     <element name="ThreeDSecureResponse" type="ebl:ThreeDSecureResponseType" minOccurs="0" /> 
+     <element name="PaymentAdviceCode" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Response code from the processor when a recurring transaction is declined. 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoCancelRequest" type="ns:DoCancelRequestType" /> 
+ <element name="DoCancelResponse" type="ns:DoCancelResponseType" /> 
+ <element name="DoCancelReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:DoCancelRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="DoCancelRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="CancelMsgSubID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        Msg Sub Id that was used for the orginal operation. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="APIType" type="ebl:APIType"> 
+      <annotation> 
+       <documentation>
+        Original API's type
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Unique id for each API request to prevent duplicate payments. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br />Character length and limits: 38 single-byte characters maximum. 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoCancelResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Return msgsubid back to merchant
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoCaptureRequest" type="ns:DoCaptureRequestType" /> 
+ <element name="DoCaptureResponse" type="ns:DoCaptureResponseType" /> 
+ <element name="DoCaptureReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:DoCaptureRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="DoCaptureRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="AuthorizationID" type="ebl:AuthorizationId"> 
+      <annotation> 
+       <documentation>
+        The authorization identification number of the payment you want to capture. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limits: 19 single-byte characters maximum 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Amount" type="cc:BasicAmountType"> 
+      <annotation> 
+       <documentation>
+        Amount to authorize. You must set the currencyID attribute to USD. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Limitations: Must not exceed $10,000 USD in any currency. No currency symbol. Decimal separator must be a period (.), and the thousands separator must be a comma (,) 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="CompleteType" type="ebl:CompleteCodeType"> 
+      <annotation> 
+       <documentation>
+        Indicates if this capture is the last capture you intend to make. The default is Complete. If CompleteType is Complete, any remaining amount of the original reauthorized transaction is automatically voided. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limits: 12 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Note" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        An informational note about this settlement that is displayed to the payer in email and in transaction history. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> Character length and limits: 255 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="InvoiceID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Your invoice number or other identification number. 
+        <br /> 
+        <br /> The InvoiceID value is recorded only if the authorization you are capturing is an order authorization, not a basic authorization. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> Character length and limits: 127 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:EnhancedData" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Contains enhanced data like airline itinerary information. 
+        <br /> 
+        <br /> 
+        <b>Not Required</b> 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Descriptor" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        dynamic descriptor 
+        <br /> 
+        <br /> Dynamic descriptor is used for merchant to provide detail of a transaction appears on statement 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br /> 
+        <br /> Character length and limits: &lt;18 characters alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:MerchantStoreDetails" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        To pass the Merchant store information
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Unique id for each API request to prevent duplicate payments. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br />Character length and limits: 38 single-byte characters maximum. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:MerchantData" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        This holds key-value pair which merchants wants to pass it to the open wallet-PLCC processor
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoCaptureResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:DoCaptureResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoReauthorizationRequest" type="ns:DoReauthorizationRequestType" /> 
+ <element name="DoReauthorizationResponse" type="ns:DoReauthorizationResponseType" /> 
+ <element name="DoReauthorizationReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:DoReauthorizationRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="DoReauthorizationRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="AuthorizationID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        The value of a previously authorized transaction identification number returned by a PayPal product. You can obtain a buyer's transaction number from the TransactionID element of the PayerInfo structure returned by GetTransactionDetailsResponse. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limits: 19 single-byte characters maximum 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Amount" type="cc:BasicAmountType"> 
+      <annotation> 
+       <documentation>
+        Amount to reauthorize. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Limitations: Must not exceed $10,000 USD in any currency. No currency symbol. Decimal separator must be a period (.), and the thousands separator must be a comma (,). 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Unique id for each API request to prevent duplicate payments. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br />Character length and limits: 38 single-byte characters maximum. 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoReauthorizationResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="AuthorizationID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        A new authorization identification number. 
+        <br /> 
+        <br />Character length and limits: 19 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:AuthorizationInfo" minOccurs="0" /> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Return msgsubid back to merchant
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoVoidRequest" type="ns:DoVoidRequestType" /> 
+ <element name="DoVoidResponse" type="ns:DoVoidResponseType" /> 
+ <element name="DoVoidReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:DoVoidRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="DoVoidRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="AuthorizationID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        The value of the original authorization identification number returned by a PayPal product. 
+        <br /> 
+        <br /> If you are voiding a transaction that has been reauthorized, use the ID from the original authorization, and not the reauthorization. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limits: 19 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Note" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        An informational note about this settlement that is displayed to the payer in email and in transaction history. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> Character length and limits: 255 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Unique id for each API request to prevent duplicate payments. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br />Character length and limits: 38 single-byte characters maximum. 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoVoidResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="AuthorizationID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        The authorization identification number you specified in the request. 
+        <br /> 
+        <br /> Character length and limits: 19 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Return msgsubid back to merchant
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoAuthorizationRequest" type="ns:DoAuthorizationRequestType" /> 
+ <element name="DoAuthorizationResponse" type="ns:DoAuthorizationResponseType" /> 
+ <element name="DoAuthorizationReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:DoAuthorizationRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="DoAuthorizationRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="TransactionID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        The value of the order’s transaction identification number returned by a PayPal product. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br />Character length and limits: 19 single-byte characters maximum 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="TransactionEntity" type="ebl:TransactionEntityType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Type of transaction to authorize. The only allowable value is 
+        <b>Order</b>, which means that the transaction represents a customer order that can be fulfilled over 29 days. 
+        <br /> 
+        <br /> Optional 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Amount" type="cc:BasicAmountType"> 
+      <annotation> 
+       <documentation>
+        Amount to authorize. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Limitations: Must not exceed $10,000 USD in any currency. No currency symbol. Decimal separator must be a period (.), and the thousands separator must be a comma (,). 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:ShipToAddress" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Address the order will be shipped to. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:PaymentDetailsItem" minOccurs="0" maxOccurs="unbounded"> 
+      <annotation> 
+       <documentation>
+         Information about the individual purchased items 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ItemTotal" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Sum of cost of all items in this order. You must set the currencyID attribute to one of the three-character currency codes for any of the supported PayPal currencies. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br />Limitations: Must not exceed $10,000 USD in any currency. No currency symbol. Decimal separator must be a period (.), and the thousands separator must be a comma (,). 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ShippingTotal" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Total shipping costs for this order. You must set the currencyID attribute to one of the three-character currency codes for any of the supported PayPal currencies. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br />Limitations: Must not exceed $10,000 USD in any currency. No currency symbol. Decimal separator must be a period (.), and the thousands separator must be a comma (,). 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="HandlingTotal" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Total handling costs for this order. You must set the currencyID attribute to one of the three-character currency codes for any of the supported PayPal currencies. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br />Limitations: Must not exceed $10,000 USD in any currency. No currency symbol. Decimal separator must be a period (.), and the thousands separator must be a comma (,). 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="TaxTotal" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Sum of tax for all items in this order. You must set the currencyID attribute to one of the three-character currency codes for any of the supported PayPal currencies. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br />Limitations: Must not exceed $10,000 USD in any currency. No currency symbol. Decimal separator must be a period (.), and the thousands separator must be a comma (,). 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="InsuranceTotal" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Total shipping insurance costs for this order.
+        <br /> Optional
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ShippingDiscount" type="cc:BasicAmountType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Shipping discount for this order, specified as a negative number.
+        <br /> Optional
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="OrderDescription" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Description of items the customer is purchasing. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br />Character length and limitations: 127 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Custom" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         A free-form field for your own use. 
+        <br /> 
+        <br /> Optional 
+        <br /> 
+        <br />Character length and limitations: 256 single-byte alphanumeric characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Unique id for each API request to prevent duplicate payments. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br />Character length and limits: 38 single-byte characters maximum. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="IPAddress" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         IP Address of the buyer 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoAuthorizationResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="TransactionID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        An authorization identification number. 
+        <br /> 
+        <br /> Character length and limits: 19 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Amount" type="cc:BasicAmountType"> 
+      <annotation> 
+       <documentation>
+        The amount and currency you specified in the request. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:AuthorizationInfo" minOccurs="0" /> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Return msgsubid back to merchant
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="UpdateAuthorizationRequest" type="ns:UpdateAuthorizationRequestType" /> 
+ <element name="UpdateAuthorizationResponse" type="ns:UpdateAuthorizationResponseType" /> 
+ <element name="UpdateAuthorizationReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:UpdateAuthorizationRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="UpdateAuthorizationRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="TransactionID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        The value of the authorizationâtransaction identification number returned by a PayPal product. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br />Character length and limits: 19 single-byte characters maximum 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:ShipToAddress" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Shipping Address for this transaction. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="IPAddress" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         IP Address of the buyer 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="UpdateAuthorizationResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="TransactionID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        An authorization identification number. 
+        <br /> 
+        <br /> Character length and limits: 19 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element ref="ebl:AuthorizationInfo" minOccurs="0" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoUATPAuthorizationRequest" type="ns:DoUATPAuthorizationRequestType" /> 
+ <element name="DoUATPAuthorizationResponse" type="ns:DoUATPAuthorizationResponseType" /> 
+ <element name="DoUATPAuthorizationReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:DoUATPAuthorizationRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="DoUATPAuthorizationRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:UATPDetails"> 
+      <annotation> 
+       <documentation>
+        UATP card details 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="TransactionEntity" type="ebl:TransactionEntityType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Type of transaction to authorize. The only allowable value is 
+        <b>Order</b>, which means that the transaction represents a customer order that can be fulfilled over 29 days. 
+        <br /> 
+        <br /> Optional 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="Amount" type="cc:BasicAmountType"> 
+      <annotation> 
+       <documentation>
+        Amount to authorize. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Limitations: Must not exceed $10,000 USD in any currency. No currency symbol. Decimal separator must be a period (.), and the thousands separator must be a comma (,). 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="InvoiceID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Invoice ID. A pass through. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Unique id for each API request to prevent duplicate payments. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br />Character length and limits: 38 single-byte characters maximum. 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoUATPAuthorizationResponseType"> 
+  <complexContent> 
+   <extension base="ns:DoAuthorizationResponseType"> 
+    <sequence> 
+     <element ref="ebl:UATPDetails" /> 
+     <element name="AuthorizationCode" type="xs:string"> 
+      <annotation> 
+       <documentation>
+         Auth Authorization Code. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="InvoiceID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         Invoice ID. A pass through. 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="MsgSubID" type="xs:string" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        Unique id for each API request to prevent duplicate payments. 
+        <br /> 
+        <br /> 
+        <b>Optional</b> 
+        <br />Character length and limits: 38 single-byte characters maximum. 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="CreateMobilePaymentRequest" type="ns:CreateMobilePaymentRequestType" /> 
+ <element name="CreateMobilePaymentResponse" type="ns:CreateMobilePaymentResponseType" /> 
+ <element name="CreateMobilePaymentReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:CreateMobilePaymentRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="CreateMobilePaymentRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:CreateMobilePaymentRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="CreateMobilePaymentResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence /> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="GetMobileStatusRequest" type="ns:GetMobileStatusRequestType" /> 
+ <element name="GetMobileStatusResponse" type="ns:GetMobileStatusResponseType" /> 
+ <element name="GetMobileStatusReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:GetMobileStatusRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="GetMobileStatusRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:GetMobileStatusRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="GetMobileStatusResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="IsActivated" type="xs:integer"> 
+      <annotation> 
+       <documentation>
+        Indicates whether the phone is activated for mobile payments 
+        <br /> 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="IsPasswordSet" type="xs:integer"> 
+      <annotation> 
+       <documentation>
+        Indicates whether the password is enabled for particular account 
+        <br /> 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="PaymentPending" type="xs:integer"> 
+      <annotation> 
+       <documentation>
+        Indicates whether there is a payment pending from the phone 
+        <br /> 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="SetMobileCheckoutRequest" type="ns:SetMobileCheckoutRequestType" /> 
+ <element name="SetMobileCheckoutResponse" type="ns:SetMobileCheckoutResponseType" /> 
+ <element name="SetMobileCheckoutReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:SetMobileCheckoutRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="SetMobileCheckoutRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:SetMobileCheckoutRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="SetMobileCheckoutResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Token" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        A timestamped token by which you identify to PayPal that you are processing this payment with Mobile Checkout. The token expires after three hours. 
+        <br /> 
+        <br /> Character length and limitations: 20 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoMobileCheckoutPaymentRequest" type="ns:DoMobileCheckoutPaymentRequestType" /> 
+ <element name="DoMobileCheckoutPaymentResponse" type="ns:DoMobileCheckoutPaymentResponseType" /> 
+ <element name="DoMobileCheckoutPaymentReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:DoMobileCheckoutPaymentRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="DoMobileCheckoutPaymentRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="Token" type="xs:string"> 
+      <annotation> 
+       <documentation>
+        A timestamped token, the value of which was returned by SetMobileCheckoutResponse. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> Character length and limitations: 20 single-byte characters 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoMobileCheckoutPaymentResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:DoMobileCheckoutPaymentResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="GetBalanceRequest" type="ns:GetBalanceRequestType" /> 
+ <element name="GetBalanceResponse" type="ns:GetBalanceResponseType" /> 
+ <element name="GetBalanceReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:GetBalanceRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="GetBalanceRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="ReturnAllCurrencies" type="xs:string" minOccurs="0" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="GetBalanceResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Balance" type="cc:BasicAmountType" /> 
+     <element name="BalanceTimeStamp" type="xs:dateTime" /> 
+     <element name="BalanceHoldings" type="cc:BasicAmountType" minOccurs="0" maxOccurs="unbounded" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="SetCustomerBillingAgreementRequest" type="ns:SetCustomerBillingAgreementRequestType" /> 
+ <element name="SetCustomerBillingAgreementResponse" type="ns:SetCustomerBillingAgreementResponseType" /> 
+ <element name="SetCustomerBillingAgreementReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:SetCustomerBillingAgreementRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="SetCustomerBillingAgreementRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:SetCustomerBillingAgreementRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="SetCustomerBillingAgreementResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Token" type="ebl:ExpressCheckoutTokenType"> 
+      <annotation> 
+       <documentation> 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="GetBillingAgreementCustomerDetailsRequest" type="ns:GetBillingAgreementCustomerDetailsRequestType" /> 
+ <element name="GetBillingAgreementCustomerDetailsResponse" type="ns:GetBillingAgreementCustomerDetailsResponseType" /> 
+ <element name="GetBillingAgreementCustomerDetailsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:GetBillingAgreementCustomerDetailsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="GetBillingAgreementCustomerDetailsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="Token" type="ebl:ExpressCheckoutTokenType"> 
+      <annotation> 
+       <documentation> 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="GetBillingAgreementCustomerDetailsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:GetBillingAgreementCustomerDetailsResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="CreateBillingAgreementRequest" type="ns:CreateBillingAgreementRequestType" /> 
+ <element name="CreateBillingAgreementResponse" type="ns:CreateBillingAgreementResponseType" /> 
+ <element name="CreateBillingAgreementReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:CreateBillingAgreementRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="CreateBillingAgreementRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="Token" type="ebl:ExpressCheckoutTokenType"> 
+      <annotation> 
+       <documentation> 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="CreateBillingAgreementResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="BillingAgreementID" type="xs:string"> 
+      <annotation> 
+       <documentation> 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoReferenceTransactionRequest" type="ns:DoReferenceTransactionRequestType" /> 
+ <element name="DoReferenceTransactionResponse" type="ns:DoReferenceTransactionResponseType" /> 
+ <element name="DoReferenceTransactionReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:DoReferenceTransactionRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="DoReferenceTransactionRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:DoReferenceTransactionRequestDetails" /> 
+     <element name="ReturnFMFDetails" type="xs:int" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+        This flag indicates that the response should include FMFDetails
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoReferenceTransactionResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:DoReferenceTransactionResponseDetails" /> 
+     <element name="FMFDetails" type="ebl:FMFDetailsType" minOccurs="0" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="DoNonReferencedCreditRequest" type="ns:DoNonReferencedCreditRequestType" /> 
+ <element name="DoNonReferencedCreditResponse" type="ns:DoNonReferencedCreditResponseType" /> 
+ <element name="DoNonReferencedCreditReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:DoNonReferencedCreditRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="DoNonReferencedCreditRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:DoNonReferencedCreditRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="DoNonReferencedCreditResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:DoNonReferencedCreditResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="CreateRecurringPaymentsProfileRequest" type="ns:CreateRecurringPaymentsProfileRequestType" /> 
+ <element name="CreateRecurringPaymentsProfileResponse" type="ns:CreateRecurringPaymentsProfileResponseType" /> 
+ <element name="CreateRecurringPaymentsProfileReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:CreateRecurringPaymentsProfileRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="CreateRecurringPaymentsProfileRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:CreateRecurringPaymentsProfileRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="CreateRecurringPaymentsProfileResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:CreateRecurringPaymentsProfileResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="GetRecurringPaymentsProfileDetailsRequest" type="ns:GetRecurringPaymentsProfileDetailsRequestType" /> 
+ <element name="GetRecurringPaymentsProfileDetailsResponse" type="ns:GetRecurringPaymentsProfileDetailsResponseType" /> 
+ <element name="GetRecurringPaymentsProfileDetailsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:GetRecurringPaymentsProfileDetailsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="GetRecurringPaymentsProfileDetailsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="ProfileID" type="xs:string"> 
+      <annotation> 
+       <documentation> 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="GetRecurringPaymentsProfileDetailsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:GetRecurringPaymentsProfileDetailsResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="ManageRecurringPaymentsProfileStatusRequest" type="ns:ManageRecurringPaymentsProfileStatusRequestType" /> 
+ <element name="ManageRecurringPaymentsProfileStatusResponse" type="ns:ManageRecurringPaymentsProfileStatusResponseType" /> 
+ <element name="ManageRecurringPaymentsProfileStatusReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:ManageRecurringPaymentsProfileStatusRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="ManageRecurringPaymentsProfileStatusRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:ManageRecurringPaymentsProfileStatusRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="ManageRecurringPaymentsProfileStatusResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:ManageRecurringPaymentsProfileStatusResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="BillOutstandingAmountRequest" type="ns:BillOutstandingAmountRequestType" /> 
+ <element name="BillOutstandingAmountResponse" type="ns:BillOutstandingAmountResponseType" /> 
+ <element name="BillOutstandingAmountReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:BillOutstandingAmountRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="BillOutstandingAmountRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:BillOutstandingAmountRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="BillOutstandingAmountResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:BillOutstandingAmountResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="UpdateRecurringPaymentsProfileRequest" type="ns:UpdateRecurringPaymentsProfileRequestType" /> 
+ <element name="UpdateRecurringPaymentsProfileResponse" type="ns:UpdateRecurringPaymentsProfileResponseType" /> 
+ <element name="UpdateRecurringPaymentsProfileReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:UpdateRecurringPaymentsProfileRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="UpdateRecurringPaymentsProfileRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:UpdateRecurringPaymentsProfileRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="UpdateRecurringPaymentsProfileResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:UpdateRecurringPaymentsProfileResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="GetPalDetailsRequest" type="ns:GetPalDetailsRequestType" /> 
+ <element name="GetPalDetailsResponse" type="ns:GetPalDetailsResponseType" /> 
+ <element name="GetPalDetailsReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:GetPalDetailsRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="GetPalDetailsRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence /> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="GetPalDetailsResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element name="Pal" type="xs:string" /> 
+     <element name="Locale" type="xs:string" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="ReverseTransactionRequest" type="ns:ReverseTransactionRequestType" /> 
+ <element name="ReverseTransactionResponse" type="ns:ReverseTransactionResponseType" /> 
+ <element name="ReverseTransactionReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:ReverseTransactionRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="ReverseTransactionRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element ref="ebl:ReverseTransactionRequestDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="ReverseTransactionResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType"> 
+    <sequence> 
+     <element ref="ebl:ReverseTransactionResponseDetails" /> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <element name="ExternalRememberMeOptOutRequest" type="ns:ExternalRememberMeOptOutRequestType" /> 
+ <element name="ExternalRememberMeOptOutResponse" type="ns:ExternalRememberMeOptOutResponseType" /> 
+ <element name="ExternalRememberMeOptOutReq"> 
+  <complexType> 
+   <sequence> 
+    <element ref="ns:ExternalRememberMeOptOutRequest" /> 
+   </sequence> 
+  </complexType> 
+ </element> 
+ <complexType name="ExternalRememberMeOptOutRequestType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractRequestType"> 
+    <sequence> 
+     <element name="ExternalRememberMeID" type="xs:string"> 
+      <annotation> 
+       <documentation>
+         The merchant passes in the ExternalRememberMeID to identify the user to opt out. This is a 17-character alphanumeric (encrypted) string that identifies the buyer's remembered login with a merchant and has meaning only to the merchant. 
+        <br /> 
+        <br /> 
+        <b>Required</b> 
+        <br /> 
+        <br /> 
+       </documentation> 
+      </annotation> 
+     </element> 
+     <element name="ExternalRememberMeOwnerDetails" type="ebl:ExternalRememberMeOwnerDetailsType" minOccurs="0"> 
+      <annotation> 
+       <documentation>
+         E-mail address or secure merchant account ID of merchant to associate with external remember-me. 
+       </documentation> 
+      </annotation> 
+     </element> 
+    </sequence> 
+   </extension> 
+  </complexContent> 
+ </complexType> 
+ <complexType name="ExternalRememberMeOptOutResponseType"> 
+  <complexContent> 
+   <extension base="ebl:AbstractResponseType" /> 
+  </complexContent> 
+ </complexType> 
+</schema>

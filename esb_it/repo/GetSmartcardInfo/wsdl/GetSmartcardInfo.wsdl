@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:element name="OP_GetSmartcardInfo"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="CRM_ASSET_NUMBER" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="OP_GetSmartcardInfoResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_RET_CODE" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="SRVZ_DESCRIZ_ESITO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="DECODER_TYPE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="OP_GetSmartcardInfoRequest"> 
+  <wsdl:part element="eb:OP_GetSmartcardInfo" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="OP_GetSmartcardInfoResponse"> 
+  <wsdl:part element="eb:OP_GetSmartcardInfoResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="GetSmartcardInfoSoap"> 
+  <wsdl:operation name="OP_GetSmartcardInfo"> 
+   <wsdl:input message="eb:OP_GetSmartcardInfoRequest" name="OP_GetSmartcardInfoRequest" /> 
+   <wsdl:output message="eb:OP_GetSmartcardInfoResponse" name="OP_GetSmartcardInfoResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="GetSmartcardInfoSoap" type="eb:GetSmartcardInfoSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="OP_GetSmartcardInfo"> 
+   <soap:operation soapAction="GetSmartcardInfo/OP_GetSmartcardInfo" style="document" /> 
+   <wsdl:input name="OP_GetSmartcardInfoRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="OP_GetSmartcardInfoResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="GetSmartcardInfo"> 
+  <wsdl:port binding="eb:GetSmartcardInfoSoap" name="GetSmartcardInfoSoap"> 
+   <soap:address location="http://CAMBIAMI-PRJ:19100/wsexistbus/openws/GetSmartcardInfo" /> 
+  </wsdl:port> 
+ </wsdl:service> 
+</wsdl:definitions>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> 
+ <wsdl:types> 
+  <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.reply.it/existbus" xmlns:eb="http://www.reply.it/existbus"> 
+   <xsd:complexType name="FMLFieldType"> 
+    <xsd:sequence> 
+     <xsd:element maxOccurs="unbounded" name="valore"> 
+      <xsd:complexType> 
+       <xsd:simpleContent> 
+        <xsd:extension base="xsd:string"> 
+         <xsd:attribute name="occur" type="xsd:string" use="optional" /> 
+        </xsd:extension> 
+       </xsd:simpleContent> 
+      </xsd:complexType> 
+     </xsd:element> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexOutput"> 
+    <xsd:sequence> 
+     <xsd:element name="SRVZ_RET_CODE" type="eb:FMLFieldType" /> 
+     <xsd:element name="SRVZ_DESCRIZ_ESITO" type="eb:FMLFieldType" /> 
+     <xsd:element name="LS_TID" type="eb:FMLFieldType" /> 
+     <xsd:element maxOccurs="100" minOccurs="0" name="LS_MATRICOLA_FML32" type="eb:FMLComplexMatricola" /> 
+    </xsd:sequence> 
+   </xsd:complexType> 
+   <xsd:complexType name="FMLComplexMatricola"> 
+    <xsd:sequence> 
+     <xsd:element name="LS_MATRICOLA" type="eb:FMLFieldType" /> 
+     <xsd:element minOccurs="0" name="LS_MOTIVO_RICHIESTA" type="eb:FMLFieldType" /> 
+    </xsd:sequence> 
+    <xsd:attribute name="occur" type="xsd:string" use="optional" /> 
+   </xsd:complexType> 
+   <xsd:element name="opRichiestePinEaeToSbl"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="LS_ID_RICHIESTA" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="LS_FLUSSO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="LS_MAGAZZINO" type="xsd:string" /> 
+      <xsd:element maxOccurs="1" minOccurs="0" name="LS_TIPO_ELABORAZIONE" type="xsd:string" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+   <xsd:element name="opRichiestePinEaeToSblResponse"> 
+    <xsd:complexType> 
+     <xsd:sequence> 
+      <xsd:element maxOccurs="1" minOccurs="1" name="response_ws" type="eb:FMLComplexOutput" /> 
+     </xsd:sequence> 
+    </xsd:complexType> 
+   </xsd:element> 
+  </xsd:schema> 
+ </wsdl:types> 
+ <wsdl:message name="opRichiestePinEaeToSblRequest"> 
+  <wsdl:part element="eb:opRichiestePinEaeToSbl" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:message name="opRichiestePinEaeToSblResponse"> 
+  <wsdl:part element="eb:opRichiestePinEaeToSblResponse" name="parameters" /> 
+ </wsdl:message> 
+ <wsdl:portType name="WS_LS_RICHIESTE_PIN_EAE_TO_SBLSoap"> 
+  <wsdl:operation name="opRichiestePinEaeToSbl"> 
+   <wsdl:input message="eb:opRichiestePinEaeToSblRequest" name="opRichiestePinEaeToSblRequest" /> 
+   <wsdl:output message="eb:opRichiestePinEaeToSblResponse" name="opRichiestePinEaeToSblResponse" /> 
+  </wsdl:operation> 
+ </wsdl:portType> 
+ <wsdl:binding name="WS_LS_RICHIESTE_PIN_EAE_TO_SBLSoap" type="eb:WS_LS_RICHIESTE_PIN_EAE_TO_SBLSoap"> 
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" /> 
+  <wsdl:operation name="opRichiestePinEaeToSbl"> 
+   <soap:operation soapAction="WS_LS_RICHIESTE_PIN_EAE_TO_SBL/opRichiestePinEaeToSbl" style="document" /> 
+   <wsdl:input name="opRichiestePinEaeToSblRequest"> 
+    <soap:body use="literal" /> 
+   </wsdl:input> 
+   <wsdl:output name="opRichiestePinEaeToSblResponse"> 
+    <soap:body use="literal" /> 
+   </wsdl:output> 
+  </wsdl:operation> 
+ </wsdl:binding> 
+ <wsdl:service name="WS_LS_RICHIESTE_PIN_EAE_TO_SBL"> 
+  <wsdl:port binding="eb:WS_LS_RICHIESTE_PIN_EAE_TO_SBLSoap" name="WS_LS_RICHIESTE_PIN_EAE_TO_SBLSoap"> 
+  </wsdl:port>
+ </wsdl:service>
+</wsdl:definitions>

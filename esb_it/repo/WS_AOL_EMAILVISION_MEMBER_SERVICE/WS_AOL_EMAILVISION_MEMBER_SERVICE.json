@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_AOL_EMAILVISION_MEMBER_SERVICE",
+    "name" : "WS_AOL_EMAILVISION_MEMBER_SERVICE",
+    "localPath" : "esb_it\\repo\\WS_AOL_EMAILVISION_MEMBER_SERVICE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_AOL_EMAILVISION_MEMBER_SERVICE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "xsdEMAILVISION/SkyXSD_MemberService.xsd",
+        "xsdNameSpace" : "http://api.service.apimember.emailvision.com/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}

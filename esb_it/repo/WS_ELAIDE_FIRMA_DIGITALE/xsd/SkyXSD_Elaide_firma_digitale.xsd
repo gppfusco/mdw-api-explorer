@@ -1,0 +1,61 @@
+<xsd:schema xmlns:tns="http://session.ejb.extension.crypto.sky.elaide.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="unqualified" version="1.0"> 
+ <xsd:complexType name="PdfSignatureRequestType"> 
+  <xsd:sequence> 
+   <xsd:element name="authUserParam" type="AuthUserParam" minOccurs="0" /> 
+   <xsd:element name="signerId" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="signerPin" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="certificateId" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="certificateSN" type="xsd:long" minOccurs="0" /> 
+   <xsd:element name="timestamp" type="xsd:boolean" minOccurs="0" /> 
+   <xsd:element name="resources" type="RequestResource" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="RequestResource"> 
+  <xsd:sequence> 
+   <xsd:element name="inputResource" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="pdfSignatureAppearances" type="PdfSignatureAppearance" nillable="true" minOccurs="0" maxOccurs="unbounded" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="PdfSignatureAppearance"> 
+  <xsd:sequence> 
+   <xsd:element name="text" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="textSize" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="rectanglePageNumber" type="xsd:int" minOccurs="0" /> 
+   <xsd:element name="rectangle" type="Rectangle" minOccurs="0" /> 
+   <xsd:element name="fieldName" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="image" type="xsd:base64Binary" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="Rectangle"> 
+  <xsd:sequence> 
+   <xsd:element name="llx" type="xsd:float" minOccurs="0" /> 
+   <xsd:element name="lly" type="xsd:float" minOccurs="0" /> 
+   <xsd:element name="urx" type="xsd:float" minOccurs="0" /> 
+   <xsd:element name="ury" type="xsd:float" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="AuthUserParam"> 
+  <xsd:sequence> 
+   <xsd:element name="userName" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="userPwd" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="PdfSignResponseType"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="returnedCode" minOccurs="0" /> 
+   <xsd:element name="sessUUID" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="responseResource"> 
+  <xsd:sequence> 
+   <xsd:element name="result" type="returnedCode" minOccurs="0" /> 
+   <xsd:element name="signedData" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+ <xsd:complexType name="returnedCode"> 
+  <xsd:sequence> 
+   <xsd:element name="code" type="xsd:string" minOccurs="0" /> 
+   <xsd:element name="description" type="xsd:string" minOccurs="0" /> 
+  </xsd:sequence> 
+ </xsd:complexType> 
+</xsd:schema>

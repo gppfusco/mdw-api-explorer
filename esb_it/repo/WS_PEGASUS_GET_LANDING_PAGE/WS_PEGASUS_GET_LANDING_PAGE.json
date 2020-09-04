@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://wssvil.sky.it/wsexistbus/ws/",
+    "path" : "WS_PEGASUS_GET_LANDING_PAGE",
+    "name" : "WS_PEGASUS_GET_LANDING_PAGE",
+    "localPath" : "esb_it\\repo\\WS_PEGASUS_GET_LANDING_PAGE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://wssvil.sky.it/wsexistbus/ws/WS_PEGASUS_GET_LANDING_PAGE?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "bufferingSupported" : false,
+    "compressionSupported" : false
+  }
+}
