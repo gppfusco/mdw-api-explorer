@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "WSCProject_WS_TKM_COBROWSING_proxy_PS_WS_TKM_COBROWSING",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/WSCProject/WS_TKM_COBROWSING/pipeline/PL_WS_TKM_COBROWSING" : {
+        "label" : "Pipeline/WSCProject/WS_TKM_COBROWSING/pipeline/PL_WS_TKM_COBROWSING",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/WSCProject/WS_TKM_COBROWSING/pipeline/PL_INTERNAL_TKM" : {
+            "label" : "Pipeline/WSCProject/WS_TKM_COBROWSING/pipeline/PL_INTERNAL_TKM",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/WSCProject/WS_TKM_COBROWSING/businessServices/BS_HTTP_TOKEN_MANAGER" : {
+                "label" : "BusinessService/WSCProject/WS_TKM_COBROWSING/businessServices/BS_HTTP_TOKEN_MANAGER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/WSCProject/WS_TKM_COBROWSING/wsdl/WS_TKM_COBROWSING" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/WSCProject/WS_TKM_COBROWSING/wsdl/WS_TKM_COBROWSING",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/WSCProject/WS_TKM_COBROWSING/tranformations/responseGetCobrowsing" : {
+            "label" : "Xquery/WSCProject/WS_TKM_COBROWSING/tranformations/responseGetCobrowsing",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/WSCProject/WS_TKM_COBROWSING/wsdl/WS_TKM_COBROWSING" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/WSCProject/WS_TKM_COBROWSING/wsdl/WS_TKM_COBROWSING",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/WSCProject/WS_TKM_COBROWSING/tranformations/requestGetCobrowsing" : {
+            "label" : "Xquery/WSCProject/WS_TKM_COBROWSING/tranformations/requestGetCobrowsing",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/WSCProject/WS_TKM_COBROWSING/wsdl/WS_TKM_COBROWSING" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/WSCProject/WS_TKM_COBROWSING/wsdl/WS_TKM_COBROWSING",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

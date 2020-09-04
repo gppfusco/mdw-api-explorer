@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:element name="requestUploadDocument" type="requestUploadDocumentType" />
+  <xsd:complexType name="requestUploadDocumentType">
+    <xsd:sequence>
+      <xsd:element name="document" type="DocumentType" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="DocumentType">
+    <xsd:sequence>
+      <xsd:element name="idAnagrafica" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="idProcesso" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="filename" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="extension" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="content-type" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="encodedDocument" type="xsd:base64Binary" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="documentAttributes" type="genericAttributesType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="customAttributes" type="genericAttributesType" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseUploadDocument" type="responseUploadDocumentType" />
+  <xsd:complexType name="responseUploadDocumentType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="documentUploadResult" type="documentUploadResultType" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="genericAttributesType">
+    <xsd:sequence>
+      <xsd:element name="attribute" type="genericAttributeType" minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="genericAttributeType">
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="value" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="documentUploadResultType">
+    <xsd:sequence>
+      <xsd:element name="requestID" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="documentRef" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="errorCode" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="errorDescription" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

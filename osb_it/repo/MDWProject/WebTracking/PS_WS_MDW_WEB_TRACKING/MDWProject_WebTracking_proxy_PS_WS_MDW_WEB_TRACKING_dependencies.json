@@ -1,0 +1,261 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_WebTracking_proxy_PS_WS_MDW_WEB_TRACKING",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/WebTracking/pipeline/PL_WS_MDW_WEB_TRACKING_ROUTING" : {
+        "label" : "Pipeline/MDWProject/WebTracking/pipeline/PL_WS_MDW_WEB_TRACKING_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/MDWProject/WebTracking/pipeline/PL_MDW_WTR_ACKNOWLEDGE" : {
+            "label" : "Pipeline/MDWProject/WebTracking/pipeline/PL_MDW_WTR_ACKNOWLEDGE",
+            "properties" : { },
+            "successors" : {
+              "Xquery/MDWProject/WebTracking/transformations/WtrAcknowledge/createSqlRequest_WtrAcknowledge" : {
+                "label" : "Xquery/MDWProject/WebTracking/transformations/WtrAcknowledge/createSqlRequest_WtrAcknowledge",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WebTracking/transformations/WtrAcknowledge/createResponse_WtrAcknowledge" : {
+                "label" : "Xquery/MDWProject/WebTracking/transformations/WtrAcknowledge/createResponse_WtrAcknowledge",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_WTR_ACKNOWLEDGE" : {
+                "label" : "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_WTR_ACKNOWLEDGE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/MDWProject/WebTracking/pipeline/PL_MDW_WTR_INSERT_TRACKING" : {
+            "label" : "Pipeline/MDWProject/WebTracking/pipeline/PL_MDW_WTR_INSERT_TRACKING",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDWProject/WebTracking/businessService/BS_TUX_WTR_INSERT_TRACKING_RECORDS" : {
+                "label" : "BusinessService/MDWProject/WebTracking/businessService/BS_TUX_WTR_INSERT_TRACKING_RECORDS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WebTracking/transformations/InsertTracking/createResponse_InsertTracking" : {
+                "label" : "Xquery/MDWProject/WebTracking/transformations/InsertTracking/createResponse_InsertTracking",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WebTracking/transformations/InsertTracking/createRequest_InsertTracking" : {
+                "label" : "Xquery/MDWProject/WebTracking/transformations/InsertTracking/createRequest_InsertTracking",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/MDWProject/WebTracking/pipeline/PL_MDW_WTR_COUNT_NEW_TRACKING_RECORDS" : {
+            "label" : "Pipeline/MDWProject/WebTracking/pipeline/PL_MDW_WTR_COUNT_NEW_TRACKING_RECORDS",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_WTR_COUNT_NEW_TRACKING_RECORDS" : {
+                "label" : "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_WTR_COUNT_NEW_TRACKING_RECORDS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WebTracking/transformations/CountNewTrackingRecords/createResponse_CountNewTrackingRecords" : {
+                "label" : "Xquery/MDWProject/WebTracking/transformations/CountNewTrackingRecords/createResponse_CountNewTrackingRecords",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WebTracking/transformations/CountNewTrackingRecords/createSqlRequest_CountNewTrackingRecords" : {
+                "label" : "Xquery/MDWProject/WebTracking/transformations/CountNewTrackingRecords/createSqlRequest_CountNewTrackingRecords",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/MDWProject/WebTracking/pipeline/PL_MDW_WTR_GET_TRACKING_RECORDS" : {
+            "label" : "Pipeline/MDWProject/WebTracking/pipeline/PL_MDW_WTR_GET_TRACKING_RECORDS",
+            "properties" : { },
+            "successors" : {
+              "Xquery/MDWProject/WebTracking/transformations/GetTrackingRecords/createResponse_GetTrackingRecords" : {
+                "label" : "Xquery/MDWProject/WebTracking/transformations/GetTrackingRecords/createResponse_GetTrackingRecords",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_WTR_GET_TRACKING_RECORDS" : {
+                "label" : "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_WTR_GET_TRACKING_RECORDS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Pipeline/MDWProject/WebTracking/pipeline/PL_INTERNAL_MARK_GET_TRACKING_RECORDS" : {
+                "label" : "Pipeline/MDWProject/WebTracking/pipeline/PL_INTERNAL_MARK_GET_TRACKING_RECORDS",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/MDWProject/Resources/BS_SQL_MARK_FOR_WTR_GET_TRACKING_RECORDS/concrete" : {
+                    "label" : "WSDL/MDWProject/Resources/BS_SQL_MARK_FOR_WTR_GET_TRACKING_RECORDS/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_MARK_FOR_WTR_GET_TRACKING_RECORDS" : {
+                    "label" : "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_MARK_FOR_WTR_GET_TRACKING_RECORDS",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/MDWProject/WebTracking/transformations/GetTrackingRecords/createSqlRequest_MarkRecords" : {
+                "label" : "Xquery/MDWProject/WebTracking/transformations/GetTrackingRecords/createSqlRequest_MarkRecords",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WebTracking/transformations/GetTrackingRecords/createSqlRequest_MoreTrackingRecordsAvailable" : {
+                "label" : "Xquery/MDWProject/WebTracking/transformations/GetTrackingRecords/createSqlRequest_MoreTrackingRecordsAvailable",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/MDWProject/WebTracking/pipeline/PL_INTERNAL_RESET" : {
+                "label" : "Pipeline/MDWProject/WebTracking/pipeline/PL_INTERNAL_RESET",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_WTR_RESET" : {
+                    "label" : "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_WTR_RESET",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDWProject/Resources/BS_SQL_WTR_RESET/concrete" : {
+                    "label" : "WSDL/MDWProject/Resources/BS_SQL_WTR_RESET/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/MDWProject/WebTracking/transformations/GetTrackingRecords/createSqlRequest_ResetRecords" : {
+                "label" : "Xquery/MDWProject/WebTracking/transformations/GetTrackingRecords/createSqlRequest_ResetRecords",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WebTracking/transformations/GetTrackingRecords/createSqlRequest_GetTrackingRecords" : {
+                "label" : "Xquery/MDWProject/WebTracking/transformations/GetTrackingRecords/createSqlRequest_GetTrackingRecords",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/MDWProject/WebTracking/pipeline/PL_INTERNAL_MORE_TRACKING_RECORDS_AVAILABLE" : {
+                "label" : "Pipeline/MDWProject/WebTracking/pipeline/PL_INTERNAL_MORE_TRACKING_RECORDS_AVAILABLE",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_MORE_TRACKING_RECORDS_AVAILABLE" : {
+                    "label" : "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_MORE_TRACKING_RECORDS_AVAILABLE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/MDWProject/Resources/BS_SQL_MORE_TRACKING_RECORDS_AVAILABLE/concrete" : {
+                    "label" : "WSDL/MDWProject/Resources/BS_SQL_MORE_TRACKING_RECORDS_AVAILABLE/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

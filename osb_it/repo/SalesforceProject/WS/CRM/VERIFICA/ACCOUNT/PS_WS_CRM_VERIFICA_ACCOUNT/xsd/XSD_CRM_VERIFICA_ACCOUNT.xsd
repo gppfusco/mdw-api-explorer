@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestVerificaAccount" type="requestVerificaAccountType" />
+  <xsd:complexType name="requestVerificaAccountType">
+    <xsd:sequence>
+      <xsd:element name="codiceContratto" minOccurs="1" maxOccurs="1" >
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:element name="responseVerificaAccount" type="responseVerificaAccountType" />
+  <xsd:complexType name="responseVerificaAccountType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:choice>
+        <xsd:element name="salesforceResult" type="SalesforceResultType" minOccurs="0" maxOccurs="1" />
+        <xsd:element name="siebelResult" type="SiebelResultType" minOccurs="0" maxOccurs="1" />
+      </xsd:choice>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:complexType name="SalesforceResultType">
+    <xsd:sequence>
+      <xsd:element name="e2e" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="contractIdTV" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="contractIdBB" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="accountTypeCode" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="codiceCliente" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="SiebelResultType">
+    <xsd:sequence>
+      <xsd:element name="codiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="accountTypeCode" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="codiceCliente" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="contractRowId" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

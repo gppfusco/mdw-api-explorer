@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBApplicationSky/BlueBirdProject/PS_REST_OM_TYO" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/OM/tyo/xsd/XSD_OM_TYO.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/orders/{orderId}/orderTrackings">
+         <method name="GET" soa:wsdlOperation="GetOrderTrackingDetails">
+            <request>
+               <param name="orderId" style="template" soa:expression="$msg.request/ns0:orderId" default="" type="xsd:string"/>
+               <param name="system" style="query" soa:expression="$msg.request/ns0:system" default="" type="xsd:string"/>
+               <param name="orderLineType" style="query" soa:expression="$msg.request/ns0:orderLineType" default="" type="xsd:string"/>
+               <param name="orderLineSubType" style="query" soa:expression="$msg.request/ns0:orderLineSubType" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseGetOrderTrackingDetails" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/orders/orderTrackings">
+         <method name="GET" soa:wsdlOperation="GetOrderTracking">
+            <request>
+               <param name="contractId" style="query" soa:expression="$msg.request/ns0:contractId" default="" type="xsd:string"/>
+               <param name="system" style="query" soa:expression="$msg.request/ns0:system" default="" type="xsd:string"/>
+               <param name="orderLineType" style="query" soa:expression="$msg.request/ns0:orderLineType" default="" type="xsd:string"/>
+               <param name="param1" style="query" soa:expression="$msg.request/ns0:orderLineSubType" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseGetOrderTracking" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

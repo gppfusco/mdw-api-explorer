@@ -1,0 +1,39 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="teamMemberType">
+		<xsd:sequence>
+			<xsd:element name="teamMemberId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="firstName" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="lastName" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="email" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="phoneNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="isFederatedLogin" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="groupId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="terminationDate" type="xsd:dateTime" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="teamMembersType">
+		<xsd:sequence>
+			<xsd:element name="teamMember" type="teamMemberType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestInsertTeamMembersType">
+		<xsd:sequence>
+			<xsd:element name="teamId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="teamMembers" type="teamMembersType" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="messagesType">
+		<xsd:sequence>
+			<xsd:element name="message" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseInsertTeamMembersType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="messages" type="messagesType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestInsertTeamMembers" type="requestInsertTeamMembersType"/>
+	<xsd:element name="responseInsertTeamMembers" type="responseInsertTeamMembersType"/>
+</xsd:schema>

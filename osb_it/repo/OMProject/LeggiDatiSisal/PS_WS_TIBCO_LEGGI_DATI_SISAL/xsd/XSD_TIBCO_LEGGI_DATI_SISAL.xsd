@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestLeggiDatiSisal">
+    <xsd:complexType>
+      <xsd:sequence><xsd:element name="contrId" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="tipologiaDeposito" minOccurs="1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="DECA"/>
+              <xsd:enumeration value="DP"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="responseLeggiDatiSisal">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="tid" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="payerFiscalCode" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="amount" type="xsd:string" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestUpsertRidMop" type="requestUpsertRidMopType" />
+  <xsd:complexType name="requestUpsertRidMopType">
+    <xsd:sequence>
+      <xsd:element name="billingAccount" type="stringMinlengthType"  nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="abiCode" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="cabCode" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="siaCode" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="codIndivRid" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="fiscalCode" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="reason" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="accountHolderName" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ibanCode" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ccNumber" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="mandateCode" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseUpsertRidMop" type="mdwCommonResponseType" />
+  
+  
+  
+  <xsd:element name="requestUpdateRidMopEsitiNegativi" type="requestUpdateRidMopEsitiNegativiType" />
+  <xsd:complexType name="requestUpdateRidMopEsitiNegativiType">
+    <xsd:sequence>
+      <xsd:element name="insertDefaultMop" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="billingAccount" type="stringMinlengthType" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="reason" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="forcedDateDefaultMop" type="xsd:string" nillable="true" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="mandateCode" type="xsd:string" nillable="false" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseUpdateRidMopEsitiNegativi" type="mdwCommonResponseType" />  
+  
+  <xsd:complexType name="mdwCommonResponseType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:simpleType name="stringMinlengthType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+</xsd:schema>

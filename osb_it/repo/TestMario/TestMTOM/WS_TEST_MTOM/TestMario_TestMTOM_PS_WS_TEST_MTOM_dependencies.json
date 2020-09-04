@@ -1,0 +1,30 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "TestMario_TestMTOM_PS_WS_TEST_MTOM",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/TestMario/TestMTOM/WS_TEST_MTOM" : {
+        "label" : "WSDL/TestMario/TestMTOM/WS_TEST_MTOM",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/TestMario/TestMTOM/PL_TEST_MTOM" : {
+        "label" : "Pipeline/TestMario/TestMTOM/PL_TEST_MTOM",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/TestMario/TestMTOM/WS_TEST_MTOM" : {
+            "label" : "WSDL/TestMario/TestMTOM/WS_TEST_MTOM",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

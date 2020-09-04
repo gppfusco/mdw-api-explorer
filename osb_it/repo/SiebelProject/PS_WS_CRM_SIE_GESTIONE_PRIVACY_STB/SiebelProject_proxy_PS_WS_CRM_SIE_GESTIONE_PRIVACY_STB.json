@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/siebel/WS_CRM_SIE_GESTIONE_PRIVACY_STB",
+    "name" : "SiebelProject_proxy_PS_WS_CRM_SIE_GESTIONE_PRIVACY_STB",
+    "localPath" : "osb_it\\repo\\SiebelProject\\PS_WS_CRM_SIE_GESTIONE_PRIVACY_STB",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/siebel/WS_CRM_SIE_GESTIONE_PRIVACY_STB?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SiebelProject/GestionePrivacySTB/xsd/XSD_CRM_SIE_GESTIONE_PRIVACY_STB",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

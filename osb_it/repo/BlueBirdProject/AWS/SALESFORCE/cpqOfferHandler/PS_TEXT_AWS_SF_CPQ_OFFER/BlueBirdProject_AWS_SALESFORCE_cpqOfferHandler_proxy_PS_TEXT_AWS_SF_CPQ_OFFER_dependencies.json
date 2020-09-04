@@ -1,0 +1,11 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_AWS_SALESFORCE_cpqOfferHandler_proxy_PS_TEXT_AWS_SF_CPQ_OFFER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "Messaging"
+    },
+    "successors" : { }
+  }
+}

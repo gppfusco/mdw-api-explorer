@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGenerateOrder" type="requestGenerateOrderType"/>
+  <xsd:complexType name="requestGenerateOrderType">
+    <xsd:sequence>
+      <xsd:element name="mdwAbi" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOtherPhone" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOtherPhoneFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCCEndDateYYYY" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCCEndDateYYYYDp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBAgreeFlg1" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBFwAction" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCab" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCellCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCampaignCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwZipCodeFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwZipCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCitofonoFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBCluster" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDealerCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFiscalCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFiscalCodeFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSubscriberFiscalCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIban" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBInstanceFw" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPromozioneCode2" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFirstVoucher" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPromoCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPromozioneCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMvPromoCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBIdCodeSgu" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBTehcnologyCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwVendorCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwVendorCode2" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSurname" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSurnameFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSubscriberSurname" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBComuneDoc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBConceptCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBAgreeFlg2" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwConsistenza" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCubeOwner" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwReceivedDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBirthDateFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBirthDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBDocReleaseDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBPermSoggEndDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBFttsActivationDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDealer" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwEmail" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMailFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBEnterilDoc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBPreSellingFttsFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBundleOfferFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBillFormat" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFibraUltra" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwGenere" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMvType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwGroupCodeFirstPromo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSourceRequestApp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSession" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBIdAddressFw" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBIdCabinetFtts" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBIdPDA" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBIdsGuFtts" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIgfsAccountName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIgfsPaymentID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIgfsShopId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIgfsTid" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDecaAmount" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAddressFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwForceAddressFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwForceAddressFruFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAddress" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFwInstal" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSodInteresse" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwInternoFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwInterno" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwJSessionId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwLocationFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBirthCity" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBirthCityFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwLocation" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMatchCodeEgon" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMatchcodeEgonFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCCEndDateMM" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCCEndDateMMDp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMultivisionFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAttVlxAtt" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAttVlxFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBes1Xg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBes1XgFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBes1XM" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBes1XmFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBes1Yg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBes1YgFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBes1Ym" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBes1YmFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwVlxBes" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwVlxBesFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFLXCTX" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFlxCtxFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIdCIV" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIdCivFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNab" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNabA11" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNabAllFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNabFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBNazioneDoc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBBirthState" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBNoLimit" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNameFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSubscriberName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNote" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBComsyCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBCfpIvaNp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBAddressIntNp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBZipCodeIntNp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBLocationIntNp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBNumCivIntNp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBNTNPAddressType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBProvinciaIntNp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBCompanyIntNpFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBCognomeRagSocIntNp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBPermSoggNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBPhoneNumberNp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBCnp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBNpFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBNameIntNp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCCNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCCNumberDp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwHouseNumberFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwHouseNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAccountNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDocumentNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDocumentNumberFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOrderNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBBundleOffer" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOnlySmcFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIdOpportunity" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOption" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFibra100" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPacchetto" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPacchettoAggiuntivo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPagDivFruFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwParticellaToponomasticaFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwParticellaToponomastica" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBillPeriod" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFloor" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBIntelcom" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwElabStudFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDataAgreeFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwChannelPrefFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPromoId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMvPromoActive" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBProvinciaRilDoc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwProvinciaFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwProvinciaBirthCity" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwProvinciaBirthCityFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwProvincia" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFwModem" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwScala" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSelectDecoder" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwInstallationType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSelectService" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFirstSerialVoucher" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwGender" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwGenderFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSkyGo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSkyMagazineFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBFwAsset" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBCdFfwCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBFwCustCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBHeaderFw" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBLineActive" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTehcnology" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBFttsTechnology" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBPhoneDNApp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPhoneNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBMobilePhone" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPhoneContact" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPhoneFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTipoAnagrafica" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTipoAnagraficaFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCCType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCCTypeDp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwConnectivityType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDocumentType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDocumentTypeFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBillSend" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMop" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDecaMop" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMopDp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBOpDataType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBOpVoiceType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFirstVoucherVal" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwVision" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTreatmentCodeOG" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIdComunicazione" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFlagConsensoKidApp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFlagTermCondiKidsApp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCrossSession" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwVisioneSMC" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDecoderMV" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCodAuthCC" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDataTokenPayPal" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTokenPayPal" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPayerId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCubeClass" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCodiceVenditoreFW" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwConsensoAnalisiFW" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwConsensoGestioneContrattoFW" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwConsensoInvioDatiPersonali" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwConsensoTutelaRischioCredito" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFlagVPlus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwInternoNP" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMatchCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwScalaNP" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwServiziMV" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwStatoNP" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTipoDNNP" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTipoLineaNP" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwResultSpy" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCardType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOperatorLogin" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIdLead" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBCDMVoice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBCDMData" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBCodeCoverageTechnology" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBResourcesComboPots" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBCartFW" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSKYCarrello" type="mdwCarrelloType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwThirdParties" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDocEndDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwSiteTIComplesso" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwSiteTIAddress" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwSiteTIPlace" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwSiteTIParticellaToponomastica" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDeliveryZipCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDeliveryCitofono" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDeliveryComplesso" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDeliveryAddress" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDeliveryPlace" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDeliveryHouseNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDeliveryParticellaToponomastica" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDeliveryFloor" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDeliveryProvincia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDeliveryScala" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwBundleTelecomIPTVFlg" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwSKYOffer" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwSKYStart" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwWorkClustering" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwTICustomer" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwRegCodeVO" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwBundleAgreeFlg" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDate1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDate2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwTIEmailPrimariaCertif" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwTIEmailSecondaria" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwFax" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwTIOffer" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwTIProperty1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwTIProperty2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwTIProperty3" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwTIProperty4" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwTISemaforoConnettivita" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwWMSospetta" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwZipCodeMop" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwBirthCityMop" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwCityMop" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwBirthDayMop" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwGenderMop" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwProvinciaMop" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwCCDPEndDateYYYY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwCCDPType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDPIban" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwCCDPEndDateMM" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwCCDPNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwStatus" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwBBIdBuilding" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwBBIdGPON" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwBBIdPOP" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwBBProvider" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwBBStatoBuilding" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwBBCreditCheckResult" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBDonorOloDati" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBDonorOloVoce" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFWPromo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBFlagCheckNP" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBFlagMobile" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBFlgDealerCondiviso" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBIdBundle" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwContractNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPaese2" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPaeseNascitaTitolare" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPianoFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwScalaFru" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBBTipoLinea" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwClaimPromo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwInternational" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMobile" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAmbienteDiServizio" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTryBuyOffer" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFlagPrivacySkyQ" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFlagPrivacyOverIP" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFlagConsensoSkyQApp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwQuestionario" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDealerCodeCondiviso" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSerialNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFWCarrello" type="mdwCarrelloType" minOccurs="0"/>
+      <xsd:element name="mdwSkyQBlack" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFlgNewSMC" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Y"/>
+            <xsd:enumeration value="N"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="mdwNotificaTrackConsegna" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwEmailPec" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCodiceDestinatario" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOrderId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTypeIdBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSlotIdBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTokenIdBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwWholesalerBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwStartTimeBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwStartDateBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwProspectUserId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwProspectPayerId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCommercialOfferBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwContrattoDiPartenza" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwReitekCart" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCatalogCodeCart" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwVirtualCart" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAccettazioneCGA" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Y"/>
+            <xsd:enumeration value="N"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="mdwAccettazioneCV" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Y"/>
+            <xsd:enumeration value="N"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <!-- CT162 -->
+      <xsd:element name="mdwAbiBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAgenziaBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAnnoDiScadenzaBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwApptActivityDateTimeBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwApptCorrelationIDBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwApptEventSubtypeBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwApptExtensionSlotBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwApptStatusBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBuildingIDBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCabBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCAPPagatoreBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCAPTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCodiceIdentificativoCreditoreSEPABLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCodiceFiscaleBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCodiceFiscaleTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCodiceIBANBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCognomeBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCognomeTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDataNascitaBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDataNascitaTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwEmailBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFlgSedaBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFormatoInvioFatturaBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFormatoInvioRecapBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIGFSrcBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIndirizzoAgenziaBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIndirizzoPagatoreBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIndirizzoTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwLineaISDNBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwLocalitaNascitaBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwLocalitaNascitaTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwLocalitaPagatoreBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwLocalitaTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMeseDiScadenzaBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMigrationCodeInVoceBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMigrationCodeInBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNomeBancaBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNomeBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNomeTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNumeroCartaDiCreditoBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNumeroContoBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNumeroTelefonoBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwNuovaLineaBLBFlag" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPaeseCFBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPaeseNascitaTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPaeseTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPeriodoBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPopBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPrivacyFlgBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwProvinciaNascitaTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwProvinciaPagatoreBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwProvinciaTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwServiceTypeBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwServiziBLBAttiviLineaTelefonica" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSesso2BLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSessoTitolareBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwStatusCheckCoverageBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSubBuildingBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTecnologiaBLBDati" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTecnologiaBLBVoce" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTecnologiaBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTipoCartaDiCreditoBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTipoInvioFatturaBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTipoMOPBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwUtilizzoBLBLineaTelefonica" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwWholesalerIDBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwBIC" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIBANCountry" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAbroadFlg" minOccurs="0">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Y"/>
+            <xsd:enumeration value="N"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="mdwWithdrawalFlg" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTipoLineaMigrazioneBLB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwIdCabinet" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDistanzaCabinetVula" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDownSpeed" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwUpSpeed" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTipoOrdine" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPortabilityType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMigrationCodeDataIsMissing" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMigrationCodeVoiceIsMissing" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDnOfMigrationCodeDataIsMissing" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDnOfMigrationCodeVoiceIsMissing" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTecnologiaVoce" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwActualAreaBB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwMarketingTerzeParti" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDonatingOperatorDati" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDonatingOperatorVoce" type="xsd:string" minOccurs="0"/>
+      <!-- CR195 -->
+      <xsd:element name="mdwVoicePhoneNumber" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwCarrelloType">
+    <xsd:sequence>
+      <xsd:element name="mdwCodiceCarrelloSKY" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwItemSKY" type="mdwSKYItemType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwSKYItemType">
+    <xsd:sequence>
+      <xsd:element name="mdwSKYCartProductCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwSKYCartProductName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwSKYCartProductPrice" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwSKYCartPriceType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwSKYCartProductType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwCartType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwSKYCartCodiceIstanza" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseGenerateOrder" type="responseGenerateOrderType"/>
+  <xsd:complexType name="responseGenerateOrderType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

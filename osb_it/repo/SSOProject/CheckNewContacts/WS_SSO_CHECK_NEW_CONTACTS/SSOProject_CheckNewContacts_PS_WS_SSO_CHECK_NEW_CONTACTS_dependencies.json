@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SSOProject_CheckNewContacts_PS_WS_SSO_CHECK_NEW_CONTACTS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SSOProject/CheckNewContacts/wsdl/WS_SSO_CHECK_NEW_CONTACTS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SSOProject/CheckNewContacts/wsdl/WS_SSO_CHECK_NEW_CONTACTS",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SSOProject/CheckNewContacts/pipeline/PL_WS_SSO_CHECK_NEW_CONTACTS" : {
+        "label" : "Pipeline/SSOProject/CheckNewContacts/pipeline/PL_WS_SSO_CHECK_NEW_CONTACTS",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/SSOProject/CheckNewContacts/businessServices/BS_WS_SSO_CHECK_NEW_CONTACTS" : {
+            "label" : "BusinessService/SSOProject/CheckNewContacts/businessServices/BS_WS_SSO_CHECK_NEW_CONTACTS",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SSOProject/CheckNewContacts/wsdl/WS_SSO_CHECK_NEW_CONTACTS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SSOProject/CheckNewContacts/wsdl/WS_SSO_CHECK_NEW_CONTACTS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SSOProject/CheckNewContacts/transformations/createResponseCheckNewContacts" : {
+            "label" : "Xquery/SSOProject/CheckNewContacts/transformations/createResponseCheckNewContacts",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SSOProject/CheckNewContacts/transformations/createRequestCheckNewContacts" : {
+            "label" : "Xquery/SSOProject/CheckNewContacts/transformations/createRequestCheckNewContacts",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

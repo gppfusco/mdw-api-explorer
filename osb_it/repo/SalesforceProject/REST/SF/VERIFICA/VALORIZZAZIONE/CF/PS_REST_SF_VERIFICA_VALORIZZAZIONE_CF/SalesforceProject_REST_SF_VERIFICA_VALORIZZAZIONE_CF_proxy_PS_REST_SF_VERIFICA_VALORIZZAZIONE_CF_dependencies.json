@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_SF_VERIFICA_VALORIZZAZIONE_CF_proxy_PS_REST_SF_VERIFICA_VALORIZZAZIONE_CF",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SalesforceProject/Resources/PS_REST_SF_VERIFICA_VALORIZZAZIONE_CF" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_SF_VERIFICA_VALORIZZAZIONE_CF",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/REST_SF_VERIFICA_VALORIZZAZIONE_CF/pipeline/PL_SF_VERIFICA_VALORIZZAZIONE_CF" : {
+        "label" : "Pipeline/SalesforceProject/REST_SF_VERIFICA_VALORIZZAZIONE_CF/pipeline/PL_SF_VERIFICA_VALORIZZAZIONE_CF",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/SalesforceProject/Resources/PS_REST_SF_VERIFICA_VALORIZZAZIONE_CF" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_SF_VERIFICA_VALORIZZAZIONE_CF",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_SF_VERIFICA_VALORIZZAZIONE_CF/transformations/createRequest_VerificaValorizzazioneCF" : {
+            "label" : "Xquery/SalesforceProject/REST_SF_VERIFICA_VALORIZZAZIONE_CF/transformations/createRequest_VerificaValorizzazioneCF",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_SF_VERIFICA_VALORIZZAZIONE_CF/transformations/createResponse_VerificaValorizzazioneCF" : {
+            "label" : "Xquery/SalesforceProject/REST_SF_VERIFICA_VALORIZZAZIONE_CF/transformations/createResponse_VerificaValorizzazioneCF",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

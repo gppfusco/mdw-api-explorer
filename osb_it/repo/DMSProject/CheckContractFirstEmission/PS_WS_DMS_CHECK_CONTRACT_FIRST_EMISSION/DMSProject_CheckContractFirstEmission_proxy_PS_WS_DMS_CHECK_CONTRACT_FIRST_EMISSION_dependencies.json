@@ -1,0 +1,63 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "DMSProject_CheckContractFirstEmission_proxy_PS_WS_DMS_CHECK_CONTRACT_FIRST_EMISSION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/DMSProject/CheckContractFirstEmission/wsdl/WS_DMS_CHECK_CONTRACT_FIRST_EMISSION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/CheckContractFirstEmission/wsdl/WS_DMS_CHECK_CONTRACT_FIRST_EMISSION",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/DMSProject/CheckContractFirstEmission/pipeline/PL_WS_DMS_CHECK_CONTRACT_FIRST_EMISSION" : {
+        "label" : "Pipeline/DMSProject/CheckContractFirstEmission/pipeline/PL_WS_DMS_CHECK_CONTRACT_FIRST_EMISSION",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/DMSProject/CheckContractFirstEmission/wsdl/WS_DMS_CHECK_CONTRACT_FIRST_EMISSION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/CheckContractFirstEmission/wsdl/WS_DMS_CHECK_CONTRACT_FIRST_EMISSION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/DMSProject/CheckContractFirstEmission/pipeline/PL_INTERNAL_DMS_CHECK_CONTRACT_FIRST_EMISSION" : {
+            "label" : "Pipeline/DMSProject/CheckContractFirstEmission/pipeline/PL_INTERNAL_DMS_CHECK_CONTRACT_FIRST_EMISSION",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/DMSProject/businessService/BS_HTTP_DMS_LIST_DOC_RELATIVE_URI" : {
+                "label" : "BusinessService/DMSProject/businessService/BS_HTTP_DMS_LIST_DOC_RELATIVE_URI",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/DMSProject/CheckContractFirstEmission/transformations/createResponseCheckContractFirstEmission" : {
+                "label" : "Xquery/DMSProject/CheckContractFirstEmission/transformations/createResponseCheckContractFirstEmission",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/DMSProject/CheckContractFirstEmission/wsdl/WS_DMS_CHECK_CONTRACT_FIRST_EMISSION" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/CheckContractFirstEmission/wsdl/WS_DMS_CHECK_CONTRACT_FIRST_EMISSION",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetMarcaModelloType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetMarcaModello" type="requestGetMarcaModelloType"/>
+	<xsd:complexType name="responseGetMarcaModelloType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MarcaTV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ModelloTV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetMarcaModello" type="responseGetMarcaModelloType"/>
+	<xsd:complexType name="requestGetAltriApparatiType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfApparatiType">
+		<xsd:sequence>
+			<xsd:element name="Apparato" type="ApparatoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ApparatoType">
+		<xsd:sequence>
+			<xsd:element name="Account" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CausaleSmarrimento" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ClienteTELEPiu" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceParte" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataAcquistoDecoder" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataFineGaranzia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataUltimaVariazionediStato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Leasing" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Matricola" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Note" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroRiparazioni" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroSchedaMadre" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ScadenzaGaranziaCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Sottostato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Stato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SwappedCard" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SwappingCard" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SwappingDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoApparato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="VersioneHardwareCorrente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="VersioneHardwareOriginale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="VersioneSoftwareCorrente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="VersioneSoftwareOriginale" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetAltriApparati" type="requestGetAltriApparatiType"/>
+	<xsd:element name="responseGetAltriApparati" type="responseGetAltriApparatiType"/>
+	<xsd:complexType name="responseGetAltriApparatiType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfApparati" type="ListOfApparatiType" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestSetAltriApparatiType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Matricola" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfUpdateField" type="ListOfUpdateFieldType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSetAltriApparati" type="requestSetAltriApparatiType"/>
+	<xsd:element name="responseSetAltriApparati" type="basicResponseType"/>
+	<xsd:complexType name="ListOfUpdateFieldType">
+		<xsd:sequence>
+			<xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FieldType">
+		<xsd:sequence>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Value" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="basicResponseType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

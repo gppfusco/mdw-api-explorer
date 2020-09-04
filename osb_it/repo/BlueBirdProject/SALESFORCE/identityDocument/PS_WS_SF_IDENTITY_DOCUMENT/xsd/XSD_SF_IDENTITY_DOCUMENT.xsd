@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+    <xsd:element name="requestUploadIDFilesCallback" type="requestUploadIDFilesCallbackType"/>
+    <xsd:element name="responseUploadIDFilesCallback" type="responseUploadIDFilesCallbackType"/>
+   
+    <xsd:complexType name="requestUploadIDFilesCallbackType">
+      <xsd:sequence>
+        <xsd:element name="status" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="errorCode" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="errorMessage" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="docIdDms" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="customerIDFruitore" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="customerIDPagatore" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="prospectIDFruitore" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="prospectIDPagatore" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="responseUploadIDFilesCallbackType">
+      <xsd:sequence>
+        <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType> 
+    
+
+    <xsd:element name="requestVerifyDocumentIDCallback" type="requestVerifyDocumentIDCallbackType"/>
+    <xsd:element name="responseVerifyDocumentIDCallback" type="responseVerifyDocumentIDCallbackType"/>
+   
+    <xsd:complexType name="requestVerifyDocumentIDCallbackType">
+      <xsd:sequence>
+        <xsd:element name="status" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="errorCode" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="errorMessage" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="CF" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="documentNumber" type="xsd:string" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="responseVerifyDocumentIDCallbackType">
+      <xsd:sequence>
+        <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType> 
+    
+    
+</xsd:schema>

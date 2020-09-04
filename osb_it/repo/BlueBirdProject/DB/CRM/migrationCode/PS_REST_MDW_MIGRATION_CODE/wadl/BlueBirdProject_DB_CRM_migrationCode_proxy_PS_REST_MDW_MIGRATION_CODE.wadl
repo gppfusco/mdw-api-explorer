@@ -1,0 +1,131 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBSvil/BlueBirdProject/PS_REST_MDW_SF_MIGRATION_CODE" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/migrationCode/xsd/XSD_MDW_SF_MIGRATION_CODE.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/migrationCode/xsd/XSD_MDW_SF_MIGRATION_CODE_EXT1.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/verifications">
+         <method name="POST" soa:wsdlOperation="verifyMigrationCode">
+            <request>
+               <representation mediaType="application/xml" element="cns:requestVerifyMigrationCode" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseVerifyMigrationCode" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/notifications">
+         <method name="POST" soa:wsdlOperation="NotifyMigrationCode">
+            <request>
+               <representation mediaType="application/xml" element="cns:requestNotifyMigrationCode" xmlns:cns="http://www.skytv.it/mdw/data"/>
+               <representation mediaType="application/json" element="cns:requestNotifyMigrationCode" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseNotifyMigrationCode" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/json" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/json" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/json" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/phase3MigrationNotification">
+         <method name="POST" soa:wsdlOperation="Phase3MigrationNotification">
+            <request>
+               <representation mediaType="application/json" element="cns:requestPhase3MigrationNotification" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responsePhase3MigrationNotification" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/json" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/json" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/json" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/cancelMigrationRequest">
+         <method name="POST" soa:wsdlOperation="cancelMigrationRequest">
+            <request>
+               <representation mediaType="application/json" element="cns:requestCancelMigrationRequest" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseCancelMigrationRequest" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/json" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/json" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/json" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/notifyMigrationRequest">
+         <method name="POST" soa:wsdlOperation="notifyMigrationRequest">
+            <request>
+               <representation mediaType="application/json" element="cns:requestNotifyMigrationRequest" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseNotifyMigrationRequest" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/json" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/json" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/json" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/verifyMigrationRequest">
+         <method name="POST" soa:wsdlOperation="verifyMigrationRequest">
+            <request>
+               <representation mediaType="application/json" element="cns:requestVerifyMigrationRequest" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseVerifyMigrationRequest" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="Error400">
+               <representation mediaType="application/json" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="Error404">
+               <representation mediaType="application/json" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="Error500">
+               <representation mediaType="application/json" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

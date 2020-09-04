@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/fastweb/WS_FWB_ORDER_PROCESSING",
+    "name" : "MDWProject_Fastweb_OrderProcessing_proxy_PS_WS_FWB_ORDER_PROCESSING",
+    "localPath" : "osb_it\\repo\\MDWProject\\Fastweb\\OrderProcessing\\PS_WS_FWB_ORDER_PROCESSING",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/fastweb/WS_FWB_ORDER_PROCESSING?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MDWProject/Fastweb/FWBOrderProcessing/xsd/XSD_FWB_ORDER_PROCESSING",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

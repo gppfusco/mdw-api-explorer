@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestSynchCampaignType">
+		<xsd:sequence>
+			<xsd:element name="CodiceCliente" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DataFine" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DataInizio" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Motivo" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Note" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Offerte" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="RecordingId" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="RecordingUrl" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="SalesforceCampaignId" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="SalesforceCampMemberId" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="SistemaSorgente" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Sito" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="StagingId" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Stato" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSynchCampaign" type="requestSynchCampaignType"/>
+	<xsd:element name="responseSynchCampaign" type="responseSynchCampaignType"/>
+	<xsd:complexType name="responseSynchCampaignType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>		
+			<xsd:element name="ListaErrori" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Errore" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="NomeErrore" type="xsd:string"/>
+									<xsd:element name="CodiceErrore" type="xsd:string"/>
+									<xsd:element name="DescrizioneErrore" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

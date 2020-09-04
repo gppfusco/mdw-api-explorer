@@ -1,0 +1,92 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KBOXProject_SendData_proxy_PS_SF_KBOX_SEND_DATA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/KBOXProject/SendData/pipelines/PL_WS_KBOX_SEND_DATA" : {
+        "label" : "Pipeline/KBOXProject/SendData/pipelines/PL_WS_KBOX_SEND_DATA",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Pipeline/KBOXProject/SendData/pipelines/PL_INTERNAL_KBOX_GET_TOKEN" : {
+            "label" : "Pipeline/KBOXProject/SendData/pipelines/PL_INTERNAL_KBOX_GET_TOKEN",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KBOXProject/SendData/businessServices/BS_TEXT_KBOX_TOKEN" : {
+                "label" : "BusinessService/KBOXProject/SendData/businessServices/BS_TEXT_KBOX_TOKEN",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/KBOXProject/SendData_IBMS/wsdl/WS_IBMS_KBOX_SEND_DATA" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KBOXProject/SendData_IBMS/wsdl/WS_IBMS_KBOX_SEND_DATA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/KBOXProject/SendData/transformations/createRequestInvioFile" : {
+            "label" : "Xquery/KBOXProject/SendData/transformations/createRequestInvioFile",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KBOXProject/SendData/transformations/createResponseInvioFile" : {
+            "label" : "Xquery/KBOXProject/SendData/transformations/createResponseInvioFile",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/KBOXProject/SendData_IBMS/wsdl/WS_IBMS_KBOX_SEND_DATA" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KBOXProject/SendData_IBMS/wsdl/WS_IBMS_KBOX_SEND_DATA",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+            "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/KBOXProject/SendData/businessServices/BS_TEXT_KBOX_SENDFILEX" : {
+            "label" : "BusinessService/KBOXProject/SendData/businessServices/BS_TEXT_KBOX_SENDFILEX",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/KBOXProject/SendData_SF/wsdl/WS_SF_KBOX_SEND_DATA" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KBOXProject/SendData_SF/wsdl/WS_SF_KBOX_SEND_DATA",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

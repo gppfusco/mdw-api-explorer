@@ -1,0 +1,33 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/payments",
+    "name" : "MDWProject_PagaOnLine_proxy_PS_REST_MDW_PAGA_ON_LINE",
+    "localPath" : "osb_it\\repo\\MDWProject\\PagaOnLine\\PS_REST_MDW_PAGA_ON_LINE",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/payments?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/MDWProject/PagaOnLine/xsd/XSD_MDW_PAGA_ON_LINE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/MDWProject/PagaOnLine/xsd/XSD_MDW_PAGA_ON_LINE",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        } ]
+      }
+    },
+    "integrationScenario" : "ORCHESTRATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

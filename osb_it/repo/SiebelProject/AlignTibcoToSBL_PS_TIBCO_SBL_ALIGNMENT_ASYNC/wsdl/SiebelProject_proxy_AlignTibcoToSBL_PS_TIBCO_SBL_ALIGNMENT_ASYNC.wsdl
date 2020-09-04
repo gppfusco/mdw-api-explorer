@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by ?Carlo (Carlo) -->
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_TIBCO_SBL_ALIGNMENT_ASYNC" targetNamespace="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_TIBCO_SBL_ALIGNMENT_ASYNC.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestCessaOrderTIBCO_message">
+		<wsdl:part name="part_requestCessaOrderTIBCO" element="inp1:requestCessaOrderTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseCessaOrderTIBCO_message">
+		<wsdl:part name="part_responseCessaOrderTIBCO" element="inp1:responseCessaOrderTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="requestRecuperaOrderSospesoTIBCO_message">
+		<wsdl:part name="part_requestRecuperaOrderSospesoTIBCO" element="inp1:requestRecuperaOrderSospesoTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseRecuperaOrderSospesoTIBCO_message">
+		<wsdl:part name="part_responseRecuperaOrderSospesoTIBCO" element="inp1:responseRecuperaOrderSospesoTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="requestSospendiOrderTIBCO_message">
+		<wsdl:part name="part_requestSospendiOrderTIBCO" element="inp1:requestSospendiOrderTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseSospendiOrderTIBCO_message">
+		<wsdl:part name="part_responseSospendiOrderTIBCO" element="inp1:responseSospendiOrderTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="requestRecuperaBASospesoTIBCO_message">
+		<wsdl:part name="part_requestRecuperaBASospesoTIBCO" element="inp1:requestRecuperaBASospesoTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseRecuperaBASospesoTIBCO_message">
+		<wsdl:part name="part_responseRecuperaBASospesoTIBCO" element="inp1:responseRecuperaBASospesoTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:message name="requestDisassociaAssociaMatricola_message">
+		<wsdl:part name="part_requestDisassociaAssociaMatricola" element="inp1:requestDisassociaAssociaMatricola"/>
+	</wsdl:message>
+	<wsdl:message name="responseDisassociaAssociaMatricola_message">
+		<wsdl:part name="part_responseDisassociaAssociaMatricola" element="inp1:responseDisassociaAssociaMatricola"/>
+	</wsdl:message>
+	<wsdl:message name="requestConfermaMatricola_message">
+		<wsdl:part name="part_requestConfermaMatricola" element="inp1:requestConfermaMatricola"/>
+	</wsdl:message>
+	<wsdl:message name="responseConfermaMatricola_message">
+		<wsdl:part name="part_responseConfermaMatricola" element="inp1:responseConfermaMatricola"/>
+	</wsdl:message>
+	<wsdl:message name="requestRettificaConnettivita_message">
+		<wsdl:part name="part_requestRettificaConnettivita" element="inp1:requestRettificaConnettivita"/>
+	</wsdl:message>
+	<wsdl:message name="responseRettificaConnettivita_message">
+		<wsdl:part name="part_responseRettificaConnettivita" element="inp1:responseRettificaConnettivita"/>
+	</wsdl:message>
+	<wsdl:message name="requestCreaCO_message">
+		<wsdl:part name="part_requestCreaCO" element="inp1:requestCreaCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseCreaCO_message">
+		<wsdl:part name="part_responseCreaCO" element="inp1:responseCreaCO"/>
+	</wsdl:message>
+	<wsdl:message name="requestCreazioneDelivery_message">
+		<wsdl:part name="part_requestCreazioneDelivery" element="inp1:requestCreazioneDelivery"/>
+	</wsdl:message>
+	<wsdl:message name="responseCreazioneDelivery_message">
+		<wsdl:part name="part_responseCreazioneDelivery" element="inp1:responseCreazioneDelivery"/>
+	</wsdl:message>
+	<wsdl:message name="requestSbloccoChiaviCM_message">
+		<wsdl:part name="part_requestSbloccoChiaviCM" element="inp1:requestSbloccoChiaviCM"/>
+	</wsdl:message>
+	<wsdl:message name="responseSbloccoChiaviCM_message">
+		<wsdl:part name="part_responseSbloccoChiaviCM" element="inp1:responseSbloccoChiaviCM"/>
+	</wsdl:message>
+        <wsdl:message name="requestCOChangeConsistency_message">
+		<wsdl:part name="part_requestCOChangeConsistency" element="inp1:requestCOChangeConsistency"/>
+	</wsdl:message>
+	<wsdl:message name="responseCOChangeConsistency_message">
+		<wsdl:part name="part_responseCOChangeConsistency" element="inp1:responseCOChangeConsistency"/>
+	</wsdl:message>
+        <wsdl:message name="requestUpdApparati_message">
+		<wsdl:part name="part_requestUpdApparati" element="inp1:requestUpdApparati"/>
+	</wsdl:message>
+	<wsdl:message name="responseUpdApparati_message">
+		<wsdl:part name="part_responseUpdApparati" element="inp1:responseUpdApparati"/>
+	</wsdl:message>
+        <wsdl:message name="requestGenericCreaDelivery_message">
+		<wsdl:part name="part_requestGenericCreaDelivery" element="inp1:requestGenericCreaDelivery"/>
+	</wsdl:message>
+	<wsdl:message name="responseGenericCreaDelivery_message">
+		<wsdl:part name="part_responseGenericCreaDelivery" element="inp1:responseGenericCreaDelivery"/>
+	</wsdl:message>
+	<wsdl:portType name="TIBCO_SBL_ALIGNMENT_ASYNC_ptt">
+		<wsdl:operation name="execute_CessaOrderTIBCO">
+			<wsdl:input message="tns:requestCessaOrderTIBCO_message"/>
+			<wsdl:output message="tns:responseCessaOrderTIBCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_ConfermaMatricola">
+			<wsdl:input message="tns:requestConfermaMatricola_message"/>
+			<wsdl:output message="tns:responseConfermaMatricola_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_DisassociaAssociaMatricola">
+			<wsdl:input message="tns:requestDisassociaAssociaMatricola_message"/>
+			<wsdl:output message="tns:responseDisassociaAssociaMatricola_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SospendiOrderTIBCO">
+			<wsdl:input message="tns:requestSospendiOrderTIBCO_message"/>
+			<wsdl:output message="tns:responseSospendiOrderTIBCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_RecuperaOrderSospesoTIBCO">
+			<wsdl:input message="tns:requestRecuperaOrderSospesoTIBCO_message"/>
+			<wsdl:output message="tns:responseRecuperaOrderSospesoTIBCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_RecuperaBASospesoTIBCO">
+			<wsdl:input message="tns:requestRecuperaBASospesoTIBCO_message"/>
+			<wsdl:output message="tns:responseRecuperaBASospesoTIBCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_RettificaConnettivita">
+			<wsdl:input message="tns:requestRettificaConnettivita_message"/>
+			<wsdl:output message="tns:responseRettificaConnettivita_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CreaCO">
+			<wsdl:input message="tns:requestCreaCO_message"/>
+			<wsdl:output message="tns:responseCreaCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CreazioneDelivery">
+			<wsdl:input message="tns:requestCreazioneDelivery_message"/>
+			<wsdl:output message="tns:responseCreazioneDelivery_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SbloccoChiaviCM">
+			<wsdl:input message="tns:requestSbloccoChiaviCM_message"/>
+			<wsdl:output message="tns:responseSbloccoChiaviCM_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_COChangeConsistency">
+			<wsdl:input message="tns:requestCOChangeConsistency_message"/>
+			<wsdl:output message="tns:responseCOChangeConsistency_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_UpdApparati">
+			<wsdl:input message="tns:requestUpdApparati_message"/>
+			<wsdl:output message="tns:responseUpdApparati_message"/>
+		</wsdl:operation>
+                <wsdl:operation name="execute_GenericCreaDelivery">
+			<wsdl:input message="tns:requestGenericCreaDelivery_message"/>
+			<wsdl:output message="tns:responseGenericCreaDelivery_message"/>
+		</wsdl:operation>
+  <wsdl:operation name="execute_NotifyUpdateContract">
+   <wsdl:input message="tns:requestNotifyUpdateContract_message"/>
+   <wsdl:output message="tns:responseNotifyUpdateContract_message"/>
+  </wsdl:operation>
+ </wsdl:portType>
+ <wsdl:message name="requestNotifyUpdateContract_message">
+  <wsdl:part name="part_requestNotifyUpdateContract" element="inp1:requestNotifyUpdateContract"/>
+ </wsdl:message>
+ <wsdl:message name="responseNotifyUpdateContract_message">
+  <wsdl:part name="part_responseNotifyUpdateContract" element="inp1:responseNotifyUpdateContract"/>
+ </wsdl:message>
+ <wsdl:binding name="TIBCO_SBL_ALIGNMENT_ASYNC_pttSOAP11Binding" type="tns:TIBCO_SBL_ALIGNMENT_ASYNC_ptt">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <wsdl:operation name="execute_CessaOrderTIBCO">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_CessaOrderTIBCO"/>
+   <wsdl:input>
+    <soap:body use="literal" parts="part_requestCessaOrderTIBCO"/>
+    <soap:header message="tns:header_message" part="part_header" use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:body use="literal" parts="part_responseCessaOrderTIBCO"/>
+    <soap:header message="tns:header_message" part="part_header" use="literal"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_ConfermaMatricola">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_ConfermaMatricola"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestConfermaMatricola"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseConfermaMatricola"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_DisassociaAssociaMatricola">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_DisassociaAssociaMatricola"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestDisassociaAssociaMatricola"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseDisassociaAssociaMatricola"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_SospendiOrderTIBCO">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_SospendiOrderTIBCO"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestSospendiOrderTIBCO"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseSospendiOrderTIBCO"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_RecuperaOrderSospesoTIBCO">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_RecuperaOrderSospesoTIBCO"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestRecuperaOrderSospesoTIBCO"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseRecuperaOrderSospesoTIBCO"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_RecuperaBASospesoTIBCO">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_RecuperaBASospesoTIBCO"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestRecuperaBASospesoTIBCO"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseRecuperaBASospesoTIBCO"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_RettificaConnettivita">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_RettificaConnettivita"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestRettificaConnettivita"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseRettificaConnettivita"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_CreaCO">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_CreaCO"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestCreaCO"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseCreaCO"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_CreazioneDelivery">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_CreazioneDelivery"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestCreazioneDelivery"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseCreazioneDelivery"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_SbloccoChiaviCM">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_SbloccoChiaviCM"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestSbloccoChiaviCM"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseSbloccoChiaviCM"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_COChangeConsistency">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_COChangeConsistency"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestCOChangeConsistency"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseCOChangeConsistency"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_UpdApparati">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_UpdApparati"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestUpdApparati"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseUpdApparati"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_GenericCreaDelivery">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_GenericCreaDelivery"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestGenericCreaDelivery"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseGenericCreaDelivery"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_NotifyUpdateContract">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT_ASYNC/execute_NotifyUpdateContract"/>
+   <wsdl:input>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_requestNotifyUpdateContract"/>
+   </wsdl:input>
+   <wsdl:output>
+   <soap:header message="tns:header_message" part="part_header" use="literal"/>
+    <soap:body use="literal" parts="part_responseNotifyUpdateContract"/>
+   </wsdl:output>
+  </wsdl:operation>
+ </wsdl:binding>
+</wsdl:definitions>

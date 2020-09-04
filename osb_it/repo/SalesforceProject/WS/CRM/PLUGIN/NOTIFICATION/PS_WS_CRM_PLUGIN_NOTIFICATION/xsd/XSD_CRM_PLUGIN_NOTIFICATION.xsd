@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestPluginNotificationType">
+		<xsd:sequence>
+			<xsd:element name="Operation" type="xsd:string"/>
+			<xsd:element name="Sysdate" type="xsd:string"/>
+			<xsd:element name="Sorgente" type="xsd:string"/>
+			<xsd:element name="LstDynamicParameter" type="LstDynamicParameterType" minOccurs="0"/>
+			<xsd:element name="NoteAttivita" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NoteEsitoAutomatico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StatoEsigenza" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tecnologia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Timestamp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LstDynamicParameterType">
+		<xsd:sequence>
+			<xsd:element name="Parameter" type="ParameterType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ParameterType">
+		<xsd:sequence>
+			<xsd:element name="ParamName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ParamValue" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestPluginNotification" type="requestPluginNotificationType"/>
+	<xsd:element name="responsePluginNotification" type="responsePluginNotificationType"/>
+	<xsd:complexType name="responsePluginNotificationType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListaErrori" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Errore" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="NomeErrore" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="CodiceErrore" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="DescrizioneErrore" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

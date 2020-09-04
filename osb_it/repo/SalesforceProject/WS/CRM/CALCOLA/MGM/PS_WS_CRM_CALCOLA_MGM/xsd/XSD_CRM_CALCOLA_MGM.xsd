@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCalcolaMGM" type="requestCalcolaMGMType"/>
+	<xsd:complexType name="requestCalcolaMGMType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="contrLogicId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwSource" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwTrackingField" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwConnId" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="mdwOrigin" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="mdwScope" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCalcolaMGM" type="responseCalcolaMGMType"/>
+	<xsd:complexType name="responseCalcolaMGMType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwResult" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwCodeMGM" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

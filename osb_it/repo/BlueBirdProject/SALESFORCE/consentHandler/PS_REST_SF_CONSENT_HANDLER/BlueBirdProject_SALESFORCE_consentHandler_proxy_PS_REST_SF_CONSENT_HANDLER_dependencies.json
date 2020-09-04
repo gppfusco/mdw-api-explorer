@@ -1,0 +1,65 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_consentHandler_proxy_PS_REST_SF_CONSENT_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONSENT_HANDLER" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONSENT_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/SALESFORCE/consentHandler/pipeline/PL_REST_SF_CONSENT_HANDLER" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/consentHandler/pipeline/PL_REST_SF_CONSENT_HANDLER",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONSENT_HANDLER" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONSENT_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/SALESFORCE/consentHandler/pipeline/PL_INTERNAL_CONSENT_HANDLER_ENQUEUE" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/consentHandler/pipeline/PL_INTERNAL_CONSENT_HANDLER_ENQUEUE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONSENT_HANDLER" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONSENT_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/SALESFORCE/consentHandler/businessService/BS_JMS_ENQUEUE_SF_CONSENT_HANDLER" : {
+                "label" : "BusinessService/BlueBirdProject/SALESFORCE/consentHandler/businessService/BS_JMS_ENQUEUE_SF_CONSENT_HANDLER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SALESFORCE/consentHandler/transformation/createResponse_UpdateConsentNotification" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/consentHandler/transformation/createResponse_UpdateConsentNotification",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

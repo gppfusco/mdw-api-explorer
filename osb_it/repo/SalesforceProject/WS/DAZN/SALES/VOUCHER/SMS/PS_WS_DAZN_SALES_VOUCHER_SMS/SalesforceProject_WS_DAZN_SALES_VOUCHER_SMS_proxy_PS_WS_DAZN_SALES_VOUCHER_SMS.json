@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_DAZN_SALES_VOUCHER_SMS",
+    "name" : "SalesforceProject_WS_DAZN_SALES_VOUCHER_SMS_proxy_PS_WS_DAZN_SALES_VOUCHER_SMS",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\DAZN\\SALES\\VOUCHER\\SMS\\PS_WS_DAZN_SALES_VOUCHER_SMS",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_DAZN_SALES_VOUCHER_SMS?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/WS_DAZN_SALES_VOUCHER_SMS/xsd/XSD_DAZN_SALES_VOUCHER_SMS",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

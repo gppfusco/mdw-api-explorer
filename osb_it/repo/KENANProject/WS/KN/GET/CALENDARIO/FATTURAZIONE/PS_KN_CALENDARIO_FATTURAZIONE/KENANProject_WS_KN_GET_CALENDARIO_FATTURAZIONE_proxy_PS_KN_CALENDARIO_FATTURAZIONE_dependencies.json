@@ -1,0 +1,69 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_KN_GET_CALENDARIO_FATTURAZIONE_proxy_PS_KN_CALENDARIO_FATTURAZIONE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetCalendarioFatturazione/wsdl/WS_KN_GET_CALENDARIO_FATTURAZIONE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetCalendarioFatturazione/wsdl/WS_KN_GET_CALENDARIO_FATTURAZIONE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/pipeline/PL_WS_KN28GG_GET_CALENDARIO_FATTURAZIONE" : {
+        "label" : "Pipeline/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/pipeline/PL_WS_KN28GG_GET_CALENDARIO_FATTURAZIONE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/businessServices/BS_SQL_KN28GG_GET_CICLO_FATTURAZIONE" : {
+            "label" : "BusinessService/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/businessServices/BS_SQL_KN28GG_GET_CICLO_FATTURAZIONE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetCalendarioFatturazione/wsdl/WS_KN_GET_CALENDARIO_FATTURAZIONE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetCalendarioFatturazione/wsdl/WS_KN_GET_CALENDARIO_FATTURAZIONE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/transformations/createResponseGetCalendarioFatturazione" : {
+            "label" : "Xquery/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/transformations/createResponseGetCalendarioFatturazione",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/transformations/createResponseGetCicloFatturazione" : {
+            "label" : "Xquery/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/transformations/createResponseGetCicloFatturazione",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/transformations/createRequestGetCicloFatturazione" : {
+            "label" : "Xquery/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/transformations/createRequestGetCicloFatturazione",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/businessServices/BS_SQL_KN28GG_GET_CALENDARIO" : {
+            "label" : "BusinessService/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/businessServices/BS_SQL_KN28GG_GET_CALENDARIO",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/transformations/createRequestGetCalendarioFatturazione" : {
+            "label" : "Xquery/KENANProject/WS_KN_GET_CALENDARIO_FATTURAZIONE/transformations/createRequestGetCalendarioFatturazione",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

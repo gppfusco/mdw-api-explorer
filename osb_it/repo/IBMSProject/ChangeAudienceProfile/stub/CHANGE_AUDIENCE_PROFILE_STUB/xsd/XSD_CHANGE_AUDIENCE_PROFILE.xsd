@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestChangeAudienceProfile" type="requestChangeAudienceProfileType"/>
+	<xsd:complexType name="requestChangeAudienceProfileType">
+		<xsd:sequence>
+			<xsd:element name="NomeSegmento" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="IdSegmento" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DescrizioneSegmento" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="GruppoAppartenenzaSegmento" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="StatoSegmento" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataUltimaModificaSegmento" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Attributi" type="AttributiType" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AttributiType">
+		<xsd:sequence>
+			<xsd:element name="Attributo" type="AttributoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AttributoType">
+		<xsd:sequence>
+			<xsd:element name="Chiave" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Valore" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseChangeAudienceProfile" type="responseChangeAudienceProfileType"/>
+	<xsd:complexType name="responseChangeAudienceProfileType">
+		<xsd:sequence>
+			<xsd:element name="Result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DescriptionResult" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MaxDateUsage" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

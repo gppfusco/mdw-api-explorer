@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBApplicationSky/BlueBirdProject/PS_REST_SF_MOP_HANDLER" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/mopHandler/xsd/XSD_SF_MOP_HANDLER.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/mop-collections">
+         <method name="POST" soa:wsdlOperation="ChangeMOP">
+            <request>
+               <param name="cloneMopId" style="query" soa:expression="$property.cloneMopId" default="" type="xsd:string"/>
+               <param name="targetContractId " style="query" soa:expression="$property.targetContractId" default="" type="xsd:string"/>
+               <param name="sourceContractId" style="query" soa:expression="$property.sourceContractId" default="" type="xsd:string"/>
+               <param name="requestDate" style="query" soa:expression="$property.requestDate" default="" type="xsd:string"/>
+               <param name="e2eContractId" style="query" soa:expression="$property.e2eContractId" default="" type="xsd:string"/>
+               <param name="channel" style="query" soa:expression="$property.channel" default="" type="xsd:string"/>
+               <representation mediaType="application/xml" element="cns:requestChangeMOP" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="201">
+               <representation mediaType="application/xml" element="cns:responseMOPHandler" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/getcompatiblemops">
+         <method name="GET" soa:wsdlOperation="GetCompatibleMOPs">
+            <request>
+               <param name="billingType" style="query" soa:expression="$msg.request/ns0:billingType" type="xsd:string" required="true" default=""/>
+               <param name="contractType" style="query" soa:expression="$msg.request/ns0:contractType" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseGetCompatibleMOPs" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

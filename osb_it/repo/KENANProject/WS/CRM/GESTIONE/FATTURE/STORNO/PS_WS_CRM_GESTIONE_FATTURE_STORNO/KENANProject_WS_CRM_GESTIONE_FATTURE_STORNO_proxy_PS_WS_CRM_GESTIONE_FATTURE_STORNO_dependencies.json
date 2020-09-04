@@ -1,0 +1,103 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_CRM_GESTIONE_FATTURE_STORNO_proxy_PS_WS_CRM_GESTIONE_FATTURE_STORNO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneFattureStorno/wsdl/WS_CRM_GESTIONE_FATTURE_STORNO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneFattureStorno/wsdl/WS_CRM_GESTIONE_FATTURE_STORNO",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/pipeline/PL_WS_CRM_GESTIONE_STORNO_ROUTING" : {
+        "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/pipeline/PL_WS_CRM_GESTIONE_STORNO_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/pipeline/PL_CRM_CALCOLA_STORNO" : {
+            "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/pipeline/PL_CRM_CALCOLA_STORNO",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneFattureStorno/wsdl/WS_CRM_GESTIONE_FATTURE_STORNO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneFattureStorno/wsdl/WS_CRM_GESTIONE_FATTURE_STORNO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/transformation/createRequest_BS_FUNC_CALCOLO_STORNO" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/transformation/createRequest_BS_FUNC_CALCOLO_STORNO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/transformation/createResponse_BS_FUNC_CALCOLO_STORNO" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/transformation/createResponse_BS_FUNC_CALCOLO_STORNO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/businessService/BS_FUNCTION_CALCOLO_STORNO" : {
+                "label" : "BusinessService/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/businessService/BS_FUNCTION_CALCOLO_STORNO",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneFattureStorno/wsdl/WS_CRM_GESTIONE_FATTURE_STORNO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneFattureStorno/wsdl/WS_CRM_GESTIONE_FATTURE_STORNO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/pipeline/PL_CRM_GESTIONE_FATTURE_STORNO" : {
+            "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/pipeline/PL_CRM_GESTIONE_FATTURE_STORNO",
+            "properties" : { },
+            "successors" : {
+              "Xquery/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/transformation/createResponse_WS_CRM_GESTIONE_FATTURE_STORNO" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/transformation/createResponse_WS_CRM_GESTIONE_FATTURE_STORNO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneFattureStorno/wsdl/WS_CRM_GESTIONE_FATTURE_STORNO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneFattureStorno/wsdl/WS_CRM_GESTIONE_FATTURE_STORNO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/businessService/BS_TUX_KNN_STORNO_FATTURE" : {
+                "label" : "BusinessService/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/businessService/BS_TUX_KNN_STORNO_FATTURE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/transformation/createRequest_BS_TUX_KNN_STORNO_FATTURE" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_FATTURE_STORNO/transformation/createRequest_BS_TUX_KNN_STORNO_FATTURE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

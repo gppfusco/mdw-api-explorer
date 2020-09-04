@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetAssetsType"> 
+		<xsd:sequence>
+			<xsd:element name="OrderNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TibcoOrderId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CorrelationId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ParentContractId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetAssetsType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string"/>
+			<xsd:element name="ListItems" type="ListItemsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType> 
+	<xsd:complexType name="ListItemsType">
+		<xsd:sequence>
+			<xsd:element name="Asset" type="AssetType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="Contract" type="ContractType" minOccurs="0"/>
+			<xsd:element name="ContractBundle" type="ContractBundleType" minOccurs="0"/>
+			<xsd:element name="BillingAccount" type="BillingAccountType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AssetType">
+		<xsd:sequence>
+			<xsd:element name="ActivationDate" type="xsd:string"/>
+			<xsd:element name="ChannelTypeCD" type="xsd:string"/>
+			<xsd:element name="Attributes">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Attribute" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AttribName" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="AttribValue" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="CreatedDate" type="xsd:string"/>
+			<xsd:element name="Description" type="xsd:string"/>
+			<xsd:element name="StatoMatricola" type="xsd:string"/>
+			<xsd:element name="EnablementNumber" type="xsd:string"/>
+			<xsd:element name="IntegrationId" type="xsd:string"/>
+			<xsd:element name="Id" type="xsd:string"/>
+			<xsd:element name="LineNumber" type="xsd:string"/>
+			<xsd:element name="OrderId" type="xsd:string"/>
+			<xsd:element name="ParentId" type="xsd:string"/>
+			<xsd:element name="ProvisioningStatus" type="xsd:string"/>
+			<xsd:element name="SerialNumber" type="xsd:string"/>
+			<xsd:element name="ProductCode" type="xsd:string"/>
+			<xsd:element name="ProductCodeOM" type="xsd:string"/>
+			<xsd:element name="Name" type="xsd:string"/>
+			<xsd:element name="Status" type="xsd:string"/>
+			<xsd:element name="RootName" type="xsd:string"/>
+			<xsd:element name="OrderItemOSSAttributes">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="OSSAttribute" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AttribName" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="AttribValue" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContractType">
+		<xsd:sequence>
+			<xsd:element name="OYCRenewalFlg" type="xsd:string"/>
+			<xsd:element name="OrderNumber" type="xsd:string"/>
+			<xsd:element name="ParentContractId" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContractBundleType">
+		<xsd:sequence>
+			<xsd:element name="SemaforoConnettivita" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BillingAccountType">
+		<xsd:sequence>
+			<xsd:element name="Id" type="xsd:string"/>
+			<xsd:element name="Name" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetAssets" type="requestGetAssetsType"/>
+	<xsd:element name="responseGetAssets" type="responseGetAssetsType"/>
+	<xsd:element name="requestGetInfoAssets" type="requestGetInfoAssetsType"/>
+	<xsd:element name="responseGetInfoAssets" type="responseGetInfoAssetsType"/>
+	<xsd:complexType name="requestGetInfoAssetsType">
+		<xsd:sequence>
+			<xsd:element name="orderNumber" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="integrationId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="correlationId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetInfoAssetsType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string"/>
+			<xsd:element name="results" type="ListItemsInfoAssetType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListItemsInfoAssetType">
+		<xsd:sequence>
+			<xsd:element name="assetId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="productCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="serialNumber" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="assetReferenceId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="integrationId" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

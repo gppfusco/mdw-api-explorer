@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestIVRSend" type="requestIVRSendType"/>
+	<xsd:element name="responseIVRSend" type="responseIVRSendType"/>
+	<xsd:complexType name="requestIVRSendType">
+		<xsd:sequence>
+			<xsd:element name="mdwTrackingField" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwConnId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwScope" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwActionCode">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:enumeration value="INVIO_PIN"/>
+									<xsd:enumeration value="INVIO_COMUNICAZIONE"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="mdwOperationCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwContext" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="input">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Funzionalita" type="FunzionalitaType" minOccurs="0"/>
+						<xsd:element name="Contratto" type="ContrattoType" minOccurs="0"/>
+						<xsd:element name="Account" type="AccountType" minOccurs="0"/>
+						<xsd:element name="Lettera" type="LetteraType" minOccurs="0"/>
+                                                <xsd:element name="Contesto" type="ContestoType" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- TYPES -->
+	<xsd:complexType name="FunzionalitaType">
+		<xsd:sequence>
+			<xsd:element name="SRProvenienza" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizioneElaborazione" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="CodiceLavorazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TIDPGS" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoCanale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tipo_Offerta" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoOperazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PIN" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SRNumber" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContrattoType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MatricolaSMC" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        	<xsd:complexType name="ContestoType">
+		<xsd:sequence>
+			<xsd:element name="SEZ1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NoteAttivita" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AccountType">
+		<xsd:sequence>
+			<xsd:element name="FruCodiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruNome" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruCognome" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruEmail" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruCellulare" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruTelefono" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruAltroNumeroTel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruPiano" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruProvincia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruScala" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruNumeroCivico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruIndirizzo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruInterno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruCAP" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruCitta" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruFlagSesso" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruPivaCodF" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruDataNascitaSKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruMNTAnalisiPreferenze" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruStatisticheFlagSKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FruTemporaryEmailAddressSKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagCodiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagNome" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagCognome" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagEmail" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagCellulare" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagTelefono" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagAltroNumeroTel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagPiano" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagProvincia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagScala" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagNumeroCivico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagIndirizzo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagInterno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagCAP" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagCitta" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagFlagSesso" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagPivaCodF" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagDataNascitaSKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagMNTAnalisiPreferenze" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagStatisticheFlagSKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PagTemporaryEmailAddressSKY" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LetteraType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MOP" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StatoContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StatoContrattoPart" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoRecord" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescPackPartenza" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescPackArrivo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizioneTipoUpg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OggettoRichiesta" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizioneRichiesta" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataAdesionePromo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizionePromo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomePromo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataRichAttivazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataScadContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MatricolaSMC" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataRichCessazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataUltimaModifica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ExitFee" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceLettera" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ElencoSMC" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseIVRSendType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="tid" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

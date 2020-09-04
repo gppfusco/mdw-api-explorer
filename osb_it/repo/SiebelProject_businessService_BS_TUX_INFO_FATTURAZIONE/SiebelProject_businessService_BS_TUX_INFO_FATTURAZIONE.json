@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/SiebelProject/businessService/BS_TUX_INFO_FATTURAZIONE",
+    "name" : "SiebelProject_businessService_BS_TUX_INFO_FATTURAZIONE",
+    "localPath" : "osb_it\\repo\\SiebelProject_businessService_BS_TUX_INFO_FATTURAZIONE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

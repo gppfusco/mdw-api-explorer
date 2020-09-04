@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:element name="requestLSGetMovimentazioniSAP" type="requestLSGetMovimentazioniSAPType" />
+  <xsd:complexType name="requestLSGetMovimentazioniSAPType">
+    <xsd:sequence>
+      <xsd:element name="LS_FLUSSO" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="LS_ID_RICHIESTA" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="LS_MAGAZZINO" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="LS_CW_ID" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="LS_TIPO_ELABORAZIONE" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="responseLSGetMovimentazioniSAP" type="responseLSGetMovimentazioniSAPType" />
+  <xsd:complexType name="responseLSGetMovimentazioniSAPType" >
+    <xsd:sequence>
+      <xsd:element name="SRVZ_RET_CODE" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="SRVZ_DESCRIZ_ESITO" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_TID" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_MOVIMENTI_FML32" type="LS_MOVIMENTI_FML32_TYPE" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="LS_MOVIMENTI_FML32_TYPE">
+    <xsd:sequence>
+      <xsd:element name="LS_RECORD_ID" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_NR_SERIALE" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_ID_MOVIMENTO" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_DATA_INSERIM" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_DATA_OPERAZIONE" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_NUMERO_ORDINE" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_POSIZIONE" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_STATO" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_TIPO_CESSIONE" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_DATA_CONTABILE" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_DATA_PRIMAMOV_CL" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_DATA_STRALCIO" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_FLAG_RETTIFICA" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_TIPO_CAUSALE" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_MAGAZZINO_SORGENTE" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_MAGAZZINO_DESTINAZIONE" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_LOTTO" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_CODICE_ITEM" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_QUANTITA" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_DATA_EM_SIBEL" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_DDT_FML32" type="LS_DDT_FML32_TYPE" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="LS_DDT_FML32_TYPE">
+    <xsd:sequence>
+      <xsd:element name="LS_TIPO" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_DDT" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="LS_DATA_DDT" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+</xsd:schema>

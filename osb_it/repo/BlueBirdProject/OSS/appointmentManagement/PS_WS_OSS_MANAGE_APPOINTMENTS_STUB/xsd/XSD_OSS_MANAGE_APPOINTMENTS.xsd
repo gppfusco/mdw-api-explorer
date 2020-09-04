@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestAvailableAppointments" type="requestAvailableAppointmentsType"/>
+  <xsd:complexType name="requestAvailableAppointmentsType">
+    <xsd:sequence>
+      <xsd:element name="buildingID" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="subBuilding" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="serviceType" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="requestType" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="startDay" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="numberOfSlots" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="orderId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="wholesaler" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="customerCategory" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="extra" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="prospectBundleBB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="tenure" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="migrationFlag" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="migrationPhase" type="xsd:integer" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseAvailableAppointmentsSoap" type="responseAvailableAppointmentsSoapType"/>
+  <xsd:complexType name="responseAvailableAppointmentsSoapType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="responseAvailableAppointments" type="responseAvailableAppointmentsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseAvailableAppointments" type="responseAvailableAppointmentsType"/>
+  <xsd:complexType name="responseAvailableAppointmentsType">
+    <xsd:sequence>
+      <xsd:element name="availableSlots" type="availableSlotsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="availableSlotsType">
+    <xsd:sequence>
+      <xsd:element name="slot" type="slotType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="slotType">
+    <xsd:sequence>
+      <xsd:element name="slotId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="appointmentDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="startTime" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="typeId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="orderId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="requestReserveAppointment" type="requestReserveAppointmentType"/>
+  <xsd:complexType name="requestReserveAppointmentType">
+    <xsd:sequence>
+      <xsd:element name="slotId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="orderId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="typeId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="extSlot" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="wholesaler" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="appointmentType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="appointmentDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="workOrderId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="tokenId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="buildingId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="stairCase" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="serviceType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="installationType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="escalationId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="oldWorkOrderId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="migrationFlag" type="xsd:boolean" minOccurs="1"/>
+      <xsd:element name="migrationPhase" type="xsd:integer" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseReserveAppointmentSoap" type="responsedReserveAppointmentSoapType"/>
+  <xsd:complexType name="responsedReserveAppointmentSoapType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="responseReserveAppointment" type="responsedReserveAppointmentType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseReserveAppointment" type="responsedReserveAppointmentType"/>
+  <xsd:complexType name="responsedReserveAppointmentType">
+    <xsd:sequence>
+      <xsd:element name="reservedAppointment" type="reservedAppointmentType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="reservedAppointmentType">
+    <xsd:sequence>
+      <xsd:element name="tokenId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="typeId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="orderId" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:element name="requestCancelAppointment" type="requestCancelAppointmentType"/>
+  <xsd:complexType name="requestCancelAppointmentType">
+    <xsd:sequence>
+      <xsd:element name="orderId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="tokenId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="wholesaler" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="responseCancelAppointmentSoap" type="responsedCancelAppointmentSoapType"/>
+  <xsd:complexType name="responsedCancelAppointmentSoapType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

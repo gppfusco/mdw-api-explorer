@@ -1,0 +1,33 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/salesforce/connectionInfo",
+    "name" : "BlueBirdProject_SALESFORCE_connectionInfo_proxy_PS_REST_SF_CONNECTION_INFO",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\SALESFORCE\\connectionInfo\\PS_REST_SF_CONNECTION_INFO",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/salesforce/connectionInfo?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/connectionInfo/xsd/XSD_SF_CONNECTION_INFO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/connectionInfo/xsd/XSD_SF_CONNECTION_INFO",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

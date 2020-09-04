@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetEsigenzeTelecom" type="requestGetEsigenzeTelecomType"/>
+	<xsd:complexType name="requestGetEsigenzeTelecomType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="custId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwTrackingField" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwConnId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="mdwOrigin" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="mdwScope" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetEsigenzeTelecom" type="responseGetEsigenzeTelecomType"/>
+	<xsd:complexType name="responseGetEsigenzeTelecomType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwResult" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwCategoria" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwDataCreazioneEsigenza" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwSottoCategoria" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwTicketTecnicoTI" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,106 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MEDIASETProject_DTT_CHECK_SWAP_proxy_PS_MEDIASET_DTT_CHECK_SWAP",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckSwap/wsdl/WS_MEDIASET_DTT_CHECK_SWAP" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckSwap/wsdl/WS_MEDIASET_DTT_CHECK_SWAP",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MEDIASETProject/DTT_CHECK_SWAP/pipeline/PL_WS_MEDIASET_DTT_CHECK_SWAP_ROUTING" : {
+        "label" : "Pipeline/MEDIASETProject/DTT_CHECK_SWAP/pipeline/PL_WS_MEDIASET_DTT_CHECK_SWAP_ROUTING",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckSwap/wsdl/WS_MEDIASET_DTT_CHECK_SWAP" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckSwap/wsdl/WS_MEDIASET_DTT_CHECK_SWAP",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/MEDIASETProject/DTT_CHECK_SWAP/pipeline/PL_WS_MEDIASET_DTT_CHECK_REPLACEMENT_REQUEST" : {
+            "label" : "Pipeline/MEDIASETProject/DTT_CHECK_SWAP/pipeline/PL_WS_MEDIASET_DTT_CHECK_REPLACEMENT_REQUEST",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckSwap/wsdl/WS_MEDIASET_DTT_CHECK_SWAP" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckSwap/wsdl/WS_MEDIASET_DTT_CHECK_SWAP",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MEDIASETProject/DTT_CHECK_SWAP/transformations/createResponseCheckReplacementRequest" : {
+                "label" : "Xquery/MEDIASETProject/DTT_CHECK_SWAP/transformations/createResponseCheckReplacementRequest",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MEDIASETProject/DTT_CHECK_SWAP/transformations/createRequestCheckReplacementRequest" : {
+                "label" : "Xquery/MEDIASETProject/DTT_CHECK_SWAP/transformations/createRequestCheckReplacementRequest",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MEDIASETProject/DTT_CHECK_SWAP/businessService/BS_WS_R2_DTT_SMARTCARD_SKY_SC" : {
+                "label" : "BusinessService/MEDIASETProject/DTT_CHECK_SWAP/businessService/BS_WS_R2_DTT_SMARTCARD_SKY_SC",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/MEDIASETProject/DTT_CHECK_SWAP/pipeline/PL_WS_MEDIASET_DTT_CHECK_SWAP" : {
+            "label" : "Pipeline/MEDIASETProject/DTT_CHECK_SWAP/pipeline/PL_WS_MEDIASET_DTT_CHECK_SWAP",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckSwap/wsdl/WS_MEDIASET_DTT_CHECK_SWAP" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckSwap/wsdl/WS_MEDIASET_DTT_CHECK_SWAP",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MEDIASETProject/DTT_CHECK_SWAP/transformations/createResponseCheckSwap" : {
+                "label" : "Xquery/MEDIASETProject/DTT_CHECK_SWAP/transformations/createResponseCheckSwap",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MEDIASETProject/DTT_CHECK_SWAP/transformations/createResponseByFault" : {
+                "label" : "Xquery/MEDIASETProject/DTT_CHECK_SWAP/transformations/createResponseByFault",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MEDIASETProject/DTT_CHECK_SWAP/transformations/createRequestCheckSwap" : {
+                "label" : "Xquery/MEDIASETProject/DTT_CHECK_SWAP/transformations/createRequestCheckSwap",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MEDIASETProject/DTT_CHECK_SWAP/businessService/BS_WS_R2_DTT_SMARTCARD_SKY_SC" : {
+                "label" : "BusinessService/MEDIASETProject/DTT_CHECK_SWAP/businessService/BS_WS_R2_DTT_SMARTCARD_SKY_SC",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/teoco/WS_TEOCO_HEALT_CHECK_TEST",
+    "name" : "BlueBirdProject_TEOCO_execHealtCheck_proxy_PS_WS_TEOCO_HEALT_CHECK_TEST",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\TEOCO\\execHealtCheck\\PS_WS_TEOCO_HEALT_CHECK_TEST",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/teoco/WS_TEOCO_HEALT_CHECK_TEST?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/TEOCO/healtCheckTest/xsd/XSD_TEOCO_HEALT_CHECK_TEST",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

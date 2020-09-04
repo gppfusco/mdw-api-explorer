@@ -1,0 +1,131 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_WS_FPS_BS_CRM_proxy_PS_WS_CRM_CHECK_NEW_CONTRACT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/CheckNewContract/wsdl/WS_CRM_CHECK_NEW_CONTRACT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/CheckNewContract/wsdl/WS_CRM_CHECK_NEW_CONTRACT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/WS_FPS_BS_CRM/pipeline/PL_SBL_FPS_BS_CRM" : {
+        "label" : "Pipeline/SiebelProject/WS_FPS_BS_CRM/pipeline/PL_SBL_FPS_BS_CRM",
+        "properties" : { },
+        "successors" : {
+          "ProxyService/SalesforceProject/WS_FPS_BS_CRM/proxy/PS_WS_CREATE_MESSAGE_WS_FPS_BS_CRM" : {
+            "label" : "ProxyService/SalesforceProject/WS_FPS_BS_CRM/proxy/PS_WS_CREATE_MESSAGE_WS_FPS_BS_CRM",
+            "properties" : {
+              "transport-type" : "local",
+              "nodeType" : "Proxy",
+              "service-type" : "SOAP"
+            },
+            "successors" : {
+              "Pipeline/SalesforceProject/WS_FPS_BS_CRM/pipeline/PL_JMS_WS_FPS_BS_CRM_ENQUEUE" : {
+                "label" : "Pipeline/SalesforceProject/WS_FPS_BS_CRM/pipeline/PL_JMS_WS_FPS_BS_CRM_ENQUEUE",
+                "properties" : { },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/SalesforceProject/businessService/BS_JMS_SF_ENQUEUE" : {
+                    "label" : "BusinessService/SalesforceProject/businessService/BS_JMS_SF_ENQUEUE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/WS_FPS_BS_CRM/wsdl/WS_FPS_BS_CRM_TO_SF" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/WS_FPS_BS_CRM/wsdl/WS_FPS_BS_CRM_TO_SF",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/WS_FPS_BS_CRM/wsdl/WS_FPS_BS_CRM_TO_SF" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/WS_FPS_BS_CRM/wsdl/WS_FPS_BS_CRM_TO_SF",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "BusinessService/SiebelProject/WS_FPS_BS_CRM/businessService/BS_SQL_SBL_SELECT_SISTEMA_PER_INVO_SPY" : {
+            "label" : "BusinessService/SiebelProject/WS_FPS_BS_CRM/businessService/BS_SQL_SBL_SELECT_SISTEMA_PER_INVO_SPY",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/pipeline/PL_INTERNAL_SBL_GENERIC_CALL" : {
+            "label" : "Pipeline/SiebelProject/pipeline/PL_INTERNAL_SBL_GENERIC_CALL",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SiebelProject/WS_FPS_BS_CRM/transformation/createResponse_CheckSistema" : {
+            "label" : "Xquery/SiebelProject/WS_FPS_BS_CRM/transformation/createResponse_CheckSistema",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/WS_FPS_BS_CRM/transformation/createRequest_SelectSistemaPerInvioSPY" : {
+            "label" : "Xquery/SiebelProject/WS_FPS_BS_CRM/transformation/createRequest_SelectSistemaPerInvioSPY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/ApplicationObjects/SIEBEL/WS_FPS_BS_CRM/WS_FPS_BS_CRM" : {
+            "label" : "WSDL/MDW_CDM/ApplicationObjects/SIEBEL/WS_FPS_BS_CRM/WS_FPS_BS_CRM",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/WS_FPS_BS_CRM/transformation/createRequest_ToSalesForce" : {
+            "label" : "Xquery/SiebelProject/WS_FPS_BS_CRM/transformation/createRequest_ToSalesForce",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/WS_FPS_BS_CRM/transformation/createResponse_generic" : {
+            "label" : "Xquery/SiebelProject/WS_FPS_BS_CRM/transformation/createResponse_generic",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/WS_FPS_BS_CRM/transformation/createRequest_BSSiebel" : {
+            "label" : "Xquery/SiebelProject/WS_FPS_BS_CRM/transformation/createRequest_BSSiebel",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/qmi/WS_QMI_CONSISTENCY",
+    "name" : "BlueBirdProject_QMI_consistency_proxy_PS_WS_QMI_CONSISTENCY",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\QMI\\consistency\\PS_WS_QMI_CONSISTENCY",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/qmi/WS_QMI_CONSISTENCY?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/QMI/consistenza/xsd/XSD_QMI_CONSISTENCY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

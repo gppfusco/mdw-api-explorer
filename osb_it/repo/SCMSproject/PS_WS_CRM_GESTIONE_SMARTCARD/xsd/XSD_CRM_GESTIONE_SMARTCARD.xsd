@@ -1,0 +1,246 @@
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by ?Type ur fucking name ! (Type ur Company -.-) -->
+<xsd:schema xmlns:srv="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:include schemaLocation="../../../../EnterpriseObjects/CommonEntities/ScmsResponse.xsd"/>
+	<xsd:include schemaLocation="../../../../EnterpriseObjects/CommonEntities/ResponseAsync.xsd"/>
+	<xsd:complexType name="requestSETPARType">
+		<xsd:sequence>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="stbkind" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagset" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="pincontrol" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flaglock" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSETPAR" type="srv:requestSETPARType"/>
+	<xsd:element name="responseSCMS" type="srv:ScmsResponseType"/>
+	<xsd:element name="responseAck" type="srv:responseAckType"/>
+	<xsd:complexType name="requestREFPRDType">
+		<xsd:sequence>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="stbkind" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="stbkindhw" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>formato YYYYMMDDHH24MISS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestREFPRD" type="srv:requestREFPRDType"/>
+	<xsd:complexType name="requestASSCDEType">
+		<xsd:sequence>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="account" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="consistenza" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="SMC" minOccurs="1" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="STB" minOccurs="1" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:attribute name="TipoSTB" use="required">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:string"/>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="Seriale" use="required">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:string"/>
+												</xsd:simpleType>
+											</xsd:attribute>
+											<xsd:attribute name="RateCode" use="required">
+												<xsd:simpleType>
+													<xsd:restriction base="xsd:string"/>
+												</xsd:simpleType>
+											</xsd:attribute>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+								<xsd:attribute name="TipoSMC" use="required">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string"/>
+									</xsd:simpleType>
+								</xsd:attribute>
+								<xsd:attribute name="Seriale" use="required">
+									<xsd:simpleType>
+										<xsd:restriction base="xsd:string"/>
+									</xsd:simpleType>
+								</xsd:attribute>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestASSCDE" type="srv:requestASSCDEType"/>
+	<xsd:complexType name="requestRSTSUBType">
+		<xsd:sequence>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="stbkind" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestRSTSUB" type="srv:requestRSTSUBType"/>
+	<xsd:complexType name="requestCHGSUBType">
+		<xsd:sequence>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="stbkind" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="stbkindhw" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>formato YYYYMMDDHH24MISS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="zipcode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="decoderid" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCHGSUB" type="srv:requestCHGSUBType"/>
+	<xsd:complexType name="requestCLRPARType">
+		<xsd:sequence>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="stbkind" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="stbkindhw" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCLRPAR" type="srv:requestCLRPARType"/>
+	<xsd:complexType name="requestSETPAIType">
+		<xsd:sequence>
+			<xsd:element name="actionCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="syncFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="codiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="numeroSmartCard" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipoApp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataApertura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="bitHw" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSETPAI" type="srv:requestSETPAIType"/>
+	<xsd:complexType name="requestIMMCLBType">
+		<xsd:sequence>
+			<xsd:element name="actionCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="syncFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="codiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="numeroSmartCard" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipoApp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="esigenza" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="newSmartCard" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagMultivision" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataApertura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="bitHw" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestIMMCLB" type="srv:requestIMMCLBType"/>
+	<xsd:complexType name="requestTKNASSType">
+		<xsd:sequence>
+			<xsd:element name="actionCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="syncFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="codiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="numeroSmartCard" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipoApp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="creditLimit" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagRefresh" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataApertura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="bitHw" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestTKNASS" type="srv:requestTKNASSType"/>
+	<xsd:complexType name="requestGETCHPType">
+		<xsd:sequence>
+			<xsd:element name="decoderid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGETCHP" type="srv:requestGETCHPType"/>
+	<xsd:complexType name="responseGETCHPType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="chipid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="transid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descriptionerr" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGETCHP" type="srv:responseGETCHPType"/>
+	<xsd:complexType name="requestSTBSECType">
+		<xsd:sequence>
+			<xsd:element name="decoderid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="chipid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSTBSEC" type="srv:requestSTBSECType"/>
+	<xsd:complexType name="requestCHGCHPType">
+		<xsd:sequence>
+			<xsd:element name="decoderid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="chipid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCHGCHP" type="srv:requestCHGCHPType"/>
+	<xsd:element name="requestSOSPSC" type="srv:requestSOSPSCType"/>
+	<xsd:complexType name="requestSOSPSCType">
+		<xsd:sequence>
+			<xsd:element name="priority" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseSOSPSC" type="srv:responseSOSPSCType"/>
+	<xsd:complexType name="responseSOSPSCType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ndserr " type="xsd:string" minOccurs="1"/>
+			<xsd:element name="transid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descriptionerr" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

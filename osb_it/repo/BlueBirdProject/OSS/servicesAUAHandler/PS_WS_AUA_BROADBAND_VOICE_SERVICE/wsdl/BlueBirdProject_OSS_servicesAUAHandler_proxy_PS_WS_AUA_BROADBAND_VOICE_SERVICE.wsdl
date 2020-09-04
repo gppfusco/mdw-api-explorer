@@ -1,0 +1,44 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_AUA_BROADBAND_VOICE_SERVICE"
+     targetNamespace="http://xmlns.oracle.com/OSBSvil/MDW_CDM/WS_AUA_BROADBAND_VOICE_SERVICE"
+     xmlns:tns="http://xmlns.oracle.com/OSBSvil/MDW_CDM/WS_AUA_BROADBAND_VOICE_SERVICE"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_AUA_BROADBAND_VOICE_SERVICE.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="requestMessage" element="inp1:requestCallAUA"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="replyMessage" element="inp1:responseCallAUA"/>
+    </wsdl:message>
+    <wsdl:portType name="ptt_WS_AUA_BROADBAND_VOICE_SERVICE">
+        <wsdl:operation name="execute_CallAUA">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="bind_CallAUA" type="tns:ptt_WS_AUA_BROADBAND_VOICE_SERVICE">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_CallAUA">
+            <soap:operation style="document" soapAction="execute_CallAUA"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/OSBSvil/MDW_CDM/WS_AUA_BROADBAND_VOICE_SERVICE"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/OSBSvil/MDW_CDM/WS_AUA_BROADBAND_VOICE_SERVICE"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="headerMessage">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+</wsdl:definitions>

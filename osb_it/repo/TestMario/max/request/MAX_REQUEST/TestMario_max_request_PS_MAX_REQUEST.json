@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/TestMario/max_request/PS_MAX_REQUEST",
+    "name" : "TestMario_max_request_PS_MAX_REQUEST",
+    "localPath" : "osb_it\\repo\\TestMario\\max\\request\\MAX_REQUEST",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_GenericBsInkerAsync_proxy_PS_WS_SIE_GENERIC_BS_INVOKE_ASYNC",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/GenericBsInkerAsync/pipeline/PL_WS_SIE_CONTR_ASYNC_ENQUEUE" : {
+        "label" : "Pipeline/SiebelProject/GenericBsInkerAsync/pipeline/PL_WS_SIE_CONTR_ASYNC_ENQUEUE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SiebelProject/businessService/BS_JMS_SIEBEL_GENERIC_INVOKE" : {
+            "label" : "BusinessService/SiebelProject/businessService/BS_JMS_SIEBEL_GENERIC_INVOKE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GenericBsInvokeAsync/wsdl/WS_CRM_SIE_GENERIC_BS_INVOKE_ASYNC" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GenericBsInvokeAsync/wsdl/WS_CRM_SIE_GENERIC_BS_INVOKE_ASYNC",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GenericBsInvokeAsync/wsdl/WS_CRM_SIE_GENERIC_BS_INVOKE_ASYNC" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GenericBsInvokeAsync/wsdl/WS_CRM_SIE_GENERIC_BS_INVOKE_ASYNC",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetFattureRecenti" type="requestGetFattureRecentiType"/>
+	<xsd:complexType name="requestGetFattureRecentiType">
+		<xsd:sequence>
+			<xsd:element name="CustomerId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Deep" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetFattureRecenti" type="responseGetFattureRecentiType"/>
+	<xsd:complexType name="responseGetFattureRecentiType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="StatoFatturazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ReturnGetFattureRecenti" type="CustomerType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ReturnItemFattureType">
+		<xsd:sequence>
+			<xsd:element name="Invoice" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataEmissione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="InvoiceItems" type="InvoiceItemsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Origine" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InvoiceItemsType">
+		<xsd:sequence>
+			<xsd:element name="InvoiceItem" type="InvoiceItemType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InvoiceItemType">
+		<xsd:sequence>
+			<xsd:element name="Contesto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Progressivo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Prezzo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Sezione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Periodo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Full_sin_seq" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Descrizione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Progressivo_riepilogo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Label_riepilogo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Codice_contratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Statement_date" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Aliquota_applicata" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Ordine_selezione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Periodo_riepilogo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Prezzo_riepilogo" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomerType">
+		<xsd:sequence>
+			<xsd:element name="Invoices" type="InvoicesType" minOccurs="0"/>
+			<xsd:element name="CustomerId" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InvoicesType">
+		<xsd:sequence>
+			<xsd:element name="Invoice" type="InvoiceType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InvoiceType">
+		<xsd:sequence>
+			<xsd:element name="TipoDoc" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="BillRefNo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Stipula" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ImportoDovuto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Fattura" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataEmissione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataS" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="StatoDeposito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Mop" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="BillRefreset" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataScadenza" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataChiusura" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DepositAmount" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Contesto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataValue" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="AccountNo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TotaleFattura" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ExternalId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="AdjComplessivi" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CreditoPrecedente" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="InterimBillFlag" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="InizioEleboratione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TotaleDaPagare" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ImportoSaldato" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Stato_controllo_fattura" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Provenienza_controllo_fattura" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

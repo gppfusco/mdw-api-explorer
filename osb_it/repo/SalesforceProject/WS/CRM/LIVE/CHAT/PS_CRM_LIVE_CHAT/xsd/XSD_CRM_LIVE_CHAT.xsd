@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestRetrieveLiveChatTanscriptByExt" type="requestRetrieveLiveChatTanscriptByExtType"/>
+	<xsd:complexType name="requestRetrieveLiveChatTanscriptByExtType">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element name="externalIDChat" minOccurs="1" maxOccurs="1">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="1"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseRetrieveLiveChatTanscriptByExt" type="responseRetrieveLiveChatTanscriptByExtType"/>
+	<xsd:complexType name="responseRetrieveLiveChatTanscriptByExtType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Result" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="idSalesforceRecord" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="transcriptName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="createdDate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="externalIDChat" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="custId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestRetrieveLiveChatTanscriptByCus" type="requestRetrieveLiveChatTanscriptByCusType"/>
+	<xsd:complexType name="requestRetrieveLiveChatTanscriptByCusType">
+		<xsd:sequence>
+			<xsd:sequence>
+				<xsd:element name="custId" minOccurs="1" maxOccurs="1">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:minLength value="1"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="createdDate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseRetrieveLiveChatTanscriptByCus" type="responseRetrieveLiveChatTanscriptByCusType"/>
+	<xsd:complexType name="responseRetrieveLiveChatTanscriptByCusType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Result" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="idSalesforceRecord" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="transcriptName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="createdDate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="externalIDChat" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="custId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

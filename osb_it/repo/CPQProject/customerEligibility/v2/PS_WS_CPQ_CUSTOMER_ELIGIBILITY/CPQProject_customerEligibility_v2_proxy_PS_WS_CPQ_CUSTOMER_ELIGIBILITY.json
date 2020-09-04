@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/cpq/v2/WS_CPQ_CUSTOMER_ELIGIBILITY",
+    "name" : "CPQProject_customerEligibility_v2_proxy_PS_WS_CPQ_CUSTOMER_ELIGIBILITY",
+    "localPath" : "osb_it\\repo\\CPQProject\\customerEligibility\\v2\\PS_WS_CPQ_CUSTOMER_ELIGIBILITY",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/cpq/v2/WS_CPQ_CUSTOMER_ELIGIBILITY?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/CPQProject/customerEligibility_v2/xsd/XSD_CPQ_CUSTOMER_ELIGIBILITY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestAllineamentoOutboundMessageForzatoType">
+		<xsd:sequence>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfContact" type="ListOfContactType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfAccount" type="ListOfAccountType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfContract" type="ListOfContractType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfPaymentMethod" type="ListOfPaymentMethodType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestAllineamentoOutboundMessageForzato" type="requestAllineamentoOutboundMessageForzatoType"/>
+	<xsd:complexType name="responseAllineamentoOutboundMessageForzatoType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfErrori" type="ListOfErroriType" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfErroriType">
+		<xsd:sequence>
+			<xsd:element name="Errore" type="ErroreType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ErroreType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneErrore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Oggetto" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfContactType">
+		<xsd:sequence>
+			<xsd:element name="Contact" type="ContactType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContactType">
+		<xsd:sequence>
+			<xsd:element name="SFID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LastModifiedDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Phone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MobilePhone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OtherPhone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Fax" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Email" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TemporaryEmailAddress" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EmailAddressValidationFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TemporaryEmailAddressValidationFlg" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfAccountType">
+		<xsd:sequence>
+			<xsd:element name="Account" type="AccountType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AccountType">
+		<xsd:sequence>
+			<xsd:element name="RecordTypeName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SFID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LastModifiedDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PromoNuoveTecnologieFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnalisiPreferenze" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StatisticheFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnywhereFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ConsensoTracciamentoCookieFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ConsensoNavigazioneTrackingFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ClienteSkyOnlineFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ConsensoDatiSkyGOFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BillingCity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BillingStreet" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ParticellaToponomastica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroCivico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Province" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BillingPostalCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NormalizzatoFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Scala" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Piano" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Interno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ParentId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Complesso" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="vlocitycmtPremisesId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_ATTVLXATT" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_BES1XG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_BES1XM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_BES1YG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_BES1YM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_BESVLXBES" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MatchCodeDWI" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_FLXCTX" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_NAB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_NAB_All" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_IDCIV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_MATCHCODESKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_MATCHCODE" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Frazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Indirizzo_Completo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Indirizzo_Normalizzato_Flg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Numero_Civico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Particella_Toponomastica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingCity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingCountry" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingPostalCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingState" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingStreet" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfContractType">
+		<xsd:sequence>
+			<xsd:element name="Contract" type="ContractType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ContractType">
+		<xsd:sequence>
+			<xsd:element name="SFID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LastModifiedDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingCity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingStreet" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ParticellaToponomastica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroCivico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Province" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingPostalCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IndirizzoNormalizzatoFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AccountId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Interno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Piano" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Scala" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Citofono" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Complesso" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PremisesId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_ATTVLXATT" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_BES1XG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_BES1XM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_BES1YG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_BES1YM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_BESVLXBES" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Match_Code_DWI" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_FLXCTX" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_NAB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_NAB_All" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_IDCIV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_MATCHCODESKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_MATCHCODE" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_NAB_All_" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Egon_NAB__c" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Frazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IndirizzoCompleto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingCountry" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ShippingState" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfPaymentMethodType">
+		<xsd:sequence>
+			<xsd:element name="PaymentMethod" type="PaymentMethodType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PaymentMethodType">
+		<xsd:sequence>
+			<xsd:element name="SFID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="LastModifiedDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="vlocitycmtMethodType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PaymentStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="vlocitycmtAccountId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataRichiesta_dt" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataEffettiva_dt" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PeriodicitadiFatturazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InvioFreqFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ScenarioAllineamento" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NominativoSottoscrittore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceFiscaleSottoscrittore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ABI" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CAB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CINflg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceIBAN" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BankAccountNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="vlocitycmtCardType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CreditCardNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="vlocitycmtExpirationMonth" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="vlocitycmTExpirationYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CCPrepagataFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="vlocitycmtCardHolderName" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="FlagIbanEstero" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BIC" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PaeseprovenienzaIBAN" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseAllineamentoOutboundMessageForzato" type="responseAllineamentoOutboundMessageForzatoType"/>
+</xsd:schema>

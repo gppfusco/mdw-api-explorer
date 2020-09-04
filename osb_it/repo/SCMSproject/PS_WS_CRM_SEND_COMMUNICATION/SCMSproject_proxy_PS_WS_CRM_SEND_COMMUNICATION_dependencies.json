@@ -1,0 +1,144 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_proxy_PS_WS_CRM_SEND_COMMUNICATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SCMSproject/pipeline/PL_WS_CRM_SEND_COMMUNICATION" : {
+        "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_SEND_COMMUNICATION",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SCMSproject/pipeline/PL_WS_CRM_SMS_SEND_COMMUNICATION" : {
+            "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_SMS_SEND_COMMUNICATION",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendSMS/wsdl/WS_CRM_SEND_SMS" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendSMS/wsdl/WS_CRM_SEND_SMS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SCMSproject/transformation/createResponse_SendCommunication" : {
+                "label" : "Xquery/SCMSproject/transformation/createResponse_SendCommunication",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SCMSproject/transformation/createRequest_SendCommunication" : {
+                "label" : "Xquery/SCMSproject/transformation/createRequest_SendCommunication",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SCMSproject/businessService/BS_WS_SMS_SEND_COMMUNICATION" : {
+                "label" : "BusinessService/SCMSproject/businessService/BS_WS_SMS_SEND_COMMUNICATION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SCMSproject/transformation/createResponse_InviaBmail" : {
+            "label" : "Xquery/SCMSproject/transformation/createResponse_InviaBmail",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createRequest_InviaBmail" : {
+            "label" : "Xquery/SCMSproject/transformation/createRequest_InviaBmail",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SCMSproject/pipeline/PL_WS_CRM_WRITE_MAILING" : {
+            "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_WRITE_MAILING",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/SCMSproject/businessService/BS_TUXEDO_WRITE_MAILING" : {
+                "label" : "BusinessService/SCMSproject/businessService/BS_TUXEDO_WRITE_MAILING",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendCommunication/wsdl/WS_CRM_SEND_COMMUNICATION" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendCommunication/wsdl/WS_CRM_SEND_COMMUNICATION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SCMSproject/transformation/create_request_WriteMailing" : {
+                "label" : "Xquery/SCMSproject/transformation/create_request_WriteMailing",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SCMSproject/transformation/create_response_WriteMailing" : {
+                "label" : "Xquery/SCMSproject/transformation/create_response_WriteMailing",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "XSLT/SiebelProject/transformations/createElement" : {
+            "label" : "XSLT/SiebelProject/transformations/createElement",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendCommunication/wsdl/WS_CRM_SEND_COMMUNICATION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendCommunication/wsdl/WS_CRM_SEND_COMMUNICATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF" : {
+            "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF",
+            "properties" : { },
+            "successors" : {
+              "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+                "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendCommunication/wsdl/WS_CRM_SEND_COMMUNICATION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendCommunication/wsdl/WS_CRM_SEND_COMMUNICATION",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

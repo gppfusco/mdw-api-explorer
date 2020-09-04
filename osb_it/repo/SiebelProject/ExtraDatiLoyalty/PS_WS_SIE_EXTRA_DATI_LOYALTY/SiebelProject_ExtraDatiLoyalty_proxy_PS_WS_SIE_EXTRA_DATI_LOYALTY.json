@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/siebel/WS_SIE_EXTRA_DATI_LOYALTY",
+    "name" : "SiebelProject_ExtraDatiLoyalty_proxy_PS_WS_SIE_EXTRA_DATI_LOYALTY",
+    "localPath" : "osb_it\\repo\\SiebelProject\\ExtraDatiLoyalty\\PS_WS_SIE_EXTRA_DATI_LOYALTY",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/siebel/WS_SIE_EXTRA_DATI_LOYALTY?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SiebelProject/ExtraDatiLoyalty/xsd/XSD_CRM_SIE_EXTRA_DATI_LOYALTY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

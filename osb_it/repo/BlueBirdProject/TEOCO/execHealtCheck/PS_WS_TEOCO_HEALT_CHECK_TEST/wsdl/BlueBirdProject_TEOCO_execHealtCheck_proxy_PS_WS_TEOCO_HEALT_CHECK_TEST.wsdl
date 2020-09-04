@@ -1,0 +1,59 @@
+<wsdl:definitions name="WS_TEOCO_HEALT_CHECK_TEST" targetNamespace="http://www.skytv.it/mdw/service/WS_TEOCO_HEALT_CHECK_TEST" xmlns:tns="http://www.skytv.it/mdw/service/WS_TEOCO_HEALT_CHECK_TEST" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_TEOCO_HEALT_CHECK_TEST.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="part_requestExecHealtCheck" element="inp1:requestExecHealtCheck"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="part_responseExecHealtCheck" element="inp1:responseExecHealtCheckSoap"/>
+    </wsdl:message>
+    <wsdl:portType name="ptt_TEOCO_HEALT_CHECK_TEST">
+        <wsdl:operation name="execute_ExecHealtCheck">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_GetDataHealtCheck">
+            <wsdl:input message="tns:requestMessageGetDataHealtCheck"/>
+            <wsdl:output message="tns:responseMessageGetDataHealtCheck"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="bind_TEOCO_HEALT_CHECK_TEST" type="tns:ptt_TEOCO_HEALT_CHECK_TEST">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_ExecHealtCheck">
+            <soap:operation style="document" soapAction="execute_ExecHealtCheck"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_TEOCO_HEALT_CHECK_TEST"/>
+                <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_TEOCO_HEALT_CHECK_TEST"/>
+                <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_GetDataHealtCheck">
+            <soap:operation/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+                <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+                <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="headerMessage">
+        <wsdl:part name="partHeader" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:message name="requestMessageGetDataHealtCheck">
+        <wsdl:part name="part_requestGetDataHealtCheck" element="inp1:requestGetDataHealtCheck"/>
+    </wsdl:message>
+    <wsdl:message name="responseMessageGetDataHealtCheck">
+        <wsdl:part name="part_responseGetDataHealtcheck" element="inp1:responseGetDataHealtCheckSoap"/>
+    </wsdl:message>
+</wsdl:definitions>

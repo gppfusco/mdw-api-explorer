@@ -1,0 +1,45 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "InternalProject_SendMail_proxy_PS_WS_TUX_SEND_MAIL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/InternalProject/SendMail/wsdl/WS_TUX_SEND_MAIL" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/InternalProject/SendMail/wsdl/WS_TUX_SEND_MAIL",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/InternalProject/SendMail/pipeline/PL_TUX_SEND_MAIL" : {
+        "label" : "Pipeline/InternalProject/SendMail/pipeline/PL_TUX_SEND_MAIL",
+        "properties" : { },
+        "successors" : {
+          "Xquery/InternalProject/SendMail/transformation/createRequest_BS_TUX_SEND_MAIL" : {
+            "label" : "Xquery/InternalProject/SendMail/transformation/createRequest_BS_TUX_SEND_MAIL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/InternalProject/SendMail/transformation/createResponse_WS_TUX_SEND_MAIL" : {
+            "label" : "Xquery/InternalProject/SendMail/transformation/createResponse_WS_TUX_SEND_MAIL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/InternalProject/SendMail/wsdl/WS_TUX_SEND_MAIL" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/InternalProject/SendMail/wsdl/WS_TUX_SEND_MAIL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/InternalProject/SendMail/businessService/BS_TUX_SEND_MAIL" : {
+            "label" : "BusinessService/InternalProject/SendMail/businessService/BS_TUX_SEND_MAIL",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

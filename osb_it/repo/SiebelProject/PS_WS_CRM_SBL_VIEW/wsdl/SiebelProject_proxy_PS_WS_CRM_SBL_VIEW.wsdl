@@ -1,0 +1,69 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_CRM_SBL_VIEW"
+     targetNamespace="http://www.skytv.it/mdw/service/CRM_SBL_VIEW"
+     xmlns:tns="http://www.skytv.it/mdw/service/CRM_SBL_VIEW"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_SBL_VIEW.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestGetCouponMGM_Message">
+        <wsdl:part name="part_requestGetCouponMGM" element="inp1:requestGetCouponMGM"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetCouponMGM_Message">
+        <wsdl:part name="part_responseGetCouponMGM" element="inp1:responseGetCouponMGM"/>
+    </wsdl:message>
+    <wsdl:portType name="CRM_SBL_VIEW_ptt">
+        <wsdl:operation name="execute_GetCouponMGM">
+            <wsdl:input message="tns:requestGetCouponMGM_Message"/>
+            <wsdl:output message="tns:responseGetCouponMGM_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_GetFeeCambioPiano">
+            <wsdl:input message="tns:requestGetFeeCambioPiano_Message"/>
+            <wsdl:output message="tns:responseGetFeeCambioPiano_Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="header_Message">
+        <wsdl:part name="part_Header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:message name="requestGetFeeCambioPiano_Message">
+        <wsdl:part name="part_requestGetFeeCambioPiano" element="inp1:requestGetFeeCambioPiano"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetFeeCambioPiano_Message">
+        <wsdl:part name="part_responseGetFeeCambioPiano" element="inp1:responseGetFeeCambioPiano"/>
+    </wsdl:message>
+    <wsdl:binding name="CRM_SBL_VIEW_bind" type="tns:CRM_SBL_VIEW_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_GetCouponMGM">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_SBL_VIEW/execute_GetCouponMGM"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestGetCouponMGM"/>
+                <soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetCouponMGM"/>
+                <soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_GetFeeCambioPiano">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_SBL_VIEW/execute_GetFeeCambioPiano"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestGetFeeCambioPiano"/>
+                <soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetFeeCambioPiano"/>
+                <soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

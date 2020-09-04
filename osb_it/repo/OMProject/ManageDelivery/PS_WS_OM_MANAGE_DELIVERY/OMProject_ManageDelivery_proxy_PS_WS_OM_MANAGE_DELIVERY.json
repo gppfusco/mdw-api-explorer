@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/om/WS_OM_MANAGE_DELIVERY",
+    "name" : "OMProject_ManageDelivery_proxy_PS_WS_OM_MANAGE_DELIVERY",
+    "localPath" : "osb_it\\repo\\OMProject\\ManageDelivery\\PS_WS_OM_MANAGE_DELIVERY",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/om/WS_OM_MANAGE_DELIVERY?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/OMProject/ManageDelivery/xsd/XSD_OM_MANAGE_DELIVERY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

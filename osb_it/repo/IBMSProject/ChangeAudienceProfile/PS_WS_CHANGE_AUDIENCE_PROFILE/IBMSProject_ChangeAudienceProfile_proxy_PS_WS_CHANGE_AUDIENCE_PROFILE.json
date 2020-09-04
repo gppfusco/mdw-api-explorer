@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/ibms/WS_CHANGE_AUDIENCE_PROFILE",
+    "name" : "IBMSProject_ChangeAudienceProfile_proxy_PS_WS_CHANGE_AUDIENCE_PROFILE",
+    "localPath" : "osb_it\\repo\\IBMSProject\\ChangeAudienceProfile\\PS_WS_CHANGE_AUDIENCE_PROFILE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/ibms/WS_CHANGE_AUDIENCE_PROFILE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/IBMSProject/ChangeAudienceProfile/xsd/XSD_CHANGE_AUDIENCE_PROFILE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+            
+  <xsd:element name="requestCheckElegibililta" type="requestCheckElegibililtaType"/>
+  <xsd:element name="responseCheckElegibililta" type="responseCheckElegibililtaType"/>
+  
+  <xsd:complexType name="requestCheckElegibililtaType">
+    <xsd:sequence>
+      <xsd:element name="mdwClienteCF" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseCheckElegibililtaType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="requestRichiestaAttivazione" type="requestRichiestaAttivazioneType"/>
+  <xsd:element name="responseRichiestaAttivazione" type="responseRichiestaAttivazioneType"/>
+  
+  <xsd:complexType name="requestRichiestaAttivazioneType">
+    <xsd:sequence>
+      <xsd:element name="mdwIdRichiesta" type="xsd:string"/>
+      <xsd:element name="mdwAccountFW" type="xsd:string"/>
+      <xsd:element name="mdwIdPdaFW" type="xsd:string"/>
+      <xsd:element name="mdwIdOfferFW" type="xsd:string"/>
+      <xsd:element name="mdwTipologiaReteFW" type="xsd:string"/>
+      <xsd:element name="mdwClienteNome" type="xsd:string"/>
+      <xsd:element name="mdwClienteCognome" type="xsd:string"/>
+      <xsd:element name="mdwClienteCF" type="xsd:string"/>
+      <xsd:element name="mdwIndirizzoFatturazione">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwIndirizzoParticella" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzo" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoCivico" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoCitta" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoCap" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoProvincia" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoStato" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoTelefonoPrincipale" type="notEmptyString"/>
+            <xsd:element name="mdwIndirizzoTelefonoSecondario" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="mdwindirizzoSpedizione" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwIndirizzoNome" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoCognome" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoParticella" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzo" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoCivico" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoCitta" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoCap" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoProvincia" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoStato" type="xsd:string"/>
+            <xsd:element name="mdwIndirizzoTelefonoPrincipale" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwIndirizzoTelefonoSecondario" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="mdwDataOperazione" type="xsd:string"/>
+      <xsd:element name="mdwEmailPrimaria" type="xsd:string"/>
+      <xsd:element name="mdwEmailSecondaria" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwFlgPrivacy1" type="xsd:string"/>
+      <xsd:element name="mdwFlgPrivacy2" type="xsd:string"/>
+      <xsd:element name="mdwDataSottoscrizione" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseRichiestaAttivazioneType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+<xsd:simpleType name="notEmptyString">
+  <xsd:restriction base="xsd:string">
+    <xsd:minLength value="1"/>
+  </xsd:restriction>
+</xsd:simpleType>
+
+</xsd:schema>

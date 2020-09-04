@@ -1,0 +1,33 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/scms/blacklist",
+    "name" : "SCMSproject_DecreseAntipiracy_blackListManagement_proxy_PS_REST_SCMS_BLACKLISTMANAGEMENT",
+    "localPath" : "osb_it\\repo\\SCMSproject\\DecreseAntipiracy\\blackListManagement\\PS_REST_SCMS_BLACKLISTMANAGEMENT",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/scms/blacklist?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SCMSproject/DecreaseAntipiracy/blackListManagement/XSD_SCMS_BLACKLISTMANAGEMENT",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SCMSproject/DecreaseAntipiracy/blackListManagement/XSD_SCMS_BLACKLISTMANAGEMENT",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

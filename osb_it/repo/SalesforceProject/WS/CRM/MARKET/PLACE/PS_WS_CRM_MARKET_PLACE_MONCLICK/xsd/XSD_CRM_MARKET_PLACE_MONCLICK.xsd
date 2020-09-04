@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+            
+  <xsd:element name="requestNotifyPurchase" type="requestNotifyPurchaseType"/>
+  <xsd:element name="responseNotifyPurchase" type="responseNotifyPurchaseType"/>
+  
+  <xsd:complexType name="requestNotifyPurchaseType">
+    <xsd:sequence>
+      <xsd:element name="custIdToken" type="xsd:string"/>
+      <xsd:element name="contrIdToken" type="xsd:string"/>
+      <xsd:element name="mdwChannel" type="xsd:string"/>
+      <xsd:element name="mdwPurchaseId" type="xsd:string"/>
+      <xsd:element name="prodId" type="xsd:string"/>
+      <xsd:element name="prodType" type="xsd:string"/>
+      <xsd:element name="prodBrand" type="xsd:string"/>
+      <xsd:element name="prodModel" type="xsd:string"/>
+      <xsd:element name="prodPaidPrice" type="xsd:string"/>
+      <xsd:element name="mdwPurchaseDate" type="xsd:string"/>
+      <xsd:element name="mdwPaymentType">
+	<xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="RATE FINANZIARIA"/>
+            <xsd:enumeration value="UNICA SOLUZIONE"/>
+          </xsd:restriction>
+	</xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="mdwPurchaseState">
+	<xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="ACQUISTO TV SAMSUNG"/>
+            <xsd:enumeration value="MP BENE IN CONSEGNA"/>            
+            <xsd:enumeration value="MP BENE CONSEGNATO"/>
+            <xsd:enumeration value="MP RESO ESEGUITO"/>
+          </xsd:restriction>
+	</xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="mdwPurchaseStateChangingDate" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseNotifyPurchaseType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

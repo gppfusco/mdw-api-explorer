@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestDTTSwapAsync" type="requestDTTSwapAsyncType"/>
+	<xsd:complexType name="requestDTTSwapAsyncType">
+		<xsd:sequence>
+			<xsd:element name="orderID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="accountID" minOccurs="1" maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customerID" minOccurs="1" maxOccurs="1"> 
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="20"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="oldSerialNumber" minOccurs="1" maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="12"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="serialNumber" minOccurs="1" maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="12"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="customerType" minOccurs="1" maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Club"/>
+						<xsd:enumeration value="Consumer"/>
+						<xsd:enumeration value="Hotel"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseDTTSwapAsync" type="responseDTTSwapAsyncType"/>
+	<xsd:complexType name="responseDTTSwapAsyncType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

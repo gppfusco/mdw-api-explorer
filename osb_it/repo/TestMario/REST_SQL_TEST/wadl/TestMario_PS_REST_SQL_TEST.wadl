@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/BS_SQL_TEST" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_SQL_TEST">RestService</doc>
+   <grammars>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/OSB_SVIL/TestMario/BS_SQL_TEST" xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/BS_SQL_TEST" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/BS_SQL_TEST" schemaLocation="BS_SQL_TEST.xsd"/>
+      </schema>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/OSB_SVIL/TestMario/BS_SQL_TEST" xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/BS_SQL_TEST" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/BS_SQL_TEST" schemaLocation="BS_SQL_TEST.xsd"/>
+      </schema>
+   </grammars>
+   <resources>
+      <resource path="/testSQL">
+         <method name="GET" soa:wsdlOperation="BS_SQL_TEST">
+            <request>
+               <param name="key" style="query" soa:expression="$msg.BS_SQL_TESTInput_msg/db:key" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:BS_SQL_TESTOutputCollection" xmlns:cns="http://xmlns.oracle.com/pcbpel/adapter/db/BS_SQL_TEST"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

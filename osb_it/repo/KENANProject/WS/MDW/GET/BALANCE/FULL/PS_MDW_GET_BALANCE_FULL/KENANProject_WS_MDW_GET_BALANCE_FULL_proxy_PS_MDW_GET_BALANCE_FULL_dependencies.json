@@ -1,0 +1,187 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_MDW_GET_BALANCE_FULL_proxy_PS_MDW_GET_BALANCE_FULL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/KENANProject/WS_MDW_GET_BALANCE_FULL/pipeline/PL_MDW_KN_GET_BALANCE_FULL" : {
+        "label" : "Pipeline/KENANProject/WS_MDW_GET_BALANCE_FULL/pipeline/PL_MDW_KN_GET_BALANCE_FULL",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createResponse_fromEnhToOld" : {
+            "label" : "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createResponse_fromEnhToOld",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/KENANProject/WS_MDW_GET_BALANCE_FULL/pipeline/PL_INTERNAL_MDW_KN_GET_BALANCE_FULL" : {
+            "label" : "Pipeline/KENANProject/WS_MDW_GET_BALANCE_FULL/pipeline/PL_INTERNAL_MDW_KN_GET_BALANCE_FULL",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_KNN_GET_FATTURE_RECENTI_APERTE" : {
+                "label" : "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_KNN_GET_FATTURE_RECENTI_APERTE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_BILL_PAYMENT/transformations/createRequestBillCheck_FattureRecentiAperte" : {
+                "label" : "Xquery/KENANProject/WS_BILL_PAYMENT/transformations/createRequestBillCheck_FattureRecentiAperte",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/BillPayment/wsdl/WS_BILL_PAYMENT" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/BillPayment/wsdl/WS_BILL_PAYMENT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createRequestSBLRecuperaInfo" : {
+                "label" : "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createRequestSBLRecuperaInfo",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SiebelProject/proxy/PS_LOCAL_SBL_GENERIC_CALL" : {
+                "label" : "ProxyService/SiebelProject/proxy/PS_LOCAL_SBL_GENERIC_CALL",
+                "properties" : {
+                  "transport-type" : "local",
+                  "nodeType" : "Proxy",
+                  "service-type" : "SOAP"
+                },
+                "successors" : {
+                  "Pipeline/SiebelProject/pipeline/PL_INTERNAL_SBL_GENERIC_CALL" : {
+                    "label" : "Pipeline/SiebelProject/pipeline/PL_INTERNAL_SBL_GENERIC_CALL",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                        "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION" : {
+                        "label" : "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/KENANProject/WS_BILL_PAYMENT/pipeline/PL_INTERNAL_GET_CANONI_PENALI" : {
+                "label" : "Pipeline/KENANProject/WS_BILL_PAYMENT/pipeline/PL_INTERNAL_GET_CANONI_PENALI",
+                "properties" : { },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_GET_CANONI_PENALI" : {
+                    "label" : "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_GET_CANONI_PENALI",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/KENANProject/Resources/BS_SQL_GET_CANONI_PENALI/concrete" : {
+                    "label" : "WSDL/KENANProject/Resources/BS_SQL_GET_CANONI_PENALI/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Pipeline/KENANProject/WS_BILL_PAYMENT/pipeline/PL_INTERNAL_GET_BALANCE" : {
+                "label" : "Pipeline/KENANProject/WS_BILL_PAYMENT/pipeline/PL_INTERNAL_GET_BALANCE",
+                "properties" : { },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/KENANProject/Resources/BS_SQL_GET_BALANCE/concrete" : {
+                    "label" : "WSDL/KENANProject/Resources/BS_SQL_GET_BALANCE/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_GET_BALANCE" : {
+                    "label" : "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_GET_BALANCE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createResponseGetBalanceFullOLD" : {
+                "label" : "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createResponseGetBalanceFullOLD",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_BILL_PAYMENT/transformations/createRequestGetCanoniPenali" : {
+                "label" : "Xquery/KENANProject/WS_BILL_PAYMENT/transformations/createRequestGetCanoniPenali",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createRequest_SQL_GET_BALANCE" : {
+                "label" : "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createRequest_SQL_GET_BALANCE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetBalanceFull/wsdl/WS_MDW_GET_BALANCE_FULL" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetBalanceFull/wsdl/WS_MDW_GET_BALANCE_FULL",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetBalanceFull/wsdl/WS_MDW_GET_BALANCE_FULL" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetBalanceFull/wsdl/WS_MDW_GET_BALANCE_FULL",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

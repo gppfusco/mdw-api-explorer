@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+    <xsd:element name="requestSendTraficInfo" type="requestSendTraficInfoType"/>
+
+    <xsd:complexType name="requestSendTraficInfoType">
+      <xsd:sequence>
+        <xsd:element name="trafficType" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="TrafficRated" type="xsd:integer" minOccurs="0"/>
+        <xsd:element name="phoneNumber" type="xsd:integer" minOccurs="1"/>
+        <xsd:element name="accountId" type="xsd:string" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="responseSendTraficInfo" type="responseSendTraficInfoType"/>
+    <xsd:complexType name="responseSendTraficInfoType">
+      <xsd:sequence>
+        <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

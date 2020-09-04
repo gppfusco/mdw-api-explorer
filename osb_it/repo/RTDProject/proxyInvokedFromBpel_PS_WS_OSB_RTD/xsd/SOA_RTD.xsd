@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/internal" xmlns:data="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/internal" elementFormDefault="qualified">
+            
+  <xsd:include schemaLocation="../../LOG/xsd/logmessage.xsd"/>
+  <xsd:complexType name="RequestType">
+    <xsd:sequence>
+      <xsd:element name="logInfos" type="LogManagementType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="bodyRequest" type="xsd:anyType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="operationRequest" type="RequestType"/>
+  
+  <xsd:complexType name="ResponseType">
+    <xsd:sequence>
+      <xsd:element name="logInfos" type="LogManagementType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="bodyResponse" type="xsd:anyType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="operationResponse" type="ResponseType"/>
+</xsd:schema>

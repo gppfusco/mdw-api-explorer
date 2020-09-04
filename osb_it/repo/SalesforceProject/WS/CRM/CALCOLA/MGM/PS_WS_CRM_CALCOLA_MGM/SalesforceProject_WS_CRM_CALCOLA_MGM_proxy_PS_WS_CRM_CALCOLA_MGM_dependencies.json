@@ -1,0 +1,28 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_CALCOLA_MGM_proxy_PS_WS_CRM_CALCOLA_MGM",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_CALCOLA_MGM/pipeline/PL_WS_CRM_CALCOLA_MGM_STUB" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_CALCOLA_MGM/pipeline/PL_WS_CRM_CALCOLA_MGM_STUB",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CalcolaMGM/wsdl/WS_CRM_CALCOLA_MGM" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CalcolaMGM/wsdl/WS_CRM_CALCOLA_MGM",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CalcolaMGM/wsdl/WS_CRM_CALCOLA_MGM" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CalcolaMGM/wsdl/WS_CRM_CALCOLA_MGM",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

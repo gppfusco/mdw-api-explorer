@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestCreateOrder" type="requestCreateOrderType"/>
+  <xsd:element name="responseCreateOrder" type="responseCreateOrderType"/>
+  <xsd:element name="requestUpdateMigrationCodes" type="migrationCodesType"/>
+  <xsd:element name="requestUpdateDocumentInfo" type="requestDocumentInfoType"/>
+  <xsd:element name="requestUpdateAppointmentInfo" type="appointmentInfoType"/>
+  <xsd:element name="requestUpdateGenericOrderInfo" type="genericOrderInfoType"/>
+  <xsd:complexType name="requestCreateOrderType">
+    <xsd:sequence>
+      <xsd:element name="customerCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="status" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="priceListCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="contractNumber" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseCreateOrderType">
+    <xsd:sequence>
+      <xsd:element name="orderId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="customerCode" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="migrationCodesType">
+    <xsd:sequence>
+      <xsd:element name="migrationCodeOutVoice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="migrationCodeOut" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN0Voice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN0" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN1Voice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN1" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN2Voice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN2" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN3Voice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN3" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN4Voice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN4" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN5Voice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN5" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN6Voice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN6" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN7Voice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN7" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN8Voice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN8" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN9Voice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN9" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="tipoOrdine" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="portabilityType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="reason" type="reasonType" minOccurs="0"/>
+      <xsd:element name="tecnologiaVoce" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="existingServices" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="tecnologiaDati" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="voiceSourceOperator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="dataSourceOperator" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="reasonType">
+    <xsd:sequence>
+      <xsd:element name="MIGRATION_CODE_1_IS_MISSING" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MIGRATION_CODE_2_IS_MISSING" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN_OF_MIGRATION_CODE_1_IS_MISSING" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN_OF_MIGRATION_CODE_2_IS_MISSING" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestDocumentInfoType">
+    <xsd:sequence>
+      <xsd:element name="documentInfoUser" type="documentInfoType" minOccurs="0"/>
+      <xsd:element name="documentInfoPayer" type="documentInfoType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="documentInfoType">
+    <xsd:sequence>
+      <xsd:element name="number" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="type" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="autorization" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="releaseDate" type="xsd:date" minOccurs="1"/>
+      <xsd:element name="expireDate" type="xsd:date" minOccurs="1"/>
+      <xsd:element name="city" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="province" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="nationality" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="appointmentInfoType">
+    <xsd:sequence>
+      <xsd:element name="tokenID" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="appointmentDate" type="xsd:dateTime" minOccurs="1"/>
+      <xsd:element name="appointmentOrderId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="slotId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="typeId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="wholesaler" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="genericOrderInfoType">
+    <xsd:sequence>
+      <xsd:element name="info" type="infoType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="infoType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="name" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="genericOrderInfoNameForValidationType">
+    <xsd:sequence>
+      <xsd:element name="resultDigitalCheckCall" type="resultDigitalCheckCallType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="resultDigitalCheckCallType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="OK"/>
+      <xsd:enumeration value="KO"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

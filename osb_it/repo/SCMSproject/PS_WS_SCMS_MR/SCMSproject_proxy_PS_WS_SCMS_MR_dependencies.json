@@ -1,0 +1,45 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_proxy_PS_WS_SCMS_MR",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/MultiRoom/wsdl/WS_SCMS_MR" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/MultiRoom/wsdl/WS_SCMS_MR",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF_DYN_XQUERY" : {
+        "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF_DYN_XQUERY",
+        "properties" : { },
+        "successors" : {
+          "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+            "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_FPS_CONTRACT_EVALUATION",
+    "name" : "SalesforceProject_ContractEvaluation_proxy_PS_WS_FPS_CONTRACT_EVALUATION",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\ContractEvaluation\\PS_WS_FPS_CONTRACT_EVALUATION",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_FPS_CONTRACT_EVALUATION?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/ContractEvaluation/xsd/XSD_FPS_CONTRACT_EVALUATION",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

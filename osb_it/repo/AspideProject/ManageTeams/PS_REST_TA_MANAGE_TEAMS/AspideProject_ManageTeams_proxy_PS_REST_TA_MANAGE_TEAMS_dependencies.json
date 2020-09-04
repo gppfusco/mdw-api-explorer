@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "AspideProject_ManageTeams_proxy_PS_REST_TA_MANAGE_TEAMS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/AspideProject/ManageTeams/pipeline/PL_REST_TA_MANAGE_TEAMS" : {
+        "label" : "Pipeline/AspideProject/ManageTeams/pipeline/PL_REST_TA_MANAGE_TEAMS",
+        "properties" : { },
+        "successors" : {
+          "Xquery/AspideProject/ManageTeams/transformations/createResponseRetrieveTimeSlot" : {
+            "label" : "Xquery/AspideProject/ManageTeams/transformations/createResponseRetrieveTimeSlot",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_INTERNAL_REST_ASPIDE_APPOINTMENTS" : {
+            "label" : "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_INTERNAL_REST_ASPIDE_APPOINTMENTS",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS" : {
+                "label" : "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/AspideProject/Resources/BS_REST_ASPIDE_APPOINTMENTS" : {
+                "label" : "WSDL/AspideProject/Resources/BS_REST_ASPIDE_APPOINTMENTS",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/AspideProject/ManageTeams/transformations/createRequestTAGetTimeSlot" : {
+            "label" : "Xquery/AspideProject/ManageTeams/transformations/createRequestTAGetTimeSlot",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/AspideProject/Resources/PS_REST_TA_MANAGE_TEAMS" : {
+            "label" : "WSDL/AspideProject/Resources/PS_REST_TA_MANAGE_TEAMS",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/AspideProject/Resources/PS_REST_TA_MANAGE_TEAMS" : {
+        "label" : "WSDL/AspideProject/Resources/PS_REST_TA_MANAGE_TEAMS",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

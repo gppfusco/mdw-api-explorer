@@ -1,0 +1,57 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_ManageDelivery_proxy_PS_WS_OM_MANAGE_DELIVERY",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/OMProject/ManageDelivery/pipeline/PL_OM_MANAGE_DELIVERY" : {
+        "label" : "Pipeline/OMProject/ManageDelivery/pipeline/PL_OM_MANAGE_DELIVERY",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/OMProject/transformation/createRequestSoapHeaderTibco" : {
+            "label" : "Xquery/OMProject/transformation/createRequestSoapHeaderTibco",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/ManageDelivery/transformations/createResponse_ManageDelivery" : {
+            "label" : "Xquery/OMProject/ManageDelivery/transformations/createResponse_ManageDelivery",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/ManageDelivery/transformations/createRequest_ManageDelivery" : {
+            "label" : "Xquery/OMProject/ManageDelivery/transformations/createRequest_ManageDelivery",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/ManageDelivery/wsdl/WS_OM_MANAGE_DELIVERY" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/ManageDelivery/wsdl/WS_OM_MANAGE_DELIVERY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/ManageDelivery/businessServices/BS_OM_MANAGE_DELIVERY" : {
+            "label" : "BusinessService/OMProject/ManageDelivery/businessServices/BS_OM_MANAGE_DELIVERY",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/ManageDelivery/wsdl/WS_OM_MANAGE_DELIVERY" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/ManageDelivery/wsdl/WS_OM_MANAGE_DELIVERY",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

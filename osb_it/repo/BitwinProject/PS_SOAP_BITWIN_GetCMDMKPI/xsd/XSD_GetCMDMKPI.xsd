@@ -1,0 +1,88 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns="http://www.skytv.it/mdw/data" 
+xmlns:data="http://www.skytv.it/mdw/data" 
+targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="unqualified">
+
+		<xsd:complexType name="responseGetCMDMKPIType">
+			<xsd:sequence>
+				<xsd:element name="Esito" type="xsd:string"/>
+				<xsd:element name="DescrizioneEsito" type="xsd:string"/>
+				<xsd:element name="DAT_RICH_CESSAZIONE_CNTR" type="xsd:string"/>
+				<xsd:element name="DAT_STATISTICHE_FLG" type="xsd:string"/>
+				<xsd:element name="DES_CAUS_CSS_ANN_CNTR" type="xsd:string"/>
+				<xsd:element name="DES_CAUS_SOSP_CNTR" type="xsd:string"/>
+				<xsd:element name="DES_MOP" type="xsd:string"/>
+				<xsd:element name="DES_STATO_BUSINESS" type="xsd:string"/>
+				<xsd:element name="FLG_BAMBINI_PACPOS" type="xsd:string"/>
+				<xsd:element name="FLG_BAMBINI_PACVIS" type="xsd:string"/>
+				<xsd:element name="FLG_CALCIO_PACPOS" type="xsd:string"/>
+				<xsd:element name="FLG_CALCIO_PACVIS" type="xsd:string"/>
+				<xsd:element name="FLG_CANDIDATO_SOSP" type="xsd:string"/>
+				<xsd:element name="FLG_CINEMA_PACPOS" type="xsd:string"/>
+				<xsd:element name="FLG_CINEMA_PACVIS" type="xsd:string"/>
+				<xsd:element name="FLG_COMUNICAZIONE_TERZI" type="xsd:string"/>
+				<xsd:element name="FLG_DOCUMENTARI_PACPOS" type="xsd:string"/>
+				<xsd:element name="FLG_DOCUMENTARI_PACVIS" type="xsd:string"/>
+				<xsd:element name="FLG_HD_PACPOS" type="xsd:string"/>
+				<xsd:element name="FLG_HD_PACVIS" type="xsd:string"/>
+				<xsd:element name="FLG_INTRATTENIMENTO_PACPOS" type="xsd:string"/>
+				<xsd:element name="FLG_INTRATTENIMENTO_PACVIS" type="xsd:string"/>
+				<xsd:element name="FLG_MUSICA_PACPOS" type="xsd:string"/>
+				<xsd:element name="FLG_MUSICA_PACVIS" type="xsd:string"/>
+				<xsd:element name="FLG_NEWS_PACPOS" type="xsd:string"/>
+				<xsd:element name="FLG_NEWS_PACVIS" type="xsd:string"/>
+				<xsd:element name="FLG_SKYFAMIGLIA_PACPOS" type="xsd:string"/>
+				<xsd:element name="FLG_SKYFAMIGLIA_PACVIS" type="xsd:string"/>
+				<xsd:element name="FLG_SKYGO" type="xsd:string"/>
+				<xsd:element name="FLG_SKYTV_PACPOS" type="xsd:string"/>
+				<xsd:element name="FLG_SKYTV_PACVIS" type="xsd:string"/>
+				<xsd:element name="FLG_SPORT_PACPOS" type="xsd:string"/>
+				<xsd:element name="FLG_SPORT_PACVIS" type="xsd:string"/>
+				<xsd:element name="NUM_GENERI_U2_PACPOS" type="xsd:string"/>
+				<xsd:element name="NUM_GENERI_U2_PACVIS" type="xsd:string"/>
+				<xsd:element name="NUM_GENERI_U6_PACPOS" type="xsd:string"/>
+				<xsd:element name="NUM_GENERI_U6_PACVIS" type="xsd:string"/>
+				<xsd:element name="NUM_PACK_PACPOS" type="xsd:string"/>
+				<xsd:element name="NUM_PACK_PACVIS" type="xsd:string"/>
+				<xsd:element name="FLG_CONTRATTO_BUNDLE" type="xsd:string"/>
+				<xsd:element name="COD_LISTINO" type="xsd:string"/>
+				<xsd:element name="COD_PERIODO_FATT" type="xsd:string"/>
+				<xsd:element name="DES_TIPO_PAG" type="xsd:string"/>
+				<xsd:element name="DES_TIPO_PAG_PENDING" type="xsd:string"/>
+				<xsd:element name="FLG_LASTUPGRADE_CALCIO" type="xsd:string"/>
+				<xsd:element name="FLG_LASTUPGRADE_SPORT" type="xsd:string"/>
+				<xsd:element name="FLG_LASTUPGRADE_CINEMA" type="xsd:string"/>
+				<xsd:element name="COD_PROMO_ATTIVE_CONCAT" type="xsd:string"/>
+				<xsd:element name="DES_STATO_CNTR_BROADBAND" type="xsd:string"/>
+				<xsd:element name="DES_STATO_CNTR" type="xsd:string"/>
+				<xsd:element name="DES_VISIONE_STB_PACC_MV1" type="xsd:string"/>
+				<xsd:element name="DES_TECNOLOGIA_STB_PACC_MV1" type="xsd:string"/>
+				<xsd:element name="DES_VISIONE_STB_PACC_POSSEDUTO" type="xsd:string"/>
+				<xsd:element name="DES_TECNOLOGIA_STB_PACC_POSS" type="xsd:string"/>
+				<xsd:element name="DES_VISIONE_STB_TOTALE" type="xsd:string"/>
+				<xsd:element name="DES_VISIONE_STB_PACC_MV2" type="xsd:string"/>
+				<xsd:element name="DES_TECNOLOGIA_STB_PACC_MV2" type="xsd:string"/>
+				<xsd:element name="DES_VISIONE_STB_PACC_MV3" type="xsd:string"/>
+				<xsd:element name="DES_TECNOLOGIA_STB_PACC_MV3" type="xsd:string"/>
+				<xsd:element name="FLG_ELEG_UPG_CALCIO_PACK" type="xsd:string"/>
+				<xsd:element name="FLG_ELEG_UPG_SPORT_PACK" type="xsd:string"/>
+				<xsd:element name="FLG_ELEG_UPG_CINEMA_PACK" type="xsd:string"/>
+				<xsd:element name="FLG_ELEG_UPG_CALCIO_TICKET" type="xsd:string"/>
+				<xsd:element name="FLG_ELEG_UPG_SPORT_TICKET" type="xsd:string"/>
+				<xsd:element name="FLG_ELEG_UPG_CINEMA_TICKET" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+
+
+		<xsd:complexType name="requestGetCMDMKPIType">
+			<xsd:sequence>
+				<xsd:element name="CodiceContratto" type="xsd:string"/>
+				<xsd:element name="tid" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+
+                <xsd:element name="requestGetCMDMKPI" type="requestGetCMDMKPIType"/>
+                <xsd:element name="responseGetCMDMKPI" type="responseGetCMDMKPIType"/>
+
+
+</xsd:schema>

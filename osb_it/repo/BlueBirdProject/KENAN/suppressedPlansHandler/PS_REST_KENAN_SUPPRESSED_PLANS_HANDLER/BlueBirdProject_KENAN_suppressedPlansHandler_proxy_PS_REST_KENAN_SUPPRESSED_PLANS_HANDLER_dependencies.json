@@ -1,0 +1,261 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_KENAN_suppressedPlansHandler_proxy_PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_REST_KENAN_SUPPRESSED_PLANS_HANDLER" : {
+        "label" : "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_REST_KENAN_SUPPRESSED_PLANS_HANDLER",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_INTERNAL_KNN_GET_SUPPRESSED_PLANS" : {
+            "label" : "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_INTERNAL_KNN_GET_SUPPRESSED_PLANS",
+            "properties" : { },
+            "successors" : {
+              "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createResponseGetSuppressedPlans" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createResponseGetSuppressedPlans",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/KENAN/suppressedPlansHandler/businessService/BS_SQL_KNN_GET_SUPPRESSED_PLANS" : {
+                "label" : "BusinessService/BlueBirdProject/KENAN/suppressedPlansHandler/businessService/BS_SQL_KNN_GET_SUPPRESSED_PLANS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createRequestGetSuppressedPlans" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createRequestGetSuppressedPlans",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_INTERNAL_KNN_GET_SUPPRESSED_PLANS_DETAILS" : {
+            "label" : "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_INTERNAL_KNN_GET_SUPPRESSED_PLANS_DETAILS",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/BlueBirdProject/KENAN/suppressedPlansHandler/businessService/BS_SQL_KNN_GET_SUPPRESSED_PLANS_DETAILS" : {
+                "label" : "BusinessService/BlueBirdProject/KENAN/suppressedPlansHandler/businessService/BS_SQL_KNN_GET_SUPPRESSED_PLANS_DETAILS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createResponseGetSuppressedPlansDetails" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createResponseGetSuppressedPlansDetails",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createRequestGetSuppressedPlansDetails" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createRequestGetSuppressedPlansDetails",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_INTERNAL_KNN_GET_SUPPRESSED_TOTAL_COSTS" : {
+            "label" : "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_INTERNAL_KNN_GET_SUPPRESSED_TOTAL_COSTS",
+            "properties" : { },
+            "successors" : {
+              "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createRequest_GetSuppressedTotalCosts" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createRequest_GetSuppressedTotalCosts",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/KENAN/suppressedPlansHandler/businessService/BS_SQL_KENAN_GET_SUPPRESSED_TOTAL_COSTS" : {
+                "label" : "BusinessService/BlueBirdProject/KENAN/suppressedPlansHandler/businessService/BS_SQL_KENAN_GET_SUPPRESSED_TOTAL_COSTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createResponse_GetSuppressedTotalCosts" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createResponse_GetSuppressedTotalCosts",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_INTERNAL_KNN_UPDATE_SUPPRESSED_PLANS" : {
+            "label" : "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_INTERNAL_KNN_UPDATE_SUPPRESSED_PLANS",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/CreateRequest_RestEjbCompositeRetrieveRecord" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/CreateRequest_RestEjbCompositeRetrieveRecord",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createRequest_UpdateSuppressedPlan" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createRequest_UpdateSuppressedPlan",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createSuppressedPlanAlignmentScenario" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createSuppressedPlanAlignmentScenario",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_INTERNAL_ALIGN_MSG_TO_KENAN" : {
+                "label" : "Pipeline/BlueBirdProject/KENAN/suppressedPlansHandler/pipeline/PL_INTERNAL_ALIGN_MSG_TO_KENAN",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDWProject/AlignSfByBpel/topics/businessService/BS_JMS_KENAN_FX_2" : {
+                    "label" : "BusinessService/MDWProject/AlignSfByBpel/topics/businessService/BS_JMS_KENAN_FX_2",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignFromSF/wsdl/WS_MDW_ALIGN_TIBCO_ORDER" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignFromSF/wsdl/WS_MDW_ALIGN_TIBCO_ORDER",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/KENAN/ratealPlansHandler/businessService/BS_SQL_INST_PLAN_EXTINGUISHMENT" : {
+                "label" : "BusinessService/BlueBirdProject/KENAN/ratealPlansHandler/businessService/BS_SQL_INST_PLAN_EXTINGUISHMENT",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL" : {
+                "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+                    "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                        "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/create_MDWGenericEntityForSuppressedPlan" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/create_MDWGenericEntityForSuppressedPlan",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createResponse_UpdateSuppressedPlans" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/suppressedPlansHandler/transformation/createResponse_UpdateSuppressedPlans",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_SUPPRESSED_PLANS_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

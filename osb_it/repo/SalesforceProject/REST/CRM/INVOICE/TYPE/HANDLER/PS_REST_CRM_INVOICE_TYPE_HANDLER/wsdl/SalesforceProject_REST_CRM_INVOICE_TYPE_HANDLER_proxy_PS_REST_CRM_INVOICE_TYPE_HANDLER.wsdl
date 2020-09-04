@@ -1,0 +1,80 @@
+<wsdl:definitions name="PS_REST_CRM_INVOICE_TYPE_HANDLER" targetNamespace="http://xmlns.oracle.com/OSBSvil_REPLY/SalesforceProject/PS_REST_CRM_INVOICE_TYPE_HANDLER" xmlns:tns="http://xmlns.oracle.com/OSBSvil_REPLY/SalesforceProject/PS_REST_CRM_INVOICE_TYPE_HANDLER" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:inp2="http://www.skytv.it/mdw/data" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <plnk:partnerLinkType name="PS_REST_CRM_INVOICE_TYPE_HANDLER">
+        <plnk:role name="PS_REST_CRM_INVOICE_TYPE_HANDLERProvider" portType="tns:PS_REST_CRM_INVOICE_TYPE_HANDLER_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SalesforceProject/Rest_InvoiceTypeHandler/xsd/XSD_CRM_INVOICE_TYPE_HANDLER.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="GetCompatibleInvoiceSendingType_inputMessage">
+        <wsdl:part name="request" element="inp1:requestGetCompatibleInvoiceSendingType"/>
+    </wsdl:message>
+    <wsdl:message name="GetCompatibleInvoiceSendingType_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseGetCompatibleInvoiceSendingType"/>
+    </wsdl:message>
+    <wsdl:message name="GetCompatibleInvoiceSendingType_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="GetCompatibleInvoiceSendingType_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="GetCompatibleInvoiceSendingType_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="InvoiceDeliverySettings_inputMessage">
+        <wsdl:part name="request" element="inp1:requestInvoiceDeliverySettings"/>
+    </wsdl:message>
+    <wsdl:message name="InvoiceDeliverySettings_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseInvoiceDeliverySettings"/>
+    </wsdl:message>
+    <wsdl:message name="InvoiceDeliverySettings_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="InvoiceDeliverySettings_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="InvoiceDeliverySettings_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:portType name="PS_REST_CRM_INVOICE_TYPE_HANDLER_ptt">
+        <wsdl:operation name="GetCompatibleInvoiceSendingType">
+            <wsdl:input message="tns:GetCompatibleInvoiceSendingType_inputMessage"/>
+            <wsdl:output message="tns:GetCompatibleInvoiceSendingType_outputMessage"/>
+            <wsdl:fault name="error404" message="tns:GetCompatibleInvoiceSendingType_error404Message"/>
+            <wsdl:fault name="error400" message="tns:GetCompatibleInvoiceSendingType_error400Message"/>
+            <wsdl:fault name="error500" message="tns:GetCompatibleInvoiceSendingType_error500Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="InvoiceDeliverySettings">
+            <wsdl:input message="tns:InvoiceDeliverySettings_inputMessage"/>
+            <wsdl:output message="tns:InvoiceDeliverySettings_outputMessage"/>
+            <wsdl:fault name="error404" message="tns:InvoiceDeliverySettings_error404Message"/>
+            <wsdl:fault name="error400" message="tns:InvoiceDeliverySettings_error400Message"/>
+            <wsdl:fault name="error500" message="tns:InvoiceDeliverySettings_error500Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PS_REST_CRM_INVOICE_TYPE_HANDLER_ptt-binding" type="tns:PS_REST_CRM_INVOICE_TYPE_HANDLER_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetCompatibleInvoiceSendingType">
+            <soap:operation soapAction="GetCompatibleInvoiceSendingType"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="InvoiceDeliverySettings">
+            <soap:operation soapAction="InvoiceDeliverySettings"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

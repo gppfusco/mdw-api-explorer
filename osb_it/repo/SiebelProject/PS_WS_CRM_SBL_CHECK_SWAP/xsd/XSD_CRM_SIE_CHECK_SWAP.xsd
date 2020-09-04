@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestCheckSwapMatricoleType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="NumeroODL" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfSwap" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Swap" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="TipoItem" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="MatricolaOld" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="MatricolaNew" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="MatricolaSTB" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="OnlySMC" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="FurtoSmarrDanno" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="CambioConfigurazione" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ListOfFields" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Field" minOccurs="0" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCheckSwapMatricole" type="requestCheckSwapMatricoleType"/>
+	<xsd:complexType name="responseCheckSwapMatricoleType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfSwapOut" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name=" SwapOut" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="DescrizioneEsitoSwap" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="EsitoSwap" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="MatricolaOldOut" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckSwapMatricole" type="responseCheckSwapMatricoleType"/>
+</xsd:schema>

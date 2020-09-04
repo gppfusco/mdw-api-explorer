@@ -1,0 +1,63 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "PegasusProject_GestioneComunicazionePub_proxy_PS_PGS_GESTIONE_COMUNICAZIONE_PUB",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/PegasusProject/GestioneComunicazionePub/pipeline/PL_PGS_ITERATE_GESTIONE_COMUNICAZIONE_PUB" : {
+        "label" : "Pipeline/PegasusProject/GestioneComunicazionePub/pipeline/PL_PGS_ITERATE_GESTIONE_COMUNICAZIONE_PUB",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/PegasusProject/GestioneComunicazionePub/transformations/makeResponse_GestioneComunicazionePub" : {
+            "label" : "Xquery/PegasusProject/GestioneComunicazionePub/transformations/makeResponse_GestioneComunicazionePub",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/PegasusProject/GestioneComunicazionePub/pipeline/PL_PGS_GESTIONE_COMUNICAZIONE_PUB_ENQUEUE" : {
+            "label" : "Pipeline/PegasusProject/GestioneComunicazionePub/pipeline/PL_PGS_GESTIONE_COMUNICAZIONE_PUB_ENQUEUE",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/PegasusProject/GestioneComunicazionePub/businessService/BS_JMS_GESTIONE_COMUNICAZIONE_PUB" : {
+                "label" : "BusinessService/PegasusProject/GestioneComunicazionePub/businessService/BS_JMS_GESTIONE_COMUNICAZIONE_PUB",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazionePub/wsdl/WS_PGS_GESTIONE_COMUNICAZIONE_PUB" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazionePub/wsdl/WS_PGS_GESTIONE_COMUNICAZIONE_PUB",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazionePub/wsdl/WS_PGS_GESTIONE_COMUNICAZIONE_PUB" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazionePub/wsdl/WS_PGS_GESTIONE_COMUNICAZIONE_PUB",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazionePub/wsdl/WS_PGS_GESTIONE_COMUNICAZIONE_PUB" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazionePub/wsdl/WS_PGS_GESTIONE_COMUNICAZIONE_PUB",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

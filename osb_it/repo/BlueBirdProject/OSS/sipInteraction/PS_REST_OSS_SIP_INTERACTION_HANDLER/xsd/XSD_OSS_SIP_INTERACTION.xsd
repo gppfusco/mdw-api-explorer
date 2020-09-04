@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+            
+  <xsd:element name="requestCredentials" type="requestCredentialsType"/>
+  <xsd:element name="responseCredentials" type="responseCredentialsType"/>
+  <xsd:element name="credentials" type="credentialsType"/>
+  
+  <xsd:complexType name="requestCredentialsType">
+    <xsd:sequence>
+      <xsd:element name="voiceId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseCredentialsType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element ref="credentials"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="credentialsType">
+    <xsd:sequence>
+      <xsd:element name="sipUsername" type="xsd:string"/>
+      <xsd:element name="sipPassword" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

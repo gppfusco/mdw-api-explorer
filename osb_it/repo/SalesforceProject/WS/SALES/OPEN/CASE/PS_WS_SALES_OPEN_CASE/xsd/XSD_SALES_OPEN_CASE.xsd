@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestOpenCaseType">
+		<xsd:sequence>
+			<xsd:element name="mdwAccountNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwContractNewCRMId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwCaseIdentification" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwReletedOrder" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwApplicationOrigin" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwSourceRequestId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwRecordTypeId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwStatus" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseOpenCaseType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwIdServiceRequest" type="xsd:string" minOccurs="0" maxOccurs="1"/>	
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestOpenCase" type="requestOpenCaseType"/>
+	<xsd:element name="responseOpenCase" type="responseOpenCaseType"/>
+</xsd:schema>

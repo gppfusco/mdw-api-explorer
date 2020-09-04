@@ -1,0 +1,131 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_RETRIEVE_ASSETS_proxy_PS_WS_RETRIEVE_ASSETS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveAssets/wsdl/WS_SF_RETRIEVE_ASSETS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveAssets/wsdl/WS_SF_RETRIEVE_ASSETS",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/WS_RETRIEVE_ASSETS/pipeline/PL_WS_RETRIEVE_ASSETS_N_OP" : {
+        "label" : "Pipeline/SalesforceProject/WS_RETRIEVE_ASSETS/pipeline/PL_WS_RETRIEVE_ASSETS_N_OP",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/SalesforceProject/WS_RETRIEVE_ASSETS/pipeline/PL_INTERNAL_RETRIEVE_ASSETS" : {
+            "label" : "Pipeline/SalesforceProject/WS_RETRIEVE_ASSETS/pipeline/PL_INTERNAL_RETRIEVE_ASSETS",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveAssets/wsdl/WS_SF_RETRIEVE_ASSETS" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveAssets/wsdl/WS_SF_RETRIEVE_ASSETS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SalesforceProject/WS_RETRIEVE_ASSETS/pipeline/PL_INTERNAL_RETRIEVE_ASSETS_INFO_CONTRACT_BUNDLE" : {
+                "label" : "Pipeline/SalesforceProject/WS_RETRIEVE_ASSETS/pipeline/PL_INTERNAL_RETRIEVE_ASSETS_INFO_CONTRACT_BUNDLE",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveAssets/wsdl/WS_SF_RETRIEVE_ASSETS" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveAssets/wsdl/WS_SF_RETRIEVE_ASSETS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/SalesforceProject/WS_RETRIEVE_ASSETS/tranformations/createRequest_GetInfoContractBundle" : {
+                    "label" : "Xquery/SalesforceProject/WS_RETRIEVE_ASSETS/tranformations/createRequest_GetInfoContractBundle",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/SalesforceProject/WS_RETRIEVE_ASSETS/tranformations/createResponse_GetAssets" : {
+                "label" : "Xquery/SalesforceProject/WS_RETRIEVE_ASSETS/tranformations/createResponse_GetAssets",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_RETRIEVE_ASSETS/tranformations/createRequest_GetAssets" : {
+                "label" : "Xquery/SalesforceProject/WS_RETRIEVE_ASSETS/tranformations/createRequest_GetAssets",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveAssets/wsdl/WS_SF_RETRIEVE_ASSETS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveAssets/wsdl/WS_SF_RETRIEVE_ASSETS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/WS_RETRIEVE_ASSETS/pipeline/PL_INTERNAL_GET_INFO_ASSETS" : {
+            "label" : "Pipeline/SalesforceProject/WS_RETRIEVE_ASSETS/pipeline/PL_INTERNAL_GET_INFO_ASSETS",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_RETRIEVE_ASSETS/tranformations/createResponse_GetInfoAssets" : {
+                "label" : "Xquery/SalesforceProject/WS_RETRIEVE_ASSETS/tranformations/createResponse_GetInfoAssets",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveAssets/wsdl/WS_SF_RETRIEVE_ASSETS" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveAssets/wsdl/WS_SF_RETRIEVE_ASSETS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_RETRIEVE_ASSETS/tranformations/createRequest_GetInfoAssets" : {
+                "label" : "Xquery/SalesforceProject/WS_RETRIEVE_ASSETS/tranformations/createRequest_GetInfoAssets",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:h="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<!-- Start Types Definition -->
+	<xsd:complexType name="HeaderType">
+		<xsd:sequence>
+			<xsd:element name="systemSender" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flowIDSender" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="systemTarget" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="transactionID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="messageID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="internalTransactionID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="timeStamp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="serviceParam1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="serviceParam2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ResponseNotification" type="h:ResponseNotificationType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="Header" type="h:HeaderType"/>
+	<xsd:complexType name="ResponseNotificationType">
+		<xsd:sequence>
+			<xsd:element name="StatusCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Message" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

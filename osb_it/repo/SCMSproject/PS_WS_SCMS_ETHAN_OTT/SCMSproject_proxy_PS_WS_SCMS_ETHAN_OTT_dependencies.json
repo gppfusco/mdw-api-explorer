@@ -1,0 +1,57 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_proxy_PS_WS_SCMS_ETHAN_OTT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/EthanOTT/wsdl/WS_SCMS_ETHAN_OTT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/EthanOTT/wsdl/WS_SCMS_ETHAN_OTT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SCMSproject/pipeline/PL_WS_SCMS_ETHAN_OTT" : {
+        "label" : "Pipeline/SCMSproject/pipeline/PL_WS_SCMS_ETHAN_OTT",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/EthanOTT/wsdl/WS_SCMS_ETHAN_OTT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/EthanOTT/wsdl/WS_SCMS_ETHAN_OTT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CO/transformation/create_soap_header" : {
+            "label" : "Xquery/MDW_CO/transformation/create_soap_header",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CO/transformation/dyn_validation" : {
+            "label" : "Xquery/MDW_CO/transformation/dyn_validation",
+            "properties" : { },
+            "successors" : { }
+          },
+          "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+            "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+            "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

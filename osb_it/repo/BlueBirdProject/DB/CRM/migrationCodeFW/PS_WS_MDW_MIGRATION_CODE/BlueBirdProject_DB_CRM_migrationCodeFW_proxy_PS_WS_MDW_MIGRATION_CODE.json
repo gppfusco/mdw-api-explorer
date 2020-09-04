@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/WS_MDW_MIGRATION_CODE_FW",
+    "name" : "BlueBirdProject_DB_CRM_migrationCodeFW_proxy_PS_WS_MDW_MIGRATION_CODE",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\DB\\CRM\\migrationCodeFW\\PS_WS_MDW_MIGRATION_CODE",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/WS_MDW_MIGRATION_CODE_FW?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/migrationCodeFW/xsd/XSD_MDW_SF_MIGRATION_CODE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

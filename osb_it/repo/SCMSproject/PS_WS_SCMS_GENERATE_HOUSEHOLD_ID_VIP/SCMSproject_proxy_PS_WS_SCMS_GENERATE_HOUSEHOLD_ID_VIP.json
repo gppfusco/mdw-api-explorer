@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/scms/WS_SCMS_GENERATE_HOUSEHOLD_ID_VIP",
+    "name" : "SCMSproject_proxy_PS_WS_SCMS_GENERATE_HOUSEHOLD_ID_VIP",
+    "localPath" : "osb_it\\repo\\SCMSproject\\PS_WS_SCMS_GENERATE_HOUSEHOLD_ID_VIP",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/scms/WS_SCMS_GENERATE_HOUSEHOLD_ID_VIP?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SCMSproject/GenerateHouseHoldIdVip/xsd/XSD_SCMS_GENERATE_HOUSEHOLD_ID_VIP",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

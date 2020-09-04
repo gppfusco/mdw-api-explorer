@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCreaEsigenzeChiuse" type="requestCreaEsigenzeChiuseType"/>
+	<xsd:complexType name="requestCreaEsigenzeChiuseType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="custId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwWorkingCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwChannel" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwContactType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwListOptionalFields" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwOptionalField" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwName" type="xsd:string" maxOccurs="1"/>
+									<xsd:element name="mdwValue" type="xsd:string" maxOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mdwTrackingField" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwConnId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="mdwOrigin" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="mdwScope" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCreaEsigenzeChiuse" type="responseCreaEsigenzeChiuseType"/>
+	<xsd:complexType name="responseCreaEsigenzeChiuseType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

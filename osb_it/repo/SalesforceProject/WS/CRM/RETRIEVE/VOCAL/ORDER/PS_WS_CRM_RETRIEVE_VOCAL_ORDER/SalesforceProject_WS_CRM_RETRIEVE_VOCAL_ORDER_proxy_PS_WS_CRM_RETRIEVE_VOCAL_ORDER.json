@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_RETRIEVE_VOCAL_ORDER",
+    "name" : "SalesforceProject_WS_CRM_RETRIEVE_VOCAL_ORDER_proxy_PS_WS_CRM_RETRIEVE_VOCAL_ORDER",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\RETRIEVE\\VOCAL\\ORDER\\PS_WS_CRM_RETRIEVE_VOCAL_ORDER",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_RETRIEVE_VOCAL_ORDER?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveVocalOrder/xsd/XSD_CRM_RETRIEVE_VOCAL_ORDER",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

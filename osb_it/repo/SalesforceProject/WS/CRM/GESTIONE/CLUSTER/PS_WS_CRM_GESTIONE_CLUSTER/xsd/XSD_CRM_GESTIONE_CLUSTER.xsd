@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestClusterCheckType">
+		<xsd:sequence>
+			
+			<xsd:element name="Sorgente" type="xsd:string"/>
+			<xsd:element name="Timestamp" type="xsd:string"/>
+			<xsd:element name="DataTransazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomeOperatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UsernameOperatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Versione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TransactionTime" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IdPDA" type="xsd:string"/>
+			<xsd:element name="CodiceFiscalePIva" type="xsd:string"/>
+			<xsd:element name="CodiceComsy" type="xsd:string"/>
+			<xsd:element name="Operazione" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestClusterCheck" type="requestClusterCheckType"/>
+	<xsd:element name="responseClusterCheck" type="responseClusterCheckType"/>
+	<xsd:complexType name="responseClusterCheckType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListaErrori" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Errore" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="NomeErrore" type="xsd:string"/>
+									<xsd:element name="CodiceErrore" type="xsd:string"/>
+									<xsd:element name="DescrizioneErrore" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Result" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="FlagCustomerBase" type="xsd:string"/>
+						<xsd:element name="FlagClienteAffidabile" type="xsd:string"/>
+						<xsd:element name="Cliente">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Nome" type="xsd:string"/>
+									<xsd:element name="Cognome" type="xsd:string"/>
+									<xsd:element name="CodiceFiscalePIva" type="xsd:string"/>
+									<xsd:element name="DataNascita" type="xsd:string"/>
+									<xsd:element name="ComuneNascita" type="xsd:string"/>
+									<xsd:element name="ProvinciaNascita" type="xsd:string"/>
+									<xsd:element name="TipoDocumento" type="xsd:string"/>
+									<xsd:element name="NumeroDocumento" type="xsd:string"/>
+									<xsd:element name="TelefonoFisso" type="xsd:string"/>
+									<xsd:element name="AltroTelefono" type="xsd:string"/>
+									<xsd:element name="Cellulare" type="xsd:string"/>
+									<xsd:element name="Email" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="Contratti">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Contratto" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="CodiceContratto" type="xsd:string"/>
+												<xsd:element name="MetodoPagamento" type="xsd:string"/>
+												<xsd:element name="CognomeTitolare" type="xsd:string"/>
+												<xsd:element name="NomeTitolare" type="xsd:string"/>
+												<xsd:element name="CodiceFiscalePIvaTitolare" type="xsd:string"/>
+												<xsd:element name="Iban" type="xsd:string"/>
+												<xsd:element name="NumeroCarta" type="xsd:string"/>
+												<xsd:element name="DataScadenzaCarta" type="xsd:string"/>
+												<xsd:element name="ParticellaToponomastica" type="xsd:string"/>
+												<xsd:element name="Indirizzo" type="xsd:string"/>
+												<xsd:element name="Civico" type="xsd:string"/>
+												<xsd:element name="Comune" type="xsd:string"/>
+												<xsd:element name="Cap" type="xsd:string"/>
+												<xsd:element name="Provincia" type="xsd:string"/>
+												<xsd:element name="Elegibile" type="xsd:string"/>
+												<xsd:element name="CausaleElegibilita" type="xsd:string"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="Elegibilita">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="FlagElegibilita" type="xsd:string"/>
+									<xsd:element name="CausaleElegibilita" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

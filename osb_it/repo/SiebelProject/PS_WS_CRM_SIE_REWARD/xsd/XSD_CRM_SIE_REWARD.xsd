@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestActionRewardType">
+		<xsd:sequence>
+			<xsd:element name="Azione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodicePremio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IdPremio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataPrenotazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfFieldsType">
+		<xsd:sequence>
+			<xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FieldType">
+		<xsd:sequence>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestActionReward" type="requestActionRewardType"/>
+	<xsd:element name="responseActionReward" type="basicResponseType"/>
+	<xsd:complexType name="requestGetRewardType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Azione" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetReward" type="requestGetRewardType"/>
+	<xsd:complexType name="responseGetRewardType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfRewardAdesione" type="ListOfRewardAdesioneType" minOccurs="0"/>
+			<xsd:element name="ListOfRewardAnnullamento" type="ListOfRewardAnnullamentoType" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetReward" type="responseGetRewardType"/>
+	<xsd:complexType name="ListOfRewardAdesioneType">
+		<xsd:sequence>
+			<xsd:element name="RewardAdesione" type="RewardAdesioneType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RewardAdesioneType">
+		<xsd:sequence>
+			<xsd:element name="CodicePremio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataFineWave" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataScadenzaFruizione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IdPacchetto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomePacchetto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomePremio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomePromozione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroSMC" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SottoTipoPremio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoPremio" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfRewardAnnullamentoType">
+		<xsd:sequence>
+			<xsd:element name="RewardAnnullamento" type="RewardAnnullamentoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RewardAnnullamentoType">
+		<xsd:sequence>
+			<xsd:element name="CodicePremio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataAdesione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizionePremio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IdPremio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IdTracking" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomePremio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomePromozione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StatoPremio" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="basicResponseType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

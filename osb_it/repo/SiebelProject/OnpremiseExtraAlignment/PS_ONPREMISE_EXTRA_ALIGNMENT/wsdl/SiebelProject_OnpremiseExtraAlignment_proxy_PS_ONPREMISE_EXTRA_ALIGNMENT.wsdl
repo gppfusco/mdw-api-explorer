@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/ONPREMISE_EXTRA_ALIGNMENT" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_ONPREMISE_EXTRA_ALIGNMENT" targetNamespace="http://www.skytv.it/mdw/service/ONPREMISE_EXTRA_ALIGNMENT">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_ONPREMISE_EXTRA_ALIGNMENT.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestOnpremiseExtraAlignmentMessage">
+		<wsdl:part name="part_requestOnpremiseExtraAlignment" element="inp1:requestOnpremiseExtraAlignment"/>
+	</wsdl:message>
+	<wsdl:message name="responseOnpremiseExtraAlignmentMessage">
+		<wsdl:part name="part_responseOnpremiseExtraAlignment" element="inp1:responseOnpremiseExtraAlignment"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="ptt_ONPREMISE_EXTRA_ALIGNMENT">
+		<wsdl:operation name="execute_OnpremiseExtraAlignment">
+			<wsdl:input message="tns:requestOnpremiseExtraAlignmentMessage"/>
+			<wsdl:output message="tns:responseOnpremiseExtraAlignmentMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ptt_ONPREMISE_EXTRA_ALIGNMENTSOAP11Binding" type="tns:ptt_ONPREMISE_EXTRA_ALIGNMENT">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_OnpremiseExtraAlignment">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/ONPREMISE_EXTRA_ALIGNMENT/execute_OnpremiseExtraAlignment" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestOnpremiseExtraAlignment" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseOnpremiseExtraAlignment" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

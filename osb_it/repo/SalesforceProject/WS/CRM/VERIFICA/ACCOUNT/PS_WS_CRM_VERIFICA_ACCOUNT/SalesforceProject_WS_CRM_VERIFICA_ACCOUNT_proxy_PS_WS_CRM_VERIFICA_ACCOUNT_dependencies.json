@@ -1,0 +1,101 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_VERIFICA_ACCOUNT_proxy_PS_WS_CRM_VERIFICA_ACCOUNT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/VerificaAccount/wsdl/WS_CRM_VERIFICA_ACCOUNT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/VerificaAccount/wsdl/WS_CRM_VERIFICA_ACCOUNT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/pipeline/PL_WS_CRM_VERIFICA_ACCOUNT" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/pipeline/PL_WS_CRM_VERIFICA_ACCOUNT",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/pipeline/PL_INTERNAL_VERIFICA_ACCOUNT_SBL" : {
+            "label" : "Pipeline/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/pipeline/PL_INTERNAL_VERIFICA_ACCOUNT_SBL",
+            "properties" : { },
+            "successors" : {
+              "Xquery/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/transformation/createResponseVerificaAccountSBL" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/transformation/createResponseVerificaAccountSBL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/transformation/createRequestVerificaAccountSBL" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/transformation/createRequestVerificaAccountSBL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/VerificaAccount/wsdl/WS_CRM_VERIFICA_ACCOUNT" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/VerificaAccount/wsdl/WS_CRM_VERIFICA_ACCOUNT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/businessService/BS_SQL_SIEBEL_GET_TIPOLOGIA_CLIENTE" : {
+                "label" : "BusinessService/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/businessService/BS_SQL_SIEBEL_GET_TIPOLOGIA_CLIENTE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/VerificaAccount/wsdl/WS_CRM_VERIFICA_ACCOUNT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/VerificaAccount/wsdl/WS_CRM_VERIFICA_ACCOUNT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/pipeline/PL_INTERNAL_VERIFICA_ACCOUNT_SF" : {
+            "label" : "Pipeline/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/pipeline/PL_INTERNAL_VERIFICA_ACCOUNT_SF",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/VerificaAccount/wsdl/WS_CRM_VERIFICA_ACCOUNT" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/VerificaAccount/wsdl/WS_CRM_VERIFICA_ACCOUNT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/transformation/createRequestVerificaAccountSF" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/transformation/createRequestVerificaAccountSF",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/transformation/createResponseVerificaAccountSF" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_VERIFICA_ACCOUNT/transformation/createResponseVerificaAccountSF",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

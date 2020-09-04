@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_TUX_SEND_MAIL">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.skytv.it/mdw/service/TUX_SEND_MAIL" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/InternalProject/SendMail/xsd/XSD_SEND_MAIL.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/services/REST_TUX_SEND_MAIL">
+         <method name="POST" soa:wsdlOperation="execute_TuxSendMail">
+            <request>
+               <representation mediaType="application/xml" element="cns:requestTuxSendMail" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseTuxSendMail" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

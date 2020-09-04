@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/siebel/WS_CRM_SBL_CHECK_SWAP",
+    "name" : "SiebelProject_proxy_PS_WS_CRM_SBL_CHECK_SWAP",
+    "localPath" : "osb_it\\repo\\SiebelProject\\PS_WS_CRM_SBL_CHECK_SWAP",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/siebel/WS_CRM_SBL_CHECK_SWAP?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SiebelProject/CheckSwapMatricole/xsd/XSD_CRM_SIE_CHECK_SWAP",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

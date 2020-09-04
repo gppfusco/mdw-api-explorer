@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSB_SVIL/BlueBirdProject/PS_REST_SF_ORDER_MANAGEMENT" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/orderManagement/xsd/XSD_SF_ORDER_MANAGEMENT.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/">
+         <method name="POST" soa:wsdlOperation="createOrder">
+            <request>
+               <representation mediaType="application/xml" element="cns:requestCreateOrder" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseCreateOrder" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/{orderId}/migrationCodes">
+         <method name="PUT" soa:wsdlOperation="UpdateMigrationCodes">
+            <request>
+               <param name="orderId" style="template" soa:expression="$property.orderId" default="" type="xsd:string"/>
+               <representation mediaType="application/xml" element="cns:requestUpdateMigrationCodes" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200"/>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/{orderId}/documentInfo">
+         <method name="PUT" soa:wsdlOperation="UpdateDocumentInfo">
+            <request>
+               <param name="orderId" style="template" soa:expression="$property.orderId" default="" type="xsd:string"/>
+               <representation mediaType="application/xml" element="cns:requestUpdateDocumentInfo" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200"/>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/{orderId}/appointmentInfo">
+         <method name="PUT" soa:wsdlOperation="UpdateAppointmentInfo">
+            <request>
+               <param name="orderId" style="template" soa:expression="$property.orderId" default="" type="xsd:string"/>
+               <representation mediaType="application/xml" element="cns:requestUpdateAppointmentInfo" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200"/>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/{orderId}/updates">
+         <method name="POST" soa:wsdlOperation="UpdateGeneric">
+            <request>
+               <param name="orderId" style="template" soa:expression="$property.orderId" default="" type="xsd:string"/>
+               <representation mediaType="application/xml" element="cns:requestUpdateGenericOrderInfo" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="204"/>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

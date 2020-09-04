@@ -1,0 +1,103 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_GetOrder_proxy_PS_WS_OM_GET_CANCELLABLE_ORDER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetOrder/wsdl/WS_OM_GETORDER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetOrder/wsdl/WS_OM_GETORDER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/OMProject/GetOrder/pipeline/PL_WS_GET_ORDER_ROUTING" : {
+        "label" : "Pipeline/OMProject/GetOrder/pipeline/PL_WS_GET_ORDER_ROUTING",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetOrder/wsdl/WS_OM_GETORDER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetOrder/wsdl/WS_OM_GETORDER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/OMProject/GetOrder/pipeline/PL_INTERNAL_GET_CANCELLABLE_ORDER" : {
+            "label" : "Pipeline/OMProject/GetOrder/pipeline/PL_INTERNAL_GET_CANCELLABLE_ORDER",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/OMProject/GetOrder/businessServices/BS_SQL_PROCEDURE_GET_CANCELLABLE_ORDER" : {
+                "label" : "BusinessService/OMProject/GetOrder/businessServices/BS_SQL_PROCEDURE_GET_CANCELLABLE_ORDER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetOrder/wsdl/WS_OM_GETORDER" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetOrder/wsdl/WS_OM_GETORDER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OMProject/GetOrder/transformations/createResponseGetCancellableOrder" : {
+                "label" : "Xquery/OMProject/GetOrder/transformations/createResponseGetCancellableOrder",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OMProject/GetOrder/transformations/createRequestGetCancellableOrder" : {
+                "label" : "Xquery/OMProject/GetOrder/transformations/createRequestGetCancellableOrder",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/OMProject/GetOrder/pipeline/PL_INTERNAL_GET_FIRST_ACTIVATION_ORDER" : {
+            "label" : "Pipeline/OMProject/GetOrder/pipeline/PL_INTERNAL_GET_FIRST_ACTIVATION_ORDER",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetOrder/wsdl/WS_OM_GETORDER" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetOrder/wsdl/WS_OM_GETORDER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OMProject/GetOrder/businessServices/BS_TUX_GET_FIRST_ACTIVATION_ORDER" : {
+                "label" : "BusinessService/OMProject/GetOrder/businessServices/BS_TUX_GET_FIRST_ACTIVATION_ORDER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/OMProject/GetOrder/transformations/createRequestTuxGetFirstActivationOrder" : {
+                "label" : "Xquery/OMProject/GetOrder/transformations/createRequestTuxGetFirstActivationOrder",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OMProject/GetOrder/transformations/createResponseTuxGetFirstActivationOrder" : {
+                "label" : "Xquery/OMProject/GetOrder/transformations/createResponseTuxGetFirstActivationOrder",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

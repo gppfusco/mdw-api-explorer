@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetAccInfoXml" type="requestGetAccInfoXmlType"/>
+	<xsd:element name="responseGetAccInfoXml" type="responseGetAccInfoXmlType"/>
+	<xsd:complexType name="requestGetAccInfoXmlType">
+		<xsd:sequence>
+			<xsd:element name="CRM_NAME_SMS" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRM_ASSET_NUMBER" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRM_MAIN_PHONE_NUMBER" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRM_STATO_PACCHETTO" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="CRM_READ_SALES_INFO" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetAccInfoXmlType">
+		<xsd:sequence>
+			<xsd:element name="SRVZ_DESCRIZ_ESITO" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SRVZ_LOG_FILENAME" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SRVZ_RET_CODE" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FML_CLIENTE_FRUITORE" type="FMLComplexCliFruitoreType" minOccurs="0"/>
+			<xsd:element name="FML_CLIENTE_PAGATORE" type="FMLComplexCliPagatoreType" minOccurs="0"/>
+			<xsd:element name="FML_CONTRATTO" type="FMLComplexContrattoType" minOccurs="0"/>
+			<xsd:element name="FML_MODALITA_PAGAMENTO" type="FMLComplexMOPType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FMLComplexCliFruitoreType">
+		<xsd:sequence>
+			<xsd:element name="CA_PASSWORD" type="xsd:string"/>
+			<xsd:element name="CA_NUMERO_CELLULARE" type="xsd:string"/>
+			<xsd:element name="CRM_ALTRO_NUM_TEL" type="xsd:string"/>
+			<xsd:element name="CRM_CODE_FISCALE" type="xsd:string"/>
+			<xsd:element name="CRM_CODICE_CLIENTE" type="xsd:string"/>
+			<xsd:element name="CRM_COGNOME_CLIENTE" type="xsd:string"/>
+			<xsd:element name="CRM_COMUNICAZIONE_DA_TERZI" type="xsd:string"/>
+			<xsd:element name="CRM_DATA_DOCUMENTO" type="xsd:string"/>
+			<xsd:element name="CRM_DATA_NASCITA" type="xsd:string"/>
+			<xsd:element name="CRM_EMAIL" type="xsd:string"/>
+			<xsd:element name="CRM_LOY_AGEING" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CRM_LOY_MEMBER" type="xsd:string"/>
+			<xsd:element name="CRM_LOY_SCORE" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CRM_LUOGO_NASCITA" type="xsd:string"/>
+			<xsd:element name="CRM_MAIN_PHONE_NUMBER" type="xsd:string"/>
+			<xsd:element name="CRM_MARKET_CLASS" type="xsd:string"/>
+			<xsd:element name="CRM_MARKET_TYPE" type="xsd:string"/>
+			<xsd:element name="CRM_NAME" type="xsd:string"/>
+			<xsd:element name="CRM_NOME_CLIENTE" type="xsd:string"/>
+			<xsd:element name="CRM_NUMERO_DOCUMENTO" type="xsd:string"/>
+			<xsd:element name="CRM_NUM_FAX" type="xsd:string"/>
+			<xsd:element name="CRM_PARTITA_IVA" type="xsd:string"/>
+			<xsd:element name="CRM_PERS_GIURID_FLAG" type="xsd:string"/>
+			<xsd:element name="CRM_PROV_LUOGO_NASCITA" type="xsd:string"/>
+			<xsd:element name="CRM_ROW_ID_CLI" type="xsd:string"/>
+			<xsd:element name="CRM_STATISTICHE_DI_MERCATO" type="xsd:string"/>
+			<xsd:element name="CRM_TIPO_CLIENTE" type="xsd:string"/>
+			<xsd:element name="CRM_TIPO_DOCUMENTO" type="xsd:string"/>
+			<xsd:element name="PA_X_IRREPERIBILE" type="xsd:string"/>
+                        <xsd:element name="CX_ORDER_ENTRY_MAIL" type="xsd:string" minOccurs="0"/>     
+                        <xsd:element name="CX_ORDER_ENTRY_TEL" type="xsd:string" minOccurs="0"/>      
+			<xsd:element name="SA_X_DENOMINAZIONE_DITTA_SKY" type="xsd:string"/>
+			<xsd:element name="SA_X_WSC_SIGNIN_DT_SKY" type="xsd:string"/>
+			<xsd:element name="CRM_X_RTD_NAV_TRACKING_FLG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CRM_X_RTD_NAV_COOKIE_FLG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SKY_EXTRA_FLG" type="xsd:string"/>
+			<xsd:element name="FASCIA_SKY_EXTRA" type="xsd:string"/>
+			<xsd:element name="FML_INDIRIZZO_FRUITORE" type="FMLComplexIndFruitoreType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FMLComplexCliPagatoreType">
+		<xsd:sequence>
+			<xsd:element name="CA_PASSWORD" type="xsd:string"/>
+			<xsd:element name="CA_NUMERO_CELLULARE" type="xsd:string"/>
+			<xsd:element name="CRM_ALTRO_NUM_TEL" type="xsd:string"/>
+			<xsd:element name="CRM_BILLING_ACCOUNT" type="xsd:string"/>
+			<xsd:element name="CRM_CODE_FISCALE" type="xsd:string"/>
+			<xsd:element name="CRM_CODICE_CLIENTE" type="xsd:string"/>
+			<xsd:element name="CRM_COGNOME_CLIENTE" type="xsd:string"/>
+			<xsd:element name="CRM_COMUNICAZIONE_DA_TERZI" type="xsd:string"/>
+			<xsd:element name="CRM_DATA_DOCUMENTO" type="xsd:string"/>
+			<xsd:element name="CRM_DATA_NASCITA" type="xsd:string"/>
+			<xsd:element name="CRM_EMAIL" type="xsd:string"/>
+			<xsd:element name="CRM_FLG_PRIVACY_ANALISI_PREF" type="xsd:string"/>
+			<xsd:element name="CRM_FLG_PRIVACY_COM_TERZI" type="xsd:string"/>
+			<xsd:element name="CRM_FLG_PRIVACY_DT" type="xsd:string"/>
+			<xsd:element name="CRM_FLG_PRIVACY_STATISTICHE" type="xsd:string"/>
+			<xsd:element name="CRM_FORMATO_FATT" type="xsd:string"/>
+			<xsd:element name="CRM_LUOGO_NASCITA" type="xsd:string"/>
+			<xsd:element name="CRM_MAIN_PHONE_NUMBER" type="xsd:string"/>
+			<xsd:element name="CRM_MARKET_CLASS" type="xsd:string"/>
+			<xsd:element name="CRM_MARKET_TYPE" type="xsd:string"/>
+			<xsd:element name="CRM_NAME" type="xsd:string"/>
+			<xsd:element name="CRM_NOME_CLIENTE" type="xsd:string"/>
+			<xsd:element name="CRM_NUMERO_DOCUMENTO" type="xsd:string"/>
+			<xsd:element name="CRM_NUM_FAX" type="xsd:string"/>
+			<xsd:element name="CRM_PARTITA_IVA" type="xsd:string"/>
+			<xsd:element name="CRM_PERS_GIURID_FLAG" type="xsd:string"/>
+			<xsd:element name="CRM_PROV_LUOGO_NASCITA" type="xsd:string"/>
+			<xsd:element name="CRM_ROW_ID_CLI" type="xsd:string"/>
+			<xsd:element name="CRM_STATISTICHE_DI_MERCATO" type="xsd:string"/>
+			<xsd:element name="CRM_TIPO_CLIENTE" type="xsd:string"/>
+			<xsd:element name="CRM_TIPO_DOCUMENTO" type="xsd:string"/>
+			<xsd:element name="CRM_TIPO_INVIO_FATT" type="xsd:string"/>
+			<xsd:element name="PA_X_IRREPERIBILE" type="xsd:string"/>
+                        <xsd:element name="CX_ORDER_ENTRY_MAIL_PAY" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="CX_ORDER_ENTRY_TEL_PAY" type="xsd:string" minOccurs="0"/>  
+			<xsd:element name="PA_X_DENOMINAZIONE_DITTA_SKY" type="xsd:string"/>
+			<xsd:element name="PA_X_WSC_SIGNIN_DT_SKY" type="xsd:string"/>
+			<xsd:element name="CRM_X_RTD_NAV_TRACKING_FLG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CRM_X_RTD_NAV_COOKIE_FLG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FML_INDIRIZZO_PAGATORE" type="FMLComplexIndPagatoreType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FMLComplexContrattoType">
+		<xsd:sequence>
+			<xsd:element name="OD_X_AMBIENTE_SERVIZIO" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IP_TV_STATO_RICH_MIGRAZIONE" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CRM_ACCOUNT_NUMBER" type="xsd:string"/>
+			<xsd:element name="CRM_AGREEMENT" type="xsd:string"/>
+			<xsd:element name="CRM_BROADBAND_FLG" type="xsd:string"/>
+			<xsd:element name="CRM_CATEGORIA_LISTINO" type="xsd:string"/>
+			<xsd:element name="CRM_CODE_CNTR" type="xsd:string"/>
+			<xsd:element name="CRM_CODICE_LISTINO" type="xsd:string"/>
+			<xsd:element name="CRM_CODICE_PROMOZIONE" type="xsd:string"/>
+			<xsd:element name="CRM_COMPANY" type="xsd:string"/>
+			<xsd:element name="CRM_DATA_STIPULA" type="xsd:string"/>
+			<xsd:element name="CRM_DUE_DATE" type="xsd:string"/>
+			<xsd:element name="CRM_FLAG_PRONTO_SKY" type="xsd:string"/>
+			<xsd:element name="CRM_HOTEL_PPV" type="xsd:string"/>
+			<xsd:element name="CRM_LIST_NAME" type="xsd:string"/>
+			<xsd:element name="CRM_ROW_ID_CONTR" type="xsd:string"/>
+			<xsd:element name="CRM_STATUS" type="xsd:string"/>
+			<xsd:element name="CRM_TECNOLOGIA_PROMO" type="xsd:string"/>
+			<xsd:element name="CRM_TIPO_CNTR" type="xsd:string"/>
+			<xsd:element name="CRM_TIPO_LISTINO" type="xsd:string"/>
+			<xsd:element name="KN_PRIMA_ATTIVAZIONE_DT" type="xsd:string"/>
+			<xsd:element name="KN_START_DATE_CONTR" type="xsd:string"/>
+			<xsd:element name="CRM_X_SOSP_CANDIDATO_FLG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CA_DATA_PREV_CHIUSURA" type="xsd:string"/>
+			<xsd:element name="SRVZ_PARAM_1" type="xsd:string"/>
+			<xsd:element name="OD_X_CAUSALE_CESSAZIONE" type="xsd:string"/>
+			<xsd:element name="OD_X_UPDATE_RICH_CESSAZIONE_DT" type="xsd:string"/>
+			<xsd:element name="OD_X_CAUSALE_SOSPENSIONE" type="xsd:string"/>
+			<xsd:element name="CRM_DT_SUB_PRIMA_ATTIVAZ" type="xsd:string"/>
+			<xsd:element name="CA_DATE" type="xsd:string"/>
+			<xsd:element name="FML_PACCHETTI" type="FMLComplexPcksType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FMLComplexIndFruitoreType">
+		<xsd:sequence>
+			<xsd:element name="CRM_CAP_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_CITY_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_COUNTRY_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_INDIRIZZO_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_NUM_CIVICO_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_PART_TOPON_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_PROVINCIA_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_SCALA_SERVICE" type="xsd:string"/>
+		</xsd:sequence>
+		<xsd:attribute name="occur" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="FMLComplexIndPagatoreType">
+		<xsd:sequence>
+			<xsd:element name="CRM_CAP_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_CITY_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_COUNTRY_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_INDIRIZZO_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_NUM_CIVICO_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_PART_TOPON_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_PROVINCIA_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_SCALA_SERVICE" type="xsd:string"/>
+		</xsd:sequence>
+		<xsd:attribute name="occur" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="FMLComplexMOPType">
+		<xsd:sequence>
+			<xsd:element name="CRM_DATA_FINE_VALID" type="xsd:string"/>
+			<xsd:element name="CRM_PAYMENT_METHOD" type="xsd:string"/>
+			<xsd:element name="CRM_PERIODICITA_FATTURAZIONE" type="xsd:string"/>
+			<xsd:element name="CRM_TIPO_MOP" type="xsd:string"/>
+			<xsd:element name="PY_LAST_UPD" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FMLComplexPckType">
+		<xsd:sequence>
+			<xsd:element name="CRM_ONLY_SMC_ACTIVE" type="xsd:string"/>
+			<xsd:element name="CRM_PRODUCT_TYPE_PACKET" type="xsd:string"/>
+			<xsd:element name="CRM_RATE_CODE_PACKET" type="xsd:string"/>
+			<xsd:element name="CRM_STATO_PACCHETTO" type="xsd:string"/>
+			<xsd:element name="FML_SERVIZI" type="FMLComplexServiziType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FMLComplexPcksType">
+		<xsd:sequence>
+			<xsd:element name="CA_FLAG_MULTIVISION" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CRM_SERVICE_PRICE_AMOUNT" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CRM_NUMERO_PACCHETTI_ATTIVABILI" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CRM_NUMERO_PACCHETTI_PENDING" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CRM_NUMERO_PACCHETTI_ATTIVI" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FML_PACCHETTO" type="FMLComplexPckType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FMLComplexServiziType">
+		<xsd:sequence>
+			<xsd:element name="FML_SERVIZIO" type="FMLComplexServizioType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FMLComplexServizioType">
+		<xsd:sequence>
+			<xsd:element name="CA_FLAG_ENABLED" type="xsd:string"/>
+			<xsd:element name="CA_PIN_CONTROL" type="xsd:string"/>
+			<xsd:element name="CRM_ASSET_NUMBER" type="xsd:string"/>
+			<xsd:element name="CRM_ASSET_START_DATE" type="xsd:string"/>
+			<xsd:element name="CRM_FLAG_APPARATO" type="xsd:string"/>
+			<xsd:element name="CRM_LIST_PRICE" type="xsd:string"/>
+			<xsd:element name="CRM_NEW_ASSET_NUMBER" type="xsd:string"/>
+			<xsd:element name="CRM_PRODUCT_TYPE_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_RATE_CODE_SERVICE" type="xsd:string"/>
+			<xsd:element name="CRM_SERIALE_DECODER" type="xsd:string"/>
+			<xsd:element name="CRM_STATO_SERVIZI" type="xsd:string"/>
+			<xsd:element name="CRM_STATO_SERVIZIO_STB" type="xsd:string"/>
+			<xsd:element name="CRM_STATO_STB" type="xsd:string"/>
+			<xsd:element name="CRM_TECNOLOGIA" type="xsd:string"/>
+			<xsd:element name="CRM_TIPO_APP" type="xsd:string"/>
+			<xsd:element name="CRM_TECNOLOGIA_SVC" type="xsd:string"/>
+			<xsd:element name="CRM_TIPO_SERVIZIO" type="xsd:string"/>
+			<xsd:element name="CRM_STATO_MATRICOLA" type="xsd:string"/>
+			<xsd:element name="CRM_DATA_FINE_GARANZIA" type="xsd:string"/>
+			<xsd:element name="CRM_SOTTOSTATO_STB" type="xsd:string"/>
+			<xsd:element name="CRM_PRODUCT_TYPE" type="xsd:string"/>
+			<xsd:element name="CA_DATA_PREV_CHIUSURA" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

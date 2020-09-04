@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestDeleteOrders" type="requestDeleteOrdersType" /> 
+  <xsd:complexType name="requestDeleteOrdersType">
+    <xsd:sequence>
+      <xsd:element name="accountId" type="strMinLen" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="contractId" type="strMinLen" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="orderType" minOccurs="0" maxOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="CHANGE_CONSISTENCY"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="channel" type="strMinLen" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="orders" type="orderListType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="orderListType">
+    <xsd:sequence>
+      <xsd:element name="order" type="orderRecType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="orderRecType">
+    <xsd:sequence>
+      <xsd:element name="id" type="strMinLen" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:simpleType name="strMinLen">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  
+  <xsd:element name="responseDeleteOrders" type="responseDeleteOrdersType" /> 
+  <xsd:complexType name="responseDeleteOrdersType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

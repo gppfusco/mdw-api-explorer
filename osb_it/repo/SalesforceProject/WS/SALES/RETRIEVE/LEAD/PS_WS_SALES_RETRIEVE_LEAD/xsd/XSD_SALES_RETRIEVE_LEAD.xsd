@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetLeadType">
+		<xsd:sequence>
+			<xsd:element name="EmailList" minOccurs="0" maxOccurs="unbounded" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetLeadType">
+		<xsd:sequence>
+			<xsd:element name="result" type="Response" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Response">
+		<xsd:sequence>
+                        <xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="ErrorList" type="WsError" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="LeadList" type="WsLead" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WsError">
+		<xsd:sequence>
+			<xsd:element name="ErrorCode" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ErrorDescription" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WsLead">
+		<xsd:sequence>
+			<xsd:element name="Email" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="IdLead" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OpportunityList" type="WsOpportunity" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="WsOpportunity">
+		<xsd:sequence>
+			<xsd:element name="DataCreazione" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+                        <xsd:element name="Procacciatore" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Telefono" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="TipoVenditore" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Venditore" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetLead" type="requestGetLeadType"/>
+	<xsd:element name="responseGetLead" type="responseGetLeadType"/>
+</xsd:schema>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetIncassiRecenti" type="requestGetIncassiRecentiType"/>
+	<xsd:complexType name="requestGetIncassiRecentiType">
+		<xsd:sequence>
+			<xsd:element name="billingAccount" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="numeroIncassi" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="contesto" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetIncassiRecenti" type="responseGetIncassiRecentiType"/>
+	<xsd:complexType name="responseGetIncassiRecentiType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="resultGetIncassiRecenti" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="incassi" type="listaIncassiType" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="listaIncassiType">
+		<xsd:sequence>
+			<xsd:element name="incasso" type="incassoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="incassoType">
+		<xsd:sequence>
+			<xsd:element name="numeroFattura" type="xsd:string" nillable="true"/>
+			<xsd:element name="idIncasso" type="xsd:string" nillable="true"/>
+			<xsd:element name="dataIncasso" type="xsd:string" nillable="true"/>
+			<xsd:element name="importoIncasso" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="tipologiaIncasso" type="xsd:string" nillable="true"/>
+			<xsd:element name="descrizioneIncasso" type="xsd:string" nillable="true"/>
+			<xsd:element name="dataFattura" type="xsd:string" nillable="true"/>
+			<xsd:element name="contestoIncasso" type="xsd:string" nillable="true"/>
+			<xsd:element name="trackingIdServer" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetIncassiFull" type="requestGetIncassiFullType"/>
+	<xsd:complexType name="requestGetIncassiFullType">
+		<xsd:sequence>
+			<xsd:element name="billingAccount" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="contesto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="limit" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetIncassiFull" type="responseGetIncassiRecentiType"/>
+	<xsd:element name="requestGetIncassiByFattura" type="requestGetIncassiByFatturaType"/>
+	<xsd:complexType name="requestGetIncassiByFatturaType">
+		<xsd:sequence>
+			<xsd:element name="billingAccount" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="ListaFatture">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Fattura" minOccurs="1" maxOccurs="35">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="idFattura" type="xsd:string"/>
+									<xsd:element name="dataFattura" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetIncassiByFattura" type="responseGetIncassiByFatturaType"/>
+	<xsd:complexType name="responseGetIncassiByFatturaType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="resultGetIncassiByFattura" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="incassi" type="listaIncassiByFatturaType" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="listaIncassiByFatturaType">
+		<xsd:sequence>
+			<xsd:element name="incasso" type="incassoByFatturaType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="incassoByFatturaType">
+		<xsd:sequence>
+			<xsd:element name="Fattura" type="xsd:string"/>
+			<xsd:element name="ImportoFattura" type="xsd:string"/>
+			<xsd:element name="ImportoIncasso" type="xsd:string"/>
+			<xsd:element name="DataValuta" type="xsd:string"/>
+			<xsd:element name="ModalitaIncasso" type="xsd:string"/>
+			<xsd:element name="DescrizioneIncasso" type="xsd:string"/>
+                        <xsd:element name="TipologiaIncasso" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetDettaglioIncasso" type="requestGetDettaglioIncassoType"/>
+	<xsd:complexType name="requestGetDettaglioIncassoType">
+		<xsd:sequence>
+			<xsd:element name="billingAccount" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="idIncasso" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="trackingIdServer" type="xsd:string" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetDettaglioIncasso" type="responseGetDettaglioIncassoType"/>
+	<xsd:complexType name="responseGetDettaglioIncassoType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="resultGetDettaglioIncasso" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="listaIncassiDet" type="listaIncassiDetType" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="listaIncassiDetType">
+		<xsd:sequence>
+			<xsd:element name="incasso" type="incassoDettagliType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="incassoDettagliType">
+		<xsd:sequence>
+			<xsd:element name="idFattura" type="xsd:string" nillable="true"/>
+			<xsd:element name="idIncasso" type="xsd:string" nillable="true"/>
+			<xsd:element name="dataIncasso" type="xsd:string" nillable="true"/>
+			<xsd:element name="importoFattura" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="dataFattura" type="xsd:string" nillable="true"/>
+			<xsd:element name="dataScarico" type="xsd:string" nillable="true"/>
+			<xsd:element name="contestoIncasso" type="xsd:string" nillable="true"/>
+			<xsd:element name="trackingIdServer" type="xsd:string" nillable="true"/>
+			<xsd:element name="importoIncasso" type="xsd:decimal" nillable="true"/>
+			<xsd:element name="dataTran" type="xsd:string" nillable="true"/>
+			<xsd:element name="tipologiaIncasso" type="xsd:string" nillable="true"/>
+			<xsd:element name="descrizioneIncasso" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

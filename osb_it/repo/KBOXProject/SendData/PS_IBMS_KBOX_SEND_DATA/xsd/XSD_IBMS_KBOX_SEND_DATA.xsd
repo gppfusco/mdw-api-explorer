@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestInvioCalendarioProg_IBMS" type="requestInvioCalendarioProg_IBMSType"/>
+	<xsd:complexType name="requestInvioCalendarioProg_IBMSType">
+		<xsd:sequence>
+			<xsd:element name="Direction" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="SystemSender" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="ContentType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="TimeStamp" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Piano">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="TipoPiano" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="IdCliente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="DescrizioneCliente" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="IdMarca" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="DescrizioneMarca" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="IdCentroMedia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="DescrizioneCentroMedia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="NoteMittente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="Mittente" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="Destinatario" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="CodicePianoKubik" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="VersionePianoKubik" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="CodicePianoTVBOX" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="VersionePianoTVBOX" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="CodicePianoConc" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="VersionePianoConc" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="DataInizioPiano" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="DataFinePiano" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+						<xsd:element name="CodiceOrdine" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="RichiestaList">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Richiesta" minOccurs="1" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="DataInizioRichiesta" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+												<xsd:element name="DataFineRichiesta" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+												<xsd:element name="ValoreLordo" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+												<xsd:element name="ValoreNetto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+												<xsd:element name="IdSpotType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+												<xsd:element name="IdBillboardType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+												<xsd:element name="IdPremiumPosition" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+												<xsd:element name="Durata" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+												<xsd:element name="TipoProdotto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+												<xsd:element name="IdModulo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+												<xsd:element name="DescrizioneModulo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+												<xsd:element name="Quantita" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+												<xsd:element name="CodiceCampagna" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+												<xsd:element name="DescrizioneCampagna" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+												<xsd:element name="TipoRevenue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+												<xsd:element name="ProdottoList">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="Prodotto" maxOccurs="unbounded">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="IdBookingGroup" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+																		<xsd:element name="DescrizioneBookingGroup" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+																		<xsd:element name="IdSalesProduct" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+																		<xsd:element name="DescrizioneSalesProduct" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+																		<xsd:element name="NumeroSpot" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+																		<xsd:element name="SpotList" minOccurs="0">
+																			<xsd:complexType>
+																				<xsd:sequence>
+																					<xsd:element name="Spot" minOccurs="0" maxOccurs="unbounded">
+																						<xsd:complexType>
+																							<xsd:sequence>
+																								<xsd:element name="IdSpot" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+																								<xsd:element name="IdCanale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="DescrizioneCanale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="IdSalesProductGroup" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="DescrizioneSalesProductGroup" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="DescrizioneProgramma" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="StatoSpot" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="ValoreLordo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="ValoreNetto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="IdPremiumPosition" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="DataBreak" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="OraBreak" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="IdMateriale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																								<xsd:element name="DescrizioneMateriale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+																							</xsd:sequence>
+																						</xsd:complexType>
+																					</xsd:element>
+																				</xsd:sequence>
+																			</xsd:complexType>
+																		</xsd:element>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseInvioCalendarioProg_IBMS" type="responseInvioCalendarioProg_IBMSType"/>
+	<xsd:complexType name="responseInvioCalendarioProg_IBMSType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

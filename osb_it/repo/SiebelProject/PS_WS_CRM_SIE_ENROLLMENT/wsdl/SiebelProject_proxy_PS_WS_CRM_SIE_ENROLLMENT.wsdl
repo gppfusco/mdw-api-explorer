@@ -1,0 +1,91 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_CRM_SIE_ENROLLMENT"
+     targetNamespace="http://www.skytv.it/mdw/service/WS_CRM_SIE_ENROLLMENT"
+     xmlns:tns="http://www.skytv.it/mdw/service/WS_CRM_SIE_ENROLLMENT"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_SIE_ENROLLMENT.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="part_requestEnroll" element="inp1:requestEnroll"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="part_responseEnroll" element="inp1:responseEnroll"/>
+    </wsdl:message>
+    <wsdl:portType name="ptt_enroll">
+        <wsdl:operation name="execute_enroll">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getDatiLoyalty">
+            <wsdl:input message="tns:requestGetDatiLoyaltyMessage"/>
+            <wsdl:output message="tns:responseGetDatiLoyaltyMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_storicoLoyalty">
+            <wsdl:input message="tns:requestStoricoLoyaltyMessage"/>
+            <wsdl:output message="tns:responseStoricoLoyaltyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="requestGetDatiLoyaltyMessage">
+        <wsdl:part name="part_reqeustGetDatiLoyalty" element="inp1:requestGetDatiLoyalty"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetDatiLoyaltyMessage">
+        <wsdl:part name="part_responseGetDatiLoyalty" element="inp1:responseGetDatiLoyalty"/>
+    </wsdl:message>
+    <wsdl:binding name="ptt_enrollSOAP11Binding" type="tns:ptt_enroll">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_enroll">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/WS_CRM_SIE_ENROLLMENT/execute_enroll"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestEnroll"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseEnroll"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getDatiLoyalty">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/WS_CRM_SIE_ENROLLMENT/execute_getDatiLoyalty"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_reqeustGetDatiLoyalty"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetDatiLoyalty"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_storicoLoyalty">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/WS_CRM_SIE_ENROLLMENT/execute_storicoLoyalty"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestStoricoLoyalty"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseStoricoLoyalty"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="headerMessage">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:message name="requestStoricoLoyaltyMessage">
+        <wsdl:part name="part_requestStoricoLoyalty" element="inp1:requestStoricoLoyalty"/>
+    </wsdl:message>
+    <wsdl:message name="responseStoricoLoyaltyMessage">
+        <wsdl:part name="part_responseStoricoLoyalty" element="inp1:responseStoricoLoyalty"/>
+    </wsdl:message>
+</wsdl:definitions>

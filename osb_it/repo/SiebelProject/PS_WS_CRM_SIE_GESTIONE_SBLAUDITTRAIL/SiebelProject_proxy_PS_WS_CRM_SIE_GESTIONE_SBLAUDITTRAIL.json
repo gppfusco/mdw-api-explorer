@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/siebel/WS_CRM_SIE_GESTIONE_SBLAUDITTRAIL",
+    "name" : "SiebelProject_proxy_PS_WS_CRM_SIE_GESTIONE_SBLAUDITTRAIL",
+    "localPath" : "osb_it\\repo\\SiebelProject\\PS_WS_CRM_SIE_GESTIONE_SBLAUDITTRAIL",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/siebel/WS_CRM_SIE_GESTIONE_SBLAUDITTRAIL?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SiebelProject/GestioneSblaudittrail/xsd/XSD_CRM_SIE_GESTIONE_SBLAUDITTRAIL",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

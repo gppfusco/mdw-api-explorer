@@ -1,0 +1,11 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KeepAlive_PS_KEEP_ALIVE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "Messaging"
+    },
+    "successors" : { }
+  }
+}

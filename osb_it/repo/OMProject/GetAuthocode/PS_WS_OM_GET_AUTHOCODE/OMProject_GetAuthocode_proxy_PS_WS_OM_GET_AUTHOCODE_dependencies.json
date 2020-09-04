@@ -1,0 +1,57 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_GetAuthocode_proxy_PS_WS_OM_GET_AUTHOCODE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetAuthocode/wsdl/WS_OM_GET_AUTHOCODE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetAuthocode/wsdl/WS_OM_GET_AUTHOCODE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/OMProject/GetAuthocode/pipeline/PL_WS_OM_GET_AUTHOCODE" : {
+        "label" : "Pipeline/OMProject/GetAuthocode/pipeline/PL_WS_OM_GET_AUTHOCODE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/OMProject/transformation/createRequestSoapHeaderTibco" : {
+            "label" : "Xquery/OMProject/transformation/createRequestSoapHeaderTibco",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetAuthocode/wsdl/WS_OM_GET_AUTHOCODE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/GetAuthocode/wsdl/WS_OM_GET_AUTHOCODE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/GetAuthocode/transformation/createResponse_GetAuthocode" : {
+            "label" : "Xquery/OMProject/GetAuthocode/transformation/createResponse_GetAuthocode",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/GetAuthocode/businessService/BS_WS_OM_GET_AUTHOCODE" : {
+            "label" : "BusinessService/OMProject/GetAuthocode/businessService/BS_WS_OM_GET_AUTHOCODE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/OMProject/GetAuthocode/transformation/createRequest_GetAuthocode" : {
+            "label" : "Xquery/OMProject/GetAuthocode/transformation/createRequest_GetAuthocode",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+    <xsd:complexType name="requestConfirmType">
+        <xsd:sequence>
+            <xsd:element name="tid" minOccurs="1" type="stringTid" nillable="false"/>
+            <xsd:element name="signature" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="shopID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="amount" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="refTranID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="amountPenality" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="amountExpired" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="contractId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo3" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo4" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo5" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="requestInit" type="requestInitType"/>
+    <xsd:element name="responseInit" type="responseInitType"/>
+    <xsd:element name="requestConfirm" type="requestConfirmType"/>
+    <xsd:element name="responseConfirm" type="responseConfirmType"/>
+    <xsd:element name="requestVoidAuth" type="requestConfirmType"/>
+    <xsd:element name="responseVoidAuth" type="responseVoidAuthType"/>
+    <xsd:element name="requestVerify" type="requestVerifyType"/>
+    <xsd:element name="responseVerify" type="responseVerifyType"/>
+    <xsd:element name="requestAuth" type="requestAuthType"/>
+    <xsd:element name="responseAuth" type="responseAuthType"/>
+    <xsd:element name="requestCredit" type="requestCreditType"/>
+    <xsd:element name="responseCredit" type="responseCreditType"/>
+    <xsd:complexType name="responseConfirmType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultConfirm" type="resultConfirmType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="responseVoidAuthType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultVoidAuth" type="resultConfirmType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="resultConfirmType">
+        <xsd:sequence>
+            <xsd:element name="tid" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="rc" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="error" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="errorDesc" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="signature" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="shopID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="tranID" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo3" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo4" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo5" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="requestInitType">
+        <xsd:sequence>
+            <xsd:element name="tid" minOccurs="1" type="stringTid" nillable="false"/>
+            <xsd:element name="signature" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="shopID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="shopUserRef" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="shopUserName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="shopUserAccount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="trType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="amount" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="currencyCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="langID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="errorURL" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="notifyURL" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="addInfo1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="addInfo2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="addInfo3" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="addInfo4" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="addInfo5" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="payInstrToken" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="regenPayInstrToken" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="recurrent" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="freeText" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="accountName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="responseInitType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultInit" type="resultInitType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="resultInitType">
+        <xsd:sequence>
+            <xsd:element name="tid" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="payInstr" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="reqTime" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="rc" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="error" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="errorDesc" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="signature" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="shopID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="paymentID" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="redirectURL" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="requestVerifyType">
+        <xsd:sequence>
+            <xsd:element name="tid" minOccurs="1" type="stringTid" nillable="false"/>
+            <xsd:element name="signature" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="shopID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="paymentID" type="xsd:string" minOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="responseVerifyType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultVerify" type="resultVerifyType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="resultVerifyType">
+        <xsd:sequence>
+            <xsd:element name="tid" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="rc" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="error" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="errorDesc" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="signature" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="shopID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="paymentID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="tranID" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="authCode" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="brand" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="maskedPan" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="payInstrToken" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="expireMonth" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="expireYear" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="accountName" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo3" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo4" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo5" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="requestAuthType">
+        <xsd:sequence>
+            <xsd:element name="tid" minOccurs="1" type="stringTid" nillable="false"/>
+            <xsd:element name="signature" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="shopID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="shopUserRef" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="shopUserName" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="shopUserAccount" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="shopUserIP" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="trType" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="amount" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="currencyCode" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="pan" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="cvv2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="expireMonth" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="expireYear" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="accountName" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="amountPenality" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="amountExpired" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="contractId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo3" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo4" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo5" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="responseAuthType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultAuth" type="resultAuthType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="resultAuthType">
+        <xsd:sequence>
+            <xsd:element name="tid" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="rc" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="error" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="errorDesc" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="signature" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="shopID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="tranID" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="authCode" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="brand" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="payInstrToken" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo3" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo4" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo5" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="requestCreditType">
+        <xsd:sequence>
+            <xsd:element name="tid" minOccurs="1" type="stringTid" nillable="false"/>
+            <xsd:element name="signature" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="shopID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="shopUserRef" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="amount" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="refTranID" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="splitTran" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo3" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo4" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo5" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="responseCreditType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultCredit" type="resultCreditType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="resultCreditType">
+        <xsd:sequence>
+            <xsd:element name="tid" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="payInstr" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="rc" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="error" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="errorDesc" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="signature" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="shopID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="tranID" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="pendingAmount" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo1" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo2" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo3" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo4" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="addInfo5" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="stringTid">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:pattern value=".*[^\s].*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema>

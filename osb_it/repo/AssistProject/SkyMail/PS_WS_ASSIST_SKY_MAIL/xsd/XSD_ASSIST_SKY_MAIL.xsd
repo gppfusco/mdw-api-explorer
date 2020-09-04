@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestWebmailCategorizer" type="requestWebmailCategorizerType"/>
+	<xsd:complexType name="requestWebmailCategorizerType">
+		<xsd:sequence>
+			<xsd:element name="custId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="text" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="object" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="crossReferenceID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="dateReceivedMail" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseWebmailCategorizer" type="responseWebmailCategorizerType"/>
+	<xsd:complexType name="responseWebmailCategorizerType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="data" type="dataType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dataType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descriptionError" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="automaticResponse" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="templateCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="trackingCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="crossReferenceID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="text" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="action" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestProcessingSkyAgent" type="requestProcessingSkyAgentType"/>
+	<xsd:complexType name="requestProcessingSkyAgentType">
+		<xsd:sequence>
+			<xsd:element name="crossReferenceID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="templateCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="text" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="trackingCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="dateReceivedMail" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseProcessingSkyAgent" type="responseProcessingSkyAgentType"/>
+	<xsd:complexType name="responseProcessingSkyAgentType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

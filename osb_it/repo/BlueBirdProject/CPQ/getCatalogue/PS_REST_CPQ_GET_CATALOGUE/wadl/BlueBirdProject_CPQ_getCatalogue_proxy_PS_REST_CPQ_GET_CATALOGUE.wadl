@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBApplicationSky/BlueBirdProject/PS_REST_CPQ_GET_CATALOGUE" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/CPQ/getCatalogue/xsd/XSD_CPQ_GET_CATALOGUE.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/products">
+         <method name="GET" soa:wsdlOperation="getProducts">
+            <request>
+               <param name="priceListCode" style="query" soa:expression="$msg.request/ns0:priceListCode" default="" type="xsd:string"/>
+               <param name="offerRoot" style="query" soa:expression="$msg.request/ns0:offerRoot" default="" type="xsd:string"/>
+               <param name="promoCode" style="query" soa:expression="$msg.request/ns0:promoCode" default="" type="xsd:string"/>
+               <param name="productType" style="query" soa:expression="$msg.request/ns0:productType" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseRetrieveProducts" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/promotions">
+         <method name="GET" soa:wsdlOperation="getPromotions">
+            <request>
+               <param name="productCode" style="query" soa:expression="$msg.request/ns0:productCode" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseRetrievePromotions" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/promotionsDuration">
+         <method name="GET" soa:wsdlOperation="getPromotionsDuration">
+            <request>
+               <param name="catalogCode" style="query" soa:expression="$msg.request/ns0:catalogCode" default="" type="xsd:string"/>
+               <param name="nextDate" style="query" soa:expression="$msg.request/ns0:nextDate" default="" type="xsd:dateTime"/>
+               <param name="previousDate" style="query" soa:expression="$msg.request/ns0:previousDate" default="" type="xsd:dateTime"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseRetrievePromotionsDuration" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBApplicationSky/BlueBirdProject/PS_REST_MDW_ADDRESS_NORMALIZATION" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/normAddress/XSD_MDW_NORMADDRESS.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/cities">
+         <method name="GET" soa:wsdlOperation="execute_GetCities">
+            <request>
+               <param name="q" style="query" soa:expression="$msg.request/ns0:q" default="" type="xsd:string"/>
+               <param name="flgEgon" style="query" soa:expression="$msg.request/ns0:flgEgon" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseGetCities" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/cities/{cityEgonID}/streets">
+         <method name="GET" soa:wsdlOperation="execute_GetStreets">
+            <request>
+               <param name="q" style="query" soa:expression="$msg.request/ns0:q" default="" type="xsd:string"/>
+               <param name="flgEgon" style="query" soa:expression="$msg.request/ns0:flgEgon" default="" type="xsd:string"/>
+               <param name="cityEgonID" style="template" soa:expression="$msg.request/ns0:cityEgonID" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseGetStreets" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/cities/{cityEgonID}/streets/{streetEgonID}/streetNumbers">
+         <method name="GET" soa:wsdlOperation="execute_GetStreetNumbers">
+            <request>
+               <param name="q" style="query" soa:expression="$msg.request/ns0:q" default="" type="xsd:string"/>
+               <param name="flgEgon" style="query" soa:expression="$msg.request/ns0:flgEgon" default="" type="xsd:string"/>
+               <param name="cityEgonID" style="template" soa:expression="$msg.request/ns0:cityEgonID" default="" type="xsd:string"/>
+               <param name="streetEgonID" style="template" soa:expression="$msg.request/ns0:streetEgonID" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseGetStreetNumbers" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/zipCodes">
+         <method name="GET" soa:wsdlOperation="execute_GetZipCodes">
+            <request>
+               <param name="cityName" style="query" soa:expression="$msg.request/ns0:cityName" default="" type="xsd:string"/>
+               <param name="streetName" style="query" soa:expression="$msg.request/ns0:streetName" default="" type="xsd:string"/>
+               <param name="streetNumber" style="query" soa:expression="$msg.request/ns0:streetNumber" default="" type="xsd:string"/>
+               <param name="cityEgonID" style="query" soa:expression="$msg.request/ns0:cityEgonID" default="" type="xsd:string"/>
+               <param name="streetEgonID" style="query" soa:expression="$msg.request/ns0:streetEgonID" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseGetZipCodes" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

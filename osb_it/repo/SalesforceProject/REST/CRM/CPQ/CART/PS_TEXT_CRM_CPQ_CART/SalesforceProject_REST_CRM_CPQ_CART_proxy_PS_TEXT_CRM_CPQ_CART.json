@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/salesforce/cpq/carts",
+    "name" : "SalesforceProject_REST_CRM_CPQ_CART_proxy_PS_TEXT_CRM_CPQ_CART",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\REST\\CRM\\CPQ\\CART\\PS_TEXT_CRM_CPQ_CART",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : true,
+    "bufferingSupported" : true
+  }
+}

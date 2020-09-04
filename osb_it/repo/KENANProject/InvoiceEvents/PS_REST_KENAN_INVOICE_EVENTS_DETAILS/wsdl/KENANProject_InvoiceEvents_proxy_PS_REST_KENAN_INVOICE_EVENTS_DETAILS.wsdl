@@ -1,0 +1,49 @@
+<wsdl:definitions xmlns:tns="http://xmlns.oracle.com/OSBSvil/KenanProject/PS_REST_KENAN_INVOICE_EVENTS_DETAILS" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:inp2="http://www.skytv.it/mdw/data" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="PS_REST_KENAN_INVOICE_EVENTS_DETAILS" targetNamespace="http://xmlns.oracle.com/OSBSvil/KenanProject/PS_REST_KENAN_INVOICE_EVENTS_DETAILS">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/KenanProject/InvoiceEvents/xsd/XSD_KENAN_INVOICE_EVENTS_DETAILS.xsd"/>
+		</xsd:schema>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+		</xsd:schema>
+	</wsdl:types> 
+	<wsdl:message name="RetrieveInvoiceEvents_inputMessage">
+		<wsdl:part name="request" element="inp1:requestInvoiceEvents"/> 
+	</wsdl:message>
+	<wsdl:message name="RetrieveInvoiceEvents_outputMessage">
+		<wsdl:part name="reply" element="inp1:responseInvoiceEvents"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveInvoiceEvents_fault400Message">
+		<wsdl:part name="fault_fault400" element="inp1:error400"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveInvoiceEvents_fault500Message">
+		<wsdl:part name="fault_fault500" element="inp1:error500"/>
+	</wsdl:message>
+	<wsdl:message name="RetrieveInvoiceEvents_fault404Message">
+		<wsdl:part name="fault_fault404" element="inp1:error404"/>
+	</wsdl:message>
+	<wsdl:portType name="PS_REST_KENAN_INVOICE_EVENTS_DETAILS_ptt">
+		<wsdl:operation name="RetrieveInvoiceEvents">
+			<wsdl:input message="tns:RetrieveInvoiceEvents_inputMessage"/>
+			<wsdl:output message="tns:RetrieveInvoiceEvents_outputMessage"/>
+			<wsdl:fault name="fault400" message="tns:RetrieveInvoiceEvents_fault400Message"/>
+			<wsdl:fault name="fault500" message="tns:RetrieveInvoiceEvents_fault500Message"/>
+			<wsdl:fault name="fault404" message="tns:RetrieveInvoiceEvents_fault404Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PS_REST_KENAN_INVOICE_EVENTS_DETAILS_ptt-binding" type="tns:PS_REST_KENAN_INVOICE_EVENTS_DETAILS_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="RetrieveInvoiceEvents">
+			<soap:operation soapAction="RetrieveInvoiceEvents"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<plnk:partnerLinkType name="PS_REST_KENAN_INVOICE_EVENTS_DETAILS">
+		<plnk:role name="PS_REST_KENAN_INVOICE_EVENTS_DETAILSProvider" portType="tns:PS_REST_KENAN_INVOICE_EVENTS_DETAILS_ptt"/>
+	</plnk:partnerLinkType>
+</wsdl:definitions>

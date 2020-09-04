@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_IBAN_HANDLER",
+    "name" : "SalesforceProject_REST_CRM_IBAN_HANDLER_proxy_PS_WS_CRM_IBAN_HANDLER",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\REST\\CRM\\IBAN\\HANDLER\\PS_WS_CRM_IBAN_HANDLER",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_IBAN_HANDLER?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/IbanHandler/xsd/XSD_REST_CRM_IBAN_HANDLER",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

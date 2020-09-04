@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/infocert/WS_INFOCERT_UPLOAD_DOCUMENT",
+    "name" : "InfocertProject_uploadDocument_proxy_PS_WS_INFOCERT_UPLOAD_DOCUMENT",
+    "localPath" : "osb_it\\repo\\InfocertProject\\uploadDocument\\PS_WS_INFOCERT_UPLOAD_DOCUMENT",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/infocert/WS_INFOCERT_UPLOAD_DOCUMENT?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/InfocertProject/uploadDocument/xsd/XSD_INFOCERT_UPLOAD_DOCUMENT",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

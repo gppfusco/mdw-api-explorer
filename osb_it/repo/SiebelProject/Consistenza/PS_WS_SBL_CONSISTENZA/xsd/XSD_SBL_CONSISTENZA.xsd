@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns="http://www.skytv.it/mdw/data" 
+	targetNamespace="http://www.skytv.it/mdw/data" 
+	elementFormDefault="qualified">
+
+	<xsd:element name="requestConsistenza" type="requestConsistenzaType"/>
+	<xsd:complexType name="requestConsistenzaType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="responseConsistenza" type="responseConsistenzaType"/>
+	<xsd:complexType name="responseConsistenzaType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="contactEmails" type="contactEmailsType" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="packages" type="packagesType" minOccurs="0" maxOccurs="1" />
+   <xsd:element name="payment" type="paymentType" minOccurs="0"/>
+    <xsd:element name="contract" type="contractType" minOccurs="0"/>
+  </xsd:sequence>
+	</xsd:complexType>
+        
+    <xsd:complexType name="contractType" >
+		<xsd:sequence>
+			<xsd:element name="statusTryBuy" type="xsd:string" minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+        
+
+	<xsd:complexType name="contactEmailsType">
+          <xsd:sequence>
+		<xsd:element name="contactPayingEmail"  type="xsd:string" minOccurs="0" maxOccurs="1" />
+		<xsd:element name="contactServiceEmail" type="xsd:string" minOccurs="0" maxOccurs="1" />
+          </xsd:sequence>
+        </xsd:complexType>			
+
+	<xsd:complexType name="packagesType" >
+		<xsd:sequence>
+			<xsd:element name="package" type="packageType" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="packageType">
+		<xsd:sequence>
+			<xsd:element name="pkgType" type="xsd:string" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="pkgRateCode" type="xsd:string" minOccurs="1" maxOccurs="1" />					
+			<xsd:element name="pkgDescription" type="xsd:string" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="pkgStatus" type="xsd:string" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="services" type="servicesType" minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="servicesType">
+		<xsd:sequence>
+			<xsd:element name="service" type="serviceType" minOccurs="1" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="serviceType">
+		<xsd:sequence>
+			<xsd:element name="svcType" 		type="xsd:string" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="svcRateCode" 	type="xsd:string" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="svcDescription" type="xsd:string" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="svcStatus" 	type="xsd:string" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="svcTechnology" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="svcVision" 	type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="svcEquipmentCode" 	type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="svcSerialNumber" 	type="xsd:string" minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+ <xsd:complexType name="paymentType">
+  <xsd:sequence>
+   <xsd:element name="paymentBillPeriod" minOccurs="0" type="xsd:string"/>
+  </xsd:sequence>
+ </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/OM_TRACKING_ORDERS_ADH" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_OM_TRACKING_ORDERS_ADH" targetNamespace="http://www.skytv.it/mdw/service/OM_TRACKING_ORDERS_ADH">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_OM_TRACKING_ORDERS_ADH.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types> 
+	<wsdl:message name="requestGetTrackingOrdersAdh_message">
+		<wsdl:part name="part_requestGetTrackingOrdersAdh" element="inp1:requestGetTrackingOrdersAdh"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetTrackingOrdersAdh_message">
+		<wsdl:part name="part_responseGetTrackingOrdersAdh" element="inp1:responseGetTrackingOrdersAdh"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="OM_TRACKING_ORDERS_ADH_ptt">
+		<wsdl:operation name="execute_GetTrackingOrdersAdh">
+			<wsdl:input message="tns:requestGetTrackingOrdersAdh_message"/>
+			<wsdl:output message="tns:responseGetTrackingOrdersAdh_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="OM_TRACKING_ORDERS_ADH_pttSOAP11Binding" type="tns:OM_TRACKING_ORDERS_ADH_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_GetTrackingOrdersAdh">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/OM_TRACKING_ORDERS_ADH/execute_GetTrackingOrdersAdh" style="document"/>
+			<wsdl:input>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+				<soap:body parts="part_requestGetTrackingOrdersAdh" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+				<soap:body parts="part_responseGetTrackingOrdersAdh" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

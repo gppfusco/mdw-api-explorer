@@ -1,0 +1,45 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_SalesforceToRidSEDA_InfaUpdateSFRecords_proxy_PS_WS_INFA_UPDATE_SF_RECORDS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/InfaUpdateSFRecords/wsdl/WS_INFA_UPDATE_SF_RECORDS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/InfaUpdateSFRecords/wsdl/WS_INFA_UPDATE_SF_RECORDS",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/SalesforceToRidSEDA/InfaUpdateSFRecords/pipeline/PL_WS_INFA_UPDATE_RECORDS_ENQUEUE" : {
+        "label" : "Pipeline/MDWProject/SalesforceToRidSEDA/InfaUpdateSFRecords/pipeline/PL_WS_INFA_UPDATE_RECORDS_ENQUEUE",
+        "properties" : { },
+        "successors" : {
+          "Xquery/MDWProject/SalesforceToRidSEDA/InfaUpdateSFRecords/transformation/createResponse_WS_INFA_UPDATE_RECORDS" : {
+            "label" : "Xquery/MDWProject/SalesforceToRidSEDA/InfaUpdateSFRecords/transformation/createResponse_WS_INFA_UPDATE_RECORDS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/InfaUpdateSFRecords/wsdl/WS_INFA_UPDATE_SF_RECORDS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/InfaUpdateSFRecords/wsdl/WS_INFA_UPDATE_SF_RECORDS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDWProject/SalesforceToRidSEDA/businessService/BS_JMS_SEDA_ENQUEUE" : {
+            "label" : "BusinessService/MDWProject/SalesforceToRidSEDA/businessService/BS_JMS_SEDA_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_RetrieveMatricole_proxy_PS_WS_SBL_LOGISTIC_RETRIEVE_MATRICOLE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RetrieveMatricole/wsdl/WS_SBL_LOGISTIC_RETRIEVE_MATRICOLE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RetrieveMatricole/wsdl/WS_SBL_LOGISTIC_RETRIEVE_MATRICOLE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/RetrieveMatricole/pipeline/PL_SBL_LOGISTIC_RETRIEVE_MATRICOLE_ROUTING" : {
+        "label" : "Pipeline/SiebelProject/RetrieveMatricole/pipeline/PL_SBL_LOGISTIC_RETRIEVE_MATRICOLE_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/SiebelProject/RetrieveMatricole/pipeline/PL_SBL_LOGISTIC_RETRIEVE_MATRICOLE_DA_LISTA" : {
+            "label" : "Pipeline/SiebelProject/RetrieveMatricole/pipeline/PL_SBL_LOGISTIC_RETRIEVE_MATRICOLE_DA_LISTA",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/SiebelProject/RetrieveMatricole/businessService/BS_SQL_SELECT_RETRIEVE_MATRICOLE_DA_LISTA" : {
+                "label" : "BusinessService/SiebelProject/RetrieveMatricole/businessService/BS_SQL_SELECT_RETRIEVE_MATRICOLE_DA_LISTA",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/RetrieveMatricole/transformations/createResponse_RetrieveMatricoleFromList" : {
+                "label" : "Xquery/SiebelProject/RetrieveMatricole/transformations/createResponse_RetrieveMatricoleFromList",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/RetrieveMatricole/transformations/createRequest_RetrieveMatricoleFromList" : {
+                "label" : "Xquery/SiebelProject/RetrieveMatricole/transformations/createRequest_RetrieveMatricoleFromList",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RetrieveMatricole/wsdl/WS_SBL_LOGISTIC_RETRIEVE_MATRICOLE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RetrieveMatricole/wsdl/WS_SBL_LOGISTIC_RETRIEVE_MATRICOLE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/SiebelProject/RetrieveMatricole/pipeline/PL_SBL_LOGISTIC_RETRIEVE_MATRICOLE" : {
+            "label" : "Pipeline/SiebelProject/RetrieveMatricole/pipeline/PL_SBL_LOGISTIC_RETRIEVE_MATRICOLE",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/SiebelProject/RetrieveMatricole/businessService/BS_SQL_SELECT_RETRIEVE_MATRICOLE" : {
+                "label" : "BusinessService/SiebelProject/RetrieveMatricole/businessService/BS_SQL_SELECT_RETRIEVE_MATRICOLE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/RetrieveMatricole/transformations/createResponse_RetrieveMatricole" : {
+                "label" : "Xquery/SiebelProject/RetrieveMatricole/transformations/createResponse_RetrieveMatricole",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/RetrieveMatricole/transformations/createRequest_RetrieveMatricole" : {
+                "label" : "Xquery/SiebelProject/RetrieveMatricole/transformations/createRequest_RetrieveMatricole",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RetrieveMatricole/wsdl/WS_SBL_LOGISTIC_RETRIEVE_MATRICOLE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RetrieveMatricole/wsdl/WS_SBL_LOGISTIC_RETRIEVE_MATRICOLE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SiebelProject/RetrieveMatricole/transformations/createRequest_RetrieveMatricole" : {
+            "label" : "Xquery/SiebelProject/RetrieveMatricole/transformations/createRequest_RetrieveMatricole",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/RetrieveMatricole/transformations/createRequest_RetrieveMatricoleFromList" : {
+            "label" : "Xquery/SiebelProject/RetrieveMatricole/transformations/createRequest_RetrieveMatricoleFromList",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RetrieveMatricole/wsdl/WS_SBL_LOGISTIC_RETRIEVE_MATRICOLE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RetrieveMatricole/wsdl/WS_SBL_LOGISTIC_RETRIEVE_MATRICOLE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

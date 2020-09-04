@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  
+  <xsd:element name="requestSwapSMC" type="requestSwapSMCType" />
+  <xsd:complexType name="requestSwapSMCType">
+    <xsd:sequence>
+      <xsd:element name="mdwHashCodeSmcOld" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="mdwHashCodeSmcNew" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseSwapSMC" type="responseSwapSMCType" />
+  <xsd:complexType name="responseSwapSMCType">
+    <xsd:sequence>
+    <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    <xsd:element name="data" type="dataOutputContentWiseType" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+    
+ <xsd:complexType name="dataOutputContentWiseType">
+    <xsd:sequence>
+    <xsd:element name="mdwTrackId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    <xsd:element name="mdwSessionId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+            
+ <xsd:complexType name="responseCustomerActionsType">
+    <xsd:sequence>
+    <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    <xsd:element name="data" type="dataOutputContentWiseType" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+ <xsd:complexType name="productsServicesType">
+    <xsd:sequence>
+    <xsd:element name="mdwProductService" type="xsd:string" minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType> 
+  
+  
+  <xsd:complexType name="requestCustomerActionsType">
+    <xsd:sequence>
+    <xsd:element name="contrAnytimeConsensoDatiFlg" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    <xsd:element name="contrAnytimeFlg" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    <xsd:element name="itemTechnology" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    <xsd:element name="itemPartCode" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    <xsd:element name="mdwHashCodeSmc" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    <xsd:element name="mdwBouquet" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    <xsd:element name="mdwVodCatalogueId" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    <xsd:element name="mdwProductsServices" type="productsServicesType" minOccurs="0" maxOccurs="1" />
+    <xsd:element name="itemSMCStatus" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    <xsd:element name="mdwProviderInfo" type="xsd:string" minOccurs="0" maxOccurs="1" />
+
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="requestCustomerActions" type="requestCustomerActionsType" />
+  <xsd:element name="responseCustomerActions" type="responseCustomerActionsType" />
+  
+</xsd:schema>

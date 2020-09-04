@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestUpdatePhoneConsent" type="requestUpdatePhoneConsentType"/>
+  <xsd:element name="responseUpdatePhoneConsent" type="responseUpdatePhoneConsentType"/>
+  <xsd:complexType name="requestUpdatePhoneConsentType">
+    <xsd:sequence>
+      <xsd:element name="customers" type="customersType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customersType">
+    <xsd:sequence>
+      <xsd:element name="customer" type="customerType" maxOccurs="250"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerType">
+    <xsd:sequence>
+      <xsd:element name="phoneNumber" type="xsd:string"/>
+      <xsd:element name="customerCode" type="xsd:string"/>
+      <xsd:element name="contractCode" type="xsd:string"/>
+      <xsd:element name="vatNumber" type="xsd:string"/>
+      <xsd:element name="fiscalCode" type="xsd:string"/>
+      <xsd:element name="phoneConsents" type="phoneConsentsType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="phoneConsentsType">
+    <xsd:sequence>
+      <xsd:element name="consentDBUForm" type="xsd:string"/>
+      <xsd:element name="consentDate" type="xsd:string"/>
+      <xsd:element name="telcoOperator" type="xsd:string"/>
+      <xsd:element name="telephoneDirectoriesPresence" type="xsd:string"/>
+      <xsd:element name="informationServices" type="xsd:string"/>
+      <xsd:element name="derivedSearchConsent" type="xsd:string"/>
+      <xsd:element name="advertisingPostalAddressConsent" type="xsd:string"/>
+      <xsd:element name="surnameOrCompanyName" type="xsd:string"/>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="postalCode" type="xsd:string"/>
+      <xsd:element name="townHamlet" type="xsd:string"/>
+      <xsd:element name="province" type="xsd:string"/>
+      <xsd:element name="town" type="xsd:string"/>
+      <xsd:element name="toponymyParticle" type="xsd:string"/>
+      <xsd:element name="address" type="xsd:string"/>
+      <xsd:element name="streetNumber" type="xsd:string"/>
+      <xsd:element name="addressNote" type="xsd:string"/>
+      <xsd:element name="additionalInfo" type="additionalInfoType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="additionalInfoType">
+    <xsd:sequence>
+      <xsd:element name="studyTitle" type="xsd:string"/>
+      <xsd:element name="activityProfession" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseUpdatePhoneConsentType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="tid" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

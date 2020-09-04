@@ -1,0 +1,69 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_proxy_PS_WS_CRM_GESTIONE_CREDITO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SCMSproject/pipeline/PL_WS_CRM_GESTIONE_CREDITO" : {
+        "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_GESTIONE_CREDITO",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createResponse_GestCredito_INFOSOGLIE" : {
+            "label" : "Xquery/SCMSproject/transformation/createResponse_GestCredito_INFOSOGLIE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/businessService/BS_SQL_GEST_CREDITO_INFOSOGLIE" : {
+            "label" : "BusinessService/SCMSproject/businessService/BS_SQL_GEST_CREDITO_INFOSOGLIE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/create_response_GestCredito_INFOWLSTORICO" : {
+            "label" : "Xquery/SCMSproject/transformation/create_response_GestCredito_INFOWLSTORICO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneCredito/wsdl/WS_CRM_GESTIONE_CREDITO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneCredito/wsdl/WS_CRM_GESTIONE_CREDITO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createRequest_GestCredito_INFOWLSTORICO" : {
+            "label" : "Xquery/SCMSproject/transformation/createRequest_GestCredito_INFOWLSTORICO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/businessService/BS_SQL_GEST_CREDITO_INFOWLSTORICO" : {
+            "label" : "BusinessService/SCMSproject/businessService/BS_SQL_GEST_CREDITO_INFOWLSTORICO",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createRequest_GestCredito_INFOSOGLIE" : {
+            "label" : "Xquery/SCMSproject/transformation/createRequest_GestCredito_INFOSOGLIE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneCredito/wsdl/WS_CRM_GESTIONE_CREDITO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneCredito/wsdl/WS_CRM_GESTIONE_CREDITO",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_PagaOnLine_proxy_PS_REST_MDW_PAGA_ON_LINE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/MDWProject/PagaOnLine/pipeline/PL_REST_MDW_PAGA_ON_LINE" : {
+        "label" : "Pipeline/MDWProject/PagaOnLine/pipeline/PL_REST_MDW_PAGA_ON_LINE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "ProxyService/IGFSProject/PaymentGateway/proxy/PS_LOCAL_IGFS_CONFIRM_OPERATION" : {
+            "label" : "ProxyService/IGFSProject/PaymentGateway/proxy/PS_LOCAL_IGFS_CONFIRM_OPERATION",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/IGFSProject/PaymentGateway/pipeline/PL_IGFS_CONFIRM_OPERATION" : {
+                "label" : "Pipeline/IGFSProject/PaymentGateway/pipeline/PL_IGFS_CONFIRM_OPERATION",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/IGFSProject/PaymentGateway/transformation/createResponse_Confirm" : {
+                    "label" : "Xquery/IGFSProject/PaymentGateway/transformation/createResponse_Confirm",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/IGFSProject/PaymentGateway/businessService/BS_WS_IGFS_TRANSACTION" : {
+                    "label" : "BusinessService/IGFSProject/PaymentGateway/businessService/BS_WS_IGFS_TRANSACTION",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/IGFSProject/PaymentGateway/transformation/createRequest_Confirm" : {
+                    "label" : "Xquery/IGFSProject/PaymentGateway/transformation/createRequest_Confirm",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/IGFSProject/PaymentGateway/transformation/createRequest_Confirm_IncassiPagOnlineEnqueue_insert" : {
+                    "label" : "Xquery/IGFSProject/PaymentGateway/transformation/createRequest_Confirm_IncassiPagOnlineEnqueue_insert",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "ProxyService/KENANProject/proxy/proxy_local/PS_LOCAL_INCASSI_PAG_ONLINE_ENQUEUE" : {
+                    "label" : "ProxyService/KENANProject/proxy/proxy_local/PS_LOCAL_INCASSI_PAG_ONLINE_ENQUEUE",
+                    "properties" : { },
+                    "successors" : {
+                      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Pipeline/KENANProject/pipeline/PL_JMS_INCASSI_PAG_ONLINE_ENQUEUE" : {
+                        "label" : "Pipeline/KENANProject/pipeline/PL_JMS_INCASSI_PAG_ONLINE_ENQUEUE",
+                        "properties" : {
+                          "nodeType" : "Pipeline"
+                        },
+                        "successors" : {
+                          "BusinessService/KENANProject/businessService/BS_JMS_KENAN_ENQUEUE" : {
+                            "label" : "BusinessService/KENANProject/businessService/BS_JMS_KENAN_ENQUEUE",
+                            "properties" : {
+                              "nodeType" : "BusinessService"
+                            },
+                            "successors" : { }
+                          },
+                          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+                            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE" : {
+                            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE",
+                            "properties" : { },
+                            "successors" : { }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "Xquery/IGFSProject/PaymentGateway/transformation/createRequest_Confirm_IncassiPagOnlineEnqueue" : {
+                    "label" : "Xquery/IGFSProject/PaymentGateway/transformation/createRequest_Confirm_IncassiPagOnlineEnqueue",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/MDWProject/PagaOnLine/pipeline/PL_INTERNAL_MDW_PAGA_ON_LINE_ENQUEUE" : {
+            "label" : "Pipeline/MDWProject/PagaOnLine/pipeline/PL_INTERNAL_MDW_PAGA_ON_LINE_ENQUEUE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDWProject/PagaOnLine/businessService/BS_JMS_PAGA_ON_LINE" : {
+                "label" : "BusinessService/MDWProject/PagaOnLine/businessService/BS_JMS_PAGA_ON_LINE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDWProject/Resources/PS_REST_MDW_PAGA_ON_LINE" : {
+                "label" : "WSDL/MDWProject/Resources/PS_REST_MDW_PAGA_ON_LINE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/MDWProject/PagaOnLine/transformations/createRequest_PagaOnLine_ConfirmOperationIGFS" : {
+            "label" : "Xquery/MDWProject/PagaOnLine/transformations/createRequest_PagaOnLine_ConfirmOperationIGFS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "XMLSchema/MDWProject/Resources/BS_SQL_MDW_IGFS_RETRIEVE_KSIG_table" : {
+            "label" : "XMLSchema/MDWProject/Resources/BS_SQL_MDW_IGFS_RETRIEVE_KSIG_table",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/PagaOnLine/transformations/createRequest_PagaOnLine_Enqueue" : {
+            "label" : "Xquery/MDWProject/PagaOnLine/transformations/createRequest_PagaOnLine_Enqueue",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/MDWProject/PagaOnLine/pipeline/PL_INTERNAL_MDW_RETRIEVE_IGFS_KSIG" : {
+            "label" : "Pipeline/MDWProject/PagaOnLine/pipeline/PL_INTERNAL_MDW_RETRIEVE_IGFS_KSIG",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDWProject/PagaOnLine/businessService/BS_SQL_MDW_IGFS_RETRIEVE_KSIG" : {
+                "label" : "BusinessService/MDWProject/PagaOnLine/businessService/BS_SQL_MDW_IGFS_RETRIEVE_KSIG",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDWProject/Resources/PS_REST_MDW_PAGA_ON_LINE" : {
+                "label" : "WSDL/MDWProject/Resources/PS_REST_MDW_PAGA_ON_LINE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/MDWProject/PagaOnLine/transformations/createResponse_PagaOnLine" : {
+            "label" : "Xquery/MDWProject/PagaOnLine/transformations/createResponse_PagaOnLine",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/PagaOnLine/transformations/createRequest_MDWRetriveIGFSKsig" : {
+            "label" : "Xquery/MDWProject/PagaOnLine/transformations/createRequest_MDWRetriveIGFSKsig",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDWProject/Resources/PS_REST_MDW_PAGA_ON_LINE" : {
+            "label" : "WSDL/MDWProject/Resources/PS_REST_MDW_PAGA_ON_LINE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDWProject/Resources/PS_REST_MDW_PAGA_ON_LINE" : {
+        "label" : "WSDL/MDWProject/Resources/PS_REST_MDW_PAGA_ON_LINE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

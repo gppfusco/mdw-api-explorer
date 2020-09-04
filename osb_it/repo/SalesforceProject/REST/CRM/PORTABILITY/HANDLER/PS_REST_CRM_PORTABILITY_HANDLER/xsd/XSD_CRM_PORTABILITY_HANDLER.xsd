@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCheckPortability" type="requestCheckPortabilityType"/>
+	<xsd:complexType name="requestCheckPortabilityType">
+		<xsd:sequence> 
+			<xsd:element name="mdwChannel" type="xsd:string"/>
+			<xsd:element name="migrationCode" type="xsd:string"/>
+			<xsd:element name="migrationFieldName" type="xsd:string"/>
+			<xsd:element name="migrationCowCode" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckPortability" type="responseCheckPortabilityType"/>
+	<xsd:complexType name="responseCheckPortabilityType">
+		<xsd:sequence>
+			<xsd:element name="checkPortabilityResult" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="migrationOutcome" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

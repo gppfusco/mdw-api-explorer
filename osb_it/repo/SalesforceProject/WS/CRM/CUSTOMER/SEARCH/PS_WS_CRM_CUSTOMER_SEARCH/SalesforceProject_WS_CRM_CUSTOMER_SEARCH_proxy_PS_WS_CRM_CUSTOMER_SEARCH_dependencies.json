@@ -1,0 +1,101 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_CUSTOMER_SEARCH_proxy_PS_WS_CRM_CUSTOMER_SEARCH",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CustomerSearch/wsdl/WS_CRM_CUSTOMER_SEARCH" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CustomerSearch/wsdl/WS_CRM_CUSTOMER_SEARCH",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/pipeline/PL_CRM_CUSTOMER_SEARCH_ROUTING" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/pipeline/PL_CRM_CUSTOMER_SEARCH_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CustomerSearch/wsdl/WS_CRM_CUSTOMER_SEARCH" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CustomerSearch/wsdl/WS_CRM_CUSTOMER_SEARCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/pipeline/PL_CRM_CUSTOMER_SEARCH_SearchForPhone" : {
+            "label" : "Pipeline/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/pipeline/PL_CRM_CUSTOMER_SEARCH_SearchForPhone",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/transformation/createRequest_SEARCH_RECORDS" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/transformation/createRequest_SEARCH_RECORDS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CustomerSearch/wsdl/WS_CRM_CUSTOMER_SEARCH" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CustomerSearch/wsdl/WS_CRM_CUSTOMER_SEARCH",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/transformation/createResponse_SEARCH_RECORDS" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/transformation/createResponse_SEARCH_RECORDS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/pipeline/PL_CRM_CUSTOMER_SEARCH_SearchContractByPhones" : {
+            "label" : "Pipeline/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/pipeline/PL_CRM_CUSTOMER_SEARCH_SearchContractByPhones",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CustomerSearch/wsdl/WS_CRM_CUSTOMER_SEARCH" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/CustomerSearch/wsdl/WS_CRM_CUSTOMER_SEARCH",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/transformation/createRequest_SearchContractByPhones" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/transformation/createRequest_SearchContractByPhones",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/transformation/createResponse_SearchContractByPhones" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_CUSTOMER_SEARCH/transformation/createResponse_SearchContractByPhones",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

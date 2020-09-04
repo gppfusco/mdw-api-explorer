@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/magento/WS_MAGENTO_NOWTV_BUNDLE",
+    "name" : "MagentoProject_nowtvBundleFastweb_proxy_PS_WS_MAGENTO_NOWTV_BUNDLE",
+    "localPath" : "osb_it\\repo\\MagentoProject\\nowtvBundleFastweb\\PS_WS_MAGENTO_NOWTV_BUNDLE",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/magento/WS_MAGENTO_NOWTV_BUNDLE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MagentoProject/nowtvBundleFastweb/xsd/XSD_MAGENTO_NOWTV_BUNDLE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "ORCHESTRATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/assist/PS_WS_ASSIST_SKY_MAIL",
+    "name" : "AssistProject_SkyMail_proxy_PS_WS_ASSIST_SKY_MAIL",
+    "localPath" : "osb_it\\repo\\AssistProject\\SkyMail\\PS_WS_ASSIST_SKY_MAIL",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/assist/PS_WS_ASSIST_SKY_MAIL?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/xsd/XSD_ASSIST_SKY_MAIL",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

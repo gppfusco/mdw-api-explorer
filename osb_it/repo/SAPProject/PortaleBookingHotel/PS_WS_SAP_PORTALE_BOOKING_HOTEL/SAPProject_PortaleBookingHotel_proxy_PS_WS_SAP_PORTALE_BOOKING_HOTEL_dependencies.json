@@ -1,0 +1,131 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SAPProject_PortaleBookingHotel_proxy_PS_WS_SAP_PORTALE_BOOKING_HOTEL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SAPProject/PortaleBookingHotel/pipeline/PL_WS_SAP_PORTALE_BOOKING_HOTEL_ROUTING" : {
+        "label" : "Pipeline/SAPProject/PortaleBookingHotel/pipeline/PL_WS_SAP_PORTALE_BOOKING_HOTEL_ROUTING",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SAPProject/PortaleBookingHotel/pipeline/PL_WS_SAP_PORTALE_BOOKING_HOTEL_GetBadPayerList" : {
+            "label" : "Pipeline/SAPProject/PortaleBookingHotel/pipeline/PL_WS_SAP_PORTALE_BOOKING_HOTEL_GetBadPayerList",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SAPProject/PortaleBookingHotel/transformation/createResponse_GetBadPayerList" : {
+                "label" : "Xquery/SAPProject/PortaleBookingHotel/transformation/createResponse_GetBadPayerList",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SAPProject/PortaleBookingHotel/transformation/createRequest_GetBadPayerList" : {
+                "label" : "Xquery/SAPProject/PortaleBookingHotel/transformation/createRequest_GetBadPayerList",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SAPProject/PortaleBookingHotel/transformation/createResponse_FromSAPToPgs" : {
+                "label" : "Xquery/SAPProject/PortaleBookingHotel/transformation/createResponse_FromSAPToPgs",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SAPProject/PortaleBookingHotel/pipeline/PL_INTERNAL_SAP_PORTALE_BOOKING_HOTEL_ENQUEUE_ALL" : {
+                "label" : "Pipeline/SAPProject/PortaleBookingHotel/pipeline/PL_INTERNAL_SAP_PORTALE_BOOKING_HOTEL_ENQUEUE_ALL",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/SAPProject/businessServices/BS_JMS_SAP_ENQUEUE" : {
+                    "label" : "BusinessService/SAPProject/businessServices/BS_JMS_SAP_ENQUEUE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/ApplicationObjects/SAP/GetBadPayerList/zzphbj00001_soa_q01" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SAP/GetBadPayerList/zzphbj00001_soa_q01",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "BusinessService/SAPProject/PortaleBookingHotel/businessServices/BS_WS_SAP_GET_BAD_PAYER_LIST" : {
+                "label" : "BusinessService/SAPProject/PortaleBookingHotel/businessServices/BS_WS_SAP_GET_BAD_PAYER_LIST",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SAPProject/PortaleBookingHotel/wsdl/WS_SAP_PORTALE_BOOKING_HOTEL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SAPProject/PortaleBookingHotel/wsdl/WS_SAP_PORTALE_BOOKING_HOTEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SAPProject/PortaleBookingHotel/wsdl/WS_SAP_PORTALE_BOOKING_HOTEL" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SAPProject/PortaleBookingHotel/wsdl/WS_SAP_PORTALE_BOOKING_HOTEL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SAPProject/PortaleBookingHotel/pipeline/PL_WS_SAP_PORTALE_BOOKING_HOTEL_SetCommission" : {
+            "label" : "Pipeline/SAPProject/PortaleBookingHotel/pipeline/PL_WS_SAP_PORTALE_BOOKING_HOTEL_SetCommission",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SAPProject/PortaleBookingHotel/transformation/createResponse_SetCommission" : {
+                "label" : "Xquery/SAPProject/PortaleBookingHotel/transformation/createResponse_SetCommission",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SAPProject/PortaleBookingHotel/wsdl/WS_SAP_PORTALE_BOOKING_HOTEL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SAPProject/PortaleBookingHotel/wsdl/WS_SAP_PORTALE_BOOKING_HOTEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SAPProject/PortaleBookingHotel/businessServices/BS_WS_SAP_SET_COMMISION" : {
+                "label" : "BusinessService/SAPProject/PortaleBookingHotel/businessServices/BS_WS_SAP_SET_COMMISION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SAPProject/PortaleBookingHotel/transformation/createRequest_SetCommission" : {
+                "label" : "Xquery/SAPProject/PortaleBookingHotel/transformation/createRequest_SetCommission",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SAPProject/PortaleBookingHotel/wsdl/WS_SAP_PORTALE_BOOKING_HOTEL" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SAPProject/PortaleBookingHotel/wsdl/WS_SAP_PORTALE_BOOKING_HOTEL",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

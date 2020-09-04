@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestHouseholdReader" type="requestHouseholdReaderType"/>
+  <xsd:element name="responseHouseholdReader" type="responseHouseholdReaderType"/>
+  <xsd:element name="requestHistoryReader" type="requestHistoryReaderType"/>
+  <xsd:element name="responseHistoryReader" type="responseHistoryReaderType"/>
+  <xsd:element name="requestHouseholdUpdater" type="requestHouseholdUpdaterType"/>
+  <xsd:element name="responseHouseholdUpdater" type="responseHouseholdUpdaterType"/>
+  <xsd:element name="requestHistoryUpdater" type="requestHistoryUpdaterType"/>
+  <xsd:element name="responseHistoryUpdater" type="responseHistoryUpdaterType"/>
+  <xsd:complexType name="requestHouseholdReaderType">
+    <xsd:sequence>
+      <xsd:element name="contractId" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseHouseholdReaderType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="householdReader" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="contractId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="control" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="repeater" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="status" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="statusChangeDate" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="totale" type="xsd:int"/>
+            <xsd:element name="whiteList" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestHistoryReaderType">
+    <xsd:sequence>
+      <xsd:element name="contractId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="data_from" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="data_to" type="xsd:dateTime" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseHistoryReaderType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="historyReader" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="historyHouseholds" nillable="true" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="contractId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="control" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="repeater" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="status" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="statusChangeDate" type="xsd:dateTime" minOccurs="0"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestHouseholdUpdaterType">
+    <xsd:sequence>
+      <xsd:element name="contractId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="flag" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseHouseholdUpdaterType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="householdUpdater" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="descrizione" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="esito" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestHistoryUpdaterType">
+    <xsd:sequence>
+      <xsd:element name="contractId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="data_from" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="data_to" type="xsd:dateTime" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseHistoryUpdaterType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="historyUpdater" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="readHistoryHousehold" nillable="true" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="contractId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="operationDate" type="xsd:dateTime" minOccurs="0"/>
+                  <xsd:element name="operationType" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="operationValue" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

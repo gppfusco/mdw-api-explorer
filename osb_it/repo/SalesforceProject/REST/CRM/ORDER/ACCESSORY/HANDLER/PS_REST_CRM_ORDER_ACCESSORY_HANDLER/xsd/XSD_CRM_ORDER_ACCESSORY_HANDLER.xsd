@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestUpdatePreSubmitValidation" type="requestUpdatePreSubmitValidationType"/>
+	<xsd:complexType name="requestUpdatePreSubmitValidationType">
+		<xsd:sequence>
+			<xsd:element name="mdwOrderId" type="xsd:string"/>
+			<xsd:element name="mdwCheckSWAPSMC" type="booleanType"/>
+			<xsd:element name="mdwCheckOrderConsistency" type="booleanType"/>
+			<xsd:element name="mdwCheckChangePlanFee" type="booleanType"/>
+			<xsd:element name="mdwCalculateSubType" type="booleanType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseUpdatePreSubmitValidation" type="responseUpdatePreSubmitValidationType"/>
+	<xsd:complexType name="responseUpdatePreSubmitValidationType">
+		<xsd:sequence>
+			<xsd:element name="mdwResultCode" type="xsd:string"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string"/>
+			<xsd:element name="mdwOrderData" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwOrderId" type="xsd:string"/>
+						<xsd:element name="mdwCheckChangePlanType" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwCheckSWAPSMC" type="booleanType"/>
+						<xsd:element name="mdwSubType" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwOrderLineItems" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwOrderlineItemId" type="xsd:string" maxOccurs="unbounded"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="booleanType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="true"/>
+			<xsd:enumeration value="false"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

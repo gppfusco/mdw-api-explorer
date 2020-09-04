@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+    
+    <xsd:element name="requestCallAUA" type="requestCallAUAType"/>
+    <xsd:element name="responseCallAUA" type="responseCallAUAType"/>
+    
+    <xsd:complexType name="requestCallAUAType">
+      <xsd:sequence>
+        <xsd:element name="serviceId" type="xsd:string"/>
+        <xsd:element name="profileId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="serviceType" type="xsd:string"/>
+        <xsd:element name="operation" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="responseCallAUAType">
+      <xsd:sequence>
+        <xsd:element name="esito" type="xsd:string"/>
+        <xsd:element name="desfrizioneEsito" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:element name="requestSuspendService" type="requestSuspendServiceType"/>
+    <xsd:element name="responseSuspendService" type="responseSuspendServiceType"/>
+    
+    <xsd:complexType name="requestSuspendServiceType">
+      <xsd:sequence>
+        <xsd:element name="serviceId" type="xsd:string"/>
+        <xsd:element name="profileId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="serviceType" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="responseSuspendServiceType">
+      <xsd:sequence>
+        <xsd:element name="esito" type="xsd:string"/>
+        <xsd:element name="desfrizioneEsito" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+</xsd:schema>

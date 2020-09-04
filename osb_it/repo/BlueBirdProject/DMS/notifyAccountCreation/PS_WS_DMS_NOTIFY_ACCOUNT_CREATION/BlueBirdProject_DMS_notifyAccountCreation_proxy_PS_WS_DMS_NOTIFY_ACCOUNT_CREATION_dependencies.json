@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_DMS_notifyAccountCreation_proxy_PS_WS_DMS_NOTIFY_ACCOUNT_CREATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/DMS/notifyAccountCreation/pipeline/PL_WS_DMS_NOTIFY_ACCOUNT_CREATION" : {
+        "label" : "Pipeline/BlueBirdProject/DMS/notifyAccountCreation/pipeline/PL_WS_DMS_NOTIFY_ACCOUNT_CREATION",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/BlueBirdProject/DMS/notifyAccountCreation/businessService/BS_WS_DMS_NOTIFY_ACCOUNT_CREATION" : {
+            "label" : "BusinessService/BlueBirdProject/DMS/notifyAccountCreation/businessService/BS_WS_DMS_NOTIFY_ACCOUNT_CREATION",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/MDW_CO/transformation/createSimpleResponseEnglilsh" : {
+            "label" : "Xquery/MDW_CO/transformation/createSimpleResponseEnglilsh",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DMS/notifyAccountCreation/wsdl/WS_DMS_NOTIFY_ACCOUNT_CREATION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DMS/notifyAccountCreation/wsdl/WS_DMS_NOTIFY_ACCOUNT_CREATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/DMS/notifyAccountCreation/transformation/createRequest_NotifyAccountCreation" : {
+            "label" : "Xquery/BlueBirdProject/DMS/notifyAccountCreation/transformation/createRequest_NotifyAccountCreation",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DMS/notifyAccountCreation/wsdl/WS_DMS_NOTIFY_ACCOUNT_CREATION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DMS/notifyAccountCreation/wsdl/WS_DMS_NOTIFY_ACCOUNT_CREATION",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

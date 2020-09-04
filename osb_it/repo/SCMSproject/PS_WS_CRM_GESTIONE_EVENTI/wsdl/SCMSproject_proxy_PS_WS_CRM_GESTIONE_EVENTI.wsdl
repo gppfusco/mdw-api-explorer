@@ -1,0 +1,193 @@
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI"
+                  xmlns:mdata="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  name="WS_CRM_GESTIONE_EVENTI" targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI">
+  <wsdl:types>
+    <xsd:schema>
+      <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_EVENTI.xsd"/>
+      <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="requestINFOPR_Message">
+    <wsdl:part name="part_requestINFOPR" element="mdata:requestINFOPR"/>
+  </wsdl:message>
+  <wsdl:message name="responseINFOPR_Message">
+    <wsdl:part name="part_responseINFOPR" element="mdata:responseINFOPR"/>
+  </wsdl:message>
+  <wsdl:message name="requestGFTCRD_Message">
+    <wsdl:part name="part_requestGFTCRD" element="mdata:requestGFTCRD"/>
+  </wsdl:message>
+  <wsdl:message name="responseGFTCRD_Message">
+    <wsdl:part name="part_responseGFTCRD" element="mdata:responseGFTCRD"/>
+  </wsdl:message>
+  <wsdl:message name="requestCHAOFF_Message">
+    <wsdl:part name="part_requestCHAOFF" element="mdata:requestCHAOFF"/>
+  </wsdl:message>
+  <wsdl:message name="responseCHAOFF_Message">
+    <wsdl:part name="part_responseCHAOFF" element="mdata:responseCHAOFF"/>
+  </wsdl:message>
+  <wsdl:message name="requestACQEVN_Message">
+    <wsdl:part name="part_requestACQEVN" element="mdata:requestACQEVN"/>
+  </wsdl:message>
+  <wsdl:message name="responseACQEVN_Message">
+    <wsdl:part name="part_responseACQEVN" element="mdata:responseACQEVN"/>
+  </wsdl:message>
+  <wsdl:message name="requestACQEVP_Message">
+    <wsdl:part name="part_requestACQEVP" element="mdata:requestACQEVP"/>
+  </wsdl:message>
+  <wsdl:message name="responseACQEVP_Message">
+    <wsdl:part name="part_responseACQEVP" element="mdata:responseACQEVP"/>
+  </wsdl:message>
+  <wsdl:message name="requestADDPRO_Message">
+    <wsdl:part name="part_requestADDPRO" element="mdata:requestADDPRO"/>
+  </wsdl:message>
+  <wsdl:message name="responseADDPRO_Message">
+    <wsdl:part name="part_responseADDPRO" element="mdata:responseADDPRO"/>
+  </wsdl:message>
+  <wsdl:message name="requestSBLCRE_Message">
+    <wsdl:part name="part_requestSBLCRE" element="mdata:requestSBLCRE"/>
+  </wsdl:message>
+  <wsdl:message name="responseSBLCRE_Message">
+    <wsdl:part name="part_responseSBLCRE" element="mdata:responseSBLCRE"/>
+  </wsdl:message>
+  <wsdl:message name="Header_Message">
+    <wsdl:part name="part_HeaderMessage" element="mdata:Header"/>
+  </wsdl:message>
+  <wsdl:portType name="GESTIONE_EVENTI_ptt">
+    <wsdl:operation name="execute_INFOPR">
+      <wsdl:input message="tns:requestINFOPR_Message"/>
+      <wsdl:output message="tns:responseINFOPR_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GFTCRD">
+      <wsdl:input message="tns:requestGFTCRD_Message"/>
+      <wsdl:output message="tns:responseGFTCRD_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_CHAOFF">
+      <wsdl:input message="tns:requestCHAOFF_Message"/>
+      <wsdl:output message="tns:responseCHAOFF_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_ACQEVN">
+      <wsdl:input message="tns:requestACQEVN_Message"/>
+      <wsdl:output message="tns:responseACQEVN_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_ACQEVP">
+      <wsdl:input message="tns:requestACQEVP_Message"/>
+      <wsdl:output message="tns:responseACQEVP_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_ADDPRO">
+      <wsdl:input message="tns:requestADDPRO_Message"/>
+      <wsdl:output message="tns:responseADDPRO_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SBLCRE">
+      <wsdl:input message="tns:requestSBLCRE_Message"/>
+      <wsdl:output message="tns:responseSBLCRE_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_REFPPP">
+      <wsdl:input message="tns:requestREFPPP_Message"/>
+      <wsdl:output message="tns:responseREFPPP_Message"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GESTIONE_EVENTI_pttSOAP11Binding" type="tns:GESTIONE_EVENTI_ptt">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="execute_INFOPR">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI/execute_INFOPR" style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestINFOPR" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseINFOPR" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GFTCRD">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI/execute_GFTCRD" style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestGFTCRD" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseGFTCRD" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_CHAOFF">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI/execute_CHAOFF" style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestCHAOFF" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseCHAOFF" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_ACQEVN">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI/execute_ACQEVN" style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestACQEVN" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseACQEVN" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_ACQEVP">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI/execute_ACQEVP" style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestACQEVP" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseACQEVP" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_ADDPRO">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI/execute_ADDPRO" style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestADDPRO" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseADDPRO" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SBLCRE">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI/execute_ADDPRO" style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestSBLCRE" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseSBLCRE" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_REFPPP">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI/execute_REFPPP" style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestREFPPP" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseREFPPP" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GESTIONE_EVENTI_ptt">
+    <wsdl:port name="GESTIONE_EVENTI_pttPort" binding="tns:GESTIONE_EVENTI_pttSOAP11Binding">
+      <soap:address location="http://www.example.com"/>
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:message name="requestREFPPP_Message">
+    <wsdl:part name="part_requestREFPPP" element="mdata:requestREFPPP"/>
+  </wsdl:message>
+  <wsdl:message name="responseREFPPP_Message">
+    <wsdl:part name="part_responseREFPPP" element="mdata:responseSCMS"/>
+  </wsdl:message>
+</wsdl:definitions>

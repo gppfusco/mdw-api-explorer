@@ -1,0 +1,66 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_TrackingOrdersAdh_proxy_PS_WS_OM_TRACKING_ORDERS_ADH",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/OMProject/TrackingOrdersAdh/pipeline/PL_WS_OM_TRACKING_ORDERS_ADH" : {
+        "label" : "Pipeline/OMProject/TrackingOrdersAdh/pipeline/PL_WS_OM_TRACKING_ORDERS_ADH",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/OMProject/TrackingOrdersAdh/pipeline/PL_INTERNAL_OM_TRACKING_ORDERS_ADH" : {
+            "label" : "Pipeline/OMProject/TrackingOrdersAdh/pipeline/PL_INTERNAL_OM_TRACKING_ORDERS_ADH",
+            "properties" : { },
+            "successors" : {
+              "Xquery/OMProject/TrackingOrdersAdh/transformations/createRequestGetTrackingOrdersAdh" : {
+                "label" : "Xquery/OMProject/TrackingOrdersAdh/transformations/createRequestGetTrackingOrdersAdh",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/OMProject/TrackingOrdersAdh/wsdl/WS_OM_TRACKING_ORDERS_ADH" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/TrackingOrdersAdh/wsdl/WS_OM_TRACKING_ORDERS_ADH",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OMProject/TrackingOrdersAdh/businessServices/BS_SQL_PROC_OM_TRACKING_ORDERS_ADH" : {
+                "label" : "BusinessService/OMProject/TrackingOrdersAdh/businessServices/BS_SQL_PROC_OM_TRACKING_ORDERS_ADH",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/OMProject/TrackingOrdersAdh/transformations/createResponseGetTrackingOrdersAdh" : {
+                "label" : "Xquery/OMProject/TrackingOrdersAdh/transformations/createResponseGetTrackingOrdersAdh",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/TrackingOrdersAdh/wsdl/WS_OM_TRACKING_ORDERS_ADH" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/TrackingOrdersAdh/wsdl/WS_OM_TRACKING_ORDERS_ADH",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/TrackingOrdersAdh/wsdl/WS_OM_TRACKING_ORDERS_ADH" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/TrackingOrdersAdh/wsdl/WS_OM_TRACKING_ORDERS_ADH",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_AOL_CHAT_PROSPECT_INFO",
+    "name" : "SalesforceProject_WS_AOL_CHAT_PROSPECT_INFO_proxy_PS_WS_AOL_CHAT_PROSPECT_INFO",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\AOL\\CHAT\\PROSPECT\\INFO\\PS_WS_AOL_CHAT_PROSPECT_INFO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_AOL_CHAT_PROSPECT_INFO?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/AolChatProspectInfo/xsd/XSD_AOL_CHAT_PROSPECT_INFO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

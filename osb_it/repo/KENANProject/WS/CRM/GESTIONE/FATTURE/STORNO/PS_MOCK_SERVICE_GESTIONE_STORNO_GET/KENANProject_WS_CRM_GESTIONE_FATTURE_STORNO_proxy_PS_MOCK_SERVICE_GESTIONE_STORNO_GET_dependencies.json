@@ -1,0 +1,22 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_CRM_GESTIONE_FATTURE_STORNO_proxy_PS_MOCK_SERVICE_GESTIONE_STORNO_GET",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneFattureStorno/wsdl/WS_CRM_GESTIONE_FATTURE_STORNO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneFattureStorno/wsdl/WS_CRM_GESTIONE_FATTURE_STORNO",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/pipeline/PL_MOCK_FATTURE_STORNO_GET" : {
+        "label" : "Pipeline/KENANProject/pipeline/PL_MOCK_FATTURE_STORNO_GET",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

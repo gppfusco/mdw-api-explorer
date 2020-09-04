@@ -1,0 +1,90 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="PS_REST_OM_TYO"
+     targetNamespace="http://xmlns.oracle.com/OSBApplicationSky/BlueBirdProject/PS_REST_OM_TYO"
+     xmlns:tns="http://xmlns.oracle.com/OSBApplicationSky/BlueBirdProject/PS_REST_OM_TYO"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:inp2="http://www.skytv.it/mdw/data"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <plnk:partnerLinkType name="PS_REST_OM_TYO">
+        <plnk:role name="PS_REST_OM_TYOProvider" portType="tns:PS_REST_OM_TYO_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/OM/tyo/xsd/XSD_OM_TYO.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="GetOrderTracking_inputMessage">
+        <wsdl:part name="request" element="inp1:requestGetOrderTracking"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrderTracking_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseGetOrderTracking"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrderTracking_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrderTracking_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrderTracking_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrderTrackingDetails_inputMessage">
+        <wsdl:part name="request" element="inp1:requestGetOrderTrackingDetails"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrderTrackingDetails_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseGetOrderTrackingDetails"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrderTrackingDetails_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrderTrackingDetails_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="GetOrderTrackingDetails_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:portType name="PS_REST_OM_TYO_ptt">
+        <wsdl:operation name="GetOrderTracking">
+            <wsdl:input message="tns:GetOrderTracking_inputMessage"/>
+            <wsdl:output message="tns:GetOrderTracking_outputMessage"/>
+            <wsdl:fault name="error404" message="tns:GetOrderTracking_error404Message"/>
+            <wsdl:fault name="error400" message="tns:GetOrderTracking_error400Message"/>
+            <wsdl:fault name="error500" message="tns:GetOrderTracking_error500Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrderTrackingDetails">
+            <wsdl:input message="tns:GetOrderTrackingDetails_inputMessage"/>
+            <wsdl:output message="tns:GetOrderTrackingDetails_outputMessage"/>
+            <wsdl:fault name="error404" message="tns:GetOrderTrackingDetails_error404Message"/>
+            <wsdl:fault name="error400" message="tns:GetOrderTrackingDetails_error400Message"/>
+            <wsdl:fault name="error500" message="tns:GetOrderTrackingDetails_error500Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PS_REST_OM_TYO_ptt-binding" type="tns:PS_REST_OM_TYO_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetOrderTracking">
+            <soap:operation soapAction="GetOrderTracking"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetOrderTrackingDetails">
+            <soap:operation soapAction="GetOrderTrackingDetails"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

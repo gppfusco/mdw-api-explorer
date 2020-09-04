@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestCreateOrderType">
+    <xsd:sequence>
+      <xsd:element name="requestElementList" nillable="true">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CreateOrderRequest" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="action" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="billingAccountId" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="billingAccountLogicalId" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="categoria" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="cause" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="channel" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="contractId" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="contractLogicalId" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="credito" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="dateRequest" minOccurs="0" type="xsd:date" nillable="true"/>
+                  <xsd:element name="dettaglio" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="frode" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="inputDate" minOccurs="0" type="xsd:date" nillable="true"/>
+                  <xsd:element name="note" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="noteSPY" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="origin" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="sottocategoria" minOccurs="0" type="xsd:string" nillable="true"/>
+                  <xsd:element name="tipoContatto" minOccurs="0" type="xsd:string" nillable="true"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestCreateOrder" type="requestCreateOrderType"/>
+  <xsd:complexType name="responseCreateOrderType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ListaErrori" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Errore" maxOccurs="unbounded" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="DescrizioneErrore" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="TipoErrore" type="xsd:string" nillable="true" minOccurs="0"/>
+                  <xsd:element name="TargetEntity" type="xsd:string" nillable="true" minOccurs="0"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseCreateOrder" type="responseCreateOrderType"/>
+</xsd:schema>

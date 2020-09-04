@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestCheckIBAN" type="requestCheckIBANType"/>
+  <xsd:element name="responseCheckIBAN" type="responseCheckIBANType"/>
+  <xsd:complexType name="requestCheckIBANType">
+    <xsd:sequence>
+      <xsd:element name="iban" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseCheckIBANType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="tid" type="xsd:string"/>
+      <xsd:element name="bankDomiciliation" type="bankDomiciliationType" minOccurs="0"/> 
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="bankDomiciliationType">
+    <xsd:sequence>
+      <xsd:element name="ABI" type="xsd:string"/>
+      <xsd:element name="CAB" type="xsd:string"/>
+      <xsd:element name="ccNumber" type="xsd:string"/>
+      <xsd:element name="countryCode" type="xsd:string"/>
+      <xsd:element name="CIN" type="xsd:string"/>
+      <xsd:element name="checkDigit" type="xsd:string"/>
+      <xsd:element name="abroadFlg" type="xsd:string"/>
+      <xsd:element name="country" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestCalculateIBAN" type="requestCalculateIBANType"/>
+  <xsd:element name="responseCalculateIBAN" type="responseCalculateIBANType"/>
+  <xsd:complexType name="requestCalculateIBANType">
+    <xsd:sequence>
+      <xsd:element name="AbiCode" type="xsd:string"/>
+      <xsd:element name="CabCode" type="xsd:string"/>
+      <xsd:element name="ccNumber" type="xsd:string"/>
+      <xsd:element name="countryCode" type="xsd:string"/>
+      <xsd:element name="CIN" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseCalculateIBANType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="tid" type="xsd:string"/>
+      <xsd:element name="ResultIban" type="ResultIbanType"  minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ResultIbanType">
+    <xsd:sequence>
+      <xsd:element name="Iban" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,58 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "FASTWEBProject_nowtvBundleFastweb_proxy_PS_REST_FASTWEB_NOWTV_BUNDLE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/FASTWEBProject/nowtvBundleFastweb/pipeline/PL_REST_FASTWEB_NOWTV_BUNDLE" : {
+        "label" : "Pipeline/FASTWEBProject/nowtvBundleFastweb/pipeline/PL_REST_FASTWEB_NOWTV_BUNDLE",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/FASTWEBProject/nowtvBundleFastweb/pipeline/PL_REST_FASTWEB_NOWTV_BUNDLE_ENQUEUE" : {
+            "label" : "Pipeline/FASTWEBProject/nowtvBundleFastweb/pipeline/PL_REST_FASTWEB_NOWTV_BUNDLE_ENQUEUE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/FASTWEBProject/nowtvBundleFastweb/businessServices/BS_JMS_FASTWEB_ENQUEUE" : {
+                "label" : "BusinessService/FASTWEBProject/nowtvBundleFastweb/businessServices/BS_JMS_FASTWEB_ENQUEUE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/FastwebProject/nowtvBundleFastweb/wsdl/WSDL_REST_FASTWEB_NOWTV_BUNDLE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/FastwebProject/nowtvBundleFastweb/wsdl/WSDL_REST_FASTWEB_NOWTV_BUNDLE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/FASTWEBProject/Resources/PS_REST_FASTWEB_NOWTV_BUNDLE" : {
+            "label" : "WSDL/FASTWEBProject/Resources/PS_REST_FASTWEB_NOWTV_BUNDLE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/FASTWEBProject/Resources/PS_REST_FASTWEB_NOWTV_BUNDLE" : {
+        "label" : "WSDL/FASTWEBProject/Resources/PS_REST_FASTWEB_NOWTV_BUNDLE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

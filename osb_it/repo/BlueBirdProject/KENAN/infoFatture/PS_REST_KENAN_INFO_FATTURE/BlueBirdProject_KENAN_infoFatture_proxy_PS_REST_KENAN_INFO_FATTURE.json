@@ -1,0 +1,33 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/kenan/invoices",
+    "name" : "BlueBirdProject_KENAN_infoFatture_proxy_PS_REST_KENAN_INFO_FATTURE",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\KENAN\\infoFatture\\PS_REST_KENAN_INFO_FATTURE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/kenan/invoices?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/BlueBirdProject/KENAN/infoFatture/xsd/XSD_KENAN_INFO_FATTURE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/KENAN/infoFatture/xsd/XSD_KENAN_INFO_FATTURE",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

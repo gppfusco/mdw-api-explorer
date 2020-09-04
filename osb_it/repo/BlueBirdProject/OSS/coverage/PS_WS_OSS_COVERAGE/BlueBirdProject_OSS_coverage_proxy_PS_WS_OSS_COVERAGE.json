@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/oss/WS_OSS_COVERAGE",
+    "name" : "BlueBirdProject_OSS_coverage_proxy_PS_WS_OSS_COVERAGE",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\OSS\\coverage\\PS_WS_OSS_COVERAGE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/oss/WS_OSS_COVERAGE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/coverage/xsd/XSD_OSS_COVERAGE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "ORCHESTRATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

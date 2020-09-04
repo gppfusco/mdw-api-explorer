@@ -1,0 +1,83 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "RTDProject_proxy_PS_WS_CRM_START_SESSION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/RTDProject/StartSession/wsdl/WS_CRM_START_SESSION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/RTDProject/StartSession/wsdl/WS_CRM_START_SESSION",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/RTDProject/pipeline/PL_WS_OSB_BPEL_SOA_RTD" : {
+        "label" : "Pipeline/RTDProject/pipeline/PL_WS_OSB_BPEL_SOA_RTD",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/RTDProject/pipeline/PL_INTERNAL_TUX_RTD_SERVICE_LOG" : {
+            "label" : "Pipeline/RTDProject/pipeline/PL_INTERNAL_TUX_RTD_SERVICE_LOG",
+            "properties" : { },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/RTDProject/PostEvent/wsdl/WS_CRM_POST_EVENT" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/RTDProject/PostEvent/wsdl/WS_CRM_POST_EVENT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/RTDProject/businessService/BS_TUX_RTD_LOG_SERVICE" : {
+                "label" : "BusinessService/RTDProject/businessService/BS_TUX_RTD_LOG_SERVICE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/RTDProject/transformations/createResponse" : {
+            "label" : "Xquery/RTDProject/transformations/createResponse",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/RTDProject/transformations/createRequestServiceLogTUX" : {
+            "label" : "Xquery/RTDProject/transformations/createRequestServiceLogTUX",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/RTDProject/EndSession/wsdl/WS_CRM_END_SESSION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/RTDProject/EndSession/wsdl/WS_CRM_END_SESSION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+            "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_RTD_INVOKER" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_RTD_INVOKER",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/MDW_CO/transformation/renameRootNodeNameWithNS" : {
+            "label" : "Xquery/MDW_CO/transformation/renameRootNodeNameWithNS",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

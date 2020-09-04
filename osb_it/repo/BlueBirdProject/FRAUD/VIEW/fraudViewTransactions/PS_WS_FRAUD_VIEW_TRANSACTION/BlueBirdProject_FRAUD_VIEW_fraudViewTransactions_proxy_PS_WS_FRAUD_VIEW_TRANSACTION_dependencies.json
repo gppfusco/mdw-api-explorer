@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_FRAUD_VIEW_fraudViewTransactions_proxy_PS_WS_FRAUD_VIEW_TRANSACTION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/wsdl/WS_FRAUD_VIEW_TRANSACTION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/wsdl/WS_FRAUD_VIEW_TRANSACTION",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/pipeline/PL_WS_FRAUD_VIEW_TRANSACTION" : {
+        "label" : "Pipeline/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/pipeline/PL_WS_FRAUD_VIEW_TRANSACTION",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/pipeline/PL_WS_FRAUD_VIEW_TRANSACTION_SendTraficInfo" : {
+            "label" : "Pipeline/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/pipeline/PL_WS_FRAUD_VIEW_TRANSACTION_SendTraficInfo",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/wsdl/WS_FRAUD_VIEW_TRANSACTION" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/wsdl/WS_FRAUD_VIEW_TRANSACTION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/transformations/createRequest_BS_FRAUD_VIEW_SendTraficInfo" : {
+                "label" : "Xquery/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/transformations/createRequest_BS_FRAUD_VIEW_SendTraficInfo",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/transformations/createResponse_WS_FRAUD_VIEW_TRANSACTION_SendTraficInfo" : {
+                "label" : "Xquery/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/transformations/createResponse_WS_FRAUD_VIEW_TRANSACTION_SendTraficInfo",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/businessService/BS_WS_FRAUD_VIEW_kenan_SendTraficInfo" : {
+                "label" : "BusinessService/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/businessService/BS_WS_FRAUD_VIEW_kenan_SendTraficInfo",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/wsdl/WS_FRAUD_VIEW_TRANSACTION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/FRAUD_VIEW/fraudViewTransactions/wsdl/WS_FRAUD_VIEW_TRANSACTION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

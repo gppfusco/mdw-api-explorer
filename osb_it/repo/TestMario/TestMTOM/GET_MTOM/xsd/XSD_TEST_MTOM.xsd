@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org"
+            targetNamespace="http://www.example.org" elementFormDefault="qualified">
+  <xsd:element name="mtomRequest" type="MtomRequestType"/>
+  <xsd:complexType name="MtomRequestType">
+    <xsd:sequence>
+      <xsd:element name="document" type="xsd:base64Binary"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="mtomResponse" type="MtomResponseType"/>
+  <xsd:complexType name="MtomResponseType">
+    <xsd:sequence>
+      <xsd:element name="document" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:element name="GetMTOMRequest" type="GetMTOMRequestType"/>
+  <xsd:complexType name="GetMTOMRequestType">
+    <xsd:sequence>
+      <xsd:element name="document" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:element name="GetMTOMResponse" type="GetMTOMResponseType"/>
+  <xsd:complexType name="GetMTOMResponseType">
+    <xsd:sequence>
+      <xsd:element name="document" type="xsd:base64Binary"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

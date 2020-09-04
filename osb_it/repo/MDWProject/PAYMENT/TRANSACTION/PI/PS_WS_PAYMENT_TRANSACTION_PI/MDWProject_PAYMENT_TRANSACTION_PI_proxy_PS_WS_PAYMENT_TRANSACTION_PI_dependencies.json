@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_PAYMENT_TRANSACTION_PI_proxy_PS_WS_PAYMENT_TRANSACTION_PI",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/MDWProject/PAYMENT_TRANSACTION_PI/pipelines/PL_OP_READ_PAYMENT_TRANSACTION" : {
+        "label" : "Pipeline/MDWProject/PAYMENT_TRANSACTION_PI/pipelines/PL_OP_READ_PAYMENT_TRANSACTION",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/MDWProject/PAYMENT_TRANSACTION_PI/transformations/createResponseReadPaymentTransaction" : {
+            "label" : "Xquery/MDWProject/PAYMENT_TRANSACTION_PI/transformations/createResponseReadPaymentTransaction",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/PaymentTransactionPI/wsdl/WSDL_PAYMENT_TRANSACTION_PI" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/PaymentTransactionPI/wsdl/WSDL_PAYMENT_TRANSACTION_PI",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/PAYMENT_TRANSACTION_PI/transformations/createRequestCrmEaiBollettiniDemat" : {
+            "label" : "Xquery/MDWProject/PAYMENT_TRANSACTION_PI/transformations/createRequestCrmEaiBollettiniDemat",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDWProject/businessServices/BS_SQL_CRM_EAI_BOLLETTINI_DEMAT" : {
+            "label" : "BusinessService/MDWProject/businessServices/BS_SQL_CRM_EAI_BOLLETTINI_DEMAT",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/PaymentTransactionPI/wsdl/WSDL_PAYMENT_TRANSACTION_PI" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/PaymentTransactionPI/wsdl/WSDL_PAYMENT_TRANSACTION_PI",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

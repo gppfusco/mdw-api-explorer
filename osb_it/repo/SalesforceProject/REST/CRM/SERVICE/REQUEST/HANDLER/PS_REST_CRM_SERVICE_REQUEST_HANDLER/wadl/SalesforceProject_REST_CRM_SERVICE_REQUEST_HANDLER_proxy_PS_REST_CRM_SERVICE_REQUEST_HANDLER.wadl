@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBSvil_REPLY/SalesforceProject/PS_REST_CRM_SERVICE_REQUEST_HANDLER" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_CRM_SERVICE_REQUEST_HANDLER">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SalesforceProject/Rest_ServiceRequestHandler/xsd/XSD_CRM_SERVICE_REQUEST_HANDLER.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/serviceRequestCancel">
+         <method name="POST" soa:wsdlOperation="serviceRequestCancel">
+            <request>
+               <representation mediaType="application/xml" element="cns:requestServiceRequestCancel" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseServiceRequestCancel" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/serviceRequestTracking">
+         <method name="POST" soa:wsdlOperation="serviceRequestTracking">
+            <request>
+               <representation mediaType="application/xml" element="cns:requestServiceRequestTracking" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseServiceRequestTracking" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/oneClickCancellation">
+         <method name="POST" soa:wsdlOperation="OneClickCancellation">
+            <request>
+               <representation mediaType="application/xml" element="cns:requestOneClickCancellation" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseOneClickCancellation" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/serviceRequestCreate">
+         <method name="POST" soa:wsdlOperation="serviceRequestCreate">
+            <request>
+               <representation mediaType="application/xml" element="cns:requestServiceRequestCreate" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseServiceRequestCreate" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

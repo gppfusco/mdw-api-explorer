@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/acs/WS_CRM_GESTIONE_SKY_GO",
+    "name" : "ACSProject_GestioneSkyGo_proxy_PS_WS_CRM_GESTIONE_SKY_GO",
+    "localPath" : "osb_it\\repo\\ACSProject\\GestioneSkyGo\\PS_WS_CRM_GESTIONE_SKY_GO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/acs/WS_CRM_GESTIONE_SKY_GO?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/ACSProject/GestioneSkyGo/xsd/XSD_CRM_GESTIONE_SKY_GO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "ORCHESTRATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

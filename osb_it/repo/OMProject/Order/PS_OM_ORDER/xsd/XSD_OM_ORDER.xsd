@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestUpdateContractStatus" type="requestUpdateContractStatusType"/>
+	<xsd:element name="responseUpdateContractStatus" type="responseUpdateContractStatusType"/>
+	<xsd:complexType name="requestUpdateContractStatusType">
+		<xsd:sequence>
+			<xsd:element name="mdwXOrderId" type="xsd:string"/>
+			<xsd:element name="mdwDestinationStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCorrelationID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwRequestXML" type="xsd:anyType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseUpdateContractStatusType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestUpdateDeliveryStatus" type="requestUpdateDeliveryStatusType"/>
+	<xsd:element name="responseUpdateDeliveryStatus" type="responseUpdateDeliveryStatusType"/>
+	<xsd:complexType name="requestUpdateDeliveryStatusType">
+		<xsd:sequence>
+			<xsd:element name="mdwXOrderId" type="xsd:string"/>
+			<xsd:element name="mdwOrderNumDelivery" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwDeliveryType" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="ODS"/>
+						<xsd:enumeration value="ODL"/>
+						<xsd:enumeration value="ODS FINAL OK"/>
+						<xsd:enumeration value="ODL FINAL OK"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSubstatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCreationDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwDeliveryDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCorrelationID" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwLoginOperatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwRequestXML" type="xsd:anyType" minOccurs="0"/>
+                        <xsd:element name="mdwAppointmentDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwAlternativeAddress" type="mdwAlternativeAddressType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseUpdateDeliveryStatusType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="mdwAlternativeAddressType">
+          <xsd:sequence>
+            <xsd:element name="mdwCounty" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwAddress" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwHouseNumber" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwZipCode" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwCity" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwState" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwMatchcodeEgon" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwHouseCode" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+      </xsd:complexType>
+</xsd:schema>

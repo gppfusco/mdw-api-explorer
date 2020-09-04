@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestSchedulaDisdettaType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Azione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="NomeListino" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataDisdettaListino" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CreatedBySF" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="LastModifiedBySF" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSchedulaDisdetta" type="requestSchedulaDisdettaType"/>
+	<xsd:element name="responseSchedulaDisdetta" type="basicResponseType"/>
+	<xsd:complexType name="basicResponseType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

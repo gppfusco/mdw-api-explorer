@@ -1,0 +1,57 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_DTTCheckRefresh_proxy_PS_WS_OM_DTT_CHECK_REFRESH",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/DTTCheckRefresh/wsdl/WS_OM_DTT_CHECK_REFRESH" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/DTTCheckRefresh/wsdl/WS_OM_DTT_CHECK_REFRESH",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/OMProject/DTTCheckRefresh/pipeline/PL_WS_OM_DTT_CHECK_REFRESH" : {
+        "label" : "Pipeline/OMProject/DTTCheckRefresh/pipeline/PL_WS_OM_DTT_CHECK_REFRESH",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/OMProject/DTTCheckRefresh/transformation/createRequest_BS_WS_TIBCO_START_REFRESH_SMC" : {
+            "label" : "Xquery/OMProject/DTTCheckRefresh/transformation/createRequest_BS_WS_TIBCO_START_REFRESH_SMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/DTTCheckRefresh/wsdl/WS_OM_DTT_CHECK_REFRESH" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/DTTCheckRefresh/wsdl/WS_OM_DTT_CHECK_REFRESH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/DTTCheckRefresh/transformation/createTibcoHeader" : {
+            "label" : "Xquery/OMProject/DTTCheckRefresh/transformation/createTibcoHeader",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/DTTCheckRefresh/transformation/createResponse_BS_WS_TIBCO_START_REFRESH_SMC" : {
+            "label" : "Xquery/OMProject/DTTCheckRefresh/transformation/createResponse_BS_WS_TIBCO_START_REFRESH_SMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/DTTCheckRefresh/businessService/BS_WS_TIBCO_START_REFRESH_SMC" : {
+            "label" : "BusinessService/OMProject/DTTCheckRefresh/businessService/BS_WS_TIBCO_START_REFRESH_SMC",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

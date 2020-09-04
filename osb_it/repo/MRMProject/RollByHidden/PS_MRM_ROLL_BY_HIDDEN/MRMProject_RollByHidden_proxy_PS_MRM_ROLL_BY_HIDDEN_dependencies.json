@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MRMProject_RollByHidden_proxy_PS_MRM_ROLL_BY_HIDDEN",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/MRMProject/RollByHidden/pipeline/PL_MRM_ROLL_BY_HIDDEN" : {
+        "label" : "Pipeline/MRMProject/RollByHidden/pipeline/PL_MRM_ROLL_BY_HIDDEN",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/MRMProject/RollByHidden/transformations/createRequestMRMRollByHidden" : {
+            "label" : "Xquery/MRMProject/RollByHidden/transformations/createRequestMRMRollByHidden",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MRMProject/RollByHidden/businessService/BS_TUX_MRM_ROLL_BY_HIDDEN" : {
+            "label" : "BusinessService/MRMProject/RollByHidden/businessService/BS_TUX_MRM_ROLL_BY_HIDDEN",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MRMProject/RollByHidden/wsdl/WS_MRM_ROLL_BY_HIDDEN" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MRMProject/RollByHidden/wsdl/WS_MRM_ROLL_BY_HIDDEN",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MRMProject/RollByHidden/transformations/createResponseMRMRollByHidden" : {
+            "label" : "Xquery/MRMProject/RollByHidden/transformations/createResponseMRMRollByHidden",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/MRMProject/RollByHidden/wsdl/WS_MRM_ROLL_BY_HIDDEN" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MRMProject/RollByHidden/wsdl/WS_MRM_ROLL_BY_HIDDEN",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

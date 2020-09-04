@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCompDecoderInstall" type="requestCompDecoderInstallType"/>
+	<xsd:complexType name="requestCompDecoderInstallType">
+		<xsd:sequence>
+			<xsd:element name="decoderType" type="xsd:string"/>
+			<xsd:element name="mdwSMCCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrId" type="xsd:string"/>
+			<xsd:element name="mdwPktMvType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwPromoCode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCompDecoderInstall" type="responseCompDecoderInstallType"/>
+	<xsd:complexType name="responseCompDecoderInstallType">
+		<xsd:sequence>
+			<xsd:element name="mdwResultCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwMveJoin" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwDecoderType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwStbMode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwDecoderChoices" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwDecoderChoice" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwDecoderChoiceDescription" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mdwDecoderChoiceCode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mdwInstallationChoice" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mdwInstallationChoiceDescription" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mdwInstallChoiceCode" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mdwNumDeviceSkyQ" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwMiniSTB" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwBooster" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetIntended" type="requestGetIntendedType"/>
+	<xsd:complexType name="requestGetIntendedType">
+		<xsd:sequence>
+			<xsd:element name="multivision" type="xsd:string"/>
+			<xsd:element name="orderId" type="xsd:string"/>
+			<xsd:element name="lineItemId" type="xsd:string"/>
+			<xsd:element name="model" type="xsd:string"/>
+			<xsd:element name="subStatus" type="xsd:string"/>
+			<xsd:element name="promoType" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetIntended" type="responseGetIntendedType"/>
+	<xsd:complexType name="responseGetIntendedType">
+		<xsd:sequence>
+			<xsd:element name="mdwResultCode" type="xsd:string"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string"/>
+			<xsd:element name="mdwOrderData" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwOrderId" type="xsd:string"/>
+						<xsd:element name="mdwLineItems">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwLineItem" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="mdwBehindReason" type="xsd:string"/>
+												<xsd:element name="mdwLineItemId" type="xsd:string"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestUpdateIntended" type="requestUpdateIntendedType"/>
+	<xsd:complexType name="requestUpdateIntendedType">
+		<xsd:sequence>
+			<xsd:element name="mdwOrderId" type="xsd:string"/>
+			<xsd:element name="mdwListOdItems">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwListOfItem" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwLineItemId" type="xsd:string"/>
+									<xsd:element name="mdwLeftBehindReason" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType> 
+	<xsd:element name="responseUpdateIntended" type="responseUpdateIntendedType"/>
+	<xsd:complexType name="responseUpdateIntendedType">
+		<xsd:sequence>
+			<xsd:element name="mdwResultCode" type="xsd:string"/> 
+			<xsd:element name="mdwResultDescription" type="xsd:string"/>
+			<xsd:element name="mdwOrderData" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwOrderIds">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwOrderId" type="xsd:string" maxOccurs="unbounded"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

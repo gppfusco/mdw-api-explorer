@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+           targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xs:element name="requestInvoiceEvents" type="requestInvoiceEventsType"/>
+  <xs:element name="responseInvoiceEvents" type="responseInvoiceEventsType"/>
+  <xs:complexType name="requestInvoiceEventsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="billingAccount"/> 
+      <xs:element type="xs:string" name="invoiceId" minOccurs="0"/>
+      <xs:element type="xs:date" name="invoiceDate" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseInvoiceEventsType">
+    <xs:sequence>
+      <xs:element type="invoiceEventsType" name="invoiceEvents"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="invoiceEventsType">
+    <xs:sequence>
+      <xs:element type="invoiceEventType" name="invoiceEvent" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="invoiceEventType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="crmDescription"/>
+      <xs:element type="xs:string" name="type"/>
+      <xs:element type="xs:string" name="change"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

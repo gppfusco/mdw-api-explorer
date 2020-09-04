@@ -1,0 +1,76 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_EXTRA_ENROLL_proxy_PS_REST_CRM_EXTRA_ENROLL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/REST_CRM_EXTRA_ENROLL/pipeline/PL_REST_CRM_EXTRA_ENROLL" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_EXTRA_ENROLL/pipeline/PL_REST_CRM_EXTRA_ENROLL",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_EXTRA_ENROLL/transformations/createRequest_ExtraEnroll_CHECK" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_EXTRA_ENROLL/transformations/createRequest_ExtraEnroll_CHECK",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SalesforceProject/REST_CRM_EXTRA_ENROLL/transformations/createResponse_ExtraEnroll_CHECK" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_EXTRA_ENROLL/transformations/createResponse_ExtraEnroll_CHECK",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_EXTRA_ENROLL/transformations/createRequest_ExtraEnroll_IN" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_EXTRA_ENROLL/transformations/createRequest_ExtraEnroll_IN",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_EXTRA_ENROLL/transformations/createRequest_ExtraEnroll_OUT" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_EXTRA_ENROLL/transformations/createRequest_ExtraEnroll_OUT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_EXTRA_ENROLL" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_EXTRA_ENROLL",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_EXTRA_ENROLL" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_EXTRA_ENROLL",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

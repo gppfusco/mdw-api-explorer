@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/contentwise/WS_CONTENT_DISCOVERY_CONTENTWISE",
+    "name" : "ContentWiseProject_ContentDiscoveryContentWise_proxy_PS_WS_CONTENT_DISCOVERY_CONTENTWISE",
+    "localPath" : "osb_it\\repo\\ContentWiseProject\\ContentDiscoveryContentWise\\PS_WS_CONTENT_DISCOVERY_CONTENTWISE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/contentwise/WS_CONTENT_DISCOVERY_CONTENTWISE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/ContentWiseProject/xsd/XSD_CONTENT_DISCOVERY_CONTENTWISE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

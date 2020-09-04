@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:element name="requestValidaCC" type="requestValidaCCType"/>
+  <xsd:complexType name="requestValidaCCType">
+    <xsd:sequence>
+      <xsd:element name="WS_NTS_DATA_CC" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="WS_NTS_NUM_CC" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseValidaCC" type="responseValidaCCType" />
+  <xsd:complexType name="responseValidaCCType">
+    <xsd:sequence>
+      <xsd:element name="WS_NTS_ESITO" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="WS_NTS_COD_AUT" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

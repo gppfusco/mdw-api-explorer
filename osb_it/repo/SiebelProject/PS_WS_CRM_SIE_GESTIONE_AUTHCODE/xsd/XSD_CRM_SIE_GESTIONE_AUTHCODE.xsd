@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetAuthCodeType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceSMC" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="AmbienteServizio" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetAuthCode" type="requestGetAuthCodeType"/>
+	<xsd:complexType name="responseGetAuthCodeType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfAuthcode" type="ListOfAuthcodeType" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfAuthcodeType">
+		<xsd:sequence>
+			<xsd:element name="CodiceAutorizzazione" type="AuthcodeType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AuthcodeType">
+		<xsd:sequence>
+			<xsd:element name="Authcode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataScadenzaAutomatica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescAuthcode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoAuthcode" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetAuthCode" type="responseGetAuthCodeType"/>
+</xsd:schema>

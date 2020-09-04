@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestBurnByHidden" type="requestBurnByHiddenType"/>
+	<xsd:complexType name="requestBurnByHiddenType">
+		<xsd:sequence>
+			<xsd:element name="hiddenNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="dealerCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="ca_operator" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="typeDealerCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="ca_msg" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseBurnByHidden" type="responseBurnByHiddenType"/>
+	<xsd:complexType name="responseBurnByHiddenType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="1"/> 
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="errorType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="result" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="groupCode" type="xsd:string" minOccurs="0"/>
+			 			<xsd:element name="expiredDate" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="voucherType" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="serialNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="amount" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="skyCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ca_requestedBy" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCanBurnHidden" type="requestCanBurnHiddenType"/>
+	<xsd:complexType name="requestCanBurnHiddenType">
+		<xsd:sequence>
+			<xsd:element name="hiddenNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="ca_operator" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseCanBurnHiddenType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="result" minOccurs="0" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="serialNumber" minOccurs="0"/>
+						<xsd:element name="amount" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="skyCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="accountNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="voucherType" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="groupCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="dealerCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ca_requestedBy" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCanBurnHidden" type="responseCanBurnHiddenType"/>
+</xsd:schema>

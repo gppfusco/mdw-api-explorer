@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/vcms/MDS_NOTIFICATION",
+    "name" : "VCMSProject_MDSNotification_proxy_PS_TEXT_VCMS_MDS_NOTIFICATION",
+    "localPath" : "osb_it\\repo\\VCMSProject\\MDSNotification\\PS_TEXT_VCMS_MDS_NOTIFICATION",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

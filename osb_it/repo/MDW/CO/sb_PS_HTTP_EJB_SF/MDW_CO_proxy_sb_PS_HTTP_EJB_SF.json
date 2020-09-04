@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/EJB_SF",
+    "name" : "MDW_CO_proxy_sb_PS_HTTP_EJB_SF",
+    "localPath" : "osb_it\\repo\\MDW\\CO\\sb_PS_HTTP_EJB_SF",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/EJB_SF?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

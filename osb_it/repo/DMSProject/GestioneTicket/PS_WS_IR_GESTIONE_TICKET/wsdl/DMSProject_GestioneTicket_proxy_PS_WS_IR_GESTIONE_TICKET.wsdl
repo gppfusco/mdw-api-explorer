@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/IR_GESTIONE_TICKET" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_IR_GESTIONE_TICKET" targetNamespace="http://www.skytv.it/mdw/service/IR_GESTIONE_TICKET">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_IR_GESTIONE_TICKET.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="responseGetTicketsIntranet_message">
+		<wsdl:part name="part_requestGetTicketsIntranet" element="inp1:requestGetTicketsIntranet"/>
+	</wsdl:message>
+	<wsdl:message name="requestGetTicketsIntranet_message">
+		<wsdl:part name="part_responseGetTicketsIntranet" element="inp1:responseGetTicketsIntranet"/>
+	</wsdl:message>
+	<wsdl:message name="responseUpdateTickets_message">
+		<wsdl:part name="part_requestUpdateTickets" element="inp1:requestUpdateTickets"/>
+	</wsdl:message>
+	<wsdl:message name="requestUpdateTickets_message">
+		<wsdl:part name="part_responseUpdateTickets" element="inp1:responseUpdateTickets"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="IR_GESTIONE_TICKET_ptt">
+		<wsdl:operation name="execute_GetTicketsIntranet">
+			<wsdl:input message="tns:responseGetTicketsIntranet_message"/>
+			<wsdl:output message="tns:requestGetTicketsIntranet_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_UpdateTickets">
+			<wsdl:input message="tns:responseUpdateTickets_message"/>
+			<wsdl:output message="tns:requestUpdateTickets_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="IR_GESTIONE_TICKET_pttSOAP11Binding" type="tns:IR_GESTIONE_TICKET_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_GetTicketsIntranet">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/IR_GESTIONE_TICKET/execute_GetTicketsIntranet" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestGetTicketsIntranet" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseGetTicketsIntranet" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_UpdateTickets">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/IR_GESTIONE_TICKET/execute_UpdateTickets" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestUpdateTickets" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseUpdateTickets" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

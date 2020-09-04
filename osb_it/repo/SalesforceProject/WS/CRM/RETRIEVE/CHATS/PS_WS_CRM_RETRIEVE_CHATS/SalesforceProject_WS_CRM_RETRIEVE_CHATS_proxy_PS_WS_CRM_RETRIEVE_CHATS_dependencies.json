@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_RETRIEVE_CHATS_proxy_PS_WS_CRM_RETRIEVE_CHATS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_RETRIEVE_CHATS/pipeline/PL_WS_CRM_RETRIEVE_CHATS" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_RETRIEVE_CHATS/pipeline/PL_WS_CRM_RETRIEVE_CHATS",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_RETRIEVE_CHATS/transformations/createRequest_EJB_SF_RetrieveChats" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_RETRIEVE_CHATS/transformations/createRequest_EJB_SF_RetrieveChats",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_RETRIEVE_CHATS/transformations/createResponse_EJB_SF_RetrieveChats" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_RETRIEVE_CHATS/transformations/createResponse_EJB_SF_RetrieveChats",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveChats/wsdl/WS_CRM_RETRIEVE_CHATS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveChats/wsdl/WS_CRM_RETRIEVE_CHATS",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveChats/wsdl/WS_CRM_RETRIEVE_CHATS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveChats/wsdl/WS_CRM_RETRIEVE_CHATS",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

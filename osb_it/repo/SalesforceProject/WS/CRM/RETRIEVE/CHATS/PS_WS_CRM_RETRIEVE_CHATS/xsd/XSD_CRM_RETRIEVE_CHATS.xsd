@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+    <xsd:element name="requestRetrieveChats" type="requestRetrieveChatsType" />
+    <xsd:complexType name="requestRetrieveChatsType">
+      <xsd:sequence>
+        <xsd:element name="timeSlotFlag" minOccurs="1" maxOccurs="1">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="1" />
+              <xsd:enumeration value="2" />
+              <xsd:enumeration value="3" />
+              <xsd:enumeration value="4" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+        
+        <xsd:element name="recoveryDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="responseRetrieveChats" type="responseRetrieveChatsType" />
+    <xsd:complexType name="responseRetrieveChatsType">
+      <xsd:sequence>
+        <xsd:element name="mdwResultId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="mdwResultMessage" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="listOfChats" type="listOfChatsType" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="listOfChatsType">
+      <xsd:sequence>
+        <xsd:element name="chat" type="chatType" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="chatType">
+      <xsd:sequence>
+        <xsd:element name="startTime" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="endTime" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="duration" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="text" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="operatorMessageCount" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="visitorMessageCount" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="ownerId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="ownerName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="liveChatButtonId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="transcriptName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="contactId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="contactName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+</xsd:schema>

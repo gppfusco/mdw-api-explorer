@@ -1,0 +1,47 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MagentoProject_magentoVerifiche_proxy_PS_WS_MAGENTO_VERIFICHE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/magentoVerifiche/wsdl/WSDL_WS_MAGENTO_VERIFICHE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/magentoVerifiche/wsdl/WSDL_WS_MAGENTO_VERIFICHE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MagentoProject/magentoVerifiche/pipeline/PL_WS_MAGENTO_VERIFICHE" : {
+        "label" : "Pipeline/MagentoProject/magentoVerifiche/pipeline/PL_WS_MAGENTO_VERIFICHE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/magentoVerifiche/wsdl/WSDL_WS_MAGENTO_VERIFICHE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/magentoVerifiche/wsdl/WSDL_WS_MAGENTO_VERIFICHE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MagentoProject/magentoVerifiche/transformations/createResponse_BS_REST_MAGENTO_VERIFICHE" : {
+            "label" : "Xquery/MagentoProject/magentoVerifiche/transformations/createResponse_BS_REST_MAGENTO_VERIFICHE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MagentoProject/magentoVerifiche/businessService/BS_REST_MAGENTO_VERIFICHE" : {
+            "label" : "BusinessService/MagentoProject/magentoVerifiche/businessService/BS_REST_MAGENTO_VERIFICHE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

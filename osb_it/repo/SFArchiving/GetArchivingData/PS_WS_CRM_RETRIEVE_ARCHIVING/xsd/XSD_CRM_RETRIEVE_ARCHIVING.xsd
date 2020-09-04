@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetArchivingDataType">
+		<xsd:sequence>
+			<xsd:element name="Operazione" type="xsd:string"/>
+			<xsd:element name="Scenario" type="xsd:string"/>
+			<xsd:element name="ListParameters" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Parameter" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Chiave" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetArchivingDataType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DecrizioneErrore" type="xsd:string"/>
+			<xsd:element name="Scenario" type="xsd:string"/>
+			<xsd:element name="Operazione" type="xsd:string"/>
+			<xsd:element name="QueryResults" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Rows" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Row" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Order" type="xsd:string"/>
+												<xsd:element name="Columns">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="Column" maxOccurs="unbounded">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="Name" type="xsd:string"/>
+																		<xsd:element name="Value" type="xsd:string"/>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetArchivingData" type="requestGetArchivingDataType"/>
+	<xsd:element name="responseGetArchivingData" type="responseGetArchivingDataType"/>
+</xsd:schema>

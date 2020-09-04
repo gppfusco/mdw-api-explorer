@@ -1,0 +1,126 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BitwinProject_EligibiltySTB_proxy_PS_WS_ELIGIBILTY_STB",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BitwinProject/EligibilitySTB/wsdl/WS_ELIGIBILITY_STB" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BitwinProject/EligibilitySTB/wsdl/WS_ELIGIBILITY_STB",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BitwinProject/EligibiltySTB/pipeline/PL_WS_ELIGIBILITY_STB" : {
+        "label" : "Pipeline/BitwinProject/EligibiltySTB/pipeline/PL_WS_ELIGIBILITY_STB",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/BitwinProject/pipeline/PL_BITWIN_REQUEST_XML" : {
+            "label" : "Pipeline/BitwinProject/pipeline/PL_BITWIN_REQUEST_XML",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/BitwinProject/ElegPromoCliente/wsdl/WS_CRM_ELEG_PROMO_CLIENTE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BitwinProject/ElegPromoCliente/wsdl/WS_CRM_ELEG_PROMO_CLIENTE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_HttpCall_Bitwin" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_HttpCall_Bitwin",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/transformation/create_soap_header" : {
+                "label" : "Xquery/MDW_CO/transformation/create_soap_header",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/transformation/renameRootNodeNameWithNS" : {
+                "label" : "Xquery/MDW_CO/transformation/renameRootNodeNameWithNS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XSLT/MDW_CO/transformation/XSLT_RemoveNs_RenameRoot_OUT_TI" : {
+                "label" : "XSLT/MDW_CO/transformation/XSLT_RemoveNs_RenameRoot_OUT_TI",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "ProxyService/SiebelProject/proxy/PS_LOCAL_SBL_GENERIC_CALL_ASYNC" : {
+            "label" : "ProxyService/SiebelProject/proxy/PS_LOCAL_SBL_GENERIC_CALL_ASYNC",
+            "properties" : {
+              "transport-type" : "local",
+              "nodeType" : "Proxy",
+              "service-type" : "SOAP"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GenericBsInvoke/wsdl/WS_CRM_SIE_GENERIC_BS_INVOKE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GenericBsInvoke/wsdl/WS_CRM_SIE_GENERIC_BS_INVOKE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_ASYNC_ENQUEUE" : {
+                "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_ASYNC_ENQUEUE",
+                "properties" : { },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrAsync/wsdl/WS_CRM_SIE_CONTR_ASYNC" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrAsync/wsdl/WS_CRM_SIE_CONTR_ASYNC",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/SiebelProject/businessService/BS_JMS_SIEBEL" : {
+                    "label" : "BusinessService/SiebelProject/businessService/BS_JMS_SIEBEL",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          },
+          "Xquery/BitwinProject/EligibiltySTB/trasformation/createResponse_ELIGIBILITY_STB" : {
+            "label" : "Xquery/BitwinProject/EligibiltySTB/trasformation/createResponse_ELIGIBILITY_STB",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BitwinProject/EligibiltySTB/trasformation/createRequest_ELIGIBILITY_STB" : {
+            "label" : "Xquery/BitwinProject/EligibiltySTB/trasformation/createRequest_ELIGIBILITY_STB",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/BitwinProject/EligibilitySTB/wsdl/WS_ELIGIBILITY_STB" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BitwinProject/EligibilitySTB/wsdl/WS_ELIGIBILITY_STB",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BitwinProject/EligibiltySTB/trasformation/createRequest_CreaEsigenzaSMC" : {
+            "label" : "Xquery/BitwinProject/EligibiltySTB/trasformation/createRequest_CreaEsigenzaSMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

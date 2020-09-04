@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestMSONotifications" type="requestMSONotificationsType"/>
+  <xsd:complexType name="requestMSONotificationsType">
+    <xsd:sequence>
+      <xsd:element name="eventId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="msgTotal" type="xsd:integer" minOccurs="1"/>
+      <xsd:element name="msgCount" type="xsd:integer" minOccurs="1"/>
+      <xsd:element name="eventTime" type="xsd:dateTime" minOccurs="1"/>
+      <xsd:element name="eventType" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="troubleTicket" type="troubleTicketType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="troubleTicketType">
+    <xsd:sequence>
+      <xsd:element name="ticketId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="businessUnit" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="category" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="type" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="item" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="accessProvider" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="impact" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="faultStartTime" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="faultEndTime" type="xsd:dateTime" minOccurs="1"/>
+      <xsd:element name="status" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="affectedServices" type="affectedServicesType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="msoLevel" type="xsd:integer" minOccurs="0"/>
+      <xsd:element name="msoSeverity" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="accessTechnology" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="numberOfAffectedCustomers" type="xsd:integer" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+  <xsd:element name="internalMSONotification" type="requestMSONotificationsType"/>
+
+  <xsd:element name="affectedServices" type="affectedServicesType"/>
+  <xsd:complexType name="affectedServicesType">
+    <xsd:sequence>
+      <xsd:element name="serviceName" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="serviceType" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+  <xsd:element name="responseMSONotifications" type="responseMSONotificationsType"/>
+  <xsd:complexType name="responseMSONotificationsType">
+    <xsd:sequence>
+      <xsd:element name="eventId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="message" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="ticketId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="code" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/SIE_GESTIONE_CONTRATTO" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_SIE_GESTIONE_CONTRATTO" targetNamespace="http://www.skytv.it/mdw/service/SIE_GESTIONE_CONTRATTO">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SIE_GESTIONE_CONTRATTO.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestAttivazioneContratto_message">
+		<wsdl:part name="part_requestAttivazioneContratto" element="inp1:requestAttivazioneContratto"/>
+	</wsdl:message>
+	<wsdl:message name="responseAttivazioneContratto_message">
+		<wsdl:part name="part_responseAttivazioneContratto" element="inp1:responseAttivazioneContratto"/>
+	</wsdl:message>
+	<wsdl:message name="requestCessazioneTrentaGG_message">
+		<wsdl:part name="part_requestCessazioneTrentaGG" element="inp1:requestCessazioneTrentaGG"/>
+	</wsdl:message>
+	<wsdl:message name="responseCessazioneTrentaGG_message">
+		<wsdl:part name="part_responseCessazioneTrentaGG" element="inp1:responseCessazioneTrentaGG"/>
+	</wsdl:message>
+	<wsdl:message name="requestSchedulazioneDisdetta_message">
+		<wsdl:part name="part_requestSchedulazioneDisdetta" element="inp1:requestSchedulazioneDisdetta"/>
+	</wsdl:message>
+	<wsdl:message name="responseSchedulazioneDisdetta_message">
+		<wsdl:part name="part_responseSchedulazioneDisdetta" element="inp1:responseSchedulazioneDisdetta"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="SIE_GESTIONE_CONTRATTO_ptt">
+		<wsdl:operation name="execute_AttivazioneContratto">
+			<wsdl:input message="tns:requestAttivazioneContratto_message"/>
+			<wsdl:output message="tns:responseAttivazioneContratto_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CessazioneTrentaGG">
+			<wsdl:input message="tns:requestCessazioneTrentaGG_message"/>
+			<wsdl:output message="tns:responseCessazioneTrentaGG_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SchedulazioneDisdetta">
+			<wsdl:input message="tns:requestSchedulazioneDisdetta_message"/>
+			<wsdl:output message="tns:responseSchedulazioneDisdetta_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SIE_GESTIONE_CONTRATTO_pttSOAP11Binding" type="tns:SIE_GESTIONE_CONTRATTO_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_AttivazioneContratto">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SIE_GESTIONE_CONTRATTO/execute_AttivazioneContratto" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestAttivazioneContratto" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseAttivazioneContratto" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CessazioneTrentaGG">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SIE_GESTIONE_CONTRATTO/execute_CessazioneTrentaGG" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestCessazioneTrentaGG" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseCessazioneTrentaGG" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SchedulazioneDisdetta">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SIE_GESTIONE_CONTRATTO/execute_SchedulazioneDisdetta" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestSchedulazioneDisdetta" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSchedulazioneDisdetta" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

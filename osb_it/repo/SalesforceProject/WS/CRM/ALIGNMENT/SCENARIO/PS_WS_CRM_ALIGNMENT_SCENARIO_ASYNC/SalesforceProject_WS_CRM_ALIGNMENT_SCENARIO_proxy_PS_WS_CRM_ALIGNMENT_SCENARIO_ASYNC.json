@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_ALIGNMENT_SCENARIO_ASYNC",
+    "name" : "SalesforceProject_WS_CRM_ALIGNMENT_SCENARIO_proxy_PS_WS_CRM_ALIGNMENT_SCENARIO_ASYNC",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\ALIGNMENT\\SCENARIO\\PS_WS_CRM_ALIGNMENT_SCENARIO_ASYNC",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_ALIGNMENT_SCENARIO_ASYNC?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/AlignmentScenario/xsd/XSD_CRM_ALIGNMENT_SCENARIO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

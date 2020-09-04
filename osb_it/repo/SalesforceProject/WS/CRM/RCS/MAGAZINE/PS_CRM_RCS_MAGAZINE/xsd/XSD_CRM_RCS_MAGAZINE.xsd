@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestSetRcsMagazineType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwContactDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwMagazineType" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwLovType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwChannel" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwTrackingField" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwConnId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwScope" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSetRcsMagazine" type="requestSetRcsMagazineType"/>
+	<xsd:element name="responseSetRcsMagazine" type="responseSetRcsMagazineType"/>
+	<xsd:complexType name="responseSetRcsMagazineType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwResultCode" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

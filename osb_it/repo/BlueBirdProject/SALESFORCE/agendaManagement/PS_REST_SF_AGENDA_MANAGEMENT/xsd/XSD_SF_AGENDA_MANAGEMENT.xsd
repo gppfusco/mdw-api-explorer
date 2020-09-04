@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestUpdateAppointmentStatus" type="requestUpdateAppointmentStatusType"/>
+	<xsd:element name="responseUpdateAppointmentStatusSOAP" type="responseUpdateAppointmentStatusSOAPType"/>
+	<xsd:element name="requestRetrieveAppointments" type="requestRetrieveAppointmentsType"/>
+	<xsd:element name="responseRetrieveAppointmentsSOAP" type="responseRetrieveAppointmentsSOAPType"/>
+	<xsd:element name="appointments" type="appointmentsType"/>
+	<xsd:element name="requestCheckRescheduling" type="requestCheckReschedulingType"/>
+	<xsd:element name="responseCheckRescheduling" type="responseCheckReschedulingSOAPType"/>
+	<xsd:element name="reschedulingList" type="reschedulingListType"/>
+	<xsd:complexType name="requestCheckReschedulingType">
+		<xsd:sequence>
+			<xsd:element name="orderId" type="xsd:string"/>
+			<xsd:element name="appointmentId" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="reschedulingListType">
+		<xsd:sequence>
+			<xsd:element name="rescheduling" minOccurs="0" maxOccurs="unbounded" type="reschedulingType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="reschedulingType">
+		<xsd:sequence>
+			<xsd:element name="numberOfRescheduling" type="xsd:decimal"/>
+			<xsd:element name="freezeAppointmentInformation" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="installerRescheduled" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseCheckReschedulingSOAPType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element ref="reschedulingList" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestRetrieveAppointmentsType">
+		<xsd:sequence>
+			<xsd:element name="e2eContractId" type="xsd:string"/>
+			<xsd:element name="typeAppointment" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="state" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="minimumDate" type="xsd:date" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="appointmentsType">
+		<xsd:sequence>
+			<xsd:element name="appointment" minOccurs="0" maxOccurs="unbounded" type="appointmentType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="appointmentType">
+		<xsd:sequence>
+			<xsd:element name="e2eContractId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="customerId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="appointmentId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="appointmentType" type="typeAppointmentEnum" minOccurs="0"/>
+			<xsd:element name="appointmentStatus" type="stateEnum" minOccurs="0"/>
+			<xsd:element name="appointmentSubStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="appointmentDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="reschedulingAttempts" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="slotId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="workOrderId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tokenId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="orderid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="escalationid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="caseId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseRetrieveAppointmentsSOAPType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element ref="appointments" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestUpdateAppointmentStatusType">
+		<xsd:sequence>
+			<xsd:element name="appointment">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="appointmentId" type="xsd:string"/>
+						<xsd:element name="status" type="xsd:string"/>
+						<xsd:element name="subStatus" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseUpdateAppointmentStatusSOAPType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="typeAppointmentEnum">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ACTIVATION"/>
+			<xsd:enumeration value="ACTIVATION RESCHEDULING"/>
+			<xsd:enumeration value="ASSURANCE"/>
+			<xsd:enumeration value="ASSURANCE RESCHEDULING"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="stateEnum">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="APERTO"/>
+			<xsd:enumeration value="IN CORSO"/>
+			<xsd:enumeration value="RISCHEDULATO"/>
+			<xsd:enumeration value="CHIUSO"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

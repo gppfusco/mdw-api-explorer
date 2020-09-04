@@ -1,0 +1,260 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_ValorizzaFirmatoDettaglio_proxy_PS_WS_VALORIZZA_FIRMATO_DETTAGLIO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_WS_VALORIZZA_FIRMATO_DETTAGLIO" : {
+        "label" : "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_WS_VALORIZZA_FIRMATO_DETTAGLIO",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_INTERNAL_GET_TIBCO_ORDER_DOC_TYPE_C" : {
+            "label" : "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_INTERNAL_GET_TIBCO_ORDER_DOC_TYPE_C",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/SiebelProject/ValorizzaFirmatoDettaglio/businessService/BS_SQL_TIBCO_DOC_TYPE_C" : {
+                "label" : "BusinessService/SiebelProject/ValorizzaFirmatoDettaglio/businessService/BS_SQL_TIBCO_DOC_TYPE_C",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createResponse_BS_SQL_TIBCO_DOC_TYPE_C" : {
+                "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createResponse_BS_SQL_TIBCO_DOC_TYPE_C",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_BS_SQL_TIBCO_DOC_TYPE_C" : {
+                "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_BS_SQL_TIBCO_DOC_TYPE_C",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_SBEValorizzaFirmatoDettaglio" : {
+            "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_SBEValorizzaFirmatoDettaglio",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_INTERNAL_GET_TIBCO_ORDER_DOC_TYPE_D" : {
+            "label" : "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_INTERNAL_GET_TIBCO_ORDER_DOC_TYPE_D",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/SiebelProject/ValorizzaFirmatoDettaglio/businessService/BS_SQL_TIBCO_DOC_TYPE_D" : {
+                "label" : "BusinessService/SiebelProject/ValorizzaFirmatoDettaglio/businessService/BS_SQL_TIBCO_DOC_TYPE_D",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createResponse_BS_SQL_TIBCO_DOC_TYPE_D" : {
+                "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createResponse_BS_SQL_TIBCO_DOC_TYPE_D",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_BS_SQL_TIBCO_DOC_TYPE_D" : {
+                "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_BS_SQL_TIBCO_DOC_TYPE_D",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_INTERNAL_GET_TIPO_CLIENTE" : {
+            "label" : "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_INTERNAL_GET_TIPO_CLIENTE",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/SiebelProject/ValorizzaFirmatoDettaglio/businessService/BS_SQL_SIE_TIPO_CLIENTE" : {
+                "label" : "BusinessService/SiebelProject/ValorizzaFirmatoDettaglio/businessService/BS_SQL_SIE_TIPO_CLIENTE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createResponse_BS_SQL_SIE_TIPO_CLIENTE" : {
+                "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createResponse_BS_SQL_SIE_TIPO_CLIENTE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_BS_SQL_SIE_TIPO_CLIENTE" : {
+                "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_BS_SQL_SIE_TIPO_CLIENTE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC" : {
+            "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XSLT/SiebelProject/transformations/createElement" : {
+                "label" : "XSLT/SiebelProject/transformations/createElement",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_SBECambioMastership" : {
+            "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_SBECambioMastership",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_INTERNAL_WS_TIBCO_UPDATE_SIGNATURE" : {
+            "label" : "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_INTERNAL_WS_TIBCO_UPDATE_SIGNATURE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/OMProject/transformation/createRequestSoapHeaderTibco" : {
+                "label" : "Xquery/OMProject/transformation/createRequestSoapHeaderTibco",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SiebelProject/ValorizzaFirmatoDettaglio/businessService/BS_WS_DMS_TIBCO_UPDATE_SIGNATURE" : {
+                "label" : "BusinessService/SiebelProject/ValorizzaFirmatoDettaglio/businessService/BS_WS_DMS_TIBCO_UPDATE_SIGNATURE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_BS_WS_DMS_TIBCO_UPDATE_SIGNATURE" : {
+                "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_BS_WS_DMS_TIBCO_UPDATE_SIGNATURE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createResponse_WS_VALORIZZA_FIRMATO_DETTAGLIO" : {
+            "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createResponse_WS_VALORIZZA_FIRMATO_DETTAGLIO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_INTERNAL_GET_TIBCO_ORDER_DOC_TYPE_E" : {
+            "label" : "Pipeline/SiebelProject/ValorizzaFirmatoDettaglio/pipeline/PL_INTERNAL_GET_TIBCO_ORDER_DOC_TYPE_E",
+            "properties" : { },
+            "successors" : {
+              "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createResponse_BS_SQL_TIBCO_DOC_TYPE_E" : {
+                "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createResponse_BS_SQL_TIBCO_DOC_TYPE_E",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SiebelProject/ValorizzaFirmatoDettaglio/businessService/BS_SQL_TIBCO_DOC_TYPE_E" : {
+                "label" : "BusinessService/SiebelProject/ValorizzaFirmatoDettaglio/businessService/BS_SQL_TIBCO_DOC_TYPE_E",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ValorizzaFirmatoDettaglio/wsdl/WS_VALORIZZA_FIRMATO_DETTAGLIO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_BS_SQL_TIBCO_DOC_TYPE_E" : {
+                "label" : "Xquery/SiebelProject/ValorizzaFirmatoDettaglio/transformation/createRequest_BS_SQL_TIBCO_DOC_TYPE_E",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

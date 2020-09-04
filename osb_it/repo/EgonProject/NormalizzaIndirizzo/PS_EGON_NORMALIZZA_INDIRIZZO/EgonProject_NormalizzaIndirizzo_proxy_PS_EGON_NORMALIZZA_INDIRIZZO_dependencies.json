@@ -1,0 +1,45 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "EgonProject_NormalizzaIndirizzo_proxy_PS_EGON_NORMALIZZA_INDIRIZZO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/EgonProject/NormalizzaIndirizzo/wsdl/WS_CRM_EGON_NORMALIZZA_INDIRIZZO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/EgonProject/NormalizzaIndirizzo/wsdl/WS_CRM_EGON_NORMALIZZA_INDIRIZZO",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/EgonProject/NormalizzaIndirizzo/pipeline/PL_EGON_NORMALIZZA_INDIRIZZO" : {
+        "label" : "Pipeline/EgonProject/NormalizzaIndirizzo/pipeline/PL_EGON_NORMALIZZA_INDIRIZZO",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/EgonProject/NormalizzaIndirizzo/wsdl/WS_CRM_EGON_NORMALIZZA_INDIRIZZO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/EgonProject/NormalizzaIndirizzo/wsdl/WS_CRM_EGON_NORMALIZZA_INDIRIZZO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/EgonProject/businessServices/BS_HTTP_EGON_NORMALIZZA_INDIRIZZO" : {
+            "label" : "BusinessService/EgonProject/businessServices/BS_HTTP_EGON_NORMALIZZA_INDIRIZZO",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/EgonProject/NormalizzaIndirizzo/transformations/createResponseNormalizzaIndirizzo" : {
+            "label" : "Xquery/EgonProject/NormalizzaIndirizzo/transformations/createResponseNormalizzaIndirizzo",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OM_orderStatusView_proxy_PS_OM_BB_ORDER_STATUS_VIEW",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/OM/orderStatusView/pipeline/PL_OM_BB_ORDER_STATUS_VIEW" : {
+        "label" : "Pipeline/BlueBirdProject/OM/orderStatusView/pipeline/PL_OM_BB_ORDER_STATUS_VIEW",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/BlueBirdProject/OM/orderStatusView/transformations/createRequest_TuxFirstActivationOrderBB" : {
+            "label" : "Xquery/BlueBirdProject/OM/orderStatusView/transformations/createRequest_TuxFirstActivationOrderBB",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/OM/orderStatusView/transformations/createResponse_TuxFirstActivationOrderBB" : {
+            "label" : "Xquery/BlueBirdProject/OM/orderStatusView/transformations/createResponse_TuxFirstActivationOrderBB",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OM/orderStatusView/wsdl/WS_OM_BB_ORDER_STATUS_VIEW" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OM/orderStatusView/wsdl/WS_OM_BB_ORDER_STATUS_VIEW",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OM/orderStatusView/pipeline/PL_OM_TUX_INTERNAL_FIRST_ACTIVATION_ORDER_BB" : {
+            "label" : "Pipeline/BlueBirdProject/OM/orderStatusView/pipeline/PL_OM_TUX_INTERNAL_FIRST_ACTIVATION_ORDER_BB",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OMProject/GetOrder/businessServices/BS_TUX_GET_FIRST_ACTIVATION_ORDER" : {
+                "label" : "BusinessService/OMProject/GetOrder/businessServices/BS_TUX_GET_FIRST_ACTIVATION_ORDER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OM/orderStatusView/wsdl/WS_OM_BB_ORDER_STATUS_VIEW" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OM/orderStatusView/wsdl/WS_OM_BB_ORDER_STATUS_VIEW",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OM/orderStatusView/wsdl/WS_OM_BB_ORDER_STATUS_VIEW" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OM/orderStatusView/wsdl/WS_OM_BB_ORDER_STATUS_VIEW",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

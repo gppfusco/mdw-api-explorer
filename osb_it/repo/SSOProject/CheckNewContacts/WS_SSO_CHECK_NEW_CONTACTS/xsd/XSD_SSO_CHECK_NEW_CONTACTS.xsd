@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestCheckNewContacts" type="requestCheckNewContactsType"/>
+  <xsd:complexType name="requestCheckNewContactsType">
+    <xsd:sequence>
+      <xsd:element name="contrId" type="xsd:string" nillable="true"/>
+      <xsd:element name="custId" type="xsd:string" nillable="true"/>
+      <xsd:element name="custPhone" type="xsd:string" nillable="true"/>
+      <xsd:element name="custEmail" type="xsd:string" nillable="true"/>
+      <xsd:element name="mdwDescription" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseCheckNewContacts" type="responseCheckNewContactsType"/>
+  <xsd:complexType name="responseCheckNewContactsType">
+    <xsd:sequence>
+      <xsd:element name="result" type="xsd:string" nillable="true"/>
+      <xsd:element name="resultDescription" type="xsd:string" nillable="true"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

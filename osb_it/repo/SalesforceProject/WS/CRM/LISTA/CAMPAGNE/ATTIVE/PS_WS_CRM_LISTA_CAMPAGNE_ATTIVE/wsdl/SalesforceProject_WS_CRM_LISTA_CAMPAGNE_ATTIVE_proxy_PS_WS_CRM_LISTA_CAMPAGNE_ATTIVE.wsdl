@@ -1,0 +1,79 @@
+<wsdl:definitions name="WS_CRM_LISTA_CAMPAGNE_ATTIVE" targetNamespace="http://www.skytv.it/mdw/service/CRM_LISTA_CAMPAGNE_ATTIVE" xmlns:tns="http://www.skytv.it/mdw/service/CRM_LISTA_CAMPAGNE_ATTIVE" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_LISTA_CAMPAGNE_ATTIVE.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="header_Message">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:message name="requestListaCampagneAttiveClientiSosp_Message">
+        <wsdl:part name="part_requestListaCampagneAttiveClientiSosp" element="inp1:requestListaCampagneAttiveClientiSosp"/>
+    </wsdl:message>
+    <wsdl:message name="responseListaCampagneAttiveClientiSosp_Message">
+        <wsdl:part name="part_responseListaCampagneAttiveClientiSosp" element="inp1:responseListaCampagneAttiveClientiSosp"/>
+    </wsdl:message>
+    <wsdl:message name="requestListaCampagneAttiveAll_Message">
+        <wsdl:part name="part_requestListaCampagneAttiveAll" element="inp1:requestListaCampagneAttiveAll"/>
+    </wsdl:message>
+    <wsdl:message name="responseListaCampagneAttiveAll_Message">
+        <wsdl:part name="part_responseListaCampagneAttiveAll" element="inp1:responseListaCampagneAttiveAll"/>
+    </wsdl:message>
+    <wsdl:message name="requestListaCampagneAttiveByContract_Message">
+        <wsdl:part name="part_requestListaCampagneAttiveByContract" element="inp1:requestListaCampagneAttiveByContract"/>
+    </wsdl:message>
+    <wsdl:message name="responseListaCampagneAttiveByContract_Message">
+        <wsdl:part name="part_responseListaCampagneAttiveByContract" element="inp1:responseListaCampagneAttiveByContract"/>
+    </wsdl:message>
+    <wsdl:portType name="CRM_LISTA_CAMPAGNE_ATTIVE_ptt">
+        <wsdl:operation name="execute_ListaCampagneAttiveClientiSosp">
+          <wsdl:input message="tns:requestListaCampagneAttiveClientiSosp_Message"/>
+          <wsdl:output message="tns:responseListaCampagneAttiveClientiSosp_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_ListaCampagneAttiveAll">
+          <wsdl:input message="tns:requestListaCampagneAttiveAll_Message"/>
+          <wsdl:output message="tns:responseListaCampagneAttiveAll_Message"/>
+        </wsdl:operation>
+       <wsdl:operation name="execute_ListaCampagneAttiveByContract">
+          <wsdl:input message="tns:requestListaCampagneAttiveByContract_Message"/>
+          <wsdl:output message="tns:responseListaCampagneAttiveByContract_Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CRM_LISTA_CAMPAGNE_ATTIVE_bind" type="tns:CRM_LISTA_CAMPAGNE_ATTIVE_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_ListaCampagneAttiveClientiSosp">
+            <soap:operation style="document" soapAction="execute_ListaCampagneAttiveClientiSosp"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestListaCampagneAttiveClientiSosp"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseListaCampagneAttiveClientiSosp"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_ListaCampagneAttiveAll">
+            <soap:operation style="document" soapAction="execute_ListaCampagneAttiveAll"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestListaCampagneAttiveAll"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseListaCampagneAttiveAll"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_ListaCampagneAttiveByContract">
+            <soap:operation style="document" soapAction="execute_ListaCampagneAttiveByContract"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestListaCampagneAttiveByContract"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseListaCampagneAttiveByContract"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

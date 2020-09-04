@@ -1,0 +1,113 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_DB_CRM_migrationCodeFW_proxy_PS_WS_MDW_MIGRATION_CODE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/migrationCodeFW/wsdl/WS_MDW_SF_MIGRATION_CODE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/migrationCodeFW/wsdl/WS_MDW_SF_MIGRATION_CODE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/DB_CRM/migrationCodeFW/pipeline/PL_REST_MIGRATION_CODE" : {
+        "label" : "Pipeline/BlueBirdProject/DB_CRM/migrationCodeFW/pipeline/PL_REST_MIGRATION_CODE",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_MDW_SF_MIGRATION_CODE_FW" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MDW_SF_MIGRATION_CODE_FW",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/DB_CRM/migrationCodeFW/pipeline/PL_INTERNAL_VERIFY_MIGRATION_CODE" : {
+            "label" : "Pipeline/BlueBirdProject/DB_CRM/migrationCodeFW/pipeline/PL_INTERNAL_VERIFY_MIGRATION_CODE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/BlueBirdProject/Resources/PS_REST_MDW_SF_MIGRATION_CODE_FW" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MDW_SF_MIGRATION_CODE_FW",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/createRequest_Verify_COW_and_COS" : {
+                "label" : "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/createRequest_Verify_COW_and_COS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/DB_CRM/migrationCodeFW/businessService/BS_SQL_VERIFY_COW_AND_COS_FW" : {
+                "label" : "BusinessService/BlueBirdProject/DB_CRM/migrationCodeFW/businessService/BS_SQL_VERIFY_COW_AND_COS_FW",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/createResponse_VerifyMigrationCode" : {
+                "label" : "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/createResponse_VerifyMigrationCode",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/calculateControlCode" : {
+                "label" : "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/calculateControlCode",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/DB_CRM/migrationCodeFW/pipeline/PL_INTERNAL_GENERATE_MIGRATION_CODE" : {
+            "label" : "Pipeline/BlueBirdProject/DB_CRM/migrationCodeFW/pipeline/PL_INTERNAL_GENERATE_MIGRATION_CODE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/createResponse_GenerateMigrationCode" : {
+                "label" : "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/createResponse_GenerateMigrationCode",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/createRequest_Generate_COW_and_COS" : {
+                "label" : "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/createRequest_Generate_COW_and_COS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/migrationCodeFW/wsdl/WS_MDW_SF_MIGRATION_CODE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/migrationCodeFW/wsdl/WS_MDW_SF_MIGRATION_CODE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/DB_CRM/migrationCodeFW/businessService/BS_SQL_GENERATE_COW_AND_COS_FW" : {
+                "label" : "BusinessService/BlueBirdProject/DB_CRM/migrationCodeFW/businessService/BS_SQL_GENERATE_COW_AND_COS_FW",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/calculateControlCode" : {
+                "label" : "Xquery/BlueBirdProject/DB_CRM/migrationCodeFW/transformation/calculateControlCode",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

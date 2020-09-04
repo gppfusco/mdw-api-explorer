@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestLetteraPO" type="requestLetteraPOType" />
+  <xsd:element name="responseLetteraPO" type="responseLetteraPOType" />
+  
+  <xsd:complexType name="requestLetteraPOType">
+    <xsd:sequence>
+      <xsd:element name="billingAccount" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="tipoLettera" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="tipoInput" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="utente" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="abi" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="cab" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="numeroConto" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="causalePO" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:complexType name="responseLetteraPOType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

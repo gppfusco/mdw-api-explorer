@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetReward" type="requestGetRewardType"/>
+	<xsd:complexType name="requestGetRewardType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custId" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetReward" type="responseGetRewardType"/>
+	<xsd:complexType name="responseGetRewardType">
+		<xsd:sequence>
+			<xsd:element name="mdwResultCode" type="xsd:string"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string"/>
+			<xsd:element name="contracts">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="contract" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="contrId" type="xsd:string"/>
+									<xsd:element name="contrStartDate" type="xsd:string"/>
+									<xsd:element name="EligibilityFlg" type="flagType"/>
+									<xsd:element name="performedChecks" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="performedCheck" minOccurs="0" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="mdwType" type="xsd:string"/>
+															<xsd:element name="mdwPerformResult" type="xsd:string"/>
+															<xsd:element name="mdwPerformResultDescr" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="mdwPriceListName" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="mdwPriceListCategory" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="mdwPriceListSubCategory" type="xsd:string" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="mdwRewards" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="mdwReward" minOccurs="0" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="mdwRewardName" type="xsd:string"/>
+															<xsd:element name="mdwRewardCode" type="xsd:string"/>
+															<xsd:element name="mdwRewardDesc" type="xsd:string"/>
+															<xsd:element name="mdwRewardType" type="xsd:string"/>
+															<xsd:element name="mdwRewardSubType" type="xsd:string"/>
+															<xsd:element name="promoCode" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="promoName" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="mdwTopUpAmount" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="mdwFruictionExpirationDate" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="mdwRewardEndDate" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="mdwPackages" minOccurs="0">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="mdwPackage" minOccurs="0" maxOccurs="unbounded">
+																			<xsd:complexType>
+																				<xsd:sequence>
+																					<xsd:element name="mdwSMCCode" type="xsd:string"/>
+																					<xsd:element name="mdwPartNum" type="xsd:string"/>
+																					<xsd:element name="mdwType" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="mdwPackageId" type="xsd:string"/>
+																					<xsd:element name="mdwPackageName" type="xsd:string"/>
+																				</xsd:sequence>
+																			</xsd:complexType>
+																		</xsd:element>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestConfirmReward" type="requestConfirmRewardType"/>
+	<xsd:complexType name="requestConfirmRewardType">
+		<xsd:sequence>
+			<xsd:element name="mdwChannel" type="xsd:string"/>
+			<xsd:element name="mdwProvenance" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwAwardData">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="custId" type="xsd:string"/>
+						<xsd:element name="contrId" type="xsd:string"/>
+						<xsd:element name="mdwAwardCode" type="xsd:string"/>
+						<xsd:element name="mdwSmc" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwPackageId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwServiceRequestId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwAwardActivationData" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseConfirmReward" type="responseConfirmRewardType"/>
+	<xsd:complexType name="responseConfirmRewardType">
+		<xsd:sequence>
+			<xsd:element name="mdwResultCode" type="xsd:string"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="flagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

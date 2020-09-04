@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+ 
+  <!-- request -->
+  <xsd:element name="requestGetDettaglioOrdineFW" type="requestGetDettaglioOrdineFWType"/>
+  
+  <xsd:complexType name="requestGetDettaglioOrdineFWType">
+    <xsd:sequence>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="IdPDA" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfFieldsType">
+    <xsd:sequence>
+      <xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+ 
+  <xsd:complexType name="FieldType">
+    <xsd:sequence>
+      <xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <!-- response -->
+  <xsd:element name="responseGetDettaglioOrdineFW" type="responseGetDettaglioOrdineFWType" />
+  <xsd:complexType name="responseGetDettaglioOrdineFWType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ListOfDettaglio" type="ListOfDettaglioType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfDettaglioType">
+    <xsd:sequence>
+      <xsd:element name="Dettaglio" type="DettaglioType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="DettaglioType">
+    <xsd:sequence>
+      <xsd:element name="CodiceIstanza" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="CodiceProdotto" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="NomeProdotto" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="PrezzoProdotto" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="TipoPrezzo" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="TipoProdotto" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

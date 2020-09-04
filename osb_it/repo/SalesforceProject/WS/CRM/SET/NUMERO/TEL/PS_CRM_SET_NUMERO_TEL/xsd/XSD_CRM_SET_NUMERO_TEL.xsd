@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestSetNumeroTelType">
+		<xsd:sequence>
+			<xsd:element name="custId" type="xsd:string"  minOccurs="0"/>
+                        <xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custPhoneNumber" type="xsd:string"/>
+			<xsd:element name="mdwRetrieveType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwTrackingField"  minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwConnId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwOrigin" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSetNumeroTel" type="requestSetNumeroTelType"/>
+	<xsd:complexType name="responseSetNumeroTelType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseSetNumeroTel" type="responseSetNumeroTelType"/>
+</xsd:schema>

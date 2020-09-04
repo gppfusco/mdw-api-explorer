@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/bitwin/PS_CRM_LEGGI_DATI_CLIENTE",
+    "name" : "BitwinProject_proxy_PS_CRM_LEGGI_DATI_CLIENTE",
+    "localPath" : "osb_it\\repo\\BitwinProject\\PS_CRM_LEGGI_DATI_CLIENTE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/bitwin/PS_CRM_LEGGI_DATI_CLIENTE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BitwinProject/LeggiDatiCliente/xsd/XSD_LEGGI_DATI_CLIENTE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

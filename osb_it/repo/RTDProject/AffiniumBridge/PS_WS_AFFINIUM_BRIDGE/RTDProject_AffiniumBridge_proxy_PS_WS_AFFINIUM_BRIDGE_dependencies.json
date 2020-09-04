@@ -1,0 +1,57 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "RTDProject_AffiniumBridge_proxy_PS_WS_AFFINIUM_BRIDGE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/RTDProject/AffiniumBridge/wsdl/WS_AFFINIUM_BRIDGE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/RTDProject/AffiniumBridge/wsdl/WS_AFFINIUM_BRIDGE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "ServiceProvider/MDW_CDM/ServiceKeyProviders/Key_provider_affiniumBridge" : {
+        "label" : "ServiceProvider/MDW_CDM/ServiceKeyProviders/Key_provider_affiniumBridge",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/RTDProject/AffiniumBridge/pipeline/PL_WS_AFFINIUM_BRIDGE" : {
+        "label" : "Pipeline/RTDProject/AffiniumBridge/pipeline/PL_WS_AFFINIUM_BRIDGE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/RTDProject/AffiniumBridge/wsdl/WS_AFFINIUM_BRIDGE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/RTDProject/AffiniumBridge/wsdl/WS_AFFINIUM_BRIDGE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/RTDProject/AffiniumBridge/transformations/createResponseAffiniumBridge" : {
+            "label" : "Xquery/RTDProject/AffiniumBridge/transformations/createResponseAffiniumBridge",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/RTDProject/AffiniumBridge/transformations/createRequestAffiniumBridge" : {
+            "label" : "Xquery/RTDProject/AffiniumBridge/transformations/createRequestAffiniumBridge",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/RTDProject/AffiniumBridge/businessService/BS_WS_AFFIUNIUM_BRIDGE" : {
+            "label" : "BusinessService/RTDProject/AffiniumBridge/businessService/BS_WS_AFFIUNIUM_BRIDGE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

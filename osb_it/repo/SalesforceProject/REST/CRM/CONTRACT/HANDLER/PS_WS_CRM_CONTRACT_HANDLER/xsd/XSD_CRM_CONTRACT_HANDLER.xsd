@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetContract" type="requestGetContractType"/>
+	<xsd:element name="responseGetContract" type="responseGetContractType"/>
+	<xsd:element name="requestGetContractKeys" type="requestGetContractKeysType"/>
+	<xsd:element name="responseGetContractKeys" type="responseGetContractKeysType"/>
+	<xsd:complexType name="requestGetContractType">
+		<xsd:sequence>
+			<xsd:element name="contrIdE2E" type="contrIdE2EType" minOccurs="0"/>
+			<xsd:element name="mdwSMCcode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwContractHistory" type="FlagType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestGetContractKeysType">
+		<xsd:sequence>
+			<xsd:element name="bbVoiceNumber" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetContractKeysType">
+		<xsd:sequence>
+			<xsd:element name="getContractKeys" type="getContractKeysType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="getContractKeysType">
+		<xsd:sequence>
+			<xsd:element name="contractKeys" type="contractKeysType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="contractKeysType">
+		<xsd:sequence>
+			<xsd:element name="contractId" type="xsd:string"/>
+			<xsd:element name="e2eCode" type="xsd:string"/>
+			<xsd:element name="orderNumber" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetContractType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="allContracts" type="allContractsType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="allContractsType">
+		<xsd:sequence>
+			<xsd:element name="contract" type="contractType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="contractType">
+		<xsd:sequence>
+			<xsd:element name="mdwSubscriptionChannel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrIdE2E" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contractIdCRM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwParentId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwLocality" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwActivationDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrAddress" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrFloor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrZipCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwMagazineSendType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrSignDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrDueDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSendMagazineMode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSendMagazine" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwComplexBuilding" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwBundleFastweb" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="suspensionTypeBLB" type="xsd:string" minOccurs="0"/>
+			<!--CR157-->
+			<xsd:element name="contrToponomy" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrProvince" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwServiceEnvironment" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrStair" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrStreetNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrIndoor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSkyExtraSection" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwAnytimeDataConsent" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwAgeInLoyaltyDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwEligibilityLoyaltyDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwConversionTNBDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwReconversionTNBDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwEndTNBDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwAgeingTNB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSKYQBlackFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwTBYStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwFreeVision" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCeaseReason" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billCeaseRequestDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billCeaseDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSuspensionReason" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwChurnReason" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="startMigrationBB" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="mdwChurnChannel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwChurnRequestRegistrationDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billCeaseDateBilling" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrEgonMatchCodeSKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrEligibleProductBB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrEligibleTechnologyBB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrStreetAddressCoverage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrStreetAddressCoverageStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrStreetNumberCoverage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrStreetNumberCoverageStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrSiebelExternalId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrMatchCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrStatusDPParco" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwAntifraudMV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrContractType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrEmailTI" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrBundleActivationBundleDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrBundleCeaseBundleDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrBundleLineStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwImplantPhone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrBroadBrandEmail" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrBundlecontractStateBundle" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrMarketCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwPriceList" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billingComplexBuilding" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billMatchCodeDWI" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billEgonIdCivFatt" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billToponomy" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrBillingAccount" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrSendModeInvoice" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billInvoiceFormat" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billFavoriteCalledNumberBLB" type="xsd:string" minOccurs="0"/>
+			<!--CR57-->
+			<xsd:element name="billBillingZipCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billBillingStreetName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billBillingsStair" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billBillingLocality" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billBillingFloor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billBillingIndoor" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billBillingStreetNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billBillingProvince" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwFirstActivationCalcDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSkyExtraFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrCrmTbyFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrCrmLoyScore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrBookingPromoActivationDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSwapCampaignTypeP2P3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCaClosePrevData" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwIpTvRichStateMigration" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSwapSmcNum" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCrmProcessingFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCrmSingleFeedModeFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwExpectedSuspensionDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwLastSuspensionDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwConsumerAcountId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwPayerAccountId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdBillingAccountId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwContractTrait" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwDataNavigationVisionFlag" type="FlagType" minOccurs="0"/>
+			<xsd:element name="mdwCancellationDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwBuildingId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSubBuildingBLB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwServiceTypeBB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwWholesale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sellingFlag" type="xsd:string" minOccurs="0"/>
+			<!--CR194-->
+			<xsd:element name="eligibleTechnology" type="xsd:string" minOccurs="0"/>
+			<!--CR194-->
+			<xsd:element name="eligibleSpeed" type="xsd:string" minOccurs="0"/>
+			<!--CR194-->
+			<xsd:element name="eligibleWholesaler" type="xsd:string" minOccurs="0"/>
+			<!--CR194-->
+			<xsd:element name="trustedCustomerCluster" type="xsd:string" minOccurs="0"/>
+			<!--CT9-->
+			<xsd:element name="contractSubStatus" type="xsd:string" minOccurs="0"/>
+			<!--CT9-->
+			<xsd:element name="flagAlert" type="xsd:boolean" minOccurs="0"/>
+			<!--CT157-->
+			<xsd:element name="cancellationReason" type="xsd:string" minOccurs="0"/>
+			<!--Migrazione Canali-->
+			<xsd:element name="billEndDateRateIncrease" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billStartDateRateIncrease" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="billFlgEligibilityRateIncrease" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="listCategory" type="xsd:string" minOccurs="0"/>
+			<!--PRP 24 E 36-->
+			<xsd:element name="contractIntercom" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopDownPaymentContract" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="candidateHoldFlag" type="xsd:string" minOccurs="0"/>
+			<!--Migrazione Canali-->
+			<xsd:element name="vodConnectionStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="expireRecordingDate" type="xsd:date" minOccurs="0"/>
+			<!--END PRP 24 E 36-->
+			<xsd:element name="contrEgonIdCIV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrEgonIdStreet" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrEgonIdStreetCiv" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="listType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="consumer" type="consumerType" minOccurs="0"/>
+			<xsd:element name="payer" type="payerType" minOccurs="0"/>
+			<xsd:element name="takeoverData" type="takeoverDataType" minOccurs="0"/>
+			<xsd:element name="allMops" type="allMopsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="allMopsType">
+		<xsd:sequence>
+			<xsd:element name="mop" type="mopType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="consumerType">
+		<xsd:sequence>
+			<xsd:element name="consumerId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="consumerFirstName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="consumerLastName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="consumerFiscalCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="consumerCaPassword" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCrmMarketType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCrmShopStatistics" type="FlagType" minOccurs="0"/>
+			<xsd:element name="mdwCrmClientType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwPrivacythirdComFlag" type="FlagType" minOccurs="0"/>
+			<xsd:element name="mdwPrivacyStatisticsFlag" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="payerType">
+		<xsd:sequence>
+			<xsd:element name="custPayerId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwMigration28ggData" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSkyQConsensus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PayerName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PayerLastName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PayerFiscalCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCaPassword" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCrmMarketType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCrmShopStatistics" type="FlagType" minOccurs="0"/>
+			<xsd:element name="mdwCrmClientType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCrmPrivacyAnalisysPrefFlag" type="FlagType" minOccurs="0"/>
+			<xsd:element name="mdwPrivacythirdComFlag" type="FlagType" minOccurs="0"/>
+			<xsd:element name="mdwPrivacyDtFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwPrivacyStatisticsFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwLastDateSubcriptionSkyExtra" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mopType">
+		<xsd:sequence>
+			<xsd:element name="mopId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopBillingPeriodicitySKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopPaymentMethod" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopPaymentStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopEffectiveDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopAccountHolder" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopCardType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopCardNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopSubscriberName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopSubscriberFiscalCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopBankAccountNum" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopIBAN" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopABI" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopCAB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopCIN" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopEndValidatyDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopDomiciliationStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopExpYear" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopExpMonth" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopBank" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopAgencyBank" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mopAgencyBankAddr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSemaphore" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="takeoverDataType">
+		<xsd:sequence>
+			<xsd:element name="contrIdTakeover" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="FlagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="contrIdE2EType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

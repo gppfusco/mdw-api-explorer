@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestExtraGetDatiLoyalty" type="requestExtraGetDatiLoyaltyType"/>
+	<xsd:complexType name="requestExtraGetDatiLoyaltyType">
+		<xsd:sequence>
+			<xsd:element name="CodiceCliente" type="stringNotNullType" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseExtraGetDatiLoyalty" type="responseExtraGetDatiLoyaltyType"/>
+	<xsd:complexType name="responseExtraGetDatiLoyaltyType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="tid" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="DataIscrizione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="DataUscita" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="DataAgeingLoyalty" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="DataEleggibilitaLoyalty" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="AgeingLoyalty" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Fascia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestExtraStoricoLoyalty" type="requestExtraStoricoLoyaltyType"/>
+	<xsd:complexType name="requestExtraStoricoLoyaltyType">
+		<xsd:sequence>
+			<xsd:element name="CodiceCliente" type="stringNotNullType" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseExtraStoricoLoyalty" type="responseExtraStoricoLoyaltyType"/>
+	<xsd:complexType name="responseExtraStoricoLoyaltyType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="tid" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="StoricoProgramma" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Programma" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="DataIscrizione" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="DataUscita" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                                                                        <xsd:element name="Canale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                                                                        <xsd:element name="Cliente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                                                                        <xsd:element name="CodiceCliente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                                                                        <xsd:element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                                                                        <xsd:element name="Azione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                                                                    
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="EventiLoyalty" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="EventoLoyalty" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="TipoEvento" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="SottoTipoEvento" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="CodiceEvento" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="DescrizioneEvento" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="TipoElaborazione" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="Canale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="DataEvento" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="AgeingLoyalty" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="Fascia" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="DataAgeingLoyalty" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="DataElegibilityLoyalty" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+								    <xsd:element name="FuoriProgramma" type="xsd:string" maxOccurs="1"/>
+                                                                </xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Rewards" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Reward" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="CodicePremio" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="DataAdesione" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="DataAttivazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="DataPrevistaAttivazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="NomePremio" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="StatoPremio" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="stringNotNullType">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

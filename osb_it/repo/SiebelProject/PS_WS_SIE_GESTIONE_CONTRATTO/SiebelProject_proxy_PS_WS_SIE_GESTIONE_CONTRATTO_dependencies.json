@@ -1,0 +1,22 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_proxy_PS_WS_SIE_GESTIONE_CONTRATTO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "ProxyService/SiebelProject/proxy/PS_WS_CRM_SIE_CONTR_SYNC" : {
+        "label" : "ProxyService/SiebelProject/proxy/PS_WS_CRM_SIE_CONTR_SYNC",
+        "properties" : { },
+        "successors" : { }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GestioneContratto/wsdl/WS_SIE_GESTIONE_CONTRATTO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GestioneContratto/wsdl/WS_SIE_GESTIONE_CONTRATTO",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

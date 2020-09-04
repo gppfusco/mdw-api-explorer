@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/PGS_GESTIONE_TRACCIAMENTO" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_PGS_GESTIONE_TRACCIAMENTO" targetNamespace="http://www.skytv.it/mdw/service/PGS_GESTIONE_TRACCIAMENTO">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_PGS_GESTIONE_TRACCIAMENTO.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestWebMailTracking_Message">
+		<wsdl:part name="part_requestWebMailTracking" element="inp1:requestWebMailTracking"/>
+	</wsdl:message>
+	<wsdl:message name="responseWebMailTracking_Message">
+		<wsdl:part name="part_responseWebMailTracking" element="inp1:responseWebMailTracking"/>
+	</wsdl:message>
+	<wsdl:message name="header_Message">
+		<wsdl:part name="part_Header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:message name="requestDMSTracking_Message">
+		<wsdl:part name="part_requestDMSTracking" element="inp1:requestDMSTracking"/>
+	</wsdl:message>
+	<wsdl:message name="responseDMSTracking_Message">
+		<wsdl:part name="part_responseDMSTracking" element="inp1:responseDMSTracking"/>
+	</wsdl:message>
+	<wsdl:message name="requestSMSTracking_Message">
+		<wsdl:part name="part_requestSMSTracking" element="inp1:requestSMSTracking"/>
+	</wsdl:message>
+	<wsdl:message name="responseSMSTracking_Message">
+		<wsdl:part name="part_responseSMSTracking" element="inp1:responseSMSTracking"/>
+	</wsdl:message>
+	<wsdl:portType name="PGS_GESTIONE_TRACCIAMENTO_ptt">
+		<wsdl:operation name="execute_WebMailTracking">
+			<wsdl:input message="tns:requestWebMailTracking_Message"/>
+			<wsdl:output message="tns:responseWebMailTracking_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_DMSTracking">
+			<wsdl:input message="tns:requestDMSTracking_Message"/>
+			<wsdl:output message="tns:responseDMSTracking_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SMSTracking">
+			<wsdl:input message="tns:requestSMSTracking_Message"/>
+			<wsdl:output message="tns:responseSMSTracking_Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PGS_GESTIONE_TRACCIAMENTO_bind" type="tns:PGS_GESTIONE_TRACCIAMENTO_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_WebMailTracking">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/PGS_GESTIONE_TRACCIAMENTO/execute_WebMailTracking" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestWebMailTracking" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseWebMailTracking" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_DMSTracking">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/PGS_GESTIONE_TRACCIAMENTO/execute_DMSTracking" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestDMSTracking" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseDMSTracking" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SMSTracking">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/PGS_GESTIONE_TRACCIAMENTO/execute_SMSTracking" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestSMSTracking" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSMSTracking" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

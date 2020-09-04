@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestAttivazioneDownloadType">
+		<xsd:sequence>
+			<xsd:element name="Account" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MatricolaSTB" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MatricolaSMC" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TelcoOpCLT" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TelcoOpTech" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestAttivazioneDownload" type="requestAttivazioneDownloadType"/>
+	<xsd:element name="responseAttivazioneDownload" type="basicResponseType"/>
+	<xsd:complexType name="basicResponseType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+       
+              <xsd:simpleType name="mandatoryStringType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30"/>
+		</xsd:restriction>
+              </xsd:simpleType>
+              
+      
+              
+              <xsd:simpleType name="mandatoryStatoMigrazione" final="restriction">
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="INCORSO" />
+                  <xsd:enumeration value="MIGRATO" />
+                  <xsd:enumeration value="MIGRAZIONE KO" />
+                </xsd:restriction>
+              </xsd:simpleType>
+ <xsd:complexType name="requestMigrazioneSOIPvsHIPtype">
+  <xsd:sequence>
+   <xsd:element name="Account" type="mandatoryStringType"/>
+   <xsd:element name="MatricolaSTB" type="mandatoryStringType"/>
+   <xsd:element name="MatricolaSMC" type="mandatoryStringType"/>
+   <xsd:element name="DataMigrazione" type="xsd:string"  minOccurs="0"/>
+   <xsd:element name="StatoMigrazione" type="mandatoryStatoMigrazione"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="requestMigrazioneSOIPvsHIP" type="requestMigrazioneSOIPvsHIPtype"/>
+ <xsd:complexType name="responsetMigrazioneSOIPvsHIPType">
+  <xsd:sequence>
+    <xsd:element name="DescrizioneEsito" type="xsd:string"/>
+   <xsd:element name="Esito" type="xsd:string"/>
+   <xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:element name="responseMigrazioneSOIPvsHIP" type="responsetMigrazioneSOIPvsHIPType"/>
+</xsd:schema>

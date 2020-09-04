@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by ?Carlo (Carlo) -->
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_TIBCO_SBL_ALIGNMENT" targetNamespace="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_TIBCO_SBL_ALIGNMENT.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestCessaOrderTIBCO_message">
+		<wsdl:part name="part_requestCessaOrderTIBCO" element="inp1:requestCessaOrderTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseCessaOrderTIBCO_message">
+		<wsdl:part name="part_responseCessaOrderTIBCO" element="inp1:responseCessaOrderTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="requestSospendiOrderTIBCO_message">
+		<wsdl:part name="part_requestSospendiOrderTIBCO" element="inp1:requestSospendiOrderTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseSospendiOrderTIBCO_message">
+		<wsdl:part name="part_responseSospendiOrderTIBCO" element="inp1:responseSospendiOrderTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="requestDisdettaCessazioneTIBCO_message">
+		<wsdl:part name="part_requestDisdettaCessazioneTIBCO" element="inp1:requestDisdettaCessazioneTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseDisdettaCessazioneTIBCO_message">
+		<wsdl:part name="part_responseDisdettaCessazioneTIBCO" element="inp1:responseDisdettaCessazioneTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="requestSwapScartTIBCO_message">
+		<wsdl:part name="part_requestSwapScartTIBCO" element="inp1:requestSwapScartTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseSwapScartTIBCO_message">
+		<wsdl:part name="part_responseSwapScartTIBCO" element="inp1:responseSwapScartTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="requestRilascioDecaTIBCO_message">
+		<wsdl:part name="part_requestRilascioDecaTIBCO" element="inp1:requestRilascioDecaTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseRilascioDecaTIBCO_message">
+		<wsdl:part name="part_responseRilascioDecaTIBCO" element="inp1:responseRilascioDecaTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="requestMovimentazioneLogisticaTIBCO_message">
+		<wsdl:part name="part_requestMovimentazioneLogisticaTIBCO" element="inp1:requestMovimentazioneLogisticaTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseMovimentazioneLogisticaTIBCO_message">
+		<wsdl:part name="part_responseMovimentazioneLogisticaTIBCO" element="inp1:responseMovimentazioneLogisticaTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="requestAutorizzazioneSoasTIBCO_message">
+		<wsdl:part name="part_requestAutorizzazioneSoasTIBCO" element="inp1:requestAutorizzazioneSoasTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseAutorizzazioneSoasTIBCO_message">
+		<wsdl:part name="part_responseAutorizzazioneSoasTIBCO" element="inp1:responseAutorizzazioneSoasTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="requestTracciamentoRetailTIBCO_message">
+		<wsdl:part name="part_requestTracciamentoRetailTIBCO" element="inp1:requestTracciamentoRetailTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="responseTracciamentoRetailTIBCO_message">
+		<wsdl:part name="part_responseTracciamentoRetailTIBCO" element="inp1:responseTracciamentoRetailTIBCO"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="TIBCO_SBL_ALIGNMENT_ptt">
+		<wsdl:operation name="execute_CessaOrderTIBCO">
+			<wsdl:input message="tns:requestCessaOrderTIBCO_message"/>
+			<wsdl:output message="tns:responseCessaOrderTIBCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SospendiOrderTIBCO">
+			<wsdl:input message="tns:requestSospendiOrderTIBCO_message"/>
+			<wsdl:output message="tns:responseSospendiOrderTIBCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_DisdettaCessazioneTIBCO">
+			<wsdl:input message="tns:requestDisdettaCessazioneTIBCO_message"/>
+			<wsdl:output message="tns:responseDisdettaCessazioneTIBCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SwapScartTIBCO">
+			<wsdl:input message="tns:requestSwapScartTIBCO_message"/>
+			<wsdl:output message="tns:responseSwapScartTIBCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_RilascioDecaTIBCO">
+			<wsdl:input message="tns:requestRilascioDecaTIBCO_message"/>
+			<wsdl:output message="tns:responseRilascioDecaTIBCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_MovimentazioneLogisticaTIBCO">
+			<wsdl:input message="tns:requestMovimentazioneLogisticaTIBCO_message"/>
+			<wsdl:output message="tns:responseMovimentazioneLogisticaTIBCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_AutorizzazioneSoasTIBCO">
+			<wsdl:input message="tns:requestAutorizzazioneSoasTIBCO_message"/>
+			<wsdl:output message="tns:responseAutorizzazioneSoasTIBCO_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_TracciamentoRetailTIBCO">
+			<wsdl:input message="tns:requestTracciamentoRetailTIBCO_message"/>
+			<wsdl:output message="tns:responseTracciamentoRetailTIBCO_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="TIBCO_SBL_ALIGNMENT_pttSOAP11Binding" type="tns:TIBCO_SBL_ALIGNMENT_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_CessaOrderTIBCO">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT/execute_CessaOrderTIBCO" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestCessaOrderTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseCessaOrderTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_DisdettaCessazioneTIBCO">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT/execute_DisdettaCessazioneTIBCO" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestDisdettaCessazioneTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseDisdettaCessazioneTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SospendiOrderTIBCO">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT/execute_SospendiOrderTIBCO" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestSospendiOrderTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSospendiOrderTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SwapScartTIBCO">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT/execute_SwapScartTIBCO" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestSwapScartTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSwapScartTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_RilascioDecaTIBCO">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT/execute_RilascioDecaTIBCO" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestRilascioDecaTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseRilascioDecaTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_MovimentazioneLogisticaTIBCO">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT/execute_MovimentazioneLogisticaTIBCO" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestMovimentazioneLogisticaTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseMovimentazioneLogisticaTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_AutorizzazioneSoasTIBCO">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT/execute_AutorizzazioneSoasTIBCO" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestAutorizzazioneSoasTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseAutorizzazioneSoasTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_TracciamentoRetailTIBCO">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/TIBCO_SBL_ALIGNMENT/execute_TracciamentoRetailTIBCO" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestTracciamentoRetailTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseTracciamentoRetailTIBCO" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

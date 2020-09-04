@@ -1,0 +1,46 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_SBL_DELIVERY_INFO"
+     targetNamespace="http://www.skytv.it/mdw/service/SBL_DELIVERY_INFO"
+     xmlns:tns="http://www.skytv.it/mdw/service/SBL_DELIVERY_INFO"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SBL_DELIVERY_INFO.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestElapsedConsegnaSkyQMessage">
+        <wsdl:part name="part_requestElapsedConsegnaSkyQ" element="inp1:requestElapsedConsegnaSkyQ"/>
+    </wsdl:message>
+    <wsdl:message name="responseElapsedConsegnaSkyQMessage">
+        <wsdl:part name="part_responseElapsedConsegnaSkyQ" element="inp1:responseElapsedConsegnaSkyQ"/>
+    </wsdl:message>
+    <wsdl:message name="Header_Message">
+    <wsdl:part name="part_HeaderMessage" element="inp1:Header"/>
+  </wsdl:message>
+    <wsdl:portType name="ptt_SBL_DELIVERY_INFO">
+        <wsdl:operation name="execute_ElapsedConsegnaSkyQ">
+            <wsdl:input message="tns:requestElapsedConsegnaSkyQMessage"/>
+            <wsdl:output message="tns:responseElapsedConsegnaSkyQMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ptt_SBL_DELIVERY_INFOSOAP11Binding" type="tns:ptt_SBL_DELIVERY_INFO">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_ElapsedConsegnaSkyQ">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/SBL_DELIVERY_INFO/execute_ElapsedConsegnaSkyQ"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestElapsedConsegnaSkyQ"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseElapsedConsegnaSkyQ"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestSendPrint" type="requestSendPrintType"/>
+  <xsd:element name="responseSendPrint" type="responseSendPrintType"/>
+  
+  
+  <!-- TYPES --> 
+  <xsd:complexType name="requestSendPrintType">
+    <xsd:sequence>
+      <xsd:element name="input">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="canale" type="xsd:string"/>
+            <xsd:element name="azione" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ConnId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="TransId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="area" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="id_area" type="xsd:string"/>
+                  <xsd:element name="entita" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="chiave" type="xsd:string"/>
+                        <xsd:element name="valore" type="xsd:string"/>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="sottoarea" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="id_sottoarea" type="xsd:string"/>
+                        <xsd:element name="entita" maxOccurs="unbounded">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="chiave" type="xsd:string"/>
+                              <xsd:element name="valore" type="xsd:string"/>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:complexType name="responseSendPrintType">
+    <xsd:sequence>
+      <xsd:element name="Ack" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

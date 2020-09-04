@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestLetturaStoricoMVConnected" type="requestLetturaStoricoMVConnectedType"/>
+	<xsd:complexType name="requestLetturaStoricoMVConnectedType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="ListOfFileds" type="ListOfFiledsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseLetturaStoricoMVConnected" type="responseLetturaStoricoMVConnectedType"/>
+	<xsd:complexType name="responseLetturaStoricoMVConnectedType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="ListOfStorico" type="ListOfStoricoType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestScritturaStoricoMVConnected" type="requestScritturaStoricoMVConnectedType"/>
+	<xsd:complexType name="requestScritturaStoricoMVConnectedType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="DataEsecuzione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Action" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ValoreNuovo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ValoreVecchio" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CanaleAction" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="LoginUtente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfFileds" type="ListOfFiledsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseScritturaStoricoMVConnected" type="responseScritturaStoricoMVConnectedType"/>
+	<xsd:complexType name="responseScritturaStoricoMVConnectedType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfStoricoType">
+		<xsd:sequence>
+			<xsd:element name="Storico" type="StoricoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StoricoType">
+		<xsd:sequence>
+			<xsd:element name="Action" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CanaleAction" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="DataEsecuzione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="LoginUtente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="UltimoStatoFlg" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ValoreNuovo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ValoreVecchio" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfFileds" type="ListOfFiledsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfFiledsType">
+		<xsd:sequence>
+			<xsd:element name="Field" type="FiledType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FiledType">
+		<xsd:sequence>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

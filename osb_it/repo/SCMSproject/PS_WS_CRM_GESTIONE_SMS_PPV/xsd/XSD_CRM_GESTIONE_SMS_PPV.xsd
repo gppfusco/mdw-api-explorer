@@ -1,0 +1,108 @@
+<xsd:schema targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data">
+  
+  <!-- ELEMENTS -->
+  <xsd:element name="requestReadSMS" type="requestReadSMSType"/>
+  <xsd:element name="responseReadSMS" type="responseReadSMSType"/>
+  <xsd:element name="requestRegistration" type="requestRegistrationType"/>
+  <xsd:element name="responseRegistration" type="responseRegistrationType"/>
+  <xsd:element name="requestDeregistration" type="requestDeregistrationType"/>
+  <xsd:element name="responseDeregistration" type="responseDeregistrationType"/>
+  <xsd:element name="requestReadInfoRegistration" type="requestReadInfoRegistrationType"/>
+  <xsd:element name="responseReadInfoRegistration" type="responseReadInfoRegistrationType"/>
+    
+  <!-- TYPES -->
+  <xsd:complexType name="requestReadInfoRegistrationType">
+    <xsd:sequence>
+      <xsd:element name="box" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+  
+  <xsd:complexType name="responseReadInfoRegistrationType">
+    <xsd:sequence>
+        <xsd:element name="mdwResultId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="mdwResultMessage" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="ListOfPhones" type="ListOfPhonesType" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfPhonesType">
+    <xsd:sequence>
+      <xsd:element name="phone" type="phoneType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="phoneType">
+    <xsd:sequence>
+      <xsd:element name="phoneNumber" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="enabledFlag" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="registrationDate" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="responseFlag" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestDeregistrationType">
+    <xsd:sequence>
+      <xsd:element name="phoneNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="smsType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="OPPVSource" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SMSRowId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseDeregistrationType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwResultMessage" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestRegistrationType">
+    <xsd:sequence>
+      <xsd:element name="phoneNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="box" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="boxType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="OPPVSource" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SMSRowId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseRegistrationType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwResultMessage" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestReadSMSType">
+    <xsd:sequence>
+      <xsd:element name="box" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="fromDate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="toDate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="responseReadSMSType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwResultMessage" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ListOfSMS" type="ListOfSMSType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfSMSType">
+    <xsd:sequence>
+      <xsd:element name="SMS" type="SMSType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="SMSType">
+    <xsd:sequence>
+      <xsd:element name="messageText" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="messageType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="phoneNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="messageStatus" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="messageDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

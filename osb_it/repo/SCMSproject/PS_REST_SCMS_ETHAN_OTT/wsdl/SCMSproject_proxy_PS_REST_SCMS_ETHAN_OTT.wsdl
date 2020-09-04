@@ -1,0 +1,102 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="PS_REST_SCMS_ETHAN"
+     targetNamespace="http://xmlns.oracle.com/OSBSvil/SCMSproject/PS_REST_SCMS_ETHAN"
+     xmlns:tns="http://xmlns.oracle.com/OSBSvil/SCMSproject/PS_REST_SCMS_ETHAN"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:inp2="http://www.skytv.it/mdw/data"
+     xmlns:inp3="http://www.skytv.it/mdw/json/errors"
+     xmlns:inp4="http://www.skytv.it/mdw/json/errors"
+    >
+    <plnk:partnerLinkType name="PS_REST_SCMS_ETHAN">
+        <plnk:role name="PS_REST_SCMS_ETHANProvider" portType="tns:PS_REST_SCMS_ETHAN_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SCMSproject/RemoteBooking/xsd/XSD_SCMS_REMOTE_BOOKING.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SCMSproject/GestioneDevice/xsd/XSD_CRM_GESTIONE_DEVICE.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/json/errors" schemaLocation="../../MDW_CDM/EnterpriseServices/SCMSproject/RemoteBooking/xsd/XSD_SCMS_REMOTE_BOOKING_JSON_ERRORS.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/json/errors" schemaLocation="../../MDW_CDM/EnterpriseServices/SCMSproject/GestioneDevice/xsd/XSD_CRM_GESTIONE_DEVICE_JSON_ERRORS.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="REMBOK_inputMessage">
+        <wsdl:part name="request" element="inp1:requestJsonREMBOK"/>
+    </wsdl:message>
+    <wsdl:message name="REMBOK_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseJsonREMBOK"/>
+    </wsdl:message>
+    <wsdl:message name="REMBOK_fault500REMBOKMessage">
+        <wsdl:part name="fault_fault500REMBOK" element="inp3:fault500REMBOK"/>
+    </wsdl:message>
+    <wsdl:message name="REMBOK_fault504REMBOKMessage">
+        <wsdl:part name="fault_fault504REMBOK" element="inp3:fault504REMBOK"/>
+    </wsdl:message>
+    <wsdl:message name="REMBOK_fault400REMBOKMessage">
+        <wsdl:part name="fault_fault400REMBOK" element="inp3:fault400REMBOK"/>
+    </wsdl:message>
+    <wsdl:message name="REMBOK_fault404REMBOKMessage">
+        <wsdl:part name="fault_fault404REMBOK" element="inp3:fault404REMBOK"/>
+    </wsdl:message>
+    <wsdl:message name="AQEDCM_inputMessage">
+        <wsdl:part name="request" element="inp1:requestJsonAQEDCM"/>
+    </wsdl:message>
+    <wsdl:message name="AQEDCM_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseJsonAQEDCM"/>
+    </wsdl:message>
+    <wsdl:message name="AQEDCM_fault500AQEDCMMessage">
+        <wsdl:part name="fault_fault500AQEDCM" element="inp3:fault500AQEDCM"/>
+    </wsdl:message>
+    <wsdl:message name="AQEDCM_fault400AQEDCMMessage">
+        <wsdl:part name="fault_fault400AQEDCM" element="inp3:fault400AQEDCM"/>
+    </wsdl:message>
+    <wsdl:message name="AQEDCM_fault504AQEDCMMessage">
+        <wsdl:part name="fault_fault504AQEDCM" element="inp3:fault504AQEDCM"/>
+    </wsdl:message>
+    <wsdl:portType name="PS_REST_SCMS_ETHAN_ptt">
+        <wsdl:operation name="REMBOK">
+            <wsdl:input message="tns:REMBOK_inputMessage"/>
+            <wsdl:output message="tns:REMBOK_outputMessage"/>
+            <wsdl:fault name="fault500REMBOK" message="tns:REMBOK_fault500REMBOKMessage"/>
+            <wsdl:fault name="fault504REMBOK" message="tns:REMBOK_fault504REMBOKMessage"/>
+            <wsdl:fault name="fault400REMBOK" message="tns:REMBOK_fault400REMBOKMessage"/>
+            <wsdl:fault name="fault404REMBOK" message="tns:REMBOK_fault404REMBOKMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="AQEDCM">
+            <wsdl:input message="tns:AQEDCM_inputMessage"/>
+            <wsdl:output message="tns:AQEDCM_outputMessage"/>
+            <wsdl:fault name="fault500AQEDCM" message="tns:AQEDCM_fault500AQEDCMMessage"/>
+            <wsdl:fault name="fault400AQEDCM" message="tns:AQEDCM_fault400AQEDCMMessage"/>
+            <wsdl:fault name="fault504AQEDCM" message="tns:AQEDCM_fault504AQEDCMMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PS_REST_SCMS_ETHAN_ptt-binding" type="tns:PS_REST_SCMS_ETHAN_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="REMBOK">
+            <soap:operation soapAction="REMBOK"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AQEDCM">
+            <soap:operation soapAction="AQEDCM"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

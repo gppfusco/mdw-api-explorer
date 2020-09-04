@@ -1,0 +1,128 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OM_orderitem_proxy_PS_REST_OM_ORDERITEM",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDERITEM" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDERITEM",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/OM/orderitem/pipeline/PL_OM_ORDERITEM" : {
+        "label" : "Pipeline/BlueBirdProject/OM/orderitem/pipeline/PL_OM_ORDERITEM",
+        "properties" : { },
+        "successors" : {
+          "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDERITEM" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDERITEM",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OM/orderitem/pipeline/PL_OM_ORDERITEM_CPEFirstBoot" : {
+            "label" : "Pipeline/BlueBirdProject/OM/orderitem/pipeline/PL_OM_ORDERITEM_CPEFirstBoot",
+            "properties" : { },
+            "successors" : {
+              "Xquery/OMProject/transformation/createRequestSoapHeaderTibco" : {
+                "label" : "Xquery/OMProject/transformation/createRequestSoapHeaderTibco",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OM/orderitem/transformation/createRequest_BS_CPEFirstBoot" : {
+                "label" : "Xquery/BlueBirdProject/OM/orderitem/transformation/createRequest_BS_CPEFirstBoot",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/OM/WS_OSS_TIBCO_NOTIFY_PROVISIONING/Notify_Provisioning" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/OM/WS_OSS_TIBCO_NOTIFY_PROVISIONING/Notify_Provisioning",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/BlueBirdProject/OM/orderitem/pipeline/PL_OM_ORDERITEM_CPEFirstBoot_toSF" : {
+                "label" : "Pipeline/BlueBirdProject/OM/orderitem/pipeline/PL_OM_ORDERITEM_CPEFirstBoot_toSF",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/BlueBirdProject/OM/orderitem/transformation/createRequest_BS_EJB_SF_CPEfirstBoot_AltroOperatore" : {
+                    "label" : "Xquery/BlueBirdProject/OM/orderitem/transformation/createRequest_BS_EJB_SF_CPEfirstBoot_AltroOperatore",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDERITEM" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDERITEM",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL" : {
+                    "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL",
+                    "properties" : { },
+                    "successors" : {
+                      "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                        "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+                        "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+                        "properties" : { },
+                        "successors" : {
+                          "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                            "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                            "properties" : {
+                              "nodeType" : "BusinessService"
+                            },
+                            "successors" : { }
+                          },
+                          "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                            "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                            "properties" : { },
+                            "successors" : { }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDERITEM" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDERITEM",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/OM/notifiyProvisioning/businessservice/BS_WS_OM_NOTIFY_PROVISIONING" : {
+                "label" : "BusinessService/BlueBirdProject/OM/notifiyProvisioning/businessservice/BS_WS_OM_NOTIFY_PROVISIONING",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

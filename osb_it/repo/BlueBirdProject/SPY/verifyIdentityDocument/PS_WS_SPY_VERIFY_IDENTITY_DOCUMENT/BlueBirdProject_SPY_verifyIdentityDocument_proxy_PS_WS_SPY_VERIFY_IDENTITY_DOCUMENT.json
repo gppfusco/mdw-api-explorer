@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/spy/identitydocument/WS_SPY_VERIFY_IDENTITY_DOCUMENT",
+    "name" : "BlueBirdProject_SPY_verifyIdentityDocument_proxy_PS_WS_SPY_VERIFY_IDENTITY_DOCUMENT",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\SPY\\verifyIdentityDocument\\PS_WS_SPY_VERIFY_IDENTITY_DOCUMENT",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/spy/identitydocument/WS_SPY_VERIFY_IDENTITY_DOCUMENT?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/SPY/verifyIdentityDocument/xsd/XSD_SPY_VERIFY_IDENTITY_DOCUMENT",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org"
+            targetNamespace="http://www.example.org" elementFormDefault="qualified">
+  
+  <xsd:element name="requestDynamicElements" type="requestDynamicElementsType" />
+  
+  <xsd:complexType name="requestDynamicElementsType">
+    <xsd:sequence>
+      <xsd:element name="products" type="productsType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="productsType">
+    <xsd:sequence>
+      <xsd:element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="ReitekCode" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="ProductCode" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Attributes" type="AttributesType" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="AttributesType">
+    <xsd:sequence>
+      <xsd:any />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

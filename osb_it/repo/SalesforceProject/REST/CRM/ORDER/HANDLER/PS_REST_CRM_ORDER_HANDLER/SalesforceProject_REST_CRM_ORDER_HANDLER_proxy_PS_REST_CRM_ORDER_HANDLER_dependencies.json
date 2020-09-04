@@ -1,0 +1,58 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_ORDER_HANDLER_proxy_PS_REST_CRM_ORDER_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_ORDER_HANDLER" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_ORDER_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/REST_CRM_ORDER_HANDLER/pipeline/PL_ROUTING_ORDER_HANDLER" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_ORDER_HANDLER/pipeline/PL_ROUTING_ORDER_HANDLER",
+        "properties" : { },
+        "successors" : {
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_ORDER_HANDLER" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_ORDER_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/REST_CRM_ORDER_HANDLER/pipeline/PL_INTERNAL_DELETE_ORDERS_ENQUEUE" : {
+            "label" : "Pipeline/SalesforceProject/REST_CRM_ORDER_HANDLER/pipeline/PL_INTERNAL_DELETE_ORDERS_ENQUEUE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SalesforceProject/Resources/PS_REST_CRM_ORDER_HANDLER" : {
+                "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_ORDER_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SalesforceProject/REST_CRM_ORDER_HANDLER/businessService/BS_JMS_ORDER_HANDLER_ENQUEUE" : {
+                "label" : "BusinessService/SalesforceProject/REST_CRM_ORDER_HANDLER/businessService/BS_JMS_ORDER_HANDLER_ENQUEUE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

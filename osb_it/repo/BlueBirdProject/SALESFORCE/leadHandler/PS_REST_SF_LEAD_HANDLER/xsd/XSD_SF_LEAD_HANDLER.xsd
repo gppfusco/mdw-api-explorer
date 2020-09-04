@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestRetrieveLead" type="requestRetrieveLeadType"/>
+	<xsd:element name="requestCreateLead" type="requestCreateLeadType"/>
+	<xsd:element name="requestUpdateInterest" type="servicesOfInterestType"/>
+	<xsd:element name="requestUpdatePrivacy" type="privaciesType"/>
+	<xsd:element name="responseCreateLead" type="leadType"/>
+	<xsd:element name="responseRetrieveLead" type="resultLeadType"/>
+	<xsd:complexType name="requestRetrieveLeadType">
+		<xsd:sequence>
+			<xsd:element name="tokenId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flgCustId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultLeadType">
+		<xsd:sequence>
+			<xsd:element name="lead" type="leadType" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="leadType">
+		<xsd:sequence>
+			<xsd:element name="leadId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="city" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="egonId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="email" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="postalCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="primaryContact" type="contactType" minOccurs="1"/>
+			<xsd:element name="privacies" type="privaciesType" minOccurs="1"/>
+			<xsd:element name="province" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="secondaryContact" type="contactType" minOccurs="0"/>
+			<xsd:element name="servicesOfInterest" type="servicesOfInterestType" minOccurs="0"/>
+			<xsd:element name="sourceChannel" type="sourceChannelType" minOccurs="1"/>
+			<xsd:element name="staircaseId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="street" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="streetNumber" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="surname" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="telephoneNumber" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mobilephoneNumber" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flgTokenConsumed" type="xsd:boolean" minOccurs="1"/>
+			<xsd:element name="tokenId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="clienteDTT" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestCreateLeadType">
+		<xsd:sequence>
+			<xsd:element name="city" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="egonId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="email" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="postalCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="primaryContact" type="contactType" minOccurs="0"/>
+			<xsd:element name="privacies" type="privaciesType" minOccurs="0"/>
+			<xsd:element name="province" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="secondaryContact" type="contactType" minOccurs="0"/>
+			<xsd:element name="servicesOfInterest" type="servicesOfInterestType" minOccurs="0"/>
+			<xsd:element name="sourceChannel" type="sourceChannelType" minOccurs="1"/>
+			<xsd:element name="staircaseId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="street" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="streetNumber" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="surname" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="telephoneNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mobilephoneNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="clienteDTT" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="servicesOfInterestType">
+		<xsd:sequence>
+			<xsd:element name="service" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="privaciesType">
+		<xsd:sequence>
+			<xsd:element name="privacyPreferencesAnalysis" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="privacyPrimaryContact" type="xsd:boolean" minOccurs="0"/>
+			<xsd:element name="privacySecondaryContact" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:simpleType name="contactType">
+                <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="SMS"/>
+                        <xsd:enumeration value="EMAIL"/>
+                        <xsd:enumeration value="TELEFONO"/>
+                        <xsd:enumeration value="BMAIL"/>
+                        <xsd:enumeration value="CARTACEO"/>
+                        <xsd:enumeration value="NOTIFICHE"/>
+                        <xsd:enumeration value="CELLULARE"/>
+                </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:simpleType name="sourceChannelType">
+                <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="WSC"/>
+                        <xsd:enumeration value="AOL"/>
+                        <xsd:enumeration value="CRM"/>
+                        <xsd:enumeration value="IVR"/>
+                </xsd:restriction>
+        </xsd:simpleType>
+</xsd:schema>

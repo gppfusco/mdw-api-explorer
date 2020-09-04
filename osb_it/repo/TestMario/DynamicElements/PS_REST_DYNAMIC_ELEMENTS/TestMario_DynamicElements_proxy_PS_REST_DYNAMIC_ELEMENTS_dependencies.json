@@ -1,0 +1,35 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "TestMario_DynamicElements_proxy_PS_REST_DYNAMIC_ELEMENTS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/TestMario/Resources/PS_REST_DYNAMIC_ELEMENTS" : {
+        "label" : "WSDL/TestMario/Resources/PS_REST_DYNAMIC_ELEMENTS",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/TestMario/DynamicElements/pipeline/PL_DYNAMIC_ELEMENTS" : {
+        "label" : "Pipeline/TestMario/DynamicElements/pipeline/PL_DYNAMIC_ELEMENTS",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/TestMario/Resources/PS_REST_DYNAMIC_ELEMENTS" : {
+            "label" : "WSDL/TestMario/Resources/PS_REST_DYNAMIC_ELEMENTS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/TestMario/DynamicElements/tf_1" : {
+            "label" : "Xquery/TestMario/DynamicElements/tf_1",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

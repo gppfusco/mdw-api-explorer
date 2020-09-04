@@ -1,0 +1,49 @@
+<wsdl:definitions name="PS_REST_SKYID_CREATION" targetNamespace="http://xmlns.oracle.com/OSB_SVIL/SSOProject/PS_REST_SKYID_CREATION" xmlns:tns="http://xmlns.oracle.com/OSB_SVIL/SSOProject/PS_REST_SKYID_CREATION" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:inp2="http://www.skytv.it/mdw/data" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <plnk:partnerLinkType name="PS_REST_SKYID_CREATION">
+        <plnk:role name="PS_REST_SKYID_CREATIONProvider" portType="tns:PS_REST_SKYID_CREATION_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SSOProject/SKYID_CREATION/xsd/XSD_SSO_SKYID_CREATION.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="creationSkyId_inputMessage">
+        <wsdl:part name="request" element="inp1:requestSkyIdCreation"/>
+    </wsdl:message>
+    <wsdl:message name="creationSkyId_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseSkyIdCreation"/>
+    </wsdl:message>
+    <wsdl:message name="creationSkyId_fault-500Message">
+        <wsdl:part name="fault_fault-500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="creationSkyId_fault-400Message">
+        <wsdl:part name="fault_fault-400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="creationSkyId_fault-404Message">
+        <wsdl:part name="fault_fault-404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:portType name="PS_REST_SKYID_CREATION_ptt">
+        <wsdl:operation name="creationSkyId">
+            <wsdl:input message="tns:creationSkyId_inputMessage"/>
+            <wsdl:output message="tns:creationSkyId_outputMessage"/>
+            <wsdl:fault name="fault-500" message="tns:creationSkyId_fault-500Message"/>
+            <wsdl:fault name="fault-400" message="tns:creationSkyId_fault-400Message"/>
+            <wsdl:fault name="fault-404" message="tns:creationSkyId_fault-404Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PS_REST_SKYID_CREATION_ptt-binding" type="tns:PS_REST_SKYID_CREATION_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="creationSkyId">
+            <soap:operation soapAction="creationSkyId"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

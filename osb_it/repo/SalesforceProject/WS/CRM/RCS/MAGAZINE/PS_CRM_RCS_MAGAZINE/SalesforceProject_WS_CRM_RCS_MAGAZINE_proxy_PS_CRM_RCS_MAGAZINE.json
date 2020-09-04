@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_RCS_MAGAZINE",
+    "name" : "SalesforceProject_WS_CRM_RCS_MAGAZINE_proxy_PS_CRM_RCS_MAGAZINE",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\RCS\\MAGAZINE\\PS_CRM_RCS_MAGAZINE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_RCS_MAGAZINE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/RCSMagazine/xsd/XSD_CRM_RCS_MAGAZINE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

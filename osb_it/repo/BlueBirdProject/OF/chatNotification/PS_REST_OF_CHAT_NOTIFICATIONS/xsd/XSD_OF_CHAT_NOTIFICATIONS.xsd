@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestSendMessage" type="requestSendMessageType"/>
+  <xsd:element name="responseSendMessage" type="responseType"/>
+  <xsd:element name="requestAddNickname" type="requestAddNicknameType"/>
+  <xsd:element name="responseAddNickname" type="responseAddNicknameType"/>
+  <xsd:element name="requestGetPosition" type="requestGetPositionType"/>
+  <xsd:element name="responseGetPosition" type="responseGetPositionType"/>  
+  <xsd:complexType name="requestSendMessageType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="userId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="roomId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="textMessage" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="attachment" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="firstMessageInstallerFlg" type="xsd:boolean" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestAddNicknameType">
+    <xsd:sequence>
+      <xsd:element name="nickname" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="roomId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="avatar" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="userType" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseAddNicknameType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="tid" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="nicknameResults" type="nicknameResultsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="nicknameResultsType">
+    <xsd:sequence>
+      <xsd:element name="nicknameResult" type="nicknameResultType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="nicknameResultType">
+    <xsd:sequence>
+      <xsd:element name="userId" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+    <xsd:complexType name="responseType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="tid" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+    <xsd:complexType name="requestGetPositionType">
+    <xsd:sequence>
+      <xsd:element name="userId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="roomId" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseGetPositionType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="positions" type="positionsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="positionsType">
+    <xsd:sequence>
+      <xsd:element name="position" type="positionType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="positionType">
+    <xsd:sequence>
+      <xsd:element name="latitude" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="longitude" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="registrationDate" type="xsd:dateTime" minOccurs="1"/>
+      
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

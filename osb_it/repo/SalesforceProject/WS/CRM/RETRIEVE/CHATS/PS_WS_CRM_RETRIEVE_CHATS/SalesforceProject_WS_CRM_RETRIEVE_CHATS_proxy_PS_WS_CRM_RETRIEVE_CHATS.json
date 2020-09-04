@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_RETRIEVE_CHATS",
+    "name" : "SalesforceProject_WS_CRM_RETRIEVE_CHATS_proxy_PS_WS_CRM_RETRIEVE_CHATS",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\RETRIEVE\\CHATS\\PS_WS_CRM_RETRIEVE_CHATS",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_RETRIEVE_CHATS?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveChats/xsd/XSD_CRM_RETRIEVE_CHATS",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

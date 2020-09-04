@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/CRM_GET_PROMO_2" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_CRM_GET_PROMO_2" targetNamespace="http://www.skytv.it/mdw/service/CRM_GET_PROMO_2">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_SIE_GET_PROMO_2.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestGetPromo2_Message">
+		<wsdl:part name="part_requestGetPromo2" element="inp1:requestGetPromo2"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetPromo2_Message">
+		<wsdl:part name="part_responseGetPromo2" element="inp1:responseGetPromo2"/>
+	</wsdl:message>
+	<wsdl:message name="requestGetPromoByCampaign_Message">
+		<wsdl:part name="part_requestGetPromoByCampaign" element="inp1:requestGetPromoByCampaign"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetPromoByCampaign_Message">
+		<wsdl:part name="part_responseGetPromoByCampaign" element="inp1:responseGetPromoByCampaign"/>
+	</wsdl:message>
+	<wsdl:message name="requestGetPromoNBA_Message">
+		<wsdl:part name="part_requestGetPromoNBA" element="inp1:requestGetPromoNBA"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetPromoNBA_Message">
+		<wsdl:part name="part_responseGetPromoNBA" element="inp1:responseGetPromoNBA"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="CRM_GET_PROMO_2_ptt">
+		<wsdl:operation name="execute_GetPromo2">
+			<wsdl:input message="tns:requestGetPromo2_Message"/>
+			<wsdl:output message="tns:responseGetPromo2_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GetPromoByCampaign">
+			<wsdl:input message="tns:requestGetPromoByCampaign_Message"/>
+			<wsdl:output message="tns:responseGetPromoByCampaign_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GetPromoNBA">
+			<wsdl:input message="tns:requestGetPromoNBA_Message"/>
+			<wsdl:output message="tns:responseGetPromoNBA_Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CRM_GET_PROMO_2_pttSOAP11Binding" type="tns:CRM_GET_PROMO_2_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_GetPromo2">
+			<soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/CRM_GET_PROMO_2/execute_GetPromo2"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="part_requestGetPromo2"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="part_responseGetPromo2"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GetPromoByCampaign">
+			<soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/CRM_GET_PROMO_2/execute_GetPromoByCampaign"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="part_requestGetPromoByCampaign"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="part_responseGetPromoByCampaign"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GetPromoNBA">
+			<soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/CRM_GET_PROMO_2/execute_GetPromoNBA"/>
+			<wsdl:input>
+				<soap:body use="literal" parts="part_requestGetPromoNBA"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" parts="part_responseGetPromoNBA"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

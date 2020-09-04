@@ -1,0 +1,123 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_WMEvaluation_proxy_PS_OM_WM_EVALUATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/WMEvaluation/wsdl/WS_OM_WM_EVALUATION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/WMEvaluation/wsdl/WS_OM_WM_EVALUATION",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/OMProject/WMEvaluation/pipeline/PL_OM_WM_EVALUATION_TIBCO_OR_SBL" : {
+        "label" : "Pipeline/OMProject/WMEvaluation/pipeline/PL_OM_WM_EVALUATION_TIBCO_OR_SBL",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "ProxyService/SiebelProject/proxy/local/PS_LOCAL_SIE_CONTR_SYNC_DYN_XQUERY" : {
+            "label" : "ProxyService/SiebelProject/proxy/local/PS_LOCAL_SIE_CONTR_SYNC_DYN_XQUERY",
+            "properties" : {
+              "transport-type" : "local",
+              "nodeType" : "Proxy",
+              "service-type" : "SOAP"
+            },
+            "successors" : {
+              "Pipeline/SiebelProject/pipeline/PL_WS_SIE_CONTR_SYNC_DYN_XQUERY" : {
+                "label" : "Pipeline/SiebelProject/pipeline/PL_WS_SIE_CONTR_SYNC_DYN_XQUERY",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                    "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                    "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XSLT/SiebelProject/transformations/createElement" : {
+                    "label" : "XSLT/SiebelProject/transformations/createElement",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/WMEvaluation/wsdl/WS_OM_WM_EVALUATION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/WMEvaluation/wsdl/WS_OM_WM_EVALUATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/OMProject/WMEvaluation/pipeline/PL_INTERNAL_TIBCO_WM_EVALUATION" : {
+            "label" : "Pipeline/OMProject/WMEvaluation/pipeline/PL_INTERNAL_TIBCO_WM_EVALUATION",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/OMProject/WMEvaluation/transformations/createResponseWMEvaluationTIBCO" : {
+                "label" : "Xquery/OMProject/WMEvaluation/transformations/createResponseWMEvaluationTIBCO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/OMProject/WMEvaluation/wsdl/WS_OM_WM_EVALUATION" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/WMEvaluation/wsdl/WS_OM_WM_EVALUATION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OMProject/WMEvaluation/businessServices/BS_WSCALL_TIBCO_WM_EVALUATION" : {
+                "label" : "BusinessService/OMProject/WMEvaluation/businessServices/BS_WSCALL_TIBCO_WM_EVALUATION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OMProject/WMEvaluation/transformations/createRequestWMEvaluationTIBCO" : {
+                "label" : "Xquery/OMProject/WMEvaluation/transformations/createRequestWMEvaluationTIBCO",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+    <xsd:element name="requestVerifyGnpEligibility" type="requestVerifyGnpEligibilityType"/>
+
+    <xsd:complexType name="requestVerifyGnpEligibilityType">
+      <xsd:sequence>
+        <xsd:element name="directoryNumber" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="prefix" type="xsd:string" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="responseVerifyGnpEligibilitySOAP" type="responseVerifyGnpEligibilitySOAPType"/>
+
+    <xsd:complexType name="responseVerifyGnpEligibilitySOAPType">
+      <xsd:sequence>
+        <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="responseVerifyGnpEligibility" type="responseVerifyGnpEligibilityType" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="responseVerifyGnpEligibilityType">
+      <xsd:sequence>
+        <xsd:element name="eligibilityResult" type="eligibilityResultType" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    
+
+    <xsd:complexType name="eligibilityResultType">
+      <xsd:sequence>
+        <xsd:element name="isEligible" type="xsd:boolean" minOccurs="0"/>
+        <xsd:element name="operatorCode" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>  
+</xsd:schema>

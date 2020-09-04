@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_WebTracking_proxy_PS_WS_GET_TRACKING_RECORDS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/MDWProject/WebTracking/pipeline/PL_WS_GET_TRACKING_RECORDS" : {
+        "label" : "Pipeline/MDWProject/WebTracking/pipeline/PL_WS_GET_TRACKING_RECORDS",
+        "properties" : { },
+        "successors" : {
+          "Xquery/MDWProject/WebTracking/transformations/IVRGetTrackingRecords/createRequest_IVRGetTrackingRecords" : {
+            "label" : "Xquery/MDWProject/WebTracking/transformations/IVRGetTrackingRecords/createRequest_IVRGetTrackingRecords",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_GET_TRACKING_RECORDS/wsdl/WS_GET_TRACKING_RECORDS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_GET_TRACKING_RECORDS/wsdl/WS_GET_TRACKING_RECORDS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/WebTracking/transformations/IVRGetTrackingRecords/createResponse_IVRGetTrackingRecords" : {
+            "label" : "Xquery/MDWProject/WebTracking/transformations/IVRGetTrackingRecords/createResponse_IVRGetTrackingRecords",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_IVR_GET_TRACKING_RECORDS" : {
+            "label" : "BusinessService/MDWProject/WebTracking/businessService/BS_SQL_IVR_GET_TRACKING_RECORDS",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_GET_TRACKING_RECORDS/wsdl/WS_GET_TRACKING_RECORDS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_GET_TRACKING_RECORDS/wsdl/WS_GET_TRACKING_RECORDS",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/SF/WS_SF_GESTIONE_SOAS",
+    "name" : "BlueBirdProject_SALESFORCE_gestioneSoas_proxy_PS_WS_SF_GESTIONE_SOAS",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\SALESFORCE\\gestioneSoas\\PS_WS_SF_GESTIONE_SOAS",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/SF/WS_SF_GESTIONE_SOAS?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/gestioneSoas/xsd/XSD_SF_GESTIONE_SOAS",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

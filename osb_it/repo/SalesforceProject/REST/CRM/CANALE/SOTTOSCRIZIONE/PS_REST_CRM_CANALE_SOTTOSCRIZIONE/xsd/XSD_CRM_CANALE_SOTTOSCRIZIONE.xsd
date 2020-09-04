@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCanaleSottoscrizione" type="requestCanaleSottoscrizioneType"/>
+	<xsd:element name="responseCanaleSottoscrizione" type="responseCanaleSottoscrizioneType"/>
+	<xsd:complexType name="requestCanaleSottoscrizioneType">
+		<xsd:sequence>
+			<xsd:element name="contractCode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseCanaleSottoscrizioneType">
+		<xsd:sequence>
+			<xsd:element name="result" type="resultType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultType">
+		<xsd:sequence>
+			<xsd:element name="contractCode" type="xsd:string"/>
+			<xsd:element name="channel" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

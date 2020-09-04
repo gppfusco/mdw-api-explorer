@@ -1,0 +1,37 @@
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/SF_ELIGIBILITYCHECK" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" name="WS_SF_ELIGIBILITYCHECK" targetNamespace="http://www.skytv.it/mdw/service/SF_ELIGIBILITYCHECK">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_SF_ELIGIBILITYCHECK.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestMessage">
+		<wsdl:part name="part_requestEligibilityCheck" element="inp1:requestEligibilityCheck"/>
+	</wsdl:message>
+	<wsdl:message name="replyMessage">
+		<wsdl:part name="part_responseEligibilityCheck" element="inp1:responseEligibilityCheck"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="SF_ELIGIBILITYCHECK_ptt">
+		<wsdl:operation name="execute_EligibilityCheck">
+			<wsdl:input message="tns:requestMessage"/>
+			<wsdl:output message="tns:replyMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SF_ELIGIBILITYCHECK_bind" type="tns:SF_ELIGIBILITYCHECK_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_EligibilityCheck">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SF_ELIGIBILITYCHECK/execute_EligibilityCheck" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestEligibilityCheck" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseEligibilityCheck" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

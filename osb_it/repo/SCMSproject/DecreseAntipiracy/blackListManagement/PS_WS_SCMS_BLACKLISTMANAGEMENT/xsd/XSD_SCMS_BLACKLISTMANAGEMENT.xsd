@@ -1,0 +1,35 @@
+<!-- edited with XMLSpy v2018 rel. 2 sp1 (x64) (http://www.altova.com) by MESMERiZE (MSM) -->
+<xsd:schema xmlns="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestblacklistManagement" type="requestblacklistManagementType"/>
+	<xsd:element name="responseblacklistManagement" type="responseblackclistManagement"/>
+	<xsd:complexType name="requestblacklistManagementType">
+		<xsd:sequence>
+			<xsd:element name="operatorName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="blacklistId" type="xsd:string"/>
+			<xsd:element name="request" type="xsd:string"/>
+			<xsd:element name="assets" type="assetsType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="assetsType">
+		<xsd:sequence>
+			<xsd:element name="notes" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="asset" type="assetType" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="assetType">
+		<xsd:sequence>
+			<xsd:element name="decoderId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="codParte" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="chipId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="notes" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseblackclistManagement">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:integer"/>
+			<xsd:element name="resultDescription" type="xsd:string"/>
+			<xsd:element name="tid" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_VERIFICA_COPPIE_SMC_STB",
+    "name" : "SalesforceProject_WS_CRM_VERIFICA_COPPIE_SMC_STB_proxy_PS_CRM_VERIFICA_COPPIE_SMC_STB",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\VERIFICA\\COPPIE\\SMC\\STB\\PS_CRM_VERIFICA_COPPIE_SMC_STB",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_VERIFICA_COPPIE_SMC_STB?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/VerificaCoppieSmcStb/xsd/XSD_CRM_VERIFICA_COPPIE_SMC_STB",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

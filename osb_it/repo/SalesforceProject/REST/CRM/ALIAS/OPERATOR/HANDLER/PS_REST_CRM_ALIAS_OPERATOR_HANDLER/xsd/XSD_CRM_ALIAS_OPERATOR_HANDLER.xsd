@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCheckAliasOperator" type="requestCheckAliasOperatorType"/>
+	<xsd:complexType name="requestCheckAliasOperatorType"> 
+		<xsd:sequence>
+			<xsd:element name="username" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckAliasOperator" type="responseCheckAliasOperatorType"/>
+	<xsd:complexType name="responseCheckAliasOperatorType"> 
+		<xsd:sequence> 
+			<xsd:element name="resultCode" type="xsd:string"/>
+			<xsd:element name="resultDescription" type="xsd:string"/>
+			<xsd:element name="checkAliasResult" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestChangeAliasOperator" type="requestChangeAliasOperatorType"/>
+	<xsd:complexType name="requestChangeAliasOperatorType">
+		<xsd:sequence>
+			<xsd:element name="username" type="xsd:string" />
+			<xsd:element name="aliasOperator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operation" type="operationType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseChangeAliasOperator" type="responseChangeAliasOperatorType"/>
+	<xsd:complexType name="responseChangeAliasOperatorType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string"/>
+			<xsd:element name="resultDescription" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="operationType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="UPDATE"/>
+			<xsd:enumeration value="DELETE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

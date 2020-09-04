@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/WS_MDW_SET_SHIPPING_TIME",
+    "name" : "MDWProject_SetShippingTime_proxy_PS_WS_MDW_SET_SHIPPING_TIME",
+    "localPath" : "osb_it\\repo\\MDWProject\\SetShippingTime\\PS_WS_MDW_SET_SHIPPING_TIME",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/WS_MDW_SET_SHIPPING_TIME?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MDWProject/SetShippingTime/xsd/XSD_MDW_SET_SHIPPING_TIME",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+    targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+    <xsd:element name="requestRecuperaInfoCliente" type="requestRecuperaInfoClienteType"/>
+    <xsd:complexType name="requestRecuperaInfoClienteType">
+        <xsd:sequence>
+            <xsd:element name="codiceCliente" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="codiceFiscale" minOccurs="0" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="responseRecuperaInfoCliente" type="responseRecuperaInfoClienteType"/>
+    <xsd:complexType name="responseRecuperaInfoClienteType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="cliente" type="clienteType" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="contratti" type="contrattiType" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="clienteType">
+        <xsd:sequence>
+            <xsd:element name="nome" type="xsd:string"/>
+            <xsd:element name="cognome" type="xsd:string"/>
+            <xsd:element name="codiceFiscale" type="xsd:string"/>
+            <xsd:element name="email" type="xsd:string"/>
+            <xsd:element name="luogoNascita" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="dataNascita" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="codiceCliente" type="xsd:string"/>
+            <xsd:element name="dataIscrizioneExtra" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="telefonoPrincipale" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="iscrizioneMarketing" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="dirittoLimitazione" type="xsd:string"/>
+            <xsd:element name="ubicazione" type="ubicazioneType" maxOccurs="1"/>
+            <xsd:element name="fatturazione" type="fatturazioneType" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ubicazioneType">
+        <xsd:sequence>
+            <xsd:element name="civico" type="xsd:string"/>
+            <xsd:element name="comune" type="xsd:string"/>
+            <xsd:element name="provincia" type="xsd:string"/>
+            <xsd:element name="particella" type="xsd:string"/>
+            <xsd:element name="cap" type="xsd:string"/>
+            <xsd:element name="indirizzo" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="fatturazioneType">
+        <xsd:sequence>
+            <xsd:element name="indirizzo" type="xsd:string"/>
+            <xsd:element name="civico" type="xsd:string"/>
+            <xsd:element name="comune" type="xsd:string"/>
+            <xsd:element name="provincia" type="xsd:string"/>
+            <xsd:element name="cap" type="xsd:string"/>
+            <xsd:element name="particella" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="contrattiType">
+        <xsd:sequence>
+            <xsd:element name="contratto" type="contrattoType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="contrattoType">
+        <xsd:sequence>
+            <xsd:element name="codiceContratto" type="xsd:string"/>
+            <xsd:element name="dateAttivazione" type="xsd:string"/>
+            <xsd:element name="dataRichiestaCessazione" type="xsd:string"/>
+            <xsd:element name="fasciaExtra" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="pacchetti" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tecnologia" type="xsd:string"/>
+            <xsd:element name="listino" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mySky" type="xsd:string"/>
+            <xsd:element name="ambienteServizio" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,68 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_KENAN_CALL_LOGS"
+     targetNamespace="http://www.skytv.it/mdw/service/WS_KENAN_CALL_LOGS"
+     xmlns:tns="http://www.skytv.it/mdw/service/WS_KENAN_CALL_LOGS"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_KENAN_CALL_LOGS.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+  <wsdl:message name="headerMessage">
+    <wsdl:part name="partHeader" element="inp1:Header"/>
+  </wsdl:message>    
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="part_requestRetrieveCallLogRatate" element="inp1:requestRetrieveCallLogRatate"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="part_responseRetrieveCallLogRatate" element="inp1:responseRetrieveCallLogRatateSoap"/>
+    </wsdl:message>
+    <wsdl:portType name="ptt_KENAN_CALL_LOGS">
+        <wsdl:operation name="execute_RetrieveCallLogRatate">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RetrieveCallLogForInvoice">
+            <wsdl:input message="tns:messageRequestRetrieveCallLogForInvoice"/>
+            <wsdl:output message="tns:messateResponseRetrieveCallLogForInvoice"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="bind_KENAN_CALL_LOGS" type="tns:ptt_KENAN_CALL_LOGS">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_RetrieveCallLogRatate">
+            <soap:operation style="document" soapAction="execute_RetrieveCallLogRatate"/>
+            <wsdl:input>
+                <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_KENAN_CALL_LOGS"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_KENAN_CALL_LOGS"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RetrieveCallLogForInvoice">
+            <soap:operation style="document" soapAction="execute_RetrieveCallLogForInvoice"/>
+            <wsdl:input>
+                <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_KENAN_CALL_LOGS"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_KENAN_CALL_LOGS"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="messageRequestRetrieveCallLogForInvoice">
+        <wsdl:part name="part_requestRetrieveCallLogForInvoice" element="inp1:requestRetrieveCallLogForInvoice"/>
+    </wsdl:message>
+    <wsdl:message name="messateResponseRetrieveCallLogForInvoice">
+        <wsdl:part name="part_responseRetrieveCallLogForInvoice" element="inp1:responseRetrieveCallLogForInvoiceSoap"/>
+    </wsdl:message>
+</wsdl:definitions>

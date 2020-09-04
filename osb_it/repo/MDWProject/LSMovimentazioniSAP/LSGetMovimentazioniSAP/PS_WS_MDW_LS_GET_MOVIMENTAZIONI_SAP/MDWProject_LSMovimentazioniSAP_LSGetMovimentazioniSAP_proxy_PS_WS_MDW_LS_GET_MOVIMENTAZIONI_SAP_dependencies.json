@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_LSMovimentazioniSAP_LSGetMovimentazioniSAP_proxy_PS_WS_MDW_LS_GET_MOVIMENTAZIONI_SAP",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/wsdl/WS_MDW_LS_GET_MOVIMENTAZIONI_SAP" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/wsdl/WS_MDW_LS_GET_MOVIMENTAZIONI_SAP",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/pipeline/PL_WS_MDW_LS_GET_MOVIMENTAZIONI_SAP" : {
+        "label" : "Pipeline/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/pipeline/PL_WS_MDW_LS_GET_MOVIMENTAZIONI_SAP",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/wsdl/WS_MDW_LS_GET_MOVIMENTAZIONI_SAP" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/wsdl/WS_MDW_LS_GET_MOVIMENTAZIONI_SAP",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/transformation/createRequest_BS_TUX_LS_GET_MOV_SAP" : {
+            "label" : "Xquery/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/transformation/createRequest_BS_TUX_LS_GET_MOV_SAP",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/transformation/createResponse_BS_TUX_LS_GET_MOV_SAP" : {
+            "label" : "Xquery/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/transformation/createResponse_BS_TUX_LS_GET_MOV_SAP",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/businessService/BS_TUX_LS_GET_MOVIMENTAZIONI_SAP" : {
+            "label" : "BusinessService/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/businessService/BS_TUX_LS_GET_MOVIMENTAZIONI_SAP",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

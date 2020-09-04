@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/scms/WS_CRM_GESTIONE_EVENTI",
+    "name" : "SCMSproject_proxy_PS_WS_CRM_GESTIONE_EVENTI",
+    "localPath" : "osb_it\\repo\\SCMSproject\\PS_WS_CRM_GESTIONE_EVENTI",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/scms/WS_CRM_GESTIONE_EVENTI?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SCMSproject/GestioneEventi/xsd/XSD_CRM_GESTIONE_EVENTI",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

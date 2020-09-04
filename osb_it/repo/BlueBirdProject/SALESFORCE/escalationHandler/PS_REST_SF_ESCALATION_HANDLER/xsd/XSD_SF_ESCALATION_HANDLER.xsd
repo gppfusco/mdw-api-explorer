@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestEscalationOperations" type="requestEscalationOperationsType"/>
+  <xsd:element name="responseEscalationOperations" type="responseEscalationsOperationsType"/>
+  <xsd:element name="requestUpdateEscalations" type="requestUpdateEscalationsType"/>
+  <xsd:element name="responseUpdateEscalations" type="responseUpdateEscalationsType"/>
+  <xsd:element name="requestOperationNotification" type="requestOperationNotificationType"/>
+  <xsd:element name="responseOperationNotification" type="reponseOperationNotificationType"/>
+  <xsd:complexType name="requestOperationNotificationType">
+    <xsd:sequence>
+      <xsd:element name="opId" type="xsd:string"/>
+      <xsd:element name="ticketId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="message" type="xsd:string"/>
+      <xsd:element name="code" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="reponseOperationNotificationType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestEscalationOperationsType">
+    <xsd:sequence>
+      <xsd:element name="appointmentId" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseEscalationsOperationsType">
+    <xsd:sequence>
+      <xsd:element name="escalations" type="escalationsOperationsResponseType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="escalationsOperationsResponseType">
+    <xsd:sequence>
+      <xsd:element name="escalations" type="escalationOperationsResponseType" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="escalationOperationsResponseType">
+    <xsd:sequence>
+      <xsd:element name="escalationId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="reschedulingReason" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestUpdateEscalationsType">
+    <xsd:sequence>
+      <xsd:element name="escalations" type="escalationsRequestType" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="escalationsRequestType">
+    <xsd:sequence>
+      <xsd:element name="escalation" type="escalationRequestType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="escalationRequestType">
+    <xsd:sequence>
+      <xsd:element name="channel" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="ticketCreationTime" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="netktID" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="status" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="skyNote" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="wapNote" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="wapTicketID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="faultTecnicalDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="faultCause" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="urgency" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="bssID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="resolutionReport" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="resolutionType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="deliveryResult" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="deviceSerialNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="devicePickUpCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="devicePickUpReason" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="postProvisioning" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="oloPin" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="appointmentConfirmed" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="resolutionExpert" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="faultEndDateTime" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="tTUpdateTime" type="xsd:dateTime" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseUpdateEscalationsType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="escalations" type="escalationsUpdateResponseType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="escalationsUpdateResponseType">
+    <xsd:sequence>
+      <xsd:element name="escalation" type="escalationUpdateResponseType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="escalationUpdateResponseType">
+    <xsd:sequence>
+      <xsd:element name="escalationId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="netkTID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+
+  <xsd:element name="requestUpdateEscalationTeoco" type="requestUpdateEscalationTeocoType"/>
+  <xsd:element name="responseUpdateEscalationTeoco" type="reponseUpdateEscalationTeocoType"/>
+  <xsd:complexType name="requestUpdateEscalationTeocoType">
+    <xsd:sequence>
+      <xsd:element name="eventId" type="xsd:string"/>
+      <xsd:element name="eventTime" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="eventType" type="xsd:string"/>
+      <xsd:element name="troubleTicketId" type="xsd:string"/>
+      <xsd:element name="troubleTicket" type="troubleTicketType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="reponseUpdateEscalationTeocoType">
+    <xsd:sequence>
+      <xsd:element name="message" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="ticketId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="code" type="xsd:integer" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+  <xsd:complexType name="troubleTicketType">
+    <xsd:sequence>
+      <xsd:element name="businessUnit"  type="xsd:string" />
+      <xsd:element name="category"  type="xsd:string" />
+      <xsd:element name="type"  type="xsd:string" />
+      <xsd:element name="item"  type="xsd:string"  />
+      <xsd:element name="status"  type="xsd:string" minOccurs="0"  />
+      <xsd:element name="accessProvider"  type="xsd:string" minOccurs="0"  />
+      <xsd:element name="accessType"  type="xsd:string" minOccurs="0"  />
+      <xsd:element name="impact"  type="xsd:string" minOccurs="0"  />
+      <xsd:element name="urgency"  type="xsd:string" minOccurs="0"  />
+      <xsd:element name="faultStartTime"  type="xsd:dateTime" minOccurs="0" />
+      <xsd:element name="faultEndTime"  type="xsd:dateTime" minOccurs="0" />
+      <xsd:element name="customerEquipmentVerification"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="description"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="typeOfTest"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="slaOnDemand"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="wapTicketID"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="action"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="appointmentDateTime"  type="xsd:dateTime" minOccurs="0" />
+      <xsd:element name="appointmentConfirmed"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="appointmentTokenID"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="additionalService"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="device"  type="deviceType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="ttUpdateTime"  type="xsd:dateTime" minOccurs="0" />
+      <xsd:element name="reasonCode"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="reasonDescription"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="skyNote"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="resourceID"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="postProvisioning"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="wapNote"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="oloPIN"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="faultTechnicalDescription"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="resolutionExpert"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="faultCause"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="resolutionReport"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="newGpon"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="deviceDelivery"  type="deviceDeliveryType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="wapAdditionalService"  type="wapAdditionalServiceType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="WAPMasterTicketId"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="jointRequired"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="assignee"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="asigneePhone"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="msoLevel"  type="xsd:decimal" minOccurs="0" />
+      <xsd:element name="msoSevirity"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="affectedServices"  type="affectedServicesType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="resolutionType"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="faultCode"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="subscriberID"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="bssID"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="numberPortabilityFlow"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="targetSystem"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="orderCode"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="directoryNumber"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="orderCreationDate"  type="xsd:dateTime" minOccurs="0" />
+      <xsd:element name="requestMessage"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="responseMessage"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="errorCode"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="errorMessage"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="processName"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="processDate"  type="xsd:dateTime" minOccurs="0" />
+      <xsd:element name="fileName"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="fileResubmitURL"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="timeAvailability"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="holidaysAvailability"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="appointmentNotes"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="priorityReason"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="customerSignature"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="certificateDataL2"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="certificateDataL3"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="suspensionStartDate"  type="xsd:dateTime" minOccurs="0" />
+      <xsd:element name="suspensionCloseDate"  type="xsd:dateTime" minOccurs="0" />
+      <xsd:element name="accessTechnology"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="subStatus"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="wapImpact"  type="xsd:string" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="deviceType">
+    <xsd:sequence>
+      <xsd:element name="deviceType"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="deviceRegistrationKey"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="deviceAction"  type="xsd:string" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="deviceDeliveryType">
+    <xsd:sequence>
+      <xsd:element name="deviceType"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="deliveryResult"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="deviceId"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="PickupReasonCode"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="PickupReason"  type="xsd:string" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="wapAdditionalServiceType">
+    <xsd:sequence>
+      <xsd:element name="additionalService"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="serviceDescription"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="serviceExecuted"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="nonExecReasonCode"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="nonExecReasonName"  type="xsd:string" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="affectedServicesType">
+    <xsd:sequence>
+      <xsd:element name="serviceName"  type="xsd:string" minOccurs="0" />
+      <xsd:element name="serviceType"  type="xsd:string" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+</xsd:schema>

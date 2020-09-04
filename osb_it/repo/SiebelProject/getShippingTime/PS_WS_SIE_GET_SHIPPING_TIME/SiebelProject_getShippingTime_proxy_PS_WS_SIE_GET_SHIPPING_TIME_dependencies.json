@@ -1,0 +1,83 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_getShippingTime_proxy_PS_WS_SIE_GET_SHIPPING_TIME",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/getShippingTime/pipeline/PL_SIE_GET_SHIPPING_TIME" : {
+        "label" : "Pipeline/SiebelProject/getShippingTime/pipeline/PL_SIE_GET_SHIPPING_TIME",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/SiebelProject/pipeline/PL_INTERNAL_SBL_GENERIC_CALL" : {
+            "label" : "Pipeline/SiebelProject/pipeline/PL_INTERNAL_SBL_GENERIC_CALL",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/getShippingTime/transformations/createResponseGetShippingTime" : {
+            "label" : "Xquery/SiebelProject/getShippingTime/transformations/createResponseGetShippingTime",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GetShippingTime/wsdl/WS_SIE_GET_SHIPPING_TIME" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GetShippingTime/wsdl/WS_SIE_GET_SHIPPING_TIME",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/getShippingTime/transformations/createRequestGetShippingTime" : {
+            "label" : "Xquery/SiebelProject/getShippingTime/transformations/createRequestGetShippingTime",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/getShippingTime/transformations/createRequestShippingTimeCheckExec" : {
+            "label" : "Xquery/SiebelProject/getShippingTime/transformations/createRequestShippingTimeCheckExec",
+            "properties" : { },
+            "successors" : { }
+          },
+          "ProxyService/MDWProject/ShippingTimeCheckExec/proxy/PS_LOCAL_SHIPPING_TIME_CHECK_EXEC" : {
+            "label" : "ProxyService/MDWProject/ShippingTimeCheckExec/proxy/PS_LOCAL_SHIPPING_TIME_CHECK_EXEC",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GetShippingTime/wsdl/WS_SIE_GET_SHIPPING_TIME" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GetShippingTime/wsdl/WS_SIE_GET_SHIPPING_TIME",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

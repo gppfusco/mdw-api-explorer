@@ -1,0 +1,102 @@
+<xsd:schema xmlns="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestHistoric_pairing" type="requesthistoric_pairingType"/>
+	<xsd:element name="responseHistoric_pairing" type="responsehistoric_pairingType"/>
+        
+        <xsd:complexType name="requesthistoric_pairingType">
+          <xsd:sequence>
+              <xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="execDate" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="priority" type="xsd:integer" minOccurs="0" maxOccurs="1"/>            
+              <xsd:element name="box" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="infos" type="infosType" minOccurs="0"/>
+          </xsd:sequence>
+	</xsd:complexType>
+        
+        <xsd:complexType name="infosType">
+          <xsd:sequence>
+              <xsd:element name="filter" type="filterType" minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:sequence>
+	</xsd:complexType>
+        
+          <xsd:complexType name="filterType">
+    <xsd:simpleContent>
+      <xsd:extension base="stringFilterType">
+        <xsd:attribute name="field" use="optional">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="date"/>
+              <xsd:enumeration value="box"/>
+              <xsd:enumeration value="account_box"/>
+              <xsd:enumeration value="decoderid"/>
+              <xsd:enumeration value="chipid"/>
+              <xsd:enumeration value="account_decoder"/>
+              <xsd:enumeration value="decoder_role"/>
+              <xsd:enumeration value="event"/>
+              <xsd:enumeration value="operator"/>
+              <xsd:enumeration value="origin"/>
+              <xsd:enumeration value="telephone"/> 
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="not" use="optional" type="xsd:string"/>
+        <xsd:attribute name="from" use="optional">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:pattern value="[0-9]{8}([0-9]{6})?"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="to" use="optional">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:pattern value="[0-9]{8}([0-9]{6})?"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="match" type="xsd:string" use="optional"/>
+        <xsd:attribute name="limit" type="xsd:positiveInteger" use="optional"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  
+  <xsd:simpleType name="stringFilterType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+ <xsd:complexType name="responsehistoric_pairingType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="tid" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="info" type="infoResponseType" minOccurs="0"/>
+    </xsd:sequence>
+ </xsd:complexType>
+          
+  <xsd:complexType name="infoResponseType">
+    <xsd:sequence>
+      <xsd:element name="row" type="rowType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="rowType">
+    <xsd:sequence>
+      <xsd:element name="date" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="event" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="box" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="account_box" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="decoderid" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="chipid" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="account_decoder" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="decoder_role" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="origin" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="telephone" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="result" type="xsd:integer" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute name="trans_id" use="optional"/>
+  </xsd:complexType>     
+        
+</xsd:schema>

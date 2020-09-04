@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+    <xsd:element name="richiestaCreazioneOrdine" type="richiestaCreazioneOrdineType"/>
+    <xsd:complexType name="richiestaCreazioneOrdineType">
+        <xsd:sequence>
+            <xsd:element name="idrichiesta" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="action" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="idmessaggio" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="numeroFattura" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="contrattoFittizio" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="partNumberContratto" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="items" type="itemsType" maxOccurs="1"/>
+            <xsd:element name="anagrafica" type="anagraficaType" maxOccurs="1"/>
+            <xsd:element name="spedizione" type="spedizioneType" maxOccurs="1"/>
+            <xsd:element name="additionalData" type="additionalDataType" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="itemsType">
+        <xsd:sequence>
+            <xsd:element name="item" type="itemType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="itemType">
+        <xsd:sequence>
+            <xsd:element name="orderItem" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="serialNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="pacchettoFittizio" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="productTypeId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="partnumber" type="xsd:string" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="anagraficaType">
+        <xsd:sequence>
+            <xsd:element name="cid" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="nome" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="cognome" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="codiceFiscale" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="email" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="contatto" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="marketing" type="xsd:string" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="spedizioneType">
+        <xsd:sequence>
+            <xsd:element name="nome" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="cognome" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="indirizzo" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="comune" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="provincia" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="cap" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="civico" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="particella" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="presso" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="note" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="telefono" type="xsd:string" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="additionalDataType">
+        <xsd:sequence>
+            <xsd:element name="categoria" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="sottocategoria" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="origin" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="status" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="description" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="motivoDiContatto" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="noteInterne" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="tipoRichiesta" type="xsd:string" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+        
+    <xsd:element name="responseCreazioneOrdine" type="responseCreazioneOrdineType"/>
+    <xsd:complexType name="responseCreazioneOrdineType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="transactionID" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="rispostaCreazioneOrdine" type="rispostaCreazioneOrdineType" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="rispostaCreazioneOrdineType">
+        <xsd:sequence>
+            <xsd:element name="idmessaggio" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="numeroFattura" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="ordernumber" type="xsd:string" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="requestEsitoOrdini" type="requestEsitoOrdiniType"/>
+    <xsd:complexType name="requestEsitoOrdiniType">
+        <xsd:sequence>
+            <xsd:element name="idRichiesta" type="mandatoryStringType" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="mandatoryStringType" final="restriction">
+        <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    
+    <xsd:element name="responseEsitoOrdini" type="responseEsitoOrdiniType"/>
+    <xsd:complexType name="responseEsitoOrdiniType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="transactionID" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="ordini" type="ordiniType" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ordiniType">
+        <xsd:sequence>
+            <xsd:element name="ordine" type="ordineType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ordineType">
+        <xsd:sequence>
+            <xsd:element name="idMessaggio" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="items" type="itemsTypeEsitoOrdini" maxOccurs="1"/>
+            <xsd:element name="contrattoFittizio" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="orderNumber" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="stato" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="sottoStato" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="dataOrdine" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="dataSpedizione" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="dataConsegna" type="xsd:string" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="itemsTypeEsitoOrdini">
+        <xsd:sequence>
+            <xsd:element name="item" type="itemTypeEsitoOrdini" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="itemTypeEsitoOrdini">
+        <xsd:sequence>
+            <xsd:element name="serialNumber" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="orderItem" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="pacchettoFittizio" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="productTypeId" type="xsd:string" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:element name="requestTrackingOrdine" type="requestTrackingOrdineType"/>
+    <xsd:complexType name="requestTrackingOrdineType">
+        <xsd:sequence>
+            <xsd:element name="idRichiesta" type="mandatoryStringType" maxOccurs="1"/>
+            <xsd:element name="orderNumber" type="mandatoryStringType" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+        
+    <xsd:element name="responseTrackingOrdine" type="responseTrackingOrdineType"/>
+    <xsd:complexType name="responseTrackingOrdineType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="transactionID" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="trackingOrdine" type="trackingOrdineype" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    
+    <xsd:complexType name="trackingOrdineype">
+        <xsd:sequence>
+            <xsd:element name="idMessaggio" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="items" type="itemsTypeTrackingOrdine" maxOccurs="1"/>
+            <xsd:element name="contrattoFittizio" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="stato" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="sottoStato" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="dataOrdine" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="dataSpedizione" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="dataConsegna" type="xsd:string" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="itemsTypeTrackingOrdine">
+        <xsd:sequence>
+            <xsd:element name="item" type="itemTypeTrackingOrdine" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="itemTypeTrackingOrdine">
+        <xsd:sequence>
+            <xsd:element name="serialNumber" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="orderItem" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="pacchettoFittizio" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="productTypeId" type="xsd:string" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+        <xsd:element name="requestAckEsitoOrdini" type="requestAckEsitoOrdiniType"/>
+    <xsd:complexType name="requestAckEsitoOrdiniType">
+        <xsd:sequence>
+            <xsd:element name="idRichiesta" type="mandatoryStringType" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+        
+    <xsd:element name="responseAckEsitoOrdini" type="responseAckEsitoOrdiniType"/>
+    <xsd:complexType name="responseAckEsitoOrdiniType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+</xsd:schema>

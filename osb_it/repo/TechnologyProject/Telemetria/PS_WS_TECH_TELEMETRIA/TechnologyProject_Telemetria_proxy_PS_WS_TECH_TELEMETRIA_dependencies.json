@@ -1,0 +1,151 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "TechnologyProject_Telemetria_proxy_PS_WS_TECH_TELEMETRIA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/TechnologyProject/Telemetria/pipeline/PL_WS_TECH_TELEMETRIA" : {
+        "label" : "Pipeline/TechnologyProject/Telemetria/pipeline/PL_WS_TECH_TELEMETRIA",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/TechnologyProject/Telemetria/pipeline/PL_REST_TECH_TELEMETRIA_GetIptvSpeedTestInfo" : {
+            "label" : "Pipeline/TechnologyProject/Telemetria/pipeline/PL_REST_TECH_TELEMETRIA_GetIptvSpeedTestInfo",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/TechnologyProject/Telemetria/transformation/createResponse_GetIptvSpeedTestInfo" : {
+                "label" : "Xquery/TechnologyProject/Telemetria/transformation/createResponse_GetIptvSpeedTestInfo",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/TechnologyProject/Telemetria/transformation/createRequest_GetIptvSpeedTestInfo" : {
+                "label" : "Xquery/TechnologyProject/Telemetria/transformation/createRequest_GetIptvSpeedTestInfo",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/TechnologyProject/Telemetria/businessService/BS_REST_TECH_TELEMETRIA_GetIptvSpeedTestInfo" : {
+                "label" : "BusinessService/TechnologyProject/Telemetria/businessService/BS_REST_TECH_TELEMETRIA_GetIptvSpeedTestInfo",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/Telemetria/wsdl/WS_TECH_TELEMETRIA" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/Telemetria/wsdl/WS_TECH_TELEMETRIA",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/TechnologyProject/Telemetria/pipeline/PL_REST_TECH_TELEMETRIA_GetIptvStbInfo" : {
+            "label" : "Pipeline/TechnologyProject/Telemetria/pipeline/PL_REST_TECH_TELEMETRIA_GetIptvStbInfo",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/TechnologyProject/Telemetria/businessService/BS_REST_TECH_TELEMETRIA_GetIptvInfo" : {
+                "label" : "BusinessService/TechnologyProject/Telemetria/businessService/BS_REST_TECH_TELEMETRIA_GetIptvInfo",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "ProxyService/MDWProject/TranscodificheOSD/proxy/PS_LOCACL_SELECT_TRANSCODIFICHE_OSD" : {
+                "label" : "ProxyService/MDWProject/TranscodificheOSD/proxy/PS_LOCACL_SELECT_TRANSCODIFICHE_OSD",
+                "properties" : {
+                  "transport-type" : "local",
+                  "nodeType" : "Proxy",
+                  "service-type" : "SOAP"
+                },
+                "successors" : {
+                  "WSDL/MDWProject/Resources/BS_SQL_SELECT_TRANSCODIFICHE_OSD/concrete" : {
+                    "label" : "WSDL/MDWProject/Resources/BS_SQL_SELECT_TRANSCODIFICHE_OSD/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/MDWProject/TranscodificheOSD/pipeline/PL_INTERNAL_SELECT_TRANSCODIFICHE_OSD" : {
+                    "label" : "Pipeline/MDWProject/TranscodificheOSD/pipeline/PL_INTERNAL_SELECT_TRANSCODIFICHE_OSD",
+                    "properties" : { },
+                    "successors" : {
+                      "WSDL/MDWProject/Resources/BS_SQL_SELECT_TRANSCODIFICHE_OSD/concrete" : {
+                        "label" : "WSDL/MDWProject/Resources/BS_SQL_SELECT_TRANSCODIFICHE_OSD/concrete",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/MDWProject/TranscodificheOSD/businessService/BS_SQL_SELECT_TRANSCODIFICHE_OSD" : {
+                        "label" : "BusinessService/MDWProject/TranscodificheOSD/businessService/BS_SQL_SELECT_TRANSCODIFICHE_OSD",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              },
+              "Xquery/TechnologyProject/Telemetria/transformation/createResponse_GetIptvStbInfo" : {
+                "label" : "Xquery/TechnologyProject/Telemetria/transformation/createResponse_GetIptvStbInfo",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/TechnologyProject/Telemetria/transformation/createResponse_GetIptvStbInfoWithOSDText" : {
+                "label" : "Xquery/TechnologyProject/Telemetria/transformation/createResponse_GetIptvStbInfoWithOSDText",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/Telemetria/wsdl/WS_TECH_TELEMETRIA" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/Telemetria/wsdl/WS_TECH_TELEMETRIA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/TechnologyProject/Telemetria/transformation/createRequest_GetIptvStbInfo" : {
+                "label" : "Xquery/TechnologyProject/Telemetria/transformation/createRequest_GetIptvStbInfo",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/TechnologyProject/Telemetria/transformation/createRequest_TranscodificheOSD" : {
+                "label" : "Xquery/TechnologyProject/Telemetria/transformation/createRequest_TranscodificheOSD",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/Telemetria/wsdl/WS_TECH_TELEMETRIA" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/Telemetria/wsdl/WS_TECH_TELEMETRIA",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/Telemetria/wsdl/WS_TECH_TELEMETRIA" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/Telemetria/wsdl/WS_TECH_TELEMETRIA",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

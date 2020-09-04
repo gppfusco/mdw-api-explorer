@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestNormalizzaIndirizzoType">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="WS_PROVINCIA" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="WS_COMUNE" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="WS_VIA" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="WS_CAP" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="WS_PARTICELLA" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="WS_CIVICO" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestNormalizzaIndirizzo" type="requestNormalizzaIndirizzoType"/>
+	<xsd:complexType name="resultType" >
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_CAP" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_CIVICO" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_PARTICELLA" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_PROVINCIA" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_COMUNE" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_COMPLETA" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_MATCH_CODE_DWI" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO2" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="WS_ESITO3" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO3" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_DESCRIZIONE_ESITO2" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_0" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_1" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_2" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_3" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_4" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_5" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_6" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_7" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_8" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_VIA_AMBIGUA_9" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_BES_1_X_M" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_BES_1_Y_M" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_BES_1_X_G" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_BES_1_Y_G" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_BES_VLXBES" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_ATT_VLXATT" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_ID_CIV" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_FLX_CTX" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_N_AB" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="WS_N_AB_ALL" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseNormalizzaIndirizzoType">
+		<xsd:sequence>
+			<xsd:element maxOccurs="1" minOccurs="1" name="esito" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="1" name="descrizioneEsito" type="xsd:string"/>
+			<xsd:element maxOccurs="1" minOccurs="0" name="result" type="resultType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseNormalizzaIndirizzo" type="responseNormalizzaIndirizzoType"/>
+</xsd:schema>

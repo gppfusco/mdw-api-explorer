@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestRunPollerIteration" type="requestRunPollerIterationType"/>
+  <xsd:element name="responseRunPollerIteration" type="responseRunPollerIterationType"/>
+      <xsd:complexType name="requestRunPollerIterationType">
+          <xsd:sequence>
+              <xsd:element name="idTicket" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="lastUPD" type="xsd:dateTime" minOccurs="0"/>
+              <xsd:element name="status" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+      </xsd:complexType>
+      
+      <xsd:complexType name="responseRunPollerIterationType">
+          <xsd:sequence>
+              <xsd:element name="resultCode" type="xsd:string" minOccurs="0"/>
+              <xsd:element name="resulDescription" type="xsd:dateTime" minOccurs="0"/>
+              <xsd:element name="details" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+      </xsd:complexType>
+</xsd:schema>

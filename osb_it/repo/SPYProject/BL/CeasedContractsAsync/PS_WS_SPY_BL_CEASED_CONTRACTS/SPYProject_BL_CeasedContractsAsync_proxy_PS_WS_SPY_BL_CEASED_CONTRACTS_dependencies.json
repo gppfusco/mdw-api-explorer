@@ -1,0 +1,45 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SPYProject_BL_CeasedContractsAsync_proxy_PS_WS_SPY_BL_CEASED_CONTRACTS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SPYProject/BL_CeasedContractsAsync/wsdl/WS_SPY_BL_CEASED_CONTRACTS_ASYNC" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/BL_CeasedContractsAsync/wsdl/WS_SPY_BL_CEASED_CONTRACTS_ASYNC",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SPYProject/BL_CeasedContractsAsync/pipeline/PL_WS_SPY_BL_CEASED_CONTRACTS_ENQUEUE" : {
+        "label" : "Pipeline/SPYProject/BL_CeasedContractsAsync/pipeline/PL_WS_SPY_BL_CEASED_CONTRACTS_ENQUEUE",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SPYProject/BL_CeasedContractsAsync/wsdl/WS_SPY_BL_CEASED_CONTRACTS_ASYNC" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/BL_CeasedContractsAsync/wsdl/WS_SPY_BL_CEASED_CONTRACTS_ASYNC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SPYProject/common/businessServices/BS_JMS_SKY_TO_SPY_BRIDGE" : {
+            "label" : "BusinessService/SPYProject/common/businessServices/BS_JMS_SKY_TO_SPY_BRIDGE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SPYProject/BL_CeasedContractsAsync/transformations/createRequestEnqueue_BL_CeasedContracts" : {
+            "label" : "Xquery/SPYProject/BL_CeasedContractsAsync/transformations/createRequestEnqueue_BL_CeasedContracts",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGetUnpaidFees">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="mopSuspensionReason" type="xsd:string"/>
+        <xsd:element name="mopPriceListCode" type="xsd:string"/>
+        <xsd:element name="mopType" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="responseGetUnpaidFees">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="mopFeeAmounts">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="mopFeeAmount" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="mopChangeFeeAmount" type="xsd:string"/>
+                    <xsd:element name="mopfeeAmountWithoutMopChange" type="xsd:string"/>
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

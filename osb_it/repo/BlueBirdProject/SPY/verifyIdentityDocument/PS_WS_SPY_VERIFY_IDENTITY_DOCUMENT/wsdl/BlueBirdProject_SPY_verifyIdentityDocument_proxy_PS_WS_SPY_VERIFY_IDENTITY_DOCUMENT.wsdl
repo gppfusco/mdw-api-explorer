@@ -1,0 +1,46 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_SPY_VERIFY_IDENTITY_DOCUMENT"
+     targetNamespace="http://www.skytv.it/mdw/service/WS_SPY_VERIFY_IDENTITY_DOCUMENT"
+     xmlns:tns="http://www.skytv.it/mdw/service/WS_SPY_VERIFY_IDENTITY_DOCUMENT"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SPY_VERIFY_IDENTITY_DOCUMENT.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="part_requestVerifyID" element="inp1:requestVerifyID"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="part_responseVerifyID" element="inp1:responseVerifyID"/>
+    </wsdl:message>
+    <wsdl:portType name="ptt_SPY_VERIFY_IDENTITY_DOCUMENT">
+        <wsdl:operation name="execute_VerifyID">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="bind_SPY_VERIFY_IDENTITY_DOCUMENT" type="tns:ptt_SPY_VERIFY_IDENTITY_DOCUMENT">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_VerifyID">
+            <soap:operation style="document" soapAction="execute_VerifyID"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_SPY_VERIFY_IDENTITY_DOCUMENT"/>
+                <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_SPY_VERIFY_IDENTITY_DOCUMENT"/>
+                <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="headerMessage">
+        <wsdl:part name="partHeader" element="inp1:Header"/>
+    </wsdl:message>
+</wsdl:definitions>

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/WS_MDW_LS_GET_MOVIMENTAZIONI_SAP",
+    "name" : "MDWProject_LSMovimentazioniSAP_LSGetMovimentazioniSAP_proxy_PS_WS_MDW_LS_GET_MOVIMENTAZIONI_SAP",
+    "localPath" : "osb_it\\repo\\MDWProject\\LSMovimentazioniSAP\\LSGetMovimentazioniSAP\\PS_WS_MDW_LS_GET_MOVIMENTAZIONI_SAP",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/WS_MDW_LS_GET_MOVIMENTAZIONI_SAP?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MDWProject/LSMovimentazioniSAP/LSGetMovimentazioniSAP/xsd/XSD_MDW_LS_GET_MOVIMENTAZIONI_SAP",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

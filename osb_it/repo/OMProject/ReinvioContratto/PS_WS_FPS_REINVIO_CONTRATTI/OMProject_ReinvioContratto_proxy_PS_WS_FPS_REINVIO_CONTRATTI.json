@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/om/WS_FPS_REINVIO_CONTRATTI",
+    "name" : "OMProject_ReinvioContratto_proxy_PS_WS_FPS_REINVIO_CONTRATTI",
+    "localPath" : "osb_it\\repo\\OMProject\\ReinvioContratto\\PS_WS_FPS_REINVIO_CONTRATTI",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/om/WS_FPS_REINVIO_CONTRATTI?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/OMProject/ReinvioContratti/xsd/XSD_FPS_REINVIO_CONTRATTI",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

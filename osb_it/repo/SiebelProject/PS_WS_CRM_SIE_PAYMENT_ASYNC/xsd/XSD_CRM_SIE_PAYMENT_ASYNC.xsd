@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestChangeMopPpType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TipoMop" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="FrequenzaMop" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="NumeroCC" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoCC" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MeseScadenzaCC" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnoScadenzaCC" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Abi" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cab" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroConto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IBANCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IdCaseSalesForce" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestChangeMopPp" type="requestChangeMopPpType"/>
+	<xsd:element name="responseChangeMopPp" type="basicResponseAsyncType"/>
+	<xsd:complexType name="basicResponseAsyncType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

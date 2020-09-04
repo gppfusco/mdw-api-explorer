@@ -1,0 +1,601 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "CPQProject_cartHandler_proxy_PS_REST_CPQ_CART_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/CPQProject/cartHandler/pipeline/PL_REST_CPQ_CART_HANDLER" : {
+        "label" : "Pipeline/CPQProject/cartHandler/pipeline/PL_REST_CPQ_CART_HANDLER",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_CPQ_DELETE_PROMOTION" : {
+            "label" : "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_CPQ_DELETE_PROMOTION",
+            "properties" : { },
+            "successors" : {
+              "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER" : {
+                "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL" : {
+                "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+                    "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                        "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              },
+              "Xquery/CPQProject/cartHandler/transformation/createRequestDeletePromotion" : {
+                "label" : "Xquery/CPQProject/cartHandler/transformation/createRequestDeletePromotion",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_CPQ_CART_SUBMIT" : {
+            "label" : "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_CPQ_CART_SUBMIT",
+            "properties" : { },
+            "successors" : {
+              "Xquery/CPQProject/cartHandler/transformation/createRequest_CpqCartSubmit" : {
+                "label" : "Xquery/CPQProject/cartHandler/transformation/createRequest_CpqCartSubmit",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/CPQProject/cartHandler/transformation/createRequest_UpdateDocument" : {
+                "label" : "Xquery/CPQProject/cartHandler/transformation/createRequest_UpdateDocument",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_STD_API" : {
+                "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_STD_API",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/WSDL/WS_DIRECT_SF_EJB" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/WSDL/WS_DIRECT_SF_EJB",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/SalesforceProject/pipeline/PL_SF_STD_API_INTERNAL" : {
+                    "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_STD_API_INTERNAL",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/WSDL_BS_EJB_SF" : {
+                        "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/WSDL_BS_EJB_SF",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/CPQProject/cartHandler/transformation/createRequest_UpdateBBOrderItem" : {
+                "label" : "Xquery/CPQProject/cartHandler/transformation/createRequest_UpdateBBOrderItem",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/CPQProject/cartHandler/transformation/createRequest_UpdateMigrationCode" : {
+                "label" : "Xquery/CPQProject/cartHandler/transformation/createRequest_UpdateMigrationCode",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/EnterpriseServices/CPQProject/SellingConfirmation/xsd/XSD_CPQ_SELLING_CONFIRMATION" : {
+                "label" : "XMLSchema/MDW_CDM/EnterpriseServices/CPQProject/SellingConfirmation/xsd/XSD_CPQ_SELLING_CONFIRMATION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER" : {
+                "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/BlueBirdProject/SALESFORCE/orderManagement/proxy/PS_LOCAL_SF_ORDER_MANAGEMENT" : {
+                "label" : "ProxyService/BlueBirdProject/SALESFORCE/orderManagement/proxy/PS_LOCAL_SF_ORDER_MANAGEMENT",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/BlueBirdProject/Resources/PS_REST_SF_ORDER_MANAGEMENT" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_ORDER_MANAGEMENT",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/BlueBirdProject/SALESFORCE/orderManagement/pipeline/PL_REST_SF_ORDER_MANAGEMENT" : {
+                    "label" : "Pipeline/BlueBirdProject/SALESFORCE/orderManagement/pipeline/PL_REST_SF_ORDER_MANAGEMENT",
+                    "properties" : {
+                      "nodeType" : "Pipeline"
+                    },
+                    "successors" : {
+                      "WSDL/BlueBirdProject/Resources/PS_REST_SF_ORDER_MANAGEMENT" : {
+                        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_ORDER_MANAGEMENT",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/BlueBirdProject/SALESFORCE/orderManagement/transformations/createRequest_OrderManagement" : {
+                        "label" : "Xquery/BlueBirdProject/SALESFORCE/orderManagement/transformations/createRequest_OrderManagement",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_STD_API" : {
+                        "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_STD_API",
+                        "properties" : { },
+                        "successors" : {
+                          "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/WSDL/WS_DIRECT_SF_EJB" : {
+                            "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/WSDL/WS_DIRECT_SF_EJB",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "Pipeline/SalesforceProject/pipeline/PL_SF_STD_API_INTERNAL" : {
+                            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_STD_API_INTERNAL",
+                            "properties" : { },
+                            "successors" : {
+                              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                                "properties" : {
+                                  "nodeType" : "BusinessService"
+                                },
+                                "successors" : { }
+                              },
+                              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                                "properties" : { },
+                                "successors" : { }
+                              },
+                              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/WSDL_BS_EJB_SF" : {
+                                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/WSDL_BS_EJB_SF",
+                                "properties" : { },
+                                "successors" : { }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "Xquery/BlueBirdProject/SALESFORCE/orderManagement/transformations/createRequest_TYO" : {
+                        "label" : "Xquery/BlueBirdProject/SALESFORCE/orderManagement/transformations/createRequest_TYO",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/BlueBirdProject/SALESFORCE/orderManagement/transformations/createRequest_UpdateOrderUsingAmend" : {
+                        "label" : "Xquery/BlueBirdProject/SALESFORCE/orderManagement/transformations/createRequest_UpdateOrderUsingAmend",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL" : {
+                        "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL",
+                        "properties" : {
+                          "transport-type" : "local",
+                          "nodeType" : "Proxy",
+                          "service-type" : "SOAP"
+                        },
+                        "successors" : {
+                          "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN" : {
+                            "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+                            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+                            "properties" : { },
+                            "successors" : {
+                              "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                                "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                                "properties" : { },
+                                "successors" : { }
+                              },
+                              "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                                "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                                "properties" : { },
+                                "successors" : { }
+                              },
+                              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                                "properties" : { },
+                                "successors" : { }
+                              },
+                              "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                                "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                                "properties" : { },
+                                "successors" : { }
+                              },
+                              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                                "properties" : { },
+                                "successors" : { }
+                              },
+                              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                                "properties" : { },
+                                "successors" : { }
+                              },
+                              "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                                "properties" : {
+                                  "nodeType" : "BusinessService"
+                                },
+                                "successors" : { }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL" : {
+                        "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL",
+                        "properties" : { },
+                        "successors" : {
+                          "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                            "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+                            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+                            "properties" : { },
+                            "successors" : {
+                              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                                "properties" : {
+                                  "nodeType" : "BusinessService"
+                                },
+                                "successors" : { }
+                              },
+                              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                                "properties" : { },
+                                "successors" : { }
+                              },
+                              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                                "properties" : { },
+                                "successors" : { }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "Xquery/BlueBirdProject/SALESFORCE/orderManagement/transformations/createRequestEJBRestRetrieveContractId" : {
+                        "label" : "Xquery/BlueBirdProject/SALESFORCE/orderManagement/transformations/createRequestEJBRestRetrieveContractId",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Pipeline/BlueBirdProject/OM/tyo/pipeline/PL_JMS_TYO_ENQUEUE" : {
+                        "label" : "Pipeline/BlueBirdProject/OM/tyo/pipeline/PL_JMS_TYO_ENQUEUE",
+                        "properties" : { },
+                        "successors" : {
+                          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OM/tyo/wsdl/WS_OM_TYO" : {
+                            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OM/tyo/wsdl/WS_OM_TYO",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "BusinessService/BlueBirdProject/OM/businessService/BS_JMS_TIBCO_BB" : {
+                            "label" : "BusinessService/BlueBirdProject/OM/businessService/BS_JMS_TIBCO_BB",
+                            "properties" : {
+                              "nodeType" : "BusinessService"
+                            },
+                            "successors" : { }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "Xquery/CPQProject/cartHandler/transformation/createRequest_UpdateAppointment" : {
+                "label" : "Xquery/CPQProject/cartHandler/transformation/createRequest_UpdateAppointment",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL" : {
+                "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL",
+                "properties" : {
+                  "transport-type" : "local",
+                  "nodeType" : "Proxy",
+                  "service-type" : "SOAP"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+                    "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+                    "properties" : { },
+                    "successors" : {
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                        "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                        "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              },
+              "Xquery/CPQProject/cartHandler/transformation/createResponse_CpqCartSubmit" : {
+                "label" : "Xquery/CPQProject/cartHandler/transformation/createResponse_CpqCartSubmit",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER" : {
+            "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_CPQ_DELETE_CART_ITEM" : {
+            "label" : "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_CPQ_DELETE_CART_ITEM",
+            "properties" : { },
+            "successors" : {
+              "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER" : {
+                "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/CPQProject/cartHandler/transformation/createRequest_EjbRestDeleteCartItems" : {
+                "label" : "Xquery/CPQProject/cartHandler/transformation/createRequest_EjbRestDeleteCartItems",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_ITERATE_ADD_PRODUCTS" : {
+            "label" : "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_ITERATE_ADD_PRODUCTS",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER" : {
+                "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_CPQ_UPDATE_CART" : {
+                "label" : "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_CPQ_UPDATE_CART",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER" : {
+                    "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/EnterpriseServices/CPQProject/cartHandler/xsd/XSD_CPQ_CART_HANDLER" : {
+                    "label" : "XMLSchema/MDW_CDM/EnterpriseServices/CPQProject/cartHandler/xsd/XSD_CPQ_CART_HANDLER",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/CPQProject/cartHandler/transformation/createRequest_EjbRestPostAddProducts" : {
+                    "label" : "Xquery/CPQProject/cartHandler/transformation/createRequest_EjbRestPostAddProducts",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_SALESFORCE_GET_PARENT_ORDER_ID" : {
+                    "label" : "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_SALESFORCE_GET_PARENT_ORDER_ID",
+                    "properties" : { },
+                    "successors" : {
+                      "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER" : {
+                        "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "Xquery/CPQProject/cartHandler/transformation/createRequest_EjbRestGetParentOrderId" : {
+                    "label" : "Xquery/CPQProject/cartHandler/transformation/createRequest_EjbRestGetParentOrderId",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_CPQ_ASSET_TO_ORDER" : {
+            "label" : "Pipeline/CPQProject/cartHandler/pipeline/PL_INTERNAL_CPQ_ASSET_TO_ORDER",
+            "properties" : { },
+            "successors" : {
+              "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER" : {
+                "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/CPQProject/cartHandler/transformation/createResponseAssetToOrder" : {
+                "label" : "Xquery/CPQProject/cartHandler/transformation/createResponseAssetToOrder",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/CPQProject/cartHandler/transformation/createRequest_AssetToOrder" : {
+                "label" : "Xquery/CPQProject/cartHandler/transformation/createRequest_AssetToOrder",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL" : {
+                "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+                    "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                        "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER" : {
+        "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CART_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

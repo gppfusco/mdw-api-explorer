@@ -1,0 +1,38 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+
+	<xsd:complexType name="Response">
+		<xsd:sequence>
+			<xsd:element name="Code" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="Description" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="Status" type="xsd:string"  minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="requestRemindTranscommType">
+		<xsd:sequence>
+			<xsd:element name="orderId" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="contractId" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="checkCallORSendEmail" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="errorCode" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="errorMessage" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="sendTranscommFlag" type="xsd:boolean"  minOccurs="0"/>
+			<xsd:element name="status" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="transcommType" type="xsd:string"  minOccurs="0"/>
+                        <xsd:element name="sla_cc" type="xsd:date"  minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="requestRemindTranscomm" type="requestRemindTranscommType" />
+	<xsd:element name="responseRemindTranscomm" type="responseRemindTranscommType" />
+
+        <xsd:complexType name="responseRemindTranscommType">
+          <xsd:sequence>
+            <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+	
+
+</xsd:schema>

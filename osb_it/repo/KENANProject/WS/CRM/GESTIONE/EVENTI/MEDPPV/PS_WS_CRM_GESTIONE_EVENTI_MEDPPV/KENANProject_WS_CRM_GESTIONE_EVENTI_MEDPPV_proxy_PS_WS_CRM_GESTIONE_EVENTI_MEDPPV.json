@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/billing/WS_CRM_GESTIONE_EVENTI_MEDPPV",
+    "name" : "KENANProject_WS_CRM_GESTIONE_EVENTI_MEDPPV_proxy_PS_WS_CRM_GESTIONE_EVENTI_MEDPPV",
+    "localPath" : "osb_it\\repo\\KENANProject\\WS\\CRM\\GESTIONE\\EVENTI\\MEDPPV\\PS_WS_CRM_GESTIONE_EVENTI_MEDPPV",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/billing/WS_CRM_GESTIONE_EVENTI_MEDPPV?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/KenanProject/GestioneEventiMedPPV/xsd/XSD_CRM_GESTIONE_EVENTI_MEDPPV",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

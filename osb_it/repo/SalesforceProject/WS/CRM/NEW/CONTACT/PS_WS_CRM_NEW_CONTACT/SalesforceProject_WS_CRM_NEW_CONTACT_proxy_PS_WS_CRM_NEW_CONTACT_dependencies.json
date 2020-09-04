@@ -1,0 +1,45 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_NEW_CONTACT_proxy_PS_WS_CRM_NEW_CONTACT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_NEW_CONTACT/pipeline/PL_WS_NEW_CONTACT_ENQUEUE" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_NEW_CONTACT/pipeline/PL_WS_NEW_CONTACT_ENQUEUE",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/SalesforceProject/WS_CRM_NEW_CONTACT/businessService/BS_JMS_NEW_CONTACT" : {
+            "label" : "BusinessService/SalesforceProject/WS_CRM_NEW_CONTACT/businessService/BS_JMS_NEW_CONTACT",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_NEW_CONTACT/transformation/createResponse_WS_CRM_NEW_CONTACT" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_NEW_CONTACT/transformation/createResponse_WS_CRM_NEW_CONTACT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/NewContact/wsdl/WS_CRM_NEW_CONTACT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/NewContact/wsdl/WS_CRM_NEW_CONTACT",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/NewContact/wsdl/WS_CRM_NEW_CONTACT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/NewContact/wsdl/WS_CRM_NEW_CONTACT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

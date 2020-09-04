@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/SCMS_GESTIONE_MV_CONNESSO"
+                  xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  name="WS_SCMS_GESTIONE_MV_CONNESSO"
+                  targetNamespace="http://www.skytv.it/mdw/service/SCMS_GESTIONE_MV_CONNESSO">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SCMS_GESTIONE_MV_CONNESSO.xsd"/>
+      <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Header_Message">
+    <wsdl:part name="part_Header" element="inp1:Header"/>
+  </wsdl:message>
+  <wsdl:message name="requestVPREPO_Message">
+    <wsdl:part name="part_requestVPREPO" element="inp1:requestVPREPO"/>
+  </wsdl:message>
+  <wsdl:message name="responseVPREPO_Message">
+    <wsdl:part name="part_responseVPREPO" element="inp1:responseVPREPO"/>
+  </wsdl:message>
+  <wsdl:message name="requestRDECHH_Message">
+    <wsdl:part name="part_requestRDECHH" element="inp1:requestRDECHH"/>
+  </wsdl:message>
+  <wsdl:message name="responseRDECHH_Message">
+    <wsdl:part name="part_responseRDECHH" element="inp1:responseRDECHH"/>
+  </wsdl:message>
+  
+   <wsdl:portType name="SCMS_GESTIONE_MV_CONNESSO_ptt">
+    <wsdl:operation name="execute_VPREPO">
+      <wsdl:input message="tns:requestVPREPO_Message"/>
+      <wsdl:output message="tns:responseVPREPO_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_RDECHH">
+      <wsdl:input message="tns:requestRDECHH_Message"/>
+      <wsdl:output message="tns:responseRDECHH_Message"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SCMS_GESTIONE_MV_CONNESSO_bind" type="tns:SCMS_GESTIONE_MV_CONNESSO_ptt">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="execute_VPREPO">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/SCMS_GESTIONE_MV_CONNESSO/execute_VPREPO"
+                      style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestVPREPO" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseVPREPO" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+     <wsdl:operation name="execute_RDECHH">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/SCMS_GESTIONE_MV_CONNESSO/execute_RDECHH"
+                      style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestRDECHH" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseRDECHH" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

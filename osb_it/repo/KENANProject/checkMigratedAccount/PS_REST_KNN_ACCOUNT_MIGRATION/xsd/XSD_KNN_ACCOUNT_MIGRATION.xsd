@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestCheckMigratedAccount" type="requestCheckMigratedAccountType"/>
+  <xsd:element name="responseCheckMigratedAccount" type="responseCheckMigratedAccountType"/>
+  
+  <xsd:complexType name="requestCheckMigratedAccountType">
+    <xsd:sequence>
+      <xsd:element name="accountId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseCheckMigratedAccountType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwTid" type="xsd:string"/>
+      <xsd:element name="migrationCheck" type="migrationCheckType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="migrationCheckType">
+    <xsd:sequence>
+      <xsd:element name="migrationFlag" type="xsd:string"/>
+      <xsd:element name="migrationDate" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

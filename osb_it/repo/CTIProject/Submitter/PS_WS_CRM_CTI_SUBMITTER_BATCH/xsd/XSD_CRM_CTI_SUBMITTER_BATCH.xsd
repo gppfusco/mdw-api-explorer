@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestSubmitterBatchType">
+    <xsd:sequence>
+      <xsd:element name="ListOfJobRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="JobRequest" type="JobRequestType" maxOccurs="100"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestSubmitterBatch" type="requestSubmitterBatchType"/>
+  <xsd:element name="responseSubmitterBatch" type="responseSubmitterBatchType"/>
+  <xsd:complexType name="responseSubmitterBatchType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ListOfErrors" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Error" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="Codice" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="Descrizione" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="JobRequestType">
+    <xsd:sequence>
+      <xsd:element name="Id" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Ambiente__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BL_COD_ACCOUNT__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BL_ESITO__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BL_GRUPPO__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BL_ID_DETTAGLIO__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BL_ID_EXTRADMS__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BL_SERVICE__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BL_SRNUM__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BL_STATO__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BL_TYPE__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BO_FiloneRT__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BO_SitoRT__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BO_GenesysId__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Calltypeext__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Canale__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Case_NewCRM_Id__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Cell_cliente_sito__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Cod_cliente__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Coduser__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Comm_Action__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Data__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Data_ora_mail__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IDDocumento__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="InteractionQueue__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ListOfValues__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Mail_cliente_sito__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Media_Type__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Provenienza__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Services__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Tel_cliente_sito__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TipoCliente__c" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

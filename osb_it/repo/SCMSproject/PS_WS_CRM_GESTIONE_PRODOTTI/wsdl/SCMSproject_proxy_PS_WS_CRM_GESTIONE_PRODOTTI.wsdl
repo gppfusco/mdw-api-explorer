@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:mdata="http://www.skytv.it/mdw/data"
+                  xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_PRODOTTI"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_CRM_GESTIONE_PRODOTTI"
+                  targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_PRODOTTI"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_PRODOTTI.xsd"/>
+      <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="requestENBPRD_Message">
+    <wsdl:part name="part_requestENBPRD" element="mdata:requestENBPRD"/>
+  </wsdl:message>
+  <wsdl:message name="requestADDAUT_Message">
+    <wsdl:part name="part_requestADDAUT" element="mdata:requestADDAUT"/>
+  </wsdl:message>
+  <wsdl:message name="requestDELAUT_Message">
+    <wsdl:part name="part_requestDELAUT" element="mdata:requestDELAUT"/>
+  </wsdl:message>
+  <wsdl:message name="responseSCMS_Message">
+    <wsdl:part name="part_responseSCMS" element="mdata:responseSCMS"/>
+  </wsdl:message>
+     <wsdl:message name="requestSETCLR_Message">
+    <wsdl:part name="part_requestSETCLR" element="mdata:requestSETCLR"/>
+  </wsdl:message>
+    <wsdl:message name="responseSETCLR_Message">
+    <wsdl:part name="part_responseSETCLR" element="mdata:responseSETCLR"/>
+  </wsdl:message>
+
+  <wsdl:message name="Header_Message">
+    <wsdl:part name="part_HeaderMessage" element="mdata:Header"/>
+  </wsdl:message>
+  <wsdl:portType name="CRM_GESTIONE_PRODOTTI_ptt">
+    <wsdl:operation name="execute_ENBPRD">
+      <wsdl:input message="tns:requestENBPRD_Message"/>
+      <wsdl:output message="tns:responseSCMS_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_ADDAUT">
+      <wsdl:input message="tns:requestADDAUT_Message"/>
+      <wsdl:output message="tns:responseSCMS_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_DELAUT">
+      <wsdl:input message="tns:requestDELAUT_Message"/>
+      <wsdl:output message="tns:responseSCMS_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SETCLR">
+      <wsdl:input message="tns:requestSETCLR_Message"/>
+      <wsdl:output message="tns:responseSETCLR_Message"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CRM_GESTIONE_PRODOTTI_bind" type="tns:CRM_GESTIONE_PRODOTTI_ptt">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="execute_ENBPRD">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PRODOTTI/execute_ENBPRD"
+                      style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestENBPRD" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseSCMS" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_ADDAUT">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PRODOTTI/execute_ADDAUT"
+                      style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestADDAUT" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseSCMS" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_DELAUT">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PRODOTTI/execute_DELAUT"
+                      style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestDELAUT" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseSCMS" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SETCLR">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PRODOTTI/execute_SETCLR"
+                      style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestSETCLR" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseSETCLR" use="literal"/>
+        <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+ 
+</wsdl:definitions>

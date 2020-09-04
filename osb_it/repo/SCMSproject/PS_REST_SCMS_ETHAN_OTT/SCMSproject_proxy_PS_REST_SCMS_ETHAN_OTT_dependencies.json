@@ -1,0 +1,148 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_proxy_PS_REST_SCMS_ETHAN_OTT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/SCMSproject/pipeline/PL_REST_SCMS_ETHAN_OTT" : {
+        "label" : "Pipeline/SCMSproject/pipeline/PL_REST_SCMS_ETHAN_OTT",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SCMSproject/pipeline/PL_ETHAN_REMBOK_GENERIC_OPERATION" : {
+            "label" : "Pipeline/SCMSproject/pipeline/PL_ETHAN_REMBOK_GENERIC_OPERATION",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF" : {
+                "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF",
+                "properties" : { },
+                "successors" : {
+                  "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+                    "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/SCMSproject/transformation/createRequest_REMBOK_ETHAN" : {
+                "label" : "Xquery/SCMSproject/transformation/createRequest_REMBOK_ETHAN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SCMSproject/Resources/PS_REST_SCMS_ETHAN_OTT" : {
+                "label" : "WSDL/SCMSproject/Resources/PS_REST_SCMS_ETHAN_OTT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SCMSproject/transformation/createResponse_REMBOK_ETHAN" : {
+                "label" : "Xquery/SCMSproject/transformation/createResponse_REMBOK_ETHAN",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SCMSproject/transformation/createResponseForJSONErrors" : {
+            "label" : "Xquery/SCMSproject/transformation/createResponseForJSONErrors",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SCMSproject/pipeline/PL_ETHAN_AQEDCM_GENERIC_OPERATION" : {
+            "label" : "Pipeline/SCMSproject/pipeline/PL_ETHAN_AQEDCM_GENERIC_OPERATION",
+            "properties" : { },
+            "successors" : {
+              "Xquery/SCMSproject/transformation/createResponse_AQEDCM_ETHAN" : {
+                "label" : "Xquery/SCMSproject/transformation/createResponse_AQEDCM_ETHAN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SCMSproject/transformation/createRequest_AQEDCM_ETHAN" : {
+                "label" : "Xquery/SCMSproject/transformation/createRequest_AQEDCM_ETHAN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF" : {
+                "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF",
+                "properties" : { },
+                "successors" : {
+                  "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+                    "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/SCMSproject/Resources/PS_REST_SCMS_ETHAN_OTT" : {
+                "label" : "WSDL/SCMSproject/Resources/PS_REST_SCMS_ETHAN_OTT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/SCMSproject/Resources/PS_REST_SCMS_ETHAN_OTT" : {
+            "label" : "WSDL/SCMSproject/Resources/PS_REST_SCMS_ETHAN_OTT",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/SCMSproject/Resources/PS_REST_SCMS_ETHAN_OTT" : {
+        "label" : "WSDL/SCMSproject/Resources/PS_REST_SCMS_ETHAN_OTT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

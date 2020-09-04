@@ -1,0 +1,73 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OM_tyo_proxy_PS_WS_OM_TYO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OM/tyo/wsdl/WS_OM_TYO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OM/tyo/wsdl/WS_OM_TYO",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/OM/tyo/pipeline/PL_REST_OM_TYO" : {
+        "label" : "Pipeline/BlueBirdProject/OM/tyo/pipeline/PL_REST_OM_TYO",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/BlueBirdProject/Resources/PS_REST_OM_TYO" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OM_TYO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/OM/tyo/transformations/createRequest_TYO_NOTIFY" : {
+            "label" : "Xquery/BlueBirdProject/OM/tyo/transformations/createRequest_TYO_NOTIFY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OM/tyo/pipeline/PL_WS_OM_TYO_NOTIFY" : {
+            "label" : "Pipeline/BlueBirdProject/OM/tyo/pipeline/PL_WS_OM_TYO_NOTIFY",
+            "properties" : { },
+            "successors" : {
+              "Xquery/OMProject/transformation/createRequestSoapHeaderTibco" : {
+                "label" : "Xquery/OMProject/transformation/createRequestSoapHeaderTibco",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/OM/tyo/businessService/BS_WS_NOTIFY_TYO" : {
+                "label" : "BusinessService/BlueBirdProject/OM/tyo/businessService/BS_WS_NOTIFY_TYO",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/ApplicationObjects/BLUEBIRD/OM/WS_BSS_TYO_NOTIFY_STATUS/WS_BSS_TYO_NOTIFY_STATUS_Concrete" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/BLUEBIRD/OM/WS_BSS_TYO_NOTIFY_STATUS/WS_BSS_TYO_NOTIFY_STATUS_Concrete",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/BlueBirdProject/OM/tyo/transformations/createResponse_TYO_NOTIFY" : {
+            "label" : "Xquery/BlueBirdProject/OM/tyo/transformations/createResponse_TYO_NOTIFY",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

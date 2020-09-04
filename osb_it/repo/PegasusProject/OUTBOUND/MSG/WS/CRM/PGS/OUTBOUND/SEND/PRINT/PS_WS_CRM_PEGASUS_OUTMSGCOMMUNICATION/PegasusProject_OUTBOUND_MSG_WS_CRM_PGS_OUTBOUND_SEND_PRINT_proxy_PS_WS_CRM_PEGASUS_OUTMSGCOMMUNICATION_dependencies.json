@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "PegasusProject_OUTBOUND_MSG_WS_CRM_PGS_OUTBOUND_SEND_PRINT_proxy_PS_WS_CRM_PEGASUS_OUTMSGCOMMUNICATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/pipeline/PL_WS_ITERATE_OUTBOUND_SEND_PRINT" : {
+        "label" : "Pipeline/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/pipeline/PL_WS_ITERATE_OUTBOUND_SEND_PRINT",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/pipeline/PL_JMS_OUTBOUND_COMMUNICATION_ENQUEUE" : {
+            "label" : "Pipeline/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/pipeline/PL_JMS_OUTBOUND_COMMUNICATION_ENQUEUE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_JMS_SF_OUTBOUND_PEGASUS" : {
+                "label" : "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_JMS_SF_OUTBOUND_PEGASUS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/OUTBOUND_MSG/SendPrint/wsdl/WS_CRM_PEGASUS_OUTMSGCOMMUNICATION" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/OUTBOUND_MSG/SendPrint/wsdl/WS_CRM_PEGASUS_OUTMSGCOMMUNICATION",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/transformation/createWSResponseOutboundCommunication" : {
+            "label" : "Xquery/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/transformation/createWSResponseOutboundCommunication",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/transformation/createrequest_for_iterate" : {
+            "label" : "Xquery/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/transformation/createrequest_for_iterate",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/OUTBOUND_MSG/SendPrint/wsdl/WS_CRM_PEGASUS_OUTMSGCOMMUNICATION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/OUTBOUND_MSG/SendPrint/wsdl/WS_CRM_PEGASUS_OUTMSGCOMMUNICATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/OUTBOUND_MSG/SendPrint/wsdl/WS_CRM_PEGASUS_OUTMSGCOMMUNICATION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/OUTBOUND_MSG/SendPrint/wsdl/WS_CRM_PEGASUS_OUTMSGCOMMUNICATION",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

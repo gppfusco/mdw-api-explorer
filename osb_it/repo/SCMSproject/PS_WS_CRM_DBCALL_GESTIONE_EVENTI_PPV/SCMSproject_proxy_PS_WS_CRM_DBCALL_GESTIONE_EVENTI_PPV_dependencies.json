@@ -1,0 +1,79 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_proxy_PS_WS_CRM_DBCALL_GESTIONE_EVENTI_PPV",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SCMSproject/pipeline/PL_WS_CRM_DBCALL_GESTIONE_EVENTI_PPV" : {
+        "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_DBCALL_GESTIONE_EVENTI_PPV",
+        "properties" : { },
+        "successors" : {
+          "Xquery/SCMSproject/transformation/createRequest_BS_SQL_CAIF_PAL_TVOD" : {
+            "label" : "Xquery/SCMSproject/transformation/createRequest_BS_SQL_CAIF_PAL_TVOD",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/businessService/BS_JCA_DB_CAIF_PALINSESTO_OPPV" : {
+            "label" : "BusinessService/SCMSproject/businessService/BS_JCA_DB_CAIF_PALINSESTO_OPPV",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createRequest_GetPalinsestoPPV" : {
+            "label" : "Xquery/SCMSproject/transformation/createRequest_GetPalinsestoPPV",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createResponse_WS_GESTIONE_EVENTI_PPV_PALTVOD" : {
+            "label" : "Xquery/SCMSproject/transformation/createResponse_WS_GESTIONE_EVENTI_PPV_PALTVOD",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/businessService/BS_SQL_GET_PALINSESTO_PPV" : {
+            "label" : "BusinessService/SCMSproject/businessService/BS_SQL_GET_PALINSESTO_PPV",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/create_response_PALOPPV" : {
+            "label" : "Xquery/SCMSproject/transformation/create_response_PALOPPV",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createResponse_WS_CRM_DBCALL_GESTIONE_EVENTI_PPV_GetPalinsestoPPV" : {
+            "label" : "Xquery/SCMSproject/transformation/createResponse_WS_CRM_DBCALL_GESTIONE_EVENTI_PPV_GetPalinsestoPPV",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/businessService/BS_SQL_CAIF_PAL_TVOD" : {
+            "label" : "BusinessService/SCMSproject/businessService/BS_SQL_CAIF_PAL_TVOD",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneEventiPPV/wsdl/WS_CRM_GESTIONE_EVENTI_PPV" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneEventiPPV/wsdl/WS_CRM_GESTIONE_EVENTI_PPV",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneEventiPPV/wsdl/WS_CRM_GESTIONE_EVENTI_PPV" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneEventiPPV/wsdl/WS_CRM_GESTIONE_EVENTI_PPV",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

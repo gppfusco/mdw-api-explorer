@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/scms/WS_SCMS_ACQUISTO_HOTEL",
+    "name" : "SCMSproject_proxy_PS_WS_SCMS_ACQUISTO_HOTEL",
+    "localPath" : "osb_it\\repo\\SCMSproject\\PS_WS_SCMS_ACQUISTO_HOTEL",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/scms/WS_SCMS_ACQUISTO_HOTEL?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SCMSproject/AcquistoHotel/xsd/XSD_SCMS_ACQUISTO_HOTEL",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

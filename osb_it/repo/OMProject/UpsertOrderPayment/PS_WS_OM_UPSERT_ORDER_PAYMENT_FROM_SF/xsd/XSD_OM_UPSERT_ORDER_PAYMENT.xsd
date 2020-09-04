@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestUpsertOrderPayment" type="requestUpsertOrderPaymentType"/>
+  <xsd:element name="requestUpsertOrderPaymentFromSF" type="requestUpsertOrderPaymentFromSFType"/>
+  <xsd:element name="responseUpsertOrderPaymentFromSF" type="responseUpsertOrderPaymentType"/>
+  <xsd:element name="responseUpsertOrderPayment" type="responseUpsertOrderPaymentType"/>
+  <xsd:complexType name="requestUpsertOrderPaymentFromSFType">
+    <xsd:sequence>
+      <xsd:element name="requestUpsertOrderPaymentWrapper" type="requestUpsertOrderPaymentType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestUpsertOrderPaymentType">
+    <xsd:sequence>
+      <xsd:element name="TibcoOrderId" type="xsd:string"/>
+      <xsd:element name="ActionType" type="xsd:string"/>
+      <xsd:element name="Status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Action" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DP_Import" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DP_Type" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DECA_Import" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DECA_Type" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DECA_Status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DECA_IdMOP" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CardNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreditCard_Type" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreditCard_Name" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IGFS_ShopId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IGFS_RefTranId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IGFS_TranId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IGFS_PaymentId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IBAN" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ABI" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CAB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CIN" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SIA_Code" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreationDateSBL" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="UpdateDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MandateDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CurrencyDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IndividualCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CC_ExpirationYear" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CC_ExpirationMonth" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Authorization_Code" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SubscriberCF" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SubscriberName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BillingName" type="xsd:string" minOccurs="0"/>
+      <!-- Campo aggiunto per AGCM - R7/R8 17/12/2019 -->
+      <xsd:element name="AGCMNation" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="AGCMBIC" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="AGCMAddress" type="xsd:string" minOccurs="0"/>
+      <!-- Campo aggiunto per AGCM - R9 22/01/2020 -->
+      <xsd:element name="FlgIbanEU" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseUpsertOrderPaymentType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

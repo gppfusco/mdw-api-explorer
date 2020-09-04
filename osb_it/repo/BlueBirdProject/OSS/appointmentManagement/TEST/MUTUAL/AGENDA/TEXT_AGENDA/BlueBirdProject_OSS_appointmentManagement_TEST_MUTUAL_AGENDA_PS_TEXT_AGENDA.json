@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/BlueBirdProject/OSS/appointmentManagement/TEST_MUTUAL_AGENDA/PS_TEXT_AGENDA",
+    "name" : "BlueBirdProject_OSS_appointmentManagement_TEST_MUTUAL_AGENDA_PS_TEXT_AGENDA",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\OSS\\appointmentManagement\\TEST\\MUTUAL\\AGENDA\\TEXT_AGENDA",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

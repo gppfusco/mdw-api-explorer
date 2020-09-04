@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mario/rest/api",
+    "name" : "TestMario_TestProxyText_PROXY_TEST",
+    "localPath" : "osb_it\\repo\\TestMario_TestProxyText_PROXY_TEST",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

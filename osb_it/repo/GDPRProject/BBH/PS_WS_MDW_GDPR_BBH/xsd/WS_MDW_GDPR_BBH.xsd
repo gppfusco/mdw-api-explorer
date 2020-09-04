@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+    targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+    <xsd:element name="requestSiebelNotifications" type="requestSiebelNotificationsType"/>
+    <xsd:element name="responseSiebelNotifications" type="responseSiebelNotificationsType"/>
+    <xsd:complexType name="requestSiebelNotificationsType">
+        <xsd:sequence>
+            <xsd:element name="dataNotifica" type="xsd:date"/>
+            <xsd:element name="listaNotifiche" type="listaNotificheType"  maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listaNotificheType">
+        <xsd:sequence>
+            <xsd:element name="notifica" type="notificaType" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="notificaType">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="tipoEvento" type="tipoEventoType" maxOccurs="1"/>
+            <xsd:element name="dataApplicazione" type="xsd:date" maxOccurs="1"/>
+            <xsd:element name="cliente" type="clienteType" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="clienteType">
+        <xsd:sequence>
+            <xsd:element name="codiceClienteFru" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="orderNumber" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="codiceClientePag" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="tipoCliente" type="tipoClienteType" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="tipoEventoType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="SCADENZA_RETENTION_FISCALE"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="tipoClienteType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="BBH"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="responseSiebelNotificationsType">
+        <xsd:sequence>
+            <xsd:element name="Esito" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="DescrizioneEsito" type="xsd:string" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

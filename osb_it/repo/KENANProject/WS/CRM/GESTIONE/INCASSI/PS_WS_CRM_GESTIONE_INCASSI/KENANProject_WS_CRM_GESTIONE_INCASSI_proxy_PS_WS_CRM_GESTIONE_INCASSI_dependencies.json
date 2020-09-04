@@ -1,0 +1,187 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_CRM_GESTIONE_INCASSI_proxy_PS_WS_CRM_GESTIONE_INCASSI",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/WS_CRM_GESTIONE_INCASSI/pipelines/PL_WS_CRM_GESTIONE_INCASSI" : {
+        "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_INCASSI/pipelines/PL_WS_CRM_GESTIONE_INCASSI",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/KENANProject/WS_CRM_GESTIONE_INCASSI/pipelines/PL_WS_CRM_GESTIONE_INCASSI_GetIncassiFull" : {
+            "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_INCASSI/pipelines/PL_WS_CRM_GESTIONE_INCASSI_GetIncassiFull",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createRequest_BS_SQL_KNN_GET_INCASSI_FULL" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createRequest_BS_SQL_KNN_GET_INCASSI_FULL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createResponseWSGetIncassiFull" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createResponseWSGetIncassiFull",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/WS_CRM_GESTIONE_INCASSI/businessService/BS_SQL_KNN_GET_INCASSI_FULL" : {
+                "label" : "BusinessService/KENANProject/WS_CRM_GESTIONE_INCASSI/businessService/BS_SQL_KNN_GET_INCASSI_FULL",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "XMLSchema/KENANProject/Resources/BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "XMLSchema/KENANProject/Resources/BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/KENANProject/WS_CRM_GESTIONE_INCASSI/pipelines/PL_WS_CRM_GESTIONE_INCASSI_GetIncassiRecenti" : {
+            "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_INCASSI/pipelines/PL_WS_CRM_GESTIONE_INCASSI_GetIncassiRecenti",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createResponseWSGetIncassiRecenti" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createResponseWSGetIncassiRecenti",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/WS_CRM_GESTIONE_INCASSI/businessService/BS_SQL_KNN_GET_INCASSI_RECENTI" : {
+                "label" : "BusinessService/KENANProject/WS_CRM_GESTIONE_INCASSI/businessService/BS_SQL_KNN_GET_INCASSI_RECENTI",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/KENANProject/Resources/BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "XMLSchema/KENANProject/Resources/BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createRequest_BS_SQL_KNN_GET_INCASSI_RECENTI" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createRequest_BS_SQL_KNN_GET_INCASSI_RECENTI",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/KENANProject/WS_CRM_GESTIONE_INCASSI/pipelines/PL_WS_CRM_GESTIONE_INCASSI_GetDettaglioIncasso" : {
+            "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_INCASSI/pipelines/PL_WS_CRM_GESTIONE_INCASSI_GetDettaglioIncasso",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createResponseWSGetDettaglioIncasso" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createResponseWSGetDettaglioIncasso",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createRequest_BS_SQL_KNN_GET_DETTAGLIO_INCASSO" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createRequest_BS_SQL_KNN_GET_DETTAGLIO_INCASSO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/WS_CRM_GESTIONE_INCASSI/businessService/BS_SQL_KNN_GET_DETTAGLIO_INCASSO" : {
+                "label" : "BusinessService/KENANProject/WS_CRM_GESTIONE_INCASSI/businessService/BS_SQL_KNN_GET_DETTAGLIO_INCASSO",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "XMLSchema/KENANProject/Resources/BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "XMLSchema/KENANProject/Resources/BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/KENANProject/WS_CRM_GESTIONE_INCASSI/pipelines/PL_WS_CRM_GESTIONE_INCASSI_GetIncassiByFattura" : {
+            "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_INCASSI/pipelines/PL_WS_CRM_GESTIONE_INCASSI_GetIncassiByFattura",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneIncassi/wsdl/WSDL_CRM_GESTIONE_INCASSI",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createRequest_TUX_GET_INCASSI_BY_FATTURE/XQY" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createRequest_TUX_GET_INCASSI_BY_FATTURE/XQY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/WS_CRM_GESTIONE_INCASSI/businessService/BS_TUX_GET_INCASSI_BY_FATTURE" : {
+                "label" : "BusinessService/KENANProject/WS_CRM_GESTIONE_INCASSI/businessService/BS_TUX_GET_INCASSI_BY_FATTURE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createResponseWSGetIncassiByFatture" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_INCASSI/transformations/createResponseWSGetIncassiByFatture",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/KENANProject/Resources/BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "XMLSchema/KENANProject/Resources/BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

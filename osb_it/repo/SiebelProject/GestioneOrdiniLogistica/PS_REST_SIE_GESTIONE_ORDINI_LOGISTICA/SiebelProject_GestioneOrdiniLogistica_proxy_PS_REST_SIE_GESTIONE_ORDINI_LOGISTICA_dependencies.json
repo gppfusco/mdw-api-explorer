@@ -1,0 +1,317 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_GestioneOrdiniLogistica_proxy_PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/GestioneOrdiniLogistica/pipeline/PL_SIE_GESTIONE_ORDINI_LOGISTICA_ROUTING" : {
+        "label" : "Pipeline/SiebelProject/GestioneOrdiniLogistica/pipeline/PL_SIE_GESTIONE_ORDINI_LOGISTICA_ROUTING",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SiebelProject/GestioneOrdiniLogistica/pipeline/PL_INTERNAL_SIE_ACK_ESITO_ORDINI_LOGISTICA" : {
+            "label" : "Pipeline/SiebelProject/GestioneOrdiniLogistica/pipeline/PL_INTERNAL_SIE_ACK_ESITO_ORDINI_LOGISTICA",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createRequest_AckEsitoOrdini" : {
+                "label" : "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createRequest_AckEsitoOrdini",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                    "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                    "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XSLT/SiebelProject/transformations/createElement" : {
+                    "label" : "XSLT/SiebelProject/transformations/createElement",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createResponse_AckEsitoOrdini" : {
+                "label" : "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createResponse_AckEsitoOrdini",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA" : {
+                "label" : "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/GestioneOrdiniLogistica/pipeline/PL_INTERNAL_SIE_ESITO_ORDINI_LOGISTICA" : {
+            "label" : "Pipeline/SiebelProject/GestioneOrdiniLogistica/pipeline/PL_INTERNAL_SIE_ESITO_ORDINI_LOGISTICA",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                    "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                    "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XSLT/SiebelProject/transformations/createElement" : {
+                    "label" : "XSLT/SiebelProject/transformations/createElement",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA" : {
+                "label" : "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createResponse_EsitoOrdini" : {
+                "label" : "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createResponse_EsitoOrdini",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createRequest_EsitoOrdini" : {
+                "label" : "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createRequest_EsitoOrdini",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/SiebelProject/GestioneOrdiniLogistica/pipeline/PL_INTERNAL_SIE_TRACKING_ORDINE_LOGISTICA" : {
+            "label" : "Pipeline/SiebelProject/GestioneOrdiniLogistica/pipeline/PL_INTERNAL_SIE_TRACKING_ORDINE_LOGISTICA",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createResponse_TrackingOrdine" : {
+                "label" : "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createResponse_TrackingOrdine",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                    "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                    "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XSLT/SiebelProject/transformations/createElement" : {
+                    "label" : "XSLT/SiebelProject/transformations/createElement",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createRequest_TrackingOrdine" : {
+                "label" : "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createRequest_TrackingOrdine",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA" : {
+                "label" : "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/SiebelProject/GestioneOrdiniLogistica/pipeline/PL_INTERNAL_SIE_CREAZIONE_ORDINE_LOGISTICA" : {
+            "label" : "Pipeline/SiebelProject/GestioneOrdiniLogistica/pipeline/PL_INTERNAL_SIE_CREAZIONE_ORDINE_LOGISTICA",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createResponse_CreazioneOrdine" : {
+                "label" : "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createResponse_CreazioneOrdine",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createRequest_CreazioneOrdine" : {
+                "label" : "Xquery/SiebelProject/GestioneOrdiniLogistica/transformations/createRequest_CreazioneOrdine",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                    "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                    "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XSLT/SiebelProject/transformations/createElement" : {
+                    "label" : "XSLT/SiebelProject/transformations/createElement",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA" : {
+                "label" : "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA" : {
+            "label" : "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA" : {
+        "label" : "WSDL/SiebelProject/Resources/PS_REST_SIE_GESTIONE_ORDINI_LOGISTICA",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

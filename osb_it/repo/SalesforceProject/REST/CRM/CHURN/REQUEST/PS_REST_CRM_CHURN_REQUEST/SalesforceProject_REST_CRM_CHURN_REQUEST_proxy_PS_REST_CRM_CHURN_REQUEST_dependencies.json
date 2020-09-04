@@ -1,0 +1,122 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_CHURN_REQUEST_proxy_PS_REST_CRM_CHURN_REQUEST",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_CHURN_REQUEST" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_CHURN_REQUEST",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/REST_CRM_CHURN_REQUEST/pipeline/PL_REST_CRM_CHURN_REQUEST" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_CHURN_REQUEST/pipeline/PL_REST_CRM_CHURN_REQUEST",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_CHURN_REQUEST" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_CHURN_REQUEST",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_CHURN_REQUEST/trasformation/createRequest_For_SendPrintPgs" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CHURN_REQUEST/trasformation/createRequest_For_SendPrintPgs",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_CHURN_REQUEST/trasformation/createResponseChurnRequest" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CHURN_REQUEST/trasformation/createResponseChurnRequest",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+            "properties" : { },
+            "successors" : {
+              "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "ProxyService/PegasusProject/Send/proxy/PS_LOCAL_PGS_SEND" : {
+            "label" : "ProxyService/PegasusProject/Send/proxy/PS_LOCAL_PGS_SEND",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/ApplicationObjects/PEGASUS/WS_MDW_PEGASUS_SEND" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/PEGASUS/WS_MDW_PEGASUS_SEND",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/PegasusProject/Send/pipeline/PL_INTERNAL_PGS_SEND" : {
+                "label" : "Pipeline/PegasusProject/Send/pipeline/PL_INTERNAL_PGS_SEND",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/Send/wsdl/WS_PGS_SEND" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/Send/wsdl/WS_PGS_SEND",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_WS_MDW_PEGASUS_SEND" : {
+                    "label" : "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_WS_MDW_PEGASUS_SEND",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

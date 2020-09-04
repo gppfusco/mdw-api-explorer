@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestListaCampagneAttive" type="requestListaCampagneAttiveType" />
+  <xsd:complexType name="requestListaCampagneAttiveType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="mdwTrackingField" minOccurs="0" maxOccurs="1" >
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwConnId" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="mdwOrigin" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="mdwScope" minOccurs="0" maxOccurs="1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseListaCampagneAttive" type="responseListaCampagneAttiveType" />
+  <xsd:complexType name="responseListaCampagneAttiveType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="mdwCampaigns" type="mdwCampaignsType" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="mdwCampaignsType">
+    <xsd:sequence>
+      <xsd:element name="mdwCampaign" type="campaignType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="campaignType">
+    <xsd:sequence>
+      <xsd:element name="mdwCampaignName" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="mdwCampaignCode" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="mdwCampaignFamily" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

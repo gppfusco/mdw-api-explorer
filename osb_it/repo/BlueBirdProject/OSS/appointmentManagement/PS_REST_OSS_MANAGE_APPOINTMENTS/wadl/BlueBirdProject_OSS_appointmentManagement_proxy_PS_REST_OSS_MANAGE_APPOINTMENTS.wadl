@@ -1,0 +1,83 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSB_SVIL/BlueBirdProject/PS_REST_OSS_MANAGE_APPOINTMENTS" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/manageAppointment/xsd/XSD_OSS_MANAGE_APPOINTMENTS.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/available-slots">
+         <method name="GET" soa:wsdlOperation="availableAppointments">
+            <request>
+               <param name="buildingID" style="query" soa:expression="$msg.request/ns0:buildingID" default="" type="xsd:string"/>
+               <param name="subBuilding" style="query" soa:expression="$msg.request/ns0:subBuilding" default="" type="xsd:string"/>
+               <param name="serviceType" style="query" soa:expression="$msg.request/ns0:serviceType" default="" type="xsd:string"/>
+               <param name="requestType" style="query" soa:expression="$msg.request/ns0:requestType" default="" type="xsd:string"/>
+               <param name="startDay" style="query" soa:expression="$msg.request/ns0:startDay" default="" type="xsd:string"/>
+               <param name="numberOfSlots" style="query" soa:expression="$msg.request/ns0:numberOfSlots" default="" type="xsd:string"/>
+               <param name="orderId" style="query" soa:expression="$msg.request/ns0:orderId" default="" type="xsd:string"/>
+               <param name="wholesaler" style="query" soa:expression="$msg.request/ns0:wholesaler" default="" type="xsd:string"/>
+               <param name="customerCategory" style="query" soa:expression="$msg.request/ns0:customerCategory" default="" type="xsd:string"/>
+               <param name="extra" style="query" soa:expression="$msg.request/ns0:extra" default="" type="xsd:string"/>
+               <param name="prospectBB" style="query" soa:expression="$msg.request/ns0:prospectBB" default="" type="xsd:string"/>
+               <param name="tenure" style="query" soa:expression="$msg.request/ns0:tenure" default="" type="xsd:string"/>
+               <param name="migrationFlag" style="query" soa:expression="$msg.request/ns0:migrationFlag" default="" type="xsd:integer"/>
+               <param name="migrationPhase" style="query" soa:expression="$msg.request/ns0:migrationPhase" default="" type="xsd:integer"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseAvailableAppointments" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/appointments">
+         <method name="POST" soa:wsdlOperation="reserveAppointment">
+            <request>
+               <representation mediaType="application/xml" element="cns:requestReserveAppointment" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseReserveAppointment" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/appointments/{orderId}">
+         <method name="DELETE" soa:wsdlOperation="CancelAppointment">
+            <request>
+               <param name="orderId" style="template" soa:expression="$msg.request/ns0:orderId" default="" type="xsd:string"/>
+               <param name="tokenId" style="query" soa:expression="$msg.request/ns0:tokenId" default="" type="xsd:string"/>
+               <param name="wholesaler" style="query" soa:expression="$msg.request/ns0:wholesaler" default="" type="xsd:string"/>
+            </request>
+            <response status="200"/>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

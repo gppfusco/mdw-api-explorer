@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+           targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xs:element name="requestRetrieveVoiceUsage" type="requestRetrieveVoiceUsageType"/>
+  <xs:element name="responseRetrieveVoiceUsage" type="responseRetrieveVoiceUsageType"/>
+  <xs:complexType name="requestRetrieveVoiceUsageType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="e2eContractId"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseRetrieveVoiceUsageType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="resultCode"/>
+      <xs:element type="xs:string" name="resultDescription"/>
+      <xs:element type="voiceUsagesType" name="voiceUsages" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="voiceUsagesType">
+    <xs:sequence>
+      <xs:element type="voiceUsageType" name="voiceUsage" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>  
+  <xs:complexType name="voiceUsageType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="trafficType"/>
+      <xs:element type="xs:string" name="offerType" minOccurs="0"/>
+      <xs:element type="xs:string" name="offerDescription" minOccurs="0"/>
+      <xs:element type="xs:decimal" name="availableMinutes" minOccurs="0"/>
+      <xs:element type="xs:dateTime" name="availablePeriod" minOccurs="0"/>
+      <xs:element type="xs:decimal" name="duration"/>
+      <xs:element type="xs:decimal" name="amount"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

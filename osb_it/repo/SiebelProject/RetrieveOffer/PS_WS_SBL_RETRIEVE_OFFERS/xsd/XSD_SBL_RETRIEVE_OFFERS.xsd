@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestRetrieveOffers" type="RetrieveOfferRequestType">
+   
+  </xsd:element>
+    <xsd:element name="responseRetrieveOffers" type="RetrieveOfferResponseType">
+   
+  </xsd:element>
+   <xsd:complexType name="RetrieveOfferResponseType">
+    <xsd:sequence>
+      <xsd:element name="Esito" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="DescrizioneEsito" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="ClaimPromo" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="DataInizioValidita" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+      <xsd:element name="DataFineValidita" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+       <xsd:element name="VincoloListaCodici" minOccurs="0" maxOccurs="1" type="VincoloListaCodiciType"/>
+      <xsd:element name="Pacchetti" minOccurs="0" maxOccurs="1"  type="PacchettiType" />
+      <xsd:element name="ServiziOpzionali" minOccurs="0" maxOccurs="1"  type="ServiziOpzionaliType" />
+      <xsd:element name="Visioni" minOccurs="0" maxOccurs="1"  type="VisioniType" />
+      <xsd:element name="Tickets" minOccurs="0" maxOccurs="1"  type="TicketsType" />
+      <xsd:element name="TipoDecoder" minOccurs="0" maxOccurs="1"  type="TipoDecoderType" />
+      <xsd:element name="MOP" minOccurs="0" maxOccurs="1"  type="MOPType" />
+    </xsd:sequence>
+  </xsd:complexType>
+     <xsd:complexType name="RetrieveOfferRequestType">
+    <xsd:sequence>
+      <xsd:element name="Canale" minOccurs="1" maxOccurs="1" type="CanaleType"/>
+      <xsd:element name="CodicePromozione" minOccurs="1" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="CodiceVoucher" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ScontoType">
+    <xsd:sequence>
+      <xsd:element name="RateCode" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="TipoSconto" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="Valore" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="Nome" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="DataInizioValidita" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+      <xsd:element name="DataFineValidita" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PacchettoType">
+    <xsd:sequence>
+      <xsd:element name="RateCode" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="TipoCosto" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="Prezzo" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="Nome" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="Sconto" minOccurs="0" maxOccurs="1" type="ScontoType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+    <xsd:complexType name="ServizioOpzionaleType">
+    <xsd:sequence>
+      <xsd:element name="TipoCosto" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="Prezzo" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="NomeProdotto" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="CodiceParte" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="SottoTipo" minOccurs="0" maxOccurs="1" type="SottoTipoType"/>
+      <xsd:element name="Sconto" minOccurs="0" maxOccurs="1" type="ScontoType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+    <xsd:complexType name="VisionType">
+    <xsd:sequence>
+      <xsd:element name="Prezzo" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="TipoCosto" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="NomeProdotto" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="CodiceParte" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+    </xsd:sequence>
+    </xsd:complexType>
+      <xsd:complexType name="TicketType">
+    <xsd:sequence>
+     <xsd:element name="Prezzo" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="TipoCosto" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="NomeProdotto" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="CodiceParte" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+   </xsd:sequence>
+    </xsd:complexType>
+          <xsd:complexType name="InstallazioneType">
+    <xsd:sequence>
+      <xsd:element name="TipoCosto" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="Prezzo" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="Nome" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="Sconto" minOccurs="0" maxOccurs="1" type="ScontoType"/>
+   </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="CompDecoderInstallOffType">
+    <xsd:sequence>
+      <xsd:element name="Offerta" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="Installazione" minOccurs="0" maxOccurs="1" type="InstallazioneType"/> 
+   </xsd:sequence>
+    </xsd:complexType>
+        <xsd:complexType name="DecoderType">
+    <xsd:sequence>
+      <xsd:element name="Valore" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+      <xsd:element name="CompDecoderInstallOff" minOccurs="0" maxOccurs="1" type="CompDecoderInstallOffType"/> 
+   </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="TypeType">
+    <xsd:sequence>
+      <xsd:element name="Nome" minOccurs="0" maxOccurs="1" type="mandatoryStringType"/>
+   </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="MOPType">
+      <xsd:sequence>
+        <xsd:element name="Type" minOccurs="0" maxOccurs="unbounded" type="TypeType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="TipoDecoderType">
+      <xsd:sequence>
+        <xsd:element name="Decoder" minOccurs="0" maxOccurs="1" type="DecoderType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="TicketsType">
+      <xsd:sequence>
+        <xsd:element name="Ticket" minOccurs="0" maxOccurs="unbounded" type="TicketType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="VisioniType">
+      <xsd:sequence>
+        <xsd:element name="Vision" minOccurs="0" maxOccurs="unbounded" type="VisionType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="PacchettiType">
+      <xsd:sequence>
+        <xsd:element name="Pacchetto" minOccurs="0" maxOccurs="unbounded" type="PacchettoType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ServiziOpzionaliType">
+      <xsd:sequence>
+        <xsd:element name="ServizioOpzionale" minOccurs="0" maxOccurs="unbounded" type="ServizioOpzionaleType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="mandatoryStringType" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CanaleType">
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="WEBSELLING" />
+  </xsd:restriction>
+</xsd:simpleType>
+  <xsd:simpleType name="SottoTipoType">
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="OPZIONALE" />
+    <xsd:enumeration value="OBBLIGATORIO" />
+  </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="VincoloListaCodiciType">
+  <xsd:restriction base="xsd:string">
+    <xsd:enumeration value="Y" />
+    <xsd:enumeration value="N" />
+  </xsd:restriction>
+</xsd:simpleType>
+</xsd:schema>

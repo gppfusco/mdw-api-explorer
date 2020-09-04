@@ -1,0 +1,147 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_EXIT_FEE_proxy_PS_REST_CRM_EXIT_FEE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_EXIT_FEE" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_EXIT_FEE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/REST_CRM_EXIT_FEE/pipeline/PL_REST_CRM_EXIT_FEE" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_EXIT_FEE/pipeline/PL_REST_CRM_EXIT_FEE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_EXIT_FEE" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_EXIT_FEE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_EXIT_FEE/transformations/createResponseExitFeeWithoutFees" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_EXIT_FEE/transformations/createResponseExitFeeWithoutFees",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+            "properties" : { },
+            "successors" : {
+              "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SalesforceProject/REST_CRM_EXIT_FEE/transformations/createResponseExitFeeWithFee" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_EXIT_FEE/transformations/createResponseExitFeeWithFee",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_EXIT_FEE/transformations/createRequestToSBLGestioneFee" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_EXIT_FEE/transformations/createRequestToSBLGestioneFee",
+            "properties" : { },
+            "successors" : { }
+          },
+          "ProxyService/SiebelProject/proxy/local/PS_LOCAL_SIE_CONTR_SYNC" : {
+            "label" : "ProxyService/SiebelProject/proxy/local/PS_LOCAL_SIE_CONTR_SYNC",
+            "properties" : { },
+            "successors" : {
+              "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                    "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                    "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XSLT/SiebelProject/transformations/createElement" : {
+                    "label" : "XSLT/SiebelProject/transformations/createElement",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

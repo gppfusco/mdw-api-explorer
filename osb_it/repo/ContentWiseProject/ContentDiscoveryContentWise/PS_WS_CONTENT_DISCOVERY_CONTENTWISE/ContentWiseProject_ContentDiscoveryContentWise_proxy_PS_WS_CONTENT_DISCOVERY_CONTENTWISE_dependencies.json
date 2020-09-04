@@ -1,0 +1,60 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "ContentWiseProject_ContentDiscoveryContentWise_proxy_PS_WS_CONTENT_DISCOVERY_CONTENTWISE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/ContentWiseProject/wsdl/WS_CONTENT_DISCOVERY_CONTENTWISE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/ContentWiseProject/wsdl/WS_CONTENT_DISCOVERY_CONTENTWISE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/ContentWiseProject/ContentDiscoveryContentWise/pipeline/PL_WS_CONTENT_DISCOVERY_CONTENTWISE" : {
+        "label" : "Pipeline/ContentWiseProject/ContentDiscoveryContentWise/pipeline/PL_WS_CONTENT_DISCOVERY_CONTENTWISE",
+        "properties" : { },
+        "successors" : {
+          "Xquery/ContentWiseProject/ContentDiscoveryContentWise/transformations/createRequestContentWise" : {
+            "label" : "Xquery/ContentWiseProject/ContentDiscoveryContentWise/transformations/createRequestContentWise",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/ContentWiseProject/ContentDiscoveryContentWise/transformations/createRequestSwapSMC" : {
+            "label" : "Xquery/ContentWiseProject/ContentDiscoveryContentWise/transformations/createRequestSwapSMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/ContentWiseProject/wsdl/WS_CONTENT_DISCOVERY_CONTENTWISE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/ContentWiseProject/wsdl/WS_CONTENT_DISCOVERY_CONTENTWISE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/ContentWiseProject/ContentDiscoveryContentWise/transformations/createResponseSwapSMC" : {
+            "label" : "Xquery/ContentWiseProject/ContentDiscoveryContentWise/transformations/createResponseSwapSMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/ContentWiseProject/ContentDiscoveryContentWise/businessService/BS_REST_CONTENTWISE" : {
+            "label" : "BusinessService/ContentWiseProject/ContentDiscoveryContentWise/businessService/BS_REST_CONTENTWISE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/ContentWiseProject/ContentDiscoveryContentWise/transformations/createResponseFromContentWise" : {
+            "label" : "Xquery/ContentWiseProject/ContentDiscoveryContentWise/transformations/createResponseFromContentWise",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

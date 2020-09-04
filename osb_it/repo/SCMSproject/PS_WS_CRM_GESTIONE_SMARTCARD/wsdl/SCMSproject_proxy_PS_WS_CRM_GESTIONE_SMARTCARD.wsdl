@@ -1,0 +1,279 @@
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD" xmlns:mdata="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_CRM_GESTIONE_SMARTCARD" targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_SMARTCARD.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestSETPAR_Message">
+		<wsdl:part name="part_requestSETPAR" element="mdata:requestSETPAR"/>
+	</wsdl:message>
+	<wsdl:message name="requestREFPRD_Message">
+		<wsdl:part name="part_requestREFPRD" element="mdata:requestREFPRD"/>
+	</wsdl:message>
+	<wsdl:message name="requestASSCDE_Message">
+		<wsdl:part name="part_requestASSCDE" element="mdata:requestASSCDE"/>
+	</wsdl:message>
+	<wsdl:message name="responseSCMS_Message">
+		<wsdl:part name="part_responseSCMS" element="mdata:responseSCMS"/>
+	</wsdl:message>
+	<wsdl:message name="requestRSTSUB_Message">
+		<wsdl:part name="part_requestRSTSUB" element="mdata:requestRSTSUB"/>
+	</wsdl:message>
+	<wsdl:message name="requestCHGSUB_Message">
+		<wsdl:part name="part_requestCHGSUB" element="mdata:requestCHGSUB"/>
+	</wsdl:message>
+	<wsdl:message name="requestCLRPAR_Message">
+		<wsdl:part name="part_requestCLRPAR" element="mdata:requestCLRPAR"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="mdata:Header"/>
+	</wsdl:message>
+	<wsdl:message name="requestSETPAI_Message">
+		<wsdl:part name="part_requestSETPAI" element="mdata:requestSETPAI"/>
+	</wsdl:message>
+	<wsdl:message name="responseSETPAI_Message">
+		<wsdl:part name="part_responseSETPAI" element="mdata:responseSCMS"/>
+	</wsdl:message>
+	<wsdl:message name="requestIMMCLB_Message">
+		<wsdl:part name="part_requestIMMCLB" element="mdata:requestIMMCLB"/>
+	</wsdl:message>
+	<wsdl:message name="responseIMMCLB_Message">
+		<wsdl:part name="part_responseIMMCLB" element="mdata:responseSCMS"/>
+	</wsdl:message>
+	<wsdl:message name="requestTKNASS_Message">
+		<wsdl:part name="part_requestTKNASS" element="mdata:requestTKNASS"/>
+	</wsdl:message>
+	<wsdl:message name="responseTKNASS_Message">
+		<wsdl:part name="part_responseTKNASS" element="mdata:responseSCMS"/>
+	</wsdl:message>
+	<wsdl:message name="requestGETCHP_Message">
+		<wsdl:part name="part_requestGETCHP" element="mdata:requestGETCHP"/>
+	</wsdl:message>
+	<wsdl:message name="responseGETCHP_Message">
+		<wsdl:part name="part_responseGETCHP" element="mdata:responseGETCHP"/>
+	</wsdl:message>
+	<wsdl:message name="requestSTBSEC_Message">
+		<wsdl:part name="part_requestSTBSEC" element="mdata:requestSTBSEC"/>
+	</wsdl:message>
+	<wsdl:message name="responseSTBSEC_Message">
+		<wsdl:part name="part_responseSTBSEC" element="mdata:responseSCMS"/>
+	</wsdl:message>
+	<wsdl:message name="requestCHGCHP_Message">
+		<wsdl:part name="part_requestCHGCHP" element="mdata:requestCHGCHP"/>
+	</wsdl:message>
+	<wsdl:message name="responseCHGCHP_Message">
+		<wsdl:part name="part_responseCHGCHP" element="mdata:responseSCMS"/>
+	</wsdl:message>
+	<wsdl:message name="requestSOSPSC_Message">
+		<wsdl:part name="part_requestSOSPSC" element="mdata:requestSOSPSC"/>
+	</wsdl:message>
+	<wsdl:message name="responseSOSPSC_Message">
+		<wsdl:part name="part_responseSOSPSC" element="mdata:responseSOSPSC"/>
+	</wsdl:message>
+	<wsdl:portType name="GESTIONE_SMARTCARD_ptt">
+		<wsdl:operation name="execute_ASSCDE">
+			<wsdl:input message="tns:requestASSCDE_Message"/>
+			<wsdl:output message="tns:responseSCMS_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SETPAR">
+			<wsdl:input message="tns:requestSETPAR_Message"/>
+			<wsdl:output message="tns:responseSCMS_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_REFPRD">
+			<wsdl:input message="tns:requestREFPRD_Message"/>
+			<wsdl:output message="tns:responseSCMS_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_RSTSUB">
+			<wsdl:input message="tns:requestRSTSUB_Message"/>
+			<wsdl:output message="tns:responseSCMS_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CHGSUB">
+			<wsdl:input message="tns:requestCHGSUB_Message"/>
+			<wsdl:output message="tns:responseSCMS_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CLRPAR">
+			<wsdl:input message="tns:requestCLRPAR_Message"/>
+			<wsdl:output message="tns:responseSCMS_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SETPAI">
+			<wsdl:input message="tns:requestSETPAI_Message"/>
+			<wsdl:output message="tns:responseSETPAI_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_IMMCLB">
+			<wsdl:input message="tns:requestIMMCLB_Message"/>
+			<wsdl:output message="tns:responseIMMCLB_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_TKNASS">
+			<wsdl:input message="tns:requestTKNASS_Message"/>
+			<wsdl:output message="tns:responseTKNASS_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GETCHP">
+			<wsdl:input message="tns:requestGETCHP_Message"/>
+			<wsdl:output message="tns:responseGETCHP_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_STBSEC">
+			<wsdl:input message="tns:requestSTBSEC_Message"/>
+			<wsdl:output message="tns:responseSTBSEC_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CHGCHP">
+			<wsdl:input message="tns:requestCHGCHP_Message"/>
+			<wsdl:output message="tns:responseCHGCHP_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SOSPSC">
+			<wsdl:input message="tns:requestSOSPSC_Message"/>
+			<wsdl:output message="tns:responseSOSPSC_Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GESTIONE_SMARTCARD_pttSOAP11Binding" type="tns:GESTIONE_SMARTCARD_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_ASSCDE">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_ASSCDE" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestASSCDE" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSCMS" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SETPAR">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_SETPAR" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestSETPAR" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSCMS" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_REFPRD">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_REFPRD" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestREFPRD" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSCMS" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_RSTSUB">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_RSTSUB" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestRSTSUB" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSCMS" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CHGSUB">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_CHGSUB" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestCHGSUB" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSCMS" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CLRPAR">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_CLRPAR" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestCLRPAR" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSCMS" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SETPAI">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_SETPAI"/>
+			<wsdl:input>
+				<soap:body parts="part_requestSETPAI" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSETPAI" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_IMMCLB">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_IMMCLB"/>
+			<wsdl:input>
+				<soap:body parts="part_requestIMMCLB" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseIMMCLB" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_TKNASS">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_TKNASS"/>
+			<wsdl:input>
+				<soap:body parts="part_requestTKNASS" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseTKNASS" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GETCHP">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_GETCHP"/>
+			<wsdl:input>
+				<soap:body parts="part_requestGETCHP" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseGETCHP" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_STBSEC">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_STBSEC"/>
+			<wsdl:input>
+				<soap:body parts="part_requestSTBSEC" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSTBSEC" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CHGCHP">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_CHGCHP"/>
+			<wsdl:input>
+				<soap:body parts="part_requestCHGCHP" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseCHGCHP" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SOSPSC">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_SOSPSC"/>
+			<wsdl:input>
+				<soap:body parts="part_requestSOSPSC" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSOSPSC" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="GESTIONE_SMARTCARD_ptt">
+		<wsdl:port name="GESTIONE_SMARTCARD_pttPort" binding="tns:GESTIONE_SMARTCARD_pttSOAP11Binding">
+			<soap:address location="http://www.example.com"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

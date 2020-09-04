@@ -1,0 +1,40 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OSS_gnpEligibility_proxy_PS_WS_OSS_GNP_ELIGIBILITY__STUB",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/gnpEligibility/wsdl/WS_OSS_GNP_ELIGIBILITY" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/gnpEligibility/wsdl/WS_OSS_GNP_ELIGIBILITY",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/OSS/gnpEligibility/pipeline/PL_REST_GNP_ELIGIBILITY_STUB" : {
+        "label" : "Pipeline/BlueBirdProject/OSS/gnpEligibility/pipeline/PL_REST_GNP_ELIGIBILITY_STUB",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_GNP_ELIGIBILITY" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_GNP_ELIGIBILITY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OSS/orderManager/pipeline/PL_empty" : {
+            "label" : "Pipeline/BlueBirdProject/OSS/orderManager/pipeline/PL_empty",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

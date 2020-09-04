@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+            
+  <!-- ELEMENTS -->
+  <xsd:element name="requestLeggiDatiCliente" type="requestLeggiDatiClienteType"/>
+  <xsd:element name="responseLeggiDatiCliente" type="responseLeggiDatiClienteType"/>
+  <xsd:element name="requestLeggiDatiClienteBySMC" type="requestLeggiDatiClienteBySMCType" />
+  <xsd:element name="responseLeggiDatiClienteBySMC" type="responseLeggiDatiClienteBySMCType" />
+  
+  <!-- TYPES -->
+  <xsd:complexType name="responseLeggiDatiClienteBySMCType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" />
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" />
+      <xsd:element name="FlagConsensoAdSmart" type="xsd:string" minOccurs="1"  />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestLeggiDatiClienteBySMCType">
+    <xsd:sequence>
+      <xsd:element name="ItemSMCAssetNumber" type="xsd:string" minOccurs="1"  />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestLeggiDatiClienteType">
+    <xsd:sequence>
+      <xsd:element name="messageID" type="xsd:string" minOccurs="0"  />
+      <xsd:element name="transactionID" type="xsd:string" minOccurs="0"  />
+      <xsd:element name="CodiceCliente"  type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseLeggiDatiClienteType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" />
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" />
+      <xsd:element name="Contact" type="ContactType" minOccurs="0" />
+      <xsd:element name="Account" type="AccountType" minOccurs="0" />
+      <xsd:element name="Contracts" type="ContractsType" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ContactType">
+    <xsd:sequence>
+      <xsd:element name="Nome" minOccurs="1"  type="xsd:string"/>
+      <xsd:element name="Cognome"  type="xsd:string"/>
+      <xsd:element name="CodiceFiscale"  type="xsd:string"/>
+      <xsd:element name="CoerenzaNomeCognomeCF"  type="xsd:string"/>
+      <xsd:element name="Telefono"  type="xsd:string"/>
+      <xsd:element name="AltroTelefono"  type="xsd:string"/>
+      <xsd:element name="Fax"  type="xsd:string"/>
+      <xsd:element name="Cellulare" type="xsd:string"/>
+      <xsd:element name="EMail"  type="xsd:string"/>
+      <xsd:element name="NumeroDocumento"  type="xsd:string"/>
+      <xsd:element name="EnteRilascioDocumento"  type="xsd:string"/>
+      <xsd:element name="DataRilascioDocumento"  type="xsd:string"/>
+      <xsd:element name="SiglaProvinciaDocumento"  type="xsd:string"/>
+      <xsd:element name="ComuneDocumento"  type="xsd:string"/>
+      <xsd:element name="NazioneDocumento"  type="xsd:string"/>
+      <xsd:element name="DataNascita"  type="xsd:string"/>
+      <xsd:element name="ComuneNascita"  type="xsd:string"/>
+      <xsd:element name="TipoDocumento"  type="xsd:string"/>
+      <xsd:element name="ProvinciaNascita" type="xsd:string"/>
+      <xsd:element name="Sesso"  type="xsd:string"/>
+      <xsd:element name="FlagConsensoAnywhere"  type="xsd:string"/>
+      <xsd:element name="Stato" type="xsd:string"/>
+      <xsd:any namespace="##any" minOccurs="0" processContents="lax"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="AccountType">
+    <xsd:sequence>
+      <xsd:element name="FlagPromoDMOutbound"  type="xsd:string"/>
+      <xsd:element name="FlagPromoNuoveTecnologie"  type="xsd:string"/>
+      <xsd:element name="FlagAnalisiPreferenze"  type="xsd:string"/>
+      <xsd:element name="FlagConsensoSkyGoTrial"  type="xsd:string"/>
+      <xsd:element name="Segmento"  type="xsd:string"/>
+      <xsd:element name="DittaIndividuale"  type="xsd:string"/>
+      <xsd:element name="FlagConsensoAdSmart"  type="xsd:string"/>
+      <xsd:element name="EleggibilitaAdSmart"  type="xsd:string"/>
+      <xsd:element name="FlagStatistiche"  type="xsd:string"/>
+      <xsd:any namespace="##any" minOccurs="0" processContents="lax"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ContractType">
+    <xsd:sequence>
+      <xsd:element name="CodiceContratto"  type="xsd:string"/>
+      <xsd:element name="OrderNumber"  type="xsd:string"/>
+      <xsd:element name="StatoContratto"  type="xsd:string"/>
+      <xsd:element name="DataRichiestaCessazione"  type="xsd:string"/>
+      <xsd:any namespace="##any" minOccurs="0" processContents="lax"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ContractsType">
+    <xsd:sequence>
+      <xsd:element name="Contract" type="ContractType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

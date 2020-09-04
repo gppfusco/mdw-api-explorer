@@ -1,0 +1,28 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_ReinvioContratto_proxy_PS_WS_FPS_REINVIO_CONTRATTI",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/ReinvioContratti/wsdl/WS_FPS_REINVIO_CONTRATTI" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/ReinvioContratti/wsdl/WS_FPS_REINVIO_CONTRATTI",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/OMProject/ReinvioContratto/pipeline/PS_WS_FPS_REINVIO_CONTRATTIPipeline" : {
+        "label" : "Pipeline/OMProject/ReinvioContratto/pipeline/PS_WS_FPS_REINVIO_CONTRATTIPipeline",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/ReinvioContratti/wsdl/WS_FPS_REINVIO_CONTRATTI" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/ReinvioContratti/wsdl/WS_FPS_REINVIO_CONTRATTI",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

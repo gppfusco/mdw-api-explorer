@@ -1,0 +1,92 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_CRM_SIE_GESTIONE_ODL_ASYNC"
+     targetNamespace="http://www.skytv.it/mdw/service/CRM_SIE_GESTIONE_ODL_ASYNC"
+     xmlns:tns="http://www.skytv.it/mdw/service/CRM_SIE_GESTIONE_ODL_ASYNC"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_SIE_GESTIONE_ODL_ASYNC.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data"
+			schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestCreateOdl_message">
+        <wsdl:part name="part_requestCreateOdl" element="inp1:requestCreateOdl"/>
+    </wsdl:message>
+    <wsdl:message name="responseCreateOdl_message">
+        <wsdl:part name="part_responseCreateOdl" element="inp1:responseCreateOdl"/>
+    </wsdl:message>
+    <wsdl:portType name="CRM_SIE_GESTIONE_ODL_ASYNC_ptt">
+        <wsdl:operation name="execute_createOdl">
+            <wsdl:input message="tns:requestCreateOdl_message"/>
+            <wsdl:output message="tns:responseCreateOdl_message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getOdlSospesi">
+            <wsdl:input message="tns:requestGetOdlSospesi_message"/>
+            <wsdl:output message="tns:responseGetOdlSospesi_message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_autorizzaSkyService">
+            <wsdl:input message="tns:requestAutorizzaSkyService_message"/>
+            <wsdl:output message="tns:responseAutorizzaSkyService_message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="header_message">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:binding name="CRM_SIE_GESTIONE_ODL_ASYNC_pttSOAP11Binding" type="tns:CRM_SIE_GESTIONE_ODL_ASYNC_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_createOdl">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_SIE_GESTIONE_ODL_ASYNC/execute_createOdl"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestCreateOdl"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseCreateOdl"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getOdlSospesi">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_SIE_GESTIONE_ODL_ASYNC/execute_getOdlSospesi"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestGetOdlSospesi"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetOdlSospesi"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_autorizzaSkyService">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_SIE_GESTIONE_ODL_ASYNC/execute_autorizzaSkyService"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestAutorizzaSkyService"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseAutorizzaSkyService"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="requestGetOdlSospesi_message">
+        <wsdl:part name="part_requestGetOdlSospesi" element="inp1:requestGetOdlSospesi"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetOdlSospesi_message">
+        <wsdl:part name="part_responseGetOdlSospesi" element="inp1:responseGetOdlSospesi"/>
+    </wsdl:message>
+    <wsdl:message name="requestAutorizzaSkyService_message">
+        <wsdl:part name="part_requestAutorizzaSkyService" element="inp1:requestAutorizzaSkyService"/>
+    </wsdl:message>
+    <wsdl:message name="responseAutorizzaSkyService_message">
+        <wsdl:part name="part_responseAutorizzaSkyService" element="inp1:responseAutorizzaSkyService"/>
+    </wsdl:message>
+</wsdl:definitions>

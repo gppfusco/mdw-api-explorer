@@ -1,0 +1,33 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/rest/REST_CRM_GESTIONE_CONSENSO",
+    "name" : "SalesforceProject_REST_CRM_GESTIONE_CONSENSO_proxy_PS_REST_CRM_GESTIONE_CONSENSO",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\REST\\CRM\\GESTIONE\\CONSENSO\\PS_REST_CRM_GESTIONE_CONSENSO",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/rest/REST_CRM_GESTIONE_CONSENSO?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SalesforceProject/Rest_GestioneConsenso/xsd/XSD_CRM_GESTIONE_CONSENSO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/Rest_GestioneConsenso/xsd/XSD_CRM_GESTIONE_CONSENSO",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

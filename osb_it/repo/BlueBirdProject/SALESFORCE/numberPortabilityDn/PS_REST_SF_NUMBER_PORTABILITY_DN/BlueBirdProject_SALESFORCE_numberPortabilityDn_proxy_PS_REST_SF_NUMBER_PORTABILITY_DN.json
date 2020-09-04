@@ -1,0 +1,33 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/sf/portability/directoryNumber",
+    "name" : "BlueBirdProject_SALESFORCE_numberPortabilityDn_proxy_PS_REST_SF_NUMBER_PORTABILITY_DN",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\SALESFORCE\\numberPortabilityDn\\PS_REST_SF_NUMBER_PORTABILITY_DN",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/sf/portability/directoryNumber?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/numberPortabilityDn/xsd/XSD_SF_NUMBER_PORTABILITY_DN",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/numberPortabilityDn/xsd/XSD_SF_NUMBER_PORTABILITY_DN",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

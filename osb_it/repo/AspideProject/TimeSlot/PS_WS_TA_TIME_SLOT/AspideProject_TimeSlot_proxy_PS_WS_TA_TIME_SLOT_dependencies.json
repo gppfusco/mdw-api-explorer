@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "AspideProject_TimeSlot_proxy_PS_WS_TA_TIME_SLOT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/AspideProject/TimeSlot/pipeline/PL_WS_TA_TIME_SLOT" : {
+        "label" : "Pipeline/AspideProject/TimeSlot/pipeline/PL_WS_TA_TIME_SLOT",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS" : {
+            "label" : "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/AspideProject/TimeSlot/wsdl/WS_TA_TIME_SLOT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/AspideProject/TimeSlot/wsdl/WS_TA_TIME_SLOT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/AspideProject/TimeSlot/transformation/createRequestRetrieveSlot" : {
+            "label" : "Xquery/AspideProject/TimeSlot/transformation/createRequestRetrieveSlot",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/AspideProject/TimeSlot/transformation/createResponseRetrieveSlot" : {
+            "label" : "Xquery/AspideProject/TimeSlot/transformation/createResponseRetrieveSlot",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/AspideProject/TimeSlot/wsdl/WS_TA_TIME_SLOT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/AspideProject/TimeSlot/wsdl/WS_TA_TIME_SLOT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

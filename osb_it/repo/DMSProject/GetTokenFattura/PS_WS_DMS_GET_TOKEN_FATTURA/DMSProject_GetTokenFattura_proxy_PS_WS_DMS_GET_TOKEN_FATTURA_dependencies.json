@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "DMSProject_GetTokenFattura_proxy_PS_WS_DMS_GET_TOKEN_FATTURA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GetTokenFattura/wsdl/WS_CRM_DMS_GET_TOKEN_FATTURA" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GetTokenFattura/wsdl/WS_CRM_DMS_GET_TOKEN_FATTURA",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/DMSProject/pipeline/PL_DMS_GET_TOKEN_FATTURA" : {
+        "label" : "Pipeline/DMSProject/pipeline/PL_DMS_GET_TOKEN_FATTURA",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GetTokenFattura/wsdl/WS_CRM_DMS_GET_TOKEN_FATTURA" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GetTokenFattura/wsdl/WS_CRM_DMS_GET_TOKEN_FATTURA",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/DMSProject/businessService/BS_HTTP_DMS_LIST_INVOICES" : {
+            "label" : "BusinessService/DMSProject/businessService/BS_HTTP_DMS_LIST_INVOICES",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/DMSProject/transformation/createRequestGetTokenFattura" : {
+            "label" : "Xquery/DMSProject/transformation/createRequestGetTokenFattura",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/DMSProject/transformation/createResponseGetTokenFattura" : {
+            "label" : "Xquery/DMSProject/transformation/createResponseGetTokenFattura",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

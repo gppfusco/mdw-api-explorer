@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_KNN_LETTERA_PO_proxy_PS_WS_KNN_LETTERA_PO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/LetteraPO/wsdl/WS_KNN_LETTERA_PO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/LetteraPO/wsdl/WS_KNN_LETTERA_PO",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/WS_KNN_LETTERA_PO/pipeline/PL_WS_KNN_LETTERA_PO" : {
+        "label" : "Pipeline/KENANProject/WS_KNN_LETTERA_PO/pipeline/PL_WS_KNN_LETTERA_PO",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/KENANProject/WS_KNN_LETTERA_PO/businessService/BS_TUX_LETTERA_PO" : {
+            "label" : "BusinessService/KENANProject/WS_KNN_LETTERA_PO/businessService/BS_TUX_LETTERA_PO",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_KNN_LETTERA_PO/transformation/createRequest_BS_TUX_LETTERA_PO" : {
+            "label" : "Xquery/KENANProject/WS_KNN_LETTERA_PO/transformation/createRequest_BS_TUX_LETTERA_PO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_KNN_LETTERA_PO/transformation/createResponse_WS_KNN_LETTERA_PO" : {
+            "label" : "Xquery/KENANProject/WS_KNN_LETTERA_PO/transformation/createResponse_WS_KNN_LETTERA_PO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/LetteraPO/wsdl/WS_KNN_LETTERA_PO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/LetteraPO/wsdl/WS_KNN_LETTERA_PO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_ATTR_PROD_CAT_proxy_PS_REST_CRM_ATTR_PROD_CAT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_ATTR_PROD_CAT" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_ATTR_PROD_CAT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/REST_CRM_ATTR_PROD_CAT/pipeline/PL_REST_CRM_ATTR_PROD_CAT" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_ATTR_PROD_CAT/pipeline/PL_REST_CRM_ATTR_PROD_CAT",
+        "properties" : { },
+        "successors" : {
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_ATTR_PROD_CAT" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_ATTR_PROD_CAT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/REST_CRM_ATTR_PROD_CAT/pipeline/PL_INTERNAL_REST_CRM_ATTR_PROD_CAT" : {
+            "label" : "Pipeline/SalesforceProject/REST_CRM_ATTR_PROD_CAT/pipeline/PL_INTERNAL_REST_CRM_ATTR_PROD_CAT",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SalesforceProject/REST_CRM_ATTR_PROD_CAT/trasformation/createRequestEjb" : {
+                "label" : "Xquery/SalesforceProject/REST_CRM_ATTR_PROD_CAT/trasformation/createRequestEjb",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SalesforceProject/Resources/PS_REST_CRM_ATTR_PROD_CAT" : {
+                "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_ATTR_PROD_CAT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/REST_CRM_ATTR_PROD_CAT/trasformation/response_AttrProdCat" : {
+                "label" : "Xquery/SalesforceProject/REST_CRM_ATTR_PROD_CAT/trasformation/response_AttrProdCat",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

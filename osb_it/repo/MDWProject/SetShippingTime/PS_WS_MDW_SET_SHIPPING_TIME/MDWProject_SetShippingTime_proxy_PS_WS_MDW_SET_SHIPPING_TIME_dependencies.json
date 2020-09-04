@@ -1,0 +1,194 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_SetShippingTime_proxy_PS_WS_MDW_SET_SHIPPING_TIME",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SetShippingTime/wsdl/WS_MDW_SET_SHIPPING_TIME" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SetShippingTime/wsdl/WS_MDW_SET_SHIPPING_TIME",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/SetShippingTime/pipeline/PL_WS_MDW_SET_SHIPPING_TIME" : {
+        "label" : "Pipeline/MDWProject/SetShippingTime/pipeline/PL_WS_MDW_SET_SHIPPING_TIME",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/MDWProject/SetShippingTime/pipeline/PL_INTERNAL_INSERT_SHIPPING_TIME_START" : {
+            "label" : "Pipeline/MDWProject/SetShippingTime/pipeline/PL_INTERNAL_INSERT_SHIPPING_TIME_START",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDWProject/SetShippingTime/businessServices/BS_SQL_INSERT_SHIPPING_TIME_START" : {
+                "label" : "BusinessService/MDWProject/SetShippingTime/businessServices/BS_SQL_INSERT_SHIPPING_TIME_START",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDWProject/Resources/BS_SQL_INSERT_SHIPPING_TIME_START/concrete" : {
+                "label" : "WSDL/MDWProject/Resources/BS_SQL_INSERT_SHIPPING_TIME_START/concrete",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/MDWProject/SetShippingTime/transformations/createRequestStartShippingTime" : {
+            "label" : "Xquery/MDWProject/SetShippingTime/transformations/createRequestStartShippingTime",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/MDWProject/SetShippingTime/pipeline/PL_INTERNAL_TUXCALL_LS_SET_REQUEST_FSETSHIP" : {
+            "label" : "Pipeline/MDWProject/SetShippingTime/pipeline/PL_INTERNAL_TUXCALL_LS_SET_REQUEST_FSETSHIP",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Pipeline/MDWProject/SetShippingTime/pipeline/PL_INTERNAL_START_SHIPPING_TIME_CHECK" : {
+                "label" : "Pipeline/MDWProject/SetShippingTime/pipeline/PL_INTERNAL_START_SHIPPING_TIME_CHECK",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/MDWProject/Resources/BS_SQL_START_SHIPPING_TIME_CHECK/concrete" : {
+                    "label" : "WSDL/MDWProject/Resources/BS_SQL_START_SHIPPING_TIME_CHECK/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDWProject/SetShippingTime/businessServices/BS_SQL_START_SHIPPING_TIME_CHECK" : {
+                    "label" : "BusinessService/MDWProject/SetShippingTime/businessServices/BS_SQL_START_SHIPPING_TIME_CHECK",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Pipeline/MDWProject/SetShippingTime/pipeline/PL_INTERNAL_COUNT_LS_TRANSACTION_FSETSHIP" : {
+                "label" : "Pipeline/MDWProject/SetShippingTime/pipeline/PL_INTERNAL_COUNT_LS_TRANSACTION_FSETSHIP",
+                "properties" : { },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDWProject/Resources/BS_SQL_COUNT_LS_TRANSACTION_FSETSHIP/concrete" : {
+                    "label" : "WSDL/MDWProject/Resources/BS_SQL_COUNT_LS_TRANSACTION_FSETSHIP/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDWProject/SetShippingTime/businessServices/BS_SQL_COUNT_LS_TRANSACTION_FSETSHIP" : {
+                    "label" : "BusinessService/MDWProject/SetShippingTime/businessServices/BS_SQL_COUNT_LS_TRANSACTION_FSETSHIP",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/MDWProject/SetShippingTime/transformations/createRequestLS_SetReqest_FSETSHIP" : {
+                "label" : "Xquery/MDWProject/SetShippingTime/transformations/createRequestLS_SetReqest_FSETSHIP",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/SetShippingTime/transformations/createRequestStartShippingTimeCheck" : {
+                "label" : "Xquery/MDWProject/SetShippingTime/transformations/createRequestStartShippingTimeCheck",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDWProject/LSMovimentazioniSAP/LSSetMovimentazioniSAP/businessService/BS_TUX_LS_SET_MOVIMENTAZIONI_SAP" : {
+                "label" : "BusinessService/MDWProject/LSMovimentazioniSAP/LSSetMovimentazioniSAP/businessService/BS_TUX_LS_SET_MOVIMENTAZIONI_SAP",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SetShippingTime/wsdl/WS_MDW_SET_SHIPPING_TIME" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SetShippingTime/wsdl/WS_MDW_SET_SHIPPING_TIME",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/SetShippingTime/transformations/createRequestCountLSTrasactionFSETSHIP" : {
+                "label" : "Xquery/MDWProject/SetShippingTime/transformations/createRequestCountLSTrasactionFSETSHIP",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/SetShippingTime/transformations/createResponseStartShippingTime" : {
+            "label" : "Xquery/MDWProject/SetShippingTime/transformations/createResponseStartShippingTime",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/SetShippingTime/transformations/createResponseEndShippingTime" : {
+            "label" : "Xquery/MDWProject/SetShippingTime/transformations/createResponseEndShippingTime",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/MDWProject/SetShippingTime/pipeline/PL_INTERNAL_UPDATE_SHIPPING_TIME_END" : {
+            "label" : "Pipeline/MDWProject/SetShippingTime/pipeline/PL_INTERNAL_UPDATE_SHIPPING_TIME_END",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDWProject/SetShippingTime/businessServices/BS_SQL_UPDATE_SHIPPING_TIME_END" : {
+                "label" : "BusinessService/MDWProject/SetShippingTime/businessServices/BS_SQL_UPDATE_SHIPPING_TIME_END",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDWProject/Resources/BS_SQL_UPDATE_SHIPPING_TIME_END/concrete" : {
+                "label" : "WSDL/MDWProject/Resources/BS_SQL_UPDATE_SHIPPING_TIME_END/concrete",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/MDWProject/SetShippingTime/transformations/createRequestEndShippingTime" : {
+            "label" : "Xquery/MDWProject/SetShippingTime/transformations/createRequestEndShippingTime",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/SetShippingTime/transformations/createResponseSetShippingTime" : {
+            "label" : "Xquery/MDWProject/SetShippingTime/transformations/createResponseSetShippingTime",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SetShippingTime/wsdl/WS_MDW_SET_SHIPPING_TIME" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SetShippingTime/wsdl/WS_MDW_SET_SHIPPING_TIME",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

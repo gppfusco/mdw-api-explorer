@@ -1,0 +1,27 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/TestMario/PS_REST_PARAM",
+    "name" : "TestMario_PS_REST_PARAM",
+    "localPath" : "osb_it\\repo\\TestMario\\REST_PARAM",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/TestMario/PS_REST_PARAM?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckCopertura/xsd/XSD_MEDIASET_DTT_CHECK_COPERTURA",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckCopertura/xsd/XSD_MEDIASET_DTT_CHECK_COPERTURA",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

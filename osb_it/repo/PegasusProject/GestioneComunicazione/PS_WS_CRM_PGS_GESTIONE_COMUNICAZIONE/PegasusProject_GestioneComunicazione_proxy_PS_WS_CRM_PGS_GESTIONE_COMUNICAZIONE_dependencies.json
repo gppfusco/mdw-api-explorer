@@ -1,0 +1,101 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "PegasusProject_GestioneComunicazione_proxy_PS_WS_CRM_PGS_GESTIONE_COMUNICAZIONE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazione/wsdl/WS_CRM_PGS_GESTIONE_COMUNICAZIONE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazione/wsdl/WS_CRM_PGS_GESTIONE_COMUNICAZIONE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/PegasusProject/GestioneComunicazione/pipeline/PL_PGS_GESTIONE_COMUNICAZIONE_ROUTING" : {
+        "label" : "Pipeline/PegasusProject/GestioneComunicazione/pipeline/PL_PGS_GESTIONE_COMUNICAZIONE_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazione/wsdl/WS_CRM_PGS_GESTIONE_COMUNICAZIONE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazione/wsdl/WS_CRM_PGS_GESTIONE_COMUNICAZIONE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/PegasusProject/GestioneComunicazione/pipeline/PL_CRM_PGS_GESTIONE_COMUNICAZIONE_SendSms" : {
+            "label" : "Pipeline/PegasusProject/GestioneComunicazione/pipeline/PL_CRM_PGS_GESTIONE_COMUNICAZIONE_SendSms",
+            "properties" : { },
+            "successors" : {
+              "Xquery/PegasusProject/GestioneComunicazione/transformations/createResponseSendSms" : {
+                "label" : "Xquery/PegasusProject/GestioneComunicazione/transformations/createResponseSendSms",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/PegasusProject/GestioneComunicazione/transformations/createRequestSendSms" : {
+                "label" : "Xquery/PegasusProject/GestioneComunicazione/transformations/createRequestSendSms",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazione/wsdl/WS_CRM_PGS_GESTIONE_COMUNICAZIONE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazione/wsdl/WS_CRM_PGS_GESTIONE_COMUNICAZIONE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_WS_MDW_PEGASUS_SEND" : {
+                "label" : "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_WS_MDW_PEGASUS_SEND",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/PegasusProject/GestioneComunicazione/pipeline/PL_CRM_PGS_GESTIONE_COMUNICAZIONE_GetComunication" : {
+            "label" : "Pipeline/PegasusProject/GestioneComunicazione/pipeline/PL_CRM_PGS_GESTIONE_COMUNICAZIONE_GetComunication",
+            "properties" : { },
+            "successors" : {
+              "Xquery/PegasusProject/GestioneComunicazione/transformations/createResponseGetCommunication" : {
+                "label" : "Xquery/PegasusProject/GestioneComunicazione/transformations/createResponseGetCommunication",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/PegasusProject/GestioneComunicazione/businessService/BS_WS_PGS_GET_COMMUNICATIONS" : {
+                "label" : "BusinessService/PegasusProject/GestioneComunicazione/businessService/BS_WS_PGS_GET_COMMUNICATIONS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazione/wsdl/WS_CRM_PGS_GESTIONE_COMUNICAZIONE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneComunicazione/wsdl/WS_CRM_PGS_GESTIONE_COMUNICAZIONE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/PegasusProject/GestioneComunicazione/transformations/createRequestGetCommunication" : {
+                "label" : "Xquery/PegasusProject/GestioneComunicazione/transformations/createRequestGetCommunication",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

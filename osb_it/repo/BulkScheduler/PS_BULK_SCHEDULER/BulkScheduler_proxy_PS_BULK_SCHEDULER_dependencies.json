@@ -1,0 +1,67 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BulkScheduler_proxy_PS_BULK_SCHEDULER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BulkScheduler/wsdl/BulkScheduler" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BulkScheduler/wsdl/BulkScheduler",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BulkScheduler/pipeline/PL_BULK_SCHEDULER" : {
+        "label" : "Pipeline/BulkScheduler/pipeline/PL_BULK_SCHEDULER",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/BulkScheduler/transformation/createBulkSchedulerResponse" : {
+            "label" : "Xquery/BulkScheduler/transformation/createBulkSchedulerResponse",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BulkScheduler/transformation/createSOABulkExecutorRequest" : {
+            "label" : "Xquery/BulkScheduler/transformation/createSOABulkExecutorRequest",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/BulkScheduler/businessService/BS_DIRECT_SOA_BULK_EXECUTOR" : {
+            "label" : "BusinessService/BulkScheduler/businessService/BS_DIRECT_SOA_BULK_EXECUTOR",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/BulkScheduler/wsdl/BulkScheduler" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BulkScheduler/wsdl/BulkScheduler",
+            "properties" : { },
+            "successors" : { }
+          },
+          "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+            "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "XMLSchema/KENANProject/Resources/BS_SQL_KNN_GET_CATALOG_INFOS" : {
+            "label" : "XMLSchema/KENANProject/Resources/BS_SQL_KNN_GET_CATALOG_INFOS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+            "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

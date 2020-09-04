@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestPromoCumulation" type="requestPromoCumulationType"/>
+	<xsd:element name="responsePromoCumulation" type="responsePromoCumulationType"/>
+	<xsd:complexType name="requestPromoCumulationType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string"/>
+			<xsd:element name="promoCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promoId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence> 
+	</xsd:complexType>
+	<xsd:complexType name="responsePromoCumulationType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string"/>
+			<xsd:element name="resultDescription" type="xsd:string"/>
+			<xsd:element name="outcome" type="xsd:string"/>
+			<xsd:element name="promoList" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="promo" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="promoId" type="xsd:string"/>
+									<xsd:element name="promoCode" type="xsd:string"/>
+									<xsd:element name="promoName" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestPromoDisconnection" type="requestPromoDisconnectionType"/>
+	<xsd:element name="responsePromoDisconnection" type="responsePromoDisconnectionType"/>
+	<xsd:complexType name="requestPromoDisconnectionType">
+		<xsd:sequence>
+			<xsd:element name="orderId" type="xsd:string"/>
+			<xsd:element name="promoCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promoId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responsePromoDisconnectionType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string"/>
+			<xsd:element name="resultDescription" type="xsd:string"/>
+			<xsd:element name="outcome" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

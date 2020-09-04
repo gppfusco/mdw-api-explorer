@@ -1,0 +1,57 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_NofityCommitOrder_proxy_PS_OM_NOTIFY_COMMIT_ORDER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/OMProject/NofityCommitOrder/pipeline/PL_WS_OM_NOTIFY_COMMIT_ORDER" : {
+        "label" : "Pipeline/OMProject/NofityCommitOrder/pipeline/PL_WS_OM_NOTIFY_COMMIT_ORDER",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/OMProject/transformation/createRequestSoapHeaderTibco" : {
+            "label" : "Xquery/OMProject/transformation/createRequestSoapHeaderTibco",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/NofityCommitOrder/businessServices/BS_WS_OM_NOTIFY_COMMIT_ORDER" : {
+            "label" : "BusinessService/OMProject/NofityCommitOrder/businessServices/BS_WS_OM_NOTIFY_COMMIT_ORDER",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/OMProject/NofityCommitOrder/transformations/createRequest_NotifyOrder" : {
+            "label" : "Xquery/OMProject/NofityCommitOrder/transformations/createRequest_NotifyOrder",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/NofityCommitOrder/transformations/createResponse_NotifyOrder" : {
+            "label" : "Xquery/OMProject/NofityCommitOrder/transformations/createResponse_NotifyOrder",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/NotifyCommitOrder/wsdl/WS_OM_NOTIFY_COMMIT_ORDER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/NotifyCommitOrder/wsdl/WS_OM_NOTIFY_COMMIT_ORDER",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/NotifyCommitOrder/wsdl/WS_OM_NOTIFY_COMMIT_ORDER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/NotifyCommitOrder/wsdl/WS_OM_NOTIFY_COMMIT_ORDER",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

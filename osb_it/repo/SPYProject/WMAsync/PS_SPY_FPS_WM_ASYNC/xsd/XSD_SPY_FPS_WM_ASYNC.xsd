@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestWMAsyncType">
+		<xsd:sequence>
+			<xsd:element name="WMInput">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="record" type="record" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="param">
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+		<xsd:attribute name="value" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:complexType name="record">
+		<xsd:sequence>
+			<xsd:element name="param" type="param" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute name="name" type="xsd:string" use="required"/>
+	</xsd:complexType>
+	<xsd:element name="requestWMAsync" type="requestWMAsyncType"/>
+	<xsd:complexType name="responseWMAsyncType">
+		<xsd:sequence>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseWMAsync" type="responseWMAsyncType"/>
+</xsd:schema>

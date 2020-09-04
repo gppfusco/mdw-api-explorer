@@ -1,0 +1,45 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "EgonProject_CheckCF_proxy_PS_EGON_CHECK_CF",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/EgonProject/CheckCF/wsdl/WS_CRM_EGON_CHECK_CF" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/EgonProject/CheckCF/wsdl/WS_CRM_EGON_CHECK_CF",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/EgonProject/CheckCF/pipeline/PL_EGON_CHECK_CF" : {
+        "label" : "Pipeline/EgonProject/CheckCF/pipeline/PL_EGON_CHECK_CF",
+        "properties" : { },
+        "successors" : {
+          "Xquery/EgonProject/CheckCF/transformations/createResponseCheckCF" : {
+            "label" : "Xquery/EgonProject/CheckCF/transformations/createResponseCheckCF",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/EgonProject/CheckCF/wsdl/WS_CRM_EGON_CHECK_CF" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/EgonProject/CheckCF/wsdl/WS_CRM_EGON_CHECK_CF",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/EgonProject/businessServices/BS_HTTP_EGON_CHECK_CF" : {
+            "label" : "BusinessService/EgonProject/businessServices/BS_HTTP_EGON_CHECK_CF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

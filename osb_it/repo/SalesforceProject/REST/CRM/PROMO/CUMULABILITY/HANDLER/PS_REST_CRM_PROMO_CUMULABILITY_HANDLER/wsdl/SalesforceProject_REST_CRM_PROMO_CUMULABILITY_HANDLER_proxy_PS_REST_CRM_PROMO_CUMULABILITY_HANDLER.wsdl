@@ -1,0 +1,80 @@
+<wsdl:definitions name="PS_REST_CRM_PROMO_CUMULABILITY_HANDLER" targetNamespace="http://xmlns.oracle.com/OSBSvil_REPLY_12_1_WORK/SalesforceProject/PS_REST_CRM_PROMO_CUMULABILITY_HANDLER" xmlns:tns="http://xmlns.oracle.com/OSBSvil_REPLY_12_1_WORK/SalesforceProject/PS_REST_CRM_PROMO_CUMULABILITY_HANDLER" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:inp2="http://www.skytv.it/mdw/data" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <plnk:partnerLinkType name="PS_REST_CRM_PROMO_CUMULABILITY_HANDLER">
+        <plnk:role name="PS_REST_CRM_PROMO_CUMULABILITY_HANDLERProvider" portType="tns:PS_REST_CRM_PROMO_CUMULABILITY_HANDLER_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SalesforceProject/Rest_PromoCumulabilityHandler/xsd/XSD_REST_CRM_PROMO_CUMULABILITY_HANDLER.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="opPromoDisconnection_inputMessage">
+        <wsdl:part name="request" element="inp1:requestPromoDisconnection"/>
+    </wsdl:message>
+    <wsdl:message name="opPromoDisconnection_outputMessage">
+        <wsdl:part name="reply" element="inp1:responsePromoDisconnection"/>
+    </wsdl:message>
+    <wsdl:message name="opPromoDisconnection_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="opPromoDisconnection_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="opPromoDisconnection_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="opPromoCumulation_inputMessage">
+        <wsdl:part name="request" element="inp1:requestPromoCumulation"/>
+    </wsdl:message>
+    <wsdl:message name="opPromoCumulation_outputMessage">
+        <wsdl:part name="reply" element="inp1:responsePromoCumulation"/>
+    </wsdl:message>
+    <wsdl:message name="opPromoCumulation_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="opPromoCumulation_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="opPromoCumulation_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:portType name="PS_REST_CRM_PROMO_CUMULABILITY_HANDLER_ptt">
+        <wsdl:operation name="opPromoDisconnection">
+            <wsdl:input message="tns:opPromoDisconnection_inputMessage"/>
+            <wsdl:output message="tns:opPromoDisconnection_outputMessage"/>
+            <wsdl:fault name="error404" message="tns:opPromoDisconnection_error404Message"/>
+            <wsdl:fault name="error400" message="tns:opPromoDisconnection_error400Message"/>
+            <wsdl:fault name="error500" message="tns:opPromoDisconnection_error500Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="opPromoCumulation">
+            <wsdl:input message="tns:opPromoCumulation_inputMessage"/>
+            <wsdl:output message="tns:opPromoCumulation_outputMessage"/>
+            <wsdl:fault name="error404" message="tns:opPromoCumulation_error404Message"/>
+            <wsdl:fault name="error400" message="tns:opPromoCumulation_error400Message"/>
+            <wsdl:fault name="error500" message="tns:opPromoCumulation_error500Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PS_REST_CRM_PROMO_CUMULABILITY_HANDLER_ptt-binding" type="tns:PS_REST_CRM_PROMO_CUMULABILITY_HANDLER_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="opPromoDisconnection">
+            <soap:operation soapAction="opPromoDisconnection"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="opPromoCumulation">
+            <soap:operation soapAction="opPromoCumulation"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

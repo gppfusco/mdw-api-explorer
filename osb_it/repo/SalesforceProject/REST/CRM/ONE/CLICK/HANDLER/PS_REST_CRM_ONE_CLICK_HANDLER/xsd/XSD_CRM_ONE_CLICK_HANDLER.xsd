@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestOneClickCancellation" type="requestOneClickCancellationType"/>
+	<xsd:complexType name="requestOneClickCancellationType">
+		<xsd:sequence>
+			<xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCoBrowsingflag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwInteractionId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwServiceRequest" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwServiceRequestId" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mdwOrder" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwOrderid" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseOneClickCancellation" type="responseOneClickCancellationType"/>
+	<xsd:complexType name="responseOneClickCancellationType">
+		<xsd:sequence>
+			<xsd:element name="mdwResultCode" type="xsd:string"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string"/>
+			<xsd:element name="mdwTrackingOperation" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwTrackingId" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

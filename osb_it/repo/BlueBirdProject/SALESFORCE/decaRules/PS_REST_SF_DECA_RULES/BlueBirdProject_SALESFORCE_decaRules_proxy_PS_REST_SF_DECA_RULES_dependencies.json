@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_decaRules_proxy_PS_REST_SF_DECA_RULES",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/SALESFORCE/decaRules/pipeline/PL_REST_SF_DECA_RULES" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/decaRules/pipeline/PL_REST_SF_DECA_RULES",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/BlueBirdProject/SALESFORCE/decaRules/pipeline/PL_INTERNAL_SF_DECA_RULES" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/decaRules/pipeline/PL_INTERNAL_SF_DECA_RULES",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SALESFORCE/decaRules/transformation/createResponse_DecaRules" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/decaRules/transformation/createResponse_DecaRules",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_SF_DECA_RULES" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_DECA_RULES",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SALESFORCE/decaRules/transformation/createRequest_DecaRules" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/decaRules/transformation/createRequest_DecaRules",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_SF_DECA_RULES" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_DECA_RULES",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/BlueBirdProject/Resources/PS_REST_SF_DECA_RULES" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_DECA_RULES",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

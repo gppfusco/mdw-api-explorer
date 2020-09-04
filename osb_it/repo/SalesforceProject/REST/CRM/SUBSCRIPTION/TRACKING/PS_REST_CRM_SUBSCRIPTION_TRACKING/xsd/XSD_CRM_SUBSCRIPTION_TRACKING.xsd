@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetSubscriptionTracking" type="requestGetSubscriptionTrackingType"/>
+	<xsd:element name="responseGetSubscriptionTracking" type="responseGetSubscriptionTrackingType"/>
+	<xsd:complexType name="requestGetSubscriptionTrackingType">
+		<xsd:sequence>
+			<xsd:element name="mdwWorkOrderId" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetSubscriptionTrackingType">
+		<xsd:sequence>
+			<xsd:element name="mdwSubscriptionTrackings" type="mdwSubscriptionTrackingsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwSubscriptionTrackingsType">
+		<xsd:sequence>
+			<xsd:element name="mdwSubscriptionTracking" type="mdwSubscriptionTrackingType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwSubscriptionTrackingType">
+		<xsd:sequence>
+			<xsd:element name="mdwTypeStartService" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwOptionOldSTB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwTypeOperation" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwStartTechnology" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwFinalTechnology" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwEndVision" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCountSTB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCountSMC" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCountDk" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwParTrackingOldstBld" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwTrackId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwPackageType" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

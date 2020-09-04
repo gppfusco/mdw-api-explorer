@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCheckEligibilityExtra" type="requestCheckEligibilityExtraType"/>
+	<xsd:complexType name="requestCheckEligibilityExtraType">
+		<xsd:sequence>
+			<xsd:element name="custIdPayer" type="xsd:string"/>
+			<xsd:element name="mdwTrackingField" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwConnId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwScope" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckEligibilityExtra" type="responseCheckEligibilityExtraType"/>
+	<xsd:complexType name="responseCheckEligibilityExtraType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string"/>
+			<xsd:element name="mdwResult" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwSkyID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwContratti" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwContratto" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="mdwConnId" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="mdwEsitoEleggibilita" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="mdwContrId" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="mdwFascia" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="mdwDataEleggibilitaLoyalty" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

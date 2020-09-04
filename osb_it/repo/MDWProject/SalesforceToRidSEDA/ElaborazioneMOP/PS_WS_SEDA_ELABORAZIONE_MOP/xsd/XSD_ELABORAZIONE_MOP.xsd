@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestElaborazioneMOP" type="requestElaborazioneMOPType"/>
+  <xsd:complexType name="requestElaborazioneMOPType">
+    <xsd:sequence>
+      <xsd:element name="tipoOpreazione" type="tipoOpreazioneType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:simpleType name="tipoOpreazioneType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="INVIO_RID"/>
+      <xsd:enumeration value="REVOCA_RID_GIORNALIERA"/>
+      <xsd:enumeration value="REVOCA_RID_TRIMESTRALE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  
+  <xsd:element name="responseElaborazioneMOP" type="responseElaborazioneMOPType" />
+  <xsd:complexType name="responseElaborazioneMOPType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

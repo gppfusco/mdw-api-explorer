@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestRetrievePromotions" type="requestRetrievePromotionsType"/>
+	<xsd:element name="responseRetrievePromotions" type="resultPromotionsType"/>
+	<xsd:element name="requestRetrieveProducts" type="requestRetrieveProductsType"/>
+	<xsd:element name="responseRetrieveProducts" type="resultProductsType"/>
+        <xsd:element name="requestRetrievePromotionsDuration" type="requestRetrievePromotionsDurationType"/>
+        <xsd:element name="responseRetrievePromotionsDuration" type="responseRetrievePromotionsDurationType"/>
+        
+ <xsd:complexType name="requestRetrievePromotionsDurationType">
+  <xsd:sequence>
+    <xsd:element name="catalogCode" type="xsd:string" minOccurs="1"/>
+    <xsd:element name="nextDate" type="xsd:dateTime" minOccurs="0"/>
+    <xsd:element name="previousDate" type="xsd:dateTime" minOccurs="0"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+ <xsd:complexType name="responseRetrievePromotionsDurationType">
+  <xsd:sequence>
+    <xsd:element name="promotionDuration" type="promotionDurationType" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+ <xsd:complexType name="promotionDurationType">
+  <xsd:sequence>
+   <xsd:element name="promotionId" type="xsd:string"/>
+    <xsd:element name="promotionName" type="xsd:string"/>
+    <xsd:element name="promotionCode" type="xsd:string"/>
+    <xsd:element name="promotionStartDate" type="xsd:dateTime"/>
+    <xsd:element name="promotionEndDate" type="xsd:dateTime"/>
+    <xsd:element name="regolaDeca" type="xsd:string"/>
+    <xsd:element name="priceListCode" type="xsd:string"/>
+  </xsd:sequence>
+</xsd:complexType>
+
+ <xsd:complexType name="requestRetrieveProductsType">
+		<xsd:sequence>
+			<xsd:element name="priceListCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="offerRoot" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="promoCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="productType" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultProductsType">
+		<xsd:sequence>
+			<xsd:element name="product" type="productType" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="productType">
+		<xsd:sequence>
+			<xsd:element name="productId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="1"/>                        
+			<xsd:element name="description" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="productCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="productCodeOM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="productType" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="parentId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="attributes" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="price" type="priceType" minOccurs="1"/>
+                        <xsd:element name="productHierarchyLevel" type="xsd:string" minOccurs="1"/>
+  </xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="priceType">
+		<xsd:sequence>
+			<xsd:element name="chargeAmount" type="xsd:integer" minOccurs="1"/>
+			<xsd:element name="isBasePrice" type="xsd:boolean" minOccurs="1"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="externalKey" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priceListEntryId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="adjustmentMethod" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="adjustmentValue" type="xsd:integer" minOccurs="0"/>
+                        <xsd:element name="totalDuration" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="frequency" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="typeAmount" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="recurringFrequency" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="promotionApplied" type="promotionAppliedType" minOccurs="0"/>
+                        <xsd:element name="pricingMatrix" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+                        <xsd:element name="priceListEntryType" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="promotionAppliedType">
+		<xsd:sequence>
+			<xsd:element name="promoId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promoCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="startDate" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="endDate" type="xsd:dateTime" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="promotionApplied1Type">
+		<xsd:sequence>
+			<xsd:element name="value" type="xsd:string" minOccurs="1" maxOccurs="30"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="requestRetrievePromotionsType">
+		<xsd:sequence>
+			<xsd:element name="productCode" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultPromotionsType">
+		<xsd:sequence>
+			<xsd:element name="promotion" type="promotionType" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="promotionType">
+		<xsd:sequence>
+			<xsd:element name="promotionId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="1"/>                        
+			<xsd:element name="description" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="promoCode" type="xsd:string" minOccurs="1"/>          
+			<xsd:element name="override" type="overrideType" minOccurs="0" maxOccurs="30"/>              
+			<xsd:element name="adjustment" type="adjustmentType" minOccurs="0" maxOccurs="30"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="overrideType">
+		<xsd:sequence>
+                        <xsd:element name="amount" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="externalKey" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priceListEntryId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="pricingElementId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="adjustmentMethod" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="adjustmentValue" type="xsd:integer" minOccurs="0"/>
+                        <xsd:element name="totalDuration" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="frequency" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="typeAmount" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="recurringFrequency" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="adjustmentType">
+		<xsd:sequence>
+                        <xsd:element name="amount" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="externalKey" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priceListEntryId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="pricingElementId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="adjustmentMethod" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="adjustmentValue" type="xsd:integer" minOccurs="0"/>
+                        <xsd:element name="totalDuration" type="xsd:integer" minOccurs="0"/>
+			<xsd:element name="frequency" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="typeAmount" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="recurringFrequency" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

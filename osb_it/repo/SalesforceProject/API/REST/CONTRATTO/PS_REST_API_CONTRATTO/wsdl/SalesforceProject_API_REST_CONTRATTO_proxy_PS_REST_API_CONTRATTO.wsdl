@@ -1,0 +1,93 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="PS_REST_API_CONTRATTO"
+     targetNamespace="http://xmlns.oracle.com/OSB_SVIL/SalesforceProject/PS_REST_API_CONTRATTO"
+     xmlns:tns="http://xmlns.oracle.com/OSB_SVIL/SalesforceProject/PS_REST_API_CONTRATTO"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:inp2="http://www.skytv.it/mdw/rest/faults"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:inp3="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    >
+    <plnk:partnerLinkType name="PS_REST_API_CONTRATTO">
+        <plnk:role name="PS_REST_API_CONTRATTOProvider" portType="tns:PS_REST_API_CONTRATTO_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SalesforceProject/API_REST/contratto/XSD_API_CONTRATTO.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="opLeggiDatiContratto_inputMessage">
+        <wsdl:part name="request" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="opLeggiDatiContratto_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseLeggiDatiContrattoSF"/>
+    </wsdl:message>
+    <wsdl:message name="opLeggiDatiContratto_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="opLeggiDatiContratto_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="opLeggiDatiContratto_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="opSetFormatoFattura_inputMessage">
+        <wsdl:part name="request" element="inp1:requestSetFormatoFattura"/>
+    </wsdl:message>
+    <wsdl:message name="Rest_EmptyMessage"/>
+    <wsdl:message name="opSetFormatoFattura_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="opSetFormatoFattura_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="opSetFormatoFattura_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="opSetFormatoFattura_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseSetFormatoFattura"/>
+    </wsdl:message>
+    <wsdl:portType name="PS_REST_API_CONTRATTO_ptt">
+        <wsdl:operation name="opLeggiDatiContratto">
+            <wsdl:input message="tns:opLeggiDatiContratto_inputMessage"/>
+            <wsdl:output message="tns:opLeggiDatiContratto_outputMessage"/>
+            <wsdl:fault name="error404" message="tns:opLeggiDatiContratto_error404Message"/>
+            <wsdl:fault name="error400" message="tns:opLeggiDatiContratto_error400Message"/>
+            <wsdl:fault name="error500" message="tns:opLeggiDatiContratto_error500Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="opSetFormatoFattura">
+            <wsdl:input message="tns:opSetFormatoFattura_inputMessage"/>
+            <wsdl:output message="tns:Rest_EmptyMessage"/>
+            <wsdl:fault name="error404" message="tns:opSetFormatoFattura_error404Message"/>
+            <wsdl:fault name="error400" message="tns:opSetFormatoFattura_error400Message"/>
+            <wsdl:fault name="error500" message="tns:opSetFormatoFattura_error500Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PS_REST_API_CONTRATTO_ptt-binding" type="tns:PS_REST_API_CONTRATTO_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="opLeggiDatiContratto">
+            <soap:operation soapAction="opLeggiDatiContratto"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="opSetFormatoFattura">
+            <soap:operation soapAction="opSetFormatoFattura"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

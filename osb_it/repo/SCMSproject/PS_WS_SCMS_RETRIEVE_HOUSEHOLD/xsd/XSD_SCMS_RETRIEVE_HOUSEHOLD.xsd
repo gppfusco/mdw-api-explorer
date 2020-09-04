@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <!-- ELEMENTS -->
+  <xsd:element name="requestETREHH" type="requestETREHHType" />
+  <xsd:element name="responseETREHH" type="responseETREHHType" />
+  
+  <!-- TYPES -->
+  <xsd:complexType name="requestETREHHType">
+    <xsd:sequence>
+      <xsd:element name="flagsync" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      
+      <xsd:element name="clientid" minOccurs="1" maxOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="SKY" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      
+      
+      <xsd:element name="actioncode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="format" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="box" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="corp" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="account" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="operator" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="execdate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="priority" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="typesrvreq" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseETREHHType">
+    <xsd:sequence>
+      <xsd:element name="result" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ndserr" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="transid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="descriptionerr" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="hhidscms" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

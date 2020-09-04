@@ -1,0 +1,65 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_SetSkyTeam_proxy_PS_REST_SF_SKY_TEAM_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_SF_SKY_TEAM_HANDLER" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_SKY_TEAM_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/SALESFORCE/SetSkyTeam/pipeline/PL_SF_SKY_TEAM_HANDLER" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/SetSkyTeam/pipeline/PL_SF_SKY_TEAM_HANDLER",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_SF_SKY_TEAM_HANDLER" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_SKY_TEAM_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/SALESFORCE/SetSkyTeam/pipeline/PL_SF_SKY_TEAM_HANDLER_enqueue" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/SetSkyTeam/pipeline/PL_SF_SKY_TEAM_HANDLER_enqueue",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/SALESFORCE/businessService/BS_JMS_BB_SALESFORCE" : {
+                "label" : "BusinessService/BlueBirdProject/SALESFORCE/businessService/BS_JMS_BB_SALESFORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_SF_SKY_TEAM_HANDLER" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_SKY_TEAM_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SALESFORCE/SetSkyTeam/transformation/createResponse_ack_WS_SetSkyTeam" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/SetSkyTeam/transformation/createResponse_ack_WS_SetSkyTeam",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

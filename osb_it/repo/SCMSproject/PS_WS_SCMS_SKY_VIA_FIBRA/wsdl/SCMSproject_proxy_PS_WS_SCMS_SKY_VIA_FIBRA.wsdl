@@ -1,0 +1,147 @@
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD" xmlns:mdata="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_CRM_GESTIONE_SMARTCARD" targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SCMS_SKY_VIA_FIBRA.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestOVVIEW_Message">
+		<wsdl:part name="part_requestOVVIEW" element="mdata:requestOVVIEW"/>
+	</wsdl:message>
+	<wsdl:message name="responseOVVIEW_Message">
+		<wsdl:part name="part_responseOVVIEW" element="mdata:responseOVVIEW"/>
+	</wsdl:message>
+	<wsdl:message name="requestOVAVPR_Message">
+		<wsdl:part name="part_requestOVAVPR" element="mdata:requestOVAVPR"/>
+	</wsdl:message>
+	<wsdl:message name="responseOVAVPR_Message">
+		<wsdl:part name="part_responseOVAVPR" element="mdata:responseOVAVPR"/>
+	</wsdl:message>
+	<wsdl:message name="requestOVMGSC_Message">
+		<wsdl:part name="part_requestOVMGSC" element="mdata:requestOVMGSC"/>
+	</wsdl:message>
+	<wsdl:message name="responseOVMGSC_Message">
+		<wsdl:part name="part_responseOVMGSC" element="mdata:responseOVMGSC"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="mdata:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="GESTIONE_SMARTCARD_ptt">
+		<wsdl:operation name="execute_OVVIEW">
+			<wsdl:input message="tns:requestOVVIEW_Message"/>
+			<wsdl:output message="tns:responseOVVIEW_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_OVAVPR">
+			<wsdl:input message="tns:requestOVAVPR_Message"/>
+			<wsdl:output message="tns:responseOVAVPR_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_OVMGSC">
+			<wsdl:input message="tns:requestOVMGSC_Message"/>
+			<wsdl:output message="tns:responseOVMGSC_Message"/>
+		</wsdl:operation>
+  <wsdl:operation name="execute_HIVIEW">
+   <wsdl:input message="tns:requestHIVIEW_Message"/>
+   <wsdl:output message="tns:responseHIVIEW_Message"/>
+  </wsdl:operation>
+  <wsdl:operation name="execute_HIAVPR">
+   <wsdl:input message="tns:requestHIAVPR_Message"/>
+   <wsdl:output message="tns:responseHIAVPR_Message"/>
+  </wsdl:operation>
+  <wsdl:operation name="execute_HIMGSC">
+   <wsdl:input message="tns:requestHIMGSC_Message"/>
+   <wsdl:output message="tns:responseHIMGSC_Message"/>
+  </wsdl:operation>
+ </wsdl:portType>
+	<wsdl:service name="GESTIONE_SMARTCARD_ptt">
+		<wsdl:port name="GESTIONE_SMARTCARD_pttPort" binding="tns:GESTIONE_SMARTCARD_pttSOAP11Binding">
+			<soap:address location="http://www.example.com"/>
+		</wsdl:port>
+	</wsdl:service>
+ <wsdl:message name="requestHIVIEW_Message">
+  <wsdl:part name="part_requestHIVIEW" element="mdata:requestHIVIEW"/>
+ </wsdl:message>
+ <wsdl:message name="responseHIVIEW_Message">
+  <wsdl:part name="part_responseHIVIEW" element="mdata:responseHIVIEW"/>
+ </wsdl:message>
+ <wsdl:message name="requestHIAVPR_Message">
+  <wsdl:part name="part_requestHIAVPR" element="mdata:requestHIAVPR"/>
+ </wsdl:message>
+ <wsdl:message name="responseHIAVPR_Message">
+  <wsdl:part name="part_responseHIAVPR" element="mdata:responseHIAVPR"/>
+ </wsdl:message>
+ <wsdl:message name="requestHIMGSC_Message">
+  <wsdl:part name="part_requestHIMGSC" element="mdata:requestHIMGSC"/>
+ </wsdl:message>
+ <wsdl:message name="responseHIMGSC_Message">
+  <wsdl:part name="part_responseHIMGSC" element="mdata:responseHIMGSC"/>
+ </wsdl:message>
+ <wsdl:binding name="GESTIONE_SMARTCARD_pttSOAP11Binding" type="tns:GESTIONE_SMARTCARD_ptt">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <wsdl:operation name="execute_OVVIEW">
+   <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_OVVIEW"/>
+   <wsdl:input>
+    <soap:body use="literal" parts="part_requestOVVIEW"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:body use="literal" parts="part_responseOVVIEW"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_OVAVPR">
+   <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_OVAVPR"/>
+   <wsdl:input>
+    <soap:body use="literal" parts="part_requestOVAVPR"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:body use="literal" parts="part_responseOVAVPR"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_OVMGSC">
+   <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_OVMGSC"/>
+   <wsdl:input>
+    <soap:body use="literal" parts="part_requestOVMGSC"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:body use="literal" parts="part_responseOVMGSC"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_HIVIEW">
+   <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_HIVIEW"/>
+   <wsdl:input>
+    <soap:body use="literal" parts="part_requestHIVIEW"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:body use="literal" parts="part_responseHIVIEW"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_HIAVPR">
+   <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_HIAVPR"/>
+   <wsdl:input>
+    <soap:body use="literal" parts="part_requestHIAVPR"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:body use="literal" parts="part_responseHIAVPR"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_HIMGSC">
+   <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SMARTCARD/execute_HIMGSC"/>
+   <wsdl:input>
+    <soap:body use="literal" parts="part_requestHIMGSC"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:body use="literal" parts="part_responseHIMGSC"/>
+    <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+   </wsdl:output>
+  </wsdl:operation>
+ </wsdl:binding>
+</wsdl:definitions>

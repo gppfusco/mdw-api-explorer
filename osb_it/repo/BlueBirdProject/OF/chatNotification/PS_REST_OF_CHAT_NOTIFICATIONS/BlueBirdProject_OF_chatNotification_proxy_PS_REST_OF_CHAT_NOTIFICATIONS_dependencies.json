@@ -1,0 +1,221 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OF_chatNotification_proxy_PS_REST_OF_CHAT_NOTIFICATIONS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_OF_CHAT_NOTIFICATIONS" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OF_CHAT_NOTIFICATIONS",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/OF/chatNotification/pipeline/PL_REST_CHAT_NOTIFICATIONS" : {
+        "label" : "Pipeline/BlueBirdProject/OF/chatNotification/pipeline/PL_REST_CHAT_NOTIFICATIONS",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/BlueBirdProject/Resources/PS_REST_OF_CHAT_NOTIFICATIONS" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OF_CHAT_NOTIFICATIONS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OF/chatNotification/pipeline/PL_INTERNAL_OF_ADD_NICKNAME" : {
+            "label" : "Pipeline/BlueBirdProject/OF/chatNotification/pipeline/PL_INTERNAL_OF_ADD_NICKNAME",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/BlueBirdProject/OF/chatNotification/businessService/BS_REST_OF_CHAT_NOTIFICATIONS" : {
+                "label" : "BusinessService/BlueBirdProject/OF/chatNotification/businessService/BS_REST_OF_CHAT_NOTIFICATIONS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_OF_CHAT_NOTIFICATIONS" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OF_CHAT_NOTIFICATIONS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/OF/chatNotifications/xsd/XSD_OF_CHAT_NOTIFICATIONS" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/OF/chatNotifications/xsd/XSD_OF_CHAT_NOTIFICATIONS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OF/chatNotification/transformation/createRequest_AddNickname" : {
+                "label" : "Xquery/BlueBirdProject/OF/chatNotification/transformation/createRequest_AddNickname",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OF/chatNotification/transformation/createResponse_AddNickname" : {
+                "label" : "Xquery/BlueBirdProject/OF/chatNotification/transformation/createResponse_AddNickname",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/OF/chatNotification/pipeline/PL_INTERNAL_OF_SEND_MESSAGE" : {
+            "label" : "Pipeline/BlueBirdProject/OF/chatNotification/pipeline/PL_INTERNAL_OF_SEND_MESSAGE",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/BlueBirdProject/OF/chatNotification/businessService/BS_REST_OF_CHAT_NOTIFICATIONS" : {
+                "label" : "BusinessService/BlueBirdProject/OF/chatNotification/businessService/BS_REST_OF_CHAT_NOTIFICATIONS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OF/chatNotification/transformation/createRequest_OFSendMessage" : {
+                "label" : "Xquery/BlueBirdProject/OF/chatNotification/transformation/createRequest_OFSendMessage",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_OF_CHAT_NOTIFICATIONS" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OF_CHAT_NOTIFICATIONS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OF/chatNotification/transformation/createRequest_SFRetrieveNoteInstaller" : {
+                "label" : "Xquery/BlueBirdProject/OF/chatNotification/transformation/createRequest_SFRetrieveNoteInstaller",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OF/chatNotification/transformation/createResponse_SFRetrieveNoteInstaller" : {
+                "label" : "Xquery/BlueBirdProject/OF/chatNotification/transformation/createResponse_SFRetrieveNoteInstaller",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL" : {
+                "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL",
+                "properties" : {
+                  "transport-type" : "local",
+                  "nodeType" : "Proxy",
+                  "service-type" : "SOAP"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+                    "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+                    "properties" : { },
+                    "successors" : {
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                        "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                        "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              },
+              "BusinessService/BlueBirdProject/OF/chatNotification/businessService/BS_JMS_SF_CHAT_TRACKING" : {
+                "label" : "BusinessService/BlueBirdProject/OF/chatNotification/businessService/BS_JMS_SF_CHAT_TRACKING",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OF/chatNotification/transformation/createResponse_SendMessage" : {
+                "label" : "Xquery/BlueBirdProject/OF/chatNotification/transformation/createResponse_SendMessage",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/OF/chatNotification/pipeline/PL_INTERNAL_OF_GET_POSITION" : {
+            "label" : "Pipeline/BlueBirdProject/OF/chatNotification/pipeline/PL_INTERNAL_OF_GET_POSITION",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/BlueBirdProject/OF/chatNotification/businessService/BS_REST_OF_CHAT_NOTIFICATIONS" : {
+                "label" : "BusinessService/BlueBirdProject/OF/chatNotification/businessService/BS_REST_OF_CHAT_NOTIFICATIONS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_OF_CHAT_NOTIFICATIONS" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OF_CHAT_NOTIFICATIONS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OF/chatNotification/transformation/createResponse_GetPosition" : {
+                "label" : "Xquery/BlueBirdProject/OF/chatNotification/transformation/createResponse_GetPosition",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OF/chatNotification/transformation/createRequest_GetPosition" : {
+                "label" : "Xquery/BlueBirdProject/OF/chatNotification/transformation/createRequest_GetPosition",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/OF/chatNotifications/xsd/XSD_OF_CHAT_NOTIFICATIONS" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/OF/chatNotifications/xsd/XSD_OF_CHAT_NOTIFICATIONS",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

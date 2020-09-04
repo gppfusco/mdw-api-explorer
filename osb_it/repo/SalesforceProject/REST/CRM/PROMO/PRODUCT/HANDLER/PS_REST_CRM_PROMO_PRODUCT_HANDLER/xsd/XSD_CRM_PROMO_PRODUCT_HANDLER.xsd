@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGetPromoProductAction" type="requestGetPromoProductActionType"/>
+  <xsd:complexType name="requestGetPromoProductActionType">
+    <xsd:sequence>
+      <xsd:element name="orderIdSF" type="xsd:string"/>
+      <xsd:element name="productCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="productId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="promoCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="promoId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAction" type="actionDomainType" minOccurs="0"/>
+      <xsd:element name="mdwHasMS" type="booleanValue" minOccurs="0"/>
+      <xsd:element name="mdwTypeMS" type="MStype" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+  <xsd:element name="responseGetPromoProductAction" type="responseGetPromoProductActionType"/>
+  <xsd:complexType name="responseGetPromoProductActionType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwResultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwReprice" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSubType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwPreActions" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwPreAction" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="mdwSequence" type="xsd:string"/>
+                  <xsd:element name="mdwTypeItem" type="xsd:string"/>
+                  <xsd:element name="mdwTypeActionOnItem" type="xsd:string"/>
+                  <xsd:element name="mdwLineItemId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mdwDeleteItemId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mdwParentLineItemId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mdwPriceBookId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="productName" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="productCode" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="productDescription" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="attributeUniqueName" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="attributeValue" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="attributeValueId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="jsonSection" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="promoId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="promoCode" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="promoName" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="promoDescription" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="mdwPostActions" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwPostAction" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="mdwSequence" type="xsd:string"/>
+                  <xsd:element name="mdwTypeItem" type="xsd:string"/>
+                  <xsd:element name="mdwTypeActionOnItem" type="xsd:string"/>
+                  <xsd:element name="mdwLineItemId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mdwDeleteItemId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mdwParentLineItemId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mdwPriceBookId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="productName" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="productCode" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="productDescription" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="attributeUniqueName" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="attributeValue" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="attributeValueId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="jsonSection" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="promoId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="promoCode" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="promoName" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="promoDescription" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="MStype">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Standard"/>
+      <xsd:enumeration value="Connesso"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="booleanValue">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="True"/>
+      <xsd:enumeration value="False"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="actionDomainType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Add"/>
+      <xsd:enumeration value="Remove"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

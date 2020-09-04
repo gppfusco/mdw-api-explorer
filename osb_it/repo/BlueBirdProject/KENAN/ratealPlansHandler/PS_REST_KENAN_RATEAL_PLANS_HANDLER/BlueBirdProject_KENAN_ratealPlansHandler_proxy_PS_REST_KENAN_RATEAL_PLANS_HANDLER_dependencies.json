@@ -1,0 +1,270 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_KENAN_ratealPlansHandler_proxy_PS_REST_KENAN_RATEAL_PLANS_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_REST_KENAN_RATEAL_PLANS_HANLDER" : {
+        "label" : "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_REST_KENAN_RATEAL_PLANS_HANLDER",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_INTERNAL_GET_RATEAL_PLANS" : {
+            "label" : "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_INTERNAL_GET_RATEAL_PLANS",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createRequestGetRatealPlans" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createRequestGetRatealPlans",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/KENAN/ratealPlansHandler/businessService/BS_SQL_GET_RATEAL_PLANS" : {
+                "label" : "BusinessService/BlueBirdProject/KENAN/ratealPlansHandler/businessService/BS_SQL_GET_RATEAL_PLANS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createResponseGetRatealPlans" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createResponseGetRatealPlans",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_INTERNAL_UPDATE_RATEAL_PLANS" : {
+            "label" : "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_INTERNAL_UPDATE_RATEAL_PLANS",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createRequest_UpdateRatealPlan" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createRequest_UpdateRatealPlan",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/CreateRequest_RestEjbCompositeRetrieveRecord" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/CreateRequest_RestEjbCompositeRetrieveRecord",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createRatealPlanAlignmentScenario" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createRatealPlanAlignmentScenario",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/KENAN/ratealPlansHandler/businessService/BS_SQL_INST_PLAN_EXTINGUISHMENT" : {
+                "label" : "BusinessService/BlueBirdProject/KENAN/ratealPlansHandler/businessService/BS_SQL_INST_PLAN_EXTINGUISHMENT",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_INTERNAL_ALIGN_MSG_TO_KENAN" : {
+                "label" : "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_INTERNAL_ALIGN_MSG_TO_KENAN",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignFromSF/wsdl/WS_MDW_ALIGN_TIBCO_ORDER" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignFromSF/wsdl/WS_MDW_ALIGN_TIBCO_ORDER",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDWProject/AlignSfByBpel/topics/businessService/BS_JMS_ENQUEUE_ALIGN_MSG" : {
+                    "label" : "BusinessService/MDWProject/AlignSfByBpel/topics/businessService/BS_JMS_ENQUEUE_ALIGN_MSG",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL" : {
+                "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+                    "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                        "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              },
+              "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createResponse_UpdateRatealPlans" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createResponse_UpdateRatealPlans",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/create_MDWGenericEntityForRatealPlan" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/create_MDWGenericEntityForRatealPlan",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_INTERNAL_GET_RATEAL_TOTAL_COSTS" : {
+            "label" : "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_INTERNAL_GET_RATEAL_TOTAL_COSTS",
+            "properties" : { },
+            "successors" : {
+              "XMLSchema/BlueBirdProject/Resources/BS_SQL_KENAN_GET_RATEAL_TOTAL_COSTS" : {
+                "label" : "XMLSchema/BlueBirdProject/Resources/BS_SQL_KENAN_GET_RATEAL_TOTAL_COSTS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createRequest_GetRatealTotalCosts" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createRequest_GetRatealTotalCosts",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createResponse_GetRatealTotalCosts" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createResponse_GetRatealTotalCosts",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/KENAN/ratealPlansHandler/businessService/BS_SQL_KENAN_GET_RATEAL_TOTAL_COSTS" : {
+                "label" : "BusinessService/BlueBirdProject/KENAN/ratealPlansHandler/businessService/BS_SQL_KENAN_GET_RATEAL_TOTAL_COSTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_INTERNAL_GET_RATEAL_PLANS_DETAILS" : {
+            "label" : "Pipeline/BlueBirdProject/KENAN/ratealPlansHandler/pipeline/PL_INTERNAL_GET_RATEAL_PLANS_DETAILS",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createRequestGetRatealPlansDetails" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createRequestGetRatealPlansDetails",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/KENAN/ratealPlansHandler/businessService/BS_SQL_GET_RATEAL_PLANS_DETAILS" : {
+                "label" : "BusinessService/BlueBirdProject/KENAN/ratealPlansHandler/businessService/BS_SQL_GET_RATEAL_PLANS_DETAILS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_RATEAL_PLANS_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createResponseGetRatealPlansDetails" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/ratealPlansHandler/transformation/createResponseGetRatealPlansDetails",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

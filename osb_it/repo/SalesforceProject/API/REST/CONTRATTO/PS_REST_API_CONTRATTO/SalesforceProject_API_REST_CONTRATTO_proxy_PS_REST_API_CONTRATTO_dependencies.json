@@ -1,0 +1,99 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_API_REST_CONTRATTO_proxy_PS_REST_API_CONTRATTO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/API_REST/CONTRATTO/pipeline/PL_REST_API_CONTRATTO_SERVICE_ROUTING" : {
+        "label" : "Pipeline/SalesforceProject/API_REST/CONTRATTO/pipeline/PL_REST_API_CONTRATTO_SERVICE_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/SalesforceProject/API_REST/CONTRATTO/pipeline/PL_INTERNAL_LEGGI_DATI_CONTRATTO" : {
+            "label" : "Pipeline/SalesforceProject/API_REST/CONTRATTO/pipeline/PL_INTERNAL_LEGGI_DATI_CONTRATTO",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SalesforceProject/Resources/PS_REST_API_CONTRATTO" : {
+                "label" : "WSDL/SalesforceProject/Resources/PS_REST_API_CONTRATTO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/API_REST/CONTRATTO/transformations/createResponse_LeggiDatiContratto" : {
+                "label" : "Xquery/SalesforceProject/API_REST/CONTRATTO/transformations/createResponse_LeggiDatiContratto",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/API_REST/CONTRATTO/transformations/createRequest_LeggiDatiContratto" : {
+                "label" : "Xquery/SalesforceProject/API_REST/CONTRATTO/transformations/createRequest_LeggiDatiContratto",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/SalesforceProject/API_REST/CONTRATTO/pipeline/PL_INTERNAL_SET_FORMATO_FATTURA" : {
+            "label" : "Pipeline/SalesforceProject/API_REST/CONTRATTO/pipeline/PL_INTERNAL_SET_FORMATO_FATTURA",
+            "properties" : { },
+            "successors" : {
+              "Xquery/SalesforceProject/API_REST/CONTRATTO/transformations/createRequest_SetFormatoFattura" : {
+                "label" : "Xquery/SalesforceProject/API_REST/CONTRATTO/transformations/createRequest_SetFormatoFattura",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/API_REST/CONTRATTO/transformations/createResponse_SetFormatoFattura" : {
+                "label" : "Xquery/SalesforceProject/API_REST/CONTRATTO/transformations/createResponse_SetFormatoFattura",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SalesforceProject/Resources/PS_REST_API_CONTRATTO" : {
+                "label" : "WSDL/SalesforceProject/Resources/PS_REST_API_CONTRATTO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/WS_CRM_SET_FORMATO_FATTURA/PS_CRM_SET_FORMATO_FATTURA" : {
+                "label" : "ProxyService/SalesforceProject/WS_CRM_SET_FORMATO_FATTURA/PS_CRM_SET_FORMATO_FATTURA",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/SalesforceProject/Resources/PS_REST_API_CONTRATTO" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_API_CONTRATTO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/SalesforceProject/Resources/PS_REST_API_CONTRATTO" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_API_CONTRATTO",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

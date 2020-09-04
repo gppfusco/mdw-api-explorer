@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetCalendario" type="requestGetCalendarioType"/>
+	<xsd:complexType name="requestGetCalendarioType">
+		<xsd:sequence>
+			<xsd:element name="mopPaymentMethod" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwBillCycle" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetCalendario" type="responseGetCalendarioType"/>
+	<xsd:complexType name="responseGetCalendarioType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwCalendars" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwCalendar" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mopPaymentMethod" type="xsd:string" minOccurs="1"/>
+                                                                        <xsd:element name="invoiceStatementDate" type="xsd:string" minOccurs="1"/>
+                                                                        <xsd:element name="invoicePaymentDueDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwBillCycle" type="xsd:string" minOccurs="1"/>
+                                                                        <xsd:element name="mdwBillCutOffDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwBillPeriodStartDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwBillPeriodEndDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwCandidacyExpectedDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwSuspendPeriodStartDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwSuspendPeriodEndDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwExpectedExitParcoDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwExpectedCeasedDate" type="xsd:string" minOccurs="1"/>
+                                                                        <xsd:element name="mdwCessationBackdated" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetCicloFatturazione" type="requestGetCicloFatturazioneType"/>
+	<xsd:complexType name="requestGetCicloFatturazioneType">
+		<xsd:sequence>
+			<xsd:element name="mopPaymentMethod" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwBillCycle" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwTargetDate" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwBillCycleTarget" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetCicloFatturazione" type="responseGetCicloFatturazioneType"/>
+	<xsd:complexType name="responseGetCicloFatturazioneType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwCalendars" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwCalendar" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mopPaymentMethod" type="xsd:string" minOccurs="1"/>
+                                                                        <xsd:element name="invoiceStatementDate" type="xsd:string" minOccurs="1"/>
+                                                                        <xsd:element name="invoicePaymentDueDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwBillCycle" type="xsd:string" minOccurs="1"/>
+                                                                        <xsd:element name="mdwBillCutOffDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwBillPeriodStartDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwBillPeriodEndDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwCandidacyExpectedDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwSuspendPeriodStartDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwSuspendPeriodEndDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwExpectedExitParcoDate" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwExpectedCeasedDate" type="xsd:string" minOccurs="1"/>
+                                                                        <xsd:element name="mdwCessationBackdated" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

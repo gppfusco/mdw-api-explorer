@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGetCustomer" type="requestGetCustomerType"/>
+  <xsd:complexType name="requestGetCustomerType">
+    <xsd:sequence>
+      <xsd:element name="appointmentId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="channel" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="responseGetCustomer" type="responseGetCustomerType"/>
+  <xsd:complexType name="responseGetCustomerType">
+    <xsd:sequence>
+      <xsd:element name="customerCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="contractCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

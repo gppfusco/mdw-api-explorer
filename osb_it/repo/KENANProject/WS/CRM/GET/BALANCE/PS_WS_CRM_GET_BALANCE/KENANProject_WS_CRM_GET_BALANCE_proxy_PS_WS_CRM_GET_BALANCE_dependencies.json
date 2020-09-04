@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_CRM_GET_BALANCE_proxy_PS_WS_CRM_GET_BALANCE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/KENANProject/WS_CRM_GET_BALANCE/pipelines/PL_WS_CRM_GET_BALANCE" : {
+        "label" : "Pipeline/KENANProject/WS_CRM_GET_BALANCE/pipelines/PL_WS_CRM_GET_BALANCE",
+        "properties" : { },
+        "successors" : {
+          "Xquery/KENANProject/WS_CRM_GET_BALANCE/transformations/createRequest_BS_TUXEDO_GET_BALANCE" : {
+            "label" : "Xquery/KENANProject/WS_CRM_GET_BALANCE/transformations/createRequest_BS_TUXEDO_GET_BALANCE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/KENANProject/WS_CRM_GET_BALANCE/businessService/BS_TUXEDO_GET_BALANCE" : {
+            "label" : "BusinessService/KENANProject/WS_CRM_GET_BALANCE/businessService/BS_TUXEDO_GET_BALANCE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetBalance/wsdl/WS_CRM_GET_BALANCE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetBalance/wsdl/WS_CRM_GET_BALANCE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_CRM_GET_BALANCE/transformations/createResponse_BS_TUXEDO_GET_BALANCE" : {
+            "label" : "Xquery/KENANProject/WS_CRM_GET_BALANCE/transformations/createResponse_BS_TUXEDO_GET_BALANCE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetBalance/wsdl/WS_CRM_GET_BALANCE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GetBalance/wsdl/WS_CRM_GET_BALANCE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

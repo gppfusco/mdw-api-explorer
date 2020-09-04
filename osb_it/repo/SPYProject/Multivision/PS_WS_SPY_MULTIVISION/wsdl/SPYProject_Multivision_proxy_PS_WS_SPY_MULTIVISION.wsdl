@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/SPY_MULTIVISION"  xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_SPY_MULTIVISION" targetNamespace="http://www.skytv.it/mdw/service/SPY_MULTIVISION">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SPY_MULTIVISION.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestHouseholdReader_message">
+		<wsdl:part name="part_requestHouseholdReader" element="inp1:requestHouseholdReader"/>
+	</wsdl:message>
+	<wsdl:message name="responseHouseholdReader_message">
+		<wsdl:part name="part_responseHouseholdReader" element="inp1:responseHouseholdReader"/>
+	</wsdl:message>
+	<wsdl:message name="requestHistoryReader_message">
+		<wsdl:part name="part_requestHistoryReader" element="inp1:requestHistoryReader"/>
+	</wsdl:message>
+	<wsdl:message name="responseHistoryReader_message">
+		<wsdl:part name="part_responseHistoryReader" element="inp1:responseHistoryReader"/>
+	</wsdl:message>
+	<wsdl:message name="requestHouseholdUpdater_message">
+		<wsdl:part name="part_requestHouseholdUpdater" element="inp1:requestHouseholdUpdater"/>
+	</wsdl:message>
+	<wsdl:message name="responseHouseholdUpdater_message">
+		<wsdl:part name="part_responseHouseholdUpdater" element="inp1:responseHouseholdUpdater"/>
+	</wsdl:message>
+	<wsdl:message name="requestHistoryUpdater_message">
+		<wsdl:part name="part_requestHistoryUpdater" element="inp1:requestHistoryUpdater"/>
+	</wsdl:message>
+	<wsdl:message name="responseHistoryUpdater_message">
+		<wsdl:part name="part_responseHistoryUpdater" element="inp1:responseHistoryUpdater"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="SPY_MULTIVISION_ptt">
+		<wsdl:operation name="execute_householdReader">
+			<wsdl:input message="tns:requestHouseholdReader_message"/>
+			<wsdl:output message="tns:responseHouseholdReader_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_historyReader">
+			<wsdl:input message="tns:requestHistoryReader_message"/>
+			<wsdl:output message="tns:responseHistoryReader_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_householdUpdater">
+			<wsdl:input message="tns:requestHouseholdUpdater_message"/>
+			<wsdl:output message="tns:responseHouseholdUpdater_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_historyUpdater">
+			<wsdl:input message="tns:requestHistoryUpdater_message"/>
+			<wsdl:output message="tns:responseHistoryUpdater_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SPY_MULTIVISION_pttSOAP11Binding" type="tns:SPY_MULTIVISION_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_householdReader">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SPY_MULTIVISION/execute_householdReader" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestHouseholdReader" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseHouseholdReader" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_historyReader">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SPY_MULTIVISION/execute_historyReader" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestHistoryReader" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseHistoryReader" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_householdUpdater">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SPY_MULTIVISION/execute_householdUpdater" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestHouseholdUpdater" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseHouseholdUpdater" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_historyUpdater">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SPY_MULTIVISION/execute_historyUpdater" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestHistoryUpdater" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseHistoryUpdater" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

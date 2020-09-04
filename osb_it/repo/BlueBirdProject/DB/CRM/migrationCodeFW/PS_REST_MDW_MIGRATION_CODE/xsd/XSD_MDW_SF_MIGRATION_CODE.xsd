@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestVerifyMigrationCode" type="requestVerifyMigrationCodeType"/>
+  <xsd:element name="responseVerifyMigrationCode" type="responseVerifyMigrationCodeType"/>
+  <xsd:element name="requestGenerateMigrationCode" type="requestGenerateMigrationCodeType"/>
+  <xsd:element name="responseGenerateMigrationCode" type="responseGenerateMigrationCodeType"/>
+  <xsd:element name="responseVerifyMigrationCodeSoap" type="responseVerifyMigrationCodeSoapType"/>
+  <xsd:element name="responseGenerateMigrationCodeSoap" type="responseGenerateMigrationCodeSoapType"/>
+  <xsd:complexType name="requestGenerateMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="cor" type="corMigrationCodeType"/>
+      <xsd:element name="cosTechnology" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="resultGenerateMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="migrationCode" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestVerifyMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="migrationCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="corMigrationCodeType" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="8"></xsd:minLength>
+      <xsd:maxLength value="13"></xsd:maxLength>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="responseVerifyMigrationCodeSoapType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element ref="responseVerifyMigrationCode" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGenerateMigrationCodeSoapType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element ref="responseGenerateMigrationCode" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseVerifyMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="verifyMigrationCodeResult" type="verifyMigrationCodeResultType" minOccurs="0"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="verifyMigrationCodeResultType">
+    <xsd:sequence>
+      <xsd:element name="operatorForCow" type="xsd:string"/>
+      <xsd:element name="technologyTypeForCos" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGenerateMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="generateMigrationCodeResult" type="generateMigrationCodeResultType" minOccurs="0"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="generateMigrationCodeResultType">
+    <xsd:sequence>
+      <xsd:element name="migrationCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

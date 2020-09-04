@@ -1,0 +1,60 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_LEGGI_DATI_CLIENTE_proxy_PS_WS_CRM_LEGGI_DATI_CLIENTE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/pipeline/PL_WS_CRM_LEGGI_DATI_CLIENTE" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/pipeline/PL_WS_CRM_LEGGI_DATI_CLIENTE",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/transformation/createResponse_LeggiDatiCliente_ExecQuery" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/transformation/createResponse_LeggiDatiCliente_ExecQuery",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/transformation/createRequest_LeggiDatiCliente_ExecQuery" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/transformation/createRequest_LeggiDatiCliente_ExecQuery",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/transformation/createResponse_LeggiDatiClienteBySMC" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/transformation/createResponse_LeggiDatiClienteBySMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/transformation/createRequest_LeggiDatiClienteBySMC" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/transformation/createRequest_LeggiDatiClienteBySMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/LeggiDatiCliente/wsdl/WS_CRM_LEGGI_DATI_CLIENTE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/LeggiDatiCliente/wsdl/WS_CRM_LEGGI_DATI_CLIENTE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/LeggiDatiCliente/wsdl/WS_CRM_LEGGI_DATI_CLIENTE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/LeggiDatiCliente/wsdl/WS_CRM_LEGGI_DATI_CLIENTE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

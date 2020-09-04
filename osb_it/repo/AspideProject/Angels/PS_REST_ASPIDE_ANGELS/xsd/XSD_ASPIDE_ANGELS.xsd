@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetAngel" type="requestGetAngelType"/>
+	<xsd:complexType name="requestGetAngelType">
+		<xsd:sequence>
+			<xsd:element name="customerCode" type="xsd:string"/>
+			<xsd:element name="contractCode" type="xsd:string"/>
+			<xsd:element name="channel" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetAngel" type="responseGetAngelType"/>
+	<xsd:complexType name="responseGetAngelType">
+		<xsd:sequence>
+			<xsd:element name="appointment" type="appointmentType"/>
+			<xsd:element name="customer" type="customerType"/>
+			<xsd:element name="channel" type="mandatory"/>
+			<xsd:element name="site" type="mandatory"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:simpleType name="mandatory">
+            <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+            </xsd:restriction>
+        </xsd:simpleType>
+	<xsd:complexType name="customerType">
+		<xsd:sequence>
+			<xsd:element name="fullName" type="mandatory"/>
+			<xsd:element name="tel1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="tel2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="tel3" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="telDefault" type="mandatory"/>
+			<xsd:element name="codContract" type="mandatory"/>
+			<xsd:element name="codCustumer" type="mandatory"/>
+			<xsd:element name="email" type="xsd:string"/>
+			<xsd:element name="transactionId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="appointmentType">
+		<xsd:sequence>
+                        <xsd:element name="agentId" type="xsd:string"/>
+			<xsd:element name="appointmentId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="schedTime" type="xsd:dateTime"/>
+			<xsd:element name="attempt" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="agentUsername" type="mandatory"/>
+                        <xsd:element name="note" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="reason" type="xsd:string"/>
+                        <xsd:element name="availabilityList" type="availabilityListType" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="talkAngel" type="mandatory"/>
+                </xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="availabilityListType">
+		<xsd:sequence>
+			<xsd:element name="availability" type="xsd:dateTime" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestChangeAngel" type="requestChangeAngelType"/>
+	<xsd:complexType name="requestChangeAngelType">
+		<xsd:sequence>
+			<xsd:element name="customerCode" type="xsd:string"/>
+			<xsd:element name="contractCode" type="xsd:string"/>
+			<xsd:element name="channel" type="xsd:string"/>
+			<xsd:element name="reason" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

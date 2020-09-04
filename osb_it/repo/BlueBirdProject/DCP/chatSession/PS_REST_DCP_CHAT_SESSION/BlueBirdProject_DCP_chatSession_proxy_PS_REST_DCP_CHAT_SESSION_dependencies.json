@@ -1,0 +1,310 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_DCP_chatSession_proxy_PS_REST_DCP_CHAT_SESSION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_REST_DCP_CHAT_SESSION" : {
+        "label" : "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_REST_DCP_CHAT_SESSION",
+        "properties" : { },
+        "successors" : {
+          "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_INTERNAL_DCP_SEND_EVENT" : {
+            "label" : "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_INTERNAL_DCP_SEND_EVENT",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_SF_DcpEvent" : {
+                "label" : "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_SF_DcpEvent",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_EventADCC" : {
+                "label" : "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_EventADCC",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_StartADCC" : {
+                "label" : "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_StartADCC",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL" : {
+                "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL",
+                "properties" : {
+                  "transport-type" : "local",
+                  "nodeType" : "Proxy",
+                  "service-type" : "SOAP"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+                    "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+                    "properties" : { },
+                    "successors" : {
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                        "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                        "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              },
+              "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_INTERNAL_ADCC_START" : {
+                "label" : "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_INTERNAL_ADCC_START",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/BlueBirdProject/DCP/chatSession/businessService/BS_REST_ADCC_CHAT_SESSION" : {
+                    "label" : "BusinessService/BlueBirdProject/DCP/chatSession/businessService/BS_REST_ADCC_CHAT_SESSION",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_INTERNAL_ADCC_EVENT" : {
+                "label" : "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_INTERNAL_ADCC_EVENT",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/BlueBirdProject/DCP/chatSession/businessService/BS_REST_ADCC_CHAT_SESSION" : {
+                    "label" : "BusinessService/BlueBirdProject/DCP/chatSession/businessService/BS_REST_ADCC_CHAT_SESSION",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_getWorkOrderDetail" : {
+                "label" : "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_getWorkOrderDetail",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_INTERNAL_ADCC_SEND_MESSAGE" : {
+            "label" : "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_INTERNAL_ADCC_SEND_MESSAGE",
+            "properties" : { },
+            "successors" : {
+              "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_SF_InsertChat" : {
+                "label" : "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_SF_InsertChat",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_EnqueueInsertChat" : {
+                "label" : "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_EnqueueInsertChat",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL" : {
+                "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL",
+                "properties" : {
+                  "transport-type" : "local",
+                  "nodeType" : "Proxy",
+                  "service-type" : "SOAP"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+                    "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+                    "properties" : { },
+                    "successors" : {
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                        "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                        "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              },
+              "BusinessService/BlueBirdProject/DCP/chatSession/businessService/BS_REST_ADCC_CHAT_SESSION" : {
+                "label" : "BusinessService/BlueBirdProject/DCP/chatSession/businessService/BS_REST_ADCC_CHAT_SESSION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_SendMessage" : {
+                "label" : "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_SendMessage",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/OF/chatNotification/businessService/BS_JMS_SF_CHAT_TRACKING" : {
+                "label" : "BusinessService/BlueBirdProject/OF/chatNotification/businessService/BS_JMS_SF_CHAT_TRACKING",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_INTERNAL_ADCC_ADD_NICK" : {
+            "label" : "Pipeline/BlueBirdProject/DCP/chatSession/pipeline/PL_INTERNAL_ADCC_ADD_NICK",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_AddNick" : {
+                "label" : "Xquery/BlueBirdProject/DCP/chatSession/transformation/createRequest_AddNick",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_DCP_CHAT_SESSION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/DCP/chatSession/businessService/BS_REST_ADCC_CHAT_SESSION" : {
+                "label" : "BusinessService/BlueBirdProject/DCP/chatSession/businessService/BS_REST_ADCC_CHAT_SESSION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

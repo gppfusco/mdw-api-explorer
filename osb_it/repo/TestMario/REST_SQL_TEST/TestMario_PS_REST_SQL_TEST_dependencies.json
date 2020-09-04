@@ -1,0 +1,24 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "TestMario_PS_REST_SQL_TEST",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "BusinessService/TestMario/BS_SQL_TEST" : {
+        "label" : "BusinessService/TestMario/BS_SQL_TEST",
+        "properties" : {
+          "nodeType" : "BusinessService"
+        },
+        "successors" : { }
+      },
+      "WSDL/TestMario/Resources/BS_SQL_TEST/concrete" : {
+        "label" : "WSDL/TestMario/Resources/BS_SQL_TEST/concrete",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

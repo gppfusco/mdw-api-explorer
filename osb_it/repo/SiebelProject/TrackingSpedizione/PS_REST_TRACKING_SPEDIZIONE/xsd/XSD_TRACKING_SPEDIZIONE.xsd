@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestTrackingSpedizione" type="requestTrackingSpedizioneType"/>
+	<xsd:complexType name="requestTrackingSpedizioneType">
+		<xsd:sequence>
+			<xsd:element name="codiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseTrackingSpedizione" type="responseTrackingSpedizioneType"/>
+	<xsd:complexType name="responseTrackingSpedizioneType">
+		<xsd:sequence>
+			<xsd:element name="ListOfODS" type="ListOfODSType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfODL" type="ListOfODLType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfODSType">
+		<xsd:sequence>
+			<xsd:element name="ODS" type="ODSType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfODLType">
+		<xsd:sequence>
+			<xsd:element name="ODL" type="ODLType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ODSType">
+		<xsd:sequence>
+			<xsd:element name="ListOfTrackingODS" type="ListOfTrackingODSType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="numeroODS" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="indirizzo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="provincia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="cap" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="civico" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="particellaToponomastica" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="citta" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="frazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="interno" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="piano" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="scala" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="complesso" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="modeTracking" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ODLType">
+		<xsd:sequence>
+			<xsd:element name="numeroODL" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="stato" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="modeTracking" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="dataAppuntamento" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="indirizzo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="provincia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="cap" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="civico" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="particellaToponomastica" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="citta" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="frazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ragioneSocialeInstallatore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="numeroTelefonoInstallatore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfTrackingODSType">
+		<xsd:sequence>
+			<xsd:element name="TrackingODS" type="TrackingODSType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TrackingODSType">
+		<xsd:sequence>
+			<xsd:element name="dataCreazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="stato" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="sottostato" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="matricola" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfTrackingODLType">
+		<xsd:sequence>
+			<xsd:element name="TrackingODL" type="TrackingODLType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TrackingODLType">
+		<xsd:sequence>
+			<xsd:element name="dataCreazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="tipologia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="vecchioStato" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="nuovoStato" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

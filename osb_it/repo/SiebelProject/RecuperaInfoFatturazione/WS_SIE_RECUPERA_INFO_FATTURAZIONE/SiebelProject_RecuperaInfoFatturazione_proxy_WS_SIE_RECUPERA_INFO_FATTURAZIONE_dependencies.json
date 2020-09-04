@@ -1,0 +1,93 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_RecuperaInfoFatturazione_proxy_WS_SIE_RECUPERA_INFO_FATTURAZIONE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/RecuperaInfoFatturazione/pipeline/PL_WS_SIE_TUX_RECUPERA_INFO_FATT" : {
+        "label" : "Pipeline/SiebelProject/RecuperaInfoFatturazione/pipeline/PL_WS_SIE_TUX_RECUPERA_INFO_FATT",
+        "properties" : { },
+        "successors" : {
+          "Xquery/SiebelProject/RecuperaInfoFatturazione/transformations/createResponseRecuperaInfoFatturazioneFromSBL" : {
+            "label" : "Xquery/SiebelProject/RecuperaInfoFatturazione/transformations/createResponseRecuperaInfoFatturazioneFromSBL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/RecuperaInfoFatturazione/transformations/createRequestRecuperaInfoFatturazioneSBL" : {
+            "label" : "Xquery/SiebelProject/RecuperaInfoFatturazione/transformations/createRequestRecuperaInfoFatturazioneSBL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+            "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+            "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/RecuperaInfoFatturazione/pipeline/PL_INTERNAL_RECUPERA_INFO_FATT" : {
+            "label" : "Pipeline/SiebelProject/RecuperaInfoFatturazione/pipeline/PL_INTERNAL_RECUPERA_INFO_FATT",
+            "properties" : { },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RecuperaInfoFatturazione/wsdl/WS_SIE_RECUPERA_INFO_FATTURAZIONE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RecuperaInfoFatturazione/wsdl/WS_SIE_RECUPERA_INFO_FATTURAZIONE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SiebelProject/businessService/BS_TUX_INFO_FATTURAZIONE" : {
+                "label" : "BusinessService/SiebelProject/businessService/BS_TUX_INFO_FATTURAZIONE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SiebelProject/RecuperaInfoFatturazione/transformations/createResponseRecuperaInfoFatturazioneFromTux" : {
+            "label" : "Xquery/SiebelProject/RecuperaInfoFatturazione/transformations/createResponseRecuperaInfoFatturazioneFromTux",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/RecuperaInfoFatturazione/transformations/createRequestRecuperaInfoFatturazioneTux" : {
+            "label" : "Xquery/SiebelProject/RecuperaInfoFatturazione/transformations/createRequestRecuperaInfoFatturazioneTux",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RecuperaInfoFatturazione/wsdl/WS_SIE_RECUPERA_INFO_FATTURAZIONE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/RecuperaInfoFatturazione/wsdl/WS_SIE_RECUPERA_INFO_FATTURAZIONE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

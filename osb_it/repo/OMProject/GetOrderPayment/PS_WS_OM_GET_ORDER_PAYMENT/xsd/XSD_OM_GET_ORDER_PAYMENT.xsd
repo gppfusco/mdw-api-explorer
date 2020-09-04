@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGetOrderPayment" type="requestGetOrderPaymentType"/>
+  <xsd:element name="responseGetOrderPayment" type="responseGetOrderPaymentType"/>
+  <xsd:complexType name="requestGetOrderPaymentType">
+    <xsd:sequence>
+      <xsd:element name="key" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGetOrderPaymentType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="orderListPayment" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="orderListPaymentItem" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="creationDate" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="updateDate" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="cardNumber" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="orderNumber" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="orderId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="dpImport" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="dpType" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="decaImport" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="decaType" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="igfsShopId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="igfsRefTranId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="igfsTranId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="igfsPaymentId" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="cid" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="siaCode" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="status" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mandateDate" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="subscriberCf" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="subscrriberName" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="iban" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="statusDeca" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="currencyDate" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="abi" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="cab" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="cin" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="individualCode" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="creditCardType" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="creditCardName" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="ccExpirationYear" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="ccExpirationMonth" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="authorizationCode" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

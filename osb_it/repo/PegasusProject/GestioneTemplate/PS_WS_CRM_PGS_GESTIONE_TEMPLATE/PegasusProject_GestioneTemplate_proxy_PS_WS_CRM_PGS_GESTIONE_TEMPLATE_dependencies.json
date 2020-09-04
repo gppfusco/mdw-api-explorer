@@ -1,0 +1,69 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "PegasusProject_GestioneTemplate_proxy_PS_WS_CRM_PGS_GESTIONE_TEMPLATE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/PegasusProject/GestioneTemplate/pipeline/PL_CRM_PGS_GESTIONE_TEMPLATE" : {
+        "label" : "Pipeline/PegasusProject/GestioneTemplate/pipeline/PL_CRM_PGS_GESTIONE_TEMPLATE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/PegasusProject/GestioneTemplate/transformations/createResponseGetPreview" : {
+            "label" : "Xquery/PegasusProject/GestioneTemplate/transformations/createResponseGetPreview",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/PegasusProject/GestioneTemplate/businessService/BS_WS_PGS_GET_PREVIEW" : {
+            "label" : "BusinessService/PegasusProject/GestioneTemplate/businessService/BS_WS_PGS_GET_PREVIEW",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/PegasusProject/GestioneTemplate/transformations/createResponseGetListTemplate" : {
+            "label" : "Xquery/PegasusProject/GestioneTemplate/transformations/createResponseGetListTemplate",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/PegasusProject/GestioneTemplate/transformations/createRequestGetListTemplate" : {
+            "label" : "Xquery/PegasusProject/GestioneTemplate/transformations/createRequestGetListTemplate",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/PegasusProject/GestioneTemplate/businessService/BS_WS_PGS_GET_LIST_TEMPLATE" : {
+            "label" : "BusinessService/PegasusProject/GestioneTemplate/businessService/BS_WS_PGS_GET_LIST_TEMPLATE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTemplate/wsdl/WS_CRM_PGS_GESTIONE_TEMPLATE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTemplate/wsdl/WS_CRM_PGS_GESTIONE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/PegasusProject/GestioneTemplate/transformations/createRequestGetPreview" : {
+            "label" : "Xquery/PegasusProject/GestioneTemplate/transformations/createRequestGetPreview",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTemplate/wsdl/WS_CRM_PGS_GESTIONE_TEMPLATE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTemplate/wsdl/WS_CRM_PGS_GESTIONE_TEMPLATE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

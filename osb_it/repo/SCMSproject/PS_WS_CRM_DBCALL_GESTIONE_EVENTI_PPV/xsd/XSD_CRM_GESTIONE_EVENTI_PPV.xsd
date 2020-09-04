@@ -1,0 +1,106 @@
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by ?Type ur fucking name ! (Type ur Company -.-) -->
+<xsd:schema xmlns:srv="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestPALTVOD" type="srv:requestPALTVODType"/>
+  <xsd:element name="responsePALTVOD" type="srv:responsePALTVODType"/>
+  <xsd:element name="requestPALOPPV" type="srv:requestPALOPPVType"/>
+  <xsd:element name="responsePALOPPV" type="srv:responsePALOPPVType"/>
+  <xsd:element name="requestGetPalinsestoPPV" type="srv:requestGetPalinsestoPPVType"/>
+  <xsd:element name="responseGetPalinsestoPPV" type="srv:responseGetPalinsestoPPVType"/>
+
+  <xsd:complexType name="requestPALTVODType">
+    <xsd:sequence>
+      <xsd:element name="StartDate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responsePALTVODType">
+    <xsd:sequence>
+      <xsd:element name="resultPALTVOD" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Evento" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="OfferId" type="xsd:string"/>
+                  <xsd:element name="OfferName" type="xsd:string"/>
+                  <xsd:element name="Price" type="xsd:string"/>
+                  <xsd:element name="TargetAudience" type="xsd:string"/>
+                  <xsd:element name="OfferStartDate" type="xsd:string"/>
+                  <xsd:element name="OfferEndDate" type="xsd:string"/>
+                  <xsd:element name="OfferExpiryDate" type="xsd:string"/>
+                  <xsd:element name="Status" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestPALOPPVType">
+    <xsd:sequence>
+      <xsd:element name="WS_OPPV_WINDOW" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responsePALOPPVType">
+    <xsd:sequence>
+      <xsd:element name="resultPALOPPV" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Rows" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="REF_ID" type="xsd:string"/>
+                  <xsd:element name="TITLE" type="xsd:string"/>
+                  <xsd:element name="EVENT_DATE" type="xsd:string"/>
+                  <xsd:element name="PRICE" type="xsd:string"/>
+                  <xsd:element name="CPI_FLAG" type="xsd:string"/>
+                  <xsd:element name="LIVE_FLAG" type="xsd:string"/>
+                  <xsd:element name="CONTENT_CODE" type="xsd:string"/>
+                  <xsd:element name="TARGET_AUDIENCE" type="xsd:string"/>
+                  <xsd:element name="DESCRIZIONE_HOTEL" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+ 
+
+ <xsd:complexType name="requestGetPalinsestoPPVType">
+    <xsd:sequence>
+      <xsd:element name="dataBroadcast" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseGetPalinsestoPPVType">
+    <xsd:sequence>
+      <xsd:element name="listOfEvents" type="srv:listOfEventsType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="listOfEventsType">
+    <xsd:sequence>
+      <xsd:element name="event" type="srv:eventType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="eventType">
+    <xsd:sequence>
+      <xsd:element name="refId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="offerName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="price" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="dataTrasmissione" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+      <xsd:element name="data" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+      <xsd:element name="dataBroadcast" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,46 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_SCMS_DTT_SMC_SUBSCRIPTION"
+     targetNamespace="http://www.skytv.it/mdw/service/SCMS_DTT_SMC_SUBSCRIPTION"
+     xmlns:tns="http://www.skytv.it/mdw/service/SCMS_DTT_SMC_SUBSCRIPTION"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SCMS_DTT_SMC_SUBSCRIPTION.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestDTTSMCSubscription_Message">
+        <wsdl:part name="part_requestDTTSMCSubscription" element="inp1:requestDTTSMCSubscription"/>
+    </wsdl:message>
+    <wsdl:message name="responseDTTSMCSubscription_Message">
+        <wsdl:part name="part_responseDTTSMCSubscription" element="inp1:responseDTTSMCSubscription"/>
+    </wsdl:message>
+    <wsdl:portType name="SCMS_DTT_SMC_SUBSCRIPTION_ptt">
+        <wsdl:operation name="execute_dttSmcSubscription">
+            <wsdl:input message="tns:requestDTTSMCSubscription_Message"/>
+            <wsdl:output message="tns:responseDTTSMCSubscription_Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SCMS_DTT_SMC_SUBSCRIPTION_bind" type="tns:SCMS_DTT_SMC_SUBSCRIPTION_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_dttSmcSubscription">
+            <soap:operation style="document" soapAction="execute_dttSmcSubscription"/>
+            <wsdl:input>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/SCMS_DTT_SMC_SUBSCRIPTION"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/SCMS_DTT_SMC_SUBSCRIPTION"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="header_Message">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+</wsdl:definitions>

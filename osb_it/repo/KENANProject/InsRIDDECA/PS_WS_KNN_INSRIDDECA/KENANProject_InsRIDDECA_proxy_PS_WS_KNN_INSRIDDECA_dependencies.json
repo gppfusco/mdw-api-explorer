@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_InsRIDDECA_proxy_PS_WS_KNN_INSRIDDECA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/InsRIDDECA/wsdl/WS_KNN_INSRIDDECA" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/InsRIDDECA/wsdl/WS_KNN_INSRIDDECA",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/InsRIDDECA/pipeline/PL_WS_KNN_INSRIDDECA" : {
+        "label" : "Pipeline/KENANProject/InsRIDDECA/pipeline/PL_WS_KNN_INSRIDDECA",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/InsRIDDECA/wsdl/WS_KNN_INSRIDDECA" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/InsRIDDECA/wsdl/WS_KNN_INSRIDDECA",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/KENANProject/InsRIDDECA/pipeline/PL_INTERNAL_WS_KNN_INSRIDDECA" : {
+            "label" : "Pipeline/KENANProject/InsRIDDECA/pipeline/PL_INTERNAL_WS_KNN_INSRIDDECA",
+            "properties" : { },
+            "successors" : {
+              "Xquery/KENANProject/InsRIDDECA/transformations/createRequest_InsRIDDECA" : {
+                "label" : "Xquery/KENANProject/InsRIDDECA/transformations/createRequest_InsRIDDECA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/InsRIDDECA/wsdl/WS_KNN_INSRIDDECA" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/InsRIDDECA/wsdl/WS_KNN_INSRIDDECA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/InsRIDDECA/transformations/createResponse_InsRIDDECA" : {
+                "label" : "Xquery/KENANProject/InsRIDDECA/transformations/createResponse_InsRIDDECA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/InsRIDDECA/businessServices/BS_TUX_KNN_INSRIDDECA" : {
+                "label" : "BusinessService/KENANProject/InsRIDDECA/businessServices/BS_TUX_KNN_INSRIDDECA",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,410 @@
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) -->
+<xsd:schema xmlns:srv="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:include schemaLocation="../../../../EnterpriseObjects/CommonEntities/ScmsResponse.xsd"/>
+	<xsd:include schemaLocation="../../../../EnterpriseObjects/CommonEntities/ResponseAsync.xsd"/>
+	<xsd:element name="responseSCMS" type="srv:ScmsResponseType"/>
+	<xsd:element name="responseAck" type="srv:responseAckType"/>
+	<xsd:element name="requestINFOPR" type="srv:requestINFOPRType"/>
+	<xsd:element name="responseINFOPR" type="srv:responseINFOPRType"/>
+	<xsd:element name="requestGFTCRD" type="srv:requestGFTCRDType"/>
+	<xsd:element name="responseGFTCRD" type="srv:responseGFTCRDType"/>
+	<xsd:element name="requestCHAOFF" type="srv:requestCHAOFFType"/>
+	<xsd:element name="responseCHAOFF" type="srv:responseCHAOFFType"/>
+	<xsd:element name="requestACQEVN" type="srv:requestACQEVNType"/>
+	<xsd:element name="responseACQEVN" type="srv:responseACQEVNType"/>
+	<xsd:element name="requestACQEVP" type="srv:requestACQEVPType"/>
+	<xsd:element name="responseACQEVP" type="srv:responseACQEVPType"/> 
+	<xsd:element name="requestADDPRO" type="srv:requestADDPROType"/>
+	<xsd:element name="responseADDPRO" type="srv:responseADDPROType"/>
+	<xsd:element name="requestSBLCRE" type="srv:requestSBLCREType"/>
+	<xsd:element name="responseSBLCRE" type="srv:responseSBLCREType"/>
+	<xsd:element name="requestREFPPP" type="srv:requestREFPPPType"/>
+	<xsd:complexType name="requestINFOPRType">
+		<xsd:sequence>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="idcaller" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="typesrvreq" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flagpromoscadute" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagpromoesaurite" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagpromogeneriche" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagpromomedia" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseINFOPRType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ndserr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="transid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descriptionerr" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="promoinfos" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="promoinfo" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="catalogid" type="xsd:string"/>
+									<xsd:element name="kind" type="xsd:string"/>
+									<xsd:element name="details" type="xsd:string"/>
+									<xsd:element name="name" type="xsd:string"/>
+									<xsd:element name="event_residual" type="xsd:string"/>
+									<xsd:element name="start_date" type="xsd:string"/>
+									<xsd:element name="end_date" type="xsd:string"/>
+									<xsd:element name="purchase_method" type="xsd:string"/>
+									<xsd:element name="priority" type="xsd:string"/>
+									<xsd:element name="content_codes" type="xsd:string"/>
+									<xsd:element name="ref_id" type="xsd:string"/>
+									<xsd:element name="pay_method" type="xsd:string"/>
+									<xsd:element name="media" type="xsd:string"/>
+									<xsd:element name="generic" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestGFTCRDType">
+		<xsd:sequence>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="giftTag" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="amount" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="creditexpdate" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="idcaller" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="typesrvreq" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGFTCRDType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ndserr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="transid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="feecost" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="walletcreated" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="grantedcredit" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="descriptionerr" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="originalcredit" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promos" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="promo" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="catalogid" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="kind" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="details" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="id" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="prclass" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="subclass" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="description" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="wallet" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="smcs" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="smc" minOccurs="1" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+												<xsd:element name="lastpdate" type="xsd:string" minOccurs="1"/>
+												<xsd:element name="lastpref" type="xsd:string" minOccurs="1"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="credits" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="credit" minOccurs="1" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="priority" type="xsd:string" minOccurs="1"/>
+												<xsd:element name="creationdate" type="xsd:string" minOccurs="1"/>
+												<xsd:element name="expirationdate" type="xsd:string" minOccurs="1"/>
+												<xsd:element name="amount" type="xsd:string" minOccurs="1"/>
+												<xsd:element name="typename" type="xsd:string" minOccurs="1"/>
+												<xsd:element name="description" type="xsd:string" minOccurs="1"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestCHAOFFType">
+		<xsd:sequence>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="idcaller" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="typesrvreq" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="refid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="date" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="method" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="offerid" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseCHAOFFType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ndserr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="transid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descriptionerr" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestACQEVNType">
+		<xsd:sequence>
+			<xsd:element name="box" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="refid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ppv_pin" type="xsd:string" minOccurs="0"/> 
+			<xsd:element name="eventtrasmdate" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="idcaller" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="typesrvreq" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="purchasedate" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="pickemixcode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="telephonenumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="service" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="version" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="devicetype" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="os" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseACQEVNType">
+		<xsd:sequence>
+			<xsd:element name="title" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ndserr" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="transid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="typesmc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="paytype" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ppv_pin" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flaglive" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="typeevent" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="eventcost" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promokind" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="descpromo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagreqpin" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="servicecost" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promodetails" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promocatalogid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="originalcost" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="is_adult_h24" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="descriptionerr" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="eventtrasmdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="targetaudience" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="subcontentcode" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestACQEVPType">
+		<xsd:sequence>
+			<xsd:element name="flagsync" type="xsd:string"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="box" type="xsd:string"/>
+			<xsd:element name="telephonenumber" type="xsd:string"/>
+			<xsd:element name="refid" type="xsd:string"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="idcaller" type="xsd:string"/>
+			<xsd:element name="purchasedate" type="xsd:string"/>
+			<xsd:element name="eventtrasmdate" type="xsd:string"/>
+			<xsd:element name="typesrvreq" type="xsd:string"/>
+			<xsd:element name="ppv_pin" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="issimulation" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="trans_id" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ConnId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TransId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="service" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="version" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="devicetype" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="os" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseACQEVPType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string"/>
+			<xsd:element name="ndserr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="transid" type="xsd:string"/>
+			<xsd:element name="descriptionerr" type="xsd:string"/>
+			<xsd:element name="typesmc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flaglive" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagreqpin" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="eventtrasmdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="title" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="typeevent" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="eventcost" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="servicecost" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="targetaudience" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="originalcost" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="subcontentcode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promos" type="srv:promosType" minOccurs="0"/>
+			<xsd:element name="wallet" type="srv:walletType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="promosType">
+		<xsd:sequence>
+			<xsd:element name="promo" type="srv:promoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="walletType">
+		<xsd:sequence>
+			<xsd:element name="smcs" type="srv:smcsType" minOccurs="0"/>
+			<xsd:element name="credits" type="srv:creditsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="promoType">
+		<xsd:sequence>
+			<xsd:element name="catalogid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="kind" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="details" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="id" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="prclass" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="subclass" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="description" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="smcsType">
+		<xsd:sequence>
+			<xsd:element name="smc" type="srv:smcType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="creditsType">
+		<xsd:sequence>
+			<xsd:element name="credit" type="srv:creditType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="creditType">
+		<xsd:sequence>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="creationdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="expirationdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="amount" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="typename" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="description" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="smcType">
+		<xsd:sequence>
+			<xsd:element name="box" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="lastpdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="lastpref" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestADDPROType">
+		<xsd:sequence>
+			<xsd:element name="promocatalogid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="typesrvreq" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="box" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="contcodes" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="promokind" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="promodetails" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="flag_ippv" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="opendate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="closedate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="idcaller" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="corp" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="format" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseADDPROType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ndserr" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="transid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="promoid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="descriptionerr" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestSBLCREType">
+		<xsd:sequence>
+			<xsd:element name="actioncode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flagsync" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="clientid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="smcslist" minOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="smc" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="typesrvreq" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipolimitatore" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="limitationkind" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseSBLCREType">
+		<xsd:sequence>
+			<xsd:element name="smcslistres" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="smc" minOccurs="1" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="box" type="xsd:string"/>
+									<xsd:element name="credito" type="xsd:string"/>
+									<xsd:element name="data_ultimo_scarico" type="xsd:string"/>
+									<xsd:element name="credito_limite" type="xsd:string"/>
+									<xsd:element name="somma_consumi" type="xsd:string"/>
+									<xsd:element name="soglia_ppv" type="xsd:string"/>
+									<xsd:element name="consumi_ppv" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ndserr" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="transid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descriptionerr" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestREFPPPType">
+		<xsd:sequence>
+			<xsd:element name="actionCode" type="xsd:string"/>
+			<xsd:element name="codiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="numeroSmartCard" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipoApp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="purchaseMedia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataApertura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="syncFlag" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

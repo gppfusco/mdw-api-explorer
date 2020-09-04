@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/test_aws",
+    "name" : "SalesforceProject_REST_CRM_CPQ_CART_test_PS_TEST_AWS",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\REST\\CRM\\CPQ\\CART\\test\\TEST_AWS",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : true,
+    "bufferingSupported" : true
+  }
+}

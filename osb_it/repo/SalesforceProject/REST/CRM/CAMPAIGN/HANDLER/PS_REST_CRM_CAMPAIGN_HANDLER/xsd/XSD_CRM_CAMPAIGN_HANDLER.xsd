@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCreateCampaign" type="requestCreateCampaignType"/>
+	<xsd:element name="responseCreateCampaign" type="responseCreateCampaign"/>
+	<xsd:complexType name="requestCreateCampaignType">
+		<xsd:sequence>
+			<xsd:element name="campaignName" type="xsd:string"/>
+			<xsd:element name="startDate" type="xsd:string"/>
+			<xsd:element name="endDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="campaignFamily" type="xsd:string"/>
+			<xsd:element name="additionalInfo1" type="xsd:string"/>
+			<xsd:element name="affiniumCampaignCode" type="xsd:string"/>
+			<xsd:element name="cellCode" type="xsd:string"/>
+			<xsd:element name="trackingCode" type="xsd:string"/>
+			<xsd:element name="listCreateDate" type="xsd:string"/>
+                        <xsd:element name="aff_Cmp_owner" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="status" type="xsd:string"/>
+			<xsd:element name="campaignTipology" type="xsd:string"/>
+			<xsd:element name="priority" type="xsd:string"/>
+			<xsd:element name="customerType" type="xsd:string"/>
+			<xsd:element name="campaignSubtype" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="providerSystem" type="xsd:string"/>
+			<xsd:element name="campaignType" type="xsd:string"/>
+			<xsd:element name="cluster" type="xsd:string"/>
+			<xsd:element name="pushRTDWSC" type="xsd:string"/>
+			<xsd:element name="pushRTDIVR" type="xsd:string"/>
+			<xsd:element name="pushRTDCC" type="xsd:string"/>
+			<xsd:element name="campaignMode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseCreateCampaign">
+		<xsd:sequence>
+                	<xsd:element name="resultCode" type="xsd:string"/>
+                        <xsd:element name="resultDescription" type="xsd:string"/>
+			<xsd:element name="idCampaign" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

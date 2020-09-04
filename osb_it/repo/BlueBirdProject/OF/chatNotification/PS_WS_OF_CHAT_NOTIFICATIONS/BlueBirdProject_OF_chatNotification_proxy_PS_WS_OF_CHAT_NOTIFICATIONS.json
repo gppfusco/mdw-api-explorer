@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/OF/WS_OF_CHAT_NOTIFICATIONS",
+    "name" : "BlueBirdProject_OF_chatNotification_proxy_PS_WS_OF_CHAT_NOTIFICATIONS",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\OF\\chatNotification\\PS_WS_OF_CHAT_NOTIFICATIONS",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/OF/WS_OF_CHAT_NOTIFICATIONS?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/OF/chatNotification/xsd/XSD_OF_CHAT_NOTIFICATIONS",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

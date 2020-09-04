@@ -1,0 +1,101 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_TEOCO_execHealtCheck_proxy_PS_WS_TEOCO_HEALT_CHECK_TEST",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/TEOCO/execHealtCheck/pipeline/PL_REST_TEOCO_HEALT_CHECK_TEST" : {
+        "label" : "Pipeline/BlueBirdProject/TEOCO/execHealtCheck/pipeline/PL_REST_TEOCO_HEALT_CHECK_TEST",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/BlueBirdProject/TEOCO/execHealtCheck/pipeline/PL_INTERNAL_TEOCO_HEALT_CHECK_TEST_execHealtCheck" : {
+            "label" : "Pipeline/BlueBirdProject/TEOCO/execHealtCheck/pipeline/PL_INTERNAL_TEOCO_HEALT_CHECK_TEST_execHealtCheck",
+            "properties" : { },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_TEOCO_HEALT_CHECK_TEST" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_TEOCO_HEALT_CHECK_TEST",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/TEOCO/execHealtCheck/businessService/BS_REST_TEOCO_HEALT_CHECK_TEST" : {
+                "label" : "BusinessService/BlueBirdProject/TEOCO/execHealtCheck/businessService/BS_REST_TEOCO_HEALT_CHECK_TEST",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/TEOCO/execHealtCheck/transformation/createRequest_ExecHealtCheck" : {
+            "label" : "Xquery/BlueBirdProject/TEOCO/execHealtCheck/transformation/createRequest_ExecHealtCheck",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_TEOCO_HEALT_CHECK_TEST" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_TEOCO_HEALT_CHECK_TEST",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/TEOCO/execHealtCheck/transformation/createResponse_ExecHealtCheck" : {
+            "label" : "Xquery/BlueBirdProject/TEOCO/execHealtCheck/transformation/createResponse_ExecHealtCheck",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/TEOCO/execHealtCheck/pipeline/PL_INTERNAL_TEOCO_HEALT_CHECK_TEST_getDataHealtCheck" : {
+            "label" : "Pipeline/BlueBirdProject/TEOCO/execHealtCheck/pipeline/PL_INTERNAL_TEOCO_HEALT_CHECK_TEST_getDataHealtCheck",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/TEOCO/execHealtCheck/transformation/createRequest_BS_GetDataHealtCheck" : {
+                "label" : "Xquery/BlueBirdProject/TEOCO/execHealtCheck/transformation/createRequest_BS_GetDataHealtCheck",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_TEOCO_HEALT_CHECK_TEST" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_TEOCO_HEALT_CHECK_TEST",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/TEOCO/execHealtCheck/transformation/createResponse_WS_GetDataHealtCheck" : {
+                "label" : "Xquery/BlueBirdProject/TEOCO/execHealtCheck/transformation/createResponse_WS_GetDataHealtCheck",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/TEOCO/execHealtCheck/businessService/BS_REST_TEOCO_HEALT_CHECK_TEST" : {
+                "label" : "BusinessService/BlueBirdProject/TEOCO/execHealtCheck/businessService/BS_REST_TEOCO_HEALT_CHECK_TEST",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/TEOCO/healtCheckTest/wsdl/WS_TEOCO_HEALT_CHECK_TEST" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/TEOCO/healtCheckTest/wsdl/WS_TEOCO_HEALT_CHECK_TEST",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

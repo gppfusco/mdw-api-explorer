@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestBL_RunType">
+		<xsd:sequence>
+			<xsd:element name="mdwChannel" type="xsd:string"/>
+			<xsd:element name="operation" type="xsd:string"/>
+	 		<xsd:element name="contractTipology" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="fiscalCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="pIva" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="idType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="docNumber" type="xsd:string" minOccurs="0"/> 
+			<xsd:element name="cc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="iban" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestBL_Run" type="requestBL_RunType"/>
+	<xsd:complexType name="responseBL_RunType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="result" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseBL_Run" type="responseBL_RunType"/>
+</xsd:schema>

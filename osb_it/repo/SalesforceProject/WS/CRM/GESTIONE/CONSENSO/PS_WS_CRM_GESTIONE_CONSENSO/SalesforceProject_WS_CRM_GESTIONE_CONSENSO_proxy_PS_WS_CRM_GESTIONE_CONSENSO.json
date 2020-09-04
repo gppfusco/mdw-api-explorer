@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_GESTIONE_CONSENSO",
+    "name" : "SalesforceProject_WS_CRM_GESTIONE_CONSENSO_proxy_PS_WS_CRM_GESTIONE_CONSENSO",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\GESTIONE\\CONSENSO\\PS_WS_CRM_GESTIONE_CONSENSO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_GESTIONE_CONSENSO?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneConsenso/xsd/XSD_CRM_GESTIONE_CONSENSO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestSMSRegistrazioneLavorazioneType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string"/>
+			<xsd:element name="CodiceSMC" type="xsd:string"/>
+			<xsd:element name="NumeroCellulare" type="xsd:string"/>
+			<xsd:element name="ServizioPremium" type="xsd:string"/>
+			<xsd:element name="TipoOperazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoSMS" type="xsd:string"/>
+			<xsd:element name="TransIdSMS" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataArrivo" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSMSRegistrazioneLavorazione" type="requestSMSRegistrazioneLavorazioneType"/>
+	<xsd:complexType name="responseSMSRegistrazioneLavorazioneType">
+		<xsd:sequence>
+		<xsd:element name="CodiceEsigenzaSR" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseSMSRegistrazioneLavorazione" type="responseSMSRegistrazioneLavorazioneType"/>
+</xsd:schema>

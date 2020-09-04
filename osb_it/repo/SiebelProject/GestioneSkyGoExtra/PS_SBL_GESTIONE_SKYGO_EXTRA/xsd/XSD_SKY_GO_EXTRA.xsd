@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestSkyGoExtraCheckType">
+		<xsd:sequence>
+			<xsd:element name="CodiceCliente" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSkyGoExtraCheck" type="requestSkyGoExtraCheckType"/>
+	<xsd:complexType name="responseSkyGoExtraCheckType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string"/>
+			<xsd:element name="Contratti" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Contratto" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="CodiceContratto" type="xsd:string"/>
+									<xsd:element name="TipologiaMV" type="xsd:string"/>
+									<xsd:element name="SkyGoExtra" type="xsd:string"/>
+									<xsd:element name="FlagSkyExtra" type="xsd:string"/>
+									<xsd:element name="FasciaSkyExtra" type="xsd:string"/>
+									<xsd:element name="PresenzaCinema" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseSkyGoExtraCheck" type="responseSkyGoExtraCheckType"/>
+</xsd:schema>

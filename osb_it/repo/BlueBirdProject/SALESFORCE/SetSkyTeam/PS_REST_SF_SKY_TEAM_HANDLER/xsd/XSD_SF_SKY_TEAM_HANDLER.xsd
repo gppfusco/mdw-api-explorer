@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:element name="requestSetSkyTeam" type="requestSetSkyTeamType"/>
+  <xsd:complexType name="requestSetSkyTeamType">
+    <xsd:sequence>
+      <xsd:element name="customers" type="customersRequestType" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customersRequestType">
+    <xsd:sequence>
+      <xsd:element name="customer" type="customerRequestType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerRequestType">
+    <xsd:sequence>
+      <xsd:element name="codCustomer" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="team" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="requestSetSkyTeamGrouped" type="requestSetSkyTeamGroupedType"/>
+  <xsd:complexType name="requestSetSkyTeamGroupedType">
+    <xsd:sequence>
+      <xsd:element name="groups" type="customersRequestGroupsType" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customersRequestGroupsType">
+    <xsd:sequence>
+      <xsd:element name="group" type="customerRequestGroupType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="customerRequestGroup" type="customerRequestGroupType"/>
+
+  <xsd:complexType name="customerRequestGroupType">
+    <xsd:sequence>
+      <xsd:element name="customers" type="customersRequestType" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+
+  <xsd:element name="responseSetSkyTeam" type="responseSetSkyTeamType"/>
+  <xsd:complexType name="responseSetSkyTeamType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="customers" type="customersResponseType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customersResponseType">
+    <xsd:sequence>
+      <xsd:element name="customer" type="customerResponseType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerResponseType">
+    <xsd:sequence>
+      <xsd:element name="customerId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="codCliente" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

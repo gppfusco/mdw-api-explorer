@@ -1,0 +1,34 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBApplicationSky/KENANProject/PS_REST_MDW_GET_BALANCE_FULL_ENH" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/KenanProject/GetBalanceFull/xsd/XSD_MDW_GET_BALANCE_FULL_ENH.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/">
+         <method name="GET" soa:wsdlOperation="GetBalanceFull">
+            <request>
+               <param name="DataOra" style="query" soa:expression="$msg.request/ns0:DataOra" default="" type="xsd:string"/>
+               <param name="IdUtenza" style="query" soa:expression="$msg.request/ns0:IdUtenza" default="" type="xsd:string"/>
+               <param name="NumeroFatture" style="query" soa:expression="$msg.request/ns0:NumeroFatture" default="" type="xsd:string"/>
+               <param name="Contesto" style="query" soa:expression="$msg.request/ns0:Contesto" default="" type="xsd:string"/>
+               <param name="FlgUltimaFattura" style="query" soa:expression="$msg.request/ns0:FlgUltimaFattura" default="" type="xsd:boolean"/>
+               <param name="FlgChangeMop" style="query" soa:expression="$msg.request/ns0:FlgChangeMop" default="" type="xsd:boolean"/>
+               <param name="FlgPayAll" style="query" soa:expression="$msg.request/ns0:FlgPayAll" default="" type="xsd:boolean"/>
+               <param name="ComponentType" style="query" soa:expression="$msg.request/ns0:ComponentType" default="" type="xsd:string"/>
+               <param name="FlgScaduto" style="query" soa:expression="$msg.request/ns0:FlgScaduto" default="" type="xsd:boolean"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseGetBalanceFull" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

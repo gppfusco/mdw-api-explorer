@@ -1,0 +1,20 @@
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSB_SVIL/SalesforceProject/PS_REST_CRM_EUP_MANAGEMENT" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_CRM_EUP_MANAGEMENT">RestService</doc>
+   <grammars>
+      <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SalesforceProject/EupManagement/xsd/XSD_CRM_EUP_MANAGEMENT.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/setFirstAccessDate">
+         <method name="POST" soa:wsdlOperation="opSetFirstAccessDate">
+            <request>
+               <representation mediaType="application/json" element="cns:requestSetFirstDateAccess" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseSetFirstDateAccess" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

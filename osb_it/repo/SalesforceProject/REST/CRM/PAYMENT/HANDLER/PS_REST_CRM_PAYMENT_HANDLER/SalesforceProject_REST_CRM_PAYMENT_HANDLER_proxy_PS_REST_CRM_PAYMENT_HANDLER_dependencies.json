@@ -1,0 +1,86 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_PAYMENT_HANDLER_proxy_PS_REST_CRM_PAYMENT_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/REST_CRM_PAYMENT_HANDLER/pipeline/PL_REST_CRM_PAYMENT_HANDLER" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_PAYMENT_HANDLER/pipeline/PL_REST_CRM_PAYMENT_HANDLER",
+        "properties" : { },
+        "successors" : {
+          "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createRequestEnterPayment" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createRequestEnterPayment",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createResponseOverduePayments" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createResponseOverduePayments",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createRequestPaymentDetailsSending" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createRequestPaymentDetailsSending",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createRequestOverduePayments" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createRequestOverduePayments",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createResponseEnterPayment" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createResponseEnterPayment",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createResponsePaymentDetailsSending" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_PAYMENT_HANDLER/trasformations/createResponsePaymentDetailsSending",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_PAYMENT_HANDLER" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_PAYMENT_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_PAYMENT_HANDLER" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_PAYMENT_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

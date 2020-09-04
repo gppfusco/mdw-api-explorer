@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	
+        <!-- ELEMENTS -->
+        <xsd:element name="requestJsonREMBOK" type="RMBKUKType"/>
+        <xsd:element name="responseJsonREMBOK" type="responseREMBOKType"/>
+        <xsd:element name="requestRMBKUK" type="requestRMBKUKType"/>
+	<xsd:element name="responseRMBKUK" type="responseREMBOKType"/>
+        <xsd:element name="requestREMBOK" type="requestREMBOKType"/>
+        <xsd:element name="responseREMBOK" type="responseREMBOKType"/>
+        
+        <!-- TYPES -->
+        <xsd:complexType name="requestRMBKUKType">
+          <xsd:complexContent>
+            <xsd:extension base="RMBKUKType">
+              <xsd:sequence>
+                <xsd:element name="flagsync" type="xsd:string"/>
+                <xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="stbkindhw" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+            </xsd:extension>
+          </xsd:complexContent>
+	</xsd:complexType>
+        
+        <xsd:complexType name="RMBKUKType">
+          <xsd:sequence>
+            <xsd:element name="clientid" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="box" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="stbkind" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="operator" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="execdate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="priority" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="idcaller" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="version" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="service" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="os" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="recordingtype" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="eventid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="devicetype" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="date" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="servicekey" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="purchasedate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+
+
+        <xsd:complexType name="requestREMBOKType">
+          <xsd:complexContent>
+            <xsd:extension base="REMBOKType">
+              <xsd:sequence>
+                <xsd:element name="flagsync" type="xsd:string"/>
+                <xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="stbkindhw" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+            </xsd:extension>
+          </xsd:complexContent>
+	</xsd:complexType>
+        
+        <xsd:complexType name="REMBOKType">
+          <xsd:sequence>
+            <xsd:element name="clientid" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="box" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="stbkind" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="operator" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="execdate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="priority" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="idcaller" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="version" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="service" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="os" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="recordingtype" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="epg_position" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="devicetype" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="date" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="channelid" type="xsd:string" minOccurs="0"/>            
+            <xsd:element name="purchasedate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>
+        
+	<xsd:complexType name="responseREMBOKType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="ndserr" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="transid" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descriptionerr" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="eventcost" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="mdwTid" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        
+        
+</xsd:schema>

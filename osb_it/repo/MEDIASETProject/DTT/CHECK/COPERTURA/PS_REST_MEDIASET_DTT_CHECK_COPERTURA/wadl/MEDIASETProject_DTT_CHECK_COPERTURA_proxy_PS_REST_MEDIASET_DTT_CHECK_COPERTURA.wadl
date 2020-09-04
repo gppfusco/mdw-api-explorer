@@ -1,0 +1,20 @@
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSB_SVIL/MEDIASETProject/PS_REST_MEDIASET_DTT_CHECK_COPERTURA" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_MEDIASET_DTT_CHECK_COPERTURA">RestService</doc>
+   <grammars>
+      <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckCopertura/xsd/XSD_MEDIASET_DTT_CHECK_COPERTURA.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/REST_MEDIASET_DTT_CHECK_COPERTURA">
+         <method name="POST" soa:wsdlOperation="opMDDTTCheckCopertura">
+            <request>
+               <representation mediaType="application/json" element="cns:requestRestMDCheckCopertura" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseRestMDCheckCopertura" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

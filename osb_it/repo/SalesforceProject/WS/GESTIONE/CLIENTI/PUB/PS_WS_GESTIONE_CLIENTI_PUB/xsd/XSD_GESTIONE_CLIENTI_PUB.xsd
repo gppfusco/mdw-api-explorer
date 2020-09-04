@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestCambioCodiceFiscaleType">
+    <xsd:sequence>
+      <xsd:element name="customer" type="customerCambioCodiceFiscaleType"/>
+      <xsd:element name="contact" type="contactCambioCodiceFiscaleType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerCambioCodiceFiscaleType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="contactCambioCodiceFiscaleType">
+    <xsd:sequence>
+      <xsd:element name="contactFiscalCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestCambioCodiceFiscale" type="requestCambioCodiceFiscaleType"/>
+  <xsd:complexType name="responseCambioCodiceFiscaleType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+        <xsd:element name="tid" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseCambioCodiceFiscale" type="responseCambioCodiceFiscaleType"/>
+</xsd:schema>

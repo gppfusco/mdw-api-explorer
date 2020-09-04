@@ -1,0 +1,45 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBSvil/BlueBirdProject/PS_REST_MDW_GET_DECA" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_MDW_GET_DECA">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/calculateDeca/xsd/XSD_GET_DECA.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/">
+         <method name="GET" soa:wsdlOperation="getDeca">
+            <request>
+               <param name="regola" style="query" soa:expression="$msg.request/ns0:regola" default="" type="xsd:string"/>
+               <param name="categoria" style="query" soa:expression="$msg.request/ns0:categoria" default="" type="xsd:string"/>
+               <param name="pagatore" style="query" soa:expression="$msg.request/ns0:pagatore" default="" type="xsd:boolean"/>
+               <param name="cap" style="query" soa:expression="$msg.request/ns0:cap" default="" type="xsd:string"/>
+               <param name="offerta" style="query" soa:expression="$msg.request/ns0:offerta" default="" type="xsd:string"/>
+               <param name="esclusiva" style="query" soa:expression="$msg.request/ns0:esclusiva" default="" type="xsd:boolean"/>
+               <param name="mop" style="query" soa:expression="$msg.request/ns0:mop" default="" type="xsd:string"/>
+               <param name="mopDeca" style="query" soa:expression="$msg.request/ns0:mopDeca" default="" type="xsd:string"/>
+               <param name="dealer" style="query" soa:expression="$msg.request/ns0:dealer" default="" type="xsd:string"/>
+               <param name="importo" style="query" soa:expression="$msg.request/ns0:importo" default="" type="xsd:string"/>
+               <param name="decoder" style="query" soa:expression="$msg.request/ns0:decoder" default="" type="xsd:string"/>
+               <param name="ambiente" style="query" soa:expression="$msg.request/ns0:ambiente" default="" type="xsd:string"/>
+               <param name="installazione" style="query" soa:expression="$msg.request/ns0:installazione" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseGetDeca" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/json" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/json" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/json" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

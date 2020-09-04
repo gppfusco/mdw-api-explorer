@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestServiceRequestCancel" type="requestServiceRequestCancelType"/>
+  <xsd:complexType name="requestServiceRequestCancelType">
+    <xsd:sequence>
+      <xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCoBrowsingflag" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwInteractionId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwServiceRequest" minOccurs="1">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwServiceRequestNumber" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="custId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseServiceRequestCancel" type="responseServiceRequestCancelType"/>
+  <xsd:complexType name="responseServiceRequestCancelType">
+    <xsd:sequence>
+      <xsd:element name="mdwResult" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwResultCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwResultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwServiceRequests" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwServiceRequest" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="mdwServiceRequestNumber" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestServiceRequestTracking" type="requestServiceRequestTrackingType"/>
+  <xsd:element name="responseServiceRequestTracking" type="responseServiceRequestTrackingType"/>
+  <xsd:complexType name="requestServiceRequestTrackingType">
+    <xsd:sequence>
+      <xsd:element name="mdwServiceRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="custId" type="xsd:string"/>
+            <xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="contrIdE2E" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="contrId" type="xsd:string"/>
+            <xsd:element name="mdwOperationCode" type="xsd:string"/>
+            <xsd:element name="mdwInteractionId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwCoBrowsingflag" type="xsd:string"/>
+            <xsd:element name="mdwConnectionIDCTI" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwStatus" type="xsd:string"/>
+            <xsd:element name="mdwOperationResult" type="mdwOperationResultType" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseServiceRequestTrackingType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultCode" type="xsd:string"/>
+      <xsd:element name="mdwResultDescription" type="xsd:string"/>
+      <xsd:element name="mdwServiceRequests" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwServiceRequest" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="mdwServiceRequestNumber" type="xsd:string"/>
+                  <xsd:element name="contrId" type="xsd:string"/>
+                  <xsd:element name="mdwInteractionId" type="xsd:string"/>
+                  <xsd:element name="mdwActivities" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="mdwActivity" minOccurs="0" maxOccurs="unbounded">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="mdwActivityId" type="xsd:string"/>
+                              <xsd:element name="mdwActivityCode" type="xsd:string" minOccurs="0"/>
+                              <xsd:element name="mdwActivityDesc" type="xsd:string" minOccurs="0"/>
+                              <xsd:element name="mdwActivityName" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestServiceRequestCreate" type="requestServiceRequestCreateType"/>
+  <xsd:complexType name="requestServiceRequestCreateType">
+    <xsd:sequence>
+      <xsd:element name="mdwChannel" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="type" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="acquisitionChannel" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="subject" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="notes" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="customDMSKey" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseServiceRequestCreate" type="responseServiceRequestCreateType"/>
+  <xsd:complexType name="responseServiceRequestCreateType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwResultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwServiceRequest" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwServiceRequestNumber" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestOneClickCancellation" type="requestOneClickCancellationType"/>
+  <xsd:complexType name="requestOneClickCancellationType">
+    <xsd:sequence>
+      <xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCoBrowsingflag" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwInteractionId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="custId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwServiceRequest" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwServiceRequestId" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="mdwOrder" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwOrderid" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseOneClickCancellation" type="responseOneClickCancellationType"/>
+  <xsd:complexType name="responseOneClickCancellationType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultCode" type="xsd:string"/>
+      <xsd:element name="mdwResultDescription" type="xsd:string"/>
+      <xsd:element name="mdwTrackingOperation" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwTrackingId" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="mdwOperationResultType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ESITO_KO"/>
+      <xsd:enumeration value="ESITO_OK"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

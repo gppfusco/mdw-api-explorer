@@ -1,0 +1,70 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_STB_HANDLER_proxy_PS_REST_CRM_STB_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_STB_HANDLER" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_STB_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/REST_CRM_STB_HANDLER/pipeline/PL_REST_CRM_STB_HANDLER_ROUTING" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_STB_HANDLER/pipeline/PL_REST_CRM_STB_HANDLER_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_STB_HANDLER" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_STB_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/REST_CRM_STB_HANDLER/pipeline/PL_INTERNAL_GET_CUSTOMER_INFO" : {
+            "label" : "Pipeline/SalesforceProject/REST_CRM_STB_HANDLER/pipeline/PL_INTERNAL_GET_CUSTOMER_INFO",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/REST_CRM_STB_HANDLER/transformation/createResponse_GetCustomerInfo" : {
+                "label" : "Xquery/SalesforceProject/REST_CRM_STB_HANDLER/transformation/createResponse_GetCustomerInfo",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SalesforceProject/Resources/PS_REST_CRM_STB_HANDLER" : {
+                "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_STB_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/REST_CRM_STB_HANDLER/transformation/createRequest_GetCustomerInfo" : {
+                "label" : "Xquery/SalesforceProject/REST_CRM_STB_HANDLER/transformation/createRequest_GetCustomerInfo",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

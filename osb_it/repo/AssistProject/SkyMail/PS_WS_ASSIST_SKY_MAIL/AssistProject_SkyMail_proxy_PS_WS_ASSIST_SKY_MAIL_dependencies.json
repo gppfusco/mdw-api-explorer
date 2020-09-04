@@ -1,0 +1,99 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "AssistProject_SkyMail_proxy_PS_WS_ASSIST_SKY_MAIL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/AssistProject/SkyMail/pipeline/PL_WS_SKY_MAIL_ROUTING" : {
+        "label" : "Pipeline/AssistProject/SkyMail/pipeline/PL_WS_SKY_MAIL_ROUTING",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/AssistProject/SkyMail/pipeline/PL_ASSIST_SKY_AGENT_PROCESSING" : {
+            "label" : "Pipeline/AssistProject/SkyMail/pipeline/PL_ASSIST_SKY_AGENT_PROCESSING",
+            "properties" : { },
+            "successors" : {
+              "Xquery/AssistProject/SkyMail/transformation/createRequest_SkyAgentProcessing" : {
+                "label" : "Xquery/AssistProject/SkyMail/transformation/createRequest_SkyAgentProcessing",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/AssistProject/SkyMail/transformation/createResponse_SkyAgentProcessing" : {
+                "label" : "Xquery/AssistProject/SkyMail/transformation/createResponse_SkyAgentProcessing",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/AssistProject/SkyMail/businessServices/BS_WS_ASSIST_SKY_MAIL" : {
+                "label" : "BusinessService/AssistProject/SkyMail/businessServices/BS_WS_ASSIST_SKY_MAIL",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/AssistProject/SkyMail/pipeline/PL_ASSIST_SKY_MAIL" : {
+            "label" : "Pipeline/AssistProject/SkyMail/pipeline/PL_ASSIST_SKY_MAIL",
+            "properties" : { },
+            "successors" : {
+              "Xquery/AssistProject/SkyMail/transformation/createResponse_WebmailCategorizer" : {
+                "label" : "Xquery/AssistProject/SkyMail/transformation/createResponse_WebmailCategorizer",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/AssistProject/SkyMail/transformation/createRequest_WebmailCategorizer" : {
+                "label" : "Xquery/AssistProject/SkyMail/transformation/createRequest_WebmailCategorizer",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/AssistProject/SkyMail/businessServices/BS_WS_ASSIST_SKY_MAIL" : {
+                "label" : "BusinessService/AssistProject/SkyMail/businessServices/BS_WS_ASSIST_SKY_MAIL",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

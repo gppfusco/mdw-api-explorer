@@ -1,0 +1,50 @@
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by ?Type ur fucking name ! (Type ur Company -.-) -->
+<xsd:schema xmlns:srv="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestSendMassiveSMS" type="srv:requestSendMassiveSMSType"/>
+	<xsd:complexType name="requestSendMassiveSMSType">
+		<xsd:sequence>
+			<xsd:element name="Messages" nillable="false" minOccurs="1" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Message" minOccurs="1" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Phone" type="xsd:string"/>
+									<xsd:element name="Text" type="xsd:string"/>
+									<xsd:element name="ServiceType" type="xsd:string"/>
+									<xsd:element name="Operator" type="xsd:string"/>
+									<xsd:element name="Priority" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ScheduledDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="PlatformID" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="RecordID" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		<xsd:element name="ForceExecution" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseSendMassiveSMS" type="srv:responseSendMassiveSMSType"/>
+	<xsd:complexType name="responseSendMassiveSMSType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string"/>
+			<xsd:element name="Messages" nillable="false" minOccurs="1" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Message" minOccurs="1" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="SRVZ_CODE" type="xsd:string"/>
+									<xsd:element name="SRVZ_DESCRIZIONE" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

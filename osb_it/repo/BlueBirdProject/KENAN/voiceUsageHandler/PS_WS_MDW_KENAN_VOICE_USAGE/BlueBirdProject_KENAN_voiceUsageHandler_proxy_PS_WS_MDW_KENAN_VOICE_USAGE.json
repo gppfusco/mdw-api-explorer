@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/kenan/WS_MDW_KENAN_VOICE_USAGE",
+    "name" : "BlueBirdProject_KENAN_voiceUsageHandler_proxy_PS_WS_MDW_KENAN_VOICE_USAGE",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\KENAN\\voiceUsageHandler\\PS_WS_MDW_KENAN_VOICE_USAGE",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/kenan/WS_MDW_KENAN_VOICE_USAGE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/KENAN/voiceUsageHandler/xsd/XSD_KENAN_VOICE_USAGE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

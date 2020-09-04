@@ -1,0 +1,30 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSB_SVIL/TestMario/PS_REST_PARAM" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_PARAM">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckCopertura/xsd/XSD_MEDIASET_DTT_CHECK_COPERTURA.xsd"/>
+        </xsd:schema>
+      <schema targetNamespace="http://xmlns.oracle.com/OSB_SVIL/TestMario/PS_REST_PARAM" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema">
+            <element name="op1_params">
+                <complexType>
+                    <sequence>
+                        <element name="id" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+   </grammars>
+   <resources>
+      <resource path="/cliente/{id}/nome">
+         <method name="GET" soa:wsdlOperation="op1">
+            <request>
+               <param name="id" style="template" soa:expression="$property.idCliente" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseRestMDCheckCopertura" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

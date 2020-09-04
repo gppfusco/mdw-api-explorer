@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestValorizzaFirmatoDettaglio"  type="requestValorizzaFirmatoDettaglioType" />        
+    
+  <xsd:complexType name="requestValorizzaFirmatoDettaglioType">
+    <xsd:sequence>
+      <xsd:element name="mdwAccountNumber" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="statoFirmato" minOccurs="1" maxOccurs="1" >
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="NON FIRMATO - INCOMPLETO" />
+            <xsd:enumeration value="NON FIRMATO - COMPLETO" />
+            <xsd:enumeration value="FIRMATO - INCOMPLETO" />
+            <xsd:enumeration value="FIRMATO - COMPLETO" />
+        </xsd:restriction>
+       </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="dataFirma" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="verificaFirma" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="tipoDocumento" minOccurs="1" maxOccurs="1" >
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="C" />
+            <xsd:enumeration value="A" />
+            <xsd:enumeration value="B" />
+            <xsd:enumeration value="D" />
+            <xsd:enumeration value="E" />
+            <xsd:enumeration value="M" />
+            <xsd:enumeration value="F" />
+            <xsd:enumeration value="T" />
+        </xsd:restriction>
+       </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="firmaFalsa" minOccurs="1" maxOccurs="1" >
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Y" />
+            <xsd:enumeration value="N" />
+        </xsd:restriction>
+       </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="numeroOrdine" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="contrattoInVigore" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="documentoIdentita" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="cartaCredito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="moduloNP" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="firma" type="xsd:string" minOccurs="1" maxOccurs="5" />
+      <xsd:element name="firmaRID" type="xsd:string" minOccurs="1" maxOccurs="2" />
+      <xsd:element name="firmaCC" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="firmaDPCC" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="execDate" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseValorizzaFirmatoDettaglio"  type="responseValorizzaFirmatoDettaglioType" />        
+  <xsd:complexType name="responseValorizzaFirmatoDettaglioType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,40 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_Vodafone_CheckFile_proxy_PS_WS_MDW_VODAFONE_CHECK_FILE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/MDWProject/Vodafone/CheckFile/pipeline/PL_WS_MDW_VODAFONE_CHECK_FILE" : {
+        "label" : "Pipeline/MDWProject/Vodafone/CheckFile/pipeline/PL_WS_MDW_VODAFONE_CHECK_FILE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/MDWProject/Vodafone/CheckFile/transformation/createReponse_WS_MDW_VODAFONE_CHECK_FILE" : {
+            "label" : "Xquery/MDWProject/Vodafone/CheckFile/transformation/createReponse_WS_MDW_VODAFONE_CHECK_FILE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/Vodafone/CheckFile/wsdl/WS_MDW_VODAFONE_CHECK_FILE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/Vodafone/CheckFile/wsdl/WS_MDW_VODAFONE_CHECK_FILE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/Vodafone/CheckFile/wsdl/WS_MDW_VODAFONE_CHECK_FILE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/Vodafone/CheckFile/wsdl/WS_MDW_VODAFONE_CHECK_FILE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

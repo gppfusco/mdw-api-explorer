@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:complexType name="responseDynamoType">
+    <xsd:sequence>
+    <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="requestUpsertItemDynamoType">
+    <xsd:sequence>
+      <xsd:element name="mdwHashCodeSmc" maxOccurs="1" minOccurs="1" type="xsd:string"/>
+      <xsd:element name="mdwDigestParam" maxOccurs="1" minOccurs="1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestDeleteItemDynamoType">
+    <xsd:sequence>
+    <xsd:element name="mdwHashCodeSmc" maxOccurs="1" minOccurs="1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+    <xsd:complexType name="requestDeleteFlagPrivacyDynamoType">
+    <xsd:sequence>
+      <xsd:element name="mdwHashCodeSmc" maxOccurs="1" minOccurs="1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestUpsertFlagPrivacyDynamoType">
+    <xsd:sequence>
+      <xsd:element name="mdwHashCodeSmc" maxOccurs="1" minOccurs="1" type="xsd:string"/>
+      <xsd:element name="mdwFlagPrivacy" maxOccurs="1" minOccurs="1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:element name="requestUpsertItemDynamo" type="requestUpsertItemDynamoType" />
+  <xsd:element name="responseUpsertItemDynamo" type="responseDynamoType" />
+  
+  <xsd:element name="requestDeleteItemDynamo" type="requestDeleteItemDynamoType" />
+  <xsd:element name="responseDeleteItemDynamo" type="responseDynamoType" />
+  
+  <xsd:element name="requestUpsertFlagPrivacyDynamo" type="requestUpsertFlagPrivacyDynamoType" />
+  <xsd:element name="responseUpsertFlagPrivacyDynamo" type="responseDynamoType" />
+ 
+  <xsd:element name="requestDeleteFlagPrivacyDynamo" type="requestDeleteFlagPrivacyDynamoType" />
+  <xsd:element name="responseDeleteFlagPrivacyDynamo" type="responseDynamoType" /> 
+  
+  
+</xsd:schema>

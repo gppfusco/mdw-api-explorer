@@ -1,0 +1,177 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_ResetPinFromSTB_proxy_PS_REST_SCMS_RESET_PIN_FROM_STB",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/SCMSproject/ResetPinFromSTB/pipeline/PL_REST_RESET_PIN_FROM_STB" : {
+        "label" : "Pipeline/SCMSproject/ResetPinFromSTB/pipeline/PL_REST_RESET_PIN_FROM_STB",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/SCMSproject/ResetPinFromSTB/transformation/createRequest_SETPAR" : {
+            "label" : "Xquery/SCMSproject/ResetPinFromSTB/transformation/createRequest_SETPAR",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/ResetPinFromSTB/transformation/createRequest_ConfermaLavorazine" : {
+            "label" : "Xquery/SCMSproject/ResetPinFromSTB/transformation/createRequest_ConfermaLavorazine",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SCMSproject/pipeline/PL_INTERNAL_INVOKE_CAIF" : {
+            "label" : "Pipeline/SCMSproject/pipeline/PL_INTERNAL_INVOKE_CAIF",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+                "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SCMSproject/ResetPinFromSTB/transformation/createResponse_ConfermaLavorazione" : {
+            "label" : "Xquery/SCMSproject/ResetPinFromSTB/transformation/createResponse_ConfermaLavorazione",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/SCMSproject/Resources/PS_REST_SCMS_RESET_PIN_FROM_STB" : {
+            "label" : "WSDL/SCMSproject/Resources/PS_REST_SCMS_RESET_PIN_FROM_STB",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/ResetPinFromSTB/transformation/createRequest_TracciamentoEsigenza" : {
+            "label" : "Xquery/SCMSproject/ResetPinFromSTB/transformation/createRequest_TracciamentoEsigenza",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/ResetPinFromSTB/transformation/createRequest_CreaContatto" : {
+            "label" : "Xquery/SCMSproject/ResetPinFromSTB/transformation/createRequest_CreaContatto",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SCMSproject/ResetPinFromSTB/pipeline/PL_INTERNAL_RESET_PIN_GET_CLIENT_CONTRACT_CODE" : {
+            "label" : "Pipeline/SCMSproject/ResetPinFromSTB/pipeline/PL_INTERNAL_RESET_PIN_GET_CLIENT_CONTRACT_CODE",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SCMSproject/ResetPinFromSTB/transformation/createRequest_GetClientContractCode" : {
+                "label" : "Xquery/SCMSproject/ResetPinFromSTB/transformation/createRequest_GetClientContractCode",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SCMSproject/Resources/PS_REST_SCMS_RESET_PIN_FROM_STB" : {
+                "label" : "WSDL/SCMSproject/Resources/PS_REST_SCMS_RESET_PIN_FROM_STB",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SCMSproject/ResetPinFromSTB/transformation/createResponse_GetClientCodeContractCode" : {
+                "label" : "Xquery/SCMSproject/ResetPinFromSTB/transformation/createResponse_GetClientCodeContractCode",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "ProxyService/SiebelProject/proxy/local/PS_LOCAL_SIE_CONTR_SYNC" : {
+            "label" : "ProxyService/SiebelProject/proxy/local/PS_LOCAL_SIE_CONTR_SYNC",
+            "properties" : { },
+            "successors" : {
+              "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                    "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                    "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XSLT/SiebelProject/transformations/createElement" : {
+                    "label" : "XSLT/SiebelProject/transformations/createElement",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/SCMSproject/Resources/PS_REST_SCMS_RESET_PIN_FROM_STB" : {
+        "label" : "WSDL/SCMSproject/Resources/PS_REST_SCMS_RESET_PIN_FROM_STB",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

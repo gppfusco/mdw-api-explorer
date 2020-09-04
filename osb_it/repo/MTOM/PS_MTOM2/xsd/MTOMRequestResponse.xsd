@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://www.darwin-it.nl/MTOM"
+            targetNamespace="http://www.darwin-it.nl/MTOM"
+            elementFormDefault="qualified">
+  <xsd:element name="mtomRequest" type="MtomRequestType"/>
+  <xsd:complexType name="MtomRequestType">
+    <xsd:sequence>
+      <xsd:element name="document" type="xsd:base64Binary"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="mtomResponse" type="MtomResponseType"/>
+  <xsd:complexType name="MtomResponseType">
+    <xsd:sequence>
+      <xsd:element name="document" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

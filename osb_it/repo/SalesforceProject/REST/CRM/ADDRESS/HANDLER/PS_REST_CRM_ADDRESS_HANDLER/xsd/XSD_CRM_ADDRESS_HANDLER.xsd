@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestUpdateAddress" type="requestUpdateAddressType"/>
+	<xsd:complexType name="requestUpdateAddressType">
+		<xsd:sequence> 
+			<xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCoBrowsingFlag" type="flagType"/>
+			<xsd:element name="mdwConnIDCTI" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwProvenance" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwInteractionId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwContrid" type="xsd:string"/>
+			<xsd:element name="mdwContractAddress" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="contrToponomy" type="xsd:string"/>
+						<xsd:element name="contrStreet" type="xsd:string"/>
+						<xsd:element name="contrStreetNumber" type="xsd:string"/>
+						<xsd:element name="contrComplexBuilding" type="xsd:string"/>
+						<xsd:element name="contrStair" type="xsd:string"/>
+						<xsd:element name="contrIndoor" type="xsd:string"/>
+						<xsd:element name="contrZipCode" type="xsd:string"/>
+						<xsd:element name="contrFloor" type="xsd:string"/>
+						<xsd:element name="contrCity" type="xsd:string"/>
+						<xsd:element name="contrProvince" type="xsd:string"/>
+						<xsd:element name="mdwMatchCode" type="xsd:string"/>
+						<xsd:element name="mdwMathCodeSKY" type="xsd:string"/>
+						<xsd:element name="mdwEgonATTVLXATT" type="xsd:string"/>
+						<xsd:element name="mdwEgonBES1XG" type="xsd:string"/>
+						<xsd:element name="mdwEgonBES1XM" type="xsd:string"/>
+						<xsd:element name="mdwEgonBES1YG" type="xsd:string"/>
+						<xsd:element name="mdwEgonBES1YM" type="xsd:string"/>
+						<xsd:element name="mdwEgonBESVLXBES" type="xsd:string"/>
+						<xsd:element name="mdwEgonFLXCTX" type="xsd:string"/>
+						<xsd:element name="mdwEgonIDCIV" type="xsd:string"/>
+						<xsd:element name="mdwEgonNAB" type="xsd:string"/>
+						<xsd:element name="mdwEgonNABAll" type="xsd:string"/>
+						<xsd:element name="mdAddressNormFlg" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="contrBillingAddress" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="billToponomy" type="xsd:string"/>
+						<xsd:element name="billBillingStreet" type="xsd:string"/>
+						<xsd:element name="billBillingStreetNumber" type="xsd:string"/>
+						<xsd:element name="billingComplexBuilding" type="xsd:string"/>
+						<xsd:element name="billBillingsStair" type="xsd:string"/>
+						<xsd:element name="billBillingIndoor" type="xsd:string"/>
+						<xsd:element name="billBillingZipCode" type="xsd:string"/>
+						<xsd:element name="billBillingFloor" type="xsd:string"/>
+						<xsd:element name="billBillingCity" type="xsd:string"/>
+						<xsd:element name="bilBillingProvince" type="xsd:string"/>
+						<xsd:element name="billBillingMatchCode" type="xsd:string"/>
+						<xsd:element name="billBillingMathCodeSKY" type="xsd:string"/>
+						<xsd:element name="billBillingEgonATTVLXATT" type="xsd:string"/>
+						<xsd:element name="billBillingEgonBES1XG" type="xsd:string"/>
+						<xsd:element name="billBillingEgonBES1XM" type="xsd:string"/>
+						<xsd:element name="billBillingEgonBES1YG" type="xsd:string"/>
+						<xsd:element name="billBillingEgonBES1YM" type="xsd:string"/>
+						<xsd:element name="billBillingEgonBESVLXBES" type="xsd:string"/>
+						<xsd:element name="billBillingEgonFLXCTX" type="xsd:string"/>
+						<xsd:element name="billBillingEgonIDCIV" type="xsd:string"/>
+						<xsd:element name="billBillingEgonNAB" type="xsd:string"/>
+						<xsd:element name="billBillingEgonNABAll" type="xsd:string"/>
+						<xsd:element name="billBillingAddressNormFlg" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseUpdateAddress" type="responseUpdateAddressType"/>
+	<xsd:complexType name="responseUpdateAddressType">
+		<xsd:sequence>
+			<xsd:element name="mdwCoBrowsingFlag" type="xsd:string"/>
+			<xsd:element name="mdwInteractionId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwServiceRequestId" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        	<xsd:simpleType name="flagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

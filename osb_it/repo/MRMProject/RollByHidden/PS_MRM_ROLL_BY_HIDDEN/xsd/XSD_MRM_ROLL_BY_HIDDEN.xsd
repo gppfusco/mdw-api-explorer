@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestRollByHiddenType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="mdwMrmHiddenNumber" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="mdwCaOperator" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="mdwCaMessage" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestRollByHidden" type="requestRollByHiddenType"/>
+  <xsd:complexType name="responseRollByHiddenType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="mdwServiceErrorType" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseRollByHidden" type="responseRollByHiddenType"/>
+</xsd:schema>

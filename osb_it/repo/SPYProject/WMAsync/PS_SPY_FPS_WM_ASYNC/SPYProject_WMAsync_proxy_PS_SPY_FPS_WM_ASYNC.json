@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/spy/WS_SPY_FPS_WM_ASYNC",
+    "name" : "SPYProject_WMAsync_proxy_PS_SPY_FPS_WM_ASYNC",
+    "localPath" : "osb_it\\repo\\SPYProject\\WMAsync\\PS_SPY_FPS_WM_ASYNC",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/spy/WS_SPY_FPS_WM_ASYNC?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SPYProject/WMAsync/xsd/XSD_SPY_FPS_WM_ASYNC",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MagentoProject_VodafoneCancellation_proxy_PS_WS_MAGENTO_VODAFONE_CANCELLATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/VodafoneCancellation/wsdl/vf_nb_external_service_provisioning_service_2_0_0" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/VodafoneCancellation/wsdl/vf_nb_external_service_provisioning_service_2_0_0",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MagentoProject/VodafoneCancellation/pipeline/PL_WS_MAGENTO_VODAFONE_CANCELLATION" : {
+        "label" : "Pipeline/MagentoProject/VodafoneCancellation/pipeline/PL_WS_MAGENTO_VODAFONE_CANCELLATION",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MagentoProject/VodafoneCancellation/businessService/BS_TEXT_MAGENTO" : {
+            "label" : "BusinessService/MagentoProject/VodafoneCancellation/businessService/BS_TEXT_MAGENTO",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/MagentoProject/VodafoneCancellation/transformations/createReponseMagentoVodafoneCancellation" : {
+            "label" : "Xquery/MagentoProject/VodafoneCancellation/transformations/createReponseMagentoVodafoneCancellation",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/VodafoneCancellation/wsdl/vf_nb_external_service_provisioning_service_2_0_0" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/VodafoneCancellation/wsdl/vf_nb_external_service_provisioning_service_2_0_0",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestSbloccoContratto" type="requestSbloccoContrattoType"/>
+	<xsd:complexType name="requestSbloccoContrattoType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_SbloccoContratto">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CompletedAntiFraud" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CompletedCRM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="UnlockAntiFraud" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="LoginOperator" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CreditRiskNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="FraudRiskNumber" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseSbloccoContratto" type="responseSbloccoContrattoType"/>
+	<xsd:complexType name="responseSbloccoContrattoType">
+		<xsd:sequence>
+			<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

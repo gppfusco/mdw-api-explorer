@@ -1,0 +1,55 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "EUPProject_outbound_proxy_PS_WS_CRM_OUTMSG_EUPORT_UPSERTCUSTOMER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "ServiceProvider/MDW_CDM/ServiceKeyProviders/key_provider_eup" : {
+        "label" : "ServiceProvider/MDW_CDM/ServiceKeyProviders/key_provider_eup",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/EUPProject/outbound/pipeline/PL_WS_CRM_OUTMSG_EUPORT_UPSERTCUSTOMER_ITERATION_ENQUEUE" : {
+        "label" : "Pipeline/EUPProject/outbound/pipeline/PL_WS_CRM_OUTMSG_EUPORT_UPSERTCUSTOMER_ITERATION_ENQUEUE",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_PUBLISH_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_PUBLISH_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/EUPProject/outbound/transformation/createRequest_opUpsertCustomer" : {
+            "label" : "Xquery/EUPProject/outbound/transformation/createRequest_opUpsertCustomer",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/transformation/createWSResponseOutboundCommunication" : {
+            "label" : "Xquery/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/transformation/createWSResponseOutboundCommunication",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/EUPProject/outbound/businessService/BS_JMS_EUP_ENQUEUE_OUTBOUND" : {
+            "label" : "BusinessService/EUPProject/outbound/businessService/BS_JMS_EUP_ENQUEUE_OUTBOUND",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/EUPProject/outbound/WS_CRM_OUTMSG_EUPORT_UPSERTCUSTOMER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/EUPProject/outbound/WS_CRM_OUTMSG_EUPORT_UPSERTCUSTOMER",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/EUPProject/outbound/WS_CRM_OUTMSG_EUPORT_UPSERTCUSTOMER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/EUPProject/outbound/WS_CRM_OUTMSG_EUPORT_UPSERTCUSTOMER",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

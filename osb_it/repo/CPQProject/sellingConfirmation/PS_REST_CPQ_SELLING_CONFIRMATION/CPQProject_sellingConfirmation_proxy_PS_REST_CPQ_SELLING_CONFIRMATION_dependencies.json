@@ -1,0 +1,96 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "CPQProject_sellingConfirmation_proxy_PS_REST_CPQ_SELLING_CONFIRMATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/CPQProject/sellingConfirmation/pipeline/PL_REST_SELLING_CONFIRMATION" : {
+        "label" : "Pipeline/CPQProject/sellingConfirmation/pipeline/PL_REST_SELLING_CONFIRMATION",
+        "properties" : { },
+        "successors" : {
+          "WSDL/CPQProject/Resources/PS_REST_CPQ_SELLING_CONFIRMATION" : {
+            "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_SELLING_CONFIRMATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/CPQProject/sellingConfirmation/pipeline/PL_INTERNAL_SELLING_CONFIRMATION_ENQUEUE" : {
+            "label" : "Pipeline/CPQProject/sellingConfirmation/pipeline/PL_INTERNAL_SELLING_CONFIRMATION_ENQUEUE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Pipeline/CPQProject/sellingConfirmation/pipeline/PL_INTERNAL_CHECK_ORDER_VALIDATION" : {
+                "label" : "Pipeline/CPQProject/sellingConfirmation/pipeline/PL_INTERNAL_CHECK_ORDER_VALIDATION",
+                "properties" : { },
+                "successors" : {
+                  "Xquery/CPQProject/sellingConfirmation/transformation/createRequest_SQL_TIBCO_CHECK_ORDER_VALIDATION" : {
+                    "label" : "Xquery/CPQProject/sellingConfirmation/transformation/createRequest_SQL_TIBCO_CHECK_ORDER_VALIDATION",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/CPQProject/sellingConfirmation/transformation/createResponse_SQL_TIBCO_CHECK_ORDER_VALIDATION" : {
+                    "label" : "Xquery/CPQProject/sellingConfirmation/transformation/createResponse_SQL_TIBCO_CHECK_ORDER_VALIDATION",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/CPQProject/Resources/PS_REST_CPQ_SELLING_CONFIRMATION" : {
+                    "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_SELLING_CONFIRMATION",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/CPQProject/sellingConfirmation/businessService/BS_SQL_TIBCO_CHECK_ORDER_VALIDATION" : {
+                    "label" : "BusinessService/CPQProject/sellingConfirmation/businessService/BS_SQL_TIBCO_CHECK_ORDER_VALIDATION",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/CPQProject/sellingConfirmation/businessService/BS_JMS_CPQ_SELLING_CONFIRMATION_ENQUEUE" : {
+                "label" : "BusinessService/CPQProject/sellingConfirmation/businessService/BS_JMS_CPQ_SELLING_CONFIRMATION_ENQUEUE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/CPQProject/sellingConfirmation/transformation/createResponse_AsyncSellingConfirmation" : {
+                "label" : "Xquery/CPQProject/sellingConfirmation/transformation/createResponse_AsyncSellingConfirmation",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/CPQProject/Resources/PS_REST_CPQ_SELLING_CONFIRMATION" : {
+                "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_SELLING_CONFIRMATION",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/CPQProject/Resources/PS_REST_CPQ_SELLING_CONFIRMATION" : {
+        "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_SELLING_CONFIRMATION",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

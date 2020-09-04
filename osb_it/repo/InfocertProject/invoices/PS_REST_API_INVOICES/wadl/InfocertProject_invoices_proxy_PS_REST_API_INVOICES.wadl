@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSB_SVIL/InfocertProject/PS_REST_API_INVOICES" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_API_INVOICES">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/InfocertProject/invoices/xsd/XSD_INVOICE.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/">
+         <method name="GET" soa:wsdlOperation="opRecuperoListaFatture">
+            <request>
+               <param name="inElaborazione" style="query" soa:expression="$msg.request/ns0:inElaborazione" default="" type="xsd:string"/>
+               <param name="PaPr" style="query" soa:expression="$msg.request/ns0:PaPr" default="" type="xsd:string"/>
+               <param name="dataInizioTransazione" style="query" soa:expression="$msg.request/ns0:dataInizioTransazione" default="" type="xsd:string"/>
+               <param name="dataFineTransazione" style="query" soa:expression="$msg.request/ns0:dataFineTransazione" default="" type="xsd:string"/>
+               <param name="dataInizioRicezione" style="query" soa:expression="$msg.request/ns0:dataInizioRicezione" default="" type="xsd:string"/>
+               <param name="dataFineRicezione" style="query" soa:expression="$msg.request/ns0:dataFineRicezione" default="" type="xsd:string"/>
+               <param name="pivaCliente" style="query" soa:expression="$msg.request/ns0:pivaCliente" default="" type="xsd:string"/>
+               <param name="pivaFornitore" style="query" soa:expression="$msg.request/ns0:pivaFornitore" default="" type="xsd:string"/>
+               <param name="tipoFattura" style="query" soa:expression="$msg.request/ns0:tipoFattura" default="" type="xsd:string"/>
+               <param name="startingId" style="query" soa:expression="$msg.request/ns0:startingId" default="" type="xsd:string"/>
+               <param name="companyGroupCode" style="query" soa:expression="$msg.request/ns0:companyGroupCode" default="" type="xsd:string"/>
+               <param name="indicePagina" style="query" soa:expression="$msg.request/ns0:indicePagina" default="" type="xsd:string"/>
+               <param name="oggettiPerPagina" style="query" soa:expression="$msg.request/ns0:oggettiPerPagina" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseRecuperoListaFatture" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/{invoiceId}/content">
+         <method name="GET" soa:wsdlOperation="opRecuperoFileFattura">
+            <request>
+               <param name="invoiceId" style="template" soa:expression="$property.invoiceId" default="" type="xsd:string"/>
+               <param name="contentType" style="query" soa:expression="$msg.request/ns0:contentType" default="" type="xsd:string"/>
+               <param name="pdfTemplate" style="query" soa:expression="$msg.request/ns0:pdfTemplate" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseRecuperoFileFattura" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/{idSDI}/outcome">
+         <method name="POST" soa:wsdlOperation="opOutcomeInvoice">
+            <request>
+               <param name="idSDI" style="template" soa:expression="$property.invoiceId" default="" type="xsd:string"/>
+               <representation mediaType="application/xml" element="cns:requestOutcomeFattura" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseOutcomeFattura" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

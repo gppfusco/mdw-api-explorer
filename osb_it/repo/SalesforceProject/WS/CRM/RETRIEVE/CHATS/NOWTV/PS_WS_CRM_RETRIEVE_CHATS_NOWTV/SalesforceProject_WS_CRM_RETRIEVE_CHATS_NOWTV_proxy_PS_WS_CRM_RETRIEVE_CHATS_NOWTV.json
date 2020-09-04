@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_RETRIEVE_CHATS_NOWTV",
+    "name" : "SalesforceProject_WS_CRM_RETRIEVE_CHATS_NOWTV_proxy_PS_WS_CRM_RETRIEVE_CHATS_NOWTV",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\RETRIEVE\\CHATS\\NOWTV\\PS_WS_CRM_RETRIEVE_CHATS_NOWTV",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_RETRIEVE_CHATS_NOWTV?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveChats_NowTv/xsd/XSD_CRM_RETRIEVE_CHATS_NOWTV",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

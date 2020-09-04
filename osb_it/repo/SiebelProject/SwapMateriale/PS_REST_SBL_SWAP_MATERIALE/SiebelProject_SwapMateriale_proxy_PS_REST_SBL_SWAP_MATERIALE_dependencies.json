@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_SwapMateriale_proxy_PS_REST_SBL_SWAP_MATERIALE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SiebelProject/Resources/PS_REST_SBL_SWAP_MATERIALE" : {
+        "label" : "WSDL/SiebelProject/Resources/PS_REST_SBL_SWAP_MATERIALE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/SwapMateriale/pipeline/PL_REST_SBL_SWAP_MATERIALE" : {
+        "label" : "Pipeline/SiebelProject/SwapMateriale/pipeline/PL_REST_SBL_SWAP_MATERIALE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/SiebelProject/SwapMateriale/pipeline/PL_INTERNAL_SBL_SWAP_MATERIALE" : {
+            "label" : "Pipeline/SiebelProject/SwapMateriale/pipeline/PL_INTERNAL_SBL_SWAP_MATERIALE",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/SiebelProject/SwapMateriale/businessService/BS_SQL_SBL_SWAP_MATERIALE" : {
+                "label" : "BusinessService/SiebelProject/SwapMateriale/businessService/BS_SQL_SBL_SWAP_MATERIALE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/SiebelProject/Resources/BS_SQL_SBL_SWAP_MATERIALE/concrete" : {
+                "label" : "WSDL/SiebelProject/Resources/BS_SQL_SBL_SWAP_MATERIALE/concrete",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/SiebelProject/Resources/PS_REST_SBL_SWAP_MATERIALE" : {
+            "label" : "WSDL/SiebelProject/Resources/PS_REST_SBL_SWAP_MATERIALE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/SwapMateriale/transformations/createResponseSwapMateriale" : {
+            "label" : "Xquery/SiebelProject/SwapMateriale/transformations/createResponseSwapMateriale",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/SwapMateriale/transformations/createRequestSwapMateriale" : {
+            "label" : "Xquery/SiebelProject/SwapMateriale/transformations/createRequestSwapMateriale",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

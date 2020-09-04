@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/siebel/WS_SIE_RECUPERA_INFO_CLIENTE",
+    "name" : "SiebelProject_RecuperaInfoFatturazione_proxy_WS_SIE_RECUPERA_INFO_FATTURAZIONE",
+    "localPath" : "osb_it\\repo\\SiebelProject\\RecuperaInfoFatturazione\\WS_SIE_RECUPERA_INFO_FATTURAZIONE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/siebel/WS_SIE_RECUPERA_INFO_CLIENTE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SiebelProject/RecuperaInfoFatturazione/xsd/XSD_RECUPERA_INFO_FATTURAZIONE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

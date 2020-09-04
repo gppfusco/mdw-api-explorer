@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/om/WS_OM_DTT_CHECK_REFRESH",
+    "name" : "OMProject_DTTCheckRefresh_proxy_PS_WS_OM_DTT_CHECK_REFRESH",
+    "localPath" : "osb_it\\repo\\OMProject\\DTTCheckRefresh\\PS_WS_OM_DTT_CHECK_REFRESH",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/om/WS_OM_DTT_CHECK_REFRESH?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/OMProject/DTTCheckRefresh/xsd/XSD_OM_DTT_CHECK_REFRESH",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/rest/promotionDriven",
+    "name" : "SalesforceProject_REST_CRM_PROMOTION_DRIVEN_proxy_PS_TEXT_CRM_PROMOTION_DRIVEN",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\REST\\CRM\\PROMOTION\\DRIVEN\\PS_TEXT_CRM_PROMOTION_DRIVEN",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : true,
+    "bufferingSupported" : true
+  }
+}

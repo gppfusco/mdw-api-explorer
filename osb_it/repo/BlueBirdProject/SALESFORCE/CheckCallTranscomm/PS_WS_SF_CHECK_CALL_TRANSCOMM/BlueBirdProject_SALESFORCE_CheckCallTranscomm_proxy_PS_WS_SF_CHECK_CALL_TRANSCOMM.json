@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/sf/PS_WS_SF_CHECK_CALL_TRANSCOMM",
+    "name" : "BlueBirdProject_SALESFORCE_CheckCallTranscomm_proxy_PS_WS_SF_CHECK_CALL_TRANSCOMM",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\SALESFORCE\\CheckCallTranscomm\\PS_WS_SF_CHECK_CALL_TRANSCOMM",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/sf/PS_WS_SF_CHECK_CALL_TRANSCOMM?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/CheckCallTranscomm/xsd/XSD_SF_CHECK_CALL_TRANSCOMM",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

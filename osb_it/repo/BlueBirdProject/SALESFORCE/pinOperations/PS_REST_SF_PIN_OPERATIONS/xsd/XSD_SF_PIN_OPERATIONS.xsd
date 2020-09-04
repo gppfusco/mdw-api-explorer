@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestManagePIN" type="requestManagePINType"/>
+  <xsd:element name="responseManagePIN" type="responseManagePINType"/>
+  <xsd:element name="requestCheckPIN" type="requestCheckPINType"/>
+  <xsd:element name="responseCheckPIN" type="responseCheckPINType"/>
+  <xsd:complexType name="requestManagePINType">
+    <xsd:sequence>
+      <xsd:element name="channel" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="connIdCTI" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="e2ECode" type="xsd:string"/>
+      <xsd:element name="contractCode" type="xsd:string"/>
+      <xsd:element name="phoneNumber" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseManagePINType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="responseElement" type="responseElementType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseElementType">
+    <xsd:sequence>
+      <xsd:element name="channelOfCommunication" type="xsd:string"/>
+      <xsd:element name="contractCode" type="xsd:string"/>
+      <xsd:element name="problem" type="problemType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="problemType">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestCheckPINType">
+    <xsd:sequence>
+      <xsd:element name="pinCode" type="xsd:string"/>
+      <xsd:element name="e2eCode" type="xsd:string"/>
+      <xsd:element name="contractCode" type="xsd:string"/>
+      <xsd:element name="connectionId" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseCheckPINType">
+    <xsd:sequence>
+      <xsd:element name="result" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

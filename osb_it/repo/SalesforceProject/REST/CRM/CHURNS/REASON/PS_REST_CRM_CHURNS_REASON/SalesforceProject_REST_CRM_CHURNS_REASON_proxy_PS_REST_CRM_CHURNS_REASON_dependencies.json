@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_CHURNS_REASON_proxy_PS_REST_CRM_CHURNS_REASON",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_CHURNS_REASON" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_CHURNS_REASON",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/REST_CRM_CHURNS_REASON/pipeline/PL_CRM_CHURNS_REASON" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_CHURNS_REASON/pipeline/PL_CRM_CHURNS_REASON",
+        "properties" : { },
+        "successors" : {
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_CHURNS_REASON" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_CHURNS_REASON",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_CHURNS_REASON/trasformation/createRequestSelectChurnsReason" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CHURNS_REASON/trasformation/createRequestSelectChurnsReason",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF_CACHE_QUERY_BY_SELECT" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF_CACHE_QUERY_BY_SELECT",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_CHURNS_REASON/trasformation/createResponseSelectChurnsReason" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CHURNS_REASON/trasformation/createResponseSelectChurnsReason",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

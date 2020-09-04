@@ -1,0 +1,46 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_OSS_PORT_OUT"
+     targetNamespace="http://www.skytv.it/mdw/service/WS_OSS_PORT_OUT"
+     xmlns:tns="http://www.skytv.it/mdw/service/WS_OSS_PORT_OUT"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_OSS_PORT_OUT.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="headerMessage">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="part_requestNotifyCustomerRethink" element="inp1:requestNotifyCostumerRethink"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="part_responseNotifyCustomerRethink" element="inp1:responseNotifyCostumerRethink"/>
+    </wsdl:message>
+    <wsdl:portType name="ptt_WS_OSS_PORT_OUT">
+        <wsdl:operation name="execute_NotifyCustomerRethink">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="bind_WS_OSS_PORT_OUT" type="tns:ptt_WS_OSS_PORT_OUT">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_NotifyCustomerRethink">
+            <soap:operation style="document" soapAction="execute_NotifyCustomerRethink"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_OSS_PORT_OUT"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_OSS_PORT_OUT"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

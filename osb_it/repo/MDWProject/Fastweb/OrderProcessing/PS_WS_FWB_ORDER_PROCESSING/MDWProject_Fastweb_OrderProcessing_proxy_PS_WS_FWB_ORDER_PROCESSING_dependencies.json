@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_Fastweb_OrderProcessing_proxy_PS_WS_FWB_ORDER_PROCESSING",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/MDWProject/Fastweb/OrderProcessing/pipeline/PL_JMS_ENQUEUE_ORDER_PROCESSING" : {
+        "label" : "Pipeline/MDWProject/Fastweb/OrderProcessing/pipeline/PL_JMS_ENQUEUE_ORDER_PROCESSING",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/MDWProject/businessServices/BS_JMS_MDW_ENQUEUE_GENERIC" : {
+            "label" : "BusinessService/MDWProject/businessServices/BS_JMS_MDW_ENQUEUE_GENERIC",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/Fastweb/OrderProcessing/transformations/createRequestFWBOrderProcessing" : {
+            "label" : "Xquery/MDWProject/Fastweb/OrderProcessing/transformations/createRequestFWBOrderProcessing",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/Fastweb/FWBOrderProcessing/wsdl/WS_FWB_ORDER_PROCESSING" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/Fastweb/FWBOrderProcessing/wsdl/WS_FWB_ORDER_PROCESSING",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/Fastweb/OrderProcessing/transformations/create_Field_OrderProcessingForESB" : {
+            "label" : "Xquery/MDWProject/Fastweb/OrderProcessing/transformations/create_Field_OrderProcessingForESB",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/Fastweb/FWBOrderProcessing/wsdl/WS_FWB_ORDER_PROCESSING" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/Fastweb/FWBOrderProcessing/wsdl/WS_FWB_ORDER_PROCESSING",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

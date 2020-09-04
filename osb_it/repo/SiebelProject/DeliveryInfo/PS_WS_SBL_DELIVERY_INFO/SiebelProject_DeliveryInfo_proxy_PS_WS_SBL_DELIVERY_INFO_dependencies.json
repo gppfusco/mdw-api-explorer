@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_DeliveryInfo_proxy_PS_WS_SBL_DELIVERY_INFO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/DeliveryInfo/pipeline/PL_WS_SBL_DELIVERY_INFO" : {
+        "label" : "Pipeline/SiebelProject/DeliveryInfo/pipeline/PL_WS_SBL_DELIVERY_INFO",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SiebelProject/DeliveryInfo/pipeline/PL_INTERNAL_SBL_DELIVERY_INFO" : {
+            "label" : "Pipeline/SiebelProject/DeliveryInfo/pipeline/PL_INTERNAL_SBL_DELIVERY_INFO",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SiebelProject/DeliveryInfo/transformation/createRequestDeliveryInfo" : {
+                "label" : "Xquery/SiebelProject/DeliveryInfo/transformation/createRequestDeliveryInfo",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/DeliveryInfo/wsdl/WS_SBL_DELIVERY_INFO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/DeliveryInfo/wsdl/WS_SBL_DELIVERY_INFO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/DeliveryInfo/transformation/createResponseDeliveryInfo" : {
+                "label" : "Xquery/SiebelProject/DeliveryInfo/transformation/createResponseDeliveryInfo",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SiebelProject/DeliveryInfo/businessService/BS_SQL_SBL_DELIVERY_INFO" : {
+                "label" : "BusinessService/SiebelProject/DeliveryInfo/businessService/BS_SQL_SBL_DELIVERY_INFO",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/DeliveryInfo/wsdl/WS_SBL_DELIVERY_INFO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/DeliveryInfo/wsdl/WS_SBL_DELIVERY_INFO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/DeliveryInfo/wsdl/WS_SBL_DELIVERY_INFO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/DeliveryInfo/wsdl/WS_SBL_DELIVERY_INFO",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

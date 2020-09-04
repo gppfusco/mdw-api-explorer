@@ -1,0 +1,33 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "TestMario_PS_REST_PARAM",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/TestMario/PL_PARAM" : {
+        "label" : "Pipeline/TestMario/PL_PARAM",
+        "properties" : { },
+        "successors" : {
+          "WSDL/TestMario/Resources/PS_REST_PARAM" : {
+            "label" : "WSDL/TestMario/Resources/PS_REST_PARAM",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/API_REST/CLIENTE/transformations/createSimpleResponse_REST_ERRORS" : {
+            "label" : "Xquery/SalesforceProject/API_REST/CLIENTE/transformations/createSimpleResponse_REST_ERRORS",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/TestMario/Resources/PS_REST_PARAM" : {
+        "label" : "WSDL/TestMario/Resources/PS_REST_PARAM",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

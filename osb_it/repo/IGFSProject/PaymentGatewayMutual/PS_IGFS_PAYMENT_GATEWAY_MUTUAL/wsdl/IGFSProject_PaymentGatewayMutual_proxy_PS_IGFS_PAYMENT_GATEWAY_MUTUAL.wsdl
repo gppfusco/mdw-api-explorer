@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/IGFS_PAYMENT_GATEWAY" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_IGFS_PAYMENT_GATEWAY" targetNamespace="http://www.skytv.it/mdw/service/IGFS_PAYMENT_GATEWAY">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_IGFS_PAYMENT_GATEWAY.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestConfirm_message">
+		<wsdl:part name="part_requestConfirm" element="inp1:requestConfirm"/>
+	</wsdl:message>
+	<wsdl:message name="responseConfirm_message">
+		<wsdl:part name="part_responseConfirm" element="inp1:responseConfirm"/>
+	</wsdl:message>
+	<wsdl:message name="requestVoidAuth_message">
+		<wsdl:part name="part_requestVoidAuth" element="inp1:requestVoidAuth"/>
+	</wsdl:message>
+	<wsdl:message name="responseVoidAuth_message">
+		<wsdl:part name="part_responseVoidAuth" element="inp1:responseVoidAuth"/>
+	</wsdl:message>
+	<wsdl:message name="requestInit_message">
+		<wsdl:part name="part_requestInit" element="inp1:requestInit"/>
+	</wsdl:message>
+	<wsdl:message name="responseInit_message">
+		<wsdl:part name="part_responseInit" element="inp1:responseInit"/>
+	</wsdl:message>
+	<wsdl:message name="requestVerify_message">
+		<wsdl:part name="part_requestVerify" element="inp1:requestVerify"/>
+	</wsdl:message>
+	<wsdl:message name="responseVerify_message">
+		<wsdl:part name="part_responseVerify" element="inp1:responseVerify"/>
+	</wsdl:message>
+	<wsdl:message name="requestAuth_message">
+		<wsdl:part name="part_requestAuth" element="inp1:requestAuth"/>
+	</wsdl:message>
+	<wsdl:message name="responseAuth_message">
+		<wsdl:part name="part_responseAuth" element="inp1:responseAuth"/>
+	</wsdl:message>
+	<wsdl:message name="requestCredit_message">
+		<wsdl:part name="part_requestCredit" element="inp1:requestCredit"/>
+	</wsdl:message>
+	<wsdl:message name="responseCredit_message">
+		<wsdl:part name="part_responseCredit" element="inp1:responseCredit"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="IGFS_PAYMENT_GATEWAY_ptt">
+		<wsdl:operation name="execute_Confirm">
+			<wsdl:input message="tns:requestConfirm_message"/>
+			<wsdl:output message="tns:responseConfirm_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_VoidAuth">
+			<wsdl:input message="tns:requestVoidAuth_message"/>
+			<wsdl:output message="tns:responseVoidAuth_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_Init">
+			<wsdl:input message="tns:requestInit_message"/>
+			<wsdl:output message="tns:responseInit_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_Verify">
+			<wsdl:input message="tns:requestVerify_message"/>
+			<wsdl:output message="tns:responseVerify_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_Auth">
+			<wsdl:input message="tns:requestAuth_message"/>
+			<wsdl:output message="tns:responseAuth_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_Credit">
+			<wsdl:input message="tns:requestCredit_message"/>
+			<wsdl:output message="tns:responseCredit_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="IGFS_PAYMENT_GATEWAY_pttSOAP11Binding" type="tns:IGFS_PAYMENT_GATEWAY_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_Confirm">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/IGFS_PAYMENT_GATEWAY/execute_Confirm" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestConfirm" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseConfirm" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_VoidAuth">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/IGFS_PAYMENT_GATEWAY/execute_VoidAuth" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestVoidAuth" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseVoidAuth" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_Verify">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/IGFS_PAYMENT_GATEWAY/execute_Verify" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestVerify" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseVerify" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_Init">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/IGFS_PAYMENT_GATEWAY/execute_Init" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestInit" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseInit" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_Auth">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/IGFS_PAYMENT_GATEWAY/execute_Auth" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestAuth" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseAuth" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_Credit">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/IGFS_PAYMENT_GATEWAY/execute_Credit" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestCredit" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseCredit" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestGetContrattiVocalType">
+    <xsd:sequence>
+      <xsd:element name="codiceCliente" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGetContrattiVocalType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+      <xsd:element name="contratti" maxOccurs="1" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="contratto" type="contrattoType" minOccurs='0' maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="contrattoType">
+    <xsd:sequence>
+      <xsd:element name="dataSottoscrizione" type="xsd:string"/>
+      <xsd:element name="stato" type="xsd:string"/>
+      <xsd:element name="dataAttivazione" type="xsd:string"/>
+      <xsd:element name="flagVocalOrder" type="xsd:string"/>
+      <xsd:element name="flagPagatore" type="xsd:string"/>
+      <xsd:element name="dataCessazione" type="xsd:string"/>
+      <xsd:element name="codiceContratto" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetContrattiVocal" type="requestGetContrattiVocalType"/>
+  <xsd:element name="responseGetContrattiVocal" type="responseGetContrattiVocalType"/>
+  <xsd:element name="contratto" type="contrattoType"/>
+</xsd:schema>

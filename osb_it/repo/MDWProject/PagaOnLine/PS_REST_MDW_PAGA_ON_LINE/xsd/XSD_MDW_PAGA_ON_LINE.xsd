@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestPagaOnLine" type="requestPagaOnLineType"/>
+  <xsd:element name="responsePagaOnLine" type="responsePagaOnLineType"/>
+  <xsd:element name="componentAmount" type="componentAmountType"/>
+  <xsd:complexType name="requestPagaOnLineType">
+    <xsd:sequence>
+      <xsd:element name="e2eContractId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="tidIGFS" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="shopIdIGFS" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="totalAmount" type="xsd:integer" minOccurs="1"/>
+      <xsd:element name="refTranID" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="maskedPan" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="expirationMonth" type="stringMonth" minOccurs="1"/>
+      <xsd:element name="expirationYear" type="integer4" minOccurs="1"/>
+      <xsd:element name="last4numbers" type="integer4" minOccurs="0"/>
+      <xsd:element name="cardHolderName" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="billingPeriod" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="flagChangeMOP" type="flagChangeMOPEnum" minOccurs="0"/>
+      <xsd:element name="flagCoBrowsing" type="xsd:boolean" minOccurs="1"/>
+      <xsd:element name="channel" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="componentAmounts" type="componentAmountsType" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="componentAmountsType">
+    <xsd:sequence>
+      <xsd:element name="componentAmount" type="componentAmountType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="componentAmountType">
+    <xsd:sequence>
+      <xsd:element name="contractId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="amount" type="xsd:integer" minOccurs="1"/>
+      <xsd:element name="amountPenality" type="xsd:integer" minOccurs="0"/>
+      <xsd:element name="amountExpired" type="xsd:integer" minOccurs="0"/>
+      <xsd:element name="componentType" type="componentTypeEnum" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responsePagaOnLineType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="flagChangeMOPEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="TV"/>
+      <xsd:enumeration value="BB"/>
+      <xsd:enumeration value="ALL"/>
+      <xsd:enumeration value="NONE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="componentTypeEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="TV"/>
+      <xsd:enumeration value="BB"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="stringMonth">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-1][0-9]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="integer4">
+    <xsd:restriction base="xsd:integer">
+      <xsd:pattern value="[0-9][0-9][0-9][0-9]"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

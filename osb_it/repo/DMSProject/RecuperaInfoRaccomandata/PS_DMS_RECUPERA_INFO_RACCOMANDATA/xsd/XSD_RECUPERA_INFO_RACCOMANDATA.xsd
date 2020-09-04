@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestRecuperaInfoRaccomandataType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestRecuperaInfoRaccomandata" type="requestRecuperaInfoRaccomandataType"/>
+	<xsd:complexType name="responseRecuperaInfoRaccomandataType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string"/>
+			<xsd:element name="documents" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="document" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="contrId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="docId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="category" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="subCategory" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="dateReceive" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="dateIndex" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="registeredLetterNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+									<xsd:element name="shipmentType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseRecuperaInfoRaccomandata" type="responseRecuperaInfoRaccomandataType"/>
+</xsd:schema>

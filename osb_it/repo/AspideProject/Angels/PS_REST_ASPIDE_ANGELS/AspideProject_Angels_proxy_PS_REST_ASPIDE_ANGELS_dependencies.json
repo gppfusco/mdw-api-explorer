@@ -1,0 +1,94 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "AspideProject_Angels_proxy_PS_REST_ASPIDE_ANGELS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/AspideProject/Resources/PS_REST_ASPIDE_ANGELS" : {
+        "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_ANGELS",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/AspideProject/Angels/pipeline/PL_REST_ASPIDE_ANGELS" : {
+        "label" : "Pipeline/AspideProject/Angels/pipeline/PL_REST_ASPIDE_ANGELS",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/AspideProject/Angels/pipeline/PL_REST_INTERNAL_CHANGE_ANGEL" : {
+            "label" : "Pipeline/AspideProject/Angels/pipeline/PL_REST_INTERNAL_CHANGE_ANGEL",
+            "properties" : { },
+            "successors" : {
+              "WSDL/AspideProject/Resources/PS_REST_ASPIDE_ANGELS" : {
+                "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_ANGELS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/AspideProject/Angels/trasformation/createRequestChangeAngel" : {
+                "label" : "Xquery/AspideProject/Angels/trasformation/createRequestChangeAngel",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/AspideProject/Angels/businessServices/BS_REST_ASPIDE_ANGELS" : {
+                "label" : "BusinessService/AspideProject/Angels/businessServices/BS_REST_ASPIDE_ANGELS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/AspideProject/Resources/PS_REST_ASPIDE_ANGELS" : {
+            "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_ANGELS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/AspideProject/Angels/pipeline/PL_REST_INTERNAL_GET_ANGEL" : {
+            "label" : "Pipeline/AspideProject/Angels/pipeline/PL_REST_INTERNAL_GET_ANGEL",
+            "properties" : { },
+            "successors" : {
+              "Xquery/AspideProject/Angels/trasformation/createResponseGetAngel" : {
+                "label" : "Xquery/AspideProject/Angels/trasformation/createResponseGetAngel",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/AspideProject/Resources/PS_REST_ASPIDE_ANGELS" : {
+                "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_ANGELS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/AspideProject/Angels/trasformation/createRequestGetAngel" : {
+                "label" : "Xquery/AspideProject/Angels/trasformation/createRequestGetAngel",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/AspideProject/Angels/businessServices/BS_REST_ASPIDE_ANGELS" : {
+                "label" : "BusinessService/AspideProject/Angels/businessServices/BS_REST_ASPIDE_ANGELS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

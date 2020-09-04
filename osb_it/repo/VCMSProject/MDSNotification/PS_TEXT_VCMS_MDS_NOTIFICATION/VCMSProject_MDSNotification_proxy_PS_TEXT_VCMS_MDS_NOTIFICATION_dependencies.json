@@ -1,0 +1,11 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "VCMSProject_MDSNotification_proxy_PS_TEXT_VCMS_MDS_NOTIFICATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "Messaging"
+    },
+    "successors" : { }
+  }
+}

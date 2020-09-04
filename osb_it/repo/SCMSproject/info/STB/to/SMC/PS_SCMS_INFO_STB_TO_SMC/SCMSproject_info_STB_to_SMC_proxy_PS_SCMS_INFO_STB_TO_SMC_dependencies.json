@@ -1,0 +1,75 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_info_STB_to_SMC_proxy_PS_SCMS_INFO_STB_TO_SMC",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/Info_STB_to_SMC/WS_SCMS_INFO_STB_TO_SMC" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/Info_STB_to_SMC/WS_SCMS_INFO_STB_TO_SMC",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SCMSproject/info_STB_to_SMC/pipeline/PL_SCMS_INFO_STB_TO_SMC" : {
+        "label" : "Pipeline/SCMSproject/info_STB_to_SMC/pipeline/PL_SCMS_INFO_STB_TO_SMC",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/SCMSproject/pipeline/PL_INTERNAL_INVOKE_CAIF" : {
+            "label" : "Pipeline/SCMSproject/pipeline/PL_INTERNAL_INVOKE_CAIF",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+                "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SCMSproject/info_STB_to_SMC/trasformation/createResponse_infoSTB_toSMC" : {
+            "label" : "Xquery/SCMSproject/info_STB_to_SMC/trasformation/createResponse_infoSTB_toSMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/Info_STB_to_SMC/WS_SCMS_INFO_STB_TO_SMC" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/Info_STB_to_SMC/WS_SCMS_INFO_STB_TO_SMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/info_STB_to_SMC/trasformation/createRequest_InfoSTB_toSMC" : {
+            "label" : "Xquery/SCMSproject/info_STB_to_SMC/trasformation/createRequest_InfoSTB_toSMC",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

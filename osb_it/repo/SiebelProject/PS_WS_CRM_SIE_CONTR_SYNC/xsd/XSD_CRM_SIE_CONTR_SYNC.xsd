@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestCessContrattoType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CausaleCessazione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataRichiestaCessazione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CreatedBySF" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="LastModifiedBySF" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCessContratto" type="requestCessContrattoType"/>
+	<xsd:element name="responseCessContratto" type="basicResponseType"/>
+	<xsd:complexType name="requestCausaleCessazioneType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CausaleCessazione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CreatedBySF" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="LastModifiedBySF" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCausaleCessazione" type="requestCausaleCessazioneType"/>
+	<xsd:element name="responseCausaleCessazione" type="basicResponseType"/>
+	<xsd:complexType name="requestRecapitiContrattoType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Telefono" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cellulare" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AltroTelefono" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroFax" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Email" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EmailRecapitoFattura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfFieldsType">
+		<xsd:sequence>
+			<xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FieldType">
+		<xsd:sequence>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestRecapitiContratto" type="requestRecapitiContrattoType"/>
+	<xsd:element name="responseRecapitiContratto" type="basicResponseType"/>
+	<xsd:complexType name="requestSetMarcaModelloType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MarcaTV" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ModelloTV" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSetMarcaModello" type="requestSetMarcaModelloType"/>
+	<xsd:element name="responseSetMarcaModello" type="basicResponseType"/>
+	<xsd:complexType name="basicResponseType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

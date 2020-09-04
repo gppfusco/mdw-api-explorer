@@ -1,0 +1,60 @@
+<wsdl:definitions name="WS_SAP_PORTALE_BOOKING_HOTEL" targetNamespace="http://www.skytv.it/mdw/service/SAP_PORTALE_BOOKING_HOTEL" xmlns:tns="http://www.skytv.it/mdw/service/SAP_PORTALE_BOOKING_HOTEL" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SAP_PORTALE_BOOKING_HOTEL.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestGetBadPayerList_message">
+		<wsdl:part name="part_requestGetBadPayerList" element="inp1:requestGetBadPayerList"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetBadPayerList_message">
+		<wsdl:part name="part_responseGetBadPayerList" element="inp1:responseGetBadPayerList"/>
+	</wsdl:message>
+	<wsdl:message name="requestSetCommission_message">
+		<wsdl:part name="part_requestSetCommission" element="inp1:requestSetCommission"/>
+	</wsdl:message>
+	<wsdl:message name="responseSetCommission_message">
+		<wsdl:part name="part_responseSetCommission" element="inp1:responseSetCommission"/>
+	</wsdl:message>
+
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="SAP_PORTALE_BOOKING_HOTEL_ptt">
+		<wsdl:operation name="execute_GetBadPayerList">
+			<wsdl:input message="tns:requestGetBadPayerList_message"/>
+			<wsdl:output message="tns:responseGetBadPayerList_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SetCommission">
+			<wsdl:input message="tns:requestSetCommission_message"/>
+			<wsdl:output message="tns:responseSetCommission_message"/>
+		</wsdl:operation>
+
+	</wsdl:portType>
+	<wsdl:binding name="SAP_PORTALE_BOOKING_HOTEL_pttSOAP11Binding" type="tns:SAP_PORTALE_BOOKING_HOTEL_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_GetBadPayerList">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SAP_PORTALE_BOOKING_HOTEL/execute_GetBadPayerList" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestGetBadPayerList" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseGetBadPayerList" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SetCommission">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SAP_PORTALE_BOOKING_HOTEL/execute_SetCommission" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestSetCommission" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSetCommission" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

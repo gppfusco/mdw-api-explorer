@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_contractPreferences_proxy_PS_REST_SF_CONTRACT_PREFERENCES",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/SALESFORCE/contractPreferences/pipeline/PL_SF_CONTRACT_PREFERENCES" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/contractPreferences/pipeline/PL_SF_CONTRACT_PREFERENCES",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/BlueBirdProject/SALESFORCE/contractPreferences/pipeline/PL_SF_CONTRACT_PREFERENCES_updateContractPreferences" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/contractPreferences/pipeline/PL_SF_CONTRACT_PREFERENCES_updateContractPreferences",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/Salesforce/contractPreferences/xsd/XSD_SF_contractDataOperations" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/Salesforce/contractPreferences/xsd/XSD_SF_contractDataOperations",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SALESFORCE/contractPreferences/transformation/createRequest_BS_updateContractPreferences" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/contractPreferences/transformation/createRequest_BS_updateContractPreferences",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_PREFERENCES" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_PREFERENCES",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_PREFERENCES" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_PREFERENCES",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_PREFERENCES" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_PREFERENCES",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

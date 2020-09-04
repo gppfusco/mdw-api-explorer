@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+            
+  <xsd:complexType name="commonRequestFiledsType">
+    <xsd:sequence>
+      <xsd:element name="flagsync" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="clientid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="operator" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="account" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="commonResponseFiledsType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="requestMRVIEW" type="requestMRVIEWType" />
+  <xsd:complexType name="requestMRVIEWType">
+    <xsd:complexContent>
+      <xsd:extension base="commonRequestFiledsType">
+        <xsd:sequence />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  
+  <xsd:element name="responseMRVIEW" type="responseMRVIEWType" />
+  <xsd:complexType name="responseMRVIEWType" >
+    <xsd:complexContent>
+      <xsd:extension base="commonResponseFiledsType">
+        <xsd:sequence>
+          <xsd:element name="householdView" type="householdViewType" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <xsd:element name="requestDELEMR" type="requestDELEMRType" />
+  <xsd:complexType name="requestDELEMRType" >
+      <xsd:complexContent>
+        <xsd:extension base="commonRequestFiledsType" >
+          <xsd:sequence>
+            <xsd:element name="elementsNumber" type="xsd:string" minOccurs="1" maxOccurs="1" />
+            <xsd:element name="MRList" type="MRListDELEMRType" minOccurs="1" maxOccurs="1" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+  </xsd:complexType>
+  
+  <xsd:element name="responseDELEMR" type="responseDELEMRType" />
+  <xsd:complexType name="responseDELEMRType" >
+    <xsd:complexContent>
+      <xsd:extension base="commonResponseFiledsType">
+        <xsd:sequence />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  
+  <xsd:complexType name="MRListDELEMRType" >
+    <xsd:sequence>
+      <xsd:element name="MR" type="MRDELEMRType" minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="MRDELEMRType" >
+    <xsd:sequence>
+      <xsd:element name="serial" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="householdViewType" >
+    <xsd:sequence>
+      <xsd:element name="account" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="hhidscms" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="MRList" type="MRListType" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="MRListType" >
+    <xsd:sequence>
+      <xsd:element name="MR" type="MRType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="MRType" >
+    <xsd:sequence>
+      <xsd:element name="serial" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="chipID" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="activationDate" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

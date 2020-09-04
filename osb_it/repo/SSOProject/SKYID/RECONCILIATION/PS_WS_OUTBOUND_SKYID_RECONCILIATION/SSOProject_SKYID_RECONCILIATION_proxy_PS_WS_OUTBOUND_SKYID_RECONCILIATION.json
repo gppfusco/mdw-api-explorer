@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/SSO/WS_OUTBOUND_SKYID_RECONCILIATION",
+    "name" : "SSOProject_SKYID_RECONCILIATION_proxy_PS_WS_OUTBOUND_SKYID_RECONCILIATION",
+    "localPath" : "osb_it\\repo\\SSOProject\\SKYID\\RECONCILIATION\\PS_WS_OUTBOUND_SKYID_RECONCILIATION",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/SSO/WS_OUTBOUND_SKYID_RECONCILIATION?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

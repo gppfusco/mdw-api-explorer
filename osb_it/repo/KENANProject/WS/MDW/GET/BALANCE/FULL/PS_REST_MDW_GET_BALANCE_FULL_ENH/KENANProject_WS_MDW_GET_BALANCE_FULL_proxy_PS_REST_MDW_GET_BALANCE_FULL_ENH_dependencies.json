@@ -1,0 +1,176 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_MDW_GET_BALANCE_FULL_proxy_PS_REST_MDW_GET_BALANCE_FULL_ENH",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/KENANProject/WS_MDW_GET_BALANCE_FULL/pipeline/PL_REST_MDW_KN_GET_BALANCE_FULL_ENH" : {
+        "label" : "Pipeline/KENANProject/WS_MDW_GET_BALANCE_FULL/pipeline/PL_REST_MDW_KN_GET_BALANCE_FULL_ENH",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createResponseGetBalanceFull" : {
+            "label" : "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createResponseGetBalanceFull",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_BILL_PAYMENT/transformations/createRequestBillCheck_FattureRecentiAperte" : {
+            "label" : "Xquery/KENANProject/WS_BILL_PAYMENT/transformations/createRequestBillCheck_FattureRecentiAperte",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_KNN_GET_FATTURE_RECENTI_APERTE" : {
+            "label" : "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_KNN_GET_FATTURE_RECENTI_APERTE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/KENANProject/Resources/PS_REST_MDW_GET_BALANCE_FULL_ENH" : {
+            "label" : "WSDL/KENANProject/Resources/PS_REST_MDW_GET_BALANCE_FULL_ENH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createRequestSFRecuperaInfo" : {
+            "label" : "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createRequestSFRecuperaInfo",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+            "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/KENANProject/WS_BILL_PAYMENT/pipeline/PL_INTERNAL_GET_CANONI_PENALI" : {
+            "label" : "Pipeline/KENANProject/WS_BILL_PAYMENT/pipeline/PL_INTERNAL_GET_CANONI_PENALI",
+            "properties" : { },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_GET_CANONI_PENALI" : {
+                "label" : "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_GET_CANONI_PENALI",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/KENANProject/Resources/BS_SQL_GET_CANONI_PENALI/concrete" : {
+                "label" : "WSDL/KENANProject/Resources/BS_SQL_GET_CANONI_PENALI/concrete",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/KENANProject/WS_BILL_PAYMENT/pipeline/PL_INTERNAL_GET_BALANCE" : {
+            "label" : "Pipeline/KENANProject/WS_BILL_PAYMENT/pipeline/PL_INTERNAL_GET_BALANCE",
+            "properties" : { },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/KENANProject/Resources/BS_SQL_GET_BALANCE/concrete" : {
+                "label" : "WSDL/KENANProject/Resources/BS_SQL_GET_BALANCE/concrete",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_GET_BALANCE" : {
+                "label" : "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_GET_BALANCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL" : {
+            "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL",
+            "properties" : {
+              "transport-type" : "local",
+              "nodeType" : "Proxy",
+              "service-type" : "SOAP"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+                "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+                "properties" : { },
+                "successors" : {
+                  "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                    "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                    "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                    "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          },
+          "Xquery/KENANProject/WS_BILL_PAYMENT/transformations/createRequestGetCanoniPenali" : {
+            "label" : "Xquery/KENANProject/WS_BILL_PAYMENT/transformations/createRequestGetCanoniPenali",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createRequest_SQL_GET_BALANCE" : {
+            "label" : "Xquery/KENANProject/WS_MDW_GET_BALANCE_FULL/transformations/createRequest_SQL_GET_BALANCE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/KENANProject/Resources/PS_REST_MDW_GET_BALANCE_FULL_ENH" : {
+        "label" : "WSDL/KENANProject/Resources/PS_REST_MDW_GET_BALANCE_FULL_ENH",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

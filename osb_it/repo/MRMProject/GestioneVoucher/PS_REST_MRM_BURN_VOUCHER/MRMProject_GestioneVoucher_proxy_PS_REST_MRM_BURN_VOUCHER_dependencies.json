@@ -1,0 +1,75 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MRMProject_GestioneVoucher_proxy_PS_REST_MRM_BURN_VOUCHER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/MRMProject/Resources/PS_REST_MRM_VOUCHER_HANDLER" : {
+        "label" : "WSDL/MRMProject/Resources/PS_REST_MRM_VOUCHER_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MRMProject/GestioneVoucher/pipeline/PL_REST_MRM_VOUCHER_HANDLER" : {
+        "label" : "Pipeline/MRMProject/GestioneVoucher/pipeline/PL_REST_MRM_VOUCHER_HANDLER",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MRMProject/Resources/PS_REST_MRM_VOUCHER_HANDLER" : {
+            "label" : "WSDL/MRMProject/Resources/PS_REST_MRM_VOUCHER_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MRMProject/GestioneVoucher/transformations/createRequestVMS_BURNTCKPART" : {
+            "label" : "Xquery/MRMProject/GestioneVoucher/transformations/createRequestVMS_BURNTCKPART",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/MRMProject/GestioneVoucher/pipeline/PL_VMS_BURN_VOUCHER" : {
+            "label" : "Pipeline/MRMProject/GestioneVoucher/pipeline/PL_VMS_BURN_VOUCHER",
+            "properties" : { },
+            "successors" : {
+              "Xquery/MRMProject/GestioneVoucher/transformations/createRequestEnqueueBurnVoucherCRM" : {
+                "label" : "Xquery/MRMProject/GestioneVoucher/transformations/createRequestEnqueueBurnVoucherCRM",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MRMProject/GestioneVoucher/businessService/BS_TUXEDO_VMS_BURNTCKPART" : {
+                "label" : "BusinessService/MRMProject/GestioneVoucher/businessService/BS_TUXEDO_VMS_BURNTCKPART",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "BusinessService/MRMProject/GestioneVoucher/businessService/BS_JMS_ENQUEUE_VOUCHER_NOTIFICA_FIRST" : {
+                "label" : "BusinessService/MRMProject/GestioneVoucher/businessService/BS_JMS_ENQUEUE_VOUCHER_NOTIFICA_FIRST",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MRMProject/Resources/PS_REST_MRM_VOUCHER_HANDLER" : {
+                "label" : "WSDL/MRMProject/Resources/PS_REST_MRM_VOUCHER_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

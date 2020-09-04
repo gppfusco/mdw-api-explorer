@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "ETDSProject_ETDSSubmit_proxy_PS_WS_ETDS_SUBMIT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/ETDSProject/ETDSSubmit/pipeline/PL_WS_ETDS_SUBMIT" : {
+        "label" : "Pipeline/ETDSProject/ETDSSubmit/pipeline/PL_WS_ETDS_SUBMIT",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/ETDSProject/ETDSSubmit/wsdl/WS_ETDS_SUBMIT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/ETDSProject/ETDSSubmit/wsdl/WS_ETDS_SUBMIT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/ETDSProject/ETDSSubmit/pipeline/PL_INTERNAL_ETDS_SUBMIT_INSERT_TEAM_MEMBER" : {
+            "label" : "Pipeline/ETDSProject/ETDSSubmit/pipeline/PL_INTERNAL_ETDS_SUBMIT_INSERT_TEAM_MEMBER",
+            "properties" : { },
+            "successors" : {
+              "Xquery/ETDSProject/ETDSSubmit/transformation/createResponse_InsertTeamMembers" : {
+                "label" : "Xquery/ETDSProject/ETDSSubmit/transformation/createResponse_InsertTeamMembers",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/ETDSProject/ETDSSubmit/wsdl/WS_ETDS_SUBMIT" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/ETDSProject/ETDSSubmit/wsdl/WS_ETDS_SUBMIT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/ETDSProject/ETDSSubmit/businessServices/BS_REST_ETDS_INSERT_TEAM_MEMBERS" : {
+                "label" : "BusinessService/ETDSProject/ETDSSubmit/businessServices/BS_REST_ETDS_INSERT_TEAM_MEMBERS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/ETDSProject/ETDSSubmit/transformation/createRequest_InsertTeamMembers" : {
+                "label" : "Xquery/ETDSProject/ETDSSubmit/transformation/createRequest_InsertTeamMembers",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/ETDSProject/ETDSSubmit/wsdl/WS_ETDS_SUBMIT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/ETDSProject/ETDSSubmit/wsdl/WS_ETDS_SUBMIT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data">
+      
+      <xsd:complexType name="requestEnrollNetflixtype">
+      <xsd:sequence>
+             <xsd:element name="eventType">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="Price"/>
+                    <xsd:enumeration value="Plan"/>
+                    <xsd:enumeration value="New"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+               </xsd:element>
+               <xsd:element name="netflixOfferId">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="2S"/>
+                    <xsd:enumeration value="4S"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+               </xsd:element>
+               <xsd:element name="netflixBaseOfferID">
+                <xsd:simpleType>
+                  <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="2S"/>
+                    <xsd:enumeration value="4S"/>
+                  </xsd:restriction>
+                </xsd:simpleType>
+               </xsd:element>
+               <xsd:element name="billingStartDate" type="xsd:string"/>
+               <xsd:element name="countryPartner" type="xsd:string"/>
+               <xsd:element name="mdwTidEnroll" type="xsd:string"/>
+               <xsd:element name="netflixEmail" type="xsd:string"/>
+               <xsd:element name="pai" type="xsd:string"/>
+     </xsd:sequence>
+    </xsd:complexType> 
+    <xsd:complexType name="requestCancelNetflixType">
+      <xsd:sequence>
+        <xsd:element name="effectiveDate" type="xsd:string"/>
+        <xsd:element name="mdwTidCancel" type="xsd:string"/>
+      <xsd:element name="cancelReason">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="CustomerRequestedCancel"/>
+           <xsd:enumeration value="PaymentInstrumentFailure"/>
+           <xsd:enumeration value="CustomerSwitchedBundle"/>
+           <xsd:enumeration value="Other"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="pai" type="xsd:string"/>
+    </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="responseType">
+      <xsd:sequence>
+        <xsd:element name="esito" type="xsd:string"/>
+        <xsd:element name="descrizioneEsito" type="xsd:string"/>
+        <xsd:element name="tid" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="requestEnrollNetflix" type="requestEnrollNetflixtype"/>
+    <xsd:element name="requestCancelNetflix" type="requestCancelNetflixType"/>
+    <xsd:element name="responseEnrollNetflix" type="responseType"/>
+    <xsd:element name="responseCancelNetflix" type="responseType"/>
+</xsd:schema>

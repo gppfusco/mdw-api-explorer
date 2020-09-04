@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+    <xsd:element name="requestCPEFirstBoot" type="requestCPEFirstBootType"/>
+
+    <xsd:complexType name="requestCPEFirstBootType">
+      <xsd:sequence>
+        <xsd:element name="IntegrationId" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="firstBootDate" type="xsd:dateTime" minOccurs="1"/>
+        <xsd:element name="attributes" type="attributesType" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="attributesType">
+      <xsd:sequence>
+        <xsd:element name="attribute" type="attributeType" minOccurs="0" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="attributeType">
+      <xsd:sequence>
+        <xsd:element name="name" type="xsd:string" minOccurs="1"/>
+        <xsd:element name="value" type="xsd:string" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:element name="responseCPEFirstBoot" type="xsd:string"/>
+    
+</xsd:schema>

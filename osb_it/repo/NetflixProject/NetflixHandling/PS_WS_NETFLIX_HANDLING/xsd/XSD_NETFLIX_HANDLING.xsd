@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+            
+            
+  <xsd:complexType name="requestUpgradeNetflixType">
+  
+  
+    <xsd:sequence>
+      <xsd:element name="contactId" type="xsd:string"/>
+      <xsd:element name="contractId">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      
+      
+      <xsd:element name="netflixPack">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Standard"/>
+            <xsd:enumeration value="Premium"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      
+      <xsd:element name="orderId" type="xsd:string"/>
+      
+      <xsd:element name="EventType">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="New"/>
+            <xsd:enumeration value="Plan"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      
+      <xsd:element name="billingAccountID" type="xsd:string" />
+      
+      <xsd:element name="netflixBasePack">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Standard"/>
+            <xsd:enumeration value="Premium"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:complexType name="requestDowngradeNetflixType">
+    <xsd:sequence>
+      <xsd:element name="contractId">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="orderId" type="xsd:string"/>
+      
+      <xsd:element name="cancelReason">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Cancel"/>
+            <xsd:enumeration value="Switched"/>
+            <xsd:enumeration value="Payment"/>
+            <xsd:enumeration value="Other"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:complexType name="responseNetflixType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" />
+      <xsd:element name="descrizioneEsito" type="xsd:string" />
+      <xsd:element name="tid" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:element name="requestUpgradeNetflix" type="requestUpgradeNetflixType"/>
+  <xsd:element name="requestDowngradeNetflix" type="requestDowngradeNetflixType"/>
+  <xsd:element name="responseUpgradeNetflix" type="responseNetflixType"/>
+  <xsd:element name="responseDowngradeNetflix" type="responseNetflixType"/>
+  
+  
+</xsd:schema>

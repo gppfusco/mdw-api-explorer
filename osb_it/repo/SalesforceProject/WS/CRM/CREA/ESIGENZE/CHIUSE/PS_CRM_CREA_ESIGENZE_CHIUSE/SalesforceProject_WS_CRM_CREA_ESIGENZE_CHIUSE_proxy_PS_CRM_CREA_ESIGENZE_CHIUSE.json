@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_CREA_ESIGENZE_CHIUSE",
+    "name" : "SalesforceProject_WS_CRM_CREA_ESIGENZE_CHIUSE_proxy_PS_CRM_CREA_ESIGENZE_CHIUSE",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\CREA\\ESIGENZE\\CHIUSE\\PS_CRM_CREA_ESIGENZE_CHIUSE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_CREA_ESIGENZE_CHIUSE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/CreaEsigenzeChiuse/xsd/XSD_CRM_CREA_ESIGENZE_CHIUSE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestRetrieveODSType">
+		<xsd:sequence>
+			<xsd:element name="OrderNumber" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestRetrieveODS" type="requestRetrieveODSType"/>
+	<xsd:element name="requestRetrieveODSTibcoSiebel" type="requestRetrieveODSType"/>
+	<xsd:complexType name="responseRetrieveODSType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListaODS" type="ListaODSType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListaODSType">
+		<xsd:sequence>
+			<xsd:element name="OSD" type="ODSType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ODSType">
+		<xsd:sequence>
+			<xsd:element name="NumeroOds" type="xsd:string"/>
+			<xsd:element name="Stato" type="xsd:string"/>
+			<xsd:element name="Sottostato" type="xsd:string"/>
+			<xsd:element name="DataCreazione" type="xsd:string"/>
+			<xsd:element name="DataUltimaModifica" type="xsd:string"/>
+			<xsd:element name="StatoRichiestaLogistica" type="xsd:string"/>
+			<xsd:element name="Sistema" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ChangeOrder" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataCreazioneCO" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StatoCO" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SottostatoCO" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoCO" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListaMatricole" type="ListaMatricoleType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListaMatricoleType">
+		<xsd:sequence>
+			<xsd:element name="Matricola" type="MatricolaType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MatricolaType">
+		<xsd:sequence>
+			<xsd:element name="Matricola" type="xsd:string"/>
+			<xsd:element name="TipoApparato" type="xsd:string"/>
+			<xsd:element name="CodiceParte" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseRetrieveODS" type="responseRetrieveODSType"/>
+	<xsd:element name="responseRetrieveODSTibcoSiebel" type="responseRetrieveODSType"/>
+</xsd:schema>

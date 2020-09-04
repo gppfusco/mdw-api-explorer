@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_GET_LISTA_COUNTRY_proxy_PS_WS_CRM_GET_LISTA_COUNTRY",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GetListaCountry/wsdl/WS_CRM_GET_LISTA_COUNTRY" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GetListaCountry/wsdl/WS_CRM_GET_LISTA_COUNTRY",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/WS_CRM_GET_LISTA_COUNTRY/pipeline/PL_WS_CRM_GET_LISTA_COUNTRY" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_GET_LISTA_COUNTRY/pipeline/PL_WS_CRM_GET_LISTA_COUNTRY",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/SalesforceProject/WS_CRM_GET_LISTA_COUNTRY/transformations/createRequest_GetListaCountry" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_GET_LISTA_COUNTRY/transformations/createRequest_GetListaCountry",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GetListaCountry/wsdl/WS_CRM_GET_LISTA_COUNTRY" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GetListaCountry/wsdl/WS_CRM_GET_LISTA_COUNTRY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_GET_LISTA_COUNTRY/transformations/createResponse_GetListaCountry" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_GET_LISTA_COUNTRY/transformations/createResponse_GetListaCountry",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

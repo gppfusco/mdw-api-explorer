@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestScheduleCancellationFVType">
+		<xsd:sequence>
+			<xsd:element name="TIBCOOrderId" type="xsd:string"/>
+			<xsd:element name="OrderNumber" type="xsd:string"/>
+			<xsd:element name="OrderRef" type="xsd:string"/>
+			<xsd:element name="Operation" type="operationType"/>
+			<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestScheduleCancellationFV" type="requestScheduleCancellationFVType"/>
+	<xsd:element name="responseScheduleCancellationFV" type="responseScheduleCancellationFVType"/>
+	<xsd:complexType name="responseScheduleCancellationFVType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string"/>
+			<xsd:element name="ListProductCode" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ProductCode" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ListSMC" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ItemSMC" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="EntitlementType" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="SerialNumber" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="operationType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CEASE_BILLING"/>
+			<xsd:enumeration value="CEASE_CONTRACT"/>
+			<xsd:enumeration value="SUSPEND_CONTRACT"/>
+                        <xsd:enumeration value="RESUME_CONTRACT"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

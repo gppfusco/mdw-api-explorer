@@ -1,0 +1,88 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MagentoProject_tes_marber_PS_REST_MAGENTO_NOWTV_BUNDLE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/MagentoProject/Resources/PS_REST_MAGENTO_NOWTV_BUNDLE" : {
+        "label" : "WSDL/MagentoProject/Resources/PS_REST_MAGENTO_NOWTV_BUNDLE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MagentoProject/nowtvBundleFastweb/pipeline/PL_WS_MAGENTO_NOWTV_BUNDLE_ROUTING" : {
+        "label" : "Pipeline/MagentoProject/nowtvBundleFastweb/pipeline/PL_WS_MAGENTO_NOWTV_BUNDLE_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/MagentoProject/nowtvBundleFastweb/pipeline/PL_WS_MAGENTO_NOWTV_BUNDLE_CheckElegibililta" : {
+            "label" : "Pipeline/MagentoProject/nowtvBundleFastweb/pipeline/PL_WS_MAGENTO_NOWTV_BUNDLE_CheckElegibililta",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/nowtvBundleFastweb/wsdl/WS_MAGENTO_NOWTV_BUNDLE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/nowtvBundleFastweb/wsdl/WS_MAGENTO_NOWTV_BUNDLE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/MAGENTO/nowtvBundleFastweb/xsd/XSD_MAGENTO_checkEligibility" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/MAGENTO/nowtvBundleFastweb/xsd/XSD_MAGENTO_checkEligibility",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MagentoProject/nowtvBundleFastweb/businessServices/BS_TEXT_MAGENTO_IN_AND_OUT" : {
+                "label" : "BusinessService/MagentoProject/nowtvBundleFastweb/businessServices/BS_TEXT_MAGENTO_IN_AND_OUT",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MagentoProject/Resources/PS_REST_MAGENTO_NOWTV_BUNDLE" : {
+            "label" : "WSDL/MagentoProject/Resources/PS_REST_MAGENTO_NOWTV_BUNDLE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/MagentoProject/nowtvBundleFastweb/pipeline/PL_WS_MAGENTO_NOWTV_BUNDLE_ENQUEUE_RichiestaAttivazione" : {
+            "label" : "Pipeline/MagentoProject/nowtvBundleFastweb/pipeline/PL_WS_MAGENTO_NOWTV_BUNDLE_ENQUEUE_RichiestaAttivazione",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/nowtvBundleFastweb/wsdl/WS_MAGENTO_NOWTV_BUNDLE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MagentoProject/nowtvBundleFastweb/wsdl/WS_MAGENTO_NOWTV_BUNDLE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MagentoProject/nowtvBundleFastweb/businessServices/BS_JMS_MAGENTO" : {
+                "label" : "BusinessService/MagentoProject/nowtvBundleFastweb/businessServices/BS_JMS_MAGENTO",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

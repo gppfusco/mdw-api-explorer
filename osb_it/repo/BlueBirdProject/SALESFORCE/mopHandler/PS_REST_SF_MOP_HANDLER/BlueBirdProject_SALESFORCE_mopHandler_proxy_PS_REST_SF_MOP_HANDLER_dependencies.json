@@ -1,0 +1,97 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_mopHandler_proxy_PS_REST_SF_MOP_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/SALESFORCE/mopHandler/pipeline/PL_REST_SF_MOP_HANDLER" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/mopHandler/pipeline/PL_REST_SF_MOP_HANDLER",
+        "properties" : { },
+        "successors" : {
+          "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createRequestCloneMop" : {
+            "label" : "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createRequestCloneMop",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createResponseGetCompatibleMOPs" : {
+            "label" : "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createResponseGetCompatibleMOPs",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createRequestMopHandler" : {
+            "label" : "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createRequestMopHandler",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createResponseCloneMop" : {
+            "label" : "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createResponseCloneMop",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createRequestGetCompatibleMOPs" : {
+            "label" : "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createRequestGetCompatibleMOPs",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_SF_MOP_HANDLER" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_MOP_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createResponseMopHandler" : {
+            "label" : "Xquery/BlueBirdProject/SALESFORCE/mopHandler/tranformations/createResponseMopHandler",
+            "properties" : { },
+            "successors" : { }
+          },
+          "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL" : {
+            "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+                "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/BlueBirdProject/Resources/PS_REST_SF_MOP_HANDLER" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_MOP_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

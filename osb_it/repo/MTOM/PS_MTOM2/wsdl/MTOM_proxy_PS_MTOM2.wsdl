@@ -1,0 +1,36 @@
+<wsdl:definitions name="MTOMService" targetNamespace="http://oracle.com/sca/soapservice/ContentServer/MTOMService/MTOMService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:inp1="http://www.darwin-it.nl/MTOM" xmlns:tns="http://oracle.com/sca/soapservice/ContentServer/MTOMService/MTOMService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.darwin-it.nl/MTOM" schemaLocation="../xsd/MTOMRequestResponse.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="part1" element="inp1:mtomRequest"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="part1" element="inp1:mtomResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="execute_ptt">
+        <wsdl:operation name="execute">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="execute_pttSOAP11Binding" type="tns:execute_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute">
+            <soap:operation style="document" soapAction="http://oracle.com/sca/soapservice/ContentServer/MTOMService/MTOMService/execute"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part1"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part1"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="execute_ptt">
+        <wsdl:port name="execute_pttPort" binding="tns:execute_pttSOAP11Binding">
+            <soap:address location="http://www.example.com"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,58 @@
+<wsdl:definitions name="WS_OM_TYO" targetNamespace="http://www.skytv.it/mdw/service/WS_OM_TYO" xmlns:tns="http://www.skytv.it/mdw/service/WS_OM_TYO" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_OM_TYO.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="headerMessage">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:message name="requestMessageGetOrderTracking">
+        <wsdl:part name="part_requestGetOrderTracking" element="inp1:requestGetOrderTracking"/> 
+    </wsdl:message>
+    <wsdl:message name="replyMessageGetOrderTracking">
+        <wsdl:part name="part_responseGetOrderTracking" element="inp1:responseGetOrderTrackingSoap"/>
+    </wsdl:message>
+    <wsdl:message name="requestMessageGetOrderTrackingDetails">
+        <wsdl:part name="part_requestGetOrderTracking" element="inp1:requestGetOrderTrackingDetails"/> 
+    </wsdl:message>
+    <wsdl:message name="replyMessageGetOrderTrackingDetails">
+        <wsdl:part name="part_responseGetOrderTracking" element="inp1:responseGetOrderTrackingDetailsSoap"/>
+    </wsdl:message>
+    <wsdl:portType name="ptt_OM_TYO">
+        <wsdl:operation name="execute_GetOrderTracking">
+            <wsdl:input message="tns:requestMessageGetOrderTracking"/>
+            <wsdl:output message="tns:replyMessageGetOrderTracking"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_GetOrderTrackingDetails">
+            <wsdl:input message="tns:requestMessageGetOrderTrackingDetails"/>
+            <wsdl:output message="tns:replyMessageGetOrderTrackingDetails"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="bind_OM_TYO" type="tns:ptt_OM_TYO">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_GetOrderTracking">
+            <soap:operation style="document" soapAction="execute_GetOrderTracking"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/OSB_SVIL/MDW_CDM/WS_OM_TYO"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/OSB_SVIL/MDW_CDM/WS_OM_TYO"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_GetOrderTrackingDetails">
+            <soap:operation style="document" soapAction="execute_GetOrderTrackingDetails"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/OSB_SVIL/MDW_CDM/WS_OM_TYO"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/OSB_SVIL/MDW_CDM/WS_OM_TYO"/>
+                <soap:header message="tns:headerMessage" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

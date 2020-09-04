@@ -1,0 +1,78 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_KENAN_invoiceInfos_proxy_PS_REST_KENAN_INVOICE_INFO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_INFO" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_INFO",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/KENAN/invoiceInfos/pipeline/PL_KENAN_INVOICE_INFO" : {
+        "label" : "Pipeline/BlueBirdProject/KENAN/invoiceInfos/pipeline/PL_KENAN_INVOICE_INFO",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_INFO" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_INFO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/KENAN/invoiceInfos/pipeline/PL_KENAN_INVOICE_INFO_firstinvoiceemissiondate" : {
+            "label" : "Pipeline/BlueBirdProject/KENAN/invoiceInfos/pipeline/PL_KENAN_INVOICE_INFO_firstinvoiceemissiondate",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/BlueBirdProject/KENAN/invoiceInfos/businessservice/BS_SQL_KENAN_FIRST_EMISSION_DATE" : {
+                "label" : "BusinessService/BlueBirdProject/KENAN/invoiceInfos/businessservice/BS_SQL_KENAN_FIRST_EMISSION_DATE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_INFO" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_INFO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/invoiceInfos/transfornation/reateResponse_WS_firstinvoiceemissiondate" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/invoiceInfos/transfornation/reateResponse_WS_firstinvoiceemissiondate",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/invoiceInfos/transfornation/createRequest_BS_firstinvoiceemissiondate" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/invoiceInfos/transfornation/createRequest_BS_firstinvoiceemissiondate",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/BlueBirdProject/Resources/BS_SQL_KENAN_FIRST_EMISSION_DATE" : {
+                "label" : "XMLSchema/BlueBirdProject/Resources/BS_SQL_KENAN_FIRST_EMISSION_DATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

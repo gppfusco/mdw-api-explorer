@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data">
+  <xsd:element name="requestAlignScenarioResubmissionWithFunctionalKeys" type="requestAlignScenarioResubmissionWithFunctionalKeysType"/>
+  <xsd:element name="requestAlignScenarioResubmissionWithTechnicalKeys" type="requestAlignScenarioResubmissionWithTechnicalKeysType"/>
+  <xsd:element name="responseAlignScenarioResubmission" type="responseAlignScenarioResubmissionType"/>
+  <xsd:complexType name="requestAlignScenarioResubmissionWithFunctionalKeysType">
+    <xsd:sequence>
+      <xsd:element name="functionalEntityKeys" type="functionalEntityKeysType"/>
+      <xsd:element name="scenarioId" type="xsd:string"/>
+      <xsd:element name="correlationId" type="xsd:string"/>
+      <xsd:element name="systemSender" type="systemSenderType"/>
+      <xsd:element name="orderFlag" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestAlignScenarioResubmissionWithTechnicalKeysType">
+    <xsd:sequence>
+      <xsd:element name="technicalEntityKeys" type="technicalEntityKeysType"/>
+      <xsd:element name="scenarioId" type="xsd:string"/>
+      <xsd:element name="correlationId" type="xsd:string"/>
+      <xsd:element name="systemSender" type="systemSenderType"/>
+      <xsd:element name="orderFlag" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="submissionDate" type="xsd:dateTime"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="functionalEntityKeysType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="billID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contrNameServiceAccountMigrated" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contactFiscalCode" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="technicalEntityKeysType">
+    <xsd:sequence>
+      <xsd:element name="customerAccountId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="billingAccountId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contractId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contactId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="paymentAdjustmentId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="paymentMethodId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contractBundleId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="orderId" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="systemSenderType" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="KENAN"/>
+      <xsd:enumeration value="SPY"/>
+      <xsd:enumeration value="VISP"/>
+      <xsd:enumeration value="TUX_STAMPA"/>
+      <xsd:enumeration value="KENAN_SF_TRANSITORIO"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="responseAlignScenarioResubmissionType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" maxOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" maxOccurs="1"/>
+      <xsd:element name="tid" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSB_SVIL/TestMario/PS_REST_DYNAMIC_ELEMENTS" xmlns:ns0="http://www.example.org" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_DYNAMIC_ELEMENTS">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.example.org" schemaLocation="../DynamicElements/xsd/XSD_DYNAMIC_ELEMENTS.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/dynamicElements">
+         <method name="POST" soa:wsdlOperation="OpDynElements">
+            <request>
+               <representation mediaType="application/json" element="cns:requestDynamicElements" xmlns:cns="http://www.example.org"/>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+   </resources>
+</application>

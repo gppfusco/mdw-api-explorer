@@ -1,0 +1,138 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_CRM_GESTIONE_DISPOSIZIONI_PAG_proxy_PS_WS_CRM_GESTIONE_DISPOSIZIONI_PAG",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/pipelines/PL_CRM_GESTIONE_DISPOSIZIONI" : {
+        "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/pipelines/PL_CRM_GESTIONE_DISPOSIZIONI",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/pipelines/PL_CRM_GEST_DISPOSIZIONI_getDettaglioDisposizioni" : {
+            "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/pipelines/PL_CRM_GEST_DISPOSIZIONI_getDettaglioDisposizioni",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/businessService/BS_SQL_GET_DISPOSIZIONI_DETTAGLIO" : {
+                "label" : "BusinessService/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/businessService/BS_SQL_GET_DISPOSIZIONI_DETTAGLIO",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createResponseGetDettaglioDisposizioni" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createResponseGetDettaglioDisposizioni",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createRequestGetDettaglioDisposizioni" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createRequestGetDettaglioDisposizioni",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneDisposizioni/wsdl/WS_CRM_GESTIONE_DISPOSIZIONI_PAG" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneDisposizioni/wsdl/WS_CRM_GESTIONE_DISPOSIZIONI_PAG",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/pipelines/PL_CRM_GEST_DISPOSIZIONI_getDisposizioniByFattura" : {
+            "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/pipelines/PL_CRM_GEST_DISPOSIZIONI_getDisposizioniByFattura",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createResponseGetDisposizioniByFattura" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createResponseGetDisposizioniByFattura",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/businessService/BS_SQL_GET_DISPOSIZIONI_BY_FATTURA" : {
+                "label" : "BusinessService/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/businessService/BS_SQL_GET_DISPOSIZIONI_BY_FATTURA",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createRequestGetDisposizioniByFattura" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createRequestGetDisposizioniByFattura",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneDisposizioni/wsdl/WS_CRM_GESTIONE_DISPOSIZIONI_PAG" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneDisposizioni/wsdl/WS_CRM_GESTIONE_DISPOSIZIONI_PAG",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/pipelines/PL_CRM_GEST_DISPOSIZIONI_getDisposizioni" : {
+            "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/pipelines/PL_CRM_GEST_DISPOSIZIONI_getDisposizioni",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createRequestGetDisposizioni" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createRequestGetDisposizioni",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/businessService/BS_SQL_GET_DISPOSIZIONI" : {
+                "label" : "BusinessService/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/businessService/BS_SQL_GET_DISPOSIZIONI",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createResponseGetDisposizioni" : {
+                "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_DISPOSIZIONI_PAG/transformations/createResponseGetDisposizioni",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneDisposizioni/wsdl/WS_CRM_GESTIONE_DISPOSIZIONI_PAG" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneDisposizioni/wsdl/WS_CRM_GESTIONE_DISPOSIZIONI_PAG",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneDisposizioni/wsdl/WS_CRM_GESTIONE_DISPOSIZIONI_PAG" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneDisposizioni/wsdl/WS_CRM_GESTIONE_DISPOSIZIONI_PAG",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneDisposizioni/wsdl/WS_CRM_GESTIONE_DISPOSIZIONI_PAG" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneDisposizioni/wsdl/WS_CRM_GESTIONE_DISPOSIZIONI_PAG",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

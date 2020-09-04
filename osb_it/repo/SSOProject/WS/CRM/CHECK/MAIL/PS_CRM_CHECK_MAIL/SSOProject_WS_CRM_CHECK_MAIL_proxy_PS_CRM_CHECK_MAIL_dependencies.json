@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SSOProject_WS_CRM_CHECK_MAIL_proxy_PS_CRM_CHECK_MAIL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SSOProject/WS_CRM_CHECK_MAIL/pipeline/PL_SSO_CHECK_MAIL" : {
+        "label" : "Pipeline/SSOProject/WS_CRM_CHECK_MAIL/pipeline/PL_SSO_CHECK_MAIL",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SSOProject/CheckMail/wsdl/WS_CRM_CHECK_MAIL" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SSOProject/CheckMail/wsdl/WS_CRM_CHECK_MAIL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SSOProject/WS_CRM_CHECK_MAIL/transformations/createRequestCheckMail" : {
+            "label" : "Xquery/SSOProject/WS_CRM_CHECK_MAIL/transformations/createRequestCheckMail",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SSOProject/WS_CRM_CHECK_MAIL/transformations/createResponseCheckMail" : {
+            "label" : "Xquery/SSOProject/WS_CRM_CHECK_MAIL/transformations/createResponseCheckMail",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SSOProject/WS_CRM_CHECK_MAIL/businessService/BS_SSO_CHECK_MAIL" : {
+            "label" : "BusinessService/SSOProject/WS_CRM_CHECK_MAIL/businessService/BS_SSO_CHECK_MAIL",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SSOProject/CheckMail/wsdl/WS_CRM_CHECK_MAIL" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SSOProject/CheckMail/wsdl/WS_CRM_CHECK_MAIL",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

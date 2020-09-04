@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/TestMario/TestGZIP/PS_GZIP_TEST",
+    "name" : "TestMario_TestGZIP_PS_GZIP_TEST",
+    "localPath" : "osb_it\\repo\\TestMario\\TestGZIP\\GZIP_TEST",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/wsc/WS_CRM_WSC_COBROWSING",
+    "name" : "WSCProject_WS_CRM_WSC_COBROWSING_proxy_PS_WS_CRM_WSC_COBROWSING",
+    "localPath" : "osb_it\\repo\\WSCProject\\WS\\CRM\\WSC\\COBROWSING\\PS_WS_CRM_WSC_COBROWSING",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/wsc/WS_CRM_WSC_COBROWSING?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/WSCProject/WS_CRM_WSC_COBROWSING/xsd/XSD_CRM_WSC_COBROWSING",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

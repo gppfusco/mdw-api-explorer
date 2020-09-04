@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestVerifyMigrationCode" type="requestVerifyMigrationCodeType"/>
+  <xsd:element name="responseVerifyMigrationCode" type="responseVerifyMigrationCodeType"/>
+  <xsd:element name="requestGenerateMigrationCode" type="requestGenerateMigrationCodeType"/>
+  <xsd:element name="responseGenerateMigrationCode" type="responseGenerateMigrationCodeType"/>
+  <xsd:element name="responseVerifyMigrationCodeSoap" type="responseVerifyMigrationCodeSoapType"/>
+  <xsd:element name="responseGenerateMigrationCodeSoap" type="responseGenerateMigrationCodeSoapType"/>
+  <xsd:element name="requestNotifyMigrationCode" type="requestNotifyMigrationCodeType"/>
+  <xsd:element name="responseNotifyMigrationCode" type="responseNotifyMigrationCodeType"/>
+  <xsd:element name="requestPhase3MigrationNotification" type="requestPhase3MigrationNotificationType"/>
+  <xsd:element name="responsePhase3MigrationNotification" type="responsePhase3MigrationNotificationType"/>
+  <xsd:element name="migrationCode" type="migrationCodeResultType"/>
+  <xsd:complexType name="requestGenerateMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="cor" type="corMigrationCodeType"/>
+      <xsd:element name="cos" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="resultGenerateMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="migrationCode" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestVerifyMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="existingServiceType" type="xsd:string"/>
+      <xsd:element name="accessType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="offerRecipient" type="offerRecipientType"/>
+      <xsd:element name="wholesaler" type="xsd:string"/>
+      <xsd:element name="migrationCodes" type="migrationCodesType"/>
+      <xsd:element name="portabilityNumberFlg" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="migrationCodesType">
+    <xsd:sequence>
+      <xsd:element name="migrationCode" type="migrationCodeType" maxOccurs="2"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="migrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="migCode" type="xsd:string"/>
+      <xsd:element name="donatingOlo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="directoryNumbers" type="directoryNumbersType" minOccurs="0"/>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="directoryNumbersType">
+    <xsd:sequence>
+      <xsd:element name="directoryNumber" type="xsd:string" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="corMigrationCodeType" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="8"></xsd:minLength>
+      <xsd:maxLength value="13"></xsd:maxLength>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="responseVerifyMigrationCodeSoapType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element ref="responseVerifyMigrationCode" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGenerateMigrationCodeSoapType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element ref="responseGenerateMigrationCode" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseVerifyMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="verifyMigrationCodeResult" type="verifyMigrationCodeResultType" minOccurs="0"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="verifyMigrationCodeResultType">
+    <xsd:sequence>
+      <xsd:element name="migrationCodes" type="migrationCodesResultType" minOccurs="0"/>
+      <xsd:element name="orderType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="portabilityType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="verifiedServiceType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="reason" type="reasonType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="migrationCodesResultType">
+    <xsd:sequence>
+      <xsd:element name="migrationCode" type="migrationCodeResultType" maxOccurs="2"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="reasonType">
+    <xsd:sequence>
+      <xsd:element name="MIGRATION_CODE_DATA_IS_MISSING" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MIGRATION_CODE_VOICE_IS_MISSING" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN_OF_MIGRATION_CODE_DATA_IS_MISSING" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DN_OF_MIGRATION_CODE_VOICE_IS_MISSING" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="migrationCodeResultType">
+    <xsd:sequence>
+      <xsd:element name="migCode" type="xsd:string"/>
+      <xsd:element name="resultList" type="resultListType"/>
+      <xsd:element name="operatorForCow" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="technologyTypeForCos" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="cowOrigin" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="resultListType">
+    <xsd:sequence>
+      <xsd:element name="resultStep" type="resultStepType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="resultStepType">
+    <xsd:sequence>
+      <xsd:element name="code" type="xsd:string"/>
+      <xsd:element name="step" type="xsd:string"/>
+      <xsd:element name="severity" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGenerateMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="generateMigrationCodeResult" type="generateMigrationCodeResultType" minOccurs="0"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="generateMigrationCodeResultType">
+    <xsd:sequence>
+      <xsd:element name="migrationCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestNotifyMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="CustomerCode" type="xsd:string"/>
+      <xsd:element name="BB_ID" type="xsd:string"/>
+      <xsd:element name="ProjectCode" type="xsd:string"/>
+      <xsd:element name="StartDate" type="xsd:dateTime"/>
+      <xsd:element name="EndDate" type="xsd:dateTime"/>
+      <xsd:element name="Number" type="xsd:string"/>
+      <xsd:element name="From" type="xsd:string"/>
+      <xsd:element name="To" type="xsd:string"/>
+      <xsd:element name="Cor" type="xsd:string"/>
+      <xsd:element name="Cos" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseNotifyMigrationCodeType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestPhase3MigrationNotificationType">
+    <xsd:sequence>
+      <xsd:element name="CustomerCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BB_ID" type="xsd:string"/>
+      <xsd:element name="serviceCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OrderReferenceTICode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="resourceCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="sessionCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="resourceType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="notificationDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="droDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="notes" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="dacDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="routingNumberRecipient" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Dn0" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="requestTypeCode" type="xsd:string"/>
+      <xsd:element name="requestTypeDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="resultRequestCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="wholesalerId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RecOperatorCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="eventTime" type="xsd:dateTime" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responsePhase3MigrationNotificationType">
+    <xsd:sequence>
+      <xsd:element name="errorCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="errorDescription" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="offerRecipientType" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Dati"/>
+      <xsd:enumeration value="Voce"/>
+      <xsd:enumeration value="Dati+Voce"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

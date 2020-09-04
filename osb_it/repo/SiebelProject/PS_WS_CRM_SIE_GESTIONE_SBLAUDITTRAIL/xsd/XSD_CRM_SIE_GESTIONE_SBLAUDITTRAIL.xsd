@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetStoricoAuditTrailType">
+		<xsd:sequence>
+			<xsd:element name="Entita" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceEntita" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Campo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NuovoValore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="VecchioValore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetStoricoAuditTrail" type="requestGetStoricoAuditTrailType"/>
+	<xsd:complexType name="responseGetStoricoAuditTrailType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfStorico" type="ListOfStoricoType" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfStoricoType">
+		<xsd:sequence>
+			<xsd:element name="Storico" type="StoricoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="StoricoType">
+		<xsd:sequence>
+			<xsd:element name="CampoStoricizzato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataModifica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NuovoValore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Operatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Operazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="VecchioValore" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetStoricoAuditTrail" type="responseGetStoricoAuditTrailType"/>
+</xsd:schema>

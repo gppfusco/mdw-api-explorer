@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestRetrieveTimeSlot" type="requestRetrieveTimeSlotType"/>
+	<xsd:complexType name="requestRetrieveTimeSlotType">
+		<xsd:sequence>
+			<xsd:element name="contractCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="customerCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="channel" type="channelSimpleType" minOccurs="1"/>
+			<xsd:element name="ownerId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="typeRequest" type="typeRequestSimpleType"/>
+                        <xsd:element name="typeCustomer" type="typeCustomerSimpleType" minOccurs="0"/>
+			<xsd:element name="typeCase" type="typeCaseSimpleType" minOccurs="0"/>
+			<xsd:element name="caseId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseRetrieveTimeSlot" type="responseRetrieveTimeSlotType"/>
+	<xsd:complexType name="responseRetrieveTimeSlotType">
+		<xsd:sequence>
+			<xsd:element name="timeSlot" type="timeSlotResponseRetrieveType" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="timeSlotResponseRetrieveType">
+		<xsd:sequence>
+			<xsd:element name="appointments" type="appointmentsResponseRetrieveType" minOccurs="0"/>
+			<xsd:element name="talkedAngelTeam" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="availabilitiesAngel" type="availabilitiesAngelResponseRetrieveType" minOccurs="0"/>
+			<xsd:element name="availabilitiesTeam" type="availabilitiesTeamResponseRetrieveType" minOccurs="0"/>
+			<xsd:element name="availabilitiesTeamAll" type="availabilitiesTeamAllResponseRetrieveType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="appointmentsResponseRetrieveType">
+		<xsd:sequence>
+			<xsd:element name="appointment" type="appointmentResponseRetrieveType" minOccurs="1" maxOccurs="unbounded"/>                  
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="appointmentResponseRetrieveType">
+		<xsd:sequence>
+			<xsd:element name="caseId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="team" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="aliasAngel" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="typeRequest" type="typeRequestSimpleType"/>
+                        <xsd:element name="typeCustomer" type="typeCustomerSimpleType" minOccurs="0"/>
+                        <xsd:element name="typeCase" type="typeCaseSimpleType" minOccurs="0"/>
+                        <xsd:element name="reason" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="appointmentId" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="schedTime" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="fullName" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="tel1" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="tel2" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="tel3" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="telDefault" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="contractCode" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="customerContract" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="attempt" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="employeeId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="username" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="channel" type="channelSimpleType" minOccurs="1"/>
+                        <xsd:element name="note" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="site" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="email" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="transactionId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="expirationTime" type="xsd:string" minOccurs="0"/>                     
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="availabilitiesAngelResponseRetrieveType">
+		<xsd:sequence>
+			<xsd:element name="availabilityAngel" type="xsd:string" minOccurs="1"  maxOccurs="unbounded"/>
+                </xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="availabilitiesTeamResponseRetrieveType">
+		<xsd:sequence>
+			<xsd:element name="availabilityTeam" type="xsd:string" minOccurs="1"  maxOccurs="unbounded"/>                  
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="availabilitiesTeamAllResponseRetrieveType">
+		<xsd:sequence>
+			<xsd:element name="availabilityTeamAll" type="xsd:string" minOccurs="1"  maxOccurs="unbounded"/>                  
+		</xsd:sequence>
+	</xsd:complexType>
+         <xsd:simpleType name="channelSimpleType">
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="WEB"/>
+            <xsd:enumeration value="WDE"/>
+            <xsd:enumeration value="IVR"/>
+            <xsd:enumeration value="CRM"/>
+            <xsd:enumeration value="APP"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:simpleType name="typeRequestSimpleType">
+        <xsd:restriction base="xsd:string">
+             <xsd:enumeration value="BB_TEAM"/>
+             <xsd:enumeration value="SW_SQUAD"/>
+             <xsd:enumeration value="TV_TEAM"/>
+             <xsd:enumeration value="DTH"/>
+             <xsd:enumeration value="DTT"/>
+             <xsd:enumeration value="RETENTION"/>
+        </xsd:restriction>
+	</xsd:simpleType>
+        <xsd:simpleType name="typeCustomerSimpleType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BB"/>
+			<xsd:enumeration value="DTT"/>
+			<xsd:enumeration value="DTH"/>
+			<xsd:enumeration value="DTH+"/>
+		</xsd:restriction>
+        </xsd:simpleType>     
+        <xsd:simpleType name="typeCaseSimpleType">
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="CMN"/>
+            <xsd:enumeration value="CMB"/>
+            <xsd:enumeration value="CHK"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+</xsd:schema>

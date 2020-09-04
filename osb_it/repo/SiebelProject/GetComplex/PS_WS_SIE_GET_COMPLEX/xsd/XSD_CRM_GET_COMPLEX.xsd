@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+   
+  <xsd:element name="requestGetComplex" type="requestGetComplexType"/>         
+  <xsd:complexType name="requestGetComplexType">
+    <xsd:sequence>
+      <xsd:element name="mdwXMatchCode" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="mdwXIdCivico" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseGetComplex" type="responseGetComplexType"/>
+  <xsd:complexType name="responseGetComplexType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="mdwXComplex" type="xsd:string"/>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="descrizioneEsito" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+  
+  
+</xsd:schema>

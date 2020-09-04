@@ -1,0 +1,51 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_DIRECT_DB_UNICA"
+     targetNamespace="http://www.skytv.it/mdw/internal/service/DIRECT_DB_UNICA"
+     xmlns:tns="http://www.skytv.it/mdw/internal/service/DIRECT_DB_UNICA"
+     xmlns:inp1="http://xmlns.oracle.com/pcbpel/adapter/db/top/JCA_DB_UNICA"
+     xmlns:inp2="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/JCA_DB_UNICA" schemaLocation="../xsd/JCA_DB_UNICA_table.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../EnterpriseObjects/CommonEntities/SoapFaultSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="partReq" element="inp1:ContractProfileRtdRequest"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="partResp" element="inp1:ContractProfileRtdResponse"/>
+    </wsdl:message>
+    <wsdl:message name="faultMessage">
+        <wsdl:part name="faultInternal" type="inp2:FaultMessegeInternalType"/>
+    </wsdl:message>
+    <wsdl:portType name="DIRECT_DB_UNICA_ptt">
+        <wsdl:operation name="executeDIRECT_DB_UNICA">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+            <wsdl:fault name="executeDIRECT_DB_UNICAfault" message="tns:faultMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="DIRECT_DB_UNICA_bind" type="tns:DIRECT_DB_UNICA_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="executeDIRECT_DB_UNICA">
+            <soap:operation style="document" soapAction="executeDIRECT_DB_UNICA"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/internal/service/DIRECT_DB_UNICA"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/internal/service/DIRECT_DB_UNICA"/>
+            </wsdl:output>
+            <wsdl:fault name="executeDIRECT_DB_UNICAfault">
+                <soap:fault name="executeDIRECT_DB_UNICAfault" use="literal"/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

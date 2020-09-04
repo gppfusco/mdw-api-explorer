@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestAlignCDCEsitiNegativi" type="requestAlignCDCEsitiNegativiType" />
+  <xsd:complexType name="requestAlignCDCEsitiNegativiType">
+    <xsd:sequence>
+      <xsd:element name="insertDefaultMop" type="flagType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="billingAccount" type="stringMinlengthType" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="creditCardNumber" type="stringMinlengthType"  minOccurs="1" maxOccurs="1" />
+      <xsd:element name="outcome" type="stringMinlengthType" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ceaseDate" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:element name="responseAlignCDCEsitiNegativi" type="mdwCommonResponseType" />
+  <xsd:complexType name="mdwCommonResponseType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  
+  <xsd:simpleType name="stringMinlengthType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <xsd:simpleType name="flagType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+</xsd:schema>

@@ -1,0 +1,69 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_CRM_SIE_GET_SERVICEREQ"
+     targetNamespace="http://xmlns.oracle.com/OSBSvil/MDW_CDM/WS_CRM_SIE_GET_SERVICEREQ"
+     xmlns:tns="http://xmlns.oracle.com/OSBSvil/MDW_CDM/WS_CRM_SIE_GET_SERVICEREQ"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GET_SERVICE_REQ.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestGetEsigenze_Message">
+        <wsdl:part name="part_requestGetEsigenze" element="inp1:requestGetEsigenze"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetEsigenze_Message">
+        <wsdl:part name="part_responseGetEsigenze" element="inp1:responseGetEsigenze"/>
+    </wsdl:message>
+    <wsdl:portType name="CRM_SIE_GET_SERVICEREQ_ptt">
+        <wsdl:operation name="execute_GetEsigenze">
+            <wsdl:input message="tns:requestGetEsigenze_Message"/>
+            <wsdl:output message="tns:responseGetEsigenze_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RetentionPost">
+            <wsdl:input message="tns:requestRetentionPost_Message"/>
+            <wsdl:output message="tns:responseRetentionPost_Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="header_Message">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:message name="requestRetentionPost_Message">
+        <wsdl:part name="part_requestRetentionPost" element="inp1:requestRetentionPost"/>
+    </wsdl:message>
+    <wsdl:message name="responseRetentionPost_Message">
+        <wsdl:part name="part_responseRetentionPost" element="inp1:responseRetentionPost"/>
+    </wsdl:message>
+    <wsdl:binding name="CRM_SIE_GET_SERVICEREQ_bind" type="tns:CRM_SIE_GET_SERVICEREQ_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_GetEsigenze">
+            <soap:operation style="document"
+                            soapAction="http://xmlns.oracle.com/OSBSvil/MDW_CDM/WS_CRM_SIE_GET_SERVICEREQ/execute_GetEsigenze"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestGetEsigenze"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetEsigenze"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RetentionPost">
+            <soap:operation style="document"
+                            soapAction="http://xmlns.oracle.com/OSBSvil/MDW_CDM/WS_CRM_SIE_GET_SERVICEREQ/execute_RetentionPost"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestRetentionPost"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseRetentionPost"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

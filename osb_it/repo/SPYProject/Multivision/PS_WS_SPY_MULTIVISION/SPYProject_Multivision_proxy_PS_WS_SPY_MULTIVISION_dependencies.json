@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SPYProject_Multivision_proxy_PS_WS_SPY_MULTIVISION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SPYProject/Multivision/pipeline/PL_SPY_MULTIVISION" : {
+        "label" : "Pipeline/SPYProject/Multivision/pipeline/PL_SPY_MULTIVISION",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/SPYProject/Multivision/businessServices/BS_SPY_MULTIVISION" : {
+            "label" : "BusinessService/SPYProject/Multivision/businessServices/BS_SPY_MULTIVISION",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SPYProject/Multivision/wsdl/WS_SPY_MULTIVISION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/Multivision/wsdl/WS_SPY_MULTIVISION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "XSLT/SPYProject/Multivision/transformations/createResponseMultivision" : {
+            "label" : "XSLT/SPYProject/Multivision/transformations/createResponseMultivision",
+            "properties" : { },
+            "successors" : { }
+          },
+          "XSLT/SPYProject/Multivision/transformations/createRequestMultivision" : {
+            "label" : "XSLT/SPYProject/Multivision/transformations/createRequestMultivision",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SPYProject/Multivision/wsdl/WS_SPY_MULTIVISION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/Multivision/wsdl/WS_SPY_MULTIVISION",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

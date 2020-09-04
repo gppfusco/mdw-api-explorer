@@ -1,0 +1,80 @@
+<wsdl:definitions name="PS_REST_KENAN_INFO_FATTURE" targetNamespace="http://xmlns.oracle.com/OSBApplicationSky/BlueBirdProject/PS_REST_KENAN_INFO_FATTURE" xmlns:tns="http://xmlns.oracle.com/OSBApplicationSky/BlueBirdProject/PS_REST_KENAN_INFO_FATTURE" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:inp2="http://www.skytv.it/mdw/data" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <plnk:partnerLinkType name="PS_REST_KENAN_INFO_FATTURE">
+        <plnk:role name="PS_REST_KENAN_INFO_FATTUREProvider" portType="tns:PS_REST_KENAN_INFO_FATTURE_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/KENAN/infoFatture/xsd/XSD_KENAN_INFO_FATTURE.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="GetNumeroFattureAperte_inputMessage">
+        <wsdl:part name="request" element="inp1:requestCountOpen"/>
+    </wsdl:message>
+    <wsdl:message name="GetNumeroFattureAperte_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseCountOpen"/>
+    </wsdl:message>
+    <wsdl:message name="GetNumeroFattureAperte_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="GetNumeroFattureAperte_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="GetNumeroFattureAperte_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="VerificaPrimaFattura_inputMessage">
+        <wsdl:part name="request" element="inp1:requestCheckFirstInvoice"/>
+    </wsdl:message>
+    <wsdl:message name="VerificaPrimaFattura_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseCheckFirstInvoice"/>
+    </wsdl:message>
+    <wsdl:message name="VerificaPrimaFattura_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="VerificaPrimaFattura_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="VerificaPrimaFattura_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:portType name="PS_REST_KENAN_INFO_FATTURE_ptt">
+        <wsdl:operation name="GetNumeroFattureAperte">
+            <wsdl:input message="tns:GetNumeroFattureAperte_inputMessage"/>
+            <wsdl:output message="tns:GetNumeroFattureAperte_outputMessage"/>
+            <wsdl:fault name="error400" message="tns:GetNumeroFattureAperte_error400Message"/>
+            <wsdl:fault name="error500" message="tns:GetNumeroFattureAperte_error500Message"/>
+            <wsdl:fault name="error404" message="tns:GetNumeroFattureAperte_error404Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="VerificaPrimaFattura">
+            <wsdl:input message="tns:VerificaPrimaFattura_inputMessage"/>
+            <wsdl:output message="tns:VerificaPrimaFattura_outputMessage"/>
+            <wsdl:fault name="error400" message="tns:VerificaPrimaFattura_error400Message"/>
+            <wsdl:fault name="error500" message="tns:VerificaPrimaFattura_error500Message"/>
+            <wsdl:fault name="error404" message="tns:VerificaPrimaFattura_error404Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PS_REST_KENAN_INFO_FATTURE_ptt-binding" type="tns:PS_REST_KENAN_INFO_FATTURE_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetNumeroFattureAperte">
+            <soap:operation soapAction="GetNumeroFattureAperte"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="VerificaPrimaFattura">
+            <soap:operation soapAction="VerificaPrimaFattura"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

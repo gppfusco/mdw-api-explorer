@@ -1,0 +1,46 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="decoderRequestType">
+		<xsd:sequence>
+			<xsd:element name="decoderId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="chipId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="decodersRequestType">
+		<xsd:sequence>
+			<xsd:element name="decoder" type="decoderRequestType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestMultiPairingType">
+		<xsd:sequence>
+			<xsd:element name="idCaller" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="operatorName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="telephoneNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="requestType" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="smartcardNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="decoders" type="decodersRequestType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="decoderResponseType">
+		<xsd:sequence>
+			<xsd:element name="decoderId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="chipId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="pairingResult" type="xsd:integer" minOccurs="1"/>
+			<xsd:element name="pairingDescription" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="decodersResponseType">
+		<xsd:sequence>
+			<xsd:element name="decoder" type="decoderResponseType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseMultiPairingType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="tid" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="decoders" type="decodersResponseType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestMultiPairing" type="requestMultiPairingType"/>
+	<xsd:element name="responseMultiPairing" type="responseMultiPairingType"/>
+</xsd:schema>

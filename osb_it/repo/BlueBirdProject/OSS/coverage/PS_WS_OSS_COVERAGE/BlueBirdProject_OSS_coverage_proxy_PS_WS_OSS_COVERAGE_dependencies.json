@@ -1,0 +1,241 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OSS_coverage_proxy_PS_WS_OSS_COVERAGE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_OSS_COVERAGE" : {
+        "label" : "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_OSS_COVERAGE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/BlueBirdProject/OSS/coverage/transformation/createRequest_CallTracing" : {
+            "label" : "Xquery/BlueBirdProject/OSS/coverage/transformation/createRequest_CallTracing",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_BCT_COVERAGE_CheckCoverage" : {
+            "label" : "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_BCT_COVERAGE_CheckCoverage",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/OSS/coverage/transformation/createRequest_CheckCoverageBCT" : {
+                "label" : "Xquery/BlueBirdProject/OSS/coverage/transformation/createRequest_CheckCoverageBCT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_SQL_BCT_COVERAGE" : {
+                "label" : "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_SQL_BCT_COVERAGE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_OSS_COVERAGE" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_COVERAGE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_OSS_COVERAGE_callTracing" : {
+            "label" : "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_OSS_COVERAGE_callTracing",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_ENQUEUE_CALL_TRACING" : {
+                "label" : "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_ENQUEUE_CALL_TRACING",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/coverage/wsdl/WS_OSS_COVERAGE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/coverage/wsdl/WS_OSS_COVERAGE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_OSS_COVERAGE_CheckCoverage" : {
+            "label" : "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_OSS_COVERAGE_CheckCoverage",
+            "properties" : { },
+            "successors" : {
+              "Xquery/BlueBirdProject/OSS/coverage/transformation/BS_OSS_AVAILABILITY_VALIDATION_createRequest" : {
+                "label" : "Xquery/BlueBirdProject/OSS/coverage/transformation/BS_OSS_AVAILABILITY_VALIDATION_createRequest",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/BlueBirdProject/Resources/BS_SQL_EAI_COVERAGE_FW_WHITELIST" : {
+                "label" : "XMLSchema/BlueBirdProject/Resources/BS_SQL_EAI_COVERAGE_FW_WHITELIST",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/BlueBirdProject/Resources/BS_SQL_EAI_COVERAGE_TRANSLATION" : {
+                "label" : "XMLSchema/BlueBirdProject/Resources/BS_SQL_EAI_COVERAGE_TRANSLATION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OSS/coverage/transformation/createRequest_CheckCoverageWhitelistFW" : {
+                "label" : "Xquery/BlueBirdProject/OSS/coverage/transformation/createRequest_CheckCoverageWhitelistFW",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_OSS_AVAILABILITY_VALIDATION" : {
+                "label" : "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_OSS_AVAILABILITY_VALIDATION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_OSS_COVERAGE" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_COVERAGE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/OSS/xsd/XSD_OSS_AVAILABILITY_VALIDATION" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/OSS/xsd/XSD_OSS_AVAILABILITY_VALIDATION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OSS/coverage/transformation/BS_COVERAGE_TRANSLATION_createRequest" : {
+                "label" : "Xquery/BlueBirdProject/OSS/coverage/transformation/BS_COVERAGE_TRANSLATION_createRequest",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_OSS_COVERAGE_CheckCoverage_DB_translation" : {
+                "label" : "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_OSS_COVERAGE_CheckCoverage_DB_translation",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/BlueBirdProject/Resources/BS_SQL_EAI_COVERAGE_TRANSLATION/concrete" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/BS_SQL_EAI_COVERAGE_TRANSLATION/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_SQL_EAI_COVERAGE_TRANSLATION" : {
+                    "label" : "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_SQL_EAI_COVERAGE_TRANSLATION",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_INTERNAL_MDW_CHECK_COVERAGE_WHITELIST" : {
+                "label" : "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_INTERNAL_MDW_CHECK_COVERAGE_WHITELIST",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_SQL_EAI_COVERAGE_FW_WHITELIST" : {
+                    "label" : "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_SQL_EAI_COVERAGE_FW_WHITELIST",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/BlueBirdProject/Resources/PS_REST_OSS_COVERAGE" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_COVERAGE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/BlueBirdProject/OSS/coverage/transformation/PS_OSS_COVERAGE_CheckCoverage_createResponse" : {
+                "label" : "Xquery/BlueBirdProject/OSS/coverage/transformation/PS_OSS_COVERAGE_CheckCoverage_createResponse",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/BlueBirdProject/OSS/coverage/transformation/BS_COVERAGE_TRANSLATION_createRequest" : {
+            "label" : "Xquery/BlueBirdProject/OSS/coverage/transformation/BS_COVERAGE_TRANSLATION_createRequest",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_OSS_COVERAGE_CheckCoverage_DB_translation" : {
+            "label" : "Pipeline/BlueBirdProject/OSS/coverage/pipeline/PL_OSS_COVERAGE_CheckCoverage_DB_translation",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/BS_SQL_EAI_COVERAGE_TRANSLATION/concrete" : {
+                "label" : "WSDL/BlueBirdProject/Resources/BS_SQL_EAI_COVERAGE_TRANSLATION/concrete",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_SQL_EAI_COVERAGE_TRANSLATION" : {
+                "label" : "BusinessService/BlueBirdProject/OSS/coverage/businessservice/BS_SQL_EAI_COVERAGE_TRANSLATION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "XMLSchema/BlueBirdProject/Resources/BS_SQL_BCT_COVERAGE" : {
+            "label" : "XMLSchema/BlueBirdProject/Resources/BS_SQL_BCT_COVERAGE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/OSS/coverage/transformation/PS_OSS_COVERAGE_CheckCoverage_createResponse" : {
+            "label" : "Xquery/BlueBirdProject/OSS/coverage/transformation/PS_OSS_COVERAGE_CheckCoverage_createResponse",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_OSS_COVERAGE" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_COVERAGE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/coverage/wsdl/WS_OSS_COVERAGE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/coverage/wsdl/WS_OSS_COVERAGE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

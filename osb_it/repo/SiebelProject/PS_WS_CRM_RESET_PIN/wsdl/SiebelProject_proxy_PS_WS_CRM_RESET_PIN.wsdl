@@ -1,0 +1,46 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_CRM_RESET_PIN"
+     targetNamespace="http://www.skytv.it/mdw/service/CRM_RESET_PIN"
+     xmlns:tns="http://www.skytv.it/mdw/service/CRM_RESET_PIN"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_RESET_PIN.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestResetPin_Message">
+        <wsdl:part name="part_requestResetPin" element="inp1:requestResetPin"/>
+    </wsdl:message>
+    <wsdl:message name="responseResetPin_Message">
+        <wsdl:part name="part_responseResetPin" element="inp1:responseResetPin"/>
+    </wsdl:message>
+    <wsdl:portType name="ResetPin_ptt">
+        <wsdl:operation name="execute_ResetPin">
+            <wsdl:input message="tns:requestResetPin_Message"/>
+            <wsdl:output message="tns:responseResetPin_Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ResetPin_bind" type="tns:ResetPin_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_ResetPin">
+            <soap:operation style="document" soapAction="execute_ResetPin"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/CRM_RESET_PIN"/>
+                <soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/CRM_RESET_PIN"/>
+                <soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="header_Message">
+        <wsdl:part name="part_Header" element="inp1:Header"/>
+    </wsdl:message>
+</wsdl:definitions>

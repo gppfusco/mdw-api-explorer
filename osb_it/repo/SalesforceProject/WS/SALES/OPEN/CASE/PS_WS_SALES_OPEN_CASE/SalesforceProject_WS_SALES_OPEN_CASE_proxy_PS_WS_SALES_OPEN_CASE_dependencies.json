@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_SALES_OPEN_CASE_proxy_PS_WS_SALES_OPEN_CASE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_SALES_OPEN_CASE/pipeline/PL_WS_SALES_OPEN_CASE" : {
+        "label" : "Pipeline/SalesforceProject/WS_SALES_OPEN_CASE/pipeline/PL_WS_SALES_OPEN_CASE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_SALES_OPEN_CASE/transformation/createRequest_OpenCase" : {
+            "label" : "Xquery/SalesforceProject/WS_SALES_OPEN_CASE/transformation/createRequest_OpenCase",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_SALES_OPEN_CASE/transformation/createResponse_OpenCase" : {
+            "label" : "Xquery/SalesforceProject/WS_SALES_OPEN_CASE/transformation/createResponse_OpenCase",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OpenCase/wsdl/WS_SALES_OPEN_CASE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OpenCase/wsdl/WS_SALES_OPEN_CASE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OpenCase/wsdl/WS_SALES_OPEN_CASE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OpenCase/wsdl/WS_SALES_OPEN_CASE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

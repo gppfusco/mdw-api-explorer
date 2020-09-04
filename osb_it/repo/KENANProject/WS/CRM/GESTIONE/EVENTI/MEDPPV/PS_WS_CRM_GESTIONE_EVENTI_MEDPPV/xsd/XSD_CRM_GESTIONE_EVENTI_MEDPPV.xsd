@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+            
+    <xsd:complexType name="ListOfSMCType" >
+        <xsd:sequence>
+          <xsd:element name="smartcard" type="xsd:string" minOccurs="1" maxOccurs="unbounded" />
+        </xsd:sequence>
+      </xsd:complexType>
+      
+	<xsd:complexType name="eventoOPPVType">
+		<xsd:sequence>
+			<xsd:element name="dataOraVisione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="dataOraScarico" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="statoSky" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="smartcardId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="tipoAcquisto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="costoServizio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="titoloEvento" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="telefono" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="importo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="tipoPromozione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dettaglioPromozione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="costoOriginale" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="refID" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="dataDownload" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="eventiOPPVType">
+		<xsd:sequence>
+			<xsd:element name="eventoOPPV" type="eventoOPPVType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="eventoVODType">
+		<xsd:sequence>
+			<xsd:element name="smartcardId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="dataOraVisione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="dataOraScarico" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="idOfferta" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="costoReale" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="titoloEvento" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizionePromozione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="costoOriginale" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="dataDownload" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="eventiVODType">
+		<xsd:sequence>
+			<xsd:element name="eventoVOD" type="eventoVODType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestGetEventiOPPVType">
+		<xsd:sequence>
+			<xsd:element name="ListOfSmartcards" type="ListOfSMCType" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="billingAccount" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="dataScaricoInizioRicerca" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataScaricoFineRicerca" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetEventiOPPV" type="requestGetEventiOPPVType"/>
+	<xsd:complexType name="responseGetEventiOPPVType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultGetEventiOPPV" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="eventiOPPV" type="eventiOPPVType" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetEventiOPPV" type="responseGetEventiOPPVType"/>
+	<xsd:complexType name="requestGetEventiAllOPPVType">
+		<xsd:sequence>
+			<xsd:element name="ListOfSmartcards" type="ListOfSMCType" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="dataTrasmissione" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetEventiAllOPPV" type="requestGetEventiAllOPPVType"/>
+	<xsd:complexType name="responseGetEventiAllOPPVType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultGetEventiAllOPPV" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="eventiOPPV" type="eventiOPPVType" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetEventiAllOPPV" type="responseGetEventiAllOPPVType"/>
+	<xsd:complexType name="codiciStatoType">
+		<xsd:sequence>
+			<xsd:element name="codiceStato" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="smartcardsType">
+		<xsd:sequence>
+			<xsd:element name="smartcardId" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestGetEventiPPVType">
+		<xsd:sequence>
+			<xsd:element name="ListOfSmartcards" type="ListOfSMCType" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="billingAccount" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="codiciStato" type="codiciStatoType" minOccurs="0"/>
+			<xsd:element name="dataScaricoInizioRicerca" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataScaricoFineRicerca" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetEventiPPV" type="requestGetEventiPPVType"/>
+	<xsd:complexType name="eventoPPVType">
+		<xsd:sequence>
+			<xsd:element name="dataOraVisione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="dataOraScarico" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="statoSky" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="smartcardId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="importo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="tipoPromozione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="dettaglioPromozione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="costoOriginale" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="titoloEvento" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="refID" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="dataDownload" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="eventiPPVType">
+		<xsd:sequence>
+			<xsd:element name="eventoPPV" type="eventoPPVType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetEventiPPVType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultGetEventiPPV" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="eventiPPV" type="eventiPPVType" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetEventiPPV" type="responseGetEventiPPVType"/>
+	<xsd:complexType name="requestGetEventiAllPPVType">
+		<xsd:sequence>
+			<xsd:element name="ListOfSmartcards" type="ListOfSMCType" minOccurs="1" maxOccurs="1" />
+			<xsd:element name="codiciStato" type="codiciStatoType" minOccurs="0"/>
+			<xsd:element name="dataTrasmissione" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+        <xsd:element name="requestGetEventiAllPPV" type="requestGetEventiAllPPVType"/>
+	<xsd:complexType name="responseGetEventiAllPPVType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultGetEventiPPV" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="eventiPPV" type="eventiPPVType" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+        
+        <xsd:element name="responseGetEventiAllPPV" type="responseGetEventiAllPPVType"/>
+	
+        
+        <xsd:complexType name="requestGetEventiVODType">
+		<xsd:sequence>
+			<xsd:element name="smartcards" type="smartcardsType" minOccurs="1"/>
+			<xsd:element name="dataInizioRicerca" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataFineRicerca" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetEventiVOD" type="requestGetEventiVODType"/>
+	<xsd:complexType name="responseGetEventiVODType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultGetEventiVOD" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="eventiVOD" type="eventiVODType" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetEventiVOD" type="responseGetEventiVODType"/>
+</xsd:schema>

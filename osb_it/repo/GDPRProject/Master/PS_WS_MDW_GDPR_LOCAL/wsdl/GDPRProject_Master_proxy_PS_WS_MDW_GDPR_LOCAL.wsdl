@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions 
+    name="WS_MDW_GDPR"
+    targetNamespace="http://www.skytv.it/mdw/service/WS_MDW_GDPR"
+    xmlns:tns="http://www.skytv.it/mdw/service/WS_MDW_GDPR"
+    xmlns:inp1="http://www.skytv.it/mdw/data"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+  >
+  
+<types>
+  <xsd:schema>
+    <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_MDW_GDPR.xsd"/>
+    <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+  </xsd:schema>
+</types>
+ <message name="requestMagentoMessage">
+  <part name="requestMagentoNotifications" element="inp1:requestMagentoNotifications"/>
+ </message>
+ <message name="responseMagentoMessage">
+  <part name="responseMagentoNotifications" element="inp1:responseMagentoNotifications"/>
+ </message>
+ <message name="requestVispMessage">
+  <part name="requestVispNotifications" element="inp1:requestVispNotifications"/>
+ </message>
+ <message name="responseVispMessage">
+  <part name="responseVispNotifications" element="inp1:responseVispNotifications"/>
+ </message>
+ <message name="Header_Message">
+  <part name="Header_Message" element="inp1:Header"/>
+ </message>
+ <portType name="MASTER_NOTIFICATIONS_ppt">
+  <operation name="execute_MagentoNotifications">
+   <input message="tns:requestMagentoMessage"/>
+   <output message="tns:responseMagentoMessage"/>
+  </operation>
+  <operation name="execute_VispNotifications">
+   <input message="tns:requestVispMessage"/>
+   <output message="tns:responseVispMessage"/>
+  </operation>
+  <operation name="execute_sapFiFornitoreNotifications">
+    <input message="tns:requestSapFiFornitoreMessage"/>
+    <output message="tns:responseSapFiFornitoreMessage"/>
+  </operation>
+  <operation name="execute_sapFiClienteNotifications">
+   <input message="tns:requestSapFiClienteMessage"/>
+   <output message="tns:responseSapFiClienteMessage"/>
+  </operation>
+  <operation name="execute_sapHrNotifications">
+   <input message="tns:requestSapHrMessage"/>
+   <output message="tns:responseSapHrMessage"/>
+  </operation>
+  <operation name="execute_ArcadiaNotifications">
+   <input message="tns:requestArcadiaMessage"/>
+   <output message="tns:responseArcadiaMessage"/>
+  </operation>
+  <operation name="execute_FastwebNotifications">
+   <input message="tns:requestFastwebMessage"/>
+   <output message="tns:responseFastwebMessage"/>
+  </operation>
+ </portType>
+ <binding name="MASTER_NOTIFICATIONS_bind" type="tns:MASTER_NOTIFICATIONS_ppt">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="execute_MagentoNotifications">
+   <soap:operation style="document" soapAction="urn:WS_MDW_GDPR/execute_MagentoNotifications"/>
+   <input>
+   <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+    <soap:body use="literal" parts="requestMagentoNotifications"/>
+   </input>
+   <output>
+   <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+    <soap:body use="literal" parts="responseMagentoNotifications"/>
+   </output>
+  </operation>
+  <operation name="execute_VispNotifications">
+   <soap:operation style="document" soapAction="urn:WS_MDW_GDPR/execute_VispNotifications"/>
+   <input>
+      <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+    <soap:body use="literal" parts="requestVispNotifications"/>
+   </input>
+   <output>
+   <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+    <soap:body use="literal" parts="responseVispNotifications"/>
+   </output>
+  </operation>
+    <operation name="execute_sapFiFornitoreNotifications">
+   <soap:operation style="document" soapAction="urn:WS_MDW_GDPR/execute_sapFiFornitoreNotifications"/>
+   <input>
+      <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+      <soap:body use="literal" parts="requestSapFiFornitoreNotifications"/>
+   </input>
+   <output>
+   <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+    <soap:body use="literal" parts="responseSapFiFornitoreNotifications"/>
+   </output>
+  </operation>
+    <operation name="execute_sapFiClienteNotifications">
+   <soap:operation style="document" soapAction="urn:WS_MDW_GDPR/execute_sapFiClienteNotifications"/>
+   <input>
+      <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+      <soap:body use="literal" parts="requestSapFiClienteNotifications"/>
+   </input>
+   <output>
+   <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+    <soap:body use="literal" parts="responseSapFiClienteNotifications"/>
+   </output>
+  </operation>
+  <operation name="execute_sapHrNotifications">
+   <soap:operation style="document" soapAction="urn:WS_MDW_GDPR/execute_sapHrNotifications"/>
+   <input>
+      <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+      <soap:body use="literal" parts="requestSapHrNotifications"/>
+   </input>
+   <output>
+   <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+    <soap:body use="literal" parts="responseSapHrNotifications"/>
+   </output>
+  </operation>
+  <operation name="execute_ArcadiaNotifications">
+   <soap:operation soapAction="urn:WS_MDW_GDPR/execute_ArcadiaNotifications"/>
+   <input>
+    <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+    <soap:body use="literal" parts="requestArcadiaNotifications"/>
+   </input>
+   <output>
+   <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+    <soap:body use="literal" parts="responseArcadiaNotifications"/>
+   </output>
+  </operation>
+  <operation name="execute_FastwebNotifications">
+   <soap:operation soapAction="urn:WS_MDW_GDPR/execute_FastwebNotifications"/>
+   <input>
+   <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+    <soap:body parts="requestFastwebNotification" use="literal"/>
+   </input>
+   <output>
+    <soap:header message="tns:Header_Message" part="Header_Message" use="literal"/>
+    <soap:body parts="responseFastwebNotification" use="literal"/>
+   </output>
+  </operation>
+ </binding>
+ <message name="requestSapFiFornitoreMessage">
+  <part name="requestSapFiFornitoreNotifications" element="inp1:requestSapFiFornitoreNotifications"/>
+ </message>
+ <message name="responseSapFiFornitoreMessage">
+  <part name="responseSapFiFornitoreNotifications" element="inp1:responseSapFiFornitoreNotifications"/>
+ </message>
+ <message name="requestSapFiClienteMessage">
+  <part name="requestSapFiClienteNotifications" element="inp1:requestSapFiClienteNotifications"/>
+ </message>
+ <message name="responseSapFiClienteMessage">
+  <part name="responseSapFiClienteNotifications" element="inp1:responseSapFiClienteNotifications"/>
+ </message>
+ <message name="requestSapHrMessage">
+  <part name="requestSapHrNotifications" element="inp1:requestSapHrNotifications"/>
+ </message>
+ <message name="responseSapHrMessage">
+  <part name="responseSapHrNotifications" element="inp1:responseSapHrNotifications"/>
+ </message>
+ <message name="requestArcadiaMessage">
+  <part name="requestArcadiaNotifications" element="inp1:requestArcadiaNotifications"/>
+ </message>
+ <message name="responseArcadiaMessage">
+  <part name="responseArcadiaNotifications" element="inp1:responseArcadiaNotifications"/>
+ </message>
+ <message name="requestFastwebMessage">
+  <part name="requestFastwebNotification" element="inp1:requestFastwebNotification"/>
+ </message>
+ <message name="responseFastwebMessage">
+  <part name="responseFastwebNotification" element="inp1:responseFastwebNotification"/>
+ </message>
+</definitions>

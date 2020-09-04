@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:element name="requestGetGuastoSTB" type="requestGetGuastoSTBType" />
+  <xsd:complexType name="requestGetGuastoSTBType">
+    <xsd:sequence>
+      <xsd:element name="TipoAttivita" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="IdCaseSalesForce" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NonRisoltoTelecom" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="Matricola" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CodiceParte" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Motivo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ProblemaIntermittente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="NoMenu" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="PenaleFlg" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CreaAutorizzazione" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="CreaODL" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="BloccoODLApertoFurto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="BloccoODLGuasto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="EsitoEPG" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Operatore" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="Provenienza" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="StatoSTBHDAltriApp" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ODLManutAperto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="NewCodiceEGON" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SkyIDODL" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfFieldsType">
+    <xsd:sequence>
+      <xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+ 
+  <xsd:complexType name="FieldType">
+    <xsd:sequence>
+      <xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="responseGetGuastoSTB" type="responseGetGuastoSTBType" />
+  <xsd:complexType name="responseGetGuastoSTBType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

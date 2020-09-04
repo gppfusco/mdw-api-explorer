@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:element name="requestLeggiDatiClienteSF" type="requestLeggiDatiClienteSFType"/>
+
+  <xsd:complexType name="requestLeggiDatiClienteSFType">
+    <xsd:sequence>
+      <xsd:element name="customerID" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  
+  <xsd:element name="responseLeggiDatiClienteSF" type="responseLeggiDatiClienteSFType"/>
+
+  <xsd:complexType name="responseLeggiDatiClienteSFType">
+    <xsd:sequence>
+      <xsd:element name="Account" type="AccountType"/>
+      <xsd:element name="Contact" type="ContactType" />
+      <xsd:element name="Contracts" type="ContractsType" maxOccurs="1" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+    
+  <xsd:complexType name="AccountType">
+    <xsd:sequence>
+      <xsd:element name="custStatFlg" minOccurs="0" type="xsd:string"/>       
+      <xsd:element name="custNewTechFlg" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="custFavAnalisysFlg" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="custAnywhereFlg" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="custStatus" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="custTCFlg" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="custCategory" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="custProprietorshipName" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="custSkyGoDataFlg" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="custKidsAppFlg" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="custCondKidsApp" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="custSkyExtraFlg" minOccurs="0" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ContactType">
+    <xsd:sequence>
+      <xsd:element name="contactFirstName" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactLastName" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactFiscalCode" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactPhone" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactOtherPhone" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactBusinessFax" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactMobilePhone" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactEmail" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactDocNumber" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactIssuingAuthority" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactDocRelDate" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactDocProv" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactDocCity" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactDocNation" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactBirthDate" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactBirthCity" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactDocType" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactBirthProv" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactGender" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contactLastNameFirstNameCongruenceFc" minOccurs="0" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ContractsType">
+    <xsd:sequence>
+      <xsd:element name="Contract" type="ContractType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ContractType">
+    <xsd:sequence>
+      <xsd:element name="contrId" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contrStatus" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contrRequiredCeaseDate" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contrTbyStatus" minOccurs="0" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  
+</xsd:schema>

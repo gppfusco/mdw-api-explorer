@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:include schemaLocation="../../../../EnterpriseObjects/CommonEntities/ScmsResponse.xsd"/>
+  <xsd:complexType name="requestVOTINGType">
+    <xsd:sequence>
+      <xsd:element name="flagsync" type="xsd:string"/>
+      <xsd:element name="clientid" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="box" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="text" type="xsd:string"/>
+      <xsd:element name="telephonenumber" type="xsd:string"/>
+      <xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="idcaller" type="xsd:string"/>
+      <xsd:element name="typesrvreq" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestVOTING" type="requestVOTINGType"/>
+  <xsd:element name="responseSCMS" type="ScmsResponseType"/>
+  <xsd:complexType name="requestVOTSPOType">
+    <xsd:sequence>
+      <xsd:element name="flagsync" type="xsd:string"/>
+      <xsd:element name="clientid" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="box" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="text" type="xsd:string"/>
+      <xsd:element name="telephonenumber" type="xsd:string"/>
+      <xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="idcaller" type="xsd:string"/>
+      <xsd:element name="typesrvreq" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestVOTSPO" type="requestVOTSPOType"/>
+</xsd:schema>

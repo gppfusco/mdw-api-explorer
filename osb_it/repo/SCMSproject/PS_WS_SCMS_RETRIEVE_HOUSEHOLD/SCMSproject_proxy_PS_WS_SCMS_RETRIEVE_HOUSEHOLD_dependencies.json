@@ -1,0 +1,45 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_proxy_PS_WS_SCMS_RETRIEVE_HOUSEHOLD",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF" : {
+        "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF",
+        "properties" : { },
+        "successors" : {
+          "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+            "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/RetrieveHouseHold/wsdl/WS_SCMS_RETREIVE_HOUSEHOLD" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/RetrieveHouseHold/wsdl/WS_SCMS_RETREIVE_HOUSEHOLD",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

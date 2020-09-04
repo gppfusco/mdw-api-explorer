@@ -1,0 +1,11 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OSS_appointmentManagement_TEST_MUTUAL_AGENDA_PS_TEXT_AGENDA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "Messaging"
+    },
+    "successors" : { }
+  }
+}

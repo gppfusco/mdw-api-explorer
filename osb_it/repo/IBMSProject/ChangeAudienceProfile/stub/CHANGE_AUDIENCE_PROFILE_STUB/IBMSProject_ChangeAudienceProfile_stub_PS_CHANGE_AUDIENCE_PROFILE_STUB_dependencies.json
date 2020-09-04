@@ -1,0 +1,30 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "IBMSProject_ChangeAudienceProfile_stub_PS_CHANGE_AUDIENCE_PROFILE_STUB",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/IBMSProject/ChangeAudienceProfile/stub/PL_CHANGE_AUDIENCE_PROFILE_STUB" : {
+        "label" : "Pipeline/IBMSProject/ChangeAudienceProfile/stub/PL_CHANGE_AUDIENCE_PROFILE_STUB",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/IBMSProject/ChangeAudienceProfile/wsdl/WS_CHANGE_AUDIENCE_PROFILE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/IBMSProject/ChangeAudienceProfile/wsdl/WS_CHANGE_AUDIENCE_PROFILE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/IBMSProject/ChangeAudienceProfile/wsdl/WS_CHANGE_AUDIENCE_PROFILE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/IBMSProject/ChangeAudienceProfile/wsdl/WS_CHANGE_AUDIENCE_PROFILE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestCheckMopType">
+		<xsd:sequence>
+			<xsd:element name="Sorgente" type="xsd:string"/>
+			<xsd:element name="Timestamp" type="xsd:string"/>
+			<xsd:element name="TransactionID" type="xsd:string"/>
+			<xsd:element name="IdPda" type="xsd:string"/>
+			<xsd:element name="MetodoPagamento" type="xsd:string"/>
+			<xsd:element name="NumeroCarta" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MeseScadenza" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AnnoScadenza" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomeTitolare" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CognomeTitolare" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomeOperatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Username" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TransactionTime" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Versione" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCheckMop" type="requestCheckMopType"/>
+	<xsd:element name="responseCheckMop" type="responseCheckMopType"/>
+	<xsd:complexType name="responseCheckMopType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CheckMop" type="xsd:string"/>
+			<xsd:element name="ListaErrori" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Errore" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="NomeErrore" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="CodiceErrore" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="DescrizioneErrore" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

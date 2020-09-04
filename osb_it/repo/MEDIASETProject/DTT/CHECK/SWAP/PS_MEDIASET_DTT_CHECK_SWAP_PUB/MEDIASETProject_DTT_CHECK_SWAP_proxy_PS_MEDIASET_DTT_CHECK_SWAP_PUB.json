@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mediaset/WS_MEDIASET_DTT_CHECK_SWAP_PUB",
+    "name" : "MEDIASETProject_DTT_CHECK_SWAP_proxy_PS_MEDIASET_DTT_CHECK_SWAP_PUB",
+    "localPath" : "osb_it\\repo\\MEDIASETProject\\DTT\\CHECK\\SWAP\\PS_MEDIASET_DTT_CHECK_SWAP_PUB",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mediaset/WS_MEDIASET_DTT_CHECK_SWAP_PUB?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckSwap/xsd/XSD_MEDIASET_DTT_CHECK_SWAP",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

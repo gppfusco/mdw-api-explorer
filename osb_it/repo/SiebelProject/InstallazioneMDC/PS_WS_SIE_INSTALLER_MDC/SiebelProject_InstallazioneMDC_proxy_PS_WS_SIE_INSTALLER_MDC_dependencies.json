@@ -1,0 +1,47 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_InstallazioneMDC_proxy_PS_WS_SIE_INSTALLER_MDC",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/InstallazioneMDC/pipeline/PL_WS_SIE_INSTALLER_MDC" : {
+        "label" : "Pipeline/SiebelProject/InstallazioneMDC/pipeline/PL_WS_SIE_INSTALLER_MDC",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+            "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/InstallazioneMDC/wsdl/WS_SIE_INSTALLER_MDC" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/InstallazioneMDC/wsdl/WS_SIE_INSTALLER_MDC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/InstallazioneMDC/wsdl/WS_SIE_INSTALLER_MDC" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/InstallazioneMDC/wsdl/WS_SIE_INSTALLER_MDC",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

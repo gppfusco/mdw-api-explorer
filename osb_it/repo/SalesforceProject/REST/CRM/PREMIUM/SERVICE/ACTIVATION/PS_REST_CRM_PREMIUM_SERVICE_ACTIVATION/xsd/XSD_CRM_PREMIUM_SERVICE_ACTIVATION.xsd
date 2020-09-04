@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" xmlns:n1="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestPremiumServiceActivation" type="requestPremiumServiceActivationType"/>
+	<xsd:complexType name="requestPremiumServiceActivationType">
+		<xsd:sequence>
+			<xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwOperation" type="operationType" minOccurs="0"/>
+			<xsd:element name="orderNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="orderId" type="xsd:string" minOccurs="0"/> 
+			<xsd:element name="items" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="item" type="itemType" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element> 
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="itemType">
+		<xsd:sequence> 
+			<xsd:element name="itemType" type="xsd:string"/>
+			<xsd:element name="itemId" type="xsd:string"/>
+			<xsd:element name="itemValue" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="operationType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="UPDATE_SERIAL_NUMBER"/>
+			<xsd:enumeration value="PS_ACTIVATION"/>
+			<xsd:enumeration value="CONTRACT_ACTIVATION"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="responsePremiumServiceActivation" type="responsePremiumServiceActivationType"/>
+	<xsd:complexType name="responsePremiumServiceActivationType">
+		<xsd:sequence>
+			<xsd:element name="mdwResultCode" type="xsd:string"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

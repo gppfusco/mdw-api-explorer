@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/kenan/WS_KNN_LETTERA_PO",
+    "name" : "KENANProject_WS_KNN_LETTERA_PO_proxy_PS_WS_KNN_LETTERA_PO",
+    "localPath" : "osb_it\\repo\\KENANProject\\WS\\KNN\\LETTERA\\PO\\PS_WS_KNN_LETTERA_PO",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/kenan/WS_KNN_LETTERA_PO?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/KenanProject/LetteraPO/xsd/XSD_KNN_LETTERA_PO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

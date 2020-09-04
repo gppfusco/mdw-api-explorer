@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetFirstActivationOrder" type="requestGetFirstActivationOrderType"/>
+	<xsd:element name="responseGetFirstActivationOrder" type="responseGetFirstActivationOrderType"/>
+	<xsd:complexType name="requestGetFirstActivationOrderType">
+		<xsd:sequence>
+			<xsd:element name="orders" minOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="order" minOccurs="1" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="ordIdTbo" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ordApplicationOrigin" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetFirstActivationOrderType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="orderList" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="orderItem" minOccurs="1" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="ordIdTbo" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="ordContractNumber" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordStatus" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordSubStatus" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordErrorCode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordOrderType" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordOrderCategory" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordCreationDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordProcessingDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordScheduledDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordCompletedDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordActivationDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordApplicationOrigin" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordSalesChannel" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordCaseRequestId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordCaseActivationId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordDeliveryType" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="detail" minOccurs="0" maxOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="ordDetDealer" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ordDetFirstSeller" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ordDetSecondSeller" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ordDetCodeFirstVoucher" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ordDetCodeSecondVoucher" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ordDetIncompletenessReason" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ordDetDownpayment" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ordDetWashingMachine" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ordDetPromotion" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ordDetThirdParties" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ordDetOrderReason" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ordDetRecoveryFlag" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="offers" minOccurs="0" maxOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="offer" minOccurs="1" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="offAction" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="offProductDescription" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="offStatus" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="offCreation_Date" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="offTechnicalProductClass" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="offCommercialProductCode" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="offLineNumber" type="xsd:string" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="trackings" minOccurs="0" maxOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="tracking" minOccurs="1" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="ordTrackStatus" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="ordTrackSubStatus" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="ordTrackReason" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="ordTrackCreationDate" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="ordTrackContractStatus" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="ordTrackLoginOperation" type="xsd:string" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="deliveries" minOccurs="0" maxOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="delivery" minOccurs="1" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="ordDlvDeliveryNumber" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="ordDlvStatus" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="ordDlvSubStatus" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="ordDlvCreationDate" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="ordDlvCompletedDate" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="ordDlvDeliveryType" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="ordDlvDeliverySubtype" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="trackingsDelivery" minOccurs="0" maxOccurs="1">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="trackingDelivery" minOccurs="1" maxOccurs="unbounded">
+																			<xsd:complexType>
+																				<xsd:sequence>
+																					<xsd:element name="ordDTrkDeliveryNumber" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="ordDTrkDeliveryType" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="ordDTrkDeliverySubtype" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="ordDTrkStatus" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="ordDTrkSubStatus" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="ordDTrkCreationDate" type="xsd:string" minOccurs="0"/>
+																					<xsd:element name="ordDTrkLoginOperator" type="xsd:string" minOccurs="0"/>
+																				</xsd:sequence>
+																			</xsd:complexType>
+																		</xsd:element>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="cases" minOccurs="0" maxOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="case" minOccurs="1" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="caseCode" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="caseOpenDate" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="caseCloseDate" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="caseReason" type="xsd:string" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetCancellableOrderList" type="requestGetCancellableOrderListType"/>
+	<xsd:complexType name="requestGetCancellableOrderListType">
+		<xsd:sequence>
+			<xsd:element name="mdwOrderNumber" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetCancellableOrderList" type="responseGetCancellableOrderList"/>
+	<xsd:complexType name="responseGetCancellableOrderList">
+		<xsd:sequence>
+			<xsd:element name="mdwResult" type="xsd:string"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwOrderList">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwOrder" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwOrderId" type="xsd:string" />
+									<xsd:element name="mdwTibcoOrderId" type="xsd:string"/>
+									<xsd:element name="mdwOrderType" type="xsd:string"/>
+									<xsd:element name="mdwOrderSubType" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mdwStatus" type="xsd:string"/>
+									<xsd:element name="mdwSubStatus" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mdwCreationDate" type="xsd:dateTime"/>
+									<xsd:element name="mdwSchedulateDate" type="xsd:date" minOccurs="0"/>
+									<xsd:element name="mdwSalesChannel" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

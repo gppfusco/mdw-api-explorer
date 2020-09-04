@@ -1,0 +1,46 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_SBL_RETRIEVE_OFFERS"
+     targetNamespace="http://xmlns.oracle.com/OSBApplicationSky/MDW_CDM/WS_SBL_RETRIEVE_OFFERS"
+     xmlns:tns="http://xmlns.oracle.com/OSBApplicationSky/MDW_CDM/WS_SBL_RETRIEVE_OFFERS"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SBL_RETRIEVE_OFFERS.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="RetrieveOffersRequest" element="inp1:requestRetrieveOffers"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="RetrieveOffersResponse" element="inp1:responseRetrieveOffers"/>
+    </wsdl:message>
+    	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+    <wsdl:portType name="execute_ptt">
+        <wsdl:operation name="execute_retrieveOffers">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WS_SBL_RETRIEVE_OFFERS_bind" type="tns:execute_ptt">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_retrieveOffers">
+        <soap:operation soapAction="http://www.skytv.it/mdw/service/WS_SBL_RETRIEVE_OFFERS/execute_retrieveOffers" style="document"/>
+            <wsdl:input>
+                <soap:body parts="RetrieveOffersRequest" use="literal"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="RetrieveOffersResponse" use="literal"/>
+    		<soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

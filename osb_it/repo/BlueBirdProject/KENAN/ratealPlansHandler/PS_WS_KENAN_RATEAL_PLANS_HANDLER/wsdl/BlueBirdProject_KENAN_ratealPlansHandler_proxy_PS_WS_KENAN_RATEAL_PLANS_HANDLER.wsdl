@@ -1,0 +1,85 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions name="WS_KENAN_RATEAL_PLANS_HANDLER"
+                  targetNamespace="http://www.skytv.it/mdw/service/WS_KENAN_RATEAL_PLANS_HANDLER"
+                  xmlns:tns="http://www.skytv.it/mdw/service/WS_KENAN_RATEAL_PLANS_HANDLER"
+                  xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+      <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_KENAN_RATEAL_PLANS_HANDLER.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="headerMessage">
+    <wsdl:part name="partHeader" element="inp1:Header"/>
+  </wsdl:message>
+  <wsdl:message name="requestMessageRetrieveRatealPlans">
+    <wsdl:part name="part_requestRetrieveRatealPlans" element="inp1:requestRetrieveRatealPlans"/>
+  </wsdl:message>
+  <wsdl:message name="replyMessageRetrieveRatealPlans">
+    <wsdl:part name="part_RatealPlansResponse" element="inp1:ratealPlanResponse"/>
+  </wsdl:message>
+  <wsdl:message name="requestMessageRatealPlansDetails">
+    <wsdl:part name="part_requestRetrieveRatealPlansDetails" element="inp1:requestRetrieveRatealPlanDetails"/>
+  </wsdl:message>
+  <wsdl:message name="replyMessageRatealPlansDetails">
+    <wsdl:part name="part_RatealPlansDetailsResponse" element="inp1:ratealPlanDetailsResponse"/>
+  </wsdl:message>
+  <wsdl:message name="requestMessageUpdateRatealPlans">
+    <wsdl:part name="part_requestUpdateRatealPlans" element="inp1:requestUpdateRatealPlans"/>
+  </wsdl:message>
+  <wsdl:message name="replyMessageUpdateRatealPlans">
+    <wsdl:part name="part_responseUpdateRatealPlans" element="inp1:responseUpdateRatealPlans"/>
+  </wsdl:message>
+  <wsdl:portType name="execute_ptt">
+    <wsdl:operation name="execute_RetrieveRatealPlans">
+      <wsdl:input message="tns:requestMessageRetrieveRatealPlans"/>
+      <wsdl:output message="tns:replyMessageRetrieveRatealPlans"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_RetrieveRatealPlanDetails">
+      <wsdl:input message="tns:requestMessageRatealPlansDetails"/>
+      <wsdl:output message="tns:replyMessageRatealPlansDetails"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_UpdateRatealPlans">
+      <wsdl:input message="tns:requestMessageUpdateRatealPlans"/>
+      <wsdl:output message="tns:replyMessageUpdateRatealPlans"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="execute_bind" type="tns:execute_ptt">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="execute_RetrieveRatealPlans">
+      <soap:operation style="document" soapAction="execute"/>
+      <wsdl:input>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" parts="part_requestRetrieveRatealPlans"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" parts="part_RatealPlansResponse"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_RetrieveRatealPlanDetails">
+      <soap:operation style="document" soapAction="execute"/>
+      <wsdl:input>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" parts="part_requestRetrieveRatealPlansDetails"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" parts="part_RatealPlansDetailsResponse"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_UpdateRatealPlans">
+      <soap:operation style="document" soapAction="execute"/>
+      <wsdl:input>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" parts="part_requestUpdateRatealPlans"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" parts="part_responseUpdateRatealPlans"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

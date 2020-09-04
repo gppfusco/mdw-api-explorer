@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/igfs/WS_IGFS_TOKENIZER_GATEWAY",
+    "name" : "IGFSProject_TokenizerGateway_proxy_PS_IGFS_TOKENIZER_GATEWAY",
+    "localPath" : "osb_it\\repo\\IGFSProject\\TokenizerGateway\\PS_IGFS_TOKENIZER_GATEWAY",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/igfs/WS_IGFS_TOKENIZER_GATEWAY?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/IGFSProject/TokenizerGateway/xsd/XSD_IGFS_TOKENIZER_GATEWAY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

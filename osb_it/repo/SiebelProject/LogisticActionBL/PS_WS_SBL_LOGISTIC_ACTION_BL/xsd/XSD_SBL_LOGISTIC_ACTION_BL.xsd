@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGetApparatiNonResi" type="requestGetApparatiNonResiType"/>
+  <xsd:element name="responseGetApparatiNonResi" type="responseGetApparatiNonResiType"/>
+  <xsd:complexType name="requestGetApparatiNonResiType">
+    <xsd:sequence>
+      <xsd:element name="Codice_Fiscale" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Partita_IVA" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGetApparatiNonResiType">
+    <xsd:sequence>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="Lista_Apparati_Non_Resi" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Apparato" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="CodiceContratto" type="xsd:string"/>
+                  <xsd:element name="Matricola" type="xsd:string"/>
+                  <xsd:element name="TipoProdotto" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs='0'/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

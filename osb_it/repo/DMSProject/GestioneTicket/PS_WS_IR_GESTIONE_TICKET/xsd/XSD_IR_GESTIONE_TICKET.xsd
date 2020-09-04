@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetTicketsIntranet" type="requestGetTicketsIntranetType"/>
+	<xsd:element name="responseGetTicketsIntranet" type="responseGetTicketsIntranetType"/>
+	<xsd:complexType name="requestGetTicketsIntranetType">
+		<xsd:sequence>
+			<xsd:element name="rowsLimit" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetTicketsIntranetType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestUpdateTickets" type="requestUpdateTicketsType"/>
+	<xsd:element name="responseUpdateTickets" type="responseUpdateTicketsType"/>
+	<xsd:complexType name="requestUpdateTicketsType">
+		<xsd:sequence>
+			<xsd:element name="typeTicketSystem" type="xsd:string"/>
+			<xsd:element name="batch">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="method" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="requestId" type="xsd:string"/>
+									<xsd:element name="ticketId" type="xsd:string"/>
+									<xsd:element name="status" type="xsd:string"/>
+									<xsd:element name="cmdExecute" type="xsd:string"/>
+									<xsd:element name="description" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseUpdateTicketsType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string"/>
+			<xsd:element name="results" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="result" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="idResult" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="errorText" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="errorCode" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

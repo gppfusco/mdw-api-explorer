@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_SET_NUMERO_TEL",
+    "name" : "SalesforceProject_WS_CRM_SET_NUMERO_TEL_proxy_PS_CRM_SET_NUMERO_TEL",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\SET\\NUMERO\\TEL\\PS_CRM_SET_NUMERO_TEL",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_SET_NUMERO_TEL?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/SetNumeroTel/xsd/XSD_CRM_SET_NUMERO_TEL",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

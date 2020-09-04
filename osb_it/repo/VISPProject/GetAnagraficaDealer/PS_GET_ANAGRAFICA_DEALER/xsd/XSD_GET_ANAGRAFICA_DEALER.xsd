@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetAnagraficaDealerType"/>
+	<xsd:element name="requestGetAnagraficaDealer" type="requestGetAnagraficaDealerType"/>
+	<xsd:complexType name="responseGetAnagraficaDealerType">
+		<xsd:sequence>
+			<xsd:element name="mdwResults">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="AnagraficaDealer" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwCodiceUtente" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwCodiceVenditore" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwTipoVenditore" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwDataInizioVenditore" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwDataFineVenditore" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwRagioneSociale" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwIndirizzo" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwCivico" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwCAP" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwLocalita" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwProvincia" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwRegione" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwMail" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwPartitaIva" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwCodiceFiscale" type="xsd:string" nillable="true"/>
+									<xsd:element name="mdwFlagEsercizioUtente" type="xsd:string" nillable="true"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:element name="responseGetAnagraficaDealer" type="responseGetAnagraficaDealerType"/>
+</xsd:schema>

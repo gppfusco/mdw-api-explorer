@@ -1,0 +1,30 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "PegasusProject_PortaleBookingHotel_proxy_PS_WS_PGS_PORTALE_BOOKING_HOTEL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/PegasusProject/PortaleBookingHotel/pipeline/PL_TMP_BOOKING_HOTEL" : {
+        "label" : "Pipeline/PegasusProject/PortaleBookingHotel/pipeline/PL_TMP_BOOKING_HOTEL",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/PortaleBookingHotel/wsdl/WS_PGS_PORTALE_BOOKING_HOTEL" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/PortaleBookingHotel/wsdl/WS_PGS_PORTALE_BOOKING_HOTEL",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/PortaleBookingHotel/wsdl/WS_PGS_PORTALE_BOOKING_HOTEL" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/PortaleBookingHotel/wsdl/WS_PGS_PORTALE_BOOKING_HOTEL",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

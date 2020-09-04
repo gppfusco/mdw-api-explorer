@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_OrderValidation_proxy_PL_WS_OM_ORDER_VALIDATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/OMProject/OrderValidation/pipeline/PL_WS_OM_ORDER_VALIDATION" : {
+        "label" : "Pipeline/OMProject/OrderValidation/pipeline/PL_WS_OM_ORDER_VALIDATION",
+        "properties" : { },
+        "successors" : {
+          "Xquery/OMProject/OrderValidation/transformations/createResponse_OrderValidationProcedura" : {
+            "label" : "Xquery/OMProject/OrderValidation/transformations/createResponse_OrderValidationProcedura",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderValidation/wsdl/WS_OM_ORDER_VALIDATION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderValidation/wsdl/WS_OM_ORDER_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/OrderValidation/businessServices/BS_SQL_OM_ORDER_VALIDATION_PROCEDURA" : {
+            "label" : "BusinessService/OMProject/OrderValidation/businessServices/BS_SQL_OM_ORDER_VALIDATION_PROCEDURA",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/OrderValidation/transformations/createRequest_OrderValidationProcedura" : {
+            "label" : "Xquery/OMProject/OrderValidation/transformations/createRequest_OrderValidationProcedura",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderValidation/wsdl/WS_OM_ORDER_VALIDATION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderValidation/wsdl/WS_OM_ORDER_VALIDATION",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<!-- ELEMENTS -->
+	<xsd:element name="requestUpdateEntities" type="requestUpdateEntitiesType"/>
+	<xsd:element name="responseUpdateEntities" type="commonReponseType"/>
+	<xsd:element name="commonReponse" type="commonReponseType"/>
+	<!-- TYPES --> 
+	<xsd:complexType name="requestUpdateEntitiesType">
+		<xsd:sequence>
+			<xsd:element name="contract" type="contractType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="order" type="orderType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="orderItem" type="orderItemType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="orderType" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="contractBundle" type="contractBundleType" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType> 
+	<xsd:complexType name="commonReponseType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="orderType">
+		<xsd:sequence>
+			<xsd:element name="Id" type="SF_ID"/>
+			<xsd:element name="AccountId" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="ActivatedById" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="ActivatedDate" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Anagrafica_Id__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="BillingCity" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="BillingCountry" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="BillingGeocodeAccuracy" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="BillingLatitude" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="BillingLongitude" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="BillingPostalCode" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="BillingState" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="BillingStreet" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="CompanyAuthorizedById" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="ContractId" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="CreatedById" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="CreatedDate" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="CustomerAuthorizedById" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="Description" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="EffectiveDate" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="EndDate" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="IsDeleted" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="IsReductionOrder" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastModifiedById" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastModifiedDate" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastReferencedDate" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastViewedDate" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Action__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_ActivationCase__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Category__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_ContractNumber__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_DealerType__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Dealer__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Delivery_Type__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Delivery__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Description__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Downpayment__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_FW_UBBPlus__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_FirstVendor__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_FirstVoucherCode__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_IncompletenessReason__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_OMCorrelationID__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Offerts__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Origin__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Promotion__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_RequestCase__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_SchedulatedDate__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_SecondVendor__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_SecondVoucherCode__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_SellingChannel__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Sottostato__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_TIBCO_ActivationDate__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_TIBCO_CompletionDate__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_TIBCO_CreatedDate__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_TIBCO_ProcessingDate__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Integration_Outcome__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_TIBCO_ScheduledDate__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_ThirdPartiesBill__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Tibco_Order_Id__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Tibco_Order__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Trackings__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_WashingMachine__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OrderNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OriginalOrderId" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="OwnerId" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="Pricebook2Id" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="RecordTypeId" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingCity" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingCountry" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingGeocodeAccuracy" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingLatitude" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingLongitude" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingPostalCode" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingState" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingStreet" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Status" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="StatusCode" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="SystemModstamp" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="TotalAmount" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="Type" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__AccountId__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__AccountRecordType__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__AccountSLA__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__BillingName__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__CampaignId__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__CreatedByAPI__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__Delivery_Installation_Status__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__Discount__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__DueDate__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__EffectiveOneTimeTotal__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__EffectiveOrderTotal__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__EffectiveRecurringTotal__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__Email__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__ExpirationDate__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__Fax__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__FrameContractId__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__FulfilmentStatus__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__IsContractRequired__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__IsSyncing__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__JeopardySafetyInterval__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__JeopardyStatus__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__LeadSource__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__MasterOrderName__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__NumberOfContractedMonths__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__OneTimeTotal__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__OpportunityId__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__OrchestrationPlanId__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__OrderGroup__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__OrderTotal__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__OriginatingChannel__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__OriginatingContractId__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__Phone__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__Pricebook__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__QuoteId__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__QuoteToCity__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__QuoteToCountry__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__QuoteToName__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__QuoteToPostalCode__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__QuoteToState__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__QuoteToStreet__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__RecurringTotal__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__RequestDate__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__RequestedCompletionDate__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__ShippingName__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__ShippingPostalCode__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__ShippingState__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__StatusImageName__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__Tax__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__TotalMonthlyDiscount__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__TotalOneTimeDiscount__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__TrackingNumber__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__ValidationDate__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__ValidationMessage__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__ValidationStatus__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Id_Delivery__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Reminder_Prenotazione_SkyGoPlus__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Id_CO_Siebel__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Welcome_Kit__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="CPE__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ONT__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="HUB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="TelephoneNumber_New__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Installation_Enhanced__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Flag_ID_Doc_not_verified__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Secondary_AccessOrderId_BLB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Primary_AccessOrderId_BLB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="TechnicalStatus_BLB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Causale_KO__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="InstallerPIN__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="BB_Status__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="BB_Integration_Outcome__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Attuale_operatore_BB_Dati__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Attuale_operatore_BB_Voce__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="gestore_unic_dati_voce_BLB__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingNote_c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingPhone_c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="technology_access_BLB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="TipologiaLineaScelta__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Prevista_Migrazione__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="NotificheFW__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="FWAppointmentDate__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="FWTimeSlot__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="FWNotes__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="FlagContactUpdated__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="OrderReasonsList" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="orderReason" minOccurs="1" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="orderReasonName" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="orderReasonValue" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="contractType">
+		<xsd:sequence>
+			<xsd:element name="Id" type="SF_ID"/>
+			<xsd:element name="Accertamento_Flg__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="AccountId" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="Account_Sostituito__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Account_Subentrato_Id__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="Account_Subentro_Id__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="Altro_Telefono__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Ambiente_Servizio__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Antifrode_MV_Date_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Antifrode_MV_Number__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="Antifrode_MV__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Anytime_Consenso_Dati_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Anytime_Data_Term_Condition_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Anytime_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Anywhere_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Area_Comune_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="As_Of_Date_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Attivazione_DECA_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Attivazione_MV__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Avanzamento_Consegna__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Billable_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Billing_Id__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="Blocco_Canali_IKUSI_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="BroadBand_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="CAP_Critico_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="CO_Delivery_TV__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="CO_Marca_TV__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="CO_Pollici_TV__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="CV_Impianto_Da_Adeguare_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Calcola_Punti_di_Fruizione_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Call_Me_Now_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Canale_Acquisizione_DECA__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Canale_Acquisizione_Down_Payment__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Candidato_Hold_Flg__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Categoria_Cliente__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Catena_Appartenenza__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Causale_Annullamento__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Causale_Cessazione_Simulata__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Causale_Cessazione__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Causale_Firmato__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Causale_Incompletezza__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Causale_SOAS__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Causale_Sospensione__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Causale_Tipo_Posta_Ritornata__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Causale_Trasporto__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Cellulare__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Check_Antifrode_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Citofono_Odl_Trasferimento__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Citofono__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Claim_Counter__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="Closed_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Cluster_Inbound__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Codice_Agreement__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Codice_Condominio__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Codice_Contratto_Cartaceo__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Codice_Contratto__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Codice_Ditta__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Codice_ODS__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Codice_Promozione__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Codice_Ricevitoria_Sisal__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Codice_SOAS__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Codice_Transazione_POS__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Codice_Transazione_Sisal__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Cognome_Referente__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Comments__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Company__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Complesso__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Consenso_Tablet_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Contrassegno_Riscosso__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Contratto_Brand__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Contratto_Email__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Contratto_Numero_Fax__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Contratto_Telefono__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Conversione_Stampa__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Crea_Esigenza_Disdetta_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Crea_Esigenza_Tipo__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="CustomerSignedDate" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_2SA_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Acknowledge_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Adesione_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Ageing_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Annullamento_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Apertura_ODS_dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Apertura_SOAS_dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Appuntamento_Preferita_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Attivazione_Prevista_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Cambio_Listino_Pending_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Cambio_Mastership_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Cambio_Stato_Candidatura_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Caricamento_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Cessazione_Batch_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Cessazione_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Chiusura_ODL_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Consegna_Corriere_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Disponibilita_Cliente_ODL_dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Fine_Rivista_Gratis_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Firma_Addendum_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Flusso_Corriere_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_ODL_dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Pagamento_DP_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Prima_Attivazione_Account_Sub_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Prima_Attivazione_New_Subentrato_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Registrazione_Cessazione_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Riattivazione_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Ricezione_Raccomandata_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Richiesta_Cessazione_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Richiesta_Cessazione_Fatturazionedt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Richiesta_Sospensione_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Sblocco_Attivazione_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Scadenza_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Scadenza_SOAS_dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Sospensione_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Sospensione_Prevista_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Ultima_Fattura_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Ultima_Simulazione_Exit_Fee_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Ultima_Sospensione_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Verifica_Anywhere_Dt__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Visualizzazione_Palinsesto_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_ultima_notifica_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_ultima_notifica_FW_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Delega_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Denominazione_Fruitore__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Deposito_Cauzionale__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Description" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Distinta_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Down_Payment__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Due_Date_Old_Company_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Durata_Contratto__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="EMail_Recapito_Fattura__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_ATTVLXATT__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_BES1XG__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_BES1XM__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_BES1YG__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_BES1YM__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_BESVLXBES__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_FLXCTX__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_IDCIV__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_MATCHCODESKY__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_MATCHCODE__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_NAB_All__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Egon_NAB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="EndDate" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Firmato_Addendum__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Firmato_Flg__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Firmato_Multivision__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Firmato__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Frazione__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Garanzia_ODL__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Gestione_Quantita_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Grande_Cliente_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="ID_PDA__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Impianto_Da_Adeguare_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Impianto_Rilevato__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Importo_Commissione_Sisal__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Importo_DECA__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Indirizzo_Normalizzato_Flg__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Indirizzo_Sito_Internet__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Inibizione_ODS_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Installazione_Consigliata__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Interno__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Invio_Anl_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Invio_Dowp_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Irreperibile_Per_Reso_Postale_Ship_Flg__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Kit_Sky_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="LGS_Ultima_Esigenza__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastModifiedAccount__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastModifiedById" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastModifiedDate" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastModifiedDatePayer__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastUserName__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="LatModifiedBilling__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Lavorato_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Listino_Pending_Id__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="MNT_Anti_Frode_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="MNT_Codice_Coupon__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="MNT_Invio_Rivista_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="MNT_Linea_Telefonica_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="MNT_Lista_Codici_MGM__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="MNT_Modalita_Invio_Rivista__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="MNT_Prima_Data_Att_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="MNT_Tecnologia__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="MNT_Tipo_Linea_Telefonica__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Magazzino_ODS__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Manuale_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Match_Code_DWI__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Match_Code_FW__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Match_Code__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Meccanica_Promo__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Modalit_Invio_Fattura__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Modalit_invio_Rivista__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Mop_Down_Payment__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Multivision_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Name_Service_Account_Migrato__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Nome_Referente__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Note__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Numero_Civico__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Numero_Documento__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Numero_Mesi_Rivista_Gratis__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="Numero_ODL__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Numero_Subentri__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="Numero_di_telefono_ODL__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_CorrelationID__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Order_Date_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Order_Number__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Ordine_ODS__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Ordine_con_Ritiro_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Particella_Toponomastica__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Payer_Id__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="Piano__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Premises_Id__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="Premises_childs_Id__c" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="Pricebook2Id" type="SF_ID" nillable="true" minOccurs="0"/>
+			<xsd:element name="Progressivo_CC__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Promozione_Pending__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Promozione_Proposta__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Promozione__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Province__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Provisioning__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="RTD_CLC__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Ragione_Sociale_Dealer__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Report_Calcolato_2__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Riconnessione_da_Service_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Rientro_Cartaceo_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Rilascio_DECA_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="SIL_Data_Prevista_Consegna_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="SIL_Data_Reinvio_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="SIL_Reinvio_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="SIL_Reitek_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="SIL_Tipo_Venditore__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="SKYID__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Sblocco_Contratto_DECA_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Scadenza_SOAS_dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Scala__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Scenario_Allineamento__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Scenario_Sospensione__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Sconto_Cambio_Piano_Down_Curr__c" type="xsd:double" nillable="true" minOccurs="0"/>
+			<xsd:element name="Secondo_Codice_Promozione__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Segmento_Abbonati__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Send_To_SAP_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingCity" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingCountry" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingPostalCode" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingState" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ShippingStreet" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Sosp_Old_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Sottostato_Avanzamento_Consegna__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Sottotipo_Ordine_Logistica__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Stampa_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="StartDate" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Stato_DECA_Label__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Stato_DECA__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Stato_DP_Parco__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Stato_Indirizzo__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Stato_ODL__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Stato_Provisioning_FW__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Stato_Provisioning__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Stato_Verifica_Anywhere__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Stato_di_Rischio__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Status" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="StockOut_Flg__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tecnologia__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Telefono__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tipo_Contratto__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tipo_Documento__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tipo_Impianto__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tipo_Installazione_IKUSI__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tipo_ODL__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tipo_ODS__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tipo_Posta_Ritornata__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tipo_Pronto__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tipo_Provisioning__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tipo_Rivista__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Tipologia_Esercizio__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Ultima_Modifica_Stato_Rischio_Dt__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="Verifica_Firma_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Verifiche_Antifrode_completate_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Verifiche_CRM_completate_Flg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Attivazione_SameDay__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Data_Cessazione_SameDay__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="Esito_SCMS_SameDay__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="SkyGo_SameDay__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="SkyGoPlus_SameDay__c" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="orderItemType">
+		<xsd:sequence>
+			<xsd:element name="Id" type="SF_ID"/>
+			<xsd:element name="vlocity_cmt__DisconnectDate__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_EnablementNumber__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__ProvisioningStatus__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__SerialNumber__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_StatusItem__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_ChannelType__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_XAssociazioneMatricolaDT__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_StatoMatricola__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_MatricolaOld__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_StatoMatricolaOld__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_SottostatoApparato__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_ActivationDate__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Data_Fine_Garanzia__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_datasospensione__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Matricola_Pacco__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_StatoPacco__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__FulfilmentStatus__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OrderLine_SubStatus_BLB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OrderLine_Status_BLB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="TN_BLB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Voice_Exception_BLB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Exception_Description__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Residual_SLA__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="Error_Code__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ActivationType__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DN0__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DN1__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DN2__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DN3__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DN4__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DN5__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DN6__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DN7__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DN8__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="DN9__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlanDeliveryKitId__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="WholesalerBB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="status_delivery__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="TIMReasonCode__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="TIMReasonDescription__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="CSP_ID__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastBootDate__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastBootMacAddress__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastBootModel__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ActivationBootDate__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="LastBootManufacturer__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ActivationBootMacAddress__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ActivationBootModel__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="ActivationBootManufacturer__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OSSOrderItems" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="OSSOrderItem" minOccurs="1" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="itemName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="itemValue" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="orderAttributes" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="orderAttribute" minOccurs="1" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="ordAttribName" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ordAttribValue" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="orderPriceAdjustment" type="orderPriceAdjustmentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="orderAppliedPromotion" type="orderAppliedPromotionType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="OG_VisionFlg__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="OrderItemAnnullDate_BLB__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="ToAsset_BLB__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="appt_AppointmentData_BLB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="MigrationCodeIn_BLB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="serviceType_BB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="MigrationCodeOut_BLB__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__AssetReferenceId__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__Action__c" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="orderPriceAdjustmentType">
+		<xsd:sequence>
+			<xsd:element name="Id" type="SF_ID"/>
+			<xsd:element name="vlocity_cmt__FulfilmentStatus__c" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OG_AppliedDate__c" type="xsd:dateTime" nillable="true" minOccurs="0"/>
+			<xsd:element name="OrderItemAnnullDate_BLB__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="ToAsset_BLB__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+                        <xsd:element name="vlocity_cmt__EstimatedStartDate__c" type="xsd:date" nillable="true" minOccurs="0"/>
+                        <xsd:element name="vlocity_cmt__EstimatedEndDate__c" type="xsd:date" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="orderAppliedPromotionType">
+		<xsd:sequence>
+			<xsd:element name="Id" type="SF_ID"/>
+			<xsd:element name="vlocity_cmt__PricingEndDate__c" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__PricingStartDate__c" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__FulfilmentStatus__c" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="OrderItemAnnullDate_BLB__c" type="xsd:date" nillable="true" minOccurs="0"/>
+			<xsd:element name="ToAsset_BLB__c" type="xsd:boolean" nillable="true" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__CommitmentEndDate__c" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="vlocity_cmt__CommitmentStartDate__c" type="xsd:dateTime" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="contractBundleType">
+		<xsd:sequence>
+			<xsd:element name="Id" type="SF_ID"/>
+			<xsd:element name="OG_ID_HEADER_FW__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_ID_Instance_FW__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_ID_ASSET_FW__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_CODICE_CLIENTE_FW__c" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="OG_Code_CDF_FW__c" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="SF_ID">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="18"/>
+			<xsd:pattern value="[a-zA-Z0-9]{18}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

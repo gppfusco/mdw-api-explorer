@@ -1,0 +1,121 @@
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_SKY_GO" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_CRM_GESTIONE_SKY_GO" targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_SKY_GO">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_SKY_GO.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestGetDevice_Message">
+		<wsdl:part name="part_requestGetDevice" element="inp1:requestGetDevice"/>
+	</wsdl:message>
+	<wsdl:message name="requestResetCounterDevice_Message">
+		<wsdl:part name="part_requestResetCounterDevice" element="inp1:requestResetCounterDevice"/>
+	</wsdl:message>
+	<wsdl:message name="requestResetCustomerPin_Message">
+		<wsdl:part name="part_requestResetCustomerPin" element="inp1:requestResetCustomerPin"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetDevice_Message">
+		<wsdl:part name="part_responseGetDevice" element="inp1:responseGetDevice"/>
+	</wsdl:message>
+	<wsdl:message name="responseResetCounterDevice_Message">
+		<wsdl:part name="part_responseResetCounterDevice" element="inp1:responseResetCounterDevice"/>
+	</wsdl:message>
+	<wsdl:message name="responseResetCustomerPin_Message">
+		<wsdl:part name="part_responseResetCustomerPin" element="inp1:responseResetCustomerPin"/>
+	</wsdl:message>
+	<wsdl:message name="requestResetPinDevice_Message">
+		<wsdl:part name="part_requestResetPinDevice" element="inp1:requestResetPinDevice"/>
+	</wsdl:message>
+	<wsdl:message name="responseResetPinDevice_Message">
+		<wsdl:part name="responseResetPinDevice_Message" element="inp1:responseResetPinDevice"/>
+	</wsdl:message>
+	<wsdl:message name="header_Message">
+		<wsdl:part name="part_Header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:message name="requestResetDevice_Message">
+		<wsdl:part name="part_requestResetDevice" element="inp1:requestResetDevice"/>
+	</wsdl:message>
+	<wsdl:message name="responseResetDevice_Message">
+		<wsdl:part name="part_responseResetDevice" element="inp1:responseResetDevice"/>
+	</wsdl:message>
+	<wsdl:portType name="CRM_GESTIONE_SKY_GO_ptt">
+		<wsdl:operation name="execute_GetDevice">
+			<wsdl:input message="tns:requestGetDevice_Message"/>
+			<wsdl:output message="tns:responseGetDevice_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_ResetCustomerPin">
+			<wsdl:input message="tns:requestResetCustomerPin_Message"/>
+			<wsdl:output message="tns:responseResetCustomerPin_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_ResetPinDevice">
+			<wsdl:input message="tns:requestResetPinDevice_Message"/>
+			<wsdl:output message="tns:responseResetPinDevice_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_ResetDevice">
+			<wsdl:input message="tns:requestResetDevice_Message"/>
+			<wsdl:output message="tns:responseResetDevice_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_ResetCounterDevice">
+			<wsdl:input message="tns:requestResetCounterDevice_Message"/>
+			<wsdl:output message="tns:responseResetCounterDevice_Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CRM_GESTIONE_SKY_GO_pttSOAP11Binding" type="tns:CRM_GESTIONE_SKY_GO_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_GetDevice">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SKY_GO/execute_GetDevice" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestGetDevice" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseGetDevice" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_ResetCustomerPin">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SKY_GO/execute_GetDevice" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestResetCustomerPin" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseResetCustomerPin" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_ResetPinDevice">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SKY_GO/execute_ResetPinDevice" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestResetPinDevice" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="responseResetPinDevice_Message" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_ResetDevice">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SKY_GO/execute_ResetDevice"/>
+			<wsdl:input>
+				<soap:body parts="part_requestResetDevice" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseResetDevice" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_ResetCounterDevice">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_SKY_GO/execute_ResetCounterDevice" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestResetCounterDevice" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseResetCounterDevice" use="literal"/>
+				<soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

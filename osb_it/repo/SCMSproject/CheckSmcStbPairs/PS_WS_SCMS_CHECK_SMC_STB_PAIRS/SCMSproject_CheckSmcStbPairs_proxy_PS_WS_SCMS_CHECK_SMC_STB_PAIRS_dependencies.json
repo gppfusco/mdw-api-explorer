@@ -1,0 +1,62 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_CheckSmcStbPairs_proxy_PS_WS_SCMS_CHECK_SMC_STB_PAIRS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/CheckSmcStbPairs/wsdl/WS_SCMS_CHECK_SMC_STB_PAIRS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/CheckSmcStbPairs/wsdl/WS_SCMS_CHECK_SMC_STB_PAIRS",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SCMSproject/CheckSmcStbPairs/pipeline/PL_WS_SCMS_CHECK_SMC_STB_PAIRS" : {
+        "label" : "Pipeline/SCMSproject/CheckSmcStbPairs/pipeline/PL_WS_SCMS_CHECK_SMC_STB_PAIRS",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/SCMSproject/CheckSmcStbPairs/businessServices/BS_TUX_CAIF_VERIFICA_COPPIE_SMC_STB" : {
+            "label" : "BusinessService/SCMSproject/CheckSmcStbPairs/businessServices/BS_TUX_CAIF_VERIFICA_COPPIE_SMC_STB",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/CheckSmcStbPairs/wsdl/WS_SCMS_CHECK_SMC_STB_PAIRS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/CheckSmcStbPairs/wsdl/WS_SCMS_CHECK_SMC_STB_PAIRS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/CheckSmcStbPairs/transformations/createRequestTuxVerificaCoppieSmcStb" : {
+            "label" : "Xquery/SCMSproject/CheckSmcStbPairs/transformations/createRequestTuxVerificaCoppieSmcStb",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/CheckSmcStbPairs/transformations/createResponseTuxVerificaCoppieSmcStb" : {
+            "label" : "Xquery/SCMSproject/CheckSmcStbPairs/transformations/createResponseTuxVerificaCoppieSmcStb",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+            "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

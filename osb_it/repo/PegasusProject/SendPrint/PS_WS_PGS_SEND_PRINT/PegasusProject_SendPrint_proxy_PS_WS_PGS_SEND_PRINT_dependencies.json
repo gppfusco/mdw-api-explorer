@@ -1,0 +1,42 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "PegasusProject_SendPrint_proxy_PS_WS_PGS_SEND_PRINT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/SendPrint/wsdl/WS_PGS_SEND_PRINT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/SendPrint/wsdl/WS_PGS_SEND_PRINT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/PegasusProject/SendPrint/pipeline/PL_WS_PGS_SEND_PRINT_ENQUEUE" : {
+        "label" : "Pipeline/PegasusProject/SendPrint/pipeline/PL_WS_PGS_SEND_PRINT_ENQUEUE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_JMS_SF_OUTBOUND_PEGASUS" : {
+            "label" : "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_JMS_SF_OUTBOUND_PEGASUS",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/SendPrint/wsdl/WS_PGS_SEND_PRINT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/SendPrint/wsdl/WS_PGS_SEND_PRINT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

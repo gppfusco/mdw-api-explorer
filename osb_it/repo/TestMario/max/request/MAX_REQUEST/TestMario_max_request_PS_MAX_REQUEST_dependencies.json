@@ -1,0 +1,11 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "TestMario_max_request_PS_MAX_REQUEST",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "Messaging"
+    },
+    "successors" : { }
+  }
+}

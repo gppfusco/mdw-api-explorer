@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestAddAdditionalServices" type="requestAddAdditionalServicesType"/>
+  <xsd:element name="responseAddAdditionalServices" type="responseAddAdditionalServicesSOAPType"/>
+  
+  
+  <xsd:complexType name="requestAddAdditionalServicesType">
+    <xsd:sequence>
+      <xsd:element name="orderId" type="xsd:string"/>
+      <xsd:element name="productList" type="productListType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="productListType">
+    <xsd:sequence>
+      <xsd:element name="product" minOccurs="0" maxOccurs="unbounded" type="productType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="productType">
+    <xsd:sequence>
+      <xsd:element name="productCode" type="xsd:string"/>
+      <xsd:element name="attributes" minOccurs="0" maxOccurs="1" type="attributesType"/>
+      <xsd:element name="quantity" type="xsd:string"/>
+      <xsd:element name="parentItemId" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="attributesType">
+    <xsd:sequence>
+      <xsd:element name="attribute" maxOccurs="unbounded" type="attributeType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="attributeType">
+    <xsd:sequence>
+      <xsd:element name="code" type="xsd:string"/>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="value" type="xsd:string"/>
+      <xsd:element name="valueCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseAddAdditionalServicesSOAPType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="tid" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestSetConcorrenzaType">
+		<xsd:sequence>
+			<xsd:element name="IdCliente" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="PassaggioConcorrenza" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="NomeCompetitor" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="PacchettoCompetitor" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MeseScadenzaAbbCompetitor" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="AnnoScadenzaAbbCompetitor" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MeseSottoscrizioneAbbCompetitor" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="AnnoSottoscrizioneAbbCompetitor" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DurataAbbCompetitorInMesi" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSetConcorrenza" type="requestSetConcorrenzaType"/>
+	<xsd:element name="responseSetConcorrenza" type="basicResponseType"/>
+	<xsd:complexType name="basicResponseType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

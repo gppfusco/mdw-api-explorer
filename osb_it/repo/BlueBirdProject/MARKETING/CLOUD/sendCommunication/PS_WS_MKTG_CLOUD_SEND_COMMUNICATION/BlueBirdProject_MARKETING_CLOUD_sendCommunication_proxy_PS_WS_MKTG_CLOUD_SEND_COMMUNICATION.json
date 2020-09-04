@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/marketingCloud/WS_MKTG_CLOUD_SEND_COMMUNICATION",
+    "name" : "BlueBirdProject_MARKETING_CLOUD_sendCommunication_proxy_PS_WS_MKTG_CLOUD_SEND_COMMUNICATION",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\MARKETING\\CLOUD\\sendCommunication\\PS_WS_MKTG_CLOUD_SEND_COMMUNICATION",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/marketingCloud/WS_MKTG_CLOUD_SEND_COMMUNICATION?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/MARKETING_CLOUD/sendCommunication/xsd/XSD_MKTG_CLOUD_SEND_COMMUNICATIONS",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

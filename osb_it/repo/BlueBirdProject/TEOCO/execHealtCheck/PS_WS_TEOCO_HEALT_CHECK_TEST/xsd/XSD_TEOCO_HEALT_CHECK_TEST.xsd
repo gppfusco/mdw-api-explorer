@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+    targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+    <xsd:element name="requestExecHealtCheck" type="requestExecHealtCheckType"/>
+    <xsd:element name="responseExecHealtCheck" type="resultExecHealtCheckType"/>
+    <xsd:element name="responseExecHealtCheckSoap" type="responseExecHealtCheckSoapType"/>
+    <xsd:complexType name="requestExecHealtCheckType">
+        <xsd:sequence>
+            <xsd:element name="operationName" type="operationNameType" minOccurs="1"/>
+            <xsd:element name="arguments" type="argumentsType" minOccurs="0"/>
+            <xsd:element name="timeout" type="xsd:integer" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="resultExecHealtCheckType">
+        <xsd:sequence>
+            <xsd:element name="result" type="resultType" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="resultType">
+        <xsd:sequence>
+            <xsd:element name="typeCheck" type="typeCheckEnum" minOccurs="0"/>
+            <xsd:element name="requestID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="status" type="xsd:boolean" minOccurs="1"/>
+            <xsd:element name="errorCode" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="errorMessage" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="data" type="dataType" minOccurs="0"/>
+            <xsd:element name="endOfResponse" type="xsd:boolean" minOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="dataType">
+        <xsd:sequence>
+            <xsd:element name="entry" type="entryType" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="entryType">
+        <xsd:sequence>
+            <xsd:element name="name" type="nameOutputArgumentType" minOccurs="1"/>
+            <xsd:element name="value" type="xsd:string" minOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="argumentsType">
+        <xsd:sequence>
+            <xsd:element name="argument" type="argumentType" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="argumentType">
+        <xsd:sequence>
+            <xsd:element name="name" type="nameInputArgumentType" minOccurs="1"/>
+            <xsd:element name="value" type="xsd:string" minOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:simpleType name="operationNameType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Broadband_Service_test"/>
+            <xsd:enumeration value="Voice_Service_test"/>
+            <xsd:enumeration value="Voice_Feature_test"/>
+            <xsd:enumeration value="VoiceAll"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="nameInputArgumentType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="BSS ID"/>
+            <xsd:enumeration value="BSS Source"/>
+            <xsd:enumeration value="Service ID"/>
+            <xsd:enumeration value="Health Check Mode"/>
+            <xsd:enumeration value="Test Phase"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="nameOutputArgumentType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="BSS ID"/>
+            <xsd:enumeration value="BSS Source"/>
+            <xsd:enumeration value="Service ID"/>
+            <xsd:enumeration value="Health Check Mode"/>
+            <xsd:enumeration value="Test Phase"/>
+            <xsd:enumeration value="Fault Code"/>
+            <xsd:enumeration value="Fault Cause"/>
+            <xsd:enumeration value="Next Best Action Code"/>
+            <xsd:enumeration value="Next Best Action Description"/>
+            <xsd:enumeration value="Raw Result"/>
+            <xsd:enumeration value="RAG"/>
+            <xsd:enumeration value="Diagnostic Summary"/>
+            <xsd:enumeration value="Fault Type"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="typeCheckEnum">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="Voice Service"/>
+            <xsd:enumeration value="Voice Feature"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:complexType name="responseExecHealtCheckSoapType">
+        <xsd:sequence>
+            <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+            <xsd:element ref="responseExecHealtCheck" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="requestGetDataHealtCheck" type="requestGetDataHealtCheckType"/>
+    <xsd:element name="responseGetDataHealtCheck" type="resultGetDataHealtCheckType"/>
+    <xsd:element name="responseGetDataHealtCheckSoap" type="responseGetDataHealtCheckSoapType"/>
+    <xsd:complexType name="requestGetDataHealtCheckType">
+        <xsd:sequence>
+            <xsd:element name="requestID" type="xsd:integer" minOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="resultGetDataType">
+        <xsd:sequence>
+            <xsd:element name="requestID" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="status" type="xsd:boolean" minOccurs="1"/>
+            <xsd:element name="errorCode" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="errorMessage" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="data" type="dataType" minOccurs="0"/>
+            <xsd:element name="endOfResponse" type="xsd:boolean" minOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>    
+    <xsd:complexType name="resultGetDataHealtCheckType">
+        <xsd:sequence>
+            <xsd:element name="result" type="resultGetDataType" minOccurs="1" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="responseGetDataHealtCheckSoapType">
+        <xsd:sequence>
+            <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+            <xsd:element ref="responseGetDataHealtCheck" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestPaymentDetailsSending" type="requestPaymentDetailsSendingType"/>
+  <xsd:complexType name="requestPaymentDetailsSendingType">
+    <xsd:sequence>
+      <xsd:element name="contrId" type="xsd:string"/>
+      <xsd:element name="mdwDate" type="xsd:string"/>
+      <xsd:element name="mopAmount" type="xsd:string"/>
+      <xsd:element name="mopPaymentMethodCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responsePaymentDetailsSending" type="responsePaymentDetailsSendingType"/>
+  <xsd:complexType name="responsePaymentDetailsSendingType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultCode" type="xsd:string"/>
+      <xsd:element name="mdwResultDescription" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="mopPaymentResult" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="mopPaymentMessage" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="custId" minOccurs="0" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestOverduePayments" type="requestOverduePaymentsType"/>
+  <xsd:complexType name="requestOverduePaymentsType">
+    <xsd:sequence>
+      <xsd:element name="mdwCoBrowsingFlag" type="xsd:string"/>
+      <xsd:element name="mdwChannel" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="mdwInteractionId" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contrIdE2E" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="contrId" type="xsd:string"/>
+      <xsd:element name="custId" type="xsd:string"/>
+      <xsd:element name="mdwCardData" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwExpirationMonth" type="xsd:string"/>
+            <xsd:element name="mdwExpirationYear" type="xsd:string"/>
+            <xsd:element name="mdwCardNumber" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="mdwIGFSData" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwIGFStid" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="mdwIGFSshopId" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="mdwIGFSamount" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="mdwIGFSrefTransId" minOccurs="0" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseOverduePayments" type="responseOverduePaymentsType"/>
+  <xsd:complexType name="responseOverduePaymentsType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultCode" type="xsd:string"/>
+      <xsd:element name="mdwResultDescription" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="mdwCardData" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwCardType" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="serviceRequests" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceRequest" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="mdwId" type="xsd:string"/>
+                  <xsd:element name="mdwServiceRequestNumber" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestEnterPayment" type="requestEnterPaymentType"/>
+  <xsd:complexType name="requestEnterPaymentType">
+    <xsd:sequence>
+      <xsd:element name="mdwCoBrowsingFlg" type="FlagType"/>
+      <xsd:element name="mdwInteractionId" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="mdwConnIdCTI" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="provenance" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="mdwPaymentData">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="contrId" type="xsd:string"/>
+            <xsd:element name="mdwPaymentMethod" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwAmount" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwPaymentDate" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseEnterPayment" type="responseEnterPaymentType"/>
+  <xsd:complexType name="responseEnterPaymentType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultCode" type="xsd:string"/>
+      <xsd:element name="mdwResultDescription" type="xsd:string"/>
+      <xsd:element name="serviceRequests" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceRequestId" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+   <xsd:simpleType name="FlagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

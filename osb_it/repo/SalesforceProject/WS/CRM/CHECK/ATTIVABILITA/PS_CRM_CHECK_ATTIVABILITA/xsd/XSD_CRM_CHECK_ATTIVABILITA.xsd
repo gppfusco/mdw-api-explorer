@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCheckAttivabilitaHD" type="requestCheckAttivabilitaHDType"/>
+	<xsd:complexType name="requestCheckAttivabilitaHDType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwChannel" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwContactType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwTechnology" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwTrackingField" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwConnId" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="mdwOrigin" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="mdwScope" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckAttivabilitaHD" type="responseCheckAttivabilitaHDType"/>
+	<xsd:complexType name="responseCheckAttivabilitaHDType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_UPDATE_COMMUNICATION_STATUS_proxy_PS_WS_CRM_UPDATE_COMMUNICATION_STATUS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_UPDATE_COMMUNICATION_STATUS/pipeline/PL_WS_UPDATE_COMMUNICATION_STATUS" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_UPDATE_COMMUNICATION_STATUS/pipeline/PL_WS_UPDATE_COMMUNICATION_STATUS",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_UPDATE_COMMUNICATION_STATUS/transformations/createResponseUpdateCommunicationStatus" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_UPDATE_COMMUNICATION_STATUS/transformations/createResponseUpdateCommunicationStatus",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_UPDATE_COMMUNICATION_STATUS/transformations/createRequestUpdateCommunicationStatus" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_UPDATE_COMMUNICATION_STATUS/transformations/createRequestUpdateCommunicationStatus",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/UpdateCommunicationStatus/wsdl/WS_CRM_UPDATE_COMMUNICATION_STATUS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/UpdateCommunicationStatus/wsdl/WS_CRM_UPDATE_COMMUNICATION_STATUS",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/UpdateCommunicationStatus/wsdl/WS_CRM_UPDATE_COMMUNICATION_STATUS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/UpdateCommunicationStatus/wsdl/WS_CRM_UPDATE_COMMUNICATION_STATUS",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

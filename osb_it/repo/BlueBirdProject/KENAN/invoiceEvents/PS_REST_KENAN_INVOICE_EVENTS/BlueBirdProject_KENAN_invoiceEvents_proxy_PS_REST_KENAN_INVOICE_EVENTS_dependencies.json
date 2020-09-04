@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_KENAN_invoiceEvents_proxy_PS_REST_KENAN_INVOICE_EVENTS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_EVENTS" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_EVENTS",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/KENAN/invoiceEvents/pipeline/PL_REST_KENAN_INVOICE_EVENTS" : {
+        "label" : "Pipeline/BlueBirdProject/KENAN/invoiceEvents/pipeline/PL_REST_KENAN_INVOICE_EVENTS",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_EVENTS" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_EVENTS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/KENAN/invoiceEvents/pipeline/PL_INTERNAL_GET_INVOICE_EVENTS" : {
+            "label" : "Pipeline/BlueBirdProject/KENAN/invoiceEvents/pipeline/PL_INTERNAL_GET_INVOICE_EVENTS",
+            "properties" : { },
+            "successors" : {
+              "Xquery/BlueBirdProject/KENAN/invoiceEvents/transformation/createRequest_RetrieveInvoiceEvents" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/invoiceEvents/transformation/createRequest_RetrieveInvoiceEvents",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/KENAN/invoiceEvents/businessService/BS_SQL_GET_ADD_DEL_INVOICE_EVENTS" : {
+                "label" : "BusinessService/BlueBirdProject/KENAN/invoiceEvents/businessService/BS_SQL_GET_ADD_DEL_INVOICE_EVENTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_EVENTS" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_INVOICE_EVENTS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/invoiceEvents/transformation/createResponse_RetrieveInvoiceEvents" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/invoiceEvents/transformation/createResponse_RetrieveInvoiceEvents",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

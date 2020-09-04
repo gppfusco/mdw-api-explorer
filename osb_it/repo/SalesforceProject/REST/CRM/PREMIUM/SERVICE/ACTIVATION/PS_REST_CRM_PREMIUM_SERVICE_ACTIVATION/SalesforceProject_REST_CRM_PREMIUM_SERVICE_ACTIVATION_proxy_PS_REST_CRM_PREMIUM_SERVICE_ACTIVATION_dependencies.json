@@ -1,0 +1,66 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_PREMIUM_SERVICE_ACTIVATION_proxy_PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/REST_CRM_PREMIUM_SERVICE_ACTIVATION/pipeline/PL_REST_CRM_PREMIUM_SERVICE_ACTIVATION" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_PREMIUM_SERVICE_ACTIVATION/pipeline/PL_REST_CRM_PREMIUM_SERVICE_ACTIVATION",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_PREMIUM_SERVICE_ACTIVATION/transformations/createRequestPremiumServiceActivation" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_PREMIUM_SERVICE_ACTIVATION/transformations/createRequestPremiumServiceActivation",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_PREMIUM_SERVICE_ACTIVATION/transformations/createResponsePremiumServiceActivation" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_PREMIUM_SERVICE_ACTIVATION/transformations/createResponsePremiumServiceActivation",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

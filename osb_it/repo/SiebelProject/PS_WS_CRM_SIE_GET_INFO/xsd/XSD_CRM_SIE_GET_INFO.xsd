@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetExitFeeType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CausaleCessazione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataCessazione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetExitFee" type="requestGetExitFeeType"/>
+	<xsd:complexType name="responseGetExitFeeType">
+		<xsd:sequence>
+			<xsd:element name="CausaleCessazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CostiOperatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CostiPromozionali" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataCessazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Note" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetExitFee" type="responseGetExitFeeType"/>
+	<xsd:complexType name="requestGetScontiExitFeeType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetScontiExitFee" type="requestGetScontiExitFeeType"/>
+	<xsd:complexType name="responseGetScontiExitFeeType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfExitFee" type="ListOfExitFeeType" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetScontiExitFee" type="responseGetScontiExitFeeType"/>
+	<xsd:complexType name="requestGetStoricoExitfeeType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetStoricoExitfee" type="requestGetStoricoExitfeeType"/>
+	<xsd:complexType name="responseGetStoricoExitfeeType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfExitFee" type="ListOfExitFeeType" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetStoricoExitfee" type="responseGetStoricoExitfeeType"/>
+	<xsd:complexType name="ListOfExitFeeType">
+		<xsd:sequence>
+			<xsd:element name="ExitFee" type="ExitFeeType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExitFeeType">
+		<xsd:sequence>
+			<xsd:element name="DataAgeing" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataAttivazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataCambioStato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataPrevistaCessazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Importo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Note" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Stato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipologiaFee" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0"/>
+			<xsd:element name="ListofScontiMensili" type="ListofScontiMensiliType" minOccurs="0"/>
+			<xsd:element name="ListofScontiUT" type="ListofScontiUTType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfFieldsType">
+		<xsd:sequence>
+			<xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FieldType">
+		<xsd:sequence>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListofScontiMensiliType">
+		<xsd:sequence>
+			<xsd:element name="ScontiMensile" type="ScontiMensileType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ScontiMensileType">
+		<xsd:sequence>
+			<xsd:element name="MesiUsufruiti" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomePacchetto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomePromozioneTecnica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Note" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ScontoMensile" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ScontoMensileMV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ScontoMensileTOT" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoSconto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListofScontiUTType">
+		<xsd:sequence>
+			<xsd:element name="ScontoUT" type="ScontoUTType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ScontoUTType">
+		<xsd:sequence>
+			<xsd:element name="FlagImpiantoAdeguato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MOP" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomePromozioneTecnica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Note" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Offerta" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ScontiUTAccessori" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ScontiUTAttivazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ScontiUTInstallazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ScontiUTTOT" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tecnologia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

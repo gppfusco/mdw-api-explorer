@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_SALESFORCE_OBJ_MANIPULATION",
+    "name" : "SalesforceProject_WS_CRM_OBJECTS_MANIPULATION_proxy_PS_WS_CRM_SALESFORCE_OBJ_MANIPULATION",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\OBJECTS\\MANIPULATION\\PS_WS_CRM_SALESFORCE_OBJ_MANIPULATION",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_SALESFORCE_OBJ_MANIPULATION?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/ObjectsManupulation/xsd/XSD_CRM_SALESFORCE_OBJ_MANIPULATION",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

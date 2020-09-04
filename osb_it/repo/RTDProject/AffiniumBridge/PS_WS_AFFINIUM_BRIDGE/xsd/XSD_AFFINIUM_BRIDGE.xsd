@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestBridge_OfferInsertOrUpdate" type="requestBridge_OfferInsertOrUpdateType"/>
+	<xsd:complexType name="requestBridge_OfferInsertOrUpdateType">
+		<xsd:sequence>   
+			<xsd:element name="offerInsertOrUpdate">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="siebelPromotionId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="siebelPromotionCode" type="xsd:int" minOccurs="0"/>
+						<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="desc" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="effectiveDate" type="xsd:dateTime" minOccurs="0"/>
+						<xsd:element name="expirationDate" type="xsd:dateTime" minOccurs="0"/>
+						<xsd:element name="tipoPromozione" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="canalePromo" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="statoContratto" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="eventoAttivazioneFlag" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="valore" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="tecnologiaSTB" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="valore" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="promoBloccante" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="promotionCode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="promotionName" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="ambienteServizio" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="valore" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="mop" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="ageingContratto" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="operatore" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="valore" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="eventoAttivazioneFlg" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="maiSospeso" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="operatore" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="valore" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="valore" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="tipoMOP" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="periodicitaFatturazione" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="statoMop" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="tipoMop" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="pacchettiBaseUpg" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="prodotto" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="rateCode" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="promoPropedeutiche" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="gruppoOR" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="promotionCode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="promotionName" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="consistenzaServizi" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="pacchetto" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="prodotto" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="rateCode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="stato" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="tipo" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="tipoProdotto" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="listiniCRM" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="codiceListino" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="eventoAttivazioneFlg" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="listino" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="category" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="promoFittiziaFlag" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="productSubtype" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="tipoTreatment" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="classeTreatment" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="sottoclasseTreatment" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="customerTarget" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="canaleVenditoreAbilitato" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="canaleAbilitato" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="onlyRTD" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="dummyMode" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseBridge_OfferInsertOrUpdate" type="responseBridge_OfferInsertOrUpdateType"/>
+	<xsd:complexType name="responseBridge_OfferInsertOrUpdateType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

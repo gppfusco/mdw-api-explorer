@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestOnpremiseExtraAlignmentType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string"/>
+			<xsd:element name="custId" type="xsd:string"/>
+			<xsd:element name="TimeoutID" type="xsd:string"/>
+			<xsd:element name="Table" type="TableType"/>
+			<xsd:element name="Operation" type="OperationType"/>
+			<xsd:element name="ListOfFields">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="FieldTable" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="name" type="String250Type"/>
+									<xsd:element name="value" type="String250Type"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseOnpremiseExtraAlignmentType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestOnpremiseExtraAlignment" type="requestOnpremiseExtraAlignmentType"/>
+	<xsd:element name="responseOnpremiseExtraAlignment" type="responseOnpremiseExtraAlignmentType"/>
+	<xsd:simpleType name="String250Type">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="250"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="TableType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="CX_LOYALTY_CLT"/>
+			<xsd:enumeration value="CX_LOYALTY_ORD"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OperationType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="WRITE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

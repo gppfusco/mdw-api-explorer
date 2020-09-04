@@ -1,0 +1,35 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_DB_CRM_flagInvendibilita_proxy_PS_WS_MDW_CRM_FLAG_INVENDIBILITA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/flagInvendibilita/wsdl/WS_MDW_CRM_FLAG_INVENDIBILITA" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/flagInvendibilita/wsdl/WS_MDW_CRM_FLAG_INVENDIBILITA",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/DB_CRM/flagInvendibilita/pipeline/PL_MDW_CRM_FLAG_INVENDIBILITA" : {
+        "label" : "Pipeline/BlueBirdProject/DB_CRM/flagInvendibilita/pipeline/PL_MDW_CRM_FLAG_INVENDIBILITA",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/flagInvendibilita/wsdl/WS_MDW_CRM_FLAG_INVENDIBILITA" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/flagInvendibilita/wsdl/WS_MDW_CRM_FLAG_INVENDIBILITA",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

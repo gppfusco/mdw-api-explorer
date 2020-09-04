@@ -1,0 +1,47 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_SalesforceToRidSEDA_ElaborazioneMOP_proxy_PS_WS_SEDA_ELABORAZIONE_MOP",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/ElaborazioneMOP/wsdl/WS_SEDA_ELABORAZIONE_MOP" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/ElaborazioneMOP/wsdl/WS_SEDA_ELABORAZIONE_MOP",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/SalesforceToRidSEDA/ElaborazioneMOP/pipeline/PL_WS_SEDA_ELABORAZIONE_MOP_ENQUEUE" : {
+        "label" : "Pipeline/MDWProject/SalesforceToRidSEDA/ElaborazioneMOP/pipeline/PL_WS_SEDA_ELABORAZIONE_MOP_ENQUEUE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/ElaborazioneMOP/wsdl/WS_SEDA_ELABORAZIONE_MOP" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/ElaborazioneMOP/wsdl/WS_SEDA_ELABORAZIONE_MOP",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDWProject/SalesforceToRidSEDA/businessService/BS_JMS_SEDA_ENQUEUE" : {
+            "label" : "BusinessService/MDWProject/SalesforceToRidSEDA/businessService/BS_JMS_SEDA_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/SalesforceToRidSEDA/ElaborazioneMOP/transformation/createResponse_WS_SEDA_ELABORAZIONE_MOP" : {
+            "label" : "Xquery/MDWProject/SalesforceToRidSEDA/ElaborazioneMOP/transformation/createResponse_WS_SEDA_ELABORAZIONE_MOP",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

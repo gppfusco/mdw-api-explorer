@@ -1,0 +1,40 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_DTTCallback_proxy_PS_WS_OM_DTT_CALLBACK",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/DTTCallback/wsdl/WS_OM_DTT_CALLBACK" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/DTTCallback/wsdl/WS_OM_DTT_CALLBACK",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/OMProject/DTTCallback/pipeline/PL_JMS_OM_DTT_CALLBACK_ENQUEUE" : {
+        "label" : "Pipeline/OMProject/DTTCallback/pipeline/PL_JMS_OM_DTT_CALLBACK_ENQUEUE",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/DTTCallback/wsdl/WS_OM_DTT_CALLBACK" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/DTTCallback/wsdl/WS_OM_DTT_CALLBACK",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/DTTCallback/businessService/BS_JMS_OM" : {
+            "label" : "BusinessService/OMProject/DTTCallback/businessService/BS_JMS_OM",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

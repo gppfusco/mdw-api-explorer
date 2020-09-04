@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetShippingTimeType">
+		<xsd:sequence>
+			<xsd:element name="mdwLocalita" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwProvincia" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwCAP" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwTypeOfService" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetShippingTime" type="requestGetShippingTimeType"/>
+	<xsd:element name="responseGetShippingTime" type="responseGetShippingTimeType"/>
+	<xsd:complexType name="responseGetShippingTimeType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwShippingTimes" type="mdwShippingTimesType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwShippingTimesType">
+		<xsd:sequence>
+			<xsd:element name="mdwShippingTime" type="mdwShippingTimeType" minOccurs="1" maxOccurs="30"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwShippingTimeType">
+		<xsd:sequence>
+			<xsd:element name="mdwDataDelivery" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwDataPONR" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

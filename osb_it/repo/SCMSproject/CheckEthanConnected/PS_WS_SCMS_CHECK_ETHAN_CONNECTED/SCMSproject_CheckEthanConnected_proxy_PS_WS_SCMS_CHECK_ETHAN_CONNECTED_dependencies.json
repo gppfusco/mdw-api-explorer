@@ -1,0 +1,92 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_CheckEthanConnected_proxy_PS_WS_SCMS_CHECK_ETHAN_CONNECTED",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/CheckEthanConnected/wsdl/WS_SCMS_CHECK_ETHAN_CONNECTED" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/CheckEthanConnected/wsdl/WS_SCMS_CHECK_ETHAN_CONNECTED",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SCMSproject/CheckEthanConnected/pipeline/PL_WS_SCMS_CHECK_ETHAN_CONNECTED" : {
+        "label" : "Pipeline/SCMSproject/CheckEthanConnected/pipeline/PL_WS_SCMS_CHECK_ETHAN_CONNECTED",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/SCMSproject/CheckEthanConnected/transformations/createRequestPREETH" : {
+            "label" : "Xquery/SCMSproject/CheckEthanConnected/transformations/createRequestPREETH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Pipeline/SCMSproject/pipeline/PL_INTERNAL_INVOKE_CAIF" : {
+            "label" : "Pipeline/SCMSproject/pipeline/PL_INTERNAL_INVOKE_CAIF",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+                "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/CheckEthanConnected/wsdl/WS_SCMS_CHECK_ETHAN_CONNECTED" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/CheckEthanConnected/wsdl/WS_SCMS_CHECK_ETHAN_CONNECTED",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/CheckEthanConnected/transformations/createRequestVEIETH" : {
+            "label" : "Xquery/SCMSproject/CheckEthanConnected/transformations/createRequestVEIETH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/CheckEthanConnected/transformations/createResponseCheckEthanConnected" : {
+            "label" : "Xquery/SCMSproject/CheckEthanConnected/transformations/createResponseCheckEthanConnected",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+            "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

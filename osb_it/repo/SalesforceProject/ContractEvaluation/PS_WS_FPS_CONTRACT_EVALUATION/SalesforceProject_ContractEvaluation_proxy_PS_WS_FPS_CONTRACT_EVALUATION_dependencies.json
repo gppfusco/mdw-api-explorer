@@ -1,0 +1,30 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_ContractEvaluation_proxy_PS_WS_FPS_CONTRACT_EVALUATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/ContractEvaluation/pipeline/PL_WS_FPS_CONTRACT_EVALUATIONPipeline" : {
+        "label" : "Pipeline/SalesforceProject/ContractEvaluation/pipeline/PL_WS_FPS_CONTRACT_EVALUATIONPipeline",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ContractEvaluation/wsdl/WS_FPS_CONTRACT_EVALUATION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ContractEvaluation/wsdl/WS_FPS_CONTRACT_EVALUATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ContractEvaluation/wsdl/WS_FPS_CONTRACT_EVALUATION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ContractEvaluation/wsdl/WS_FPS_CONTRACT_EVALUATION",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

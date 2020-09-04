@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestEligibilityCheck" type="requestEligibilityCheckType"/>          
+  <xsd:element name="responseEligibilityCheck" type="responseEligibilityCheckType"/>
+  <xsd:element name="withdrawalDetails" type="withdrawalDetailsType"/>
+  
+  <xsd:complexType name="requestEligibilityCheckType">
+    <xsd:sequence>
+      <xsd:element name="contractCodeE2E" type="xsd:string"/>
+      <xsd:element name="channel" type="xsd:string"/>
+      <xsd:element name="operationCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseEligibilityCheckType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element ref="withdrawalDetails" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="withdrawalDetailsType">
+    <xsd:sequence>
+      <xsd:element name="contracts" type="contractsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="contractsType">
+    <xsd:sequence>
+      <xsd:element name="contract" type="contractType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="contractType">
+    <xsd:sequence>
+      <xsd:element name="contractCode" type="xsd:string"/>
+      <xsd:element name="contractCodeE2E" type="xsd:string"/>
+      <xsd:element name="contractComponent" type="xsd:string"/>
+      <xsd:element name="contractStatus" type="xsd:string"/>
+      <xsd:element name="stipulationDate" type="xsd:string"/>
+      <xsd:element name="activationDate" type="xsd:string"/>
+      <xsd:element name="withdrawalEligibility" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

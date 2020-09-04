@@ -1,0 +1,57 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_UpsertOrderPayment_proxy_PS_WS_OM_UPSERT_ORDER_PAYMENT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/OMProject/UpsertOrderPayment/pipeline/PL_WS_OM_UPSERT_ORDER_PAYMENT" : {
+        "label" : "Pipeline/OMProject/UpsertOrderPayment/pipeline/PL_WS_OM_UPSERT_ORDER_PAYMENT",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/OMProject/transformation/createRequestSoapHeaderTibco" : {
+            "label" : "Xquery/OMProject/transformation/createRequestSoapHeaderTibco",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/UpsertOrderPayment/businessServices/BS_TIBCO_UPSERT_ORDER_PAYMENT" : {
+            "label" : "BusinessService/OMProject/UpsertOrderPayment/businessServices/BS_TIBCO_UPSERT_ORDER_PAYMENT",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/OMProject/UpsertOrderPayment/transformations/createResponse_upsertOrderPayment" : {
+            "label" : "Xquery/OMProject/UpsertOrderPayment/transformations/createResponse_upsertOrderPayment",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/UpsertOrderPayment/transformations/createRequest_upsertOrderPayment" : {
+            "label" : "Xquery/OMProject/UpsertOrderPayment/transformations/createRequest_upsertOrderPayment",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/UpsertOrderPayment/wsdl/WS_OM_UPSERT_ORDER_PAYMENT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/UpsertOrderPayment/wsdl/WS_OM_UPSERT_ORDER_PAYMENT",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/UpsertOrderPayment/wsdl/WS_OM_UPSERT_ORDER_PAYMENT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/UpsertOrderPayment/wsdl/WS_OM_UPSERT_ORDER_PAYMENT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

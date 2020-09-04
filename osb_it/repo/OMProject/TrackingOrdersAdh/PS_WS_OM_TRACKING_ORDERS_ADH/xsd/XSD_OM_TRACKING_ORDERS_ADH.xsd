@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGetTrackingOrdersAdh" type="requestGetTrackingOrdersAdhType"/>
+  <xsd:element name="responseGetTrackingOrdersAdh" type="responseGetTrackingOrdersAdhType"/>
+  <xsd:complexType name="requestGetTrackingOrdersAdhType">
+    <xsd:sequence>
+      <xsd:element name="ApplicationOrigin" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="OrderNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OrderIdTibco" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DeliveryNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="AllOrders" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGetTrackingOrdersAdhType">
+    <xsd:sequence>
+      <xsd:element name="result" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="results" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="ActivableOrders" minOccurs="1">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="ActivableOrder" minOccurs="1" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="OrderType" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="OrderSubType" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="DeliveryType" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="OrderIdSFDC" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="OrderIdTibco" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="Status" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="SubStatus" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="OperationLines" minOccurs="1">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="OperationLine" minOccurs="0" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="UseCase" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="EntitlementType" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="OperationType" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="OldTechnology" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="OldVision" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="NewTechnology" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="NewVision" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="EquipmentNumber" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="IdSTB" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="IdSMC" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="IdDK" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="SingleFeedMode" type="xsd:string" minOccurs="0"/>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="Deliveries" minOccurs="0">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="Delivery" minOccurs="0" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="DeliverySubType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                                    <xsd:element name="DeliveryNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="Offers" minOccurs="0">
+                          <xsd:complexType>
+                            <xsd:sequence>
+                              <xsd:element name="Offer" minOccurs="0" maxOccurs="unbounded">
+                                <xsd:complexType>
+                                  <xsd:sequence>
+                                    <xsd:element name="PackType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                                    <xsd:element name="CommercialProductCode" type="xsd:string" minOccurs="0"
+                                                 maxOccurs="1"/>
+                                    <xsd:element name="ProductDescription" type="xsd:string" minOccurs="0"
+                                                 maxOccurs="1"/>
+                                    <xsd:element name="EnablementNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                                  </xsd:sequence>
+                                </xsd:complexType>
+                              </xsd:element>
+                            </xsd:sequence>
+                          </xsd:complexType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+            
+  <xsd:element name="requestRetrieveSuppressedPlans" type="requestRetrieveSuppressedPlansType"/>
+  <xsd:element name="requestRetrieveSuppressedPlanDetails" type="requestRetrieveSuppressedPlanDetailsType"/>
+  <xsd:element name="requestUpdateSuppressedPlans" type="requestUpdateSuppressedPlansType"/>
+  <xsd:element name="suppressedPlanResponse" type="responseRetrieveSuppressedPlansType"/>
+  <xsd:element name="suppressedPlanDetailsResponse" type="suppressedPlanDetailsResponseType"/>
+  <xsd:element name="responseUpdateSuppressedPlans" type="responseUpdateSuppressedPlansType"/>
+    <xsd:element name="requestRetrieveTotalCosts" type="requestRetrieveTotalCostsType"/>
+  <xsd:element name="responseRetrieveTotalCosts" type="responseRetrieveTotalCostsType"/>
+  
+  <xsd:complexType name="requestRetrieveSuppressedPlansType">
+    <xsd:sequence>
+      <xsd:element name="e2eContractId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseRetrieveSuppressedPlansType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="suppressedPlans" type="suppressedPlansType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="suppressedPlansType">
+    <xsd:sequence>
+      <xsd:element name="suppressedPlan" type="suppressedPlanType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="suppressedPlanType">
+    <xsd:sequence>
+      <xsd:element name="payPlanId" type="xsd:decimal"/>
+      <xsd:element name="billAccountId" type="string20"/>
+      <xsd:element name="suppressedComponent" type="string20"/>
+      <xsd:element name="remainAmount" type="xsd:decimal"/>
+      <xsd:element name="remainInstalment" type="xsd:decimal"/>
+      <xsd:element name="paidAmount" type="xsd:decimal"/>
+      <xsd:element name="paidInstalment" type="xsd:decimal"/>
+      <xsd:element name="suppressedPlanStatus" type="suppressedPlanStatus"/>
+      <xsd:element name="endDate" type="xsd:date"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="suppressedPlanStatus">
+    <xsd:sequence>
+      <xsd:element name="status" type="string20"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestRetrieveSuppressedPlanDetailsType">
+    <xsd:sequence>
+      <xsd:element name="payPlanId" type="xsd:decimal"/>
+      <xsd:element name="e2eContractId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="suppressedPlanDetailsResponseType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="suppressedPlanDetails" type="suppressedPlanDetailsType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="suppressedPlanDetailsType">
+    <xsd:sequence>
+      <xsd:element name="suppressedPlanDetail" type="suppressedPlanDetailType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="suppressedPlanDetailType">
+    <xsd:sequence>
+      <xsd:element name="suppressedComponent" type="string10"/>
+      <xsd:element name="instalmentAmount" type="xsd:decimal"/>
+      <xsd:element name="InstalmentsNumber" type="xsd:decimal"/>
+      <xsd:element name="status" type="string10"/>
+      <xsd:element name="payEffectiveDate" type="xsd:date"/>
+      <xsd:element name="suppressedInvoiceDate" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestUpdateSuppressedPlansType">
+    <xsd:sequence>
+      <xsd:element name="suppressedPlanId" type="xsd:string"/>
+      <xsd:element name="billingAccountId" type="xsd:string"/>
+      <xsd:element name="e2eContractId" type="xsd:string"/>
+      <xsd:element name="creationDate" type="xsd:date"/>
+      <xsd:element name="scenarioType" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseUpdateSuppressedPlansType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:simpleType name="string20" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <xsd:simpleType name="string10" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+    <xsd:complexType name="requestRetrieveTotalCostsType">
+    <xsd:sequence>
+      <xsd:element name="e2eContractId" type="xsd:string"/>
+      <xsd:element name="offerType" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseRetrieveTotalCostsType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>    
+      <xsd:element name="totalCost" type="totalCostsType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="totalCostsType">
+    <xsd:sequence>
+      <xsd:element name="amount" type="xsd:string"/>
+      <xsd:element name="offerType" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

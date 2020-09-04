@@ -1,0 +1,58 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SPARK_pollingIncidentUpdates_Proxy_PS_REST_SPARK_POLLER_INCIDENT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_SPARK_POLLER_INCIDENT" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SPARK_POLLER_INCIDENT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/SPARK/pollingIncidentUpdates/pipeline/PL_REST_SPARK_POLLER_INCIDENT" : {
+        "label" : "Pipeline/BlueBirdProject/SPARK/pollingIncidentUpdates/pipeline/PL_REST_SPARK_POLLER_INCIDENT",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/BlueBirdProject/Resources/PS_REST_SPARK_POLLER_INCIDENT" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SPARK_POLLER_INCIDENT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/SPARK/pollingIncidentUpdates/pipeline/PL_REST_SPARK_POLLER_INCIDENT_RunPollerIteration" : {
+            "label" : "Pipeline/BlueBirdProject/SPARK/pollingIncidentUpdates/pipeline/PL_REST_SPARK_POLLER_INCIDENT_RunPollerIteration",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/BlueBirdProject/SPARK/pollingIncidentUpdates/businessService/BS_REST_SPARK_POLLER_INCIDENT" : {
+                "label" : "BusinessService/BlueBirdProject/SPARK/pollingIncidentUpdates/businessService/BS_REST_SPARK_POLLER_INCIDENT",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_SPARK_POLLER_INCIDENT" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SPARK_POLLER_INCIDENT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

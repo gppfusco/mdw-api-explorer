@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/dynamo/WS_CONTENT_DISC_DYNAMO",
+    "name" : "DynamoProject_ContentDiscoveryDynamo_proxy_PS_WS_CONTENT_DISC_DYNAMO",
+    "localPath" : "osb_it\\repo\\DynamoProject\\ContentDiscoveryDynamo\\PS_WS_CONTENT_DISC_DYNAMO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/dynamo/WS_CONTENT_DISC_DYNAMO?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/DynamoProject/xsd/XSD_CONTENT_DISCOVERY_DYNAMO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

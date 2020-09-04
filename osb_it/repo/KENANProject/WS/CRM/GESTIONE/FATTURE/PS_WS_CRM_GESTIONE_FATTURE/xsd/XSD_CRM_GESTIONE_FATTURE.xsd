@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="listFattureType">
+		<xsd:sequence>
+			<xsd:element name="fattura" type="fatturaType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="fatturaType">
+		<xsd:sequence>
+			<xsd:element name="InterimBillingFlag" type="xsd:string"/>
+			<xsd:element name="AccountNumber" type="xsd:string"/>
+			<xsd:element name="Data_S" type="xsd:string"/>
+			<xsd:element name="Stipula" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Contesto" type="xsd:string"/>
+			<xsd:element name="DataChiusura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataScadenza" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ImportoSaldato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InizioLavorazione" type="xsd:string"/>
+			<xsd:element name="StatoDeposito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AdjComplessivi" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CreditoPrecedente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataEmissione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ImportoDovuto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IdFattura" type="xsd:string"/>
+			<xsd:element name="TotaleDaPagare" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TotaleFattura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DepositAmount" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BillRefNo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BillRefResets" type="xsd:string" minOccurs="0"/> 
+			<xsd:element name="Stato_controllo_fattura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Provenienza_controllo_fattura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Component_type" type="xsd:string" minOccurs="0" />
+			<xsd:element name="Billing_account_id" type="xsd:string" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetFatture" type="requestGetFattureType"/>
+	<xsd:complexType name="requestGetFattureType">
+		<xsd:sequence>
+			<xsd:element name="billingAccount" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="numeroFatture" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="contesto" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestGetFattureRecentiType">
+		<xsd:sequence>
+			<xsd:element name="billingAccount" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="numeroFatture" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="contesto" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetFatture" type="responseGetFattureType"/>
+	<xsd:complexType name="responseGetFattureType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultsFatture" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="fatture" type="listFattureType" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetFattureRecentiType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultFattureRecenti" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="dataEmissioneProssimaFattura" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="dataScadenzaProssimaFattura" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="fatture" type="listFattureType" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetItemFatture" type="requestGetItemFattureType"/>
+	<xsd:complexType name="requestGetItemFattureType">
+		<xsd:sequence>
+			<xsd:element name="billingAccount" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="dataFatturaEsigenza" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="numeroFattura" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetItemFatture" type="responseGetItemFattureType"/>
+	<xsd:complexType name="responseGetItemFattureType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultsItemFatture" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="items" type="listItemType" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="listItemType">
+		<xsd:sequence>
+			<xsd:element name="item" type="itemType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="itemType">
+		<xsd:sequence>
+			<xsd:element name="descrizione" type="xsd:string"/>
+			<xsd:element name="periodo" type="xsd:string"/>
+			<xsd:element name="aliquota" type="xsd:string"/>
+			<xsd:element name="prezzoIvato" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetFattureRecenti" type="requestGetFattureRecentiType"/>
+	<xsd:element name="responseGetFattureRecenti" type="responseGetFattureRecentiType"/>
+</xsd:schema>

@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestRetrieveProblems" type="requestRetrieveProblemsType"/>
+  <xsd:element name="responseRetrieveProblems" type="responseRetrieveProblemsType"/>
+  <xsd:element name="responseRetrieveProblemsSoap" type="responseRetrieveProblemsSoapType"/>
+  <xsd:element name="requestRetrieveProblemDetails" type="requestRetrieveProblemDetailsType"/>
+  <xsd:element name="responseRetrieveProblemDetails" type="responseRetrieveProblemDetailsType"/>
+  <xsd:element name="responseRetrieveProblemDetailsSoap" type="responseRetrieveProblemDetailsSoapType"/>
+  <xsd:element name="requestInsertProblem" type="requestInsertProblemType"/>
+  <xsd:element name="responseInsertProblem" type="responseInsertProblemType"/>
+  <xsd:element name="responseInsertProblemSoap" type="responseInsertProblemSoapType"/>
+  <xsd:element name="requestCloseTheLoop" type="requestCloseTheLoopType"/>
+  <xsd:element name="requestAppointmentSwitchSquad" type="requestAppointmentSwitchSquadType"/>
+  <xsd:element name="responseAppointmentSwitchSquad" type="responseAppointmentSwitchSquadType"/>
+  <xsd:element name="requestUpdateProblem" type="requestUpdateProblemType"/>
+  <xsd:element name="responseUpdateProblem" type="responseUpdateProblemType"/>
+  
+   <xsd:complexType name="requestUpdateProblemType">
+    <xsd:sequence>
+      <xsd:element name="problemId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseUpdateProblemType">
+    <xsd:sequence>     
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="tid" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestAppointmentSwitchSquadType">
+    <xsd:sequence>
+      <xsd:element name="channel" type="xsd:string"/>
+      <xsd:element name="orderId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseAppointmentSwitchSquadType">
+    <xsd:sequence>
+      <xsd:element name="result" type="xsd:string"/>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="problems" type="switchSquadApntProblemsType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="switchSquadApntProblemsType">
+    <xsd:sequence>
+      <xsd:element name="problem" type="switchSquadApntProblemType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="switchSquadApntProblemType"><!--Prov1-->
+    <xsd:sequence>
+      <xsd:element name="problemId" type="xsd:string"/>
+      <xsd:element name="switchSquadAppointments" type="switchSquadAppointmentsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="switchSquadAppointmentsType">
+    <xsd:sequence>
+      <xsd:element name="switchSquadAppointmentDetails" type="switchSquadAppointmentDetailsType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="switchSquadAppointmentDetailsType">
+    <xsd:sequence>
+      <xsd:element name="interactionId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="appointmentId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="appointmentDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="assignedTeam" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="channel" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="createdDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="lastModifiedDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="closedDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contactType" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseRetrieveProblemsType">
+    <xsd:sequence>
+      <xsd:element name="problems" type="problemsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="problemsType">
+    <xsd:sequence>
+      <xsd:element name="problem" type="problemType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="problemType">
+    <xsd:sequence>
+      <xsd:element name="problemId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="caseNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="createdDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="lastModifiedDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="closedDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="expectedClosingDate" type="xsd:date" minOccurs="0"/>
+      <xsd:element name="customerCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contractCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contractCodeE2E" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contractComponent" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="title" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="category" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="subcategory" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="motive" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="motiveDetail" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="result" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="status" type="statusProblemType" minOccurs="0"/>
+      <xsd:element name="substatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="assigneeTeam" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ctlType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="avalaibleAction" type="xsd:boolean" minOccurs="0"/>
+      <xsd:element name="classificationId" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestRetrieveProblemsType">
+    <xsd:sequence>
+      <xsd:element name="channel" type="channelType" minOccurs="1"/>
+      <xsd:element name="operationCode" type="operationRetrieveProblemsType" minOccurs="1"/>
+      <xsd:element name="contractCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contractCodeE2E" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contractComponent" type="contractComponentType" minOccurs="0"/>
+      <xsd:element name="classifications" type="classificationsType" minOccurs="0"/>
+      <xsd:element name="caseStatuses" type="caseStatusesType" minOccurs="0"/>
+      <xsd:element name="visibilityChannel" type="visibilityChannelType" minOccurs="0"/>
+      <xsd:element name="updatedSince" type="xsd:date" minOccurs="0"/>
+      <xsd:element name="relatedOrders" type="relatedOrdersType" minOccurs="0"/>
+      <xsd:element name="sortingMode" type="sortingModeType" minOccurs="0"/>
+      <xsd:element name="getAvailableAction" type="xsd:boolean" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="classificationsType">
+    <xsd:sequence>
+      <xsd:element name="classification" type="classificationType" minOccurs="0" maxOccurs="20"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="classificationType">
+    <xsd:sequence>
+      <xsd:element name="category" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="subcategory" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="motive" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="caseStatusesType">
+    <xsd:sequence>
+      <xsd:element name="caseStatus" type="caseStatuseType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="caseStatuseType">
+    <xsd:sequence>
+      <xsd:element name="status" type="statusProblemType" minOccurs="0"/>
+      <xsd:element name="substatus" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestRetrieveProblemDetailsType">
+    <xsd:sequence>
+      <xsd:element name="channel" type="channelType" minOccurs="1"/>
+      <xsd:element name="problemId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="getAvailableAction" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseRetrieveProblemDetailsSoapType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element ref="responseRetrieveProblemDetails" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseRetrieveProblemDetailsType">
+    <xsd:sequence>
+      <xsd:element name="problem" type="problemRetrieveProblemDetails" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="problemRetrieveProblemDetails">
+    <xsd:sequence>
+      <xsd:element name="problemId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="caseNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="createdDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="lastModifiedDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="closedDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="expectedClosingDate" type="xsd:date" minOccurs="0"/>
+      <xsd:element name="customerCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contractCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contractCodeE2E" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contractComponent" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="title" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="category" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="subcategory" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="motive" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="motiveDetail" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="result" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="substatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="assigneeTeam" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="agentId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ownerAlias" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="surveyLink" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="routingScope" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="orderId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="classificationId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="availableActionDetails" type="retrieveProblemDetailsProblemavailableActionDetailsType"
+                   minOccurs="0"/>
+      <xsd:element name="attributes" type="retrieveProblemDetailsProblemAttributesType" minOccurs="0"/>
+      <xsd:element name="subProblems" type="retrieveProblemDetailsProblemSubProblemsType" minOccurs="0"/>
+      <xsd:element name="interactions" type="retrieveProblemDetailsProblemInteractionsType" minOccurs="0"/>
+      <xsd:element name="escalations" type="retrieveProblemDetailsProblemEscalationsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveProblemDetailsProblemavailableActionDetailsType">
+    <xsd:sequence>
+      <xsd:element name="code" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="name" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="sourceId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="targetId" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveProblemDetailsProblemAttributesType">
+    <xsd:sequence>
+      <xsd:element name="attribute" type="retrieveProblemDetailsProblemAttributeType" minOccurs="1"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveProblemDetailsProblemAttributeType">
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveProblemDetailsProblemSubProblemsType">
+    <xsd:sequence>
+      <xsd:element name="subProblem" type="retrieveProblemDetailsProblemSubProblemType" minOccurs="1"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveProblemDetailsProblemSubProblemType">
+    <xsd:sequence>
+      <xsd:element name="subProblemId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="caseNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="createdDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="lastModifiedDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="closedDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="expectedClosingDate" type="xsd:date" minOccurs="0"/>
+      <xsd:element name="title" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="category" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="subcategory" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="motive" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="motiveDetail" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="result" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="substatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="assigneeTeam" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="agentId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ownerAlias" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="surveyLink" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="routingScope" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="orderId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="classificationId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="escalations" type="retrieveProblemDetailsProblemEscalationsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveProblemDetailsProblemInteractionsType">
+    <xsd:sequence>
+      <xsd:element name="interaction" type="retrieveProblemDetailsProblemInteractionType" minOccurs="1"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveProblemDetailsProblemInteractionType">
+    <xsd:sequence>
+      <xsd:element name="interactionId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="appointmentId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="appointmentDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="assignedTeam" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="channel" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="createdDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="lastModifiedDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="closedDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="contactType" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveProblemDetailsProblemEscalationsType">
+    <xsd:sequence>
+      <xsd:element name="escalation" type="retrieveProblemDetailsProblemEscalationType" minOccurs="1"
+                   maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveProblemDetailsProblemEscalationType">
+    <xsd:sequence>
+      <xsd:element name="escalationId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="team" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="substatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="confirmedAppointment" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="appointment" type="retrieveProblemDetailsProblemAppointmentType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="retrieveProblemDetailsProblemAppointmentType">
+    <xsd:sequence>
+      <xsd:element name="appointmentId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="scheduledDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="substatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="tokenId" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseRetrieveProblemsSoapType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element ref="responseRetrieveProblems" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestInsertProblemType">
+    <xsd:sequence>
+      <xsd:element name="channel" type="channelType" minOccurs="1"/>
+      <xsd:element name="operationCode" type="operationCodeType" minOccurs="1"/>
+      <xsd:element name="preventDuplicates" type="stringYNType" minOccurs="1"/>
+      <xsd:element name="problem" type="insertProblemRequestType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="insertProblemRequestType">
+    <xsd:sequence>
+      <xsd:element name="contractCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="contractCodeE2E" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="category" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="subcategory" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="motive" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="motiveDetail" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="result" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="acquisitionChannel" type="acquisitionChannelType" minOccurs="1"/>
+      <xsd:element name="connectionId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="orderId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="installerContactPhone" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="healthChecks" type="healthChecksType" minOccurs="0"/>
+      <xsd:element name="contactNotes" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="healthChecksType">
+    <xsd:sequence>
+      <xsd:element name="healthCheck" type="healthCheckType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="healthCheckType">
+    <xsd:sequence>
+      <xsd:element name="type" type="healthCheckTypeType" minOccurs="1"/>
+      <xsd:element name="executionDate" type="xsd:dateTime" minOccurs="1"/>
+      <xsd:element name="requestId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="bssId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="serviceId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="rag" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="faultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="faultCause" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="nba" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="nbaDescription" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="rawResult" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="diagnosticSummary" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="faultType" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseInsertProblemSoapType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element ref="responseInsertProblem" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseInsertProblemType">
+    <xsd:sequence>
+      <xsd:element name="problems" type="insertProblemType" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="insertProblemType">
+    <xsd:sequence>
+      <xsd:element name="problem" type="insertProblemProblemType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="insertProblemProblemType">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="caseNumber" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="mainInteractionId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="existingMainInteraction" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="routingScope" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestCloseTheLoopType">
+    <xsd:sequence>
+      <xsd:element name="operationCode" type="operationCloseCodeType" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="statusProblemType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Aperto"/>
+      <xsd:enumeration value="In Lavorazione"/>
+      <xsd:enumeration value="Risolto"/>
+      <xsd:enumeration value="Chiuso"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="channelType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="APP"/>
+      <xsd:enumeration value="IVR"/>
+      <xsd:enumeration value="WEB"/>
+      <xsd:enumeration value="WSC"/>
+      <xsd:enumeration value="BILLING"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="visibilityChannelType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="DIGITAL"/>
+      <xsd:enumeration value="IVR"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="contractComponentType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="BB"/>
+      <xsd:enumeration value="TV"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="relatedOrdersType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="WITHOUT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="sortingModeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="asc"/>
+      <xsd:enumeration value="desc"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="operationCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="INSERT_PROBLEM"/>
+      <xsd:enumeration value="INSERT_CLOSED_PROBLEM"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="acquisitionChannelType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="IVR"/>
+      <xsd:enumeration value="MOBILE"/>
+      <xsd:enumeration value="WEB"/>
+      <xsd:enumeration value="BILLING"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="healthCheckTypeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="BB"/>
+      <xsd:enumeration value="VoiceServices"/>
+      <xsd:enumeration value="VoiceFeatures"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="operationCloseCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="CTL_OK"/>
+      <xsd:enumeration value="CTL_KO"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="operationRetrieveProblemsType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="RETRIEVE_PROBLEMS"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="stringYNType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  
+  
+</xsd:schema>

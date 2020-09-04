@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/billing/WS_CRM_GET_CUSTOMER_BY_INVOICE",
+    "name" : "KENANProject_WS_CRM_GET_CUSTOMER_BY_INVOICE_proxy_PS_WS_CRM_GET_CUSTOMER_BY_INVOICE",
+    "localPath" : "osb_it\\repo\\KENANProject\\WS\\CRM\\GET\\CUSTOMER\\BY\\INVOICE\\PS_WS_CRM_GET_CUSTOMER_BY_INVOICE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/billing/WS_CRM_GET_CUSTOMER_BY_INVOICE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/KenanProject/GetCustomerByInvoice/xsd/XSD_CRM_GET_CUSTOMER_BY_INVOICE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

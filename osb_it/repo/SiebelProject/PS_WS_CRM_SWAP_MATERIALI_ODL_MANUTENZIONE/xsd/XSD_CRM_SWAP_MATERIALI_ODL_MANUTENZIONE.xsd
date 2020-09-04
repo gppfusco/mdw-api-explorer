@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestSwapMaterialiODLManutenzione" type="requestSwapMaterialiODLManutenzioneType"/>
+	<xsd:complexType name="requestSwapMaterialiODLManutenzioneType">
+		<xsd:sequence>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="ListOfSwap" type="ListOfSwapType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfSwapType">
+		<xsd:sequence>
+			<xsd:element name="Swap" type="SwapType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SwapType">
+		<xsd:sequence>
+			<xsd:element name="TipoItem" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="MatricolaOld" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="MatricolaNew" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="MatricolaSTB" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="InsistenzaCliente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CambioConfigurazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfFieldsType">
+		<xsd:sequence>
+			<xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FieldType">
+		<xsd:sequence>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseSwapMaterialiODLManutenzione" type="responseSwapMaterialiODLManutenzioneType"/>
+	<xsd:complexType name="responseSwapMaterialiODLManutenzioneType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

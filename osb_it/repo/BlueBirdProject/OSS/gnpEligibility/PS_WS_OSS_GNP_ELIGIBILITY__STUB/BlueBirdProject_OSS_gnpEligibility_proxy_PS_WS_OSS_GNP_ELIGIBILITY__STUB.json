@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/WS_OSS_GNP_ELIGIBILITY_STUB",
+    "name" : "BlueBirdProject_OSS_gnpEligibility_proxy_PS_WS_OSS_GNP_ELIGIBILITY__STUB",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\OSS\\gnpEligibility\\PS_WS_OSS_GNP_ELIGIBILITY__STUB",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/WS_OSS_GNP_ELIGIBILITY_STUB?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/gnpEligibility/xsd/XSD_OSS_GNP_ELIGIBILITY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCreaPianoKB" type="requestCreaPianoKBType"/>
+	<xsd:complexType name="requestCreaPianoKBType">
+		<xsd:sequence>
+			<xsd:element name="mittente" type="xsd:string"/>
+			<xsd:element name="noteMittente" type="xsd:string"/>
+			<xsd:element name="destinatario" type="xsd:string"/>
+			<xsd:element name="fileXML" type="xsd:string"/>
+			<xsd:element name="note" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCreaPianoKB" type="responseCreaPianoKBType"/>
+	<xsd:complexType name="responseCreaPianoKBType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

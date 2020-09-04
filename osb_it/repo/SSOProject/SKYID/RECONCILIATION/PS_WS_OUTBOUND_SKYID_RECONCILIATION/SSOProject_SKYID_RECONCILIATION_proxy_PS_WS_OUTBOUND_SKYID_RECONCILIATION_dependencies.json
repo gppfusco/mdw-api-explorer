@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SSOProject_SKYID_RECONCILIATION_proxy_PS_WS_OUTBOUND_SKYID_RECONCILIATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SSOProject/SKYID_RECONCILIATION/wsdl/WS_OUTBOUND_SKYID_RECONCILIATION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SSOProject/SKYID_RECONCILIATION/wsdl/WS_OUTBOUND_SKYID_RECONCILIATION",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SSOProject/SKYID_RECONCILIATION/pipeline/PL_WS_OUTBOUND_SKYID_RECONCILIATION_ENQUEUE" : {
+        "label" : "Pipeline/SSOProject/SKYID_RECONCILIATION/pipeline/PL_WS_OUTBOUND_SKYID_RECONCILIATION_ENQUEUE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SSOProject/SKYID_RECONCILIATION/wsdl/WS_OUTBOUND_SKYID_RECONCILIATION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SSOProject/SKYID_RECONCILIATION/wsdl/WS_OUTBOUND_SKYID_RECONCILIATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SSOProject/SKYID_RECONCILIATION/transformation/createSimpleResponseWithoutTid" : {
+            "label" : "Xquery/SSOProject/SKYID_RECONCILIATION/transformation/createSimpleResponseWithoutTid",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SSOProject/SKYID_RECONCILIATION/businessService/BS_JMS_OUTBOUND_SKYID_RECONCILIATION" : {
+            "label" : "BusinessService/SSOProject/SKYID_RECONCILIATION/businessService/BS_JMS_OUTBOUND_SKYID_RECONCILIATION",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/MDW_CO/transformation/create_soap_header" : {
+            "label" : "Xquery/MDW_CO/transformation/create_soap_header",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_TrackingSpedizione_proxy_PS_REST_TRACKING_SPEDIZIONE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/TrackingSpedizione/pipeline/PL_REST_TRACKING_SPEDIZIONE_ROUTING" : {
+        "label" : "Pipeline/SiebelProject/TrackingSpedizione/pipeline/PL_REST_TRACKING_SPEDIZIONE_ROUTING",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SiebelProject/TrackingSpedizione/pipeline/PL_INTERNAL_TRACKING_SPEDIZIONE" : {
+            "label" : "Pipeline/SiebelProject/TrackingSpedizione/pipeline/PL_INTERNAL_TRACKING_SPEDIZIONE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SiebelProject/TrackingSpedizione/transformation/createResponseGetTrackingSky" : {
+                "label" : "Xquery/SiebelProject/TrackingSpedizione/transformation/createResponseGetTrackingSky",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                    "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                    "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XSLT/SiebelProject/transformations/createElement" : {
+                    "label" : "XSLT/SiebelProject/transformations/createElement",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/TrackingSpedizione/transformation/createRequestGetTrackingSky" : {
+                "label" : "Xquery/SiebelProject/TrackingSpedizione/transformation/createRequestGetTrackingSky",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SiebelProject/Resources/PS_REST_TRACKING_SPEDIZIONE" : {
+                "label" : "WSDL/SiebelProject/Resources/PS_REST_TRACKING_SPEDIZIONE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/SiebelProject/Resources/PS_REST_TRACKING_SPEDIZIONE" : {
+            "label" : "WSDL/SiebelProject/Resources/PS_REST_TRACKING_SPEDIZIONE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/SiebelProject/Resources/PS_REST_TRACKING_SPEDIZIONE" : {
+        "label" : "WSDL/SiebelProject/Resources/PS_REST_TRACKING_SPEDIZIONE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

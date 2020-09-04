@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_RETRIEVE_VOCAL_ORDER_proxy_PS_WS_CRM_RETRIEVE_VOCAL_ORDER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveVocalOrder/wsdl/WS_CRM_RETRIEVE_VOCAL_ORDER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveVocalOrder/wsdl/WS_CRM_RETRIEVE_VOCAL_ORDER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/WS_CRM_RETRIEVE_VOCAL_ORDER/pipeline/PL_WS_CRM_RETRIEVE_VOCAL_ORDER" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_RETRIEVE_VOCAL_ORDER/pipeline/PL_WS_CRM_RETRIEVE_VOCAL_ORDER",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveVocalOrder/wsdl/WS_CRM_RETRIEVE_VOCAL_ORDER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveVocalOrder/wsdl/WS_CRM_RETRIEVE_VOCAL_ORDER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_RETRIEVE_VOCAL_ORDER/transformation/createResponse_BS_PSSB_EJB_SF_RetrieveVocalOrder" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_RETRIEVE_VOCAL_ORDER/transformation/createResponse_BS_PSSB_EJB_SF_RetrieveVocalOrder",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_RETRIEVE_VOCAL_ORDER/transformation/createRequest_BS_PSSB_EJB_SF_RetrieveVocalOrder" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_RETRIEVE_VOCAL_ORDER/transformation/createRequest_BS_PSSB_EJB_SF_RetrieveVocalOrder",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

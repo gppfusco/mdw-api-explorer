@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/BulkScheduler/proxy/PS_BULK_SCHEDULER",
+    "name" : "BulkScheduler_proxy_PS_BULK_SCHEDULER",
+    "localPath" : "osb_it\\repo\\BulkScheduler\\PS_BULK_SCHEDULER",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/BulkScheduler/proxy/PS_BULK_SCHEDULER?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BulkScheduler/xsd/XSD_Scheduler",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

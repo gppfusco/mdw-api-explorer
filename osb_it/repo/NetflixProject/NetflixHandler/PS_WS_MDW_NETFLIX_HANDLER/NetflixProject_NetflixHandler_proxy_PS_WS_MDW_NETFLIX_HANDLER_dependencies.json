@@ -1,0 +1,113 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "NetflixProject_NetflixHandler_proxy_PS_WS_MDW_NETFLIX_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/NetflixProject/NetflixHandler/pipeline/PL_WS_MDW_NETFLIX_HANDLER" : {
+        "label" : "Pipeline/NetflixProject/NetflixHandler/pipeline/PL_WS_MDW_NETFLIX_HANDLER",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/NetflixProject/NetflixHandler/pipeline/PL_INTERNAL_ENROLL_NETFLIX" : {
+            "label" : "Pipeline/NetflixProject/NetflixHandler/pipeline/PL_INTERNAL_ENROLL_NETFLIX",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/NetflixProject/NetflixHandler/transformation/createRequestNetflixEnroll" : {
+                "label" : "Xquery/NetflixProject/NetflixHandler/transformation/createRequestNetflixEnroll",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Archive/NetflixProject/NetflixHandler/jar/HMacNetflix" : {
+                "label" : "Archive/NetflixProject/NetflixHandler/jar/HMacNetflix",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/NetflixProject/NetflixHandler/businessService/BS_TEXT_NETFLIX_HANDLER" : {
+                "label" : "BusinessService/NetflixProject/NetflixHandler/businessService/BS_TEXT_NETFLIX_HANDLER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/NetflixProject/NetflixHandler/transformation/createResponseNetflixEnroll" : {
+                "label" : "Xquery/NetflixProject/NetflixHandler/transformation/createResponseNetflixEnroll",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixHandler/wsdl/WS_MDW_NETFLIX_HANDLER" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixHandler/wsdl/WS_MDW_NETFLIX_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixHandler/wsdl/WS_MDW_NETFLIX_HANDLER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixHandler/wsdl/WS_MDW_NETFLIX_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/NetflixProject/NetflixHandler/pipeline/PL_INTERNAL_CANCEL_NETFLIX" : {
+            "label" : "Pipeline/NetflixProject/NetflixHandler/pipeline/PL_INTERNAL_CANCEL_NETFLIX",
+            "properties" : { },
+            "successors" : {
+              "Xquery/NetflixProject/NetflixHandler/transformation/createResponseNetflixCancel" : {
+                "label" : "Xquery/NetflixProject/NetflixHandler/transformation/createResponseNetflixCancel",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Archive/NetflixProject/NetflixHandler/jar/HMacNetflix" : {
+                "label" : "Archive/NetflixProject/NetflixHandler/jar/HMacNetflix",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/NetflixProject/NetflixHandler/businessService/BS_TEXT_NETFLIX_HANDLER" : {
+                "label" : "BusinessService/NetflixProject/NetflixHandler/businessService/BS_TEXT_NETFLIX_HANDLER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixHandler/wsdl/WS_MDW_NETFLIX_HANDLER" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixHandler/wsdl/WS_MDW_NETFLIX_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/NetflixProject/NetflixHandler/transformation/createRequestNetflixCancel" : {
+                "label" : "Xquery/NetflixProject/NetflixHandler/transformation/createRequestNetflixCancel",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixHandler/wsdl/WS_MDW_NETFLIX_HANDLER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixHandler/wsdl/WS_MDW_NETFLIX_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

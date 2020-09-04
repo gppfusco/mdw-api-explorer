@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestCheckCFType">
+		<xsd:sequence>
+			<xsd:element name="WS_CODICE_FISCALE" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseCheckCFType">
+		<xsd:sequence>
+			<xsd:element name="DATI" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="CFIS" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AREA_OUTPUT" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="COGNOME" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="NOME" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="ANNO" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="MESE" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="GIORNO" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="DATA" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="LOCALITA" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="LOC_UFF" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="PROV" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="PROV_UFF" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="COD_PRO" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="COD_COM" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="COD_FRA" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="COD_SPE" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="COD_FIS" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="SESSO" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="CHECK" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="DESCRIZIONE" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="COD_PCF" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+									<xsd:element name="AREA_ERRORI"  minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="ERRORE" minOccurs="0" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="F_ERR" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="C_ERR" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="D_ERR" type="xsd:string" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCheckCF" type="requestCheckCFType"/>
+	<xsd:element name="responseCheckCF" type="responseCheckCFType"/>
+</xsd:schema>

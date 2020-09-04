@@ -1,0 +1,40 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "NetflixProject_NetflixSendChangeResult_proxy_PS_WS_NETFLIX_SEND_CHANGE_RESULT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixSendChangeResult/wsdl/WS_NETFLIX_SEND_CHANGE_RESULT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixSendChangeResult/wsdl/WS_NETFLIX_SEND_CHANGE_RESULT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/NetflixProject/NetflixSendChangeResult/pipeline/PL_WS_NETFLIX_SEND_CHANGE_RESULT" : {
+        "label" : "Pipeline/NetflixProject/NetflixSendChangeResult/pipeline/PL_WS_NETFLIX_SEND_CHANGE_RESULT",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixSendChangeResult/wsdl/WS_NETFLIX_SEND_CHANGE_RESULT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/NetflixProject/NetflixSendChangeResult/wsdl/WS_NETFLIX_SEND_CHANGE_RESULT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/NetflixProject/NetflixReadChangeEvent/businessService/BS_JMS_NETFLIX_LAYER_PREMIUM" : {
+            "label" : "BusinessService/NetflixProject/NetflixReadChangeEvent/businessService/BS_JMS_NETFLIX_LAYER_PREMIUM",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,199 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "DMSProject_GestioneTicket_proxy_PS_WS_IR_GESTIONE_TICKET",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/DMSProject/GestioneTicket/pipeline/PL_WS_IR_GESTIONE_TICKET_ROUTING" : {
+        "label" : "Pipeline/DMSProject/GestioneTicket/pipeline/PL_WS_IR_GESTIONE_TICKET_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/DMSProject/GestioneTicket/pipeline/PL_IR_GESTIONE_TICKET_UPDATE_REMEDY" : {
+            "label" : "Pipeline/DMSProject/GestioneTicket/pipeline/PL_IR_GESTIONE_TICKET_UPDATE_REMEDY",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/DMSProject/GestioneTicket/transformations/createRequestUpdateTicketRemedy" : {
+                "label" : "Xquery/DMSProject/GestioneTicket/transformations/createRequestUpdateTicketRemedy",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/DMSProject/GestioneTicket/transformations/createResponseUpdateTicketRemedy" : {
+                "label" : "Xquery/DMSProject/GestioneTicket/transformations/createResponseUpdateTicketRemedy",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/DMSProject/GestioneTicket/pipeline/PL_INTERNAL_IR_JCA_UPDATE_REMEDY" : {
+                "label" : "Pipeline/DMSProject/GestioneTicket/pipeline/PL_INTERNAL_IR_JCA_UPDATE_REMEDY",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/DMSProject/GestioneTicket/businessServices/BS_SQL_DMS_UPDATE_TICKET_REMEDY" : {
+                    "label" : "BusinessService/DMSProject/GestioneTicket/businessServices/BS_SQL_DMS_UPDATE_TICKET_REMEDY",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/DMSProject/GestioneTicket/pipeline/PL_IR_GESTIONE_TICKET_UPDATE_INTRANET" : {
+            "label" : "Pipeline/DMSProject/GestioneTicket/pipeline/PL_IR_GESTIONE_TICKET_UPDATE_INTRANET",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_WSCALL" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_WSCALL",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/DMSProject/GestioneTicket/transformations/createRequestUpdateTicket" : {
+                "label" : "Xquery/DMSProject/GestioneTicket/transformations/createRequestUpdateTicket",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/DMSProject/GestioneTicket/transformations/createResponseUpdateTicket" : {
+                "label" : "Xquery/DMSProject/GestioneTicket/transformations/createResponseUpdateTicket",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/transformation/createRequestEJBWsCall" : {
+                "label" : "Xquery/MDW_CO/transformation/createRequestEJBWsCall",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/DMSProject/GestioneTicket/pipeline/PL_IR_GESTIONE_TICKET_GET" : {
+            "label" : "Pipeline/DMSProject/GestioneTicket/pipeline/PL_IR_GESTIONE_TICKET_GET",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_WSCALL" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_WSCALL",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Pipeline/DMSProject/GestioneTicket/pipeline/PL_ENQUEUE_IR_GESTIONE_TICKET_GET_ITERATE" : {
+                "label" : "Pipeline/DMSProject/GestioneTicket/pipeline/PL_ENQUEUE_IR_GESTIONE_TICKET_GET_ITERATE",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/DMSProject/GestioneTicket/businessServices/BS_JMS_DMS_TICKET_INTRANET" : {
+                    "label" : "BusinessService/DMSProject/GestioneTicket/businessServices/BS_JMS_DMS_TICKET_INTRANET",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_PUBLISH_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_PUBLISH_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/DMSProject/GestioneTicket/transformations/createRequestGetTicketIntranet" : {
+                "label" : "Xquery/DMSProject/GestioneTicket/transformations/createRequestGetTicketIntranet",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/DMSProject/GestioneTicket/transformations/createResponseGetTicketIntranet" : {
+                "label" : "Xquery/DMSProject/GestioneTicket/transformations/createResponseGetTicketIntranet",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/DMSProject/GestioneTicket/wsdl/WS_IR_GESTIONE_TICKET",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/transformation/createRequestEJBWsCall" : {
+                "label" : "Xquery/MDW_CO/transformation/createRequestEJBWsCall",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XSLT/DMSProject/GestioneTicket/transformations/XSLT_groupsRequestDMSToSF" : {
+                "label" : "XSLT/DMSProject/GestioneTicket/transformations/XSLT_groupsRequestDMSToSF",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

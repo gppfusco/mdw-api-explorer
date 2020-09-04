@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/billing/WS_KN_COUNT_FATTURE_stub",
+    "name" : "KENANProject_WS_KN_COUNT_FATTURE_APERTE_proxy_PS_WS_KN_COUNT_FATTURE_STUB",
+    "localPath" : "osb_it\\repo\\KENANProject\\WS\\KN\\COUNT\\FATTURE\\APERTE\\PS_WS_KN_COUNT_FATTURE_STUB",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/billing/WS_KN_COUNT_FATTURE_stub?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/KenanProject/CountFattureAperte/xsd/XSD_KN_COUNT_FATTURE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

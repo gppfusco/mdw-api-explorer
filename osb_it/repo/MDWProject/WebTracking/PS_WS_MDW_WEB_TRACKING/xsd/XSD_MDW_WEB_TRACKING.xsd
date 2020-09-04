@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <!-- key/value type -->
+  <xsd:complexType name="mdwKeyValueType">
+    <xsd:sequence>
+      <xsd:element name="mdwKey" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwValue" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwParametersType">
+    <xsd:sequence>
+      <xsd:element name="mdwParameter" type="mdwKeyValueType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <!-- Restriction MaxLenght -->
+  <xsd:simpleType name="string_MaxLength10">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="string_MaxLength12">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="12"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <xsd:simpleType name="string_MaxLength20">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+ 
+  <!-- execute_insertTracking -->
+  <xsd:complexType name="requestInsertTrackingType">
+    <xsd:sequence>
+      <xsd:element name="mdwAggregationId" type="string_MaxLength20" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwActivityType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwActivity" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwActivityDetail" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwActivityStatus" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="contrId" type="string_MaxLength12" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="custId" type="string_MaxLength12" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwActivityCreationDateTime" type="string_MaxLength20" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwParameters" type="mdwParametersType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="mdwChannelCaller" type="string_MaxLength10" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwSystemCallerId" type="string_MaxLength10" minOccurs="1" maxOccurs="1"/>
+      
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseInsertTrackingType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestInsertTracking" type="requestInsertTrackingType"/>
+  <xsd:element name="responseInsertTracking" type="responseInsertTrackingType"/>
+  <!-- execute_countNewTrackingRecords -->
+  <xsd:complexType name="mdwCountNewTrackingRecordsDataType">
+    <xsd:sequence>
+      <xsd:element name="mdwNumOccurences" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestCountNewTrackingRecordsType">
+    <xsd:sequence>
+      <xsd:element name="contrId" type="string_MaxLength12" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="custId" type="string_MaxLength12" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwCategory" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="mdwNumDaysDepth" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseCountNewTrackingRecordsType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="data" type="mdwCountNewTrackingRecordsDataType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestCountNewTrackingRecords" type="requestCountNewTrackingRecordsType"/>
+  <xsd:element name="responseCountNewTrackingRecords" type="responseCountNewTrackingRecordsType"/>
+  <!-- execute_getTrackingRecords -->
+  <xsd:complexType name="mdwRecordType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="contrId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwAggregationId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwFlagReaded" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwActivityType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwActivity" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwActivityDetail" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwActivityStatus" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwParameters" type="mdwParametersType" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="mdwChannelCaller" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwActivityCreationDateTime" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwRecordsType">
+    <xsd:sequence>
+      <xsd:element name="mdwRecord" type="mdwRecordType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwGetTrackingRecordsDataType">
+    <xsd:sequence>
+      <xsd:element name="mdwMoreDataAvailable" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwRecords" type="mdwRecordsType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestGetTrackingRecordsType">
+    <xsd:sequence>
+      <xsd:element name="contrId" type="string_MaxLength12" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="custId" type="string_MaxLength12" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwCategory" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="mdwBlockNumber" type="xsd:string"/>
+      <xsd:element name="mdwNumDaysDepth" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGetTrackingRecordsType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="data" type="mdwGetTrackingRecordsDataType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetTrackingRecords" type="requestGetTrackingRecordsType"/>
+  <xsd:element name="responseGetTrackingRecords" type="responseGetTrackingRecordsType"/>
+  <xsd:element name="mdwParameters" type="mdwParametersType"/>
+  <!-- execute_wtrAcknowledge -->
+  <xsd:complexType name="requestWtrAcknowledgeType">
+    <xsd:sequence>
+      <xsd:element name="contrId" type="string_MaxLength12" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="custId" type="string_MaxLength12" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseWtrAcknowledgeType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestWtrAcknowledge" type="requestWtrAcknowledgeType"/>
+  <xsd:element name="responseWtrAcknowledge" type="responseWtrAcknowledgeType"/>
+</xsd:schema>

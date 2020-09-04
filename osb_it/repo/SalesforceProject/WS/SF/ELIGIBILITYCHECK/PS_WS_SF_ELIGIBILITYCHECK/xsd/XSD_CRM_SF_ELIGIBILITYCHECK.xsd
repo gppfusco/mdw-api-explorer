@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestEligibilityCheckType">
+		<xsd:sequence>
+			<xsd:element name="requestElements" minOccurs="0" maxOccurs="unbounded" type="EligibilityCheckRequestElement" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>		
+        <xsd:simpleType name="ID">
+                <xsd:restriction base="xsd:string">
+                        <xsd:length value="18"/>
+                        <xsd:pattern value="[a-zA-Z0-9]{18}"/>
+                </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:complexType name="EligibilityCheckRequestElement">
+                <xsd:sequence>
+                        <xsd:element name="contractId" minOccurs="0" type="ID" nillable="true"/>
+                        <xsd:element name="contractLogicId" minOccurs="0" type="xsd:string" nillable="true"/>
+                        <xsd:element name="orderId" minOccurs="0" type="ID" nillable="true"/>
+                        <xsd:element name="orderItemId" minOccurs="0" type="ID" nillable="true"/>
+                        <xsd:element name="payerAccountId" minOccurs="0" type="ID" nillable="true"/>
+                        <xsd:element name="productCode" minOccurs="0" type="xsd:string" nillable="true"/>
+                        <xsd:element name="source" minOccurs="0" type="xsd:string" nillable="true"/>
+                        <xsd:element name="userAccountId" minOccurs="0" type="ID" nillable="true"/>
+                </xsd:sequence>
+        </xsd:complexType>
+	<xsd:complexType name="responseEligibilityCheckType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="result" minOccurs="0" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestEligibilityCheck" type="requestEligibilityCheckType"/>
+	<xsd:element name="responseEligibilityCheck" type="responseEligibilityCheckType"/>
+</xsd:schema>

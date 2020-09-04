@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestUpdateCaseSoas" type="requestUpdateCaseSoasType"/>
+  <xsd:element name="responseUpdateCaseSoas" type="responseUpdateCaseSoasType"/>
+    <xsd:complexType name= "requestUpdateCaseSoasType">
+     <xsd:sequence>
+     <xsd:element name="cases" type="caseType" minOccurs="1" maxOccurs="1" />    
+     </xsd:sequence> 
+  </xsd:complexType>
+  <xsd:complexType name="caseType" >
+        <xsd:sequence>
+        <xsd:element name= "idCase" type="xsd:string"/>
+        <xsd:element name= "idSOAS" type="xsd:string"/>
+        <xsd:element name= "clousureReason" type="xsd:string"/>
+        <xsd:element name= "closedDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name= "status" type="xsd:string"/>
+        <xsd:element name= "subStatus" type="xsd:string"/>  
+        </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseUpdateCaseSoasType">
+      <xsd:sequence>
+              <xsd:element name="resultCode" type="xsd:string"/>
+              <xsd:element name="resultDescription" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

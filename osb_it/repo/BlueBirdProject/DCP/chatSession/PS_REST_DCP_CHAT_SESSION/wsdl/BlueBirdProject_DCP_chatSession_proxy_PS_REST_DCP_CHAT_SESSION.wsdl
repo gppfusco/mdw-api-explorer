@@ -1,0 +1,113 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="PS_REST_DCP_CHAT_SESSION"
+     targetNamespace="http://xmlns.oracle.com/OSBSvil/BlueBirdProject/PS_REST_DCP_CHAT_SESSION"
+     xmlns:tns="http://xmlns.oracle.com/OSBSvil/BlueBirdProject/PS_REST_DCP_CHAT_SESSION"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:inp2="http://www.skytv.it/mdw/data"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <plnk:partnerLinkType name="PS_REST_DCP_CHAT_SESSION">
+        <plnk:role name="PS_REST_DCP_CHAT_SESSIONProvider" portType="tns:PS_REST_DCP_CHAT_SESSION_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/DCP/chatSession/xsd/XSD_DCP_CHAT_SESSION.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="SendMessage_inputMessage">
+        <wsdl:part name="request" element="inp1:requestSendMessage"/>
+    </wsdl:message>
+    <wsdl:message name="Rest_EmptyMessage"/>
+    <wsdl:message name="SendMessage_fault500Message">
+        <wsdl:part name="fault_fault500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="SendMessage_fault400Message">
+        <wsdl:part name="fault_fault400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="SendMessage_fault404Message">
+        <wsdl:part name="fault_fault404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="SendEvent_inputMessage">
+        <wsdl:part name="request" element="inp1:requestSendEvent"/>
+    </wsdl:message>
+    <wsdl:message name="SendEvent_fault500Message">
+        <wsdl:part name="fault_fault500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="SendEvent_fault400Message">
+        <wsdl:part name="fault_fault400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="SendEvent_fault404Message">
+        <wsdl:part name="fault_fault404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="AddNick_inputMessage">
+        <wsdl:part name="request" element="inp1:requestAddNick"/>
+    </wsdl:message>
+    <wsdl:message name="AddNick_fault500Message">
+        <wsdl:part name="fault_fault500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="AddNick_fault400Message">
+        <wsdl:part name="fault_fault400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="AddNick_fault404Message">
+        <wsdl:part name="fault_fault404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:portType name="PS_REST_DCP_CHAT_SESSION_ptt">
+        <wsdl:operation name="SendMessage">
+            <wsdl:input message="tns:SendMessage_inputMessage"/>
+            <wsdl:output message="tns:Rest_EmptyMessage"/>
+            <wsdl:fault name="fault500" message="tns:SendMessage_fault500Message"/>
+            <wsdl:fault name="fault400" message="tns:SendMessage_fault400Message"/>
+            <wsdl:fault name="fault404" message="tns:SendMessage_fault404Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="SendEvent">
+            <wsdl:input message="tns:SendEvent_inputMessage"/>
+            <wsdl:output message="tns:Rest_EmptyMessage"/>
+            <wsdl:fault name="fault500" message="tns:SendEvent_fault500Message"/>
+            <wsdl:fault name="fault400" message="tns:SendEvent_fault400Message"/>
+            <wsdl:fault name="fault404" message="tns:SendEvent_fault404Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="AddNick">
+            <wsdl:input message="tns:AddNick_inputMessage"/>
+            <wsdl:output message="tns:Rest_EmptyMessage"/>
+            <wsdl:fault name="fault500" message="tns:AddNick_fault500Message"/>
+            <wsdl:fault name="fault400" message="tns:AddNick_fault400Message"/>
+            <wsdl:fault name="fault404" message="tns:AddNick_fault404Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PS_REST_DCP_CHAT_SESSION_ptt-binding" type="tns:PS_REST_DCP_CHAT_SESSION_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="SendMessage">
+            <soap:operation soapAction="SendMessage"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SendEvent">
+            <soap:operation soapAction="SendEvent"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="AddNick">
+            <soap:operation soapAction="AddNick"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

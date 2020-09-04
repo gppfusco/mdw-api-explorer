@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestRecuperaOrdine" type="requestRecuperaOrdineType"/>
+	<xsd:complexType name="requestRecuperaOrdineType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_RecuperaOrdine">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="LoginOperator" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseRecuperaOrdine" type="responseRecuperaOrdineType"/>
+	<xsd:complexType name="responseRecuperaOrdineType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

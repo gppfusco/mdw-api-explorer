@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_SALES_ORDERMANAGEMENT_proxy_PS_WS_SALES_ORDERMANAGEMENT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/SalesOrdermanagement/wsdl/WS_SALES_ORDERMANAGEMENT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/SalesOrdermanagement/wsdl/WS_SALES_ORDERMANAGEMENT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/WS_SALES_ORDERMANAGEMENT/pipeline/PL_WS_SALSES_ORDERMANAGEMENT" : {
+        "label" : "Pipeline/SalesforceProject/WS_SALES_ORDERMANAGEMENT/pipeline/PL_WS_SALSES_ORDERMANAGEMENT",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/SalesOrdermanagement/wsdl/WS_SALES_ORDERMANAGEMENT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/SalesOrdermanagement/wsdl/WS_SALES_ORDERMANAGEMENT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_SALES_ORDERMANAGEMENT/trasformation/createResponse_CallbackOrderManagement" : {
+            "label" : "Xquery/SalesforceProject/WS_SALES_ORDERMANAGEMENT/trasformation/createResponse_CallbackOrderManagement",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_SALES_ORDERMANAGEMENT/trasformation/createRequest_CallbackOrderManagement" : {
+            "label" : "Xquery/SalesforceProject/WS_SALES_ORDERMANAGEMENT/trasformation/createRequest_CallbackOrderManagement",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

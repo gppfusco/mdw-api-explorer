@@ -1,0 +1,103 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_proxy_PS_WS_CRM_GESTIONE_SMS_PPV",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSMSPPV/wsdl/WS_CRM_GESTIONE_SMS_PPV" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSMSPPV/wsdl/WS_CRM_GESTIONE_SMS_PPV",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SCMSproject/pipeline/PL_WS_CRM_GESTIONE_SMS_PPV" : {
+        "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_GESTIONE_SMS_PPV",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSMSPPV/wsdl/WS_CRM_GESTIONE_SMS_PPV" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSMSPPV/wsdl/WS_CRM_GESTIONE_SMS_PPV",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/businessService/BS_WS_SCMS_SMSSERVICE" : {
+            "label" : "BusinessService/SCMSproject/businessService/BS_WS_SCMS_SMSSERVICE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/businessService/BS_TUXEDO_PPVSMS_REG" : {
+            "label" : "BusinessService/SCMSproject/businessService/BS_TUXEDO_PPVSMS_REG",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createResponse_TUX_PPVSMS_REG" : {
+            "label" : "Xquery/SCMSproject/transformation/createResponse_TUX_PPVSMS_REG",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/businessService/BS_TUXEDO_PPVSMS_DEREG" : {
+            "label" : "BusinessService/SCMSproject/businessService/BS_TUXEDO_PPVSMS_DEREG",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/businessService/BS_TUXEDO_PPVSMS_ReadReg" : {
+            "label" : "BusinessService/SCMSproject/businessService/BS_TUXEDO_PPVSMS_ReadReg",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createRequest_TUX_PPVSMS_ReadRegInfo" : {
+            "label" : "Xquery/SCMSproject/transformation/createRequest_TUX_PPVSMS_ReadRegInfo",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createRequest_TUX_PPVSMS_DEREG" : {
+            "label" : "Xquery/SCMSproject/transformation/createRequest_TUX_PPVSMS_DEREG",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createRequest_WS_SCMS_ReadSMS" : {
+            "label" : "Xquery/SCMSproject/transformation/createRequest_WS_SCMS_ReadSMS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createResponse_TUX_PPVSMS_DEREG" : {
+            "label" : "Xquery/SCMSproject/transformation/createResponse_TUX_PPVSMS_DEREG",
+            "properties" : { },
+            "successors" : { }
+          },
+          "XSLT/SCMSproject/transformation/createResponse_TUX_PPVSMS_ReadReg" : {
+            "label" : "XSLT/SCMSproject/transformation/createResponse_TUX_PPVSMS_ReadReg",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createRequest_TUX_PPVSMS_REG" : {
+            "label" : "Xquery/SCMSproject/transformation/createRequest_TUX_PPVSMS_REG",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/createResponse_WS_CRM_GESTIONE_SMS_PPV_ReadSms" : {
+            "label" : "Xquery/SCMSproject/transformation/createResponse_WS_CRM_GESTIONE_SMS_PPV_ReadSms",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

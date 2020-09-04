@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestPmsAllineamentoType">
+		<xsd:sequence>
+			<xsd:element name="Operation" type="xsd:string"/>
+			<xsd:element name="Sorgente" type="xsd:string"/>
+			<xsd:element name="Timestamp" type="xsd:string"/>
+			<xsd:element name="TransactionID" type="xsd:string"/>
+			<xsd:element name="ListaContratti" minOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Contratto" minOccurs="1" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Chiave" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="Valore" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestPmsAllineamento" type="requestPmsAllineamentoType"/>
+	<xsd:element name="responsePmsAllineamento" type="responsePmsAllineamentoType"/>
+	<xsd:complexType name="responsePmsAllineamentoType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListaErrori" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Errore" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="NomeErrore" type="xsd:string"/>
+									<xsd:element name="CodiceErrore" type="xsd:string"/>
+									<xsd:element name="DescrizioneErrore" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

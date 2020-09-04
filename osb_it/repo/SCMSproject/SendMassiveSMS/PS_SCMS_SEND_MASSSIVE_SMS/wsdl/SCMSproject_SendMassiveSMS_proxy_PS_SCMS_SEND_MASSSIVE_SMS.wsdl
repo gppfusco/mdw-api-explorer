@@ -1,0 +1,42 @@
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/SEND_MASSIVE_SMS" xmlns:ns1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_SEND_MASSIVE_SMS" targetNamespace="http://www.skytv.it/mdw/service/SEND_MASSIVE_SMS">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SEND_MASSIVE_SMS.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestSendMassiveSMS_Message">
+		<wsdl:part name="part_requestSendMassiveSMS" element="ns1:requestSendMassiveSMS"/>
+	</wsdl:message>
+	<wsdl:message name="responseSendMassiveSMS_Message">
+		<wsdl:part name="part_responseSendMassiveSMS" element="ns1:responseSendMassiveSMS"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="ns1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="SEND_SMS_ptt">
+		<wsdl:operation name="execute_SendMassiveSMS">
+			<wsdl:input message="tns:requestSendMassiveSMS_Message"/>
+			<wsdl:output message="tns:responseSendMassiveSMS_Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SEND_SMS_bind" type="tns:SEND_SMS_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_SendMassiveSMS">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SEND_MASSIVE_SMS/execute_SendMassiveSMS" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestSendMassiveSMS" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSendMassiveSMS" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="SEND_SMS_ptt">
+		<wsdl:port name="SEND_SMS_pttPort" binding="tns:SEND_SMS_bind">
+			<soap:address location="http://www.example.com"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

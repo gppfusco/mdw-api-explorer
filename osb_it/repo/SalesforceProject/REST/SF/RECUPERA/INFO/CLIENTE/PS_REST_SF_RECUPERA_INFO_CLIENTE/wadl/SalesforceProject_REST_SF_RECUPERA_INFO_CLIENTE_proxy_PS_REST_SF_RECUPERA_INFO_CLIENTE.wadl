@@ -1,0 +1,34 @@
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBSvil/SalesforceProject/PS_REST_SF_RECUPERA_INFO_CLIENTE" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_SF_RECUPERA_INFO_CLIENTE">RestService</doc>
+   <grammars>
+      <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SalesforceProject/RecuperaInfoCliente/xsd/XSD_SF_RECUPERA_INFO_CLIENTE.xsd"/>
+        </xsd:schema>
+
+      <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/rest/faults" schemaLocation="../../MDW_CDM/EnterpriseServices/SalesforceProject/RecuperaInfoCliente/xsd/XSD_FAULTS.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/RecuperaInfoCliente">
+         <method name="GET" soa:wsdlOperation="RecuperaInfoCliente">
+            <request>
+               <param name="codiceCliente" style="query" soa:expression="$msg.request/ns0:codiceCliente" default="" type="xsd:string"/>
+               <param name="codiceFiscale" style="query" soa:expression="$msg.request/ns0:codiceFiscale" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseRecuperaInfoCliente" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/json" element="cns:fault400" xmlns:cns="http://www.skytv.it/mdw/rest/faults"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/json" element="cns:fault500" xmlns:cns="http://www.skytv.it/mdw/rest/faults"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/json" element="cns:fault404" xmlns:cns="http://www.skytv.it/mdw/rest/faults"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

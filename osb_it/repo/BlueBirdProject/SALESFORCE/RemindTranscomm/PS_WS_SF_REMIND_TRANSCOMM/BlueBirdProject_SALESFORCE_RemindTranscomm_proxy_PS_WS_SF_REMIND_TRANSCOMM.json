@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/sf/WS_SF_REMIND_TRANSCOMM",
+    "name" : "BlueBirdProject_SALESFORCE_RemindTranscomm_proxy_PS_WS_SF_REMIND_TRANSCOMM",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\SALESFORCE\\RemindTranscomm\\PS_WS_SF_REMIND_TRANSCOMM",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/sf/WS_SF_REMIND_TRANSCOMM?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/RemindTranscomm/xsd/XSD_SF_REMIND_TRANSCOMM",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

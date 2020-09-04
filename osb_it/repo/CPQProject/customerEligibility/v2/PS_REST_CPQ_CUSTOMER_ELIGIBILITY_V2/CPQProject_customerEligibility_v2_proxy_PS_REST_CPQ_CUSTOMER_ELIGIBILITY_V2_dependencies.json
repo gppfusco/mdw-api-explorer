@@ -1,0 +1,182 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "CPQProject_customerEligibility_v2_proxy_PS_REST_CPQ_CUSTOMER_ELIGIBILITY_V2",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/CPQProject/customerEligibility_v2/pipeline/PL_REST_CPQ_CUSTOMER_ELIGIBILITY" : {
+        "label" : "Pipeline/CPQProject/customerEligibility_v2/pipeline/PL_REST_CPQ_CUSTOMER_ELIGIBILITY",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/CPQProject/customerEligibility_v2/pipeline/PL_INTERNAL_POST_CUSTOMER_ELIGIBILITY" : {
+            "label" : "Pipeline/CPQProject/customerEligibility_v2/pipeline/PL_INTERNAL_POST_CUSTOMER_ELIGIBILITY",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/CPQProject/sellingConfirmation_v2/transformation/createRequest_DB_LOG" : {
+                "label" : "Xquery/CPQProject/sellingConfirmation_v2/transformation/createRequest_DB_LOG",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/CPQProject/customerEligibility_v2/pipeline/PL_INTERNAL_SF_GET_E2ECODE_AND_COD_CLIENTE_BY_CONTR_ID" : {
+                "label" : "Pipeline/CPQProject/customerEligibility_v2/pipeline/PL_INTERNAL_SF_GET_E2ECODE_AND_COD_CLIENTE_BY_CONTR_ID",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/CPQProject/sellingConfirmation_v2/transformation/createRequest_DB_LOG" : {
+                    "label" : "Xquery/CPQProject/sellingConfirmation_v2/transformation/createRequest_DB_LOG",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/CPQProject/Resources/PS_REST_CPQ_CUSTOMER_ELIGIBILITY_V2" : {
+                    "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CUSTOMER_ELIGIBILITY_V2",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDWProject/LOG_MDW_SERVICES/businessService/BS_JMS_ENQUEUE_LOG_MDW_SERVICE" : {
+                    "label" : "BusinessService/MDWProject/LOG_MDW_SERVICES/businessService/BS_JMS_ENQUEUE_LOG_MDW_SERVICE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/CPQProject/customerEligibility_v2/transformation/createResponse_GetE2ECodeAndCodiceCliente" : {
+                    "label" : "Xquery/CPQProject/customerEligibility_v2/transformation/createResponse_GetE2ECodeAndCodiceCliente",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/CPQProject/customerEligibility_v2/transformation/createRequest_GetE2ECodeAndCodiceCliente" : {
+                    "label" : "Xquery/CPQProject/customerEligibility_v2/transformation/createRequest_GetE2ECodeAndCodiceCliente",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/CPQProject/customerEligibility_v2/transformation/createResponse_CustomerEligibility" : {
+                "label" : "Xquery/CPQProject/customerEligibility_v2/transformation/createResponse_CustomerEligibility",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/CPQProject/Resources/PS_REST_CPQ_CUSTOMER_ELIGIBILITY_V2" : {
+                "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CUSTOMER_ELIGIBILITY_V2",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDWProject/LOG_MDW_SERVICES/businessService/BS_JMS_ENQUEUE_LOG_MDW_SERVICE" : {
+                "label" : "BusinessService/MDWProject/LOG_MDW_SERVICES/businessService/BS_JMS_ENQUEUE_LOG_MDW_SERVICE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "BusinessService/CPQProject/customerEligibility_v2/businessService/BS_TEXT_AWS_OFFERS" : {
+                "label" : "BusinessService/CPQProject/customerEligibility_v2/businessService/BS_TEXT_AWS_OFFERS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Pipeline/CPQProject/customerEligibility_v2/pipeline/PL_INTERNAL_SF_GET_ACCOUNT_CONTRACT_BY_SMC" : {
+                "label" : "Pipeline/CPQProject/customerEligibility_v2/pipeline/PL_INTERNAL_SF_GET_ACCOUNT_CONTRACT_BY_SMC",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/CPQProject/customerEligibility_v2/transformation/EnrichInputWithAccountAndContract" : {
+                    "label" : "Xquery/CPQProject/customerEligibility_v2/transformation/EnrichInputWithAccountAndContract",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/CPQProject/sellingConfirmation_v2/transformation/createRequest_DB_LOG" : {
+                    "label" : "Xquery/CPQProject/sellingConfirmation_v2/transformation/createRequest_DB_LOG",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/CPQProject/Resources/PS_REST_CPQ_CUSTOMER_ELIGIBILITY_V2" : {
+                    "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CUSTOMER_ELIGIBILITY_V2",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDWProject/LOG_MDW_SERVICES/businessService/BS_JMS_ENQUEUE_LOG_MDW_SERVICE" : {
+                    "label" : "BusinessService/MDWProject/LOG_MDW_SERVICES/businessService/BS_JMS_ENQUEUE_LOG_MDW_SERVICE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/CPQProject/customerEligibility_v2/transformation/createRequest_EjbStpApiGetAccountAndContractBySMC" : {
+                    "label" : "Xquery/CPQProject/customerEligibility_v2/transformation/createRequest_EjbStpApiGetAccountAndContractBySMC",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/CPQProject/OfferHandler/transformation_v2/createResponse_GetOffer" : {
+                "label" : "Xquery/CPQProject/OfferHandler/transformation_v2/createResponse_GetOffer",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/CPQProject/sellingConfirmation_v2/transformation/createRequest_DB_LOG" : {
+            "label" : "Xquery/CPQProject/sellingConfirmation_v2/transformation/createRequest_DB_LOG",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/CPQProject/Resources/PS_REST_CPQ_CUSTOMER_ELIGIBILITY_V2" : {
+            "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CUSTOMER_ELIGIBILITY_V2",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDWProject/LOG_MDW_SERVICES/businessService/BS_JMS_ENQUEUE_LOG_MDW_SERVICE" : {
+            "label" : "BusinessService/MDWProject/LOG_MDW_SERVICES/businessService/BS_JMS_ENQUEUE_LOG_MDW_SERVICE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/CPQProject/Resources/PS_REST_CPQ_CUSTOMER_ELIGIBILITY_V2" : {
+        "label" : "WSDL/CPQProject/Resources/PS_REST_CPQ_CUSTOMER_ELIGIBILITY_V2",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

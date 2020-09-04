@@ -1,0 +1,946 @@
+<?xml version='1.0'?>
+<WL5G3N0:definitions xmlns="" name="JwsServiceDefinitions" targetNamespace="http://www.skytv.it/mdw/service/internal/EJB_SF" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.skytv.it/mdw/service/internal/EJB_SF" xmlns:WL5G3N2="java:it.sky.salesforce.model.data" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.skytv.it/mdw/service/internal/EJB_SF" xmlns:WL5G3N2="java:it.sky.salesforce.model.data" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="java:java.util" elementFormDefault="qualified" attributeFormDefault="unqualified">
+      <xs:complexType name="Map"/>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.skytv.it/mdw/service/internal/EJB_SF" xmlns:WL5G3N2="java:it.sky.salesforce.model.data" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="java:it.sky.salesforce.model.data" elementFormDefault="qualified" attributeFormDefault="unqualified">
+      <xs:complexType name="SkyData">
+        <xs:sequence>
+          <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="ExtendedFieldsSky" maxOccurs="unbounded" type="java:ExtendedFieldSky" minOccurs="0" nillable="true"/>
+          <xs:element name="DataOSB" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="Tid" type="xs:string" minOccurs="1" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ExtendedFieldSky">
+        <xs:sequence>
+          <xs:element name="Value" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="Key" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="Type" type="xs:string" minOccurs="1" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LoginBean">
+        <xs:sequence>
+          <xs:element name="Id" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="UserInfo" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="Url" type="xs:string" minOccurs="1" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SkyException"/>
+      <xs:complexType name="SkyDataArray">
+        <xs:sequence>
+          <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="SkyDatas" maxOccurs="unbounded" type="java:SkyData" minOccurs="0" nillable="true"/>
+          <xs:element name="AllOrNoneHeader" type="xs:boolean" minOccurs="1" nillable="false"/>
+          <xs:element name="Tid" type="xs:string" minOccurs="1" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="SkyException" type="java:SkyException"/>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.skytv.it/mdw/service/internal/EJB_SF" xmlns:WL5G3N2="java:it.sky.salesforce.model.data" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="java:it.sky.salesforce.model" elementFormDefault="qualified" attributeFormDefault="unqualified">
+      <xs:complexType name="Record">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="Size" type="xs:int" minOccurs="1" nillable="false"/>
+          <xs:element xmlns:java="java:it.sky.salesforce.model" name="Record" maxOccurs="unbounded" type="java:Record" minOccurs="0" nillable="true"/>
+          <xs:element xmlns:java="java:it.sky.salesforce.model" name="Param" maxOccurs="unbounded" type="java:Param" minOccurs="0" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Param">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="Value" type="xs:string" minOccurs="1" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.skytv.it/mdw/service/internal/EJB_SF" xmlns:WL5G3N2="java:it.sky.salesforce.model.data" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="java:it.sky.salesforce.model.data.bulk" elementFormDefault="qualified" attributeFormDefault="unqualified">
+      <xs:import namespace="java:java.util"/>
+      <xs:complexType name="BulkBean">
+        <xs:sequence>
+          <xs:element name="ObjName" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element xmlns:java="java:java.util" name="MappaBulkRows" type="java:Map" minOccurs="1" nillable="true"/>
+          <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="BulkRows" maxOccurs="unbounded" type="java:BulkRow" minOccurs="0" nillable="true"/>
+          <xs:element name="Descrizione" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="ExternalId" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="Header" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="OperationName" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="Tid" type="xs:string" minOccurs="1" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="BulkRow">
+        <xs:sequence>
+          <xs:element name="Id" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="Status" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="Payload_input" type="xs:string" minOccurs="1" nillable="true"/>
+          <xs:element name="Payload_output" type="xs:string" minOccurs="1" nillable="true"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.skytv.it/mdw/service/internal/EJB_SF" xmlns:WL5G3N2="java:it.sky.salesforce.model.data" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://www.skytv.it/mdw/service/internal/EJB_SF" elementFormDefault="qualified" attributeFormDefault="unqualified">
+      <xs:import namespace="java:it.sky.salesforce.model.data"/>
+      <xs:import namespace="java:it.sky.salesforce.model"/>
+      <xs:import namespace="java:it.sky.salesforce.model.data.bulk"/>
+      <xs:element name="testTimeout">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="arg0" type="xs:long" nillable="true" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="testTimeoutResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchRecords">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="arg0" type="xs:string"/>
+            <xs:element name="Tid" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="searchRecordsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model" name="return" type="java:Record"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="createArray">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="arg0" type="java:SkyDataArray"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="createArrayResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="return" type="java:SkyDataArray"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="create">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="arg0" type="java:SkyData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="createResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="return" type="java:SkyData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="upsertBulkAPI">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="arg0" type="java:BulkBean"/>
+            <xs:element name="arg1" type="xs:boolean" nillable="true" minOccurs="0"/>
+            <xs:element name="arg2" type="xs:int" nillable="true" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="upsertBulkAPIResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="return" type="java:BulkBean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="upsertArray">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="arg0" type="java:SkyDataArray"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="upsertArrayResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="return" type="java:SkyDataArray"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="descrSObject">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="arg0" type="xs:string"/>
+            <xs:element name="arg1" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="descrSObjectResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertBulkAPIAsync">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="arg0" type="java:BulkBean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertBulkAPIAsyncResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="queryDataRecords">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="arg0" type="xs:string"/>
+            <xs:element name="Tid" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="queryDataRecordsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model" name="return" type="java:Record"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteBulkAPIAsync">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="arg0" type="java:BulkBean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteBulkAPIAsyncResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="update">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="arg0" type="java:SkyData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="return" type="java:SkyData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertBulkAPI">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="arg0" type="java:BulkBean"/>
+            <xs:element name="arg1" type="xs:boolean" nillable="true" minOccurs="0"/>
+            <xs:element name="arg2" type="xs:int" nillable="true" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="insertBulkAPIResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="return" type="java:BulkBean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateArray">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="arg0" type="java:SkyDataArray"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateArrayResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="return" type="java:SkyDataArray"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateBulkAPI">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="arg0" type="java:BulkBean"/>
+            <xs:element name="arg1" type="xs:boolean" nillable="true" minOccurs="0"/>
+            <xs:element name="arg2" type="xs:int" nillable="true" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateBulkAPIResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="return" type="java:BulkBean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginBean">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="arg0" type="xs:boolean"/>
+            <xs:element name="Tid" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginBeanResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="return" type="java:LoginBean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="upsert">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="arg0" type="java:SkyData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="upsertResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="return" type="java:SkyData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteBulkAPI">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="arg0" type="java:BulkBean"/>
+            <xs:element name="arg1" type="xs:boolean" nillable="true" minOccurs="0"/>
+            <xs:element name="arg2" type="xs:int" nillable="true" minOccurs="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="deleteBulkAPIResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="return" type="java:BulkBean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateBulkAPIAsync">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="arg0" type="java:BulkBean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="updateBulkAPIAsyncResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="logoff">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="logoffResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="executeQuery">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="arg0" type="xs:string"/>
+            <xs:element name="arg1" type="xs:boolean"/>
+            <xs:element name="Tid" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="executeQueryResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="selectUpdate">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="arg0" type="java:SkyData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="selectUpdateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data" name="return" type="java:SkyData"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="login">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="arg0" type="xs:boolean"/>
+            <xs:element name="Tid" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="loginResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="return" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="upsertBulkAPIAsync">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:java="java:it.sky.salesforce.model.data.bulk" name="arg0" type="java:BulkBean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="upsertBulkAPIAsyncResponse">
+        <xs:complexType>
+          <xs:sequence/>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="testTimeout">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:testTimeout"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="testTimeoutResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:testTimeoutResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SkyException">
+    <WL5G3N0:part name="SkyException" element="WL5G3N2:SkyException"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="searchRecords">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:searchRecords"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="searchRecordsResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:searchRecordsResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="createArray">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:createArray"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="createArrayResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:createArrayResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="create">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:create"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="createResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:createResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="upsertBulkAPI">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:upsertBulkAPI"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="upsertBulkAPIResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:upsertBulkAPIResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="upsertArray">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:upsertArray"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="upsertArrayResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:upsertArrayResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="descrSObject">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:descrSObject"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="descrSObjectResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:descrSObjectResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="insertBulkAPIAsync">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:insertBulkAPIAsync"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="insertBulkAPIAsyncResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:insertBulkAPIAsyncResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="queryDataRecords">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:queryDataRecords"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="queryDataRecordsResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:queryDataRecordsResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="deleteBulkAPIAsync">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:deleteBulkAPIAsync"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="deleteBulkAPIAsyncResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:deleteBulkAPIAsyncResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="update">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:update"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="updateResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:updateResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="insertBulkAPI">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:insertBulkAPI"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="insertBulkAPIResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:insertBulkAPIResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="updateArray">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:updateArray"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="updateArrayResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:updateArrayResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="updateBulkAPI">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:updateBulkAPI"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="updateBulkAPIResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:updateBulkAPIResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="loginBean">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:loginBean"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="loginBeanResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:loginBeanResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="upsert">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:upsert"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="upsertResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:upsertResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="deleteBulkAPI">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:deleteBulkAPI"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="deleteBulkAPIResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:deleteBulkAPIResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="updateBulkAPIAsync">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:updateBulkAPIAsync"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="updateBulkAPIAsyncResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:updateBulkAPIAsyncResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="logoff">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:logoff"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="logoffResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:logoffResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="executeQuery">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:executeQuery"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="executeQueryResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:executeQueryResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="selectUpdate">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:selectUpdate"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="selectUpdateResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:selectUpdateResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="login">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:login"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="loginResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:loginResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="upsertBulkAPIAsync">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:upsertBulkAPIAsync"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="upsertBulkAPIAsyncResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:upsertBulkAPIAsyncResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="Jws">
+    <WL5G3N0:operation name="testTimeout" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:testTimeout"/>
+      <WL5G3N0:output message="WL5G3N1:testTimeoutResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="searchRecords" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:searchRecords"/>
+      <WL5G3N0:output message="WL5G3N1:searchRecordsResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="createArray" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:createArray"/>
+      <WL5G3N0:output message="WL5G3N1:createArrayResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="create" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:create"/>
+      <WL5G3N0:output message="WL5G3N1:createResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="upsertBulkAPI" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:upsertBulkAPI"/>
+      <WL5G3N0:output message="WL5G3N1:upsertBulkAPIResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="upsertArray" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:upsertArray"/>
+      <WL5G3N0:output message="WL5G3N1:upsertArrayResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="descrSObject" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:descrSObject"/>
+      <WL5G3N0:output message="WL5G3N1:descrSObjectResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="insertBulkAPIAsync" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:insertBulkAPIAsync"/>
+      <WL5G3N0:output message="WL5G3N1:insertBulkAPIAsyncResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="queryDataRecords" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:queryDataRecords"/>
+      <WL5G3N0:output message="WL5G3N1:queryDataRecordsResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="deleteBulkAPIAsync" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:deleteBulkAPIAsync"/>
+      <WL5G3N0:output message="WL5G3N1:deleteBulkAPIAsyncResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="update" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:update"/>
+      <WL5G3N0:output message="WL5G3N1:updateResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="insertBulkAPI" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:insertBulkAPI"/>
+      <WL5G3N0:output message="WL5G3N1:insertBulkAPIResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="updateArray" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:updateArray"/>
+      <WL5G3N0:output message="WL5G3N1:updateArrayResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="updateBulkAPI" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:updateBulkAPI"/>
+      <WL5G3N0:output message="WL5G3N1:updateBulkAPIResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="loginBean" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:loginBean"/>
+      <WL5G3N0:output message="WL5G3N1:loginBeanResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="upsert" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:upsert"/>
+      <WL5G3N0:output message="WL5G3N1:upsertResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="deleteBulkAPI" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:deleteBulkAPI"/>
+      <WL5G3N0:output message="WL5G3N1:deleteBulkAPIResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="updateBulkAPIAsync" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:updateBulkAPIAsync"/>
+      <WL5G3N0:output message="WL5G3N1:updateBulkAPIAsyncResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="logoff" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:logoff"/>
+      <WL5G3N0:output message="WL5G3N1:logoffResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="executeQuery" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:executeQuery"/>
+      <WL5G3N0:output message="WL5G3N1:executeQueryResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="selectUpdate" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:selectUpdate"/>
+      <WL5G3N0:output message="WL5G3N1:selectUpdateResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="login" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:login"/>
+      <WL5G3N0:output message="WL5G3N1:loginResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="upsertBulkAPIAsync" parameterOrder="parameters">
+      <WL5G3N0:input message="WL5G3N1:upsertBulkAPIAsync"/>
+      <WL5G3N0:output message="WL5G3N1:upsertBulkAPIAsyncResponse"/>
+      <WL5G3N0:fault name="SkyException" message="WL5G3N1:SkyException"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="JwsServiceSoapBinding" type="WL5G3N1:Jws">
+    <WL5G3N3:binding transport="http://www.bea.com/soap/transport/local" style="document"/>
+    <WL5G3N0:operation name="testTimeout">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/testTimeout"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="searchRecords">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/searchRecords"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="createArray">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/createArray"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="create">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/create"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="upsertBulkAPI">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/upsertBulkAPI"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="upsertArray">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/upsertArray"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="descrSObject">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/descrSObject"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="insertBulkAPIAsync">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/insertBulkAPIAsync"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="queryDataRecords">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/queryDataRecords"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="deleteBulkAPIAsync">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/deleteBulkAPIAsync"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="update">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/update"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="insertBulkAPI">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/insertBulkAPI"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="updateArray">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/updateArray"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="updateBulkAPI">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/updateBulkAPI"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="loginBean">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/loginBean"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="upsert">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/upsert"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="deleteBulkAPI">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/deleteBulkAPI"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="updateBulkAPIAsync">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/updateBulkAPIAsync"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="logoff">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/logoff"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="executeQuery">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/executeQuery"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="selectUpdate">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/selectUpdate"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="login">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/login"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="upsertBulkAPIAsync">
+      <WL5G3N3:operation style="document" soapAction="http://www.skytv.it/mdw/service/internal/EJB_SF/upsertBulkAPIAsync"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body use="literal" parts="parameters"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="SkyException">
+        <WL5G3N3:fault name="SkyException" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+</WL5G3N0:definitions>

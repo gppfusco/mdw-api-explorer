@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/ott/WS_PTT_DEQUEUE_OP",
+    "name" : "OTTUkProject_OPTApi_proxy_PS_WS_OTT_DEQUEUE_OP",
+    "localPath" : "osb_it\\repo\\OTTUkProject\\OPTApi\\PS_WS_OTT_DEQUEUE_OP",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/ott/WS_PTT_DEQUEUE_OP?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/ApplicationObjects/OTT_UK/OPT_API/SOACallback/xsd/XSD_SOA_OTT_DEQUEUE_OP",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/osb"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

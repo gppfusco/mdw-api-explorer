@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/KN_GET_CALENDARIO_FATTURAZIONE" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_KN_GET_CALENDARIO_FATTURAZIONE" targetNamespace="http://www.skytv.it/mdw/service/KN_GET_CALENDARIO_FATTURAZIONE">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_KN_GET_CALENDARIO_FATTURAZIONE.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestGetCalendario_Message">
+		<wsdl:part name="part_requestGetCalendario" element="inp1:requestGetCalendario"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetCalendario_Message">
+		<wsdl:part name="part_responseGetCalendario" element="inp1:responseGetCalendario"/>
+	</wsdl:message>
+	<wsdl:message name="requestGetCicloFatturazione_Message">
+		<wsdl:part name="part_requestGetCicloFatturazione" element="inp1:requestGetCicloFatturazione"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetCicloFatturazione_Message">
+		<wsdl:part name="part_responseGetCicloFatturazione" element="inp1:responseGetCicloFatturazione"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="GetCalendario_ptt">
+		<wsdl:operation name="execute_GetCalendario">
+			<wsdl:input message="tns:requestGetCalendario_Message"/>
+			<wsdl:output message="tns:responseGetCalendario_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GetCicloFatturazione">
+			<wsdl:input message="tns:requestGetCicloFatturazione_Message"/>
+			<wsdl:output message="tns:responseGetCicloFatturazione_Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GetCalendario_Bind" type="tns:GetCalendario_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_GetCalendario">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/KN_GET_CALENDARIO_FATTURAZIONE/execute_GetCalendario" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestGetCalendario" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseGetCalendario" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GetCicloFatturazione">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/KN_GET_CALENDARIO_FATTURAZIONE/execute_GetCicloFatturazione" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestGetCicloFatturazione" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseGetCicloFatturazione" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

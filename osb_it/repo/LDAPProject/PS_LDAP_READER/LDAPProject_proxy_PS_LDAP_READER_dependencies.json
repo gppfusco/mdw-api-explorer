@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "LDAPProject_proxy_PS_LDAP_READER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/LDAPProject/wsdl/WS_LDAP_READER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/LDAPProject/wsdl/WS_LDAP_READER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/LDAPProject/pipelines/PL_LDAP_READER" : {
+        "label" : "Pipeline/LDAPProject/pipelines/PL_LDAP_READER",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/LDAPProject/wsdl/WS_LDAP_READER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/LDAPProject/wsdl/WS_LDAP_READER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/LDAPProject/businessServices/LDAP_READER" : {
+            "label" : "BusinessService/LDAPProject/businessServices/LDAP_READER",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/LDAPProject/transformations/responseGetUserInfo" : {
+            "label" : "Xquery/LDAPProject/transformations/responseGetUserInfo",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/LDAPProject/transformations/requestGetUserInfo" : {
+            "label" : "Xquery/LDAPProject/transformations/requestGetUserInfo",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

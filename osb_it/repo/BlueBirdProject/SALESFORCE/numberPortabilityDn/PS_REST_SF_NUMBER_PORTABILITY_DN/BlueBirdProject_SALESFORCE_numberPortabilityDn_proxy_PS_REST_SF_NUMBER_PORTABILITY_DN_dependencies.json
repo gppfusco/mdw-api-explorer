@@ -1,0 +1,418 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_numberPortabilityDn_proxy_PS_REST_SF_NUMBER_PORTABILITY_DN",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_CancelPortOut" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_CancelPortOut",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_WS_CancelPortOut_to_UpdateCase" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_WS_CancelPortOut_to_UpdateCase",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_VerifySecretCode" : {
+                "label" : "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_VerifySecretCode",
+                "properties" : { },
+                "successors" : {
+                  "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_VerifySecretCode" : {
+                    "label" : "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_VerifySecretCode",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL" : {
+                    "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL",
+                    "properties" : {
+                      "transport-type" : "local",
+                      "nodeType" : "Proxy",
+                      "service-type" : "SOAP"
+                    },
+                    "successors" : {
+                      "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN" : {
+                        "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+                        "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+                        "properties" : { },
+                        "successors" : {
+                          "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                            "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                            "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                            "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                            "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                            "properties" : { },
+                            "successors" : { }
+                          },
+                          "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                            "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                            "properties" : {
+                              "nodeType" : "BusinessService"
+                            },
+                            "successors" : { }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_NotifyNumberPortabilityActions_Update" : {
+                "label" : "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_NotifyNumberPortabilityActions_Update",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_Generic_SF_Query" : {
+                    "label" : "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_Generic_SF_Query",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_UpdateCase" : {
+                    "label" : "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_UpdateCase",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/Salesforce/numberPortabilityDn/xsd/XSD_SF_NUMBER_PORTABLITY_GET_INFOS" : {
+                    "label" : "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/Salesforce/numberPortabilityDn/xsd/XSD_SF_NUMBER_PORTABLITY_GET_INFOS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CO/module_xquery/module_utility" : {
+                    "label" : "Xquery/MDW_CO/module_xquery/module_utility",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_INTERNAL_GENERIC_SF_QUERY" : {
+                    "label" : "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_INTERNAL_GENERIC_SF_QUERY",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/WSDL_BS_EJB_SF" : {
+                        "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/WSDL_BS_EJB_SF",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_NotifyNumberPortabilityActions_Create" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_NotifyNumberPortabilityActions_Create",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_Generic_SF_Query" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_Generic_SF_Query",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/Salesforce/numberPortabilityDn/xsd/XSD_SF_NUMBER_PORTABLITY_GET_INFOS" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/Salesforce/numberPortabilityDn/xsd/XSD_SF_NUMBER_PORTABLITY_GET_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/module_xquery/module_utility" : {
+                "label" : "Xquery/MDW_CO/module_xquery/module_utility",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_InsertCase" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_InsertCase",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_INTERNAL_GENERIC_SF_QUERY" : {
+                "label" : "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_INTERNAL_GENERIC_SF_QUERY",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/WSDL_BS_EJB_SF" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/WSDL_BS_EJB_SF",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_VerifySecretCode" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_VerifySecretCode",
+            "properties" : { },
+            "successors" : {
+              "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_VerifySecretCode" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_VerifySecretCode",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL" : {
+                "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL",
+                "properties" : {
+                  "transport-type" : "local",
+                  "nodeType" : "Proxy",
+                  "service-type" : "SOAP"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+                    "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+                    "properties" : { },
+                    "successors" : {
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                        "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                        "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_NotifyNumberPortabilityActions_Update" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_REST_SF_NUMBER_PORTABILITY_DN_NotifyNumberPortabilityActions_Update",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_Generic_SF_Query" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_Generic_SF_Query",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_UpdateCase" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_UpdateCase",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/Salesforce/numberPortabilityDn/xsd/XSD_SF_NUMBER_PORTABLITY_GET_INFOS" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/Salesforce/numberPortabilityDn/xsd/XSD_SF_NUMBER_PORTABLITY_GET_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/module_xquery/module_utility" : {
+                "label" : "Xquery/MDW_CO/module_xquery/module_utility",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_INTERNAL_GENERIC_SF_QUERY" : {
+                "label" : "Pipeline/BlueBirdProject/SALESFORCE/numberPortabilityDn/pipeline/PL_INTERNAL_GENERIC_SF_QUERY",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/WSDL_BS_EJB_SF" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/WSDL_BS_EJB_SF",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_NUMBER_PORTABILITY_DN",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

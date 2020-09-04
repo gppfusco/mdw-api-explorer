@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestCancelPortOut" type="requestCancelPortOutType"/>
+  <xsd:element name="responseCancelPortOut" type="responseCancelPortOutType"/>
+  
+  <xsd:complexType name="requestCancelPortOutType">
+    <xsd:sequence>
+      <xsd:element name="dn" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TipoComunicazione" type="xsd:string"/>
+      <xsd:element name="CodiceOrdine" type="xsd:string"/>
+      <xsd:element name="DataOrdine" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Note" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IdentificativoOperatoreDonor" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NomeCliente" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CognomeCliente_RagioneSociale" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TelefonoReferenteRichiedente" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EmailReferenteRichiedente" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CodiceOpRecipient" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DataInvioMessaggio" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CodiceSegreto" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseCancelPortOutType">
+    <xsd:sequence>
+      <xsd:element name="errorCode" type="xsd:string"/>
+      <xsd:element name="errorDescription" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+  <xsd:element name="requestNotifyNumberPortabilityActions" type="requestNotifyNumberPortabilityActionsType"/>
+  <xsd:element name="responseNotifyNumberPortabilityActions" type="responseNotifyNumberPortabilityActionsType"/>
+  
+  <xsd:complexType name="requestNotifyNumberPortabilityActionsType">
+    <xsd:sequence>
+      <xsd:element name="dn" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DataAttesaConsegnaServizio" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Action" type="xsd:string"/>
+      <xsd:element name="CodiceOrdine" type="xsd:string"/>
+      <xsd:element name="DataOrdine" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Note" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IdentificativoOperatoreDonor" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NomeCliente" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CognomeCliente_RagioneSociale" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TelefonoReferenteRichiedente" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EmailReferenteRichiedente" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Correlazioni" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DataInvioMessaggio" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CodiceOpRecipient" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CodiceSegreto" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseNotifyNumberPortabilityActionsType">
+    <xsd:sequence>
+      <xsd:element name="errorCode" type="xsd:string"/>
+      <xsd:element name="errorDescription" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+  <xsd:element name="requestVerifySecretCode" type="requestVerifySecretCodeType"/>
+  <xsd:element name="responseVerifySecretCode" type="responseVerifySecretCodeType"/>
+  
+  <xsd:complexType name="requestVerifySecretCodeType">
+    <xsd:sequence>
+      <xsd:element name="dn" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CodiceSegreto" type="xsd:string"/>
+      <xsd:element name="NomeCliente" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CognomeCliente_RagioneSociale" type="xsd:string"/>
+      <xsd:element name="TelefonoReferenteRichiedente" type="xsd:string"/>
+      <xsd:element name="EmailReferenteRichiedente" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseVerifySecretCodeType">
+    <xsd:sequence>
+      <xsd:element name="errorCode" type="xsd:string"/>
+      <xsd:element name="errorDescription" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+  
+</xsd:schema>

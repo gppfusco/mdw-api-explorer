@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestChurnsReason" type="requestChurnsReasonType"/>
+	<xsd:element name="responseChurnsReason" type="responseChurnsReasonType"/>
+	<xsd:complexType name="requestChurnsReasonType">
+		<xsd:sequence/>
+	</xsd:complexType>
+	<xsd:complexType name="responseChurnsReasonType">
+		<xsd:sequence>
+			<xsd:element name="results" type="resultsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultsType">
+		<xsd:sequence>
+			<xsd:element name="result" type="resultType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultType">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string"/>
+			<xsd:element name="attrib_23" type="xsd:string"/>
+			<xsd:element name="attrib_24" type="xsd:string"/>
+                        <xsd:element name="attrib_05" type="xsd:string"/>
+                        <xsd:element name="Data_inizio_validita" type="xsd:string"/>
+                        <xsd:element name="Data_fine_validita" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

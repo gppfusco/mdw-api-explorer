@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/pegasus/WS_CRM_PEGASUS_OUTMSGCOMMUNICATION_KO",
+    "name" : "PegasusProject_OUTBOUND_MSG_WS_CRM_PGS_OUTBOUND_SEND_PRINT_proxy_PS_WS_CRM_PEGASUS_OUTMSGCOMMUNICATION_KO",
+    "localPath" : "osb_it\\repo\\PegasusProject\\OUTBOUND\\MSG\\WS\\CRM\\PGS\\OUTBOUND\\SEND\\PRINT\\PS_WS_CRM_PEGASUS_OUTMSGCOMMUNICATION_KO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/pegasus/WS_CRM_PEGASUS_OUTMSGCOMMUNICATION_KO?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

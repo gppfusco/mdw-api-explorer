@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBSvil/CPQProject/PS_REST_CPQ_CART_HANDLER" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_CPQ_CART_HANDLER">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/CPQProject/cartHandler/xsd/XSD_CPQ_CART_HANDLER.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/{cartId}/items">
+         <method name="POST" soa:wsdlOperation="AddProducts">
+            <request>
+               <param name="cartId" style="template" soa:expression="$property.cartId" default="" type="xsd:string"/>
+               <representation mediaType="application/json" element="cns:requestAddCartItems" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="204"/>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/json" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/json" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/json" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/{cartId}/submit">
+         <method name="POST" soa:wsdlOperation="SubmitOrder">
+            <request>
+               <param name="cartId" style="template" soa:expression="$property.cartId" default="" type="xsd:string"/>
+               <representation mediaType="application/xml" element="cns:requestSubmitCart" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="204"/>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/{cartId}/items/{itemId}">
+         <method name="DELETE" soa:wsdlOperation="DeleteCartItems">
+            <request>
+               <param name="cartId" style="template" soa:expression="$msg.request/ns0:cartId" default="" type="xsd:string"/>
+               <param name="itemId" style="template" soa:expression="$msg.request/ns0:itemId" default="" type="xsd:string"/>
+            </request>
+            <response status="204"/>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/{cartId}/promotions/{id}">
+         <method name="DELETE" soa:wsdlOperation="DeletePromotionItems">
+            <request>
+               <param name="cartId" style="template" soa:expression="$msg.request/ns0:cartId" default="" type="xsd:string"/>
+               <param name="id" style="template" soa:expression="$msg.request/ns0:id" default="" type="xsd:string"/>
+            </request>
+            <response status="204"/>
+         </method>
+      </resource>
+      <resource path="/assettoorder">
+         <method name="POST" soa:wsdlOperation="AssetToOrder">
+            <request>
+               <representation mediaType="application/xml" element="cns:requestAssetToOrder" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseAssetToOrder" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

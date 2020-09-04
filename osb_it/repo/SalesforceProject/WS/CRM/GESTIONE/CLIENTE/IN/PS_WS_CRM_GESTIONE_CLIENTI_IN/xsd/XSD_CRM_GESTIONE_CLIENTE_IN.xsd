@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestUpsertAccountType">
+		<xsd:sequence>
+			<xsd:element name="Operation" type="xsd:string"/>
+			<xsd:element name="Sorgente" type="xsd:string"/>
+			<xsd:element name="Timestamp" type="xsd:string"/>
+			<xsd:element name="TransactionID" type="xsd:string"/>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cognome" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Email" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cellulare" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroFissoImpianto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CausaleVariazioneNumeroFissoImpianto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagConsensoGestioneContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagConsensoTutelaRischioCredito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagConsensoInvioDatiPersonali" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagConsensoAnalisi" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagConsensoPublicazioneElenco" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomeOperatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Username" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Versione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TransactionTime" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Toponomastica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Indirizzo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Civico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cap" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Comune" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SiglaProvincia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Stato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Localita" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Scala" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Interno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Piano" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IdIndirizzo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceTecnologia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tecnologia" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestUpsertAccount" type="requestUpsertAccountType"/>
+	<xsd:element name="responseUpsertAccount" type="responseUpsertAccountType"/>
+	<xsd:complexType name="responseUpsertAccountType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListaErrori" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Errore" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="NomeErrore" type="xsd:string"/>
+									<xsd:element name="CodiceErrore" type="xsd:string"/>
+									<xsd:element name="DescrizioneErrore" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

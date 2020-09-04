@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/SalesforceProject/WS_CRM_ANNULLA_ORDINE_BATCH/proxy/PS_SF_OM_EXTRACT_ORDER_TO_CEASE",
+    "name" : "SalesforceProject_WS_CRM_ANNULLA_ORDINE_BATCH_proxy_PS_CRM_ANNULLA_ORDINE_BATCH",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\ANNULLA\\ORDINE\\BATCH\\PS_CRM_ANNULLA_ORDINE_BATCH",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/SalesforceProject/WS_CRM_ANNULLA_ORDINE_BATCH/proxy/PS_SF_OM_EXTRACT_ORDER_TO_CEASE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/AnnullaOrdineBatch/xsd/XSD_CRM_ANNULLA_ORDINE_BATCH",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "ORCHESTRATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

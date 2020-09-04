@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MEDIASETProject_DTT_CHECK_COPERTURA_proxy_PS_REST_MEDIASET_DTT_CHECK_COPERTURA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/MEDIASETProject/Resources/PS_REST_MEDIASET_DTT_CHECK_COPERTURA" : {
+        "label" : "WSDL/MEDIASETProject/Resources/PS_REST_MEDIASET_DTT_CHECK_COPERTURA",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MEDIASETProject/DTT_CHECK_COPERTURA/pipeline/PL_REST_MEDIASET_DTT_CHECK_COPERTURA" : {
+        "label" : "Pipeline/MEDIASETProject/DTT_CHECK_COPERTURA/pipeline/PL_REST_MEDIASET_DTT_CHECK_COPERTURA",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MEDIASETProject/Resources/PS_REST_MEDIASET_DTT_CHECK_COPERTURA" : {
+            "label" : "WSDL/MEDIASETProject/Resources/PS_REST_MEDIASET_DTT_CHECK_COPERTURA",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MEDIASETProject/DTT_CHECK_COPERTURA/transformation/createRequest_TechnologyCheckCoperturaDTT" : {
+            "label" : "Xquery/MEDIASETProject/DTT_CHECK_COPERTURA/transformation/createRequest_TechnologyCheckCoperturaDTT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MEDIASETProject/DTT_CHECK_COPERTURA/businessService/BS_REST_TECHNOLOGY_CHECK_COPERTURA_DTT" : {
+            "label" : "BusinessService/MEDIASETProject/DTT_CHECK_COPERTURA/businessService/BS_REST_TECHNOLOGY_CHECK_COPERTURA_DTT",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MEDIASETProject/DTT_CHECK_COPERTURA/transformation/createResponse_TechnologyCheckCoperturaDTT" : {
+            "label" : "Xquery/MEDIASETProject/DTT_CHECK_COPERTURA/transformation/createResponse_TechnologyCheckCoperturaDTT",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

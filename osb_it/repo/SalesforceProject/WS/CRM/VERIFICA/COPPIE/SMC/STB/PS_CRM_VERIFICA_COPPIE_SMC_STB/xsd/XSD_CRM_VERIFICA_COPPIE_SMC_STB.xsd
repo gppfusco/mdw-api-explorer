@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestVerificaCoppieSmcStbType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwPairsSmcStb">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwPairSmcStb" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwSmc" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwStb" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="mdwTrackingField" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwConnId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwScope" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestVerificaCoppieSmcStb" type="requestVerificaCoppieSmcStbType"/>
+	<xsd:complexType name="responseVerificaCoppieSmcStbType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwPairsSmcStbResult" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwPairSmcStbResult" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwSmc" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwStb" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="mdwStbSmcResult" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseVerificaCoppieSmcStb" type="responseVerificaCoppieSmcStbType"/>
+</xsd:schema>

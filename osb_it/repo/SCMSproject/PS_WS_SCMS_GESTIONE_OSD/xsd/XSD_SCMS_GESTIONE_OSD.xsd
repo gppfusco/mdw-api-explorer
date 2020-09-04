@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestSNDOSVType">
+    <xsd:sequence>
+      <xsd:element name="flagsync" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="clientid" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="execdate" type="xsd:string" minOccurs="0" />
+      <xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="idosd" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="osdauthocode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="text" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="osdvisualdetails" type="visualDetailType" minOccurs="0"/>
+      <xsd:element name="flagsend" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestSNDOSV" type="requestSNDOSVType"/>
+  <xsd:element name="responseSNDOSV" type="responseSNDOSVType"/>
+  <xsd:complexType name="visualDetailType">
+    <xsd:sequence>
+       <xsd:element name="hour_details" type="hourType" minOccurs="1"/>
+      <xsd:element name="day_details" type="dayType"  minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="hourType">
+    <xsd:sequence>
+			<xsd:element name="hour" maxOccurs="unbounded">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:pattern value="(\d\d:\d\d)"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="dayType">
+    <xsd:sequence>
+      <xsd:element name="day" maxOccurs="7">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="LUN"/>
+						<xsd:enumeration value="MAR"/>
+						<xsd:enumeration value="MER"/>
+						<xsd:enumeration value="GIO"/>
+						<xsd:enumeration value="VEN"/>
+						<xsd:enumeration value="SAB"/>
+						<xsd:enumeration value="DOM"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestREIDOSType">
+    <xsd:sequence>
+     <xsd:element name="flagsync" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="clientid" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="execdate" type="xsd:string" minOccurs="0" />
+      <xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="typesrvreq" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="box" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="startdate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="enddate" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestREIDOS" type="requestREIDOSType"/>
+  <xsd:element name="responseREIDOS" type="responseREIDOSType"/>
+  <xsd:complexType name="requestREINOSType">
+    <xsd:sequence>
+    <xsd:element name="flagsync" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="clientid" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="execdate" type="xsd:string" minOccurs="0" />
+      <xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="typesrvreq" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="idosd" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="startdate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="enddate" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestREINOS" type="requestREINOSType"/>
+  <xsd:element name="responseREINOS" type="responseREINOSType"/>
+  <xsd:complexType name="responseREIDOSType">
+    <xsd:sequence>
+        <xsd:element name="result" type="xsd:string" maxOccurs="1"/>
+        <xsd:element name="ndserr" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="transid" type="xsd:string" maxOccurs="1"/>
+        <xsd:element name="descriptionerr" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+      <xsd:element name="infoidosdxml" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="infoidosd" type="infoidosdType" maxOccurs="unbounded" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseREINOSType">
+    <xsd:sequence>
+    <xsd:element name="result" type="xsd:string" maxOccurs="1"/>
+        <xsd:element name="ndserr" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="transid" type="xsd:string" maxOccurs="1"/>
+        <xsd:element name="descriptionerr" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+        <xsd:element name="infoinviixml" maxOccurs="1" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="infoinvii" type="infoinviiType" maxOccurs="unbounded" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="infoidosdType">
+    <xsd:sequence>
+    <xsd:element name="id_osd" type="xsd:string" maxOccurs="1"/>
+        <xsd:element name="request_date" type="xsd:string" maxOccurs="1"/>
+        <xsd:element name="status" type="xsd:string" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="infoinviiType">
+    <xsd:sequence>
+    <xsd:element name="send_date" type="xsd:string" maxOccurs="1"/>
+        <xsd:element name="result" type="xsd:string" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseSNDOSVType">
+    <xsd:sequence>
+       <xsd:element name="result" type="xsd:string" maxOccurs="1"/>
+       <xsd:element name="ndserr" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+       <xsd:element name="transid" type="xsd:string" maxOccurs="1"/>
+       <xsd:element name="descriptionerr" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+       <xsd:element name="idosd" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_SYNCH_CAMPAIGN_IN",
+    "name" : "SalesforceProject_WS_CRM_SYNCH_CAMPAIGN_IN_proxy_PS_WS_CRM_SYNCH_CAMPAIGN",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\SYNCH\\CAMPAIGN\\IN\\PS_WS_CRM_SYNCH_CAMPAIGN",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_SYNCH_CAMPAIGN_IN?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/SynchCampaignIn/xsd/XSD_CRM_SYNCH_CAMPAIGN_IN",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

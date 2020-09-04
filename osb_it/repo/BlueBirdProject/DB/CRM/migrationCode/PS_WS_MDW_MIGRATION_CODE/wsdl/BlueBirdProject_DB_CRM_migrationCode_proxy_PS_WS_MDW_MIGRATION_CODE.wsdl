@@ -1,0 +1,58 @@
+<wsdl:definitions name="WS_MDW_SF_MIGRATION_CODE" targetNamespace="http://www.skytv.it/mdw/service/MDW_SF_MIGRATION_CODE" xmlns:tns="http://www.skytv.it/mdw/service/MDW_SF_MIGRATION_CODE" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_MDW_SF_MIGRATION_CODE.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="part_requestVerifyMigrationCode" element="inp1:requestVerifyMigrationCode"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="part_responseVerifyMigrationCode" element="inp1:responseVerifyMigrationCodeSoap"/>
+  </wsdl:message>
+    <wsdl:message name="requestMessage_GenerateMigCode">
+    <wsdl:part name="part_requestGenerateMigrationCode" element="inp1:requestGenerateMigrationCode"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage_GenerateMigCode">
+    <wsdl:part name="part_responseGenerateMigrationCode" element="inp1:responseGenerateMigrationCodeSoap"/>
+    </wsdl:message>
+      <wsdl:message name="header_message">
+              <wsdl:part name="part_header" element="inp1:Header"/>
+      </wsdl:message>
+    <wsdl:portType name="MDW_SF_MIGRATION_CODE_ptt">
+        <wsdl:operation name="execute_VerifyMigrationCode">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_GenerateMigrationCode">
+            <wsdl:input message="tns:requestMessage_GenerateMigCode"/>
+            <wsdl:output message="tns:replyMessage_GenerateMigCode"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="MDW_SF_MIGRATION_CODE_pttSOAP11Binding" type="tns:MDW_SF_MIGRATION_CODE_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_VerifyMigrationCode">
+            <soap:operation style="document" soapAction="execute_VerifyMigrationCode"/>
+            <wsdl:input>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+                <soap:body use="literal" parts="part_requestVerifyMigrationCode"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+                <soap:body use="literal" parts="part_responseVerifyMigrationCode"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_GenerateMigrationCode">
+            <soap:operation style="document" soapAction="execute_GenerateMigrationCode"/>
+            <wsdl:input>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+                <soap:body use="literal" parts="part_requestGenerateMigrationCode"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+                <soap:body use="literal" parts="part_responseGenerateMigrationCode"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

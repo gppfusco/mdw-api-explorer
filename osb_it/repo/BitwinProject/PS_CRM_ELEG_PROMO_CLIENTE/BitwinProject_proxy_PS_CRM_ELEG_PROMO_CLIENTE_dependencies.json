@@ -1,0 +1,57 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BitwinProject_proxy_PS_CRM_ELEG_PROMO_CLIENTE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BitwinProject/pipeline/PL_BITWIN_REQUEST_XML" : {
+        "label" : "Pipeline/BitwinProject/pipeline/PL_BITWIN_REQUEST_XML",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/BitwinProject/ElegPromoCliente/wsdl/WS_CRM_ELEG_PROMO_CLIENTE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BitwinProject/ElegPromoCliente/wsdl/WS_CRM_ELEG_PROMO_CLIENTE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_HttpCall_Bitwin" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_HttpCall_Bitwin",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/MDW_CO/transformation/create_soap_header" : {
+            "label" : "Xquery/MDW_CO/transformation/create_soap_header",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CO/transformation/renameRootNodeNameWithNS" : {
+            "label" : "Xquery/MDW_CO/transformation/renameRootNodeNameWithNS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "XSLT/MDW_CO/transformation/XSLT_RemoveNs_RenameRoot_OUT_TI" : {
+            "label" : "XSLT/MDW_CO/transformation/XSLT_RemoveNs_RenameRoot_OUT_TI",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BitwinProject/ElegPromoCliente/wsdl/WS_CRM_ELEG_PROMO_CLIENTE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BitwinProject/ElegPromoCliente/wsdl/WS_CRM_ELEG_PROMO_CLIENTE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "InternalProject_SendMail_proxy_PS_REST_TUX_SEND_MAIL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/InternalProject/SendMail/wsdl/WS_TUX_SEND_MAIL" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/InternalProject/SendMail/wsdl/WS_TUX_SEND_MAIL",
+        "properties" : { },
+        "successors" : { }
+      },
+      "ProxyService/InternalProject/SendMail/proxy/PS_WS_TUX_SEND_MAIL" : {
+        "label" : "ProxyService/InternalProject/SendMail/proxy/PS_WS_TUX_SEND_MAIL",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

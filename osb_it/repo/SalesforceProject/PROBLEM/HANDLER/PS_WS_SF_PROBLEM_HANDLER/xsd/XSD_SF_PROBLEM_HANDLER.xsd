@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestCloseIdCase" type="requestCloseIdCaseType"/>
+  <xsd:element name="responseCloseIdCase" type="responseCloseIdCaseType"/>
+  
+  <xsd:complexType name="requestCloseIdCaseType">
+      <xsd:sequence>
+        <xsd:element name="ambito" minOccurs="0" maxOccurs="1" type="xsd:string" nillable="true"/>
+        <xsd:element name="contractId" minOccurs="0" maxOccurs="1" type="xsd:string" nillable="true"/>
+        <xsd:element name="codiceSR" minOccurs="0" maxOccurs="1" type="xsd:string" nillable="true"/>
+        <xsd:element name="idCase" minOccurs="1" maxOccurs="1" type="xsd:string" nillable="false"/>
+        <xsd:element name="idLogistica" minOccurs="0" maxOccurs="1" type="xsd:string" nillable="true"/>
+        <xsd:element name="statoLogistica" minOccurs="0" maxOccurs="1" type="xsd:string" nillable="true"/>
+        <xsd:element name="tipoLogistica" minOccurs="0" maxOccurs="1" type="xsd:string" nillable="true"/>
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="responseCloseIdCaseType">
+    <xsd:sequence>
+ <xsd:element name="esito" minOccurs="1" maxOccurs="1" type="xsd:string" nillable="false"/>
+ <xsd:element name="descrizioneEsito" minOccurs="1" maxOccurs="1" type="xsd:string" nillable="false"/>
+ <xsd:element name="tid" type="xsd:string"/>
+    </xsd:sequence>
+ </xsd:complexType>
+ </xsd:schema>

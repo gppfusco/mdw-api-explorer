@@ -1,0 +1,235 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions name="WS_OTT_API_ALL" targetNamespace="http://www.skytv.it/mdw/service/OTT_API_ALL"
+                  xmlns:tns="http://www.skytv.it/mdw/service/OTT_API_ALL" xmlns:inp1="http://www.skytv.it/mdw/data"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_OTT_CRM_API.xsd"/>
+      <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:portType name="OTT_API_ALL_ptt">
+    <wsdl:operation name="execute_GetAllDevice">
+      <wsdl:input message="tns:requestGetAllDevice_Message"/>
+      <wsdl:output message="tns:responseGetAllDevice_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_RemoveDevice">
+      <wsdl:input message="tns:requestRemoveDevice_Message"/>
+      <wsdl:output message="tns:responseRemoveDevice_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GetParentalControls">
+      <wsdl:input message="tns:requestGetParentalControls_Message"/>
+      <wsdl:output message="tns:responseGetParentalControls_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SetParentalControls">
+      <wsdl:input message="tns:requestSetParentalControls_Message"/>
+      <wsdl:output message="tns:responseSetParentalControls_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_RemoveAllDevices">
+      <wsdl:input message="tns:requestRemoveAllDevices_Message"/>
+      <wsdl:output message="tns:responseRemoveAllDevices_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_RemoveDevicesForFamily">
+      <wsdl:input message="tns:requestRemoveDevicesForFamily_Message"/>
+      <wsdl:output message="tns:responseRemoveDevicesForFamily_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GetDevice">
+      <wsdl:input message="tns:requestGetDevice_Message"/>
+      <wsdl:output message="tns:responseGetDevice_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GetHousehold">
+      <wsdl:input message="tns:requestGetHousehold_Message"/>
+      <wsdl:output message="tns:responseGetHousehold_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_BlockHousehold">
+      <wsdl:input message="tns:requestBlockHousehold_Message"/>
+      <wsdl:output message="tns:responseBlockHousehold_Message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_AddDeviceChangeException">
+      <wsdl:input message="tns:requestAddDeviceChangeException_Message"/>
+      <wsdl:output message="tns:responseAddDeviceChangeException_Message"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:message name="header_Message">
+    <wsdl:part name="part_header" element="inp1:Header"/>
+  </wsdl:message>
+  <wsdl:message name="requestGetAllDevice_Message">
+    <wsdl:part name="part_requestGetAllDevice" element="inp1:requestGetAllDevice"/>
+  </wsdl:message>
+  <wsdl:message name="responseGetAllDevice_Message">
+    <wsdl:part name="part_responseGetAllDevice" element="inp1:responseGetAllDevice"/>
+  </wsdl:message>
+  <wsdl:message name="requestRemoveDevice_Message">
+    <wsdl:part name="part_requestRemoveDevice" element="inp1:requestRemoveDevice"/>
+  </wsdl:message>
+  <wsdl:message name="responseRemoveDevice_Message">
+    <wsdl:part name="part_responseRemoveDevice" element="inp1:responseRemoveDevice"/>
+  </wsdl:message>
+  <wsdl:message name="requestGetParentalControls_Message">
+    <wsdl:part name="part_requestGetParentalControls" element="inp1:requestGetParentalControls"/>
+  </wsdl:message>
+  <wsdl:message name="responseGetParentalControls_Message">
+    <wsdl:part name="part_responseGetParentalControls" element="inp1:responseGetParentalControls"/>
+  </wsdl:message>
+  <wsdl:message name="requestSetParentalControls_Message">
+    <wsdl:part name="part_requestSetParentalControls" element="inp1:requestSetParentalControls"/>
+  </wsdl:message>
+  <wsdl:message name="responseSetParentalControls_Message">
+    <wsdl:part name="part_responseSetParentalControls" element="inp1:responseSetParentalControls"/>
+  </wsdl:message>
+  <wsdl:message name="requestRemoveAllDevices_Message">
+    <wsdl:part name="part_requestRemoveAllDevices" element="inp1:requestRemoveAllDevices"/>
+  </wsdl:message>
+  <wsdl:message name="responseRemoveAllDevices_Message">
+    <wsdl:part name="part_responseRemoveAllDevices" element="inp1:responseRemoveAllDevices"/>
+  </wsdl:message>
+  <wsdl:message name="requestRemoveDevicesForFamily_Message">
+    <wsdl:part name="part_requestRemoveDevicesForFamily" element="inp1:requestRemoveDevicesForFamily"/>
+  </wsdl:message>
+  <wsdl:message name="responseRemoveDevicesForFamily_Message">
+    <wsdl:part name="part_responseRemoveDevicesForFamily" element="inp1:responseRemoveDevicesForFamily"/>
+  </wsdl:message>
+  <wsdl:message name="requestGetDevice_Message">
+    <wsdl:part name="part_requestGetDevice" element="inp1:requestGetDevice"/>
+  </wsdl:message>
+  <wsdl:message name="responseGetDevice_Message">
+    <wsdl:part name="part_responseGetDevice" element="inp1:responseGetDevice"/>
+  </wsdl:message>
+  <wsdl:message name="requestGetHousehold_Message">
+    <wsdl:part name="part_requestGetHousehold" element="inp1:requestGetHousehold"/>
+  </wsdl:message>
+  <wsdl:message name="responseGetHousehold_Message">
+    <wsdl:part name="part_responseGetHousehold" element="inp1:responseGetHousehold"/>
+  </wsdl:message>
+  <wsdl:binding name="OTT_API_ALL_bind" type="tns:OTT_API_ALL_ptt">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="execute_GetAllDevice">
+      <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/OTT_API_ALL/execute_GetAllDevice"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="part_requestGetAllDevice"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="part_responseGetAllDevice"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_RemoveDevice">
+      <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/OTT_API_ALL/execute_RemoveDevice"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="part_requestRemoveDevice"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="part_responseRemoveDevice"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GetParentalControls">
+      <soap:operation style="document"
+                      soapAction="http://www.skytv.it/mdw/service/OTT_API_ALL/execute_GetParentalControls"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="part_requestGetParentalControls"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="part_responseGetParentalControls"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SetParentalControls">
+      <soap:operation style="document"
+                      soapAction="http://www.skytv.it/mdw/service/OTT_API_ALL/execute_SetParentalControls"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="part_requestSetParentalControls"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="part_responseSetParentalControls"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_RemoveAllDevices">
+      <soap:operation style="document"
+                      soapAction="http://www.skytv.it/mdw/service/OTT_API_ALL/execute_RemoveAllDevices"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="part_requestRemoveAllDevices"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="part_responseRemoveAllDevices"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_RemoveDevicesForFamily">
+      <soap:operation style="document"
+                      soapAction="http://www.skytv.it/mdw/service/OTT_API_ALL/execute_RemoveDevicesForFamily"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="part_requestRemoveDevicesForFamily"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="part_responseRemoveDevicesForFamily"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GetDevice">
+      <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/OTT_API_ALL/execute_GetDevice"/>
+      <wsdl:input>
+        <soap:body use="literal" parts="part_requestGetDevice"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="part_responseGetDevice"/>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GetHousehold">
+      <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/OTT_API_ALL/execute_GetHousehold"/>
+      <wsdl:input>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+        <soap:body use="literal" parts="part_requestGetHousehold"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+        <soap:body use="literal" parts="part_responseGetHousehold"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_BlockHousehold">
+      <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/OTT_API_ALL/execute_BlockHousehold"/>
+      <wsdl:input>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+        <soap:body use="literal" parts="part_requestBlockHousehold"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+        <soap:body use="literal" parts="part_responseBlockHousehold"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_AddDeviceChangeException">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/OTT_API_ALL/execute_AddDeviceChangeException"/>
+      <wsdl:input>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+        <soap:body use="literal" parts="part_requestAddDeviceChangeException"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+        <soap:body use="literal" parts="part_responseAddDeviceChangeException"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="requestBlockHousehold_Message">
+    <wsdl:part name="part_requestBlockHousehold" element="inp1:requestBlockHousehold"/>
+  </wsdl:message>
+  <wsdl:message name="responseBlockHousehold_Message">
+    <wsdl:part name="part_responseBlockHousehold" element="inp1:responseBlockHousehold"/>
+  </wsdl:message>
+  <wsdl:message name="requestAddDeviceChangeException_Message">
+    <wsdl:part name="part_requestAddDeviceChangeException" element="inp1:requestAddDeviceChangeException"/>
+  </wsdl:message>
+  <wsdl:message name="responseAddDeviceChangeException_Message">
+    <wsdl:part name="part_responseAddDeviceChangeException" element="inp1:responseAddDeviceChangeException"/>
+  </wsdl:message>
+</wsdl:definitions>

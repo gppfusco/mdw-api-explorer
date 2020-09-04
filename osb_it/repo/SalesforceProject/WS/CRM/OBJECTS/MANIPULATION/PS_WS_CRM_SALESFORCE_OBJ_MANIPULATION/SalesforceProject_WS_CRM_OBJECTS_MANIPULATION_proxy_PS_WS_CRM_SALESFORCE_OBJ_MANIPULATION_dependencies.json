@@ -1,0 +1,57 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_OBJECTS_MANIPULATION_proxy_PS_WS_CRM_SALESFORCE_OBJ_MANIPULATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_OBJECTS_MANIPULATION/pipeline/PL_WS_CRM_SALESFORCE_OBJ_MANIPULATION_TWO_LOGIN" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_OBJECTS_MANIPULATION/pipeline/PL_WS_CRM_SALESFORCE_OBJ_MANIPULATION_TWO_LOGIN",
+        "properties" : { },
+        "successors" : {
+          "Xquery/SalesforceProject/WS_CRM_OBJECTS_MANIPULATION/transformation/createResponse_WS_CRM_SALESFORCE_OBJ_MANIPULATION" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_OBJECTS_MANIPULATION/transformation/createResponse_WS_CRM_SALESFORCE_OBJ_MANIPULATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_OBJECTS_MANIPULATION/transformation/createRequestUpdateArray_EJB_SF" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_OBJECTS_MANIPULATION/transformation/createRequestUpdateArray_EJB_SF",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ObjectsManupulation/wsdl/WS_CRM_SALESFORCE_OBJ_MANIPULATION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ObjectsManupulation/wsdl/WS_CRM_SALESFORCE_OBJ_MANIPULATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF_NO_OUTBOUND" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF_NO_OUTBOUND",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ObjectsManupulation/wsdl/WS_CRM_SALESFORCE_OBJ_MANIPULATION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ObjectsManupulation/wsdl/WS_CRM_SALESFORCE_OBJ_MANIPULATION",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

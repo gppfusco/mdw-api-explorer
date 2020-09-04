@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/billing/WS_CRM_GESTIONE_SCONTI",
+    "name" : "KENANProject_WS_CRM_GESTIONE_SCONTI_proxy_PS_WS_CRM_GESTIONE_SCONTI",
+    "localPath" : "osb_it\\repo\\KENANProject\\WS\\CRM\\GESTIONE\\SCONTI\\PS_WS_CRM_GESTIONE_SCONTI",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/billing/WS_CRM_GESTIONE_SCONTI?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/KenanProject/GestioneSconti/xsd/XSD_CRM_GESTIONE_SCONTI",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

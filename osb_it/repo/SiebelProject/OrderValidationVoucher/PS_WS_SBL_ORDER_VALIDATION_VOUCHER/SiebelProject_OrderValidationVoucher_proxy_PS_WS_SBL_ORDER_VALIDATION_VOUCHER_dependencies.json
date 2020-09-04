@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_OrderValidationVoucher_proxy_PS_WS_SBL_ORDER_VALIDATION_VOUCHER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/OrderValidationVoucher/pipeline/PL_WS_SBL_ORDER_VALIDATION_VOUCHER" : {
+        "label" : "Pipeline/SiebelProject/OrderValidationVoucher/pipeline/PL_WS_SBL_ORDER_VALIDATION_VOUCHER",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/SiebelProject/OrderValidationVoucher/transformations/createRequest_ValidateVaucher" : {
+            "label" : "Xquery/SiebelProject/OrderValidationVoucher/transformations/createRequest_ValidateVaucher",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/OrderValidationVoucher/transformations/createResponse_ValidateVaucher" : {
+            "label" : "Xquery/SiebelProject/OrderValidationVoucher/transformations/createResponse_ValidateVaucher",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SiebelProject/OrderValidationVoucher/businessServices/BS_SQL_ORDER_VALIDATION_VOUCHER" : {
+            "label" : "BusinessService/SiebelProject/OrderValidationVoucher/businessServices/BS_SQL_ORDER_VALIDATION_VOUCHER",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OrderValidationVaucher/wsdl/WS_SBL_ORDER_VALIDATION_VOUCHER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OrderValidationVaucher/wsdl/WS_SBL_ORDER_VALIDATION_VOUCHER",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OrderValidationVaucher/wsdl/WS_SBL_ORDER_VALIDATION_VOUCHER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OrderValidationVaucher/wsdl/WS_SBL_ORDER_VALIDATION_VOUCHER",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

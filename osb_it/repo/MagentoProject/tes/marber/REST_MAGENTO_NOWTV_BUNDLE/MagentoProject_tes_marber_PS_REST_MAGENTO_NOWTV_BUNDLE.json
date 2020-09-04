@@ -1,0 +1,33 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/MagentoProject/PS_REST_MAGENTO_NOWTV_BUNDLE",
+    "name" : "MagentoProject_tes_marber_PS_REST_MAGENTO_NOWTV_BUNDLE",
+    "localPath" : "osb_it\\repo\\MagentoProject\\tes\\marber\\REST_MAGENTO_NOWTV_BUNDLE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/MagentoProject/PS_REST_MAGENTO_NOWTV_BUNDLE?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/MagentoProject/nowtvBundleFastweb/xsd/XSD_MAGENTO_NOWTV_BUNDLE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/MagentoProject/nowtvBundleFastweb/xsd/XSD_MAGENTO_NOWTV_BUNDLE",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

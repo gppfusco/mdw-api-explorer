@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+      <xsd:element name="requestRetrieveCallLogRatate" type="requestRetrieveCallLogRatateType"/>
+	<xsd:complexType name="requestRetrieveCallLogRatateType">
+		<xsd:sequence>
+			<xsd:element name="E2EId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="fromDate" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="toDate" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+        <xsd:element name="responseRetrieveCallLogRatateSoap" type="responseRetrieveCallLogRatateSoapType"/>
+        <xsd:complexType name="responseRetrieveCallLogRatateSoapType">
+          <xsd:sequence>
+            <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="responseRetrieveCallLogRatate" type="responseRetrieveCallLogRatateType" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+
+
+      <xsd:element name="responseRetrieveCallLogRatate" type="responseRetrieveCallLogRatateType"/>
+	<xsd:complexType name="responseRetrieveCallLogRatateType">
+		<xsd:sequence>
+			<xsd:element name="calls" type="callsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="callsType">
+		<xsd:sequence>
+			<xsd:element name="call" type="callType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="callType">
+		<xsd:sequence>
+			<xsd:element name="dateAndTime" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="type" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="phoneNumberCalled" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="duration" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="price" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="sottCons" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+      <xsd:element name="requestRetrieveCallLogForInvoice" type="requestRetrieveCallLogForInvoiceType"/>
+	<xsd:complexType name="requestRetrieveCallLogForInvoiceType">
+		<xsd:sequence>
+			<xsd:element name="E2EId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="invoiceNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="invoiceDate" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+        <xsd:element name="responseRetrieveCallLogForInvoiceSoap" type="responseRetrieveCallLogForInvoiceSoapType"/>
+        <xsd:complexType name="responseRetrieveCallLogForInvoiceSoapType">
+          <xsd:sequence>
+            <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="responseRetrieveCallLogForInvoice" type="responseRetrieveCallLogForInvoiceType" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+
+
+      <xsd:element name="responseRetrieveCallLogForInvoice" type="responseRetrieveCallLogForInvoiceType"/>
+	<xsd:complexType name="responseRetrieveCallLogForInvoiceType">
+		<xsd:sequence>
+			<xsd:element name="calls" type="callsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+        
+</xsd:schema>

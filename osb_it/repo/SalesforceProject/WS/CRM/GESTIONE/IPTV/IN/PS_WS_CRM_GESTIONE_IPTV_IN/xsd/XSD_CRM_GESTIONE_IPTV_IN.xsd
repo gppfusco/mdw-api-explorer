@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestNormalizzaIndirizzoType">
+		<xsd:sequence>
+			<xsd:element name="ParticellaToponomastica" type="xsd:string"/>
+			<xsd:element name="Strada" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroCivico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cap" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Citta" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Provincia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Scala" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Interno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Piano" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Complesso" type="xsd:string" minOccurs="0"/>
+					<xsd:element name="Timestamp" type="xsd:string"/>
+			<xsd:element name="Sorgente" type="xsd:string"/>
+	
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestNormalizzaIndirizzo" type="requestNormalizzaIndirizzoType"/>
+	<xsd:element name="responseNormalizzaIndirizzo" type="responseNormalizzaIndirizzoType"/>
+	<xsd:complexType name="responseNormalizzaIndirizzoType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Result">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ListaIndirizzi" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Indirizzo" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="ParticellaToponomastica" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Strada" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="NumeroCivico" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Cap" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Citta" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Provincia" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Scala" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Interno" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Piano" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Complesso" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="ListaErrori" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Errore" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="NomeErrore" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="CodiceErrore" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="DescrizioneErrore" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

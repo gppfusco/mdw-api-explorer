@@ -1,0 +1,49 @@
+<wsdl:definitions name="PS_REST_SCMS_BLACKLISTMANAGEMENT" targetNamespace="http://xmlns.oracle.com/OSBSvil/SCMSproject/PS_REST_SCMS_BLACKLISTMANAGEMENT" xmlns:tns="http://xmlns.oracle.com/OSBSvil/SCMSproject/PS_REST_SCMS_BLACKLISTMANAGEMENT" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:inp2="http://www.skytv.it/mdw/data" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <plnk:partnerLinkType name="PS_REST_SCMS_BLACKLISTMANAGEMENT">
+        <plnk:role name="PS_REST_SCMS_BLACKLISTMANAGEMENTProvider" portType="tns:PS_REST_SCMS_BLACKLISTMANAGEMENT_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SCMSproject/DecreaseAntipiracy/blackListManagement/XSD_SCMS_BLACKLISTMANAGEMENT.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="blacklistManagment_inputMessage">
+        <wsdl:part name="request" element="inp1:requestblacklistManagement"/>
+    </wsdl:message>
+    <wsdl:message name="blacklistManagment_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseblacklistManagement"/>
+    </wsdl:message>
+    <wsdl:message name="blacklistManagment_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="blacklistManagment_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="blacklistManagment_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:portType name="PS_REST_SCMS_BLACKLISTMANAGEMENT_ptt">
+        <wsdl:operation name="blacklistManagment">
+            <wsdl:input message="tns:blacklistManagment_inputMessage"/>
+            <wsdl:output message="tns:blacklistManagment_outputMessage"/>
+            <wsdl:fault name="error404" message="tns:blacklistManagment_error404Message"/>
+            <wsdl:fault name="error400" message="tns:blacklistManagment_error400Message"/>
+            <wsdl:fault name="error500" message="tns:blacklistManagment_error500Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PS_REST_SCMS_BLACKLISTMANAGEMENT_ptt-binding" type="tns:PS_REST_SCMS_BLACKLISTMANAGEMENT_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="blacklistManagment">
+            <soap:operation soapAction="blacklistManagment"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

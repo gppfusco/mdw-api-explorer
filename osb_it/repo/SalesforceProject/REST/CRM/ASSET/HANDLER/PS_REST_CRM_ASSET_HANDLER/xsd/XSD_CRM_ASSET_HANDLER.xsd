@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGetAsset" type="requestGetAssetType"/>
+  <xsd:element name="responseGetAsset" type="responseGetAssetType"/>
+  <xsd:complexType name="requestGetAssetType"> 
+    <xsd:sequence>
+      <xsd:element name="contrId" type="xsd:string"/>
+      <xsd:element name="includeGetAsset" type="xsd:boolean"/>
+      <xsd:element name="fields" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGetAssetType">
+    <xsd:sequence>
+      <xsd:element name="getAssetFields" type="getAssetsFieldsType" minOccurs="0"/>
+      <xsd:element name="changeOrder" type="changeOrderType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="changeOrderType">
+    <xsd:sequence>
+      <xsd:element name="mdwSubAction" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="assets" type="changeOrderAssetsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="changeOrderAssetsType">
+    <xsd:sequence>
+      <xsd:element name="asset" type="changeOrderAssetType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="changeOrderAssetType">
+    <xsd:sequence>
+      <xsd:element name="billingAccountId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="accountId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="rootId" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="getAssetsFieldsType">
+    <xsd:sequence>
+      <xsd:element name="assets" type="assetsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="assetsType">
+    <xsd:sequence>
+      <xsd:element name="asset" type="assetType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="assetType">
+    <xsd:sequence>
+      <xsd:element name="billingAccountId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="serviceAccountId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="assetId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="assetStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="priceBookEntryId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="productId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="assetName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="integrationId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="JSONAttribute" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="assetActivationDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="smartCartId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="oneTimeTotal" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="recurringTotal" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="recurringCharge" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="assetQuantity" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="effectiveOneTimeTotal" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="assetPromotions" type="promotionsType" minOccurs="0"/>
+      <xsd:element name="childAssets" type="childAssetsType" minOccurs="0"/>
+      <xsd:element name="Unimprovable_Line__c" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="childAssetsType">
+    <xsd:sequence>
+      <xsd:element name="childAsset" type="assetType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="promotionsType">
+    <xsd:sequence>
+      <xsd:element name="assetPromotion" type="promotionType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="promotionType">
+    <xsd:sequence>
+      <xsd:element name="promotionId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="promotionName" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="requestAssetsCleanup" type="requestAssetsCleanupType" />
+  <xsd:complexType name="requestAssetsCleanupType">
+    <xsd:sequence>
+      <xsd:element name="contractId" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+</xsd:schema>

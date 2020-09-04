@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestEsitiFatture" type="requestEsitiFattureType"/>
+	<xsd:complexType name="requestEsitiFattureType">
+		<xsd:sequence>
+			<xsd:element name="ListaFatture">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Fattura" minOccurs="1" maxOccurs="35">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="idFattura" type="xsd:string"/>
+									<xsd:element name="dataFattura" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseEsitiFatture" type="responseEsitiFattureType"/>
+	<xsd:complexType name="responseEsitiFattureType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="EsitoFatture" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="EsitoFattura" type="EsitoFatturaType" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EsitoFatturaType">
+		<xsd:sequence>
+			<xsd:element name="idFattura" type="xsd:string"/>
+			<xsd:element name="dataFattura" type="xsd:string"/>
+			<xsd:element name="categoria" type="xsd:string"/>
+			<xsd:element name="clusterErrori" type="xsd:string"/>
+			<xsd:element name="codice" type="xsd:string"/>
+			<xsd:element name="descrizione" type="xsd:string"/>
+			<xsd:element name="dataScarto" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

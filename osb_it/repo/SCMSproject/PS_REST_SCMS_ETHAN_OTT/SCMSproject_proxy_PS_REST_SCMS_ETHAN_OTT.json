@@ -1,0 +1,45 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/scms/REST_SCMS_ETHAN_OTT",
+    "name" : "SCMSproject_proxy_PS_REST_SCMS_ETHAN_OTT",
+    "localPath" : "osb_it\\repo\\SCMSproject\\PS_REST_SCMS_ETHAN_OTT",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/scms/REST_SCMS_ETHAN_OTT?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SCMSproject/RemoteBooking/xsd/XSD_SCMS_REMOTE_BOOKING",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SCMSproject/GestioneDevice/xsd/XSD_CRM_GESTIONE_DEVICE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SCMSproject/RemoteBooking/xsd/XSD_SCMS_REMOTE_BOOKING_JSON_ERRORS",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/json/errors"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SCMSproject/GestioneDevice/xsd/XSD_CRM_GESTIONE_DEVICE_JSON_ERRORS",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/json/errors"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SCMSproject/RemoteBooking/xsd/XSD_SCMS_REMOTE_BOOKING",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SCMSproject/GestioneDevice/xsd/XSD_CRM_GESTIONE_DEVICE_JSON_ERRORS",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/json/errors"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SCMSproject/GestioneDevice/xsd/XSD_CRM_GESTIONE_DEVICE",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SCMSproject/RemoteBooking/xsd/XSD_SCMS_REMOTE_BOOKING_JSON_ERRORS",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/json/errors"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

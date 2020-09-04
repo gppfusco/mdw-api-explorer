@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestDeleteWSC" type="requestDeleteWSCType"/>
+  <xsd:complexType name="requestDeleteWSCType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string"/>
+      <xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence> 
+  </xsd:complexType>
+  <xsd:element name="responseDeleteWSC" type="responseDeleteWSCType"/>
+  <xsd:complexType name="responseDeleteWSCType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string"/>
+      <xsd:element name="custStatus" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

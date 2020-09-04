@@ -1,0 +1,30 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OM_orderValidation_proxy_PS_REST_OM_ORDER_VALIDATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDER_VALIDATION" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDER_VALIDATION",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/OM/orderValidation/pipeline/PL_STUB" : {
+        "label" : "Pipeline/BlueBirdProject/OM/orderValidation/pipeline/PL_STUB",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDER_VALIDATION" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OM_ORDER_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetLOV" type="requestGetLOVType"/>
+	<xsd:complexType name="requestGetLOVType">
+		<xsd:sequence>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Active" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRMCodificaCleverSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRMConfig2ParameterSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRMConfig3ParameterSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRMConfig4ParameterSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRMConfigParameterSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ClassCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CodiceKenanSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ExtendedInfoSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="High" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Low" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="NoteSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Parent" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ParentId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ParentSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ParentType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ParentValue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="SubType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TargetHigh" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TargetLow" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Value" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfFieldsType">
+		<xsd:sequence>
+			<xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FieldType">
+		<xsd:sequence>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetLOV" type="responseGetLOVType"/>
+	<xsd:complexType name="responseGetLOVType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="ListOfLOV" type="ListOfLOVType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfLOVType">
+		<xsd:sequence>
+			<xsd:element name="LOV" type="LOVType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LOVType">
+		<xsd:sequence>
+			<xsd:element name="Active" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Bitmap" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="BitmapId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ClassCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CodiceKenanSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRMCodificaCleverSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRMConfig2ParameterSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRMConfig3ParameterSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRMConfig4ParameterSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="CRMConfigParameterSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ExtendedInfoSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="High" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Language" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="LanguageName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Low" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="MatricolaAutomaticaFlagSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="MNTMOPCessazioniSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Modifiable" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Multilingual" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Name" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="NoteSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="OrderBy" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="OrganizationId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Parent" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ParentId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ParentSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ParentType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ParentValue" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="PenaleSTBSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ReplicationLevel" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="SubType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TargetHigh" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TargetLow" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Translate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Type" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Value" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="WeightingFactor" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

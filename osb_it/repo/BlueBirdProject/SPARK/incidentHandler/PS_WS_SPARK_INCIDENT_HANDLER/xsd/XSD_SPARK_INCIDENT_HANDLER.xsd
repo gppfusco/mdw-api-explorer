@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+      <xsd:complexType name="responseCreateIncidentType">
+          <xsd:sequence>
+              <xsd:element name="resultCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="resultDescription" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="sparkCaseID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="detailsMessage" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+          </xsd:sequence>
+      </xsd:complexType>
+
+      <xsd:complexType name="requestCreateIncidentType">
+          <xsd:sequence>
+              <xsd:element name="callerId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="openedBy" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="contactType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="impact" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="urgency" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="creationType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="externalEscalationID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="externalCaseID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="contractCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="accountID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="accessOrderID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="externalOrderID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="orderSfdc" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="statusOrderSdfc" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="bbID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="voiceID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="remoteID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="descrizioneErrore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="codiceErroreBB" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="genericBBInfo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="customerPersonalData" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="customerAdditionalInformation" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+          </xsd:sequence>
+      </xsd:complexType>      
+
+      <xsd:element name="requestCreateIncident" type="requestCreateIncidentType"/>
+      <xsd:element name="responseCreateIncident" type="responseCreateIncidentType"/>
+
+      <xsd:complexType name="responseUpdateIncidentType">
+          <xsd:sequence>
+              <xsd:element name="resultCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="resultDescription" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="sparkCaseID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="detailsMessage" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+          </xsd:sequence>
+      </xsd:complexType>
+
+      <xsd:complexType name="requestUpdateIncidentType">
+          <xsd:sequence>
+              <xsd:element name="number" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="updateBy" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+              <xsd:element name="workNotes" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="state" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="resolutionCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+              <xsd:element name="resolutionDetail" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+          </xsd:sequence>
+      </xsd:complexType>      
+
+      <xsd:element name="requestUpdateIncident" type="requestUpdateIncidentType"/>
+      <xsd:element name="responseUpdateIncident" type="responseUpdateIncidentType"/>
+</xsd:schema>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestCheckFile" type="requestCheckFileType" />
+  <xsd:complexType name="requestCheckFileType">
+    <xsd:sequence>
+      <xsd:element name="filePath" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="fileName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="fileTimestampTransferComplete" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="fileType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="fileSize" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="fileHash" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="responseCheckFile" type="responseCheckFileType" />
+  <xsd:complexType name="responseCheckFileType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,37 @@
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/CRM_DTT" xmlns:mdata="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_CRM_DTT" targetNamespace="http://www.skytv.it/mdw/service/CRM_DTT">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SCMS_DTT.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestEnableService_Message">
+		<wsdl:part name="part_requestEnableService" element="mdata:requestEnableService"/>
+	</wsdl:message>
+	<wsdl:message name="responseEnableService_Message">
+		<wsdl:part name="part_responseEnableService" element="mdata:responseEnableService"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="mdata:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="DTT_ptt">
+		<wsdl:operation name="execute_EnableService">
+			<wsdl:input message="tns:requestEnableService_Message"/>
+			<wsdl:output message="tns:responseEnableService_Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="DTT_pttSOAP11Binding" type="tns:DTT_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_EnableService">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_DTT/execute_EnableService"/>
+			<wsdl:input>
+				<soap:body parts="part_requestEnableService" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseEnableService" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

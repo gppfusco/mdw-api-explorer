@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/vodafone/WS_MDW_VODAFONE_CHECK_FILE",
+    "name" : "MDWProject_Vodafone_CheckFile_proxy_PS_WS_MDW_VODAFONE_CHECK_FILE",
+    "localPath" : "osb_it\\repo\\MDWProject\\Vodafone\\CheckFile\\PS_WS_MDW_VODAFONE_CHECK_FILE",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/vodafone/WS_MDW_VODAFONE_CHECK_FILE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MDWProject/Vodafone/CheckFile/xsd/XSD_MDW_VODAFONE_CHECK_FILE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

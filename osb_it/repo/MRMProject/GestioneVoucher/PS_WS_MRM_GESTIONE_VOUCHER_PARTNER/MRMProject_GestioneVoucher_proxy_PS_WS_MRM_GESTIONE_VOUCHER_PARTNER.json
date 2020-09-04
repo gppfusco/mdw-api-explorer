@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mrm/WS_MRM_GESTIONE_VOUCHER_PARTNER",
+    "name" : "MRMProject_GestioneVoucher_proxy_PS_WS_MRM_GESTIONE_VOUCHER_PARTNER",
+    "localPath" : "osb_it\\repo\\MRMProject\\GestioneVoucher\\PS_WS_MRM_GESTIONE_VOUCHER_PARTNER",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mrm/WS_MRM_GESTIONE_VOUCHER_PARTNER?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MRMProject/GestioneVoucher/xsd/XSD_MRM_GESTIONE_VOUCHER_PARTNER",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "ORCHESTRATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

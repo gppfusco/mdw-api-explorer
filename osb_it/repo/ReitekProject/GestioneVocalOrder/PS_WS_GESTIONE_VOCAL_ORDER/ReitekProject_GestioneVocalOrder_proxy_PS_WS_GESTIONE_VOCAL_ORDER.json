@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/reitek/WS_GESTIONE_VOCAL_ORDER",
+    "name" : "ReitekProject_GestioneVocalOrder_proxy_PS_WS_GESTIONE_VOCAL_ORDER",
+    "localPath" : "osb_it\\repo\\ReitekProject\\GestioneVocalOrder\\PS_WS_GESTIONE_VOCAL_ORDER",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/reitek/WS_GESTIONE_VOCAL_ORDER?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/ReitekProject/GestioneVocalOrder/xsd/XSD_WSC_GESTIONE_VOCAL_ORDER",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

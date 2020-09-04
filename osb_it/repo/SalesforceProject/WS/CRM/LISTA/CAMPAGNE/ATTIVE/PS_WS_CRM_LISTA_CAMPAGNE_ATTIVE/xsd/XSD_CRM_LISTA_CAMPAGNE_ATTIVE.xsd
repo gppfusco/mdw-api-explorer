@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestListaCampagneAttiveClientiSosp" type="requestListaCampagneAttiveClientiSospType"/>
+  <xsd:complexType name="requestListaCampagneAttiveClientiSospType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string"/>
+      <xsd:element name="mdwTrackingField" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwConnId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwOrigin" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwScope" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseListaCampagneAttiveClientiSosp" type="responseListaCampagneAttiveClientiSospType"/>
+  <xsd:complexType name="responseListaCampagneAttiveClientiSospType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string"/>
+      <xsd:element name="mdwCampaigns" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwCampaign" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="mdwCampaignName" type="xsd:string"/>
+                  <xsd:element name="mdwCampaignCode" type="xsd:string"/>
+                  <xsd:element name="mdwCampaignFamily" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestListaCampagneAttiveAll" type="requestListaCampagneAttiveAllType"/>
+  <xsd:complexType name="requestListaCampagneAttiveAllType"/>
+  <xsd:element name="responseListaCampagneAttiveAll" type="responseListaCampagneAttiveAllType"/>
+  <xsd:complexType name="responseListaCampagneAttiveAllType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string"/>
+      <xsd:element name="Campaigns" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Campaign" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="PromoCreatedDate" type="xsd:string"/>
+                  <xsd:element name="PromoType" type="xsd:string"/>
+                  <xsd:element name="CampaignSourceCode" type="xsd:string"/>
+                  <xsd:element name="CampaignName" type="xsd:string"/>
+                  <xsd:element name="CampaignStartDate" type="xsd:string"/>
+                  <xsd:element name="CampaignEndDate" type="xsd:string"/>
+                  <xsd:element name="CampaignSegmento" type="xsd:string"/>
+                  <xsd:element name="CampaignStatus" type="xsd:string"/>
+                  <xsd:element name="CampaignFamily" type="xsd:string"/>
+                  <xsd:element name="CampaignCustomerTargetType" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestListaCampagneAttiveByContract" type="requestListaCampagneAttiveByContractType"/>
+  <xsd:complexType name="requestListaCampagneAttiveByContractType">
+    <xsd:sequence>
+      <xsd:element name="ContrId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseListaCampagneAttiveByContract" type="responseListaCampagneAttiveByContractType"/>
+  <xsd:complexType name="responseListaCampagneAttiveByContractType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string"/>
+      <xsd:element name="Campaigns" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Campaign" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="CampaignID" type="xsd:string"/>
+                  <xsd:element name="CampaignCreatedDate" type="xsd:string"/>
+                  <xsd:element name="CampaignSourceCode" type="xsd:string"/>
+                  <xsd:element name="CampaignName" type="xsd:string"/>
+                  <xsd:element name="CampaignStartDate" type="xsd:string"/>
+                  <xsd:element name="CampaignEndDate" type="xsd:string"/>
+                  <xsd:element name="CampaignSegmento" type="xsd:string"/>
+                  <xsd:element name="CampaignType" type="xsd:string"/>
+                  <xsd:element name="CampaignStatus" type="xsd:string"/>
+                  <xsd:element name="CampaignFamily" type="xsd:string"/>
+                  <xsd:element name="CampaignCustomerTargetType" type="xsd:string"/>
+                  <xsd:element name="ContactName" type="xsd:string"/>
+                  <xsd:element name="ContractOrderNumber" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

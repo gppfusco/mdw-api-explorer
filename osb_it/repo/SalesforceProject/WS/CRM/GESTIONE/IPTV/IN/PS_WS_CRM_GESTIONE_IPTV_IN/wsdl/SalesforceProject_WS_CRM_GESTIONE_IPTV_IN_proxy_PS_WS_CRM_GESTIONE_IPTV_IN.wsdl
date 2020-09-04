@@ -1,0 +1,37 @@
+<wsdl:definitions name="WS_CRM_GESTIONE_IPTV_IN" targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_IPTV_IN" xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_IPTV_IN" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_IPTV_IN.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestMessage">
+		<wsdl:part name="part_requestNormalizzaIndirizzo" element="inp1:requestNormalizzaIndirizzo"/>
+	</wsdl:message>
+	<wsdl:message name="replyMessage">
+		<wsdl:part name="part_responseNormalizzaIndirizzo" element="inp1:responseNormalizzaIndirizzo"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="CRM_GESTIONE_IPTV_IN_ptt">
+		<wsdl:operation name="execute_NormalizzaIndirizzo">
+			<wsdl:input message="tns:requestMessage"/>
+			<wsdl:output message="tns:replyMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CRM_GESTIONE_IPTV_IN_bind" type="tns:CRM_GESTIONE_IPTV_IN_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_NormalizzaIndirizzo">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_IPTV_IN/execute_NormalizzaIndirizzo" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestNormalizzaIndirizzo" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseNormalizzaIndirizzo" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

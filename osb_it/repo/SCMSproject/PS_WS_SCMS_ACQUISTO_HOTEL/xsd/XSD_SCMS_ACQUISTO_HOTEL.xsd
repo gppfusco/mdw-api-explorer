@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestACQHTLType">
+    <xsd:sequence>
+      <xsd:element name="flagsync" type="xsd:string"/>
+      <xsd:element name="clientid" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="box" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="telephonenumber" type="xsd:string"/>
+      <xsd:element name="refid" type="xsd:string"/>
+      <xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="idcaller" type="xsd:string"/>
+      <xsd:element name="purchasedate" type="xsd:string"/>
+      <xsd:element name="codepin" type="xsd:string"/>
+      <xsd:element name="eventtrasmdate" type="xsd:string"/>
+      <xsd:element name="typesrvreq" type="xsd:string"/>
+      <xsd:element name="uniquecode" type="xsd:string"/>
+      <xsd:element name="devicetype" type="xsd:string"/>
+      <xsd:element name="service" type="xsd:string"/>
+      <xsd:element name="os" type="xsd:string"/>
+      <xsd:element name="version" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestACQHTL" type="requestACQHTLType"/>
+  <xsd:element name="responseSCMS" type="responseACQHTLType"/>
+  <xsd:complexType name="responseACQHTLType">
+    <xsd:sequence>
+      <xsd:element name="box" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="title" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="result" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="ndserr" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="transid" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="typesmc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="flaglive" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="typeevent" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="eventcost" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="flagreqpin" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="originalcost" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="descriptionerr" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="eventtrasmdate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="targetaudience" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="subcontentcode" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

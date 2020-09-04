@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestNotificationCase" type="requestNotificationCaseType"/>
+  <xsd:complexType name="requestNotificationCaseType">
+    <xsd:sequence>
+      <xsd:element name="Interaction" type="interactionType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="interactionType">
+    <xsd:sequence>
+      <xsd:element name="CallType_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ConnID_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Destination_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DurationCall_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EndCall_CTI_dt__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Media_Type_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Origine_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OtherDN_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Override_IWS_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Reason_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Recording_type_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Role_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RTargetAgentSelected_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RTargetPlaceSelected_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="S_TIPOLOGIA_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Services_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Servizio_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Source_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TipoAni_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TipoRiconoscimento_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Type_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Cluster_RT_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="consultationID_CTI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Contract_ID__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Documento_Id_DMS__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ANI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DNIS__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Completed_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Short_Comment__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Done_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Canale_Acquisizione__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Cellulare_Sito__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CMP__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Codice_Campagna__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Contratto_Identificato__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Email_Sito__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ID_EXTRA_DMS__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Matricola_Assegnata__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Motivo_NBA__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Provenienza__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Scelta_Da_Cliente__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Service__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Telefono_Sito_Phone__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Template_Lettera__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Tipo_Contatto__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Tipo_Offerta__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Wave_Code__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Gestione_Off_Line_Dt__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Data_Ricezione_Raccomandata_Dt__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Codice_Registrazione__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CRM_CTI_Url_Recorder__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Categoria__IVR__C" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SottoCategoria__IVR__C" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Path__IVR__C" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Team_Assegnatario__C" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Account" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LockToUser__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ServiceRequestList" type="serviceRequestsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="serviceRequestsType">
+    <xsd:sequence>
+      <xsd:element name="ServiceRequest" type="serviceRequestType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="serviceRequestType">
+    <xsd:sequence>
+      <xsd:element name="Nuovo_Motivo__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Tipologia_Motivo__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Proposta_Nuovo_Motivo__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Sequence_Reclamo_Num__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Tipologia_Reclamo__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ClosedDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreatedDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Manual_Assignment_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="System_Assignment_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Assignment_User_Exclude_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Data_Effetto_Differito_Dt__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Loyalty_Point__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Integration_Id__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PARENT_ID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Final_Technology__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="STB_Decision__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SR_Rootcause__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Categoria_NewCRM__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Type" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SR_Impact__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Priority" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Severity__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Status" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Sottocategoria_NewCRM__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Sub_Status__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Service_Request_Type__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SR_Urgency__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Exit_Fee__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SR_Fee_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Template_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Order_Update_Dt__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Abilita_Esito_Intranet_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Adesione_2Step_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BO_FiloneRT__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BO_GenesysID__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BO_SitoRT__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Campagna__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Commoncode_Tripletta__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Contatore_Solleciti__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Password__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Da_Gestire_Il_Dt__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Data_Assegnazione_Dt__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Data_Prevista_Chiusura_TT_Dt__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Data_Prevista_Chiusura_Dt__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Dettaglio_Motivo__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Esito__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Esito_Test_Autodiagnostica__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Esito_Intranet__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Invio_SIC_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="WSC_Invio_Mail_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Motivo__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Mystery_Data_Dt__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Note__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Tracking_FW__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Trouble_Ticket__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Numero_Reclamo__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="INS_Followup__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="INS_Contact_At__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FS_Broadband_Flg__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CSI__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Caller_Name__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CSICode__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FS_CAP_CQ__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Change_Order_Num__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RTD_CRM_Contact_Reason__c" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Team_Assegnatario__C" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="PortalEnabled__c" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseNotificationCase" type="responseNotificationCaseType"/>
+  <xsd:complexType name="responseNotificationCaseType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

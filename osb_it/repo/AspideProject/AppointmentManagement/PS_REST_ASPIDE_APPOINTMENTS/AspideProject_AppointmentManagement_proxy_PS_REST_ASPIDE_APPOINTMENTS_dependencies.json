@@ -1,0 +1,186 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "AspideProject_AppointmentManagement_proxy_PS_REST_ASPIDE_APPOINTMENTS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/AspideProject/Resources/PS_REST_ASPIDE_APPOINTMENTS" : {
+        "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_APPOINTMENTS",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_REST_ASPIDE_APPOINTMENTS" : {
+        "label" : "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_REST_ASPIDE_APPOINTMENTS",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_REST_ASPIDE_DELETE_APPOINTMENT" : {
+            "label" : "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_REST_ASPIDE_DELETE_APPOINTMENT",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/AspideProject/AppointmentManagement/transformations/createRequest_DeleteAppointment" : {
+                "label" : "Xquery/AspideProject/AppointmentManagement/transformations/createRequest_DeleteAppointment",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS" : {
+                "label" : "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/AspideProject/Resources/PS_REST_ASPIDE_APPOINTMENTS" : {
+                "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_APPOINTMENTS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_REST_ASPIDE_UPDATE_APPOINTMENT" : {
+            "label" : "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_REST_ASPIDE_UPDATE_APPOINTMENT",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS" : {
+                "label" : "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/AspideProject/Resources/PS_REST_ASPIDE_APPOINTMENTS" : {
+                "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_APPOINTMENTS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/AspideProject/AppointmentManagement/transformations/createRequest_UpdateAppointment" : {
+                "label" : "Xquery/AspideProject/AppointmentManagement/transformations/createRequest_UpdateAppointment",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/AspideProject/Resources/PS_REST_ASPIDE_APPOINTMENTS" : {
+            "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_APPOINTMENTS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_REST_ASPIDE_NEW_APPOINTMENT" : {
+            "label" : "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_REST_ASPIDE_NEW_APPOINTMENT",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/AspideProject/AppointmentManagement/transformations/createRequest_GetAppointmentId" : {
+                "label" : "Xquery/AspideProject/AppointmentManagement/transformations/createRequest_GetAppointmentId",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/AspideProject/AppointmentManagement/transformations/createRequest_NewAppointment" : {
+                "label" : "Xquery/AspideProject/AppointmentManagement/transformations/createRequest_NewAppointment",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS" : {
+                "label" : "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/AspideProject/Resources/PS_REST_ASPIDE_APPOINTMENTS" : {
+                "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_APPOINTMENTS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL" : {
+                "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL",
+                "properties" : {
+                  "transport-type" : "local",
+                  "nodeType" : "Proxy",
+                  "service-type" : "SOAP"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+                    "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+                    "properties" : { },
+                    "successors" : {
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                        "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                        "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                        "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

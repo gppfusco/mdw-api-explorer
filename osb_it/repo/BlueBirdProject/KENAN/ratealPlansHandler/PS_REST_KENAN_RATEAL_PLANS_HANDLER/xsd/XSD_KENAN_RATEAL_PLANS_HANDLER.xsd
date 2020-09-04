@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestRetrieveRatealPlans" type="requestRetrieveRatealPlansType"/>
+  <xsd:element name="ratealPlanResponse" type="ratealPlanResponseType"/>
+  <xsd:element name="requestRetrieveRatealPlanDetails" type="requestRetrieveRatealPlanDetailsType"/>
+  <xsd:element name="ratealPlanDetailsResponse" type="ratealPlanDetailsResponseType"/>
+  <xsd:element name="requestUpdateRatealPlans" type="requestUpdateRatealPlansType"/>
+  <xsd:element name="responseUpdateRatealPlans" type="responseUpdateRatealPlansType"/>
+  <xsd:element name="requestRetrieveTotalCosts" type="requestRetrieveTotalCostsType"/>
+  <xsd:element name="responseRetrieveTotalCosts" type="responseRetrieveTotalCostsType"/>
+  <xsd:complexType name="requestUpdateRatealPlansType">
+    <xsd:sequence>
+      <xsd:element name="ratealPlanId" type="xsd:string"/>
+      <xsd:element name="billingAccountId" type="xsd:string"/>
+      <xsd:element name="e2eContractId" type="xsd:string"/>
+      <xsd:element name="creationDate" type="xsd:date"/>
+      <xsd:element name="scenarioType" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseUpdateRatealPlansType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestRetrieveRatealPlansType">
+    <xsd:sequence>
+      <xsd:element name="e2eContractId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestRetrieveRatealPlanDetailsType">
+    <xsd:sequence>
+      <xsd:element name="ratealPlanId" type="xsd:string"/>
+      <xsd:element name="e2eContractId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ratealPlanDetailsResponseType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="ratealPlanDetails" type="ratealPlanDetailsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ratealPlanDetailsType">
+    <xsd:sequence>
+      <xsd:element name="ratealPlanDetail" type="ratealPlanDetailType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ratealPlanDetailType">
+    <xsd:sequence>
+      <xsd:element name="instalmentId" type="xsd:decimal"/>
+      <xsd:element name="instalmentDescription" type="descriptionType"/>
+      <xsd:element name="instalmentsNumber" type="xsd:decimal"/>
+      <xsd:element name="activationDate" type="xsd:date"/>
+      <xsd:element name="status" type="statusType"/>
+      <xsd:element name="instalmentAmount" type="xsd:decimal"/>
+      <xsd:element name="paymentEffectiveDate" type="xsd:date"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ratealPlanResponseType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="ratealPlans" type="ratealPlansType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ratealPlansType">
+    <xsd:sequence>
+      <xsd:element name="ratealPlan" type="ratealPlanType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ratealPlanType">
+    <xsd:sequence>
+      <xsd:element name="planId" type="xsd:decimal"/>
+      <xsd:element name="billAccountId" type="billAccountIdType"/>
+      <xsd:element name="description" type="descriptionType"/>
+      <xsd:element name="oneOffFeeAmount" type="xsd:decimal"/>
+      <xsd:element name="numberOfInstalment" type="xsd:decimal"/>
+      <xsd:element name="creationDate" type="xsd:date"/>
+      <xsd:element name="ratealPlanStatus" type="ratealPlanStatusType"/>
+      <xsd:element name="instalmentPaymentAmount" type="xsd:decimal"/>
+      <xsd:element name="ramainInstalments" type="xsd:decimal"/>
+      <xsd:element name="paidAmount" type="xsd:decimal"/>
+      <xsd:element name="paidInstalment" type="xsd:decimal"/>
+      <xsd:element name="instalComponentType" type="instalComponentType"/>
+      <xsd:element name="endDate" type="xsd:date"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="billAccountIdType" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="descriptionType" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="100"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ratealPlanStatusType">
+    <xsd:sequence>
+      <xsd:element name="status" type="statusType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="statusType" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="instalComponentType" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="requestRetrieveTotalCostsType">
+    <xsd:sequence>
+      <xsd:element name="e2eContractId" type="xsd:string"/>
+      <xsd:element name="offerType" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseRetrieveTotalCostsType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>    
+      <xsd:element name="totalCost" type="totalCostsType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="totalCostsType">
+    <xsd:sequence>
+      <xsd:element name="amount" type="xsd:string"/>
+      <xsd:element name="offerType" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

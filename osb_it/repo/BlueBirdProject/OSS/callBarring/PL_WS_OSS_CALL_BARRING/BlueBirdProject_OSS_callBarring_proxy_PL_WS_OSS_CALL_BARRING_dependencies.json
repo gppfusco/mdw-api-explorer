@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OSS_callBarring_proxy_PL_WS_OSS_CALL_BARRING",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/OSS/callBarring/pipeline/PL_WS_OSS_CALL_BARRING" : {
+        "label" : "Pipeline/BlueBirdProject/OSS/callBarring/pipeline/PL_WS_OSS_CALL_BARRING",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OSS/callBarring/pipeline/PL_REST_OSS_CALL_BARRING_getCallBarring" : {
+            "label" : "Pipeline/BlueBirdProject/OSS/callBarring/pipeline/PL_REST_OSS_CALL_BARRING_getCallBarring",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/BlueBirdProject/OSS/callBarring/businessService/BS_REST_OSS_CALL_BARRING" : {
+                "label" : "BusinessService/BlueBirdProject/OSS/callBarring/businessService/BS_REST_OSS_CALL_BARRING",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/BS_REST_OSS_CALL_BARRING" : {
+                "label" : "WSDL/BlueBirdProject/Resources/BS_REST_OSS_CALL_BARRING",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/BlueBirdProject/OSS/callBarring/transformation/createRequest_GetCallBarring" : {
+            "label" : "Xquery/BlueBirdProject/OSS/callBarring/transformation/createRequest_GetCallBarring",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/callBarring/wsdl/WS_OSS_CALL_BARRING" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/callBarring/wsdl/WS_OSS_CALL_BARRING",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/OSS/callBarring/transformation/createResponse_GetCallBarring" : {
+            "label" : "Xquery/BlueBirdProject/OSS/callBarring/transformation/createResponse_GetCallBarring",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/callBarring/wsdl/WS_OSS_CALL_BARRING" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/callBarring/wsdl/WS_OSS_CALL_BARRING",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestRetrieveVocalOrder" type="requestRetrieveVocalOrderType"/>
+  <xsd:complexType name="requestRetrieveVocalOrderType">
+    <xsd:sequence>
+      <xsd:element name="CustId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseRetrieveVocalOrder" type="responseRetrieveVocalOrderType"/>
+  <xsd:complexType name="responseRetrieveVocalOrderType">
+    <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="Contracts" type="ContractsType" minOccurs="0 " maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ContractsType">
+    <xsd:sequence>
+      <xsd:element name="Contract" type="ContractType" minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ContractType">
+    <xsd:sequence>
+      <xsd:element name="OrderNumber" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Status" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="VocalOrderNumber" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="OrderCreationDate" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="OrderActivationDate" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="OrderCeasingDate" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="PayerAccount" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

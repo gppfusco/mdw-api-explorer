@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_SendMassiveSMS_proxy_PS_SCMS_SEND_MASSSIVE_SMS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SCMSproject/SendMassiveSMS/pipeline/PL_WS_SEND_MASSSIVE_SMS" : {
+        "label" : "Pipeline/SCMSproject/SendMassiveSMS/pipeline/PL_WS_SEND_MASSSIVE_SMS",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/SCMSproject/SendMassiveSMS/transformations/createResponseSendMassiveSMS" : {
+            "label" : "Xquery/SCMSproject/SendMassiveSMS/transformations/createResponseSendMassiveSMS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/SendMassiveSMS/transformations/createRequestSendMassiveSMS" : {
+            "label" : "Xquery/SCMSproject/SendMassiveSMS/transformations/createRequestSendMassiveSMS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendMassiveSMS/wsdl/WS_SEND_MASSIVE_SMS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendMassiveSMS/wsdl/WS_SEND_MASSIVE_SMS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/businessService/BS_WS_SMS_SEND_COMMUNICATION" : {
+            "label" : "BusinessService/SCMSproject/businessService/BS_WS_SMS_SEND_COMMUNICATION",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendMassiveSMS/wsdl/WS_SEND_MASSIVE_SMS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/SendMassiveSMS/wsdl/WS_SEND_MASSIVE_SMS",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

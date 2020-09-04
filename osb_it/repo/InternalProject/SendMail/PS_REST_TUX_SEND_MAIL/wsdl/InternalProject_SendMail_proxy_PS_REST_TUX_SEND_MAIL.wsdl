@@ -1,0 +1,46 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_TUX_SEND_MAIL"
+     targetNamespace="http://www.skytv.it/mdw/service/TUX_SEND_MAIL"
+     xmlns:tns="http://www.skytv.it/mdw/service/TUX_SEND_MAIL"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SEND_MAIL.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestTuxSendMail_Message">
+        <wsdl:part name="part_requestTuxSendMail" element="inp1:requestTuxSendMail"/>
+    </wsdl:message>
+    <wsdl:message name="responseTuxSendMail_Message">
+        <wsdl:part name="part_responseTuxSendMail" element="inp1:responseTuxSendMail"/>
+    </wsdl:message>
+    <wsdl:portType name="TuxSendMail_ptt">
+        <wsdl:operation name="execute_TuxSendMail">
+            <wsdl:input message="tns:requestTuxSendMail_Message"/>
+            <wsdl:output message="tns:responseTuxSendMail_Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="TuxSendMail_bind" type="tns:TuxSendMail_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_TuxSendMail">
+            <soap:operation style="document" soapAction="execute_TuxSendMail"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/TUX_SEND_MAIL"/>
+                <soap:header message="tns:part_Header" use="literal" part="header"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/TUX_SEND_MAIL"/>
+                <soap:header message="tns:part_Header" part="header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="part_Header">
+        <wsdl:part name="header" element="inp1:Header"/>
+    </wsdl:message>
+</wsdl:definitions>

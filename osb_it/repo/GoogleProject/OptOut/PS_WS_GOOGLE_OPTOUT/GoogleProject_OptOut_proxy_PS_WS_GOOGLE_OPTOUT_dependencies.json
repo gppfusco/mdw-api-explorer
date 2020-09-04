@@ -1,0 +1,67 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "GoogleProject_OptOut_proxy_PS_WS_GOOGLE_OPTOUT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/GoogleProject/OptOut/pipeline/PL_WS_GOOGLE_OPTOUT" : {
+        "label" : "Pipeline/GoogleProject/OptOut/pipeline/PL_WS_GOOGLE_OPTOUT",
+        "properties" : { },
+        "successors" : {
+          "Xquery/GoogleProject/OptOut/transformation/createResponsePublish" : {
+            "label" : "Xquery/GoogleProject/OptOut/transformation/createResponsePublish",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/GoogleProject/OptOut/transformation/createRequestEJBGoogleOPTOUT" : {
+            "label" : "Xquery/GoogleProject/OptOut/transformation/createRequestEJBGoogleOPTOUT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/GoogleProject/OptOut/transformation/createRequestPublish" : {
+            "label" : "Xquery/GoogleProject/OptOut/transformation/createRequestPublish",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/GoogleProject/OptOut/transformation/createDeleteInfoRequestType" : {
+            "label" : "Xquery/GoogleProject/OptOut/transformation/createDeleteInfoRequestType",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/GoogleProject/OptOut/businessService/BS_GOOGLE_PUBSUB" : {
+            "label" : "BusinessService/GoogleProject/OptOut/businessService/BS_GOOGLE_PUBSUB",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "BusinessService/GoogleProject/OptOut/businessService/BS_EJB_GOOGLE_OPTOUT" : {
+            "label" : "BusinessService/GoogleProject/OptOut/businessService/BS_EJB_GOOGLE_OPTOUT",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/GoogleProject/OptOut/wsdl/WS_GOOGLE_OPTOUT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/GoogleProject/OptOut/wsdl/WS_GOOGLE_OPTOUT",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/GoogleProject/OptOut/wsdl/WS_GOOGLE_OPTOUT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/GoogleProject/OptOut/wsdl/WS_GOOGLE_OPTOUT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

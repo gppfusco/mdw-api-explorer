@@ -1,0 +1,59 @@
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_ESIGENZA_IN" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_CRM_GESTIONE_ESIGENZA_IN" targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_ESIGENZA_IN">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_ESIGENZA_IN.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestMessage">
+		<wsdl:part name="part_requestCreateFastwebCase" element="inp1:requestCreateFastwebCase"/>
+	</wsdl:message>
+	<wsdl:message name="replyMessage">
+		<wsdl:part name="part_responseCreateFastwebCase" element="inp1:responseCreateFastwebCase"/>
+	</wsdl:message>
+	<wsdl:message name="requestMessageCaseUpdate">
+		<wsdl:part name="part_requestCaseUpdate" element="inp1:requestCaseUpdate"/>
+	</wsdl:message>
+	<wsdl:message name="replyMessageCaseUpdate">
+		<wsdl:part name="part_responseCaseUpdate" element="inp1:responseCaseUpdate"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="CRM_GESTIONE_ESIGENZA_IN_ptt">
+		<wsdl:operation name="execute_CreateFastwebCase">
+			<wsdl:input message="tns:requestMessage"/>
+			<wsdl:output message="tns:replyMessage"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CaseUpdate">
+			<wsdl:input message="tns:requestMessageCaseUpdate"/>
+			<wsdl:output message="tns:replyMessageCaseUpdate"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CRM_GESTIONE_ESIGENZA_IN_bind" type="tns:CRM_GESTIONE_ESIGENZA_IN_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+	<wsdl:operation name="execute_CreateFastwebCase">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_ESIGENZA_IN/execute_CreateFastwebCase" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestCreateFastwebCase" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseCreateFastwebCase" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>		
+		<wsdl:operation name="execute_CaseUpdate">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_ESIGENZA_IN/execute_CaseUpdate" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestCaseUpdate" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseCaseUpdate" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	
+	</wsdl:binding>
+</wsdl:definitions>

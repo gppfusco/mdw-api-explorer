@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestOperationsCheck" type="requestOperationsCheckType"/>
+	<xsd:complexType name="requestOperationsCheckType">
+		<xsd:sequence>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contIdE2E" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custId" type="xsd:string"/>
+                        <xsd:element name="mdwOperationCode" type="xsd:string"/>
+			<xsd:element name="mdwProposalPromo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwServiceRequestNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwChartConfirmation" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseOperationsCheck" type="responseOperationsCheckType"/>
+	<xsd:complexType name="responseOperationsCheckType">
+		<xsd:sequence>
+			<xsd:element name="mdwResultCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwControlCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwIncompatibleCodes" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwIncompatibleCode" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="mdwBlockingCode" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

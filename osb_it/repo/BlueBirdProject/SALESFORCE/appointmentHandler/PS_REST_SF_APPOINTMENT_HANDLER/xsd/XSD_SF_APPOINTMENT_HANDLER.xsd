@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestAppointmentHandler" type="requestAppointmentHandlerType"/>
+  <xsd:element name="responseAppointmentHandler" type="responseAppointmentHandlerType"/>
+  <xsd:element name="responseAppointmentHandlerSoap" type="responseAppointmentHandlerSoapType"/>
+  <xsd:complexType name="requestAppointmentHandlerType">
+    <xsd:sequence>
+      <xsd:element name="channel" type="channelType" minOccurs="1"/>
+      <xsd:element name="operationalCode" type="operationalCodeType" minOccurs="1"/>
+      <xsd:element name="appointmentInteraction" type="appointmentInteractionRequestType" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="appointmentInteractionRequestType">
+    <xsd:sequence>
+      <xsd:element name="problemId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="appointmentId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="appointmentDate" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="assignedTeam" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contactPhone" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseAppointmentHandlerSoapType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element ref="responseAppointmentHandler" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseAppointmentHandlerType">
+    <xsd:sequence>
+      <xsd:element name="appointmentInteractionOperation" type="appointmentInteractionOperationResponseType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="appointmentInteractionOperationResponseType">
+    <xsd:sequence>
+      <xsd:element name="operationCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="appointmentInteraction" type="appointmentInteractionResponseType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="appointmentInteractionResponseType">
+    <xsd:sequence>
+      <xsd:element name="problemId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="appointmentId" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="channelType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="APP"/>
+      <xsd:enumeration value="IVR"/>
+      <xsd:enumeration value="WEB"/>
+      <xsd:enumeration value="WSC"/>
+      <xsd:enumeration value="CRM"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="operationalCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="A"/>
+      <xsd:enumeration value="M"/>
+      <xsd:enumeration value="D"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

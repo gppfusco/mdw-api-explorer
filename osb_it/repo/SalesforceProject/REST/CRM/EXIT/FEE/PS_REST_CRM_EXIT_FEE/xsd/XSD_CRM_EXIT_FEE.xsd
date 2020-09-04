@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestExitFee" type="requestExitFeeType"/>
+	<xsd:element name="responseExitFee" type="responseExitFeeType"/>
+	<xsd:complexType name="requestExitFeeType">
+		<xsd:sequence>
+			<xsd:element name="feeChannel" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="feeRegistrationDate" type="xsd:string" nillable="true" minOccurs="0"/>
+			
+			<xsd:element name="OrderNumber" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="feeChurnType" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseExitFeeType">
+		<xsd:sequence>
+			<xsd:element name="results" type="resultsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultsType">
+		<xsd:sequence>
+			<xsd:element name="feeExpectedCeaseDate" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="feeExpectedCeaseBillingDate" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="feeFlag" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="feeOperator" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="feePromotional" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="feeNotes" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

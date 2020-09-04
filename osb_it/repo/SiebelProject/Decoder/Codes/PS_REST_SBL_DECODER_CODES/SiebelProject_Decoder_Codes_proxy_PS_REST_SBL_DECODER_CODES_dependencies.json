@@ -1,0 +1,88 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_Decoder_Codes_proxy_PS_REST_SBL_DECODER_CODES",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SiebelProject/Resources/PS_REST_SBL_DECODER_CODES" : {
+        "label" : "WSDL/SiebelProject/Resources/PS_REST_SBL_DECODER_CODES",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/Decoder_Codes/pipeline/PL_REST_SBL_DECODER_CODES" : {
+        "label" : "Pipeline/SiebelProject/Decoder_Codes/pipeline/PL_REST_SBL_DECODER_CODES",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC" : {
+            "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XSLT/SiebelProject/transformations/createElement" : {
+                "label" : "XSLT/SiebelProject/transformations/createElement",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SiebelProject/Decoder_Codes/trasformation/createResponse_RetriveDecoderCodes" : {
+            "label" : "Xquery/SiebelProject/Decoder_Codes/trasformation/createResponse_RetriveDecoderCodes",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/SiebelProject/Resources/PS_REST_SBL_DECODER_CODES" : {
+            "label" : "WSDL/SiebelProject/Resources/PS_REST_SBL_DECODER_CODES",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/Decoder_Codes/trasformation/createRequest_Decoder_Codes" : {
+            "label" : "Xquery/SiebelProject/Decoder_Codes/trasformation/createRequest_Decoder_Codes",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

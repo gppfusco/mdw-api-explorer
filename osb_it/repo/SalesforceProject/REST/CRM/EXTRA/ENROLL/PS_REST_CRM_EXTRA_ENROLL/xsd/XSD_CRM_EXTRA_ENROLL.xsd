@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestExtraEnroll_CHECK" type="requestExtraEnroll_CHECK_Type"/>
+	<xsd:element name="responseExtraEnroll_CHECK" type="responseExtraEnroll_CHECK_Type"/>
+	<xsd:complexType name="requestExtraEnroll_CHECK_Type">
+		<xsd:sequence>
+			<xsd:element name="custId" type="xsd:string"/>
+			<xsd:element name="contrIdE2E" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwChannel" type="mdwChannelType" minOccurs="1"/>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence> 
+	</xsd:complexType>
+	<xsd:complexType name="responseExtraEnroll_CHECK_Type">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string"/>
+			<xsd:element name="resultDescription" type="xsd:string"/>
+			<xsd:element name="contracts">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="contract" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="contrIdE2E" type="xsd:string"/>
+									<xsd:element name="contrId" type="xsd:string"/>
+									<xsd:element name="mdwEligibilityFlag" type="xsd:string"/>
+									<xsd:element name="mdwEligibilityDescription" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mdwAgeingLoyaltyRange" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mdwAgeingLoyaltyDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="mdwEligibilityLoyaltyDate" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestExtraEnroll_IN" type="requestExtraEnroll_IN_Type"/>
+	<xsd:complexType name="requestExtraEnroll_IN_Type">
+		<xsd:sequence>
+			<xsd:element name="custId" type="xsd:string"/>
+			<xsd:element name="contrIdE2E" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrId" type="xsd:string"/>
+			<xsd:element name="mdwChannel" type="mdwChannelType" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestExtraEnroll_OUT" type="requestExtraEnroll_OUT_Type"/>
+	<xsd:complexType name="requestExtraEnroll_OUT_Type">
+		<xsd:sequence>
+			<xsd:element name="custId" type="xsd:string"/>
+			<xsd:element name="contrIdE2E" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrId" type="xsd:string"/>
+			<xsd:element name="mdwChannel" type="mdwChannelType" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:simpleType name="mdwChannelType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="IVR"/>
+			<xsd:enumeration value="WSC"/>
+			<xsd:enumeration value="APP"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

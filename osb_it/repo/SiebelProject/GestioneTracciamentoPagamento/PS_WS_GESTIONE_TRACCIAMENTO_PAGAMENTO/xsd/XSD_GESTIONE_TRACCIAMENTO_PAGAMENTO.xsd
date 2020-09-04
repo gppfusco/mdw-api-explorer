@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestTracciaPagamentoType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TipologiaIncasso" type="TipologiaIncassoType" minOccurs="1"/>
+			<xsd:element name="EsitoIncasso" type="xsd:string"  minOccurs="1"/>
+			<xsd:element name="Penale" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Ambito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="FlagNuovaGestione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TipologiaCliente" type="xsd:string"  minOccurs="1"/>
+			<xsd:element name="TipologiaContratto" type="TipologiaContrattoType" minOccurs="0"/>
+			<xsd:element name="StatoContratto" type="StatoContrattoType" minOccurs="0"/>
+			<xsd:element name="CodiceClientePag" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestTracciaPagamento" type="requestTracciaPagamentoType"/>
+	<xsd:element name="responseTracciaPagamento" type="responseTracciaPagamentoType"/>
+	<xsd:complexType name="responseTracciaPagamentoType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tid" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="TipologiaContrattoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BBH"/>
+			<xsd:enumeration value="RESIDENZIALE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	
+	<xsd:simpleType name="StatoContrattoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ATTIVO"/>
+			<xsd:enumeration value="CESSATO"/>
+			<xsd:enumeration value="SOSPESO"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="TipologiaIncassoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="LIBERO"/>
+			<xsd:enumeration value="TOTALE"/>
+			<xsd:enumeration value="SCADUTO"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,73 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_historic_pairing_proxy_PS_WS_SCMS_HISTORIC_PAIRING",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SCMSproject/historic_pairing/pipeline/PL_WS_SCMS_HISTORIC_PAIRING" : {
+        "label" : "Pipeline/SCMSproject/historic_pairing/pipeline/PL_WS_SCMS_HISTORIC_PAIRING",
+        "properties" : { },
+        "successors" : {
+          "Xquery/SCMSproject/historic_pairing/trasformation/createResponseHistoricPairing" : {
+            "label" : "Xquery/SCMSproject/historic_pairing/trasformation/createResponseHistoricPairing",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SCMSproject/pipeline/PL_INTERNAL_INVOKE_CAIF" : {
+            "label" : "Pipeline/SCMSproject/pipeline/PL_INTERNAL_INVOKE_CAIF",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+                "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SCMSproject/historic_pairing/trasformation/createRequestHistoricPairing" : {
+            "label" : "Xquery/SCMSproject/historic_pairing/trasformation/createRequestHistoricPairing",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/Historic_Pairing/WS_SCMS_HISTORIC_PAIRING" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/Historic_Pairing/WS_SCMS_HISTORIC_PAIRING",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/Historic_Pairing/WS_SCMS_HISTORIC_PAIRING" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/Historic_Pairing/WS_SCMS_HISTORIC_PAIRING",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

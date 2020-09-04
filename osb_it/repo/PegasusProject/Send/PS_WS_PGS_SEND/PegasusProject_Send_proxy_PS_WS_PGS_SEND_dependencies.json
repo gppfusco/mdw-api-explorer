@@ -1,0 +1,47 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "PegasusProject_Send_proxy_PS_WS_PGS_SEND",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/PegasusProject/Send/pipeline/PL_ENQUEUE_PGS_SEND" : {
+        "label" : "Pipeline/PegasusProject/Send/pipeline/PL_ENQUEUE_PGS_SEND",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/Send/wsdl/WS_PGS_SEND" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/Send/wsdl/WS_PGS_SEND",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/PegasusProject/Send/businessService/BS_JMS_PGS_GENERIC" : {
+            "label" : "BusinessService/PegasusProject/Send/businessService/BS_JMS_PGS_GENERIC",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/PegasusProject/Send/transformations/createRequestSendMessage" : {
+            "label" : "Xquery/PegasusProject/Send/transformations/createRequestSendMessage",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/Send/wsdl/WS_PGS_SEND" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/Send/wsdl/WS_PGS_SEND",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

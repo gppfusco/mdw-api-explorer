@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_DISPOSIZIONI_PAG" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WSDLCRM_GESTIONE_DISPOSIZIONI_PAG" targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_DISPOSIZIONI_PAG">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_DISPOSIZIONI_PAG.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestGetDisposizioni_Message">
+		<wsdl:part name="part_requestGetDisposizioni" element="inp1:requestGetDisposizioni"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetDisposizioni_Message">
+		<wsdl:part name="part_responseGetDisposizioni" element="inp1:responseGetDisposizioni"/>
+	</wsdl:message>
+	<wsdl:message name="requestGetDettaglioDisposizioni_Message">
+		<wsdl:part name="part_requestGetDettaglioDisposizioni" element="inp1:requestGetDettaglioDisposizioni"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetDettaglioDisposizioni_Message">
+		<wsdl:part name="part_responseGetDettaglioDisposizioni" element="inp1:responseGetDettaglioDisposizioni"/>
+	</wsdl:message>
+	<wsdl:message name="requestGetDisposizioniByFattura_Message">
+		<wsdl:part name="part_requestGetDisposizioniByFattura" element="inp1:requestGetDisposizioniByFattura"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetDisposizioniByFattura_Message">
+		<wsdl:part name="part_responseGetDisposizioniByFattura" element="inp1:responseGetDisposizioniByFattura"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="GetDisposizioni_ptt">
+		<wsdl:operation name="execute_GetDisposizioni">
+			<wsdl:input message="tns:requestGetDisposizioni_Message"/>
+			<wsdl:output message="tns:responseGetDisposizioni_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GetDettaglioDisposizioni">
+			<wsdl:input message="tns:requestGetDettaglioDisposizioni_Message"/>
+			<wsdl:output message="tns:responseGetDettaglioDisposizioni_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GetDisposizioniByFattura">
+			<wsdl:input message="tns:requestGetDisposizioniByFattura_Message"/>
+			<wsdl:output message="tns:responseGetDisposizioniByFattura_Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GetDisposizioni_Bind" type="tns:GetDisposizioni_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_GetDisposizioni">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_DISPOSIZIONI_PAG/execute_GetDisposizioni" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestGetDisposizioni" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseGetDisposizioni" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GetDettaglioDisposizioni">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_DISPOSIZIONI_PAG/execute_GetDettaglioDisposizioni" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestGetDettaglioDisposizioni" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseGetDettaglioDisposizioni" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_GetDisposizioniByFattura">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_DISPOSIZIONI_PAG/execute_GetDisposizioniByFattura" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestGetDisposizioniByFattura" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseGetDisposizioniByFattura" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

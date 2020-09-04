@@ -1,0 +1,70 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_contractWithdrawalHandler_proxy_PS_REST_SF_CONTRACT_WITHDRAWAL_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_WITHDRAWAL_HANDLER" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_WITHDRAWAL_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/SALESFORCE/contractWithdrawalHandler/pipeline/PL_REST_SF_CONTRACT_WITHDRAWAL_HANDLER" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/contractWithdrawalHandler/pipeline/PL_REST_SF_CONTRACT_WITHDRAWAL_HANDLER",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_WITHDRAWAL_HANDLER" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_WITHDRAWAL_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/SALESFORCE/contractWithdrawalHandler/pipeline/PL_INTERNAL_SF_WITHDRAWAL_ELIGIBILITY_CHECK" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/contractWithdrawalHandler/pipeline/PL_INTERNAL_SF_WITHDRAWAL_ELIGIBILITY_CHECK",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/SALESFORCE/contractWithdrawalHandler/transformation/createResponse_ContractWithdrawalEligibility" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/contractWithdrawalHandler/transformation/createResponse_ContractWithdrawalEligibility",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_WITHDRAWAL_HANDLER" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_CONTRACT_WITHDRAWAL_HANDLER",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SALESFORCE/contractWithdrawalHandler/transformation/createRequest_ContractWithdrawalEligibility" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/contractWithdrawalHandler/transformation/createRequest_ContractWithdrawalEligibility",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

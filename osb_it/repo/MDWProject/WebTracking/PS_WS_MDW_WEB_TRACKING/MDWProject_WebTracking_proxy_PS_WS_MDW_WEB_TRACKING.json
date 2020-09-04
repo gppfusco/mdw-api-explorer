@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/webtracking/WS_MDW_WEB_TRACKING",
+    "name" : "MDWProject_WebTracking_proxy_PS_WS_MDW_WEB_TRACKING",
+    "localPath" : "osb_it\\repo\\MDWProject\\WebTracking\\PS_WS_MDW_WEB_TRACKING",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/webtracking/WS_MDW_WEB_TRACKING?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/xsd/XSD_MDW_WEB_TRACKING",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "ORCHESTRATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

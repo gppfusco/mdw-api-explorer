@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/billing/WS_KN_CALENDARIO_FATTURAZIONE",
+    "name" : "KENANProject_WS_KN_GET_CALENDARIO_FATTURAZIONE_proxy_PS_KN_CALENDARIO_FATTURAZIONE",
+    "localPath" : "osb_it\\repo\\KENANProject\\WS\\KN\\GET\\CALENDARIO\\FATTURAZIONE\\PS_KN_CALENDARIO_FATTURAZIONE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/billing/WS_KN_CALENDARIO_FATTURAZIONE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/KenanProject/GetCalendarioFatturazione/xsd/XSD_KN_GET_CALENDARIO_FATTURAZIONE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "ORCHESTRATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

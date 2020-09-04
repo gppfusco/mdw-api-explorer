@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_KN_EXTRACT_INFO_EXIT_BL_proxy_PS_WS_KN_EXTRACT_INFO_EXIT_BL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/ExtractInfoExitBL/wsdl/WS_KN_EXTRACT_INFO_EXIT_BL" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/ExtractInfoExitBL/wsdl/WS_KN_EXTRACT_INFO_EXIT_BL",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/WS_KN_EXTRACT_INFO_EXIT_BL/pipeline/PL_WS_KN_EXTRACT_INFO_EXIT_BL" : {
+        "label" : "Pipeline/KENANProject/WS_KN_EXTRACT_INFO_EXIT_BL/pipeline/PL_WS_KN_EXTRACT_INFO_EXIT_BL",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/KENANProject/WS_KN_EXTRACT_INFO_EXIT_BL/transformations/createResponseExtractInfoBL" : {
+            "label" : "Xquery/KENANProject/WS_KN_EXTRACT_INFO_EXIT_BL/transformations/createResponseExtractInfoBL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/ExtractInfoExitBL/wsdl/WS_KN_EXTRACT_INFO_EXIT_BL" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/ExtractInfoExitBL/wsdl/WS_KN_EXTRACT_INFO_EXIT_BL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_KN_EXTRACT_INFO_EXIT_BL/transformations/createRequestExtractInfoBL" : {
+            "label" : "Xquery/KENANProject/WS_KN_EXTRACT_INFO_EXIT_BL/transformations/createRequestExtractInfoBL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/KENANProject/WS_KN_EXTRACT_INFO_EXIT_BL/businessServices/BS_SQL_PROC_KN_EXTRACT_INFO_EXIT_BL" : {
+            "label" : "BusinessService/KENANProject/WS_KN_EXTRACT_INFO_EXIT_BL/businessServices/BS_SQL_PROC_KN_EXTRACT_INFO_EXIT_BL",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

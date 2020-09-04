@@ -1,0 +1,282 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_MARKETING_CLOUD_sendCommunication_proxy_PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_REST_SEND_COMMUNICATION" : {
+        "label" : "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_REST_SEND_COMMUNICATION",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_SEND_SMS" : {
+            "label" : "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_SEND_SMS",
+            "properties" : { },
+            "successors" : {
+              "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_AUTH" : {
+                "label" : "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_AUTH",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_TOKEN" : {
+                    "label" : "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_TOKEN",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_GetToken" : {
+                    "label" : "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_GetToken",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                "label" : "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_SEND_EMAIL" : {
+            "label" : "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_SEND_EMAIL",
+            "properties" : { },
+            "successors" : {
+              "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_AUTH" : {
+                "label" : "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_AUTH",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_TOKEN" : {
+                    "label" : "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_TOKEN",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_GetToken" : {
+                    "label" : "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_GetToken",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                "label" : "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_SEND_COMMUNICATION" : {
+            "label" : "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_SEND_COMMUNICATION",
+            "properties" : { },
+            "successors" : {
+              "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_SEND_SMS" : {
+                "label" : "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_SEND_SMS",
+                "properties" : { },
+                "successors" : {
+                  "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_AUTH" : {
+                    "label" : "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_AUTH",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_TOKEN" : {
+                        "label" : "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_TOKEN",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_GetToken" : {
+                        "label" : "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_GetToken",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                    "label" : "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_SFRetrieveContactId" : {
+                "label" : "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_SFRetrieveContactId",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_sendCommunication" : {
+                "label" : "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_sendCommunication",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_SEND_EMAIL" : {
+                "label" : "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_SEND_EMAIL",
+                "properties" : { },
+                "successors" : {
+                  "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_AUTH" : {
+                    "label" : "Pipeline/BlueBirdProject/MARKETING_CLOUD/sendCommunication/pipeline/PL_INTERNAL_REST_MKTG_CLOUD_AUTH",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_TOKEN" : {
+                        "label" : "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_TOKEN",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_GetToken" : {
+                        "label" : "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_GetToken",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+                    "label" : "BusinessService/BlueBirdProject/MARKETING_CLOUD/sendCommunication/businessService/BS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/MARKETING_CLOUD/sendCommunication/wsdl/WS_MKTG_CLOUD_SEND_COMMUNICATION" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/MARKETING_CLOUD/sendCommunication/wsdl/WS_MKTG_CLOUD_SEND_COMMUNICATION",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_sendSMS" : {
+            "label" : "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_sendSMS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_sendEmail" : {
+            "label" : "Xquery/BlueBirdProject/MARKETING_CLOUD/sendCommunication/transformation/createRequest_sendEmail",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MKTG_CLOUD_SEND_COMMUNICATIONS",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

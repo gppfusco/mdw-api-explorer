@@ -1,0 +1,66 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SPYProject_alignSpycloseMVC_proxy_PS_SPY_ALIGN_SPY_CLOSE_MVC",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SPYProject/alignSpycloseMVC/pipeline/PL_SPY_ALIGN_SPY_CLOSE_MVC" : {
+        "label" : "Pipeline/SPYProject/alignSpycloseMVC/pipeline/PL_SPY_ALIGN_SPY_CLOSE_MVC",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SPYProject/alignSpycloseMVC/pipeline/PL_INTERNAL_SPY_ALIGN_SPY_CLOSE_MVC" : {
+            "label" : "Pipeline/SPYProject/alignSpycloseMVC/pipeline/PL_INTERNAL_SPY_ALIGN_SPY_CLOSE_MVC",
+            "properties" : { },
+            "successors" : {
+              "Xquery/SPYProject/alignSpycloseMVC/trasformation/createResponse_AlignSpyCloseMVC" : {
+                "label" : "Xquery/SPYProject/alignSpycloseMVC/trasformation/createResponse_AlignSpyCloseMVC",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SPYProject/alignSpycloseMVC/businessServices/BS_SPY_ALIGN_SPY_CLOSE_MVC" : {
+                "label" : "BusinessService/SPYProject/alignSpycloseMVC/businessServices/BS_SPY_ALIGN_SPY_CLOSE_MVC",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SPYProject/alignSpycloseMVC/trasformation/createRequest_AlignSpyCloseMvc" : {
+                "label" : "Xquery/SPYProject/alignSpycloseMVC/trasformation/createRequest_AlignSpyCloseMvc",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SPYProject/alignSpyCloseMVC/wsdl/WS_SPY_ALIGN_SPY_CLOSE_MVC" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/alignSpyCloseMVC/wsdl/WS_SPY_ALIGN_SPY_CLOSE_MVC",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SPYProject/alignSpyCloseMVC/wsdl/WS_SPY_ALIGN_SPY_CLOSE_MVC" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/alignSpyCloseMVC/wsdl/WS_SPY_ALIGN_SPY_CLOSE_MVC",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SPYProject/alignSpyCloseMVC/wsdl/WS_SPY_ALIGN_SPY_CLOSE_MVC" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/alignSpyCloseMVC/wsdl/WS_SPY_ALIGN_SPY_CLOSE_MVC",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

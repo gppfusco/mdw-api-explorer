@@ -1,0 +1,21 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/TestMario/PS_REST_SQL_TEST",
+    "name" : "TestMario_PS_REST_SQL_TEST",
+    "localPath" : "osb_it\\repo\\TestMario\\REST_SQL_TEST",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/TestMario/PS_REST_SQL_TEST?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "TestMario/Resources/BS_SQL_TEST",
+        "xsdNameSpace" : "http://xmlns.oracle.com/pcbpel/adapter/db/BS_SQL_TEST"
+      } ],
+      "soapApiSpec" : null
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

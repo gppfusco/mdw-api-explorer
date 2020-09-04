@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/bitwin/WS_ELIGIBILTY_STB",
+    "name" : "BitwinProject_EligibiltySTB_proxy_PS_WS_ELIGIBILTY_STB",
+    "localPath" : "osb_it\\repo\\BitwinProject\\EligibiltySTB\\PS_WS_ELIGIBILTY_STB",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/bitwin/WS_ELIGIBILTY_STB?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BitwinProject/EligibilitySTB/xsd/XSD_ELIGIBILITY_STB",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

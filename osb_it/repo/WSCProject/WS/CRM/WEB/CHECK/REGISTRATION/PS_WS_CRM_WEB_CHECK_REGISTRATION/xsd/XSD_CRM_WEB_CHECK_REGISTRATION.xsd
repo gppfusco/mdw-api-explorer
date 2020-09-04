@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestCheckRegistrationType">
+		<xsd:sequence>
+			<xsd:element name="clientCode" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCheckRegistration" type="requestCheckRegistrationType"/>
+	<xsd:complexType name="responseCheckRegistrationType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="users" type="usersType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="userType">
+		<xsd:sequence>
+			<xsd:element name="deleteDate" type="xsd:string" nillable="true"/>
+			<xsd:element name="email" type="xsd:string" nillable="true"/>
+			<xsd:element name="registrationDate" type="xsd:string" nillable="true"/>
+			<xsd:element name="registrationState" type="xsd:string" nillable="true"/>
+			<xsd:element name="username" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="usersType">
+		<xsd:sequence>
+			<xsd:element name="user" type="userType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckRegistration" type="responseCheckRegistrationType"/>
+</xsd:schema>

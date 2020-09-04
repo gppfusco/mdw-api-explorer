@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestResetPinFromSTB_V2" type="requestResetPinFromSTB_V2Type"/>
+	<xsd:element name="responseResetPinFromSTB_V2" type="responseResetPinFromSTB_V2Type"/>
+	<xsd:complexType name="requestResetPinFromSTB_V2Type">
+		<xsd:sequence>
+			<xsd:element name="smcNumber" type="xsd:string"/>
+			<xsd:element name="requestOrigin" type="requestOriginType"/>
+			<xsd:element name="sendingMode" type="sendingModeType"/>
+			<xsd:element name="contrId" type="xsd:string"/>
+			<xsd:element name="contrIdE2E" type="xsd:string"/>
+			<xsd:element name="custId" type="xsd:string"/>
+			<xsd:element name="nameConsumer" type="xsd:string"/>
+			<xsd:element name="surnameConsumer" type="xsd:string"/>
+			<xsd:element name="emailConsumer" type="xsd:string"/>
+			<xsd:element name="phoneConsumer" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contractOrigin" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseResetPinFromSTB_V2Type">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:int"/>
+			<xsd:element name="resultDescription" type="xsd:string"/>
+			<xsd:element name="pin" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="sendingModeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MSA"/>
+			<xsd:enumeration value="MAIL"/>
+			<xsd:enumeration value="SMS"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="requestOriginType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MSA"/>
+			<xsd:enumeration value="SMS"/>
+			<xsd:enumeration value="WEB"/>
+			<xsd:enumeration value="OPR"/>
+                        <xsd:enumeration value="STB"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

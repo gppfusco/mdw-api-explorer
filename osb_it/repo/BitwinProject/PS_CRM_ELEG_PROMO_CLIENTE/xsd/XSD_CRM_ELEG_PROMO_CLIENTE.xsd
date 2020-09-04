@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.skytv.it/mdw/data" elementFormDefault="qualified" targetNamespace="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="requestCheckEligibilityType">
+		<xsd:sequence>
+			<xsd:element form="unqualified" name="CodiceContratto" type="xsd:string"/>
+			<xsd:element form="unqualified" name="CodicePromo" type="xsd:string"/>
+			<xsd:element form="unqualified" name="InputFastweb" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element form="unqualified" name="CommonCode" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element form="unqualified" name="Codice" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element form="unqualified" name="Codice" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element form="unqualified" name="TipoVenditore" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="Dealer" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="CanaleCampagna" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="RateCodePkt" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="CanaleChiamante" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseCheckEligibilityType">
+		<xsd:sequence>
+			<xsd:element form="unqualified" name="Esito" type="xsd:string"/>
+			<xsd:element form="unqualified" name="DescrizioneEsito" type="xsd:string"/>
+			<xsd:element form="unqualified" name="EligibilityFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="Vincoli" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element form="unqualified" name="Vincolo" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element form="unqualified" name="Nome" type="xsd:string"/>
+									<xsd:element form="unqualified" name="Esito" type="xsd:string" minOccurs="0"/>
+									<xsd:element form="unqualified" name="DatiEsito" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckEligibility" type="responseCheckEligibilityType"/>
+	<xsd:element name="requestCheckEligibility" type="requestCheckEligibilityType"/>
+</xsd:schema>

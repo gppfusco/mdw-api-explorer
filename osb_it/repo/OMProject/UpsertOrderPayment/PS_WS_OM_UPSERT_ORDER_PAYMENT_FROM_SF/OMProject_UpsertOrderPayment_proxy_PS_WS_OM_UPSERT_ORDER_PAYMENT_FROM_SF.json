@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/om/WS_OM_UPSERT_ORDER_PAYMENT_FROM_SF",
+    "name" : "OMProject_UpsertOrderPayment_proxy_PS_WS_OM_UPSERT_ORDER_PAYMENT_FROM_SF",
+    "localPath" : "osb_it\\repo\\OMProject\\UpsertOrderPayment\\PS_WS_OM_UPSERT_ORDER_PAYMENT_FROM_SF",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/om/WS_OM_UPSERT_ORDER_PAYMENT_FROM_SF?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/OMProject/UpsertOrderPayment/xsd/XSD_OM_UPSERT_ORDER_PAYMENT",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,40 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBApplicationSkyReply/AspideProject/PS_REST_TA_MANAGE_TEAMS" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_TA_MANAGE_TEAMS">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/AspideProject/ManageTeams/xsd/XSD_TA_MANAGE_TEAMS.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/timeslot">
+         <method name="GET" soa:wsdlOperation="RetrieveTimeSlot">
+            <request>
+               <param name="contractCode" style="query" soa:expression="$msg.request/ns0:contractCode" default="" type="xsd:string"/>
+               <param name="customerCode" style="query" soa:expression="$msg.request/ns0:customerCode" default="" type="xsd:string"/>
+               <param name="channel" style="query" soa:expression="$msg.request/ns0:channel" default="" type="xsd:string"/>
+               <param name="ownerId" style="query" soa:expression="$msg.request/ns0:ownerId" default="" type="xsd:string"/>
+               <param name="typeRequest" style="query" soa:expression="$msg.request/ns0:typeRequest" default="" type="xsd:string"/>
+               <param name="typeCustomer" style="query" soa:expression="$msg.request/ns0:typeCustomer" default="" type="xsd:string"/>
+               <param name="typeCase" style="query" soa:expression="$msg.request/ns0:typeCase" default="" type="xsd:string"/>
+               <param name="caseId" style="query" soa:expression="$msg.request/ns0:caseId" default="" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseRetrieveTimeSlot" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

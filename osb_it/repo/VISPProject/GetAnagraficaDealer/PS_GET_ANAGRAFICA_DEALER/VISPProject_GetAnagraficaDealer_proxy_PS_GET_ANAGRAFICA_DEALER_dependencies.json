@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "VISPProject_GetAnagraficaDealer_proxy_PS_GET_ANAGRAFICA_DEALER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/VISPProject/GetAnagraficaDealer/pipeline/PL_WS_GET_ANAGRAFICA_DEALER" : {
+        "label" : "Pipeline/VISPProject/GetAnagraficaDealer/pipeline/PL_WS_GET_ANAGRAFICA_DEALER",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/VispProject/GetAnagraficaDealer/wsdl/WS_GET_ANAGRAFICA_DEALER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/VispProject/GetAnagraficaDealer/wsdl/WS_GET_ANAGRAFICA_DEALER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/VISPProject/GetAnagraficaDealer/transformations/createResponseGetAnagraficaDealer" : {
+            "label" : "Xquery/VISPProject/GetAnagraficaDealer/transformations/createResponseGetAnagraficaDealer",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/VISPProject/GetAnagraficaDealer/businessService/BS_JCA_VISP_ANAGRAFICA_DEALER" : {
+            "label" : "BusinessService/VISPProject/GetAnagraficaDealer/businessService/BS_JCA_VISP_ANAGRAFICA_DEALER",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/VISPProject/GetAnagraficaDealer/transformations/createRequestGetAnagraficaDealer" : {
+            "label" : "Xquery/VISPProject/GetAnagraficaDealer/transformations/createRequestGetAnagraficaDealer",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/VispProject/GetAnagraficaDealer/wsdl/WS_GET_ANAGRAFICA_DEALER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/VispProject/GetAnagraficaDealer/wsdl/WS_GET_ANAGRAFICA_DEALER",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

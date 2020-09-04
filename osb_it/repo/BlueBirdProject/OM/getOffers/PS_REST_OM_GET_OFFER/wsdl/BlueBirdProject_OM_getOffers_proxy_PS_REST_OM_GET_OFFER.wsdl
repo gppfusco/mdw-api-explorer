@@ -1,0 +1,90 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="PS_REST_OM_GET_OFFER"
+     targetNamespace="http://xmlns.oracle.com/OSBApplicationSky/BlueBirdProject/PS_REST_OM_GET_OFFER"
+     xmlns:tns="http://xmlns.oracle.com/OSBApplicationSky/BlueBirdProject/PS_REST_OM_GET_OFFER"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:inp2="http://www.skytv.it/mdw/data"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <plnk:partnerLinkType name="PS_REST_OM_GET_OFFER">
+        <plnk:role name="PS_REST_OM_GET_OFFERProvider" portType="tns:PS_REST_OM_GET_OFFER_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/OM/getOffers/xsd/XSD_OM_GET_OFFERS.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="getOffers_inputMessage">
+        <wsdl:part name="request" element="inp1:requestGetOffers"/>
+    </wsdl:message>
+    <wsdl:message name="getOffers_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseGetOffers"/>
+    </wsdl:message>
+    <wsdl:message name="getOffers_error404Message">
+        <wsdl:part name="fault_error404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="getOffers_error400Message">
+        <wsdl:part name="fault_error400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="getOffers_error500Message">
+        <wsdl:part name="fault_error500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="appointmentDetails_inputMessage">
+        <wsdl:part name="request" element="inp1:requestGetOffersAppointmentDetails"/>
+    </wsdl:message>
+    <wsdl:message name="appointmentDetails_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseGetOffersAppointmentDetails"/>
+    </wsdl:message>
+    <wsdl:message name="appointmentDetails_fault400Message">
+        <wsdl:part name="fault_fault400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="appointmentDetails_fault500Message">
+        <wsdl:part name="fault_fault500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="appointmentDetails_fault404Message">
+        <wsdl:part name="fault_fault404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:portType name="PS_REST_OM_GET_OFFER_ptt">
+        <wsdl:operation name="getOffers">
+            <wsdl:input message="tns:getOffers_inputMessage"/>
+            <wsdl:output message="tns:getOffers_outputMessage"/>
+            <wsdl:fault name="error404" message="tns:getOffers_error404Message"/>
+            <wsdl:fault name="error400" message="tns:getOffers_error400Message"/>
+            <wsdl:fault name="error500" message="tns:getOffers_error500Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="appointmentDetails">
+            <wsdl:input message="tns:appointmentDetails_inputMessage"/>
+            <wsdl:output message="tns:appointmentDetails_outputMessage"/>
+            <wsdl:fault name="fault400" message="tns:appointmentDetails_fault400Message"/>
+            <wsdl:fault name="fault500" message="tns:appointmentDetails_fault500Message"/>
+            <wsdl:fault name="fault404" message="tns:appointmentDetails_fault404Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PS_REST_OM_GET_OFFER_ptt-binding" type="tns:PS_REST_OM_GET_OFFER_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getOffers">
+            <soap:operation soapAction="getOffers"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="appointmentDetails">
+            <soap:operation soapAction="appointmentDetails"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

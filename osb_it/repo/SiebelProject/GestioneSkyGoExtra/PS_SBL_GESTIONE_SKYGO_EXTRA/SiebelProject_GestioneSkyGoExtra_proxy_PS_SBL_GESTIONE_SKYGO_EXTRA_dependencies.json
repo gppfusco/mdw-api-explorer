@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_GestioneSkyGoExtra_proxy_PS_SBL_GESTIONE_SKYGO_EXTRA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/SkyGoExtra/wsdl/WS_SIE_SKY_GO_EXTRA" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/SkyGoExtra/wsdl/WS_SIE_SKY_GO_EXTRA",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/GestioneSkyGoExtra/pipeline/PL_SBL_GESTIONE_SKYGO_EXTRA" : {
+        "label" : "Pipeline/SiebelProject/GestioneSkyGoExtra/pipeline/PL_SBL_GESTIONE_SKYGO_EXTRA",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/SkyGoExtra/wsdl/WS_SIE_SKY_GO_EXTRA" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/SkyGoExtra/wsdl/WS_SIE_SKY_GO_EXTRA",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SiebelProject/GestioneSkyGoExtra/businessService/BS_SQL_SBL_SKYGO_EXTRA_CHECK" : {
+            "label" : "BusinessService/SiebelProject/GestioneSkyGoExtra/businessService/BS_SQL_SBL_SKYGO_EXTRA_CHECK",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/GestioneSkyGoExtra/transformations/createResponseSkygoExtraCheck" : {
+            "label" : "Xquery/SiebelProject/GestioneSkyGoExtra/transformations/createResponseSkygoExtraCheck",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/GestioneSkyGoExtra/transformations/createRequestSkygoExtraCheck" : {
+            "label" : "Xquery/SiebelProject/GestioneSkyGoExtra/transformations/createRequestSkygoExtraCheck",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

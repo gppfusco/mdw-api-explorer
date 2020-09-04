@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestSetOrderItemsSubType" type="requestSetOrderItemsSubTypeType"/>
+	<xsd:complexType name="requestSetOrderItemsSubTypeType">
+		<xsd:sequence>
+			<xsd:element name="subTypeOrderItem" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

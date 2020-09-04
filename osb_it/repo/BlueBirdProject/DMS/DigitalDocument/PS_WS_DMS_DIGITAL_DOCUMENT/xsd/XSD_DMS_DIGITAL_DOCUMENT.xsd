@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" 
+elementFormDefault="qualified">
+	<xsd:complexType name="requestUpdateStatusDocumentType">
+		<xsd:sequence>
+			<xsd:element name="mdwCustomerId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="mdwAccountId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="mdwDocId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="mdwOrderId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="mdwDocType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="mdwDocStatus" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestUpdateStatusDocument" type="requestUpdateStatusDocumentType"/>
+	<xsd:element name="responseUpdateStatusDocument" type="responseUpdateStatusDocumentType"/>
+	<xsd:complexType name="responseUpdateStatusDocumentType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        
+</xsd:schema>

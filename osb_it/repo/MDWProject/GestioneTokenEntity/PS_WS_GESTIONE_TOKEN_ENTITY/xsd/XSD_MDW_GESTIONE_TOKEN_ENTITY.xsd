@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestTokenizeEntityType">
+    <xsd:sequence>
+      <xsd:element name="mdwEntityType" type="xsd:string"/>
+      <xsd:element name="mdwEntityCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseTokenizeEntityType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="mdwEntityToken" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestTokenizeEntity" type="requestTokenizeEntityType"/>
+  <xsd:element name="responseTokenizeEntity" type="responseTokenizeEntityType"/>
+</xsd:schema>

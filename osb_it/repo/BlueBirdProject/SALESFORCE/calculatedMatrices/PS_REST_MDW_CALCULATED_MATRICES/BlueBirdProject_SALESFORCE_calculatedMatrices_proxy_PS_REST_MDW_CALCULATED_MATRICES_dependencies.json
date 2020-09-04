@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_calculatedMatrices_proxy_PS_REST_MDW_CALCULATED_MATRICES",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_MDW_CALCULATED_MATRICES" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MDW_CALCULATED_MATRICES",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/SALESFORCE/calculatedMatrices/pipeline/PL_REST_MDW_SF_CALCULATED_MATRICES" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/calculatedMatrices/pipeline/PL_REST_MDW_SF_CALCULATED_MATRICES",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/BlueBirdProject/SALESFORCE/calculatedMatrices/transformation/createRequest_CalculatedMatrices" : {
+            "label" : "Xquery/BlueBirdProject/SALESFORCE/calculatedMatrices/transformation/createRequest_CalculatedMatrices",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/SALESFORCE/calculatedMatrices/transformation/createResponse_CalculatedMatrices" : {
+            "label" : "Xquery/BlueBirdProject/SALESFORCE/calculatedMatrices/transformation/createResponse_CalculatedMatrices",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_MDW_CALCULATED_MATRICES" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_MDW_CALCULATED_MATRICES",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF_CACHE_QUERY_BY_SELECT" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF_CACHE_QUERY_BY_SELECT",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:element name="requestNotifyEsitiAttivazione" type="requestNotifyEsitiAttivazioneType"/>
+  <xsd:element name="responseNotifyEsitiAttivazione" type="responseNotifyEsitiAttivazioneType"/>
+
+  <xsd:complexType name="requestNotifyEsitiAttivazioneType">
+    <xsd:sequence>
+      <xsd:element name="SystemSender" type="xsd:string"/>
+      <xsd:element name="Timestamp" type="xsd:string"/>
+      <xsd:element name="mdwListaEsiti">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwEsito" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="mdwIdRichiesta" type="xsd:string"/>
+                  <xsd:element name="esitoAttivazione" type="xsd:string"/>
+                  <xsd:element name="descrizioneEsitoAttivazione" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="responseNotifyEsitiAttivazioneType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="tid" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:element name="mdwEsitoSingolo" type="mdwEsitoType"/>
+
+  <xsd:complexType name="mdwEsitoType">
+    <xsd:sequence>
+      <xsd:element name="mdwIdRichiesta" type="xsd:string"/>
+      <xsd:element name="esitoAttivazione" type="xsd:string"/>
+      <xsd:element name="descrizioneEsitoAttivazione" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+</xsd:schema>

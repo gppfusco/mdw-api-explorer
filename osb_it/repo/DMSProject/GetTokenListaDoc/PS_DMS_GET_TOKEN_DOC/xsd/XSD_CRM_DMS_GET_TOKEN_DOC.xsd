@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetTokenDocType">
+		<xsd:sequence>
+                <xsd:element name="ChannelType" type="xsd:string" minOccurs="0" />
+			<xsd:element name="ListaDocs">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Doc" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="SequenceNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="IdDoc" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetTokenDoc" type="requestGetTokenDocType"/>
+	<xsd:complexType name="responseGetTokenDocType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string"/>
+			<xsd:element name="ListaToken" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Token" minOccurs="1" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="SequenceId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									<xsd:element name="TokenGUID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetTokenDoc" type="responseGetTokenDocType"/>
+</xsd:schema>

@@ -1,0 +1,33 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/rest/REST_CRM_CREA_ESIGENZE_CHIUSE",
+    "name" : "SalesforceProject_WS_CRM_CREA_ESIGENZE_CHIUSE_proxy_PS_REST_CRM_CREA_ESIGENZE_CHIUSE",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\CREA\\ESIGENZE\\CHIUSE\\PS_REST_CRM_CREA_ESIGENZE_CHIUSE",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/rest/REST_CRM_CREA_ESIGENZE_CHIUSE?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SalesforceProject/CreaEsigenzeChiuse/xsd/XSD_CRM_CREA_ESIGENZE_CHIUSE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/CreaEsigenzeChiuse/xsd/XSD_CRM_CREA_ESIGENZE_CHIUSE",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/restErrors",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

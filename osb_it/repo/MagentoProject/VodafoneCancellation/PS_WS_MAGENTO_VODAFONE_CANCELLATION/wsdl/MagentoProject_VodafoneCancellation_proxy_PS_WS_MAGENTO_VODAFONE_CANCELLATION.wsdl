@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Revision: 595 $ -->
+<!-- $LastChangedDate: 2011-09-20 10:12:57 +0100 (Tue, 20 Sep 2011) $ -->
+<!-- $URL: http://svn.sp.vodafone.com/svn/vis_architecture/APIs/trunk/wsdl/vf_nb_external_service_provisioning/vf_nb_external_service_provisioning_service/vf_nb_external_service_provisioning_service_2_0_0.wsdl $ -->
+<wsdl:definitions name="ExternalServiceProvisioningService"
+    targetNamespace="http://www.vodafone.com/vf/gig/externalServiceProvisioning/service/v2_0"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:gig_external_service_provisioning_service="http://www.vodafone.com/vf/gig/externalServiceProvisioning/service/v2_0"
+    xmlns:gig_external_service_provisioning_interface="http://www.vodafone.com/vf/gig/externalServiceProvisioning/interface/v2_0"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <wsdl:import namespace="http://www.vodafone.com/vf/gig/externalServiceProvisioning/interface/v2_0" location="vf_nb_external_service_provisioning_interface_2_0_0.wsdl" />
+
+    <wsdl:binding name="ExternalServiceProvisioningInterfaceBinding" type="gig_external_service_provisioning_interface:ExternalServiceProvisioningInterface">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+
+        <wsdl:operation name="createExternalAccount">
+            <soap:operation soapAction="http://gig_external_service_provisioning_service/ExternalServiceProvisioningService/createExternalAccount/" />
+            <wsdl:input>
+                <soap:header message="gig_external_service_provisioning_interface:vfExtendedHeader" part="vfExtendedHeader" use="literal"/>
+                <soap:body parts="request" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="gig_external_service_provisioning_interface:vfHeader" part="vfHeader" use="literal"/>
+                <soap:body parts="response" use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="policyFault">
+                <soap:fault name="policyFault" use="literal" />
+            </wsdl:fault>
+    
+        <wsdl:fault name="serviceFault">
+                <soap:fault name="serviceFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateExternalAccount">
+            <soap:operation soapAction="http://gig_external_service_provisioning_service/ExternalServiceProvisioningService/updateExternalAccount/" />
+            <wsdl:input>
+                <soap:header message="gig_external_service_provisioning_interface:vfExtendedHeader" part="vfExtendedHeader" use="literal"/>
+                <soap:body parts="request" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="gig_external_service_provisioning_interface:vfHeader" part="vfHeader" use="literal"/>
+                <soap:body parts="response" use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="policyFault">
+                <soap:fault name="policyFault" use="literal" />
+            </wsdl:fault>
+    
+        <wsdl:fault name="serviceFault">
+                <soap:fault name="serviceFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="orderService">
+            <soap:operation soapAction="http://gig_external_service_provisioning_service/ExternalServiceProvisioningService/orderService/" />
+            <wsdl:input>
+                <soap:header message="gig_external_service_provisioning_interface:vfExtendedHeader" part="vfExtendedHeader" use="literal"/>
+                <soap:body parts="request" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="gig_external_service_provisioning_interface:vfHeader" part="vfHeader" use="literal"/>
+                <soap:body parts="response" use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="policyFault">
+                <soap:fault name="policyFault" use="literal" />
+            </wsdl:fault>
+    
+        <wsdl:fault name="serviceFault">
+                <soap:fault name="serviceFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateService">
+            <soap:operation soapAction="http://gig_external_service_provisioning_service/ExternalServiceProvisioningService/updateService/" />
+            <wsdl:input>
+                <soap:header message="gig_external_service_provisioning_interface:vfExtendedHeader" part="vfExtendedHeader" use="literal"/>
+                <soap:body parts="request" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="gig_external_service_provisioning_interface:vfHeader" part="vfHeader" use="literal"/>
+                <soap:body parts="response" use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="policyFault">
+                <soap:fault name="policyFault" use="literal" />
+            </wsdl:fault>
+    
+        <wsdl:fault name="serviceFault">
+                <soap:fault name="serviceFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveService">
+            <soap:operation soapAction="http://gig_external_service_provisioning_service/ExternalServiceProvisioningService/retrieveService/" />
+            <wsdl:input>
+                <soap:header message="gig_external_service_provisioning_interface:vfExtendedHeader" part="vfExtendedHeader" use="literal"/>
+                <soap:body parts="request" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="gig_external_service_provisioning_interface:vfHeader" part="vfHeader" use="literal"/>
+                <soap:body parts="response" use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="policyFault">
+                <soap:fault name="policyFault" use="literal" />
+            </wsdl:fault>
+    
+        <wsdl:fault name="serviceFault">
+                <soap:fault name="serviceFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="createHierarchyNode">
+            <soap:operation soapAction="http://gig_external_service_provisioning_service/ExternalServiceProvisioningService/createHierarchyNode/" />
+            <wsdl:input>
+                <soap:header message="gig_external_service_provisioning_interface:vfExtendedHeader" part="vfExtendedHeader" use="literal"/>
+                <soap:body parts="request" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="gig_external_service_provisioning_interface:vfHeader" part="vfHeader" use="literal"/>
+                <soap:body parts="response" use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="policyFault">
+                <soap:fault name="policyFault" use="literal" />
+            </wsdl:fault>
+    
+        <wsdl:fault name="serviceFault">
+                <soap:fault name="serviceFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateHierarchyNode">
+            <soap:operation soapAction="http://gig_external_service_provisioning_service/ExternalServiceProvisioningService/updateHierarchyNode/" />
+            <wsdl:input>
+                <soap:header message="gig_external_service_provisioning_interface:vfExtendedHeader" part="vfExtendedHeader" use="literal"/>
+                <soap:body parts="request" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="gig_external_service_provisioning_interface:vfHeader" part="vfHeader" use="literal"/>
+                <soap:body parts="response" use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="policyFault">
+                <soap:fault name="policyFault" use="literal" />
+            </wsdl:fault>
+    
+        <wsdl:fault name="serviceFault">
+                <soap:fault name="serviceFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="retrieveHierarchyNode">
+            <soap:operation soapAction="http://gig_external_service_provisioning_service/ExternalServiceProvisioningService/retrieveHierarchyNode/" />
+            <wsdl:input>
+                <soap:header message="gig_external_service_provisioning_interface:vfExtendedHeader" part="vfExtendedHeader" use="literal"/>
+                <soap:body parts="request" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="gig_external_service_provisioning_interface:vfHeader" part="vfHeader" use="literal"/>
+                <soap:body parts="response" use="literal" />
+            </wsdl:output>
+            <wsdl:fault name="policyFault">
+                <soap:fault name="policyFault" use="literal" />
+            </wsdl:fault>
+    
+        <wsdl:fault name="serviceFault">
+                <soap:fault name="serviceFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="ExternalServiceProvisioningInterface">
+        <wsdl:port binding="gig_external_service_provisioning_service:ExternalServiceProvisioningInterfaceBinding" name="ExternalServiceProvisioningInterfacePort">
+            <soap:address
+                location="http://gig_external_service_provisioning_service/ExternalServiceProvisioningService/ExternalServiceProvisioningInterface/ExternalServiceProvisioningInterfacePort" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

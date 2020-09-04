@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestGetBalanceFullType">
+    <xsd:sequence>
+      <xsd:element name="DataOra" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IdUtenza" type="xsd:string" maxOccurs="1"/>
+      <xsd:element name="NumeroFatture" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Contesto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGetBalanceFullType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+      <xsd:element name="Result" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ImportoVariabile" minOccurs="0" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="CodiceFiscale" minOccurs="0" type="xsd:string" maxOccurs="1"/>
+            <xsd:element name="NomeIntestatario" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="StatoContratto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="ImportoPenale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="ImportoCanoni" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="ImportoPenaliApparati" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="SpeseRecuperoCrediti" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="Sconti" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="ImportoBalance" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="Note" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="listaFatture" type="listaFattureType2" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="listaFattureType2">
+    <xsd:sequence>
+      <xsd:element name="fattura" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DataScadenzaFattura" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="DataEmissioneFattura" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="NumeroFattura" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="importoFatturaDovuto" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="importoTotaleFattura" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetBalanceFull" type="requestGetBalanceFullType"/>
+  <xsd:element name="responseGetBalanceFull" type="responseGetBalanceFullType"/>
+</xsd:schema>

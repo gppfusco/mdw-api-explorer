@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:element name="requestRestMDCheckCopertura" type="requestRestMDCheckCoperturaType" />
+  <xsd:complexType name="requestRestMDCheckCoperturaType">
+    <xsd:sequence>
+      <xsd:element name="istatCode" minOccurs="1" maxOccurs="1">
+        <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:minLength value="1"/>
+            </xsd:restriction>
+          </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="responseRestMDCheckCopertura" type="responseRestMDCheckCoperturaType" />
+  <xsd:complexType name="responseRestMDCheckCoperturaType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="Tid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="muxList" type="muxListType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="muxListType">
+      <xsd:sequence>
+        <xsd:element name="mux" type="muxType" minOccurs="1" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="muxType">
+      <xsd:sequence>
+        <xsd:element name="muxID" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="channelList" type="channelListType" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="stationList" type="stationListType" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="channelListType">
+      <xsd:sequence>
+        <xsd:element name="channel" type="channelType" minOccurs="0" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="channelType">
+      <xsd:sequence>
+        <xsd:element name="number" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="description" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="stationListType">
+      <xsd:sequence>
+        <xsd:element name="station" type="stationType" minOccurs="1" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="stationType">
+      <xsd:sequence>
+        <xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="frequency" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="polarization" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="coverage" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="municipality" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="province" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="activationDate" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

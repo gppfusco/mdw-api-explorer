@@ -1,0 +1,267 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_CRM_GESTIONE_PPV"
+     targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV"
+     xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_PPV.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd" />
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestINFOWL_Message">
+        <wsdl:part name="part_requestINFOWL" element="inp1:requestINFOWL"/>
+    </wsdl:message>
+    <wsdl:message name="responseINFOWL_Message">
+        <wsdl:part name="part_responseINFOWL" element="inp1:responseINFOWL"/>
+    </wsdl:message>
+    <wsdl:portType name="CRM_GESTIONE_PPV_ptt">
+        <wsdl:operation name="execute_INFOWL">
+            <wsdl:input message="tns:requestINFOWL_Message"/>
+            <wsdl:output message="tns:responseINFOWL_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_SWAPWL">
+            <wsdl:input message="tns:requestSWAPWL_Message"/>
+            <wsdl:output message="tns:responseSWAPWL_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_SSPDIS">
+            <wsdl:input message="tns:requestSSPDIS_Message"/>
+            <wsdl:output message="tns:responseSSPDIS_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_MERWAL">
+            <wsdl:input message="tns:requestMERWAL_Message"/>
+            <wsdl:output message="tns:responseMERWAL_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RSTLIM">
+            <wsdl:input message="tns:requestRSTLIM_Message"/>
+            <wsdl:output message="tns:responseRSTLIM_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_INFOVC">
+            <wsdl:input message="tns:requestINFOVC_Message"/>
+            <wsdl:output message="tns:responseINFOVC_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RICVOU">
+            <wsdl:input message="tns:requestRICVOU_Message"/>
+            <wsdl:output message="tns:responseRICVOU_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RICFAT">
+            <wsdl:input message="tns:requestRICFAT_Message"/>
+            <wsdl:output message="tns:responseRICFAT_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RICCDC">
+            <wsdl:input message="tns:requestRICCDC_Message"/>
+            <wsdl:output message="tns:responseRICCDC_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_SWLSMC">
+            <wsdl:input message="tns:requestSWLSMC_Message"/>
+            <wsdl:output message="tns:responseSWLSMC_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_WL2SMC">
+            <wsdl:input message="tns:requestWL2SMC_Message"/>
+            <wsdl:output message="tns:responsseWL2SMC_Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="Header_Message">
+        <wsdl:part name="part_Header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:message name="requestSWAPWL_Message">
+        <wsdl:part name="part_requestSWAPWL" element="inp1:requestSWAPWL"/>
+    </wsdl:message>
+    <wsdl:message name="responseSWAPWL_Message">
+        <wsdl:part name="part_responseSWAPWL" element="inp1:responseSWAPWL"/>
+    </wsdl:message>
+    <wsdl:message name="requestMERWAL_Message">
+        <wsdl:part name="part_requestMERWAL" element="inp1:requestMERWAL"/>
+    </wsdl:message>
+    <wsdl:message name="responseMERWAL_Message">
+        <wsdl:part name="part_responseMERWAL" element="inp1:responseMERWAL"/>
+    </wsdl:message>
+    <wsdl:message name="requestSSPDIS_Message">
+        <wsdl:part name="part_requestSSPDIS" element="inp1:requestSSPDIS"/>
+    </wsdl:message>
+    <wsdl:message name="responseSSPDIS_Message">
+        <wsdl:part name="part_responseSSPDIS" element="inp1:responseSSPDIS"/>
+    </wsdl:message>
+    <wsdl:message name="requestRSTLIM_Message">
+        <wsdl:part name="part_requestRSTLIM" element="inp1:requestRSTLIM"/>
+    </wsdl:message>
+    <wsdl:message name="responseRSTLIM_Message">
+        <wsdl:part name="part_responseRSTLIM" element="inp1:responseRSTLIM"/>
+    </wsdl:message>
+    <wsdl:message name="requestINFOVC_Message">
+        <wsdl:part name="part_requestINFOVC" element="inp1:requestINFOVC"/>
+    </wsdl:message>
+    <wsdl:message name="responseINFOVC_Message">
+        <wsdl:part name="part_responseINFOVC" element="inp1:responseINFOVC"/>
+    </wsdl:message>
+    <wsdl:message name="requestRICVOU_Message">
+        <wsdl:part name="part_requestRICVOU" element="inp1:requestRICVOU"/>
+    </wsdl:message>
+    <wsdl:message name="responseRICVOU_Message">
+        <wsdl:part name="part_responseRICVOU" element="inp1:responseRICVOU"/>
+    </wsdl:message>
+    <wsdl:message name="requestRICFAT_Message">
+        <wsdl:part name="part_requestRICFAT" element="inp1:requestRICFAT"/>
+    </wsdl:message>
+    <wsdl:message name="responseRICFAT_Message">
+        <wsdl:part name="part_responseRICFAT" element="inp1:responseRICFAT"/>
+    </wsdl:message>
+    <wsdl:message name="requestRICCDC_Message">
+        <wsdl:part name="part_requestRICCDC" element="inp1:requestRICCDC"/>
+    </wsdl:message>
+    <wsdl:message name="responseRICCDC_Message">
+        <wsdl:part name="part_responseRICCDC" element="inp1:responseRICCDC"/>
+    </wsdl:message>
+    <wsdl:message name="requestSWLSMC_Message">
+        <wsdl:part name="part_requestSWLSMC" element="inp1:requestSWLSMC"/>
+    </wsdl:message>
+    <wsdl:message name="responseSWLSMC_Message">
+        <wsdl:part name="part_responseSWLSMC" element="inp1:responseSWLSMC"/>
+    </wsdl:message>
+    <wsdl:message name="requestWL2SMC_Message">
+        <wsdl:part name="part_requestWL2SMC" element="inp1:requestWL2SMC"/>
+    </wsdl:message>
+    <wsdl:message name="responsseWL2SMC_Message">
+        <wsdl:part name="part_responseWL2SMC" element="inp1:responseWL2SMC"/>
+    </wsdl:message>
+    <wsdl:binding name="CRM_GESTIONE_PPV_bind" type="tns:CRM_GESTIONE_PPV_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_INFOWL">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV/execute_INFOWL"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestINFOWL"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseINFOWL"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_SWAPWL">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV/execute_SWAPWL"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestSWAPWL"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseSWAPWL"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_SSPDIS">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV/execute_SSPDIS"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestSSPDIS"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseSSPDIS"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_MERWAL">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV/execute_MERWAL"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestMERWAL"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseMERWAL"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RSTLIM">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV/execute_RSTLIM"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestRSTLIM"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseRSTLIM"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_INFOVC">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV/execute_INFOVC"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestINFOVC"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseINFOVC"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RICVOU">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV/execute_RICVOU"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestRICVOU"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseRICVOU"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RICFAT">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV/execute_RICFAT"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestRICFAT"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseRICFAT"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_RICCDC">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV/execute_RICCDC"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestRICCDC"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseRICCDC"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_SWLSMC">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV/execute_SWLSMC"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestSWLSMC"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseSWLSMC"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_WL2SMC">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_PPV/execute_WL2SMC"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestWL2SMC"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseWL2SMC"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

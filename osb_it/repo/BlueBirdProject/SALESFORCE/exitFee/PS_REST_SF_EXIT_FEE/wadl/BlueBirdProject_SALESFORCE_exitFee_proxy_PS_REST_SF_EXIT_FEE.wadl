@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSB_SVIL/BlueBirdProject/PS_REST_SF_EXIT_FEE" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/exitFee/xsd/XSD_SF_EXIT_FEE.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/retrieveExitFee">
+         <method name="GET" soa:wsdlOperation="retrieveExitFee">
+            <request>
+               <param name="channel" style="query" soa:expression="$msg.request/ns0:channel" default="" type="xsd:string"/>
+               <param name="feeInfoCode" style="query" soa:expression="$msg.request/ns0:feeInfoCode" default="" type="xsd:string"/>
+               <param name="operationCode" style="query" soa:expression="$msg.request/ns0:operationCode" default="" type="xsd:string"/>
+               <param name="e2eContractId" style="query" soa:expression="$msg.request/ns0:e2eContractId" default="" type="xsd:string"/>
+               <param name="contractId" style="query" soa:expression="$msg.request/ns0:contractId" default="" type="xsd:string"/>
+               <param name="churnReason" style="query" soa:expression="$msg.request/ns0:churnReason" default="" type="xsd:string"/>
+               <param name="churnTypeTV" style="query" soa:expression="$msg.request/ns0:churnTypeTV" default="" type="xsd:string"/>
+               <param name="churnTypeBB" style="query" soa:expression="$msg.request/ns0:churnTypeBB" default="" type="xsd:string"/>
+               <param name="contractComponent" style="query" soa:expression="$msg.request/ns0:contractComponent" default="" type="xsd:string"/>
+               <param name="requestDate" style="query" soa:expression="$msg.request/ns0:requestDate" default="" type="xsd:date"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/xml" element="cns:responseRetrieveExitFee" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

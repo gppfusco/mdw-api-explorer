@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/SIE_ATTIVAZIONE_SMC_SOST" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_SIE_ATTIVAZIONE_SMC_SOST" targetNamespace="http://www.skytv.it/mdw/service/SIE_ATTIVAZIONE_SMC_SOST">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SIE_ATTIVAZIONE_SMC_SOST.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestAttivazioneSmcSost_message">
+		<wsdl:part name="part_requestAttivazioneSmcSost" element="inp1:requestAttivazioneSmcSost"/>
+	</wsdl:message>
+	<wsdl:message name="responseAttivazioneSmcSost_message">
+		<wsdl:part name="part_responseAttivazioneSmcSost" element="inp1:responseAttivazioneSmcSost"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="SIE_ATTIVAZIONE_SMC_SOST_ptt">
+		<wsdl:operation name="execute_AttivazioneSmcSost">
+			<wsdl:input message="tns:requestAttivazioneSmcSost_message"/>
+			<wsdl:output message="tns:responseAttivazioneSmcSost_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SIE_ATTIVAZIONE_SMC_SOST_pttSOAP11Binding" type="tns:SIE_ATTIVAZIONE_SMC_SOST_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_AttivazioneSmcSost">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SIE_ATTIVAZIONE_SMC_SOST/execute_AttivazioneSmcSost" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestAttivazioneSmcSost" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseAttivazioneSmcSost" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

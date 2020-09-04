@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestCancelMigrationRequest" type="requestCancelMigrationRequestType"/>
+  <xsd:element name="responseCancelMigrationRequest" type="responseCancelMigrationRequestType"/>
+
+  <xsd:complexType name="requestCancelMigrationRequestType">
+    <xsd:sequence>
+      <xsd:element name="CodiceOperatoreRecipient" type="xsd:string"/>
+      <xsd:element name="CodiceOrdineRecipient" type="xsd:string"/>
+      <xsd:element name="CodiceOLODonating" type="xsd:string"/>
+      <xsd:element name="CodiceRisorsa1" type="xsd:string"/>
+      <xsd:element name="CodiceServizio1" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="responseCancelMigrationRequestType">
+    <xsd:sequence>
+      <xsd:element name="errorCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="errorDescription" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+	<xsd:element name="requestNotifyMigrationRequest" type="requestNotifyMigrationRequestType"/>
+	<xsd:element name="responseNotifyMigrationRequest" type="responseNotifyMigrationRequestType"/>
+
+	<xsd:complexType name="requestNotifyMigrationRequestType">
+		<xsd:sequence>
+			<xsd:element name="Action" type="xsd:string"/>
+			<xsd:element name="CodiceOperatoreRecipient" type="xsd:string"/>
+			<xsd:element name="CodiceOLODonating" type="xsd:string"/>
+			<xsd:element name="CodiceOrdineRecipient" type="xsd:string"/>
+			<xsd:element name="CodiceRisorsa1" type="xsd:string"/>
+			<xsd:element name="CodiceServizio1" type="xsd:string"/>
+			<xsd:element name="CodiceRisorsa2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceServizio2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomeCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CognomeClienteRagioneSociale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceFiscalePartitaIVA" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Note" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber5" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber6" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber7" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber8" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber9" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber10" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber11" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber12" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber13" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber14" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ErrorCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ErrorDescription" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="responseNotifyMigrationRequestType">
+		<xsd:sequence>
+			<xsd:element name="errorCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorDescription" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="requestVerifyMigrationRequest" type="requestVerifyMigrationRequestType"/>
+	<xsd:element name="responseVerifyMigrationRequest" type="responseVerifyMigrationRequestType"/>
+	<xsd:complexType name="requestVerifyMigrationRequestType">
+		<xsd:sequence>
+			<xsd:element name="CodiceOperatoreRecipient" type="xsd:string"/>
+			<xsd:element name="CodiceOrdineRecipient" type="xsd:string"/>
+			<xsd:element name="CodiceOLODonating" type="xsd:string"/>
+			<xsd:element name="CodiceRisorsa1" type="xsd:string"/>
+			<xsd:element name="CodiceServizio1" type="xsd:string"/>
+			<xsd:element name="CodiceRisorsa2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceServizio2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomeCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CognomeClienteRagioneSociale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceFiscalePartitaIVA" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Note" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber3" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber4" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber5" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber6" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber7" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber8" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber9" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DirectoryNumber10" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseVerifyMigrationRequestType">
+		<xsd:sequence>
+			<xsd:element name="errorCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorDescription" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

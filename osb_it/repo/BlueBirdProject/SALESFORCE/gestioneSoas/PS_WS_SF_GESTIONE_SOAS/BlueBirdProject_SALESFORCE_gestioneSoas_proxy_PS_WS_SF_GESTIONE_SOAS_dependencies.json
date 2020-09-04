@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_gestioneSoas_proxy_PS_WS_SF_GESTIONE_SOAS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/SALESFORCE/gestioneSoas/pipeline/PL_WS_SF_GESTIONE_SOAS" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/gestioneSoas/pipeline/PL_WS_SF_GESTIONE_SOAS",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/gestioneSoas/wsdl/WSDL_SF_GESTIONE_SOAS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/gestioneSoas/wsdl/WSDL_SF_GESTIONE_SOAS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/SALESFORCE/gestioneSoas/pipeline/PL_WS_SF_GESTIONE_SOAS_UpdateCaseSoas" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/gestioneSoas/pipeline/PL_WS_SF_GESTIONE_SOAS_UpdateCaseSoas",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/gestioneSoas/wsdl/WSDL_SF_GESTIONE_SOAS" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/gestioneSoas/wsdl/WSDL_SF_GESTIONE_SOAS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SALESFORCE/gestioneSoas/transformations/CreateRequest_BS_UpdateCaseSoas" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/gestioneSoas/transformations/CreateRequest_BS_UpdateCaseSoas",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/transformation/createSimpleResponseEnglilsh" : {
+                "label" : "Xquery/MDW_CO/transformation/createSimpleResponseEnglilsh",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/gestioneSoas/wsdl/WSDL_SF_GESTIONE_SOAS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/gestioneSoas/wsdl/WSDL_SF_GESTIONE_SOAS",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_PPV" xmlns:mdata="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_CRM_GESTIONE_EVENTI_PPV" targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_PPV">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_EVENTI_PPV.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestPALTVOD_Message">
+		<wsdl:part name="part_requestPALTVOD" element="mdata:requestPALTVOD"/>
+		
+	</wsdl:message>
+	<wsdl:message name="responsePALTVOD_Message">
+		<wsdl:part name="part_responsePALTVOD" element="mdata:responsePALTVOD"/>
+		
+	</wsdl:message>
+	<wsdl:message name="requestPALOPPV_Message">
+		<wsdl:part name="part_requestPALOPPV" element="mdata:requestPALOPPV"/>
+		
+	</wsdl:message>
+	<wsdl:message name="responsePALOPPV_Message">
+		<wsdl:part name="part_responsePALOPPV" element="mdata:responsePALOPPV"/>
+		
+	</wsdl:message>
+		<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="mdata:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="GESTIONE_EVENTI_PPV_ptt">
+		<wsdl:operation name="execute_PALTVOD">
+			<wsdl:input message="tns:requestPALTVOD_Message"/>
+			<wsdl:output message="tns:responsePALTVOD_Message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_PALOPPV">
+			<wsdl:input message="tns:requestPALOPPV_Message"/>
+			<wsdl:output message="tns:responsePALOPPV_Message"/>
+		</wsdl:operation>
+  <wsdl:operation name="execute_GetPalinsestoPPV">
+   <wsdl:input message="tns:requestGetPalinsestoPPV_Message"/>
+   <wsdl:output message="tns:responseGetPalinsestoPPV_Message"/>
+  </wsdl:operation>
+ </wsdl:portType>
+	<wsdl:service name="GESTIONE_EVENTI_PPV_ptt">
+		<wsdl:port name="GESTIONE_EVENTI_PPV_pttPort" binding="tns:GESTIONE_EVENTI_PPV_pttSOAP11Binding">
+			<soap:address location="http://www.example.com"/>
+		</wsdl:port>
+	</wsdl:service>
+ <wsdl:message name="requestGetPalinsestoPPV_Message">
+  <wsdl:part name="part_requestPalinsestoPPV" element="mdata:requestGetPalinsestoPPV"/>
+ </wsdl:message>
+ <wsdl:message name="responseGetPalinsestoPPV_Message">
+  <wsdl:part name="part_responseGetPalinsestoPPV" element="mdata:responseGetPalinsestoPPV"/>
+ </wsdl:message>
+ <wsdl:binding name="GESTIONE_EVENTI_PPV_pttSOAP11Binding" type="tns:GESTIONE_EVENTI_PPV_ptt">
+  <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <wsdl:operation name="execute_PALTVOD">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_PPV/execute_PALTVOD"/>
+   <wsdl:input>
+    <soap:body use="literal" parts="part_requestPALTVOD"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:body use="literal" parts="part_responsePALTVOD"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_PALOPPV">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_PPV/execute_PALOPPV"/>
+   <wsdl:input>
+    <soap:body use="literal" parts="part_requestPALOPPV"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:body use="literal" parts="part_responsePALOPPV"/>
+   </wsdl:output>
+  </wsdl:operation>
+  <wsdl:operation name="execute_GetPalinsestoPPV">
+   <soap:operation style="document"
+                   soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_PPV/execute_GetPalinsestoPPV"/>
+   <wsdl:input>
+    <soap:body use="literal" parts="part_requestPalinsestoPPV"/>
+   </wsdl:input>
+   <wsdl:output>
+    <soap:body use="literal" parts="part_responseGetPalinsestoPPV"/>
+   </wsdl:output>
+  </wsdl:operation>
+ </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_WS_GESTIONE_WALLET_proxy_PS_WS_MDW_GESTIONE_WALLET_PUB",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET_PUB" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET_PUB",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_GetEWalletFlg" : {
+        "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_GetEWalletFlg",
+        "properties" : { },
+        "successors" : {
+          "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_GetEWalletFlg" : {
+            "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_GetEWalletFlg",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_GetEWalletFlg" : {
+            "label" : "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_GetEWalletFlg",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_GetEWalletFlg" : {
+            "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_GetEWalletFlg",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

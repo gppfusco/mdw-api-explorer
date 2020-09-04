@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetServiceRequest" type="requestGetServiceRequestType"/>
+	<xsd:complexType name="requestGetServiceRequestType">
+		<xsd:sequence>
+			<xsd:element name="IDSalesforce" type="xsd:string"/>
+			<xsd:element name="CaseNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetServiceRequest" type="responseGetServiceRequestType"/>
+	<xsd:complexType name="responseGetServiceRequestType">
+		<xsd:sequence>
+			<xsd:element name="CodiceErrore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfActivity" type="listOfActivityType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="listOfActivityType">
+		<xsd:sequence>
+			<xsd:element name="Activity" type="activityType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="activityType">
+		<xsd:sequence>
+			<xsd:element name="DataFine" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataInizio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Description" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomeAttivita" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Note" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SkyID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Sottostato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Stato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Type" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="UserName" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

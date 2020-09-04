@@ -1,0 +1,63 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "UtilsProject_testMario_mutual_PS_WS_TEST_MUTUAL_AGENDA_MGMT_TOOL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/UtilsProject/testMario/mutual/PL_WS_TEST_MUTUAL_AGENDA_MGMT_TOOL" : {
+        "label" : "Pipeline/UtilsProject/testMario/mutual/PL_WS_TEST_MUTUAL_AGENDA_MGMT_TOOL",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/UtilsProject/testMario/mutual/PL_WS_TEST_MUTUAL_AGENDA_MGMT_TOOL_internal" : {
+            "label" : "Pipeline/UtilsProject/testMario/mutual/PL_WS_TEST_MUTUAL_AGENDA_MGMT_TOOL_internal",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_REST_AGENDA_MGMT_TOOL_APPOINTMENTS" : {
+                "label" : "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_REST_AGENDA_MGMT_TOOL_APPOINTMENTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CO/wsdl/WS_FAKE" : {
+                "label" : "WSDL/MDW_CO/wsdl/WS_FAKE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CO/wsdl/WS_FAKE" : {
+            "label" : "WSDL/MDW_CO/wsdl/WS_FAKE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CO/wsdl/WS_FAKE" : {
+        "label" : "WSDL/MDW_CO/wsdl/WS_FAKE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "ServiceProvider/BlueBirdProject/OSS/appointmentManagement/TEST_MUTUAL_AGENDA/agenda" : {
+        "label" : "ServiceProvider/BlueBirdProject/OSS/appointmentManagement/TEST_MUTUAL_AGENDA/agenda",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

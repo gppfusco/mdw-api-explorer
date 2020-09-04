@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_proxy_PS_WS_CRM_SIE_ENABLE_PLUGIN",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/EnablePlugin/wsdl/WS_CRM_SIE_ENABLE_PLUGIN" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/EnablePlugin/wsdl/WS_CRM_SIE_ENABLE_PLUGIN",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_ENABLE_PLUGIN_DBCALL" : {
+        "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_ENABLE_PLUGIN_DBCALL",
+        "properties" : { },
+        "successors" : {
+          "Xquery/SiebelProject/transformations/createSimpleResponseWithTidAsync" : {
+            "label" : "Xquery/SiebelProject/transformations/createSimpleResponseWithTidAsync",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/EnablePlugin/wsdl/WS_CRM_SIE_ENABLE_PLUGIN" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/EnablePlugin/wsdl/WS_CRM_SIE_ENABLE_PLUGIN",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SiebelProject/businessService/BS_SQL_SIE_ENABLE_PLUGIN" : {
+            "label" : "BusinessService/SiebelProject/businessService/BS_SQL_SIE_ENABLE_PLUGIN",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/transformations/createRequest_BS_SQL_SIE_ENABLE_PLUGIN" : {
+            "label" : "Xquery/SiebelProject/transformations/createRequest_BS_SQL_SIE_ENABLE_PLUGIN",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

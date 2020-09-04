@@ -1,0 +1,90 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_ESIGENZE_TELECOM_proxy_PS_WS_CRM_ESIGENZE_TELECOM",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/pipeline/PL_WS_GET_ESIGENZE_TELECOM" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/pipeline/PL_WS_GET_ESIGENZE_TELECOM",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/EsigenzeTelecom/wsdl/WS_CRM_ESIGENZE_TELECOM" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/EsigenzeTelecom/wsdl/WS_CRM_ESIGENZE_TELECOM",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/transformation/createRequest_EJBSF_QUERY_ESIG_TI_Query2" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/transformation/createRequest_EJBSF_QUERY_ESIG_TI_Query2",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/transformation/createResponseOK" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/transformation/createResponseOK",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/transformation/createResponse_EJBSF_QUERY_ESIG_TI_Query1" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/transformation/createResponse_EJBSF_QUERY_ESIG_TI_Query1",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/transformation/createResponseKO" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/transformation/createResponseKO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/pipeline/PL_INTERNAL_GET_ESIGENZE_QUERY2" : {
+            "label" : "Pipeline/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/pipeline/PL_INTERNAL_GET_ESIGENZE_QUERY2",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/EsigenzeTelecom/wsdl/WS_CRM_ESIGENZE_TELECOM" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/EsigenzeTelecom/wsdl/WS_CRM_ESIGENZE_TELECOM",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/transformation/createRequest_EJBSFQUERY_ESIG_TI_Query1" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_ESIGENZE_TELECOM/transformation/createRequest_EJBSFQUERY_ESIG_TI_Query1",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/EsigenzeTelecom/wsdl/WS_CRM_ESIGENZE_TELECOM" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/EsigenzeTelecom/wsdl/WS_CRM_ESIGENZE_TELECOM",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

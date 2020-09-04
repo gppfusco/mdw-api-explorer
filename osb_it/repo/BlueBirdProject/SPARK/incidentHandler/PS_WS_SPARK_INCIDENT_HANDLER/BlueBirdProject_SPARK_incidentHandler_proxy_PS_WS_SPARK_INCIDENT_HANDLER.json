@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/spark/WS_SPARK_INCIDENT_HANDLER",
+    "name" : "BlueBirdProject_SPARK_incidentHandler_proxy_PS_WS_SPARK_INCIDENT_HANDLER",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\SPARK\\incidentHandler\\PS_WS_SPARK_INCIDENT_HANDLER",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/spark/WS_SPARK_INCIDENT_HANDLER?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/SPARK/incidentHandler/xsd/XSD_SPARK_INCIDENT_HANDLER",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_SalesforceToRidSEDA_CreateBankXML_proxy_PS_WS_SEDA_CREATE_BANK_XML",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/CreateBankXML/wsdl/WS_SEDA_CREATE_BANK_XML" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/CreateBankXML/wsdl/WS_SEDA_CREATE_BANK_XML",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/SalesforceToRidSEDA/CreateBankXML/pipeline/PL_WS_SEDA_CREATE_XML_BANK_ENQUEUE" : {
+        "label" : "Pipeline/MDWProject/SalesforceToRidSEDA/CreateBankXML/pipeline/PL_WS_SEDA_CREATE_XML_BANK_ENQUEUE",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/CreateBankXML/wsdl/WS_SEDA_CREATE_BANK_XML" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/CreateBankXML/wsdl/WS_SEDA_CREATE_BANK_XML",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDWProject/SalesforceToRidSEDA/businessService/BS_JMS_SEDA_ENQUEUE" : {
+            "label" : "BusinessService/MDWProject/SalesforceToRidSEDA/businessService/BS_JMS_SEDA_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/SalesforceToRidSEDA/CreateBankXML/transformation/createResponse_WS_SEDA_CREATE_BANK_XML" : {
+            "label" : "Xquery/MDWProject/SalesforceToRidSEDA/CreateBankXML/transformation/createResponse_WS_SEDA_CREATE_BANK_XML",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

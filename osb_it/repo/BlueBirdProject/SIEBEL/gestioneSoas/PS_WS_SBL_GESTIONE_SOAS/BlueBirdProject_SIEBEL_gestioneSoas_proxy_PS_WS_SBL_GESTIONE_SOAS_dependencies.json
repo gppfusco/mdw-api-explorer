@@ -1,0 +1,73 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SIEBEL_gestioneSoas_proxy_PS_WS_SBL_GESTIONE_SOAS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/SIEBEL/gestioneSoas/pipeline/PL_WS_SBL_GESTIONE_SOAS" : {
+        "label" : "Pipeline/BlueBirdProject/SIEBEL/gestioneSoas/pipeline/PL_WS_SBL_GESTIONE_SOAS",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/BlueBirdProject/SIEBEL/gestioneSoas/pipeline/PL_WS_GESTIONE_SOAS_INTERNAL_INSERT_SOAS" : {
+            "label" : "Pipeline/BlueBirdProject/SIEBEL/gestioneSoas/pipeline/PL_WS_GESTIONE_SOAS_INTERNAL_INSERT_SOAS",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SIEBEL/GestioneSoas/wsdl/WSDL_SBL_GESTIONE_SOAS" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SIEBEL/GestioneSoas/wsdl/WSDL_SBL_GESTIONE_SOAS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SIEBEL/gestioneSoas/transformation/createRequestGestioneSoasInsert" : {
+                "label" : "Xquery/BlueBirdProject/SIEBEL/gestioneSoas/transformation/createRequestGestioneSoasInsert",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SIEBEL/gestioneSoas/transformation/createResponseGestioneSoas" : {
+                "label" : "Xquery/BlueBirdProject/SIEBEL/gestioneSoas/transformation/createResponseGestioneSoas",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SIEBEL/GestioneSoas/wsdl/WSDL_SBL_GESTIONE_SOAS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SIEBEL/GestioneSoas/wsdl/WSDL_SBL_GESTIONE_SOAS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SIEBEL/GestioneSoas/wsdl/WSDL_SBL_GESTIONE_SOAS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SIEBEL/GestioneSoas/wsdl/WSDL_SBL_GESTIONE_SOAS",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<wsdl:definitions name="WS_NETFLIX_HANDLING" targetNamespace="http://www.skytv.it/mdw/data/NETFLIX_HANDLING" xmlns:tns="http://www.skytv.it/mdw/data/NETFLIX_HANDLING" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:mdata="http://www.skytv.it/mdw/data">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_NETFLIX_HANDLING.xsd"/>
+             <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestUpgradeNetflixMessage">
+        <wsdl:part name="part_requestUpgradeNetflix" element="inp1:requestUpgradeNetflix"/>
+    </wsdl:message>
+    <wsdl:message name="replyUpgradeMessage">
+        <wsdl:part name="part_responseUpgradeNetflix" element="inp1:responseUpgradeNetflix"/>
+    </wsdl:message>
+    <wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="mdata:Header"/>
+	</wsdl:message>
+    <wsdl:portType name="NETFLIX_HANDLING_ptt">
+        <wsdl:operation name="execute_UpgradeNetflix">
+            <wsdl:input message="tns:requestUpgradeNetflixMessage"/>
+            <wsdl:output message="tns:replyUpgradeMessage"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_DowngradeNetflix">
+            <wsdl:input message="tns:requestDowngradeNetflix"/>
+            <wsdl:output message="tns:replyDowngradeNetflixMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="requestDowngradeNetflix">
+        <wsdl:part name="part_requestDowngradeNetflix" element="inp1:requestDowngradeNetflix"/>
+    </wsdl:message>
+    <wsdl:message name="replyDowngradeNetflixMessage">
+        <wsdl:part name="part_responseDowngradeNetflix" element="inp1:responseDowngradeNetflix"/>
+    </wsdl:message>
+    <wsdl:binding name="NETFLIX_HANDLING_pttSOAP11Binding" type="tns:NETFLIX_HANDLING_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_UpgradeNetflix">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/data/NETFLIX_HANDLING/execute_UpgradeNetflix"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestUpgradeNetflix"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseUpgradeNetflix"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_DowngradeNetflix">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/data/NETFLIX_HANDLING/execute_DowngradeNetflix"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestDowngradeNetflix"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseDowngradeNetflix"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,51 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_GetCMDMKPI"
+     targetNamespace="http://www.skytv.it/mdw/service/GetCMDMKPI"
+     xmlns:tns="http://www.skytv.it/mdw/service/GetCMDMKPI"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_GetCMDMKPI.xsd"/>
+            	<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    
+    <wsdl:message name="requestGetCMDMKPImessage">
+        <wsdl:part name="requestGetCMDMKPI" element="inp1:requestGetCMDMKPI"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetCMDMKPImessage">
+        <wsdl:part name="responseGetCMDMKPI" element="inp1:responseGetCMDMKPI"/>
+    </wsdl:message>
+    
+    	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="inp1:Header"/>
+	</wsdl:message>
+
+
+    
+    <wsdl:portType name="execute_GetCMDMKPI_ptt">
+        <wsdl:operation name="execute_GetCMDMKPI">
+            <wsdl:input message="tns:requestGetCMDMKPImessage"/>
+            <wsdl:output message="tns:responseGetCMDMKPImessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="execute_GetCMDMKPI" type="tns:execute_GetCMDMKPI_ptt">
+        <soap:binding  transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_GetCMDMKPI">
+            <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/GetCMDMKPI/opGetCMDMKPI"/>
+            <wsdl:input>
+                <soap:body parts="requestGetCMDMKPI" use="literal"/>
+                <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="responseGetCMDMKPI" use="literal"/>
+                <soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,176 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_RESET_SMC_proxy_WS_CRM_RESET_SMC",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_RESET_SMC/pipeline/PL_CRM_RESET_SMC" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_RESET_SMC/pipeline/PL_CRM_RESET_SMC",
+        "properties" : { },
+        "successors" : {
+          "ProxyService/MDWProject/WebTracking/proxy/PS_LOCAL_MDW_WTR_INSERT_TRACKING" : {
+            "label" : "ProxyService/MDWProject/WebTracking/proxy/PS_LOCAL_MDW_WTR_INSERT_TRACKING",
+            "properties" : { },
+            "successors" : {
+              "Pipeline/MDWProject/WebTracking/pipeline/PL_MDW_WTR_INSERT_TRACKING" : {
+                "label" : "Pipeline/MDWProject/WebTracking/pipeline/PL_MDW_WTR_INSERT_TRACKING",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDWProject/WebTracking/businessService/BS_TUX_WTR_INSERT_TRACKING_RECORDS" : {
+                    "label" : "BusinessService/MDWProject/WebTracking/businessService/BS_TUX_WTR_INSERT_TRACKING_RECORDS",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDWProject/WebTracking/transformations/InsertTracking/createResponse_InsertTracking" : {
+                    "label" : "Xquery/MDWProject/WebTracking/transformations/InsertTracking/createResponse_InsertTracking",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDWProject/WebTracking/transformations/InsertTracking/createRequest_InsertTracking" : {
+                    "label" : "Xquery/MDWProject/WebTracking/transformations/InsertTracking/createRequest_InsertTracking",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WebTracking/WS_MDW_WEB_TRACKING/wsdl/WS_MDW_WEB_TRACKING",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+            "properties" : { },
+            "successors" : {
+              "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_RESET_SMC/transformations/createRequestWSCreaEsigenzeChiuse" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_RESET_SMC/transformations/createRequestWSCreaEsigenzeChiuse",
+            "properties" : { },
+            "successors" : { }
+          },
+          "ProxyService/SCMSproject/proxy/local/PS_LOCAL_CRM_INVOKE_CAIF" : {
+            "label" : "ProxyService/SCMSproject/proxy/local/PS_LOCAL_CRM_INVOKE_CAIF",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF" : {
+                "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF",
+                "properties" : { },
+                "successors" : {
+                  "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+                    "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ResetSMC/wsdl/WS_CRM_RESET_SMC" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ResetSMC/wsdl/WS_CRM_RESET_SMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_RESET_SMC/transformations/createRequestSCMS_RSTSUB" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_RESET_SMC/transformations/createRequestSCMS_RSTSUB",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_RESET_SMC/transformations/createResponseWSResetSMC" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_RESET_SMC/transformations/createResponseWSResetSMC",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ResetSMC/wsdl/WS_CRM_RESET_SMC" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ResetSMC/wsdl/WS_CRM_RESET_SMC",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

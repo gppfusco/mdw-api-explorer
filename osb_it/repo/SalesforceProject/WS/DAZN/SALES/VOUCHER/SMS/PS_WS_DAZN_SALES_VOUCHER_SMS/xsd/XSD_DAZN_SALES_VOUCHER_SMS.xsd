@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestPurchaseVoucherSMS" type="requestPurchaseVoucherSMSType"/>
+  <xsd:complexType name="requestPurchaseVoucherSMSType">
+    <xsd:sequence>
+      <xsd:element name="mdwSmcCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwVoucherType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwMobile" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwChannel" minOccurs="1" maxOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:enumeration value="SMS"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responsePurchaseVoucherSMS" type="responsePurchaseVoucherSMSType"/>
+  <xsd:complexType name="responsePurchaseVoucherSMSType">
+    <xsd:sequence>
+        <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>   
+  
+</xsd:schema>

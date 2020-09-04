@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+  xmlns="http://www.skytv.it/mdw/data"
+  targetNamespace="http://www.skytv.it/mdw/data" 
+  elementFormDefault="qualified">
+    <!-- ELEMENTS -->
+  <xsd:element name="requestGetListaCountry" type="requestGetListaCountryType"/>
+  <xsd:element name="responseGetListaCountry" type="responseGetListaCountryType"/>
+
+  <xsd:complexType name="requestGetListaCountryType">
+  </xsd:complexType>
+  
+
+  <xsd:complexType name="responseGetListaCountryType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="Result" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Paesi" maxOccurs="1" minOccurs="0">
+              <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="Paese" maxOccurs="unbounded">
+                  <xsd:complexType>
+                    <xsd:sequence>
+                      <xsd:element name="CodiceISO" type="xsd:string"/>
+                      <xsd:element name="Nazione" type="xsd:string"/>
+                      <xsd:element name="UnioneEUR" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+                </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+     </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  </xsd:schema>

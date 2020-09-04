@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetSTB" type="requestGetSTBType"/>
+	<xsd:complexType name="requestGetSTBType">
+		<xsd:sequence>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Field" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetSTB" type="responseGetSTBType"/>
+	<xsd:complexType name="responseGetSTBType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfSTB" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="STB" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="AltriApparatiHD" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="NumeroMatricola" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="PairingAttivo" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Stato" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="StatoMatricola" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Tecnologia" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ListOfFields" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Field" minOccurs="0" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestInvioComandi" type="requestInvioComandiType"/>
+	<xsd:complexType name="requestInvioComandiType">
+		<xsd:sequence>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ComandoCAIF" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceSMC" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceSTB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GetAuthcodeFlag" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Field" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseInvioComandi" type="responseInvioComandiType"/>
+	<xsd:complexType name="responseInvioComandiType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfAuthcode" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="CodiceAutorizzazione" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Authcode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="DataScadenzaAutomatica" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="DescAuthcode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="TipoAuthcode" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+						<xsd:element name="ListOfFields" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Field" minOccurs="0" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/cti/WS_CRM_CTI_SUBMITTER",
+    "name" : "CTIProject_Submitter_proxy_outbound_PS_WS_CRM_CTI_SUBMITTER",
+    "localPath" : "osb_it\\repo\\CTIProject\\Submitter\\outbound_PS_WS_CRM_CTI_SUBMITTER",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/cti/WS_CRM_CTI_SUBMITTER?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

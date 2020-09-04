@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  
+  <xsd:element name="requestDeleteInfoRequest" type="requestDeleteInfoRequestType" />
+  <xsd:complexType name="requestDeleteInfoRequestType">
+    <xsd:sequence>
+      
+      <xsd:element name="serialNumber" minOccurs="1" maxOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="17" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      
+      <xsd:element name="customerNotificationDate" minOccurs="1" maxOccurs="1">
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      
+      <xsd:element name="recordGenerationDate" minOccurs="1" maxOccurs="1">
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      
+      <xsd:element name="owningCompanyRegion" minOccurs="1" maxOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="IT"/>
+            <xsd:enumeration value="DE"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      
+      <xsd:element name="actionType" minOccurs="1" maxOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="OO"/>
+            <xsd:enumeration value="RF"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:element name="responseDeleteInfoRequest" type="responseDeleteInfoRequestType" />
+  <xsd:complexType name="responseDeleteInfoRequestType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="idPublishedMessage" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

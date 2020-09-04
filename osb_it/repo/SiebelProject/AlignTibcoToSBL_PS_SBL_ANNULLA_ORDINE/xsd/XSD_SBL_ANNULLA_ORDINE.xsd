@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestAnnullaOrdine" type="requestAnnullaOrdineType"/>
+	<xsd:complexType name="requestAnnullaOrdineType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_AnnullaOrdine">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CausaleAnnullamento" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="LoginOperator" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CreditRiskNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="FraudRiskNumber" type="xsd:string" minOccurs="0"/>
+                                                <xsd:element name="Esito_SCMS_SameDay" type="xsd:string" minOccurs="0"/>
+                                                <xsd:element name="Data_Cessazione_SameDay" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseAnnullaOrdine" type="responseAnnullaOrdineType"/>
+	<xsd:complexType name="responseAnnullaOrdineType">
+		<xsd:sequence>
+            
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

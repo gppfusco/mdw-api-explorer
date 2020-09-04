@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+
+        
+    <xsd:element name="requestSetFormatoFattura" type="requestSetFormatoFatturaType" />
+    <xsd:element name="responseSetFormatoFattura" type="responseSetFormatoFatturaType" />
+    
+    
+    
+    <xsd:complexType name="requestSetFormatoFatturaType">
+        <xsd:sequence>
+            <xsd:element name="mdwFormatSendInvoice" minOccurs="1" maxOccurs="1" type="xsd:string" />
+            <xsd:element name="mdwTypeSendInvoice" minOccurs="0" maxOccurs="1" type="xsd:string" />
+            <xsd:element name="mdwTrackingField" minOccurs="0" maxOccurs="1" type="mdwTrackingFieldType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="mdwTrackingFieldType">
+        <xsd:sequence>
+            <xsd:element name="mdwConnId" minOccurs="0" maxOccurs="1" type="xsd:string" />
+            <xsd:element name="mdwOrigin" minOccurs="0" maxOccurs="1" type="xsd:string" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="responseSetFormatoFatturaType">
+        <xsd:sequence>
+            <xsd:element name="Code" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="Descriptions" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="Tid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>    
+    
+    <xsd:element name="responseLeggiDatiContrattoSF" type="responseLeggiDatiContrattoSFType"/>
+    <xsd:complexType name="responseLeggiDatiContrattoSFType">
+        <xsd:sequence>
+            <xsd:element name="Contract" maxOccurs="1" type="ContractType" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+  <xsd:complexType name="ContractType">
+        <xsd:sequence>
+            <xsd:element name="contrId" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrShippingCity" minOccurs="0"  type="xsd:string"/>
+            <xsd:element name="contrStartDate" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrHousingBilling" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrShippingStreet" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrFirstActivationDate" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrFloor" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrPromotion" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrConsumerKey" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrMagazineType" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrDateOdl" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrMatchCodeDwi" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrSiebelExternalId" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrDueDate" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrMntSendMagazineMode" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrMatchCode" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrMntSendMagazineFlg" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrHousing" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrBroadBrandFlg" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrStatus" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrToponymyParticle" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrStatusDpParco" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrMarketCode" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrInternal" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrPayerKey" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrHouseNumber" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrStaircase" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrAntiFraudMv" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrReasonSuspension" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrAnytimeProcessingPersonalDataFlg" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contrSeDateAgeingLoyalty" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="SkyExtraDateElegibilityLoyalty" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="contractStatusTby" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="Account" minOccurs="0" type="AccountType"/>
+            <xsd:element name="Assets" minOccurs="0" type="AssetsType"/>
+            <xsd:element name="DecoderType" minOccurs="0"  type="DecoderTypeType"/>
+            <xsd:element name="AllMop" minOccurs="0"  type="AllMopType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="AccountType">
+        <xsd:sequence>
+            <xsd:element name="AccountPayer" type="AccountPayerType" minOccurs="0"/>
+            <xsd:element name="AccountConsumer" type="AccountConsumerType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="AccountPayerType">
+        <xsd:sequence>
+            <xsd:element name="billMatchCodeDwi" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="billParticTop" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="BillFrequency" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="billBillingFormat" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="billShippingPostalCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="billName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="BillingStreetName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="billStaircase" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="billBillingCity" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="billBillingState" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="billCustomerId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="billMigr28TechDate" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="billApprovalSkyQFlag" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AccountConsumerType">
+        <xsd:sequence>
+            <xsd:element name="custId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AssetType">
+        <xsd:sequence>
+            <xsd:element name="attributes" minOccurs="0" maxOccurs="1" type="xsd:anyType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AssetsType">
+        <xsd:sequence>
+            <xsd:element name="Asset" maxOccurs="unbounded" type="AssetType" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="AllMopType">
+      <xsd:sequence>
+        <xsd:element name="Mop" type="MopType" minOccurs="0" maxOccurs="unbounded" />
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="MopType">
+      <xsd:sequence>
+        <xsd:element name="mopBillingFrequency" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopPaymentMethod" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopPaymentStatus" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopEffectiveDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopCreditCardName" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopCardType" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopCreditCardNumber" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopSubscriberName" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopBankAcctNum" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopIban" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopAbi" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopCab" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopCin" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopExpirationDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopDirectDebitStatus" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopExpYear" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mopExpMonth" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="DecoderTypeType">
+      <xsd:sequence>
+        <xsd:element name="mySky" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="onlySmc" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="outdated" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="mySkyHd" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="seca" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="standard" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="hd" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="falcon" type="xsd:string" minOccurs="0"/>     
+      </xsd:sequence>
+    </xsd:complexType> 
+
+   
+
+    <xsd:complexType name="ResultType">
+        <xsd:sequence>
+            <xsd:element name="Contract" maxOccurs="1" type="ContractType" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+</xsd:schema>

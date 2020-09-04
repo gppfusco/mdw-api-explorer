@@ -1,0 +1,40 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_proxy_PS_WS_CRM_SIE_CONTR_ASYNC",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrAsync/wsdl/WS_CRM_SIE_CONTR_ASYNC" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrAsync/wsdl/WS_CRM_SIE_CONTR_ASYNC",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_ASYNC_ENQUEUE" : {
+        "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_ASYNC_ENQUEUE",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrAsync/wsdl/WS_CRM_SIE_CONTR_ASYNC" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrAsync/wsdl/WS_CRM_SIE_CONTR_ASYNC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SiebelProject/businessService/BS_JMS_SIEBEL" : {
+            "label" : "BusinessService/SiebelProject/businessService/BS_JMS_SIEBEL",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

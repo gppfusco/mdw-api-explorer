@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestNotifyFile" type="requestNotifyFileType"/>
+	<xsd:complexType name="requestNotifyFileType">
+		<xsd:sequence>
+			<xsd:element name="fileName" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseNotifyFile" type="responseNotifyFileType"/>
+	<xsd:complexType name="responseNotifyFileType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="data" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="vodaResultCode" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="vodaResultDescription" type="xsd:string" minOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

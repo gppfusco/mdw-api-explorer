@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/MRM_GESTIONE_VOUCHER_PARTNER"
+                  xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  name="WS_MRM_GESTIONE_VOUCHER_PARTNER"
+                  targetNamespace="http://www.skytv.it/mdw/service/MRM_GESTIONE_VOUCHER_PARTNER">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../xsd/XSD_MRM_GESTIONE_VOUCHER_PARTNER.xsd"/>
+      <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="requestGetVoucher_message">
+    <wsdl:part name="part_requestGetVoucher" element="inp1:requestGetVoucher"/>
+  </wsdl:message>
+  <wsdl:message name="responseGetVoucher_message">
+    <wsdl:part name="part_responseGetVoucher" element="inp1:responseGetVoucher"/>
+  </wsdl:message>
+  <wsdl:message name="requestSospensioneVoucher_message">
+    <wsdl:part name="part_requestSospensioneVoucher" element="inp1:requestSospensioneVoucher"/>
+  </wsdl:message>
+  <wsdl:message name="responseSospensioneVoucher_message">
+    <wsdl:part name="part_responseSospensioneVoucher" element="inp1:responseSospensioneVoucher"/>
+  </wsdl:message>
+  <wsdl:message name="requestGetInfoVoucher_message">
+    <wsdl:part name="part_requestGetInfoVoucher" element="inp1:requestGetInfoVoucher"/>
+  </wsdl:message>
+  <wsdl:message name="responseGetInfoVoucher_message">
+    <wsdl:part name="part_responseGetInfoVoucher" element="inp1:responseGetInfoVoucher"/>
+  </wsdl:message>
+  <wsdl:message name="header_message">
+    <wsdl:part name="part_header" element="inp1:Header"/>
+  </wsdl:message>
+  <wsdl:portType name="MRM_GESTIONE_VOUCHER_PARTNER_ptt">
+    <wsdl:operation name="execute_GetVoucher">
+      <wsdl:input message="tns:requestGetVoucher_message"/>
+      <wsdl:output message="tns:responseGetVoucher_message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SospensioneVoucher">
+      <wsdl:input message="tns:requestSospensioneVoucher_message"/>
+      <wsdl:output message="tns:responseSospensioneVoucher_message"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GetInfoVoucher">
+      <wsdl:input message="tns:requestGetInfoVoucher_message"/>
+      <wsdl:output message="tns:responseGetInfoVoucher_message"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MRM_GESTIONE_VOUCHER_PARTNER_pttSOAP11Binding" type="tns:MRM_GESTIONE_VOUCHER_PARTNER_ptt">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="execute_GetVoucher">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/MRM_GESTIONE_VOUCHER_PARTNER/execute_GetVoucher"
+                      style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestGetVoucher" use="literal"/>
+        <soap:header message="tns:header_message" part="part_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseGetVoucher" use="literal"/>
+        <soap:header message="tns:header_message" part="part_header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SospensioneVoucher">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/MRM_GESTIONE_VOUCHER_PARTNER/execute_SospensioneVoucher"
+                      style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestSospensioneVoucher" use="literal"/>
+        <soap:header message="tns:header_message" part="part_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseSospensioneVoucher" use="literal"/>
+        <soap:header message="tns:header_message" part="part_header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GetInfoVoucher">
+      <soap:operation soapAction="http://www.skytv.it/mdw/service/MRM_GESTIONE_VOUCHER_PARTNER/execute_GetInfoVoucher"
+                      style="document"/>
+      <wsdl:input>
+        <soap:body parts="part_requestGetInfoVoucher" use="literal"/>
+        <soap:header message="tns:header_message" part="part_header" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="part_responseGetInfoVoucher" use="literal"/>
+        <soap:header message="tns:header_message" part="part_header" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

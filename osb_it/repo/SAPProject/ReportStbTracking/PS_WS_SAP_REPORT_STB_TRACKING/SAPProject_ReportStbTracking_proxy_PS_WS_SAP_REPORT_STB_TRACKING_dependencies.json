@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SAPProject_ReportStbTracking_proxy_PS_WS_SAP_REPORT_STB_TRACKING",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SAPProject/ReportStbTracking/pipeline/PL_WS_SAP_REPORT_STB_TRACKING" : {
+        "label" : "Pipeline/SAPProject/ReportStbTracking/pipeline/PL_WS_SAP_REPORT_STB_TRACKING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/SAPProject/ReportStbTracking/transformations/createResponsetReportSTBTracking" : {
+            "label" : "Xquery/SAPProject/ReportStbTracking/transformations/createResponsetReportSTBTracking",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SAPProject/ReportStbTracking/businessServices/BS_WS_SAP_UK_STB_TRACKING" : {
+            "label" : "BusinessService/SAPProject/ReportStbTracking/businessServices/BS_WS_SAP_UK_STB_TRACKING",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SAPProject/ReportStbTracking/wsdl/WS_SAP_REPORT_STB_TRACKING" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SAPProject/ReportStbTracking/wsdl/WS_SAP_REPORT_STB_TRACKING",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SAPProject/ReportStbTracking/transformations/createRequestReportSTBTracking" : {
+            "label" : "Xquery/SAPProject/ReportStbTracking/transformations/createRequestReportSTBTracking",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SAPProject/ReportStbTracking/wsdl/WS_SAP_REPORT_STB_TRACKING" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SAPProject/ReportStbTracking/wsdl/WS_SAP_REPORT_STB_TRACKING",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

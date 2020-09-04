@@ -1,0 +1,11 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "TestMario_TestGZIP_PS_GZIP_TEST",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "Messaging"
+    },
+    "successors" : { }
+  }
+}

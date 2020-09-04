@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_SF_RETRIEVE_ASSETS",
+    "name" : "SalesforceProject_WS_RETRIEVE_ASSETS_proxy_PS_WS_RETRIEVE_ASSETS",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\RETRIEVE\\ASSETS\\PS_WS_RETRIEVE_ASSETS",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_SF_RETRIEVE_ASSETS?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveAssets/xsd/XSD_SF_RETRIEVE_ASSETS",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

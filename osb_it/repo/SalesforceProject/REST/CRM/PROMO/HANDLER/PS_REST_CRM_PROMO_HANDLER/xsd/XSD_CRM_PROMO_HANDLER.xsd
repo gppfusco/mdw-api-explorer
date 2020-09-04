@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetTechnicalPromo" type="requestGetTechnicalPromoType"/>
+	<xsd:complexType name="requestGetTechnicalPromoType">
+		<xsd:sequence>
+			<xsd:element name="promoCode" type="xsd:string"/>
+                        <xsd:element name="promoId" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetTechnicalPromo" type="responseGetTechnicalPromoType"/>
+	<xsd:complexType name="responseGetTechnicalPromoType"> 
+		<xsd:sequence>
+			<xsd:element name="mdwResultCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promoTechList" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence> 
+						<xsd:element name="promoTech" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="promoTechId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="promoTechCode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="promoTechDescription" type="xsd:string" minOccurs="0"/>
+                                                                        <xsd:element name="promoTechName" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

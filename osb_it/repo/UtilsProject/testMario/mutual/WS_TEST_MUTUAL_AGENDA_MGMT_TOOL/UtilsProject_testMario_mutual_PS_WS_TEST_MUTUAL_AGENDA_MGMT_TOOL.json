@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/UtilsProject/testMario/mutual/PS_WS_TEST_MUTUAL_AGENDA_MGMT_TOOL",
+    "name" : "UtilsProject_testMario_mutual_PS_WS_TEST_MUTUAL_AGENDA_MGMT_TOOL",
+    "localPath" : "osb_it\\repo\\UtilsProject\\testMario\\mutual\\WS_TEST_MUTUAL_AGENDA_MGMT_TOOL",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/UtilsProject/testMario/mutual/PS_WS_TEST_MUTUAL_AGENDA_MGMT_TOOL?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CO/wsdl/XSD_FAKE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

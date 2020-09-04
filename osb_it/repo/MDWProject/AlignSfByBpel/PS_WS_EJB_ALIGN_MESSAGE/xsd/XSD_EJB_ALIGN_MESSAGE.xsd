@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.10-b140319.1121 svn-revision#7b34660d6bc70e587e8ec81a17e4d76af68816a6. -->
+<xsd:schema xmlns:ns1="http://ejb.alignmessage.mdw.it/" xmlns:ns0="http://mdw.it/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://mdw.it/data">
+	<xsd:import namespace="http://ejb.alignmessage.mdw.it/" schemaLocation="./XSD_EJB_ALIGN_MESSAGE_ENTITIES.xsd"/>
+	 <xsd:element name="responseUpdateErrorOSB" type="xsd:boolean"/>
+    <xsd:element name="requestUpdateErrorOSB" type="ns1:requestMessageKey"/>
+    <xsd:element name="responseUpdateCorrelated" type="xsd:boolean"/>
+    <xsd:element name="status" type="xsd:string"/>
+    <xsd:element name="all_status" type="xsd:boolean"/>
+    <xsd:element name="responseAddMessages" type="xsd:boolean"/>
+    <xsd:element name="requestUpdateCorrelated" type="ns1:requestMessageKey"/>
+    <xsd:element name="entity_key" type="xsd:string"/>
+    <xsd:element name="correlation_id" type="xsd:string"/>
+    <xsd:element name="responseUpdateError" type="ns1:alignMessageMaster"/>
+    <xsd:element name="responseAddNewMessage" type="xsd:boolean"/>
+    <xsd:element name="TID" type="xsd:string"/>
+    <xsd:element name="responseGetAlignMessageMaster" type="ns1:alignMessageMaster"/>
+    <xsd:element name="responseTest_remove_message" type="xsd:boolean"/>
+    <xsd:element name="responseTest_remove_message_header" type="xsd:boolean"/>
+    <xsd:element name="responseUpdateFinal" type="xsd:boolean"/>
+    <xsd:element name="responseTest_remove_all" type="xsd:boolean"/>
+    <xsd:element name="requestAddNewMessage" type="ns1:requestMessage"/>
+    <xsd:element name="requestAddMessages" type="ns1:requestMessage" nillable="true"/>
+</xsd:schema>

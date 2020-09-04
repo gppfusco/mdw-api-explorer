@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestSetEntityKey" type="requestSetEntityKeyType"/>
+	<xsd:element name="responseSetEntityKey" type="responseSetEntityKeyType"/>
+	<xsd:simpleType name="noCommonConstraintsType" final="#all">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="responseSetEntityKeyType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestSetEntityKeyType">
+		<xsd:sequence>
+			<xsd:element name="mdwOrder" type="mdwOrderType"/>
+			<xsd:element name="mdwEntityKeys" type="mdwEntityKeysType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwEntityKeysType">
+		<xsd:sequence>
+			<xsd:element name="mdwEntityKey" type="mdwEntityKeyType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwCaseType">
+		<xsd:sequence>
+			<xsd:element name="mdwCaseCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCaseId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCaseReason" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCaseOpenDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCaseClosedDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIdParentCase" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwAddressType">
+		<xsd:sequence>
+			<xsd:element name="mdwCounty" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAddress" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwHouseNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwZipCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCity" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwState" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwMatchcodeEgon" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwHouseCode" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AddressInstallationType">
+		<xsd:sequence>
+			<xsd:element name="mdwAddressCounty" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAddressAddress" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAddressZipCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAddressCity" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAddressState" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OrderPriceAdjustmentType">
+		<xsd:sequence>
+			<xsd:element name="mdwOrderPriceAdjustmentId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAmount" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEstimatedEndDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEstimatedStartDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwRequestDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAddedBy" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPriceListEntry" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPricingElementVersion" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPricingVariable" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAdjustmentValue" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSequence" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwProvisioningStatus" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAppliesTo" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSource" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSubAction" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwReferenceNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPricingElementGlobalKey" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOAPIntegrationId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOItemIntegrationId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAppliedDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEffectiveEndDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEffectiveStartDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIntegrationId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAPAReferenceId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAction" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwFulfilmentStatus" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCartAssociationDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAggregationFlag" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwNoFattOverride" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAdjustmentPrice" type="mdwPriceType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwPriceType">
+		<xsd:sequence>
+			<xsd:element name="mdwExternalKey" type="noCommonConstraintsType"/>
+			<xsd:element name="mdwNoFatt" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAdjustmentValue" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAmount" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIsOverride" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPricingVariableAppliesTo" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPricingVariableType" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwVoucher" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwTotalDurationUoM" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwTotalDuration" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwFixedEndDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwFixedStartDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIsEndProratable" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIsStartProratable" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIsStartTimeDelayed" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwStartTimeDelayOffsetUoM" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwStartTimeDelayOffset" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPricingElementCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPricingVariableCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCalculatedAmountFlag" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="VoucherType">
+		<xsd:sequence>
+			<xsd:element name="mdwVoucherClass" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwVoucherDealer" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwGroupCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwVoucherPSW" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwVoucherSN" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwVoucherVal" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OrderAppliedPromotionType">
+		<xsd:sequence>
+			<xsd:element name="mdwOrderAppliedPromotionId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCommitmentEndDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCommitmentStartDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwBenefitEndDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwBenefitStartDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwRequestDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPromotion" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSequence" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwProvisioningStatus" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAppliesTo" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSubAction" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwReferenceNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwReasonForCancellation" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPrepaidFlag" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPremiumService" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwTechnicalName" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwTechnicalPromotionCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCommercialName" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCommercialPromotionCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIntegrationId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOItemIntegrationId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAAPReferenceId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAction" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwFulfillmentStatus" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCartAssociationDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPromotionalCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwVoucher" type="VoucherType" minOccurs="0"/>
+			<xsd:element name="mdwTotalDuration" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwTotalDurationUoM" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIsStartProratable" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIsEndProratable" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwVoucherPhase" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwOrderType">
+		<xsd:sequence>
+			<xsd:element name="mdwOrderDetail" type="mdwOrderDetailType"/>
+			<xsd:element name="mdwOrderItem" type="mdwOrderItemType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="mdwOrderReasons" type="OrderReasonsType" minOccurs="0"/>
+			<xsd:element name="mdwContractBundle" type="ContractBundleType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwOrderDetailType">
+		<xsd:sequence>
+			<xsd:element name="mdwOrderId" type="noCommonConstraintsType"/>
+			<xsd:element name="mdwOrderLogicId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderNumber" type="noCommonConstraintsType"/>
+			<xsd:element name="mdwOMOrderId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCorrelationId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwUserAccounId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwUserAccounLogictId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPayerAccountId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPayerLogicId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwBillExternald" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwBillExternaLogicld" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPayerContactId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPayerContactLogicId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwContactId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwContactLogicId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwContractId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwContractLogicId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPaymentId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPaymentLogicId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderType" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderCategory" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAction" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwApplicationOrigin" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwChannel" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPromotionCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPromotionName" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIsThirdParties" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSchedulatedDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCreatedDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwBundleLogicId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwBundleId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderReason" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCompletedAntiFraud" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCompletedCRM" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwUnlockAntiFraud" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCeaseInvoiceDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwLoginOperator" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAlternativeAddress" type="mdwAddressType" minOccurs="0"/>
+			<xsd:element name="mdwInstallationAddress" type="AddressInstallationType" minOccurs="0"/>
+			<xsd:element name="mdwCase" type="mdwCaseType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="mdwDeliveryNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwContractTrait" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwRegionCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwGeographicalFlag" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPriceList" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEsitoEPG" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwTelecomBandwidth" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwRenewalFlag" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderNumberBooked" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCreditRiskNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwFraudRiskNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAnalysisSPYDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderSubType" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwDealerCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwFirstSeller" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCustomerSignedDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSigned" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCheckSignedFlag" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwServiceEnvironment" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwContractStatus" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwStatusTNB" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSerialNumberSMC" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderOfferType" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwMigrationScenarioFlag" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwScenarioType" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSubscriberId" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BU 04/12/2018 -->
+			<xsd:element name="mdwFlgOptOut" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwDeliveryType" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB CT50.1(R4)-->
+			<xsd:element name="mdwProvisioningType" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB - CR3 / CR15(R5) 04/04/2019-->
+			<xsd:element name="mdwDeliveryDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPONRDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPickAndReturnFlag" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwClusterTrusted" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB - CT63.1 (R6) 17/04/2019-->
+			<xsd:element name="mdwRenumberingFlag" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB -  CT166.1 SPINOFF 16/04/2019-->
+			<xsd:element name="mdwProspectIdUser" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwProspectIdPayer" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB - CT33 (R6) 17/04/2019-->
+			<xsd:element name="mdwOldContractTakeOverId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwNewContractTakeOverId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwTakeOverDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderRefTakeOver" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB - CT80.1 (R6) 17/04/2019-->
+			<xsd:element name="mdwNumberPortabilityFlag" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB - CT81.1 (R6) 17/04/2019-->
+			<xsd:element name="mdwNumberPortabilityCancellation" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB - CT80.1 (R6) 17/04/2019-->
+			<xsd:element name="mdwMigrationScenarioTechnology" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB - CT 9.1-CT 36.1-CT 80.1/81.1 (R6) 17/04/2019-->
+			<xsd:element name="mdwPrimary_AccessOrderId" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="16"/>
+						<xsd:maxLength value="16"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwSecondary_AccessOrderId" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="16"/>
+						<xsd:maxLength value="16"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<!-- Campo aggiunto per BB - CR102-R8 07/06/2019-->
+			<xsd:element name="mdwAdvisorSwitchSquad" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per New CRM Fase 2 2.2.4 07/06/2019-->
+			<xsd:element name="mdwSecondSeller" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per New CRM P1901608 - Sky Q - Product Analytics 07/06/2019-->
+			<xsd:element name="mdwConsensoPA" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwScenarioCausal" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwArpuPackage" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSingleProvider" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwTreatmentCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCellCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCampaignCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAccessTechnology" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwContractType" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per Commissioning 30/11/2019 -->
+			<xsd:element name="mdwCompleteReasonDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per Commissioning 30/11/2019 -->
+			<xsd:element name="mdwSendingSuspension" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per Commissioning 30/11/2019 -->
+			<xsd:element name="mdwLead" type="mdwLeadType" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- Campo aggiunto per Commissioning 30/11/2019 -->
+			<xsd:element name="mdwInvioAnnulFlg" type="flagType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB-7250 08/01/2020 -->
+			<xsd:element name="mdwFlagDirittoRipensamento" type="flagType" minOccurs="0"/>
+			<!-- Campo aggiunto  L3 d2 – Attivazione Servizi Premium (R9) 11/02/2020-->
+			<xsd:element name="mdwParentOrderRef" type="xsd:string" minOccurs="0"/>
+			<!-- Campo aggiunto  CR102 - get_offer - offerType(R8) 205/12/2019-->
+			<xsd:element name="mdwAliasOperatore" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto  FW2 19/12/2019-->
+			<xsd:element name="mdwExistingServices" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwShippingNote" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwShippingAddressPhone" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<!-- Campo aggiunto  Fw 04- (R11) 08/01/2020-->
+			<xsd:element name="mdwSchedulatedMigrationDate" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<!-- Campo aggiunto  Fw 03- 30/01/2020-->
+			<xsd:element name="mdwFWAppointmentDate" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwFWTimeSlot" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwNotes" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwFlagContactUpdated" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwTIMReasonCode" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwTIMReasonDescription" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwOriginalSeller" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwNumberPortabilityType" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwFlgStrongPairing" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwForcedActivation" type="flagType" minOccurs="0"/>
+			<!-- Campo aggiunto  PRP18 (R10) 21/05/2020-->
+			<xsd:element name="mdwSellerType" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwFlgNormalizedAddr" type="flagType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- Complex aggiunto per Commissioning 30/11/2019 -->
+	<xsd:complexType name="mdwLeadType">
+		<xsd:sequence>
+			<xsd:element name="mdwDealer" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwProcacciatore" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSecondoVenditore" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwDataContatto" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPromozione" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCanale" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwMail" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderNum" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIdLead" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwTelefono" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwDirectoryNumberType">
+		<xsd:sequence>
+			<xsd:element name="mdwDN" type="noCommonConstraintsType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwOrderItemType">
+		<xsd:sequence>
+			<xsd:element name="mdwItemId" type="noCommonConstraintsType"/>
+			<xsd:element name="mdwProvisioningStatus" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIntegrationId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwProductCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwDescription" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwRootItemId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwParentItemId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwProductClass" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwProductCodeOM" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwLineNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCreatedDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAuthocode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEnablementNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSerialNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwProductName" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwQuantity" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAssetReferenceId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwChannelTypeCd" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwDeviceAssociationDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwDeviceStatus" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSerialNumberOld" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwDeviceStatusOld" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwDeviceSubStatus" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwActivationDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAttribute" type="mdwAttributeType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="mdwOneTimeTotal" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEffectiveOneTimeTotal" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOneTimeCharge" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOneTimeCalculatedPrice" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwRecurringTotal" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwRecurringCharge" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEffectiveRecurringTotal" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwRecurringCalculatedPrice" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwDevicePairing" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwScheduledActivationDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwScheduledCeaseDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSuspensionDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSuspensionCausal" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPackStatus" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPackSerial" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwDeviceDefectiveFlag" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEquipGuaranteeEndDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEquipGuaranteeStartDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEquipDeliveryDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderPriceAdjustment" type="OrderPriceAdjustmentType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="mdwOrderAppliedPromotion" type="OrderAppliedPromotionType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="mdwCeaseDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCeaseCausal" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwVisionDisableFlag" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwVisionEndDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAction" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSubAction" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwFulfilmentStatus" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwUseCase" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwItemPrice" type="mdwPriceType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="mdwOrderItemSubType" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwEligibilityEndDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwVoucherExt" type="mdwVoucherExtType" minOccurs="0"/>
+			<xsd:element name="mdwAppointmentToken" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAppointmentDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAppointmentType" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwMigrationCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOldMigrationCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwModificationType" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwProductSpecType" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPortTelephoneNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwAppoitmentSlot" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BU 10/01/2019 P1900685 DAZN NEWCRM -->
+			<xsd:element name="mdwStatoOptOut" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderItemAction" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderItemType" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderItemOfferType" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB CT 8.1 R5 02/04/2019  -->
+			<xsd:element name="mdwOrderItemSubAction" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB R5 12/04/2019  -->
+			<xsd:element name="mdwPackageCategory" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB CT 74.1 12/04/2019  -->
+			<xsd:element name="mdwDacPortOut" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB CT 22.1 12/04/2019  -->
+			<xsd:element name="mdwKey" type="mdwKeyType" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- Campo aggiunto per BB - CR 57 17/04/2019  -->
+			<xsd:element name="mdwInstallmentNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per BB - CT80.1 17/04/2019  -->
+			<xsd:element name="mdwDonor" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCalculatedAmount" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwRepricing" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwTelephoneNumber" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwTechnology" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwWholesalerBB" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwDonating" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwDirectoryNumber" type="mdwDirectoryNumberType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="mdwOldMigrationCodeVoice" type="noCommonConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="mdwDistrictNumberVoice" type="mdwDirectoryNumberType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwAttributeType">
+		<xsd:sequence>
+			<xsd:element name="name" type="noCommonConstraintsType"/>
+			<xsd:element name="value" type="noCommonConstraintsType"/>
+			<xsd:element name="code" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwKeyType">
+		<xsd:sequence>
+			<xsd:element name="mdwName" type="noCommonConstraintsType"/>
+			<xsd:element name="mdwValue" type="noCommonConstraintsType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwEntityKeyType">
+		<xsd:sequence>
+			<xsd:element name="mdwTibco_OrderId" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwUserAccountIdSF">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:length value="18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwUserAccountLogicIdSF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPayerAccountIdSF">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:length value="18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwPayerAccountLogicIdSF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwBillingAccountIdSF">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:length value="18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwBillingAccountLogicIdSF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPayerContactIdSF">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:length value="18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwPayerContactLogicIdSF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwUserContactIdSF">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:length value="18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwUserContactLogicIdSF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwPaymentIdSF">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:length value="18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwPaymentLogicIdSF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOrderIdSF">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:length value="18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwOrderLogicIdSF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwContractIdSF">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:length value="18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwContractLogicIdSF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCorrelationIdOM" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+						<xsd:maxLength value="100"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwCorrelationID" type="xsd:string"/>
+			<xsd:element name="mdwBundleLogicIdSF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwBundleIdSF" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:length value="18"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwParentContractIdSF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwE2EIdSF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIsPrimarySF" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwOfferTypeSF" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OrderReasonType">
+		<xsd:sequence>
+			<xsd:element name="mdwType" type="noCommonConstraintsType"/>
+			<xsd:element name="mdwMandatory" type="noCommonConstraintsType"/>
+			<xsd:element name="mdwStatus" type="noCommonConstraintsType"/>
+			<!-- Campo aggiunto per Commissioning 30/11/2019 -->
+			<xsd:element name="mdwResolutionDate" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per Commissioning 30/11/2019 -->
+			<xsd:element name="mdwSalesChannel" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per Commissioning 30/11/2019 -->
+			<xsd:element name="mdwDealer" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per Commissioning 30/11/2019 -->
+			<xsd:element name="mdwFirstSeller" type="noCommonConstraintsType" minOccurs="0"/>
+			<!-- Campo aggiunto per Commissioning 30/11/2019 -->
+			<xsd:element name="mdwSecondSeller" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OrderReasonsType">
+		<xsd:sequence>
+			<xsd:element name="mdwOrderReason" type="OrderReasonType" maxOccurs="unbounded"/>
+			<xsd:element name="mdwAttribute" type="mdwAttributeType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- Campi aggiunti per PRP14(R7) 20/09/2019-->
+	<!-- Cardinalità rilassata  18/03/2020-->
+	<xsd:complexType name="ContractBundleType">
+		<xsd:sequence>
+			<xsd:element name="mdwIdHeaderFW" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIdInstanceFW" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIdAssetFW" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwIdPDA" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCodiceClienteFW" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwCodiceCDFFW" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwClusterSky" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwContractBundleStatus" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwVoucherExtType">
+		<xsd:sequence>
+			<xsd:element name="mdwVoucherCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwMobilePhone" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwDealerCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwSellerCode" type="noCommonConstraintsType" minOccurs="0"/>
+			<xsd:element name="mdwVoucherSize" type="noCommonConstraintsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="flagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

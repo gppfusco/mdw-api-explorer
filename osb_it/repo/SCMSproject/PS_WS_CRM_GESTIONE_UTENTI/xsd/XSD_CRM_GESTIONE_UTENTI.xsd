@@ -1,0 +1,51 @@
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by ?Type ur fucking name ! (Type ur Company -.-) -->
+<xsd:schema xmlns:srv="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:include schemaLocation="../../../../EnterpriseObjects/CommonEntities/ScmsResponse.xsd"/>
+	<xsd:include schemaLocation="../../../../EnterpriseObjects/CommonEntities/ResponseAsync.xsd"/>
+	<xsd:element name="responseSCMS" type="srv:ScmsResponseType"/>
+	
+	<xsd:element name="requestUPFLPR" type="srv:requestUPFLPRType"/>
+	
+	
+	<xsd:element name="requestSAWPIN" type="srv:requestSAWPINType"/>
+	
+	
+	<xsd:complexType name="requestUPFLPRType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="clientid" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="operator" type="xsd:string"/>
+			<xsd:element name="flagsync" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="execdate" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="priority" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="customerid" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="account" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="auth_vod_stb" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="term_cond_vod_stb" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="term_cond_skygo" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="promo_new_tech" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="analisys_pref" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="promo_dm" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="cons_tel_list_bb" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="data_exchange_bb" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="cons_vod_other_dev" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="term_cond_skygotrial" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="prospect_priv_tel" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="prospect_priv_email" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="prospect_priv_sms" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="nav_tracking_flg" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="nav_cookie_flg" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestSAWPINType">
+		<xsd:sequence>
+			<xsd:element name="flagsync" type="xsd:string"/>
+			<xsd:element name="clientid" type="xsd:string"/>
+			<xsd:element name="idcaller" type="xsd:string"/>
+			<xsd:element name="operator" type="xsd:string"/>
+			<xsd:element name="typesrvreq" type="xsd:string"/>
+			<xsd:element name="customerid" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="execdate" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="priority" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

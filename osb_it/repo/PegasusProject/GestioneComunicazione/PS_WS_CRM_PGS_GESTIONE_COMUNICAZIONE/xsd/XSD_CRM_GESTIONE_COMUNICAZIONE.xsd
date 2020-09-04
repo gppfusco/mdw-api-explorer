@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestGetComunication" type="requestGetComunicationType" />
+  <xsd:complexType name="requestGetComunicationType">
+    <xsd:sequence>
+      <xsd:element name="ComunicationId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CodiceCliente" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="TIDPGS" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DataInizio" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DataFine" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Rownum" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ID_COM_Pegasus" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IdCanale" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseGetComunication" type="responseGetComunicationType" />
+  <xsd:complexType name="responseGetComunicationType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="TIDPGS" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Comunicazione" type="ComunicazioneType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ComunicazioneType">
+    <xsd:sequence>
+      <xsd:element name="ID_COM_SF" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ComunicationId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="StatoComunicazione" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="AltroTelefono" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Cap" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Cellulare" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Citta" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CodiceCliente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CodiceFiscale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CodicePromozione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CognomeCliente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DataContatto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ElencoSMC" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Email" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Indirizzo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Interno" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Macrocategoria" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="MatricolaSMC" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="NomePromo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="NomeCliente" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="NumeroCivico" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Piano" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Provincia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Scala" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ServiceRequestId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Sesso" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Stato" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Telefono" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Contatto" type="ContattoType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ContattoType">
+    <xsd:sequence>
+      <xsd:element name="Canale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CommunicationText" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CommunicationObject" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TemplateName" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="StatoCanale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+    <xsd:element name="requestSendSms" type="requestSendSmsType"/>
+  <xsd:complexType name="requestSendSmsType">
+    <xsd:sequence>
+      <xsd:element name="TipoOperazione" type="xsd:string"/>
+      <xsd:element name="DescrizioneElaborazione" type="xsd:string"/>
+      <xsd:element name="TidPgs" type="xsd:string"/>
+      <xsd:element name="SmsData" type="smsDataType"/>
+      <xsd:element name="Account" type="accountType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="smsDataType">
+    <xsd:sequence>
+      <xsd:element name="Pin" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="accountType">
+    <xsd:sequence>
+      <xsd:element name="FruCodiceCliente" type="xsd:string"/>
+      <xsd:element name="FruNome" type="xsd:string"/>
+      <xsd:element name="FruCognome" type="xsd:string"/>
+      <xsd:element name="FruTelefono" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseSendSmsType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseSendSms" type="responseSendSmsType"/>
+  
+</xsd:schema>

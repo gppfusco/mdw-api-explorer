@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/magento/WS_MAGENTO_VODAFONE_CANCELLATION",
+    "name" : "MagentoProject_VodafoneCancellation_proxy_PS_WS_MAGENTO_VODAFONE_CANCELLATION",
+    "localPath" : "osb_it\\repo\\MagentoProject\\VodafoneCancellation\\PS_WS_MAGENTO_VODAFONE_CANCELLATION",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/magento/WS_MAGENTO_VODAFONE_CANCELLATION?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_checkMigratedAccount_proxy_PS_REST_KNN_ACCOUNT_MIGRATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/KENANProject/Resources/PS_REST_KNN_ACCOUNT_MIGRATION" : {
+        "label" : "WSDL/KENANProject/Resources/PS_REST_KNN_ACCOUNT_MIGRATION",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/checkMigratedAccount/pipeline/PL_REST_KNN_ACCOUNT_MIGRATION" : {
+        "label" : "Pipeline/KENANProject/checkMigratedAccount/pipeline/PL_REST_KNN_ACCOUNT_MIGRATION",
+        "properties" : { },
+        "successors" : {
+          "WSDL/KENANProject/Resources/PS_REST_KNN_ACCOUNT_MIGRATION" : {
+            "label" : "WSDL/KENANProject/Resources/PS_REST_KNN_ACCOUNT_MIGRATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/KENANProject/checkMigratedAccount/pipeline/PL_INTERNAL_KNN_CHECK_ACCOUNT_MIGRATION" : {
+            "label" : "Pipeline/KENANProject/checkMigratedAccount/pipeline/PL_INTERNAL_KNN_CHECK_ACCOUNT_MIGRATION",
+            "properties" : { },
+            "successors" : {
+              "Xquery/KENANProject/checkMigratedAccount/transofrmations/createRequest_GetMigrationDate" : {
+                "label" : "Xquery/KENANProject/checkMigratedAccount/transofrmations/createRequest_GetMigrationDate",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/KENANProject/Resources/PS_REST_KNN_ACCOUNT_MIGRATION" : {
+                "label" : "WSDL/KENANProject/Resources/PS_REST_KNN_ACCOUNT_MIGRATION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/KENANProject/checkMigratedAccount/pipeline/PL_INTERNAL_KNN_GET_MIGRATION_DATE" : {
+                "label" : "Pipeline/KENANProject/checkMigratedAccount/pipeline/PL_INTERNAL_KNN_GET_MIGRATION_DATE",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/KENANProject/Resources/PS_REST_KNN_ACCOUNT_MIGRATION" : {
+                    "label" : "WSDL/KENANProject/Resources/PS_REST_KNN_ACCOUNT_MIGRATION",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/KENANProject/checkMigratedAccount/businessService/BS_SQL_KNN_GET_DATA_MIGRAZIONE" : {
+                    "label" : "BusinessService/KENANProject/checkMigratedAccount/businessService/BS_SQL_KNN_GET_DATA_MIGRAZIONE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/KENANProject/checkMigratedAccount/transofrmations/createRequest_CheckAccountMigration" : {
+                "label" : "Xquery/KENANProject/checkMigratedAccount/transofrmations/createRequest_CheckAccountMigration",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/checkMigratedAccount/transofrmations/createResponse_CheckAccountMigration" : {
+                "label" : "Xquery/KENANProject/checkMigratedAccount/transofrmations/createResponse_CheckAccountMigration",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/checkMigratedAccount/businessService/BS_SQL_KNN_CHECK_ACCOUNT_MIGRATION" : {
+                "label" : "BusinessService/KENANProject/checkMigratedAccount/businessService/BS_SQL_KNN_CHECK_ACCOUNT_MIGRATION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestMagentoNotifications" type="requestMagentoNotificationsType"/>
+	<xsd:complexType name="requestMagentoNotificationsType">
+		<xsd:sequence>
+			<xsd:element name="dataNotifica" type="xsd:dateTime"/>
+			<xsd:element name="listaNotifiche" type="listaNotificheMagentoType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="listaNotificheMagentoType">
+		<xsd:sequence>
+			<xsd:element name="notifica" type="notificaMagentoType" maxOccurs="300"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="notificaMagentoType">
+		<xsd:sequence>
+			<xsd:element name="id" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:choice>
+				<xsd:element name="direttivaCancellazione" type="NotificaCancellazioneMagentoType" maxOccurs="1"/>
+				<xsd:element name="notificaEsercitazioneDiritto" type="NotificaEsercitazioneDirittoMagentoType" maxOccurs="1"/>
+			</xsd:choice>
+			<xsd:element name="dataApplicazione" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="cliente" type="clienteMagentoType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="NotificaCancellazioneMagentoType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PROFILAZIONE"/>
+			<xsd:enumeration value="MARKETING"/>
+			<xsd:enumeration value="CONTRATTUALE"/>
+			<xsd:enumeration value="FISCALE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NotificaEsercitazioneDirittoMagentoType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ACCESSO"/>
+			<xsd:enumeration value="RETTIFICA"/>
+			<xsd:enumeration value="OPPOSIZIONE"/>
+			<xsd:enumeration value="LIMITAZIONE"/>
+			<xsd:enumeration value="PORTABILITA"/>
+			<xsd:enumeration value="OBLIO"/>
+			<xsd:enumeration value="REVOCA_OPPOSIZIONE"/>
+			<xsd:enumeration value="REVOCA_LIMITAZIONE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="clienteMagentoType">
+		<xsd:sequence>
+			<xsd:element name="cid" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:element name="cf" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="partner" type="partnerMagentoType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="partnership" type="mandatoryStringType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="partnerCid1" type="mandatoryStringType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="partnerCid2" type="mandatoryStringType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="externalId" type="xsd:string" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="partnerMagentoType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FASTWEB"/>
+			<xsd:enumeration value="WIND"/>
+			<xsd:enumeration value="VODAFONE"/>
+                        <xsd:enumeration value="TELECOM"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="responseMagentoNotifications" type="responseMagentoNotificationsType"/>
+	<xsd:complexType name="responseMagentoNotificationsType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestVispNotifications" type="requestVispNotificationsType"/>
+	<xsd:complexType name="requestVispNotificationsType">
+		<xsd:sequence>
+			<xsd:element name="dataNotifica" type="xsd:dateTime"/>
+			<xsd:element name="listaNotifiche" type="listaNotificheVispType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="listaNotificheVispType">
+		<xsd:sequence>
+			<xsd:element name="notifica" type="notificaVispType" maxOccurs="300"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="notificaVispType">
+		<xsd:sequence>
+			<xsd:element name="id" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:choice>
+				<xsd:element name="direttivaCancellazione" type="NotificaCancellazioneVispType" maxOccurs="1"/>
+				<xsd:element name="notificaEsercitazioneDiritto" type="NotificaEsercitazioneDirittoVispType" maxOccurs="1"/>
+			</xsd:choice>
+			<xsd:element name="dataApplicazione" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="venditore" type="venditoreVispType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="venditoreVispType">
+		<xsd:sequence>
+			<xsd:element name="codiceVenditore" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:element name="canaleVendita" type="canaleVenditaVispType" maxOccurs="1"/>
+			<xsd:element name="flagVenditore" type="flagVenditoreVispType" maxOccurs="1"/>
+			<xsd:element name="tipoVenditore" type="mandatoryStringType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="NotificaCancellazioneVispType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MARKETING"/>
+			<xsd:enumeration value="FISCALE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NotificaEsercitazioneDirittoVispType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="LIMITAZIONE"/>
+			<xsd:enumeration value="REVOCA_LIMITAZIONE"/>
+			<xsd:enumeration value="RICHIESTA_CANCELLAZIONE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="canaleVenditaVispType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="A0"/>
+			<xsd:enumeration value="A26"/>
+			<xsd:enumeration value="B0"/>
+			<xsd:enumeration value="C0"/>
+			<xsd:enumeration value="D0"/>
+			<xsd:enumeration value="F0"/>
+			<xsd:enumeration value="G0"/>
+			<xsd:enumeration value="H0"/>
+			<xsd:enumeration value="I0"/>
+			<xsd:enumeration value="J0"/>
+			<xsd:enumeration value="K0"/>
+			<xsd:enumeration value="L0"/>
+			<xsd:enumeration value="L4"/>
+			<xsd:enumeration value="M0"/>
+			<xsd:enumeration value="N0"/>
+			<xsd:enumeration value="P0"/>
+			<xsd:enumeration value="Q0"/>
+			<xsd:enumeration value="Q10"/>
+			<xsd:enumeration value="R0"/>
+			<xsd:enumeration value="S0"/>
+			<xsd:enumeration value="T0"/>
+			<xsd:enumeration value="U0"/>
+			<xsd:enumeration value="V0"/>
+                        <xsd:enumeration value="-"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="flagVenditoreVispType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="F"/>
+			<xsd:enumeration value="G"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="responseVispNotifications" type="responseVispNotificationsType"/>
+	<xsd:complexType name="responseVispNotificationsType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSapFiFornitoreNotifications" type="requestSapFIFornitoreNotificationsType"/>
+	<xsd:complexType name="requestSapFIFornitoreNotificationsType">
+		<xsd:sequence>
+                        <xsd:element name="dataNotifica" type="xsd:dateTime"/>
+			<xsd:element name="listaNotifiche" type="listaNotificheSapFiFornitoreType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="listaNotificheSapFiFornitoreType">
+		<xsd:sequence>
+			<xsd:element name="notifica" type="notificaSapFiFornitoreType" maxOccurs="300"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="notificaSapFiFornitoreType">
+		<xsd:sequence>
+			<xsd:element name="id" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:element name="direttivaCancellazione" type="NotificaCancellazioneSapFiFornitoreType" maxOccurs="1"/>
+			<xsd:element name="dataApplicazione" type="xsd:dateTime" maxOccurs="1"/>
+			<xsd:element name="fornitore" type="fornitoreSapFiType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="NotificaCancellazioneSapFiFornitoreType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FISCALE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="fornitoreSapFiType">
+		<xsd:sequence>
+			<xsd:element name="fid" type="fidSapFiType" maxOccurs="1"/>
+			<xsd:element name="ragioneSociale" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:element name="partitaIVA_cf" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:element name="nazione" type="mandatoryStringType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="mandatoryStringType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="fidSapFiType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+			<xsd:maxLength value="10"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="responseSapFiFornitoreNotifications" type="responseSapFIFornitoreNotificationsType"/>
+	<xsd:complexType name="responseSapFIFornitoreNotificationsType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+   <xsd:element name="requestSapFiClienteNotifications" type="requestSapFIClienteNotificationsType"/>
+  
+  <xsd:complexType name="requestSapFIClienteNotificationsType">
+    <xsd:sequence>
+      <xsd:element name="dataNotifica" type="xsd:dateTime"/>
+      <xsd:element name="listaNotifiche" type="listaNotificheSapFiClienteType" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="listaNotificheSapFiClienteType">
+    <xsd:sequence>
+      <xsd:element name="notifica" type="notificaSapFiClienteType" maxOccurs="300"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="notificaSapFiClienteType">
+    <xsd:sequence>
+      <xsd:element name="id" type="mandatoryStringType" maxOccurs="1"/>
+      <xsd:element name="direttivaCancellazione" type="NotificaCancellazioneSapFiClienteType" maxOccurs="1"/>
+      <xsd:element name="dataApplicazione" type="xsd:dateTime"  maxOccurs="1"/>
+      <xsd:element name="cliente" type="clienteSapFiType" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:simpleType name="NotificaCancellazioneSapFiClienteType" final="restriction">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="FISCALE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  
+  <xsd:complexType name="clienteSapFiType">
+    <xsd:sequence>
+      <xsd:element name="cid" type="mandatoryStringType" maxOccurs="1"/>
+      <xsd:element name="ragioneSociale" type="mandatoryStringType" maxOccurs="1"/>
+      <xsd:element name="partitaIVA_cf" type="mandatoryStringType" maxOccurs="1"/>
+      <xsd:element name="nazione" type="mandatoryStringType" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseSapFiClienteNotifications" type="responseSapFIClienteNotificationsType"/>
+  
+   <xsd:complexType name="responseSapFIClienteNotificationsType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  	
+	<xsd:element name="requestSapHrNotifications" type="requestSapHrNotificationsType"/>
+	<xsd:complexType name="requestSapHrNotificationsType">
+		<xsd:sequence>
+			<xsd:element name="dataNotifica" type="xsd:dateTime" maxOccurs="1"/>
+			<xsd:element name="listaNotifiche" type="listaNotificheSapHrType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="listaNotificheSapHrType">
+		<xsd:sequence>
+			<xsd:element name="notifica" type="notificaSapHrType" maxOccurs="300"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="notificaSapHrType">
+		<xsd:sequence>
+			<xsd:element name="id" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:choice>
+				<xsd:element name="direttivaCancellazione" type="NotificaCancellazioneSapHrType" maxOccurs="1"/>
+				<xsd:element name="notificaEsercitazioneDiritto" type="NotificaEsercitazioneDirittoSapHrType" maxOccurs="1"/>
+			</xsd:choice>
+			<xsd:element name="dataApplicazione" type="xsd:dateTime" maxOccurs="1"/>
+			<xsd:element name="risorsa" type="risorsaSapHrType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="NotificaCancellazioneSapHrType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FISCALE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="NotificaEsercitazioneDirittoSapHrType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ACCESSO"/>
+			<xsd:enumeration value="RETTIFICA"/>
+			<xsd:enumeration value="OPPOSIZIONE"/>
+			<xsd:enumeration value="LIMITAZIONE"/>
+			<xsd:enumeration value="PORTABILITA"/>
+			<xsd:enumeration value="OBLIO"/>
+			<xsd:enumeration value="REVOCA_OPPOSIZIONE"/>
+			<xsd:enumeration value="REVOCA_LIMITAZIONE"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="risorsaSapHrType">
+		<xsd:sequence>
+			<xsd:element name="cid" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:element name="nome" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:element name="cognome" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:element name="cf" type="mandatoryStringType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseSapHrNotifications" type="responseSapHrNotificationsType"/>
+	<xsd:complexType name="responseSapHrNotificationsType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestArcadiaNotifications" type="requestArcadiaNotificationsType"/>
+	<xsd:complexType name="requestArcadiaNotificationsType">
+		<xsd:sequence>
+			<xsd:element name="dataNotifica" type="xsd:dateTime"/>
+			<xsd:element name="listaNotifiche" type="listaNotificheArcadiaType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="listaNotificheArcadiaType">
+		<xsd:sequence>
+			<xsd:element name="notifica" type="notificaArcadiaType" maxOccurs="300"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="notificaArcadiaType">
+		<xsd:sequence>
+			<xsd:element name="id" type="mandatoryStringType" maxOccurs="1"/>
+			<xsd:element name="tipologiaEvento" type="tipologiaEventoArcadiaType" maxOccurs="1"/>
+			<xsd:element name="dataApplicazione" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="cliente" type="clienteArcadiaType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="tipologiaEventoArcadiaType" final="restriction">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SCADENZA_RETENTION_MARKETING"/>
+			<xsd:enumeration value="SCADENZA_RETENTION_FISCALE"/>
+			<xsd:enumeration value="OBLIO"/>
+			<xsd:enumeration value="LIMITAZIONE_DATI"/>
+			<xsd:enumeration value="REVOCA_LIMITAZIONE_DATI"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="clienteArcadiaType">
+		<xsd:sequence>
+			<xsd:element name="codiceContratto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="codiceClienteFruitore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="codiceClientePagatore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="idPda" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="idContratto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="idClienteFruitore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="idClientePagatore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="idContattoFruitore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="idContattoPagatore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseArcadiaNotifications" type="responseArcadiaNotificationsType"/>
+	<xsd:complexType name="responseArcadiaNotificationsType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:element name="requestFastwebNotification" type="requestFastwebNotificationType"/>
+        <xsd:complexType name="requestFastwebNotificationType">
+          <xsd:sequence>
+            <xsd:element name="SourceRequestId" type="SourceRequestIdType"/>
+            <xsd:element name="SourceSystem" type="SourceSystemType"/>
+            <xsd:element name="RequestTimestamp" type="xsd:dateTime"/>
+            <xsd:element name="RequestType" type="RequestTypeType"/>
+            <xsd:element name="CfPiva" type="CfPivaType" nillable="true"/>
+            <xsd:element name="FirstName" type="FirstNameType" nillable="true"/>
+            <xsd:element name="LastName" type="LastNameType" nillable="true"/>
+            <xsd:element name="PhoneNumber" type="PhoneNumberType" nillable="true"/>
+            <xsd:element name="MobileNumber" type="MobileNumberType" nillable="true"/>
+            <xsd:element name="Email" type="EmailType" nillable="true"/>
+            <xsd:element name="ClientType" type="ClientTypeType" nillable="true"/>
+          </xsd:sequence>
+        </xsd:complexType>
+        
+        <xsd:simpleType name="SourceRequestIdType" final="restriction">
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="12"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+        
+        <xsd:simpleType name="SourceSystemType" final="restriction">
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="25"/>
+            <xsd:enumeration value="FWEDH"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+       <!-- <xsd:simpleType name="RequestTimestampType" final="restriction">
+          <xsd:restriction base="xsd:date">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="14"/>
+          </xsd:restriction>
+        </xsd:simpleType> -->
+        <xsd:simpleType name="RequestTypeType" final="restriction">
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="25"/>
+            <xsd:enumeration value="OBLIO"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:simpleType name="CfPivaType" final="restriction">
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="25"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:simpleType name="FirstNameType" final="restriction">
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="50"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:simpleType name="LastNameType" final="restriction">
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="100"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:simpleType name="PhoneNumberType" final="restriction">
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="100"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:simpleType name="MobileNumberType" final="restriction">
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="100"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:simpleType name="EmailType" final="restriction">
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="0"/>
+            <xsd:maxLength value="100"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+        <xsd:simpleType name="ClientTypeType" final="restriction">
+                <xsd:restriction base="xsd:string">
+                        <xsd:minLength value="0"/>
+                        <xsd:maxLength value="30"/>
+                </xsd:restriction>
+        </xsd:simpleType>
+	        
+        <xsd:element name="responseFastwebNotification" type="responseFastwebNotificationType"/>
+        <xsd:complexType name="responseFastwebNotificationType">
+          <xsd:sequence>
+          	<xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+          	<xsd:element name="descrizioneEsito" type="xsd:string" maxOccurs="1"/>
+          </xsd:sequence>
+        </xsd:complexType>   
+        
+	<xsd:element name="notificaArcadia" type="notificaArcadiaType"/>
+	<xsd:element name="notificaMagento" type="notificaMagentoType"/>
+	<xsd:element name="notificaVisp" type="notificaVispType"/>
+	<xsd:element name="notificaSapHr" type="notificaSapHrType"/>
+	<xsd:element name="notificaSapFi" type="notificaSapFiFornitoreType"/>
+        <xsd:element name="notificaSapFiCliente" type="notificaSapFiClienteType"/>
+</xsd:schema>

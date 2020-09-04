@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestNewAppointment" type="requestNewAppointmentType"/>
+  <xsd:complexType name="requestNewAppointmentType">
+    <xsd:sequence>
+      <xsd:element name="scheduleTime" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="fullName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="telephone1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="telephone2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="telephone3" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="telephone" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="contractCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="customerCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="attempt" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="employeeId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="username" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="channel" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="note" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="site" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="reason" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseNewAppointment" type="responseNewAppointmentType"/>
+  <xsd:complexType name="responseNewAppointmentType">
+  <xsd:sequence>
+    <xsd:element name="appointmentId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+  </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestUpdateAppointment" type="requestUpdateAppointmentType"/>
+  <xsd:complexType name="requestUpdateAppointmentType">
+    <xsd:sequence>
+      <xsd:element name="appointmentId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="scheduleTime" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="fullName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="telephone1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="telephone2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="telephone3" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="telephone" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="contractCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="customerCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="attempt" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="employeeId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="username" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="channel" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="note" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="site" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="reason" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestDeleteAppointment" type="requestDeleteAppointmentType"/>
+  <xsd:complexType name="requestDeleteAppointmentType">
+    <xsd:sequence>
+      <xsd:element name="appointmentId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="channel" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

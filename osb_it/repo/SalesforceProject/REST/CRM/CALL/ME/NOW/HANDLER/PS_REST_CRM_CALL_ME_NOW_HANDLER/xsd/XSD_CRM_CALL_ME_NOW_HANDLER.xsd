@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCallMeNowRequest" type="requestCallMeNowRequestType"/>
+	<xsd:complexType name="requestCallMeNowRequestType">
+		<xsd:sequence>
+			<xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCallMeNowRequest">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="custFirstName" type="xsd:string"/>
+						<xsd:element name="custLastName" type="xsd:string"/>
+						<xsd:element name="custPhoneNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custMobilePhone" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custEmail" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custFiscalCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwBroadBandFlag" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwTimeSlot" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwSessionId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwWorkDescription" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwSMCCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="mdwMigrationType" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCallMeNowRequest" type="responseCallMeNowRequestType"/>
+	<xsd:complexType name="responseCallMeNowRequestType">
+		<xsd:sequence>
+			<xsd:element name="mdwChurnDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwFreeVisionDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwInteractionId" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/egon/WS_CRM_EGON_NORMALIZZA_INDIRIZZO_BB",
+    "name" : "BlueBirdProject_Egon_normalizzaIndirizzoBB_proxy_PS_EGON_NORMALIZZA_INDIRZZO_BB",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\Egon\\normalizzaIndirizzoBB\\PS_EGON_NORMALIZZA_INDIRZZO_BB",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/egon/WS_CRM_EGON_NORMALIZZA_INDIRIZZO_BB?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/EGON/xsd/XSD_CRM_EGON_NORMALIZZA_INDIRIZZO_BB",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

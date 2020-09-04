@@ -1,0 +1,73 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OSS_portOut_proxy_PS_REST_OSS_PORT_OUT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/OSS/portOut/pipeline/PS_REST_OSS_PORT_OUT" : {
+        "label" : "Pipeline/BlueBirdProject/OSS/portOut/pipeline/PS_REST_OSS_PORT_OUT",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/BlueBirdProject/OSS/portOut/pipeline/PS_REST_OSS_PORT_OUT_NotifyCustomerRethink" : {
+            "label" : "Pipeline/BlueBirdProject/OSS/portOut/pipeline/PS_REST_OSS_PORT_OUT_NotifyCustomerRethink",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/BlueBirdProject/OSS/portOut/businessservice/BS_REST_OSS_PORT_OUT" : {
+                "label" : "BusinessService/BlueBirdProject/OSS/portOut/businessservice/BS_REST_OSS_PORT_OUT",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/OSS/portOut/xsd/XSD_OSS_PORT_OUT" : {
+                "label" : "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/OSS/portOut/xsd/XSD_OSS_PORT_OUT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OSS/portOut/transformations/createRequest_BS_PORT_OUT_notifyCustomerRethink" : {
+                "label" : "Xquery/BlueBirdProject/OSS/portOut/transformations/createRequest_BS_PORT_OUT_notifyCustomerRethink",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OSS/portOut/transformations/createResponse_WS_PORT_OUT_notifyCustomerRethink" : {
+                "label" : "Xquery/BlueBirdProject/OSS/portOut/transformations/createResponse_WS_PORT_OUT_notifyCustomerRethink",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_OSS_PORT_OUT" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_PORT_OUT",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_OSS_PORT_OUT" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_PORT_OUT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/BlueBirdProject/Resources/PS_REST_OSS_PORT_OUT" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_PORT_OUT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

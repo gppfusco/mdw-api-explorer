@@ -1,0 +1,33 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MTOM_proxy_PS_MTOM2",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/MTOM/pipeline/PL_MTOM2" : {
+        "label" : "Pipeline/MTOM/pipeline/PL_MTOM2",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MTOM/wsdl/MTOMService" : {
+            "label" : "WSDL/MTOM/wsdl/MTOMService",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Archive/MTOM/jars/Base64/1/0/0" : {
+            "label" : "Archive/MTOM/jars/Base64/1/0/0",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MTOM/wsdl/MTOMService" : {
+        "label" : "WSDL/MTOM/wsdl/MTOMService",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/WS_EJB_ALIGN_MESSAGE",
+    "name" : "MDWProject_AlignSfByBpel_proxy_PS_WS_EJB_ALIGN_MESSAGE",
+    "localPath" : "osb_it\\repo\\MDWProject\\AlignSfByBpel\\PS_WS_EJB_ALIGN_MESSAGE",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/WS_EJB_ALIGN_MESSAGE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/ApplicationObjects/MDW/AlignMessageServiceCOHE/xsd/XSD_EJB_ALIGN_MESSAGE",
+        "xsdNameSpace" : "http://mdw.it/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/ApplicationObjects/MDW/AlignMessageServiceCOHE/xsd/XSD_EJB_ALIGN_MESSAGE_ENTITIES",
+        "xsdNameSpace" : "http://ejb.alignmessage.mdw.it/"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

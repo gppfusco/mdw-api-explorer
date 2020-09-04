@@ -1,0 +1,63 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_proxy_outbound_generico_PS_WS_CRM_OUTMSGCONTACT_USER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGCONTACT_USER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGCONTACT_USER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/pipeline/Outbound/generico/PL_WS_ITERATE_OPERATION_OUTBOUND_USER" : {
+        "label" : "Pipeline/SiebelProject/pipeline/Outbound/generico/PL_WS_ITERATE_OPERATION_OUTBOUND_USER",
+        "properties" : { },
+        "successors" : {
+          "Xquery/SiebelProject/transformations/outbound/createWSResponseOutboundUser" : {
+            "label" : "Xquery/SiebelProject/transformations/outbound/createWSResponseOutboundUser",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGACCOUNT_USER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGACCOUNT_USER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/pipeline/Outbound/generico/PL_JMS_INTERNAL_OUTBOUND_USER_ENQUEUE" : {
+            "label" : "Pipeline/SiebelProject/pipeline/Outbound/generico/PL_JMS_INTERNAL_OUTBOUND_USER_ENQUEUE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SiebelProject/businessService/BS_JMS_SIE_OUTBOUND_USER" : {
+                "label" : "BusinessService/SiebelProject/businessService/BS_JMS_SIE_OUTBOUND_USER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGACCOUNT_USER" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGACCOUNT_USER",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,383 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_WS_GESTIONE_WALLET_proxy_PS_WS_MDW_GESTIONE_WALLET",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_ROUTING" : {
+        "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_ROUTING",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_GetEWalletFlg" : {
+            "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_GetEWalletFlg",
+            "properties" : { },
+            "successors" : {
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_GetEWalletFlg" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_GetEWalletFlg",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_GetEWalletFlg" : {
+                "label" : "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_GetEWalletFlg",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_GetEWalletFlg" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_GetEWalletFlg",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_CheckStatus" : {
+            "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_CheckStatus",
+            "properties" : { },
+            "successors" : {
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_CheckStatus" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_CheckStatus",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_CheckStatus" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_CheckStatus",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_CHECK_STATUS" : {
+                "label" : "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_CHECK_STATUS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_GetCarte" : {
+            "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_GetCarte",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_GetCarte" : {
+                "label" : "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_GetCarte",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_GetCarte" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_GetCarte",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_GetCarte" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_GetCarte",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_Adesione" : {
+            "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_Adesione",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_Adesione" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_Adesione",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_Adesione" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_Adesione",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_CLIENTI_Adesione" : {
+                "label" : "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_CLIENTI_Adesione",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_INTERNAL_EwalletCambioStato" : {
+                "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_INTERNAL_EwalletCambioStato",
+                "properties" : { },
+                "successors" : {
+                  "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_JMS_GESTIONE_WALLET_UPD_SIE_ENQUEUE" : {
+                    "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_JMS_GESTIONE_WALLET_UPD_SIE_ENQUEUE",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_JMS_GESTIONE_WALLET_UPD_SIE_ENQUEUE" : {
+                        "label" : "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_JMS_GESTIONE_WALLET_UPD_SIE_ENQUEUE",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET_INTERNAL" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET_INTERNAL",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "Xquery/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/transformation/createResponse_LeggiDatiCliente_ExecQuery" : {
+                    "label" : "Xquery/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/transformation/createResponse_LeggiDatiCliente_ExecQuery",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_SendPrintPGS" : {
+                    "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_SendPrintPGS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_LeggiDatiCliente" : {
+                    "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_LeggiDatiCliente",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_EnqueueSF" : {
+                    "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_EnqueueSF",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "ProxyService/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/proxy/PS_WS_CRM_LEGGI_DATI_CLIENTE" : {
+                    "label" : "ProxyService/SalesforceProject/WS_CRM_LEGGI_DATI_CLIENTE/proxy/PS_WS_CRM_LEGGI_DATI_CLIENTE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_EnqueueSIE" : {
+                    "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_EnqueueSIE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_CambiaStato" : {
+                    "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_CambiaStato",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_CambiaStato" : {
+                    "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_CambiaStato",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_JMS_GESTIONE_WALLET_UpdateStatoSF_ENQUEUE" : {
+                    "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_JMS_GESTIONE_WALLET_UpdateStatoSF_ENQUEUE",
+                    "properties" : {
+                      "nodeType" : "Pipeline"
+                    },
+                    "successors" : {
+                      "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_JMS_GESTIONE_WALLET_UPD_STATO_SF_ENQUEUE" : {
+                        "label" : "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_JMS_GESTIONE_WALLET_UPD_STATO_SF_ENQUEUE",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET_INTERNAL" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET_INTERNAL",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_INTERNAL_CambioStato" : {
+                    "label" : "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_INTERNAL_CambioStato",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "ProxyService/PegasusProject/SendPrint/proxy/PS_WS_PGS_SEND_PRINT" : {
+                    "label" : "ProxyService/PegasusProject/SendPrint/proxy/PS_WS_PGS_SEND_PRINT",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET_INTERNAL" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET_INTERNAL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_INTERNAL_GetAdesioneRecord" : {
+                    "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_INTERNAL_GetAdesioneRecord",
+                    "properties" : {
+                      "nodeType" : "Pipeline"
+                    },
+                    "successors" : {
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_INTERNAL_GetAdesioneRecord" : {
+                        "label" : "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_INTERNAL_GetAdesioneRecord",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "WSDL/MDWProject/Resources/BS_SQL_GESTIONE_WALLET_INTERNAL_GetAdesioneRecord/concrete" : {
+                        "label" : "WSDL/MDWProject/Resources/BS_SQL_GESTIONE_WALLET_INTERNAL_GetAdesioneRecord/concrete",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_GetAdesioneRecord" : {
+                    "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_GetAdesioneRecord",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_INTERNAL_GetAdesioneRecord" : {
+                "label" : "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_SQL_GESTIONE_WALLET_INTERNAL_GetAdesioneRecord",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_GetAdesioneRecord" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_GetAdesioneRecord",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_AdesioneCambioStato" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_AdesioneCambioStato",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_Revoca_CICLO" : {
+            "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_Revoca_CICLO",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_Revoca" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createResponse_Revoca",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_RevocaEnqueue" : {
+                "label" : "Xquery/MDWProject/WS_GESTIONE_WALLET/transformation/createRequest_RevocaEnqueue",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_Revoca_INTERNAL_ENQUEUE" : {
+                "label" : "Pipeline/MDWProject/WS_GESTIONE_WALLET/pipeline/PL_MDW_GESTIONE_WALLET_Revoca_INTERNAL_ENQUEUE",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_JMS_GESTIONE_WALLET_REVOCA_ENQUEUE" : {
+                    "label" : "BusinessService/MDWProject/WS_GESTIONE_WALLET/businessService/BS_JMS_GESTIONE_WALLET_REVOCA_ENQUEUE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET_INTERNAL" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET_INTERNAL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneWallet/wsdl/WS_MDW_GESTIONE_WALLET",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

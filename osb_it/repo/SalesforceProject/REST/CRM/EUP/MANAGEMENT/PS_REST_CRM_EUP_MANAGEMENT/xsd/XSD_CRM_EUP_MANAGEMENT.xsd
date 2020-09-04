@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestSetFirstDateAccess" type="requestSetFirstDateAccessType" />
+  <xsd:complexType name="requestSetFirstDateAccessType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="firstDateAccess" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseSetFirstDateAccess" type="responseSetFirstDateAccessType" />
+  <xsd:complexType name="responseSetFirstDateAccessType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultCode" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="mdwResultDescription" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="mdwTid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

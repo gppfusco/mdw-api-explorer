@@ -1,0 +1,66 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SPYProject_WMData_proxy_PS_WS_SPY_WM_DATA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SPYProject/WMData/pipeline/PL_WS_SPY_WM_DATA" : {
+        "label" : "Pipeline/SPYProject/WMData/pipeline/PL_WS_SPY_WM_DATA",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SPYProject/WMData/wsdl/WS_SPY_WM_DATA" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/WMData/wsdl/WS_SPY_WM_DATA",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SPYProject/WMData/pipeline/PL_INTERNAL_SPY_GET_WM_DATA" : {
+            "label" : "Pipeline/SPYProject/WMData/pipeline/PL_INTERNAL_SPY_GET_WM_DATA",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/SPYProject/WMData/wsdl/WS_SPY_WM_DATA" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/WMData/wsdl/WS_SPY_WM_DATA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SPYProject/WMData/businessServices/BS_SPY_GET_WM_DATA" : {
+                "label" : "BusinessService/SPYProject/WMData/businessServices/BS_SPY_GET_WM_DATA",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SPYProject/WMData/transformations/createRequestGetWMData" : {
+                "label" : "Xquery/SPYProject/WMData/transformations/createRequestGetWMData",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SPYProject/WMData/transformations/createResponseGetWMData" : {
+                "label" : "Xquery/SPYProject/WMData/transformations/createResponseGetWMData",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SPYProject/WMData/wsdl/WS_SPY_WM_DATA" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/WMData/wsdl/WS_SPY_WM_DATA",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

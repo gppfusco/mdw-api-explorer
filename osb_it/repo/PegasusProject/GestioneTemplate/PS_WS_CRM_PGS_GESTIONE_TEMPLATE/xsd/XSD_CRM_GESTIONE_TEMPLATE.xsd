@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestGetListTemplateType">
+    <xsd:sequence>
+      <xsd:element name="TIDPGS" type="xsd:string"/>
+      <xsd:element name="Funzionalita" type="FunzionalitaType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FunzionalitaType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneElaborazione" type="xsd:string" />
+      <xsd:element name="Categoria" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="SottoCategoria" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="Canali" type="CanaliType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CanaliType">
+    <xsd:sequence>
+      <xsd:element name="Canale" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetListTemplate" type="requestGetListTemplateType"/>
+  <xsd:complexType name="responseGetListTemplateType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="TIDPGS" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="Templates" type="TemplatesType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseGetListTemplate" type="responseGetListTemplateType"/>
+  <xsd:complexType name="requestGetPreviewType">
+    <xsd:sequence>
+      <xsd:element name="TIDPGS" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="Renderizzato" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="NomeTemplate" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="PlaceHolder" type="PlaceHolderType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetPreview" type="requestGetPreviewType"/>
+  <xsd:complexType name="responseGetPreviewType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="TIDPGS" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="DescrizioneTemplate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CorpoTemplate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OggettoTemplate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Modificabile" type="xsd:string" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseGetPreview" type="responseGetPreviewType"/>
+  <xsd:complexType name="TemplatesType">
+    <xsd:sequence>
+      <xsd:element name="Template" type="TemplateType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TemplateType">
+    <xsd:sequence>
+      <xsd:element name="Nome" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="Descrizione" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="Canale" type="xsd:string" minOccurs="1"/>
+      <xsd:element  name="Attivo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Categoria" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="Sottocategoria" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PlaceHolderType">
+    <xsd:sequence>
+      <xsd:element name="FruNome" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FruCognome" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CodiceCliente" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CodiceEsigenza" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DataScadenza" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DataPagamento" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DataAttivazioneFutura" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DataRichCessazione" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DataRichiestaPromozione" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DescrizionePacc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DescrizionePaccArr" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DescrizionePaccPar" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DescrizionePromo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FruEmail" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Importo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FruNomeFruCognome" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Sezione1" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="TestoCentrale" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NoteAttivita" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FineValidita" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NomePremio" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DescPremio" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DurataPromo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LinkValidazioneMail" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LinkRegistrazioneSkyId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Sezione2" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Sezione3" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LinkLandingPage" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

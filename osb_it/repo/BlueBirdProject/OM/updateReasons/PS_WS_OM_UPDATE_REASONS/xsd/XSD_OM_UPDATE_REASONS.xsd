@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestUpdateReasons" type="requestUpdateReasonsType"/>
+	<xsd:element name="responseUpdateReasons" type="responseUpdateReasonsType"/>
+	<xsd:complexType name="requestUpdateReasonsType">
+		<xsd:sequence>
+			<xsd:element name="orderId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="orderNumber" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="omOrderId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="orderReasons" type="orderReasonsType" minOccurs="1"/>
+			<xsd:element name="eventDate" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="orderReasonsType">
+		<xsd:sequence>
+			<xsd:element name="orderReason" type="orderReasonType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="orderReasonType">
+		<xsd:sequence>
+			<xsd:element name="type" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mandatory" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="status" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="attributes" type="attributesType" minOccurs="1"/>
+			<xsd:element name="resolutionDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="salesChannel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dealer" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="firstSeller" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="secondSeller" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="attributesType">
+		<xsd:sequence>
+			<xsd:element name="attribute" type="attributeType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="attributeType">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="value" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseUpdateReasonsType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

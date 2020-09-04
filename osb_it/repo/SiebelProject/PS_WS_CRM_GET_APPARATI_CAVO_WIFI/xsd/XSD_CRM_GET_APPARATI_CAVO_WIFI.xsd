@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:element name="requestGetApparatiCavoWIFI" type="requestGetApparatiCavoWIFIType" />
+  <xsd:complexType name="requestGetApparatiCavoWIFIType">
+    <xsd:sequence>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfFieldsType">
+    <xsd:sequence>
+      <xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+ 
+  <xsd:complexType name="FieldType">
+    <xsd:sequence>
+      <xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+  <xsd:element name="responseGetApparatiCavoWIFI" type="responseGetApparatiCavoWIFIType" />
+  <xsd:complexType name="responseGetApparatiCavoWIFIType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="ListOfApparati" type="ListOfApparatiType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfApparatiType">
+    <xsd:sequence>
+      <xsd:element name="Apparato" type="ApparatoType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ApparatoType">
+    <xsd:sequence>
+      <xsd:element name="CodiceDDT" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CodiceDelivery" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CodiceODLPostVendita" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Contratto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DataCallback" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DataCessazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DataConsegna" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DataInizioGaranzia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DataInizioRecesso" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Delivery" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DettaglioMotivo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IdTrackingPromo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IntegrationId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Matricola" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="MatricolaOLD" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="MatricolaPacco" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Motivo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="RecessoValido" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SottotipoDelivery" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Sottotipologia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Stato" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="StatoDelivery" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Tipologia" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TipoPacchetto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="UpdatedBy" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

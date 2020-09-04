@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/PS_WS_GESTIONE_CLIENTI_PUB",
+    "name" : "SalesforceProject_WS_GESTIONE_CLIENTI_PUB_proxy_PS_WS_GESTIONE_CLIENTI_PUB",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\GESTIONE\\CLIENTI\\PUB\\PS_WS_GESTIONE_CLIENTI_PUB",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/PS_WS_GESTIONE_CLIENTI_PUB?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClientiPub/xsd/XSD_GESTIONE_CLIENTI_PUB",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

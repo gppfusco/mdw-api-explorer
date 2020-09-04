@@ -1,0 +1,46 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_SBL_ORDER_VALIDATION_VOUCHER"
+     targetNamespace="http://www.skytv.it/mdw/service/SBL_ORDER_VALIDATION_VOUCHER"
+     xmlns:tns="http://www.skytv.it/mdw/service/SBL_ORDER_VALIDATION_VOUCHER"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SBL_ORDER_VALIDATION_VOUCHER.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestValidateVoucher_message">
+        <wsdl:part name="part_requestValidateVoucher" element="inp1:requestValidateVoucher"/>
+    </wsdl:message>
+    <wsdl:message name="responseValidateVoucher_message">
+        <wsdl:part name="part_responseValidateVoucher" element="inp1:responseValidateVoucher"/>
+    </wsdl:message>
+    <wsdl:message name="header_message">
+            <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:portType name="ORDER_VALIDATION_VOUCHER_ptt">
+        <wsdl:operation name="execute_ValidateVoucher">
+            <wsdl:input message="tns:requestValidateVoucher_message"/>
+            <wsdl:output message="tns:responseValidateVoucher_message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ORDER_VALIDATION_VOUCHER_ptt_bind" type="tns:ORDER_VALIDATION_VOUCHER_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_ValidateVoucher">
+            <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/SBL_ORDER_VALIDATION_VOUCHER/execute_ValidateVoucher"/>
+            <wsdl:input>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+                <soap:body use="literal" parts ="part_requestValidateVoucher"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+                <soap:body use="literal" parts ="part_responseValidateVoucher"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

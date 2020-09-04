@@ -1,0 +1,96 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_SALES_ORDER_GENERATOR_proxy_PS_WS_SALES_ORDER_GENERATOR",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_SALES_ORDER_GENERATOR/pipeline/PL_WS_SALES_ORDER_GENERATOR_ROUTING" : {
+        "label" : "Pipeline/SalesforceProject/WS_SALES_ORDER_GENERATOR/pipeline/PL_WS_SALES_ORDER_GENERATOR_ROUTING",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SalesforceProject/WS_SALES_ORDER_GENERATOR/pipeline/PL_INTERNAL_AOL_ORDER_GENERATOR_ENQUEUE" : {
+            "label" : "Pipeline/SalesforceProject/WS_SALES_ORDER_GENERATOR/pipeline/PL_INTERNAL_AOL_ORDER_GENERATOR_ENQUEUE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/SalesforceProject/WS_SALES_ORDER_GENERATOR/businessService/BS_JMS_ORDER_GENERATOR" : {
+                "label" : "BusinessService/SalesforceProject/WS_SALES_ORDER_GENERATOR/businessService/BS_JMS_ORDER_GENERATOR",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OrderGenerator/wsdl/WS_SALES_ORDER_GENERATOR" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OrderGenerator/wsdl/WS_SALES_ORDER_GENERATOR",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_SALES_ORDER_GENERATOR/trasformation/createResponse_AOLOrderGeneratorEnqueue" : {
+                "label" : "Xquery/SalesforceProject/WS_SALES_ORDER_GENERATOR/trasformation/createResponse_AOLOrderGeneratorEnqueue",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/SalesforceProject/WS_SALES_ORDER_GENERATOR/pipeline/PL_WS_SALES_ORDER_GENERATOR" : {
+            "label" : "Pipeline/SalesforceProject/WS_SALES_ORDER_GENERATOR/pipeline/PL_WS_SALES_ORDER_GENERATOR",
+            "properties" : { },
+            "successors" : {
+              "Xquery/SalesforceProject/WS_SALES_ORDER_GENERATOR/trasformation/createResponse_GenerateOrder" : {
+                "label" : "Xquery/SalesforceProject/WS_SALES_ORDER_GENERATOR/trasformation/createResponse_GenerateOrder",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_SALES_ORDER_GENERATOR/trasformation/createRequest_GenerateOrder" : {
+                "label" : "Xquery/SalesforceProject/WS_SALES_ORDER_GENERATOR/trasformation/createRequest_GenerateOrder",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OrderGenerator/wsdl/WS_SALES_ORDER_GENERATOR" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OrderGenerator/wsdl/WS_SALES_ORDER_GENERATOR",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OrderGenerator/wsdl/WS_SALES_ORDER_GENERATOR" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OrderGenerator/wsdl/WS_SALES_ORDER_GENERATOR",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OrderGenerator/wsdl/WS_SALES_ORDER_GENERATOR" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/OrderGenerator/wsdl/WS_SALES_ORDER_GENERATOR",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

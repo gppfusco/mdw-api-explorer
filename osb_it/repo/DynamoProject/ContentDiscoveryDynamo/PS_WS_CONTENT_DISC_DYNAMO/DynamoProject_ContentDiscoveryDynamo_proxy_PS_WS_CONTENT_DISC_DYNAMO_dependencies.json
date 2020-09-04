@@ -1,0 +1,42 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "DynamoProject_ContentDiscoveryDynamo_proxy_PS_WS_CONTENT_DISC_DYNAMO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/DynamoProject/ContentDiscoveryDynamo/pipeline/PL_WS_CONTENT_DISCOVERY_DYNAMO" : {
+        "label" : "Pipeline/DynamoProject/ContentDiscoveryDynamo/pipeline/PL_WS_CONTENT_DISCOVERY_DYNAMO",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_DYNAMO" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_DYNAMO",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/DynamoProject/wsdl/WS_CONTENT_DISC_DYNAMO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/DynamoProject/wsdl/WS_CONTENT_DISC_DYNAMO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/DynamoProject/wsdl/WS_CONTENT_DISC_DYNAMO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/DynamoProject/wsdl/WS_CONTENT_DISC_DYNAMO",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

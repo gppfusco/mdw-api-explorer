@@ -1,0 +1,17 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/eup/WS_CRM_OUTMSG_EUPORT_UPSERTCUSTOMER",
+    "name" : "EUPProject_outbound_proxy_PS_WS_CRM_OUTMSG_EUPORT_UPSERTCUSTOMER",
+    "localPath" : "osb_it\\repo\\EUPProject\\outbound\\PS_WS_CRM_OUTMSG_EUPORT_UPSERTCUSTOMER",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/eup/WS_CRM_OUTMSG_EUPORT_UPSERTCUSTOMER?WSDL",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

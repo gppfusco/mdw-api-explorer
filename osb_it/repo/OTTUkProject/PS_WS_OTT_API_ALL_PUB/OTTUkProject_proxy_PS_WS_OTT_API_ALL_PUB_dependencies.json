@@ -1,0 +1,520 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OTTUkProject_proxy_PS_WS_OTT_API_ALL_PUB",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL_PUB" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL_PUB",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/OTTUkProject/pipeline/PL_WS_OTT_API_ALL_ROUTING" : {
+        "label" : "Pipeline/OTTUkProject/pipeline/PL_WS_OTT_API_ALL_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_ITERATE_REMOVE_ALL_DEVICES" : {
+            "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_ITERATE_REMOVE_ALL_DEVICES",
+            "properties" : { },
+            "successors" : {
+              "Xquery/OTTUkProject/transformations/createRequest_Pipeline_GetAllDevices" : {
+                "label" : "Xquery/OTTUkProject/transformations/createRequest_Pipeline_GetAllDevices",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createNodeDeviceStatus" : {
+                "label" : "Xquery/OTTUkProject/transformations/createNodeDeviceStatus",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_RemoveAllDevices" : {
+                "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_RemoveAllDevices",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createRequest_Pipeline_RemoveDevice" : {
+                "label" : "Xquery/OTTUkProject/transformations/createRequest_Pipeline_RemoveDevice",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_ALL_DEVICE" : {
+                "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_ALL_DEVICE",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetAllDevice" : {
+                    "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetAllDevice",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                    "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/OTTUkProject/transformations/createNodeListOfStatus" : {
+                "label" : "Xquery/OTTUkProject/transformations/createNodeListOfStatus",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_REMOVE_DEVICE" : {
+                "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_REMOVE_DEVICE",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_RemoveDevice" : {
+                    "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_RemoveDevice",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                    "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_ITERATE_REMOVE_DEVICES_FOR_FAMILY" : {
+            "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_ITERATE_REMOVE_DEVICES_FOR_FAMILY",
+            "properties" : { },
+            "successors" : {
+              "Xquery/OTTUkProject/transformations/createRequest_Pipeline_GetAllDevices" : {
+                "label" : "Xquery/OTTUkProject/transformations/createRequest_Pipeline_GetAllDevices",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createNodeDeviceStatus" : {
+                "label" : "Xquery/OTTUkProject/transformations/createNodeDeviceStatus",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_RemoveDevicesForFamily" : {
+                "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_RemoveDevicesForFamily",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createRequest_Pipeline_RemoveDevice" : {
+                "label" : "Xquery/OTTUkProject/transformations/createRequest_Pipeline_RemoveDevice",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_ALL_DEVICE" : {
+                "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_ALL_DEVICE",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetAllDevice" : {
+                    "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetAllDevice",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                    "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/OTTUkProject/transformations/createNodeListOfStatus" : {
+                "label" : "Xquery/OTTUkProject/transformations/createNodeListOfStatus",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_REMOVE_DEVICE" : {
+                "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_REMOVE_DEVICE",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_RemoveDevice" : {
+                    "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_RemoveDevice",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                    "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          },
+          "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_ALL_DEVICE" : {
+            "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_ALL_DEVICE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetAllDevice" : {
+                "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetAllDevice",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_BLOCK_HOUSEHOLD" : {
+            "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_BLOCK_HOUSEHOLD",
+            "properties" : { },
+            "successors" : {
+              "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_BlockHousehold" : {
+                "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_BlockHousehold",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_PARENTAL_CONTROLS" : {
+            "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_PARENTAL_CONTROLS",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetParentalControls" : {
+                "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetParentalControls",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_ADD_DEVICE_CHANGE_EXCEPTION" : {
+            "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_ADD_DEVICE_CHANGE_EXCEPTION",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_AddDeviceChangeException" : {
+                "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_AddDeviceChangeException",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_DEVICE" : {
+            "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_DEVICE",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetDevice" : {
+                "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetDevice",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_SET_PARENTAL_CONTROLS" : {
+            "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_SET_PARENTAL_CONTROLS",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_SetParentalControls" : {
+                "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_SetParentalControls",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_HOUSEHOLD" : {
+            "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_GET_HOUSEHOLD",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetHousehold" : {
+                "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_GetHousehold",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_REMOVE_DEVICE" : {
+            "label" : "Pipeline/OTTUkProject/pipeline/API_HANDLING/PL_INTERNAL_REMOVE_DEVICE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/CRMApi/wsdl/WS_OTT_API_ALL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_RemoveDevice" : {
+                "label" : "Xquery/OTTUkProject/transformations/createResponse_WS_OTT_API_ALL_RemoveDevice",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK" : {
+                "label" : "BusinessService/OTTUkProject/businessService/BS_TEXT_OTTUK",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

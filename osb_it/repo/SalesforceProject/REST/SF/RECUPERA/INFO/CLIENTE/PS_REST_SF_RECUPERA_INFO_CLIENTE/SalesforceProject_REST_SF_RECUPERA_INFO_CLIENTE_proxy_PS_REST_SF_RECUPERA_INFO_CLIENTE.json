@@ -1,0 +1,33 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/rest",
+    "name" : "SalesforceProject_REST_SF_RECUPERA_INFO_CLIENTE_proxy_PS_REST_SF_RECUPERA_INFO_CLIENTE",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\REST\\SF\\RECUPERA\\INFO\\CLIENTE\\PS_REST_SF_RECUPERA_INFO_CLIENTE",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/rest?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SalesforceProject/RecuperaInfoCliente/xsd/XSD_SF_RECUPERA_INFO_CLIENTE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SalesforceProject/RecuperaInfoCliente/xsd/XSD_FAULTS",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/rest/faults"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/RecuperaInfoCliente/xsd/XSD_FAULTS",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/rest/faults"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/RecuperaInfoCliente/xsd/XSD_SF_RECUPERA_INFO_CLIENTE",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetContractStatus" type="requestGetContractStatusType"/>
+	<xsd:complexType name="requestGetContractStatusType">
+		<xsd:sequence>
+			<xsd:element name="contractId" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetContractStatus" type="responseGetContractStatusType"/>
+  <xsd:complexType name="responseGetContractStatusType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="data" type="GetContractStatusDataType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="GetContractStatusDataType">
+    <xsd:sequence>
+      <xsd:element name="contrStatus" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="contrSubStatus" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="preCancellationReason" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

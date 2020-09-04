@@ -1,0 +1,55 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_EntityKeyManagement_proxy_PS_OM_ENTITY_KEY_MANAGEMENT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/OMProject/EntityKeyManagement/pipeline/PL_WS_OM_ENTITY_KEY_MANAGEMENT" : {
+        "label" : "Pipeline/OMProject/EntityKeyManagement/pipeline/PL_WS_OM_ENTITY_KEY_MANAGEMENT",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/OMProject/EntityKeyManagement/businessServices/BS_WS_OM_ENTITY_KEY_MANAGEMENT" : {
+            "label" : "BusinessService/OMProject/EntityKeyManagement/businessServices/BS_WS_OM_ENTITY_KEY_MANAGEMENT",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/OMProject/transformation/createRequestSoapHeaderTibco" : {
+            "label" : "Xquery/OMProject/transformation/createRequestSoapHeaderTibco",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/EntityKeyManagement/transformation/createRequest_setEntityKey" : {
+            "label" : "Xquery/OMProject/EntityKeyManagement/transformation/createRequest_setEntityKey",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/EntityKeyManagement/transformation/createResponse_setEntityKey" : {
+            "label" : "Xquery/OMProject/EntityKeyManagement/transformation/createResponse_setEntityKey",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/EntityKeyManagement/wsdl/WS_OM_ENTITY_KEY_MANAGEMENT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/EntityKeyManagement/wsdl/WS_OM_ENTITY_KEY_MANAGEMENT",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/EntityKeyManagement/wsdl/WS_OM_ENTITY_KEY_MANAGEMENT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/EntityKeyManagement/wsdl/WS_OM_ENTITY_KEY_MANAGEMENT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+    <xsd:element name="requestEsitoRIDDECA">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="mdwOrderNumber" type="xsd:string"/>
+                <xsd:element name="mdwDataValuta" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="mdwPaymentOrigin" type="xsd:string"/>
+                <xsd:element name="mdwCodeTransazSisal" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="mdwCodeRicevSisal" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="mdwEsitoInvoc" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="responseEsitoRIDDECA">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="esito" type="xsd:string"/>
+                <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="tid" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

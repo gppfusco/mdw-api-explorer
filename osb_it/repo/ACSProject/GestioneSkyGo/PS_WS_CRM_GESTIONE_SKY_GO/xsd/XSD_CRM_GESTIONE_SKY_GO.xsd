@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestResetCustomerPinType">
+		<xsd:sequence>
+			<xsd:element name="codiceCliente" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestResetCustomerPin" type="requestResetCustomerPinType"/>
+	<xsd:complexType name="responseResetCustomerPinType">
+		<xsd:sequence>
+			<xsd:element name="codice" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="descrizioneErrore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseResetCustomerPin" type="responseResetCustomerPinType"/>
+	<xsd:complexType name="requestResetPinDeviceType">
+		<xsd:sequence>
+			<xsd:element name="codiceCliente" type="xsd:string"/>
+			<xsd:element name="famigliaDevice" type="xsd:string"/>
+			<xsd:element name="identificativoDevice" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestResetPinDevice" type="requestResetPinDeviceType"/>
+	<xsd:complexType name="responseResetPinDeviceType">
+		<xsd:sequence>
+			<xsd:element name="return" type="dataOutputType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="dataOutputType">
+		<xsd:sequence>
+			<xsd:element name="codice" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="descrizione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="esito" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseResetPinDevice" type="responseResetPinDeviceType"/>
+	
+	<xsd:complexType name="requestResetCounterDeviceType">
+		<xsd:sequence>
+			<xsd:element name="customerid" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestResetCounterDevice" type="requestResetCounterDeviceType"/>
+	<xsd:complexType name="responseResetCounterDeviceType">
+		<xsd:sequence>
+                        <xsd:element name="DescrizioneErrore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseResetCounterDevice" type="responseResetCounterDeviceType"/>
+	
+	<!-- GET DEVICE -->
+	<xsd:complexType name="requestGetDeviceType">
+		<xsd:sequence>
+			<xsd:element name="codiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="deviceUUID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="identificativoDevice" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipoDevice" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagListaDevice" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagStoricoDevice" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataInizioStorico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagSincronizzazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipologiaRichiesta" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="identificativoChiamante" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="identificativoClient" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetDevice" type="requestGetDeviceType"/>
+	<xsd:complexType name="responseGetDeviceType">
+		<xsd:sequence>
+			<xsd:element name="descrizioneErrore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="result" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="storicoDevice" type="devicehistoryType" minOccurs="0"/>
+						<xsd:element name="dispositivi" type="devicesType" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetDevice" type="responseGetDeviceType"/>
+	<xsd:complexType name="devicehistoryType">
+		<xsd:sequence>
+			<xsd:element name="oggetto" type="itemType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="itemType">
+		<xsd:sequence>
+			<xsd:element name="action_code" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="action_date" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="marca" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="idChiamante" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="nomeDescrittivo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="identificativo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="modello" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="note" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="stato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="uuid" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="devicesType">
+		<xsd:sequence>
+			<xsd:element name="dispositivo" type="deviceType" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="deviceType">
+		<xsd:sequence>
+			<xsd:element name="marca" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="nomeDescrittivo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="identificativo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataInserimento" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataUltimaModifica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dataUltimoReset" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ultimoTid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="modello" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="stato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="uuid" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestResetDeviceType">
+		<xsd:sequence>
+			<xsd:element name="codiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="deviceUUID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="identificativoDevice" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipoDevice" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="modalitaSuperUtente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagSincronizzazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipologiaRichiesta" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="identificativoChiamante" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="identificativoClient" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestResetDevice" type="requestResetDeviceType"/>
+	<xsd:complexType name="responseResetDeviceType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneErrore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceErrore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseResetDevice" type="responseResetDeviceType"/>
+</xsd:schema>

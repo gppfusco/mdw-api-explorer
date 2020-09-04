@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<!--<xsd:include schemaLocation="../../../../ApplicationObjects/SALESFORCE/xsd/XSD_SalesForceDefine.xsd"/>-->
+	<xsd:complexType name="requestGetUserInfoType">
+		<xsd:sequence/>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetUserInfoType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="modalitaAccesso" type="xsd:string"/>
+			<xsd:element name="simboloValuta" type="xsd:string" nillable="true"/>
+			<xsd:element name="limiteDimensioniFileAllegato" type="xsd:string"/>
+			<xsd:element name="codiceISOValutaPredefinita" type="xsd:string" nillable="true"/>
+			<xsd:element name="allegatiHTMLnonConsentiti" type="xsd:string"/>
+			<xsd:element name="contiDepositoPersonali" type="xsd:string"/>
+			<xsd:element name="idOrganizzazione" type="xsd:string"/>
+			<xsd:element name="organizzazioneMultiValuta" type="xsd:string"/>
+			<xsd:element name="nomeOrganizzazione" type="xsd:string"/>
+			<xsd:element name="idProfilo" type="xsd:string"/>
+			<xsd:element name="idRouolo" type="xsd:string" nillable="true"/>
+			<xsd:element name="validitaSessioneInSecondi" type="xsd:string"/>
+			<xsd:element name="codiceISOValutaPredefinitaUtente" type="xsd:string" nillable="true"/>
+			<xsd:element name="emailUtente" type="xsd:string"/>
+			<xsd:element name="nomeUtente" type="xsd:string"/>
+			<xsd:element name="idUtente" type="xsd:string"/>
+			<xsd:element name="linguaUtente" type="xsd:string"/>
+			<xsd:element name="localeUtente" type="xsd:string"/>
+			<xsd:element name="username" type="xsd:string"/>
+			<xsd:element name="timezoneUtente" type="xsd:string"/>
+			<xsd:element name="tipologiaUtente" type="xsd:string"/>
+			<xsd:element name="interfacciaUtente" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetUserInfo" type="requestGetUserInfoType"/>
+	<xsd:element name="responseGetUserInfo" type="responseGetUserInfoType"/>
+</xsd:schema>

@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestRecuperaOrderSospesoTIBCO" type="requestRecuperaOrderSospesoTIBCOType"/>
+	<xsd:complexType name="requestRecuperaOrderSospesoTIBCOType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_RecuperaOrderSospesoTIBCO">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="LoginOperator" type="xsd:string" minOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseRecuperaOrderSospesoTIBCO" type="responseRecuperaOrderSospesoTIBCOType"/>
+	<xsd:complexType name="responseRecuperaOrderSospesoTIBCOType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestRecuperaBASospesoTIBCO" type="requestRecuperaBASospesoTIBCOType"/>
+	<xsd:complexType name="requestRecuperaBASospesoTIBCOType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_RecuperaBASospesoTIBCO">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="ExtBillingId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="LoginOperator" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TipoLavorazione" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Provenienza" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseRecuperaBASospesoTIBCO" type="responseRecuperaBASospesoTIBCOType"/>
+	<xsd:complexType name="responseRecuperaBASospesoTIBCOType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCessaOrderTIBCO" type="requestCessaOrderTIBCOType"/>
+	<xsd:complexType name="requestCessaOrderTIBCOType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_CessaOrderTIBCO">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="LoginOperator" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="ExtBillingId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="DataRichiestaCessazione" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CausaleCessazione" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CreditRiskNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="FraudRiskNumber" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCessaOrderTIBCO" type="responseCessaOrderTIBCOType"/>
+	<xsd:complexType name="responseCessaOrderTIBCOType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSospendiOrderTIBCO" type="requestSospendiOrderTIBCOType"/>
+	<xsd:complexType name="requestSospendiOrderTIBCOType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_SospendiOrderTIBCO">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="LoginOperator" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="ExtBillingId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CausaleSospensione" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="DataRichiestaSospensione" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CreditRiskNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="FraudRiskNumber" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseSospendiOrderTIBCO" type="responseSospendiOrderTIBCOType"/>
+	<xsd:complexType name="responseSospendiOrderTIBCOType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestDisassociaAssociaMatricola" type="requestDisassociaAssociaMatricolaType"/>
+	<xsd:complexType name="requestDisassociaAssociaMatricolaType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_DisassociaAssocia">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="Items" minOccurs="1">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Item" minOccurs="1" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="MatricolaNew" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="MatricolaOld" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="StatoMatricola" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="IntegrationId" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseDisassociaAssociaMatricola" type="responseSimpleType"/>
+	<xsd:element name="requestConfermaMatricola" type="requestConfermaMatricolaType"/>
+	<xsd:complexType name="requestConfermaMatricolaType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_ConfermaMatricola">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseConfermaMatricola" type="responseSimpleType"/>
+	<xsd:element name="requestRettificaConnettivita" type="requestRettificaConnettivitaType"/>
+	<xsd:complexType name="requestRettificaConnettivitaType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_RettificaConnettivita">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="NumeroODL" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="IntegrationId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Items" minOccurs="1">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Item" minOccurs="1" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Matricola" minOccurs="1"/>
+												<xsd:element name="Action" minOccurs="1"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseRettificaConnettivita" type="responseSimpleType"/>
+	<xsd:element name="requestCreaCO" type="requestCreaCOType"/>
+	<xsd:complexType name="requestCreaCOType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_CreaCO">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="Canale" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CodiceCliente" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CodicePromo" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Tecnologia" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Evento" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="Tipologia" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TipoDelivery" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CaseIdSF" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CaseCodeSF" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CodiceDealer" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CodiceVenditore" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCreaCO" type="responseSimpleType"/>
+	<xsd:element name="requestCreazioneDelivery" type="requestCreazioneDeliveryType"/>
+	<xsd:complexType name="requestCreazioneDeliveryType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_CreazioneDelivery">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="Matricola" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="MotivoRichiesta" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Tipologia" type="xsd:string" minOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCreazioneDelivery" type="responseSimpleType"/>
+	<xsd:element name="requestSbloccoChiaviCM" type="requestSbloccoChiaviCMType"/>
+	<xsd:complexType name="requestSbloccoChiaviCMType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_SbloccoChiaviCM">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="IdPDA" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="Scenario" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ActionFW" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ActionSky" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ClusterNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CustomerBaseFW" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ChiaviFW" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="IdHeaderFW" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="IdInstanceFW" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="IdAssetFW" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="CodiceClienteFW" type="xsd:string" minOccurs="1"/>
+									<xsd:element name="CodiceCDFFW" type="xsd:string" minOccurs="1"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseSbloccoChiaviCM" type="responseSimpleType"/>
+	<xsd:element name="requestUpdApparati" type="requestUpdApparatiType"/>
+	<xsd:complexType name="requestUpdApparatiType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_UpdApparati">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ListaApparati" minOccurs="1">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Apparato" minOccurs="1" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Matricola" type="xsd:string" minOccurs="1"/>
+												<xsd:element name="StatoServizio" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="MatricolaOld" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="StatoMatricola" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="TipoApparato" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseUpdApparati" type="responseSimpleType"/>
+	<xsd:element name="requestGenericCreaDelivery" type="requestGenericCreaDeliveryType"/>
+	<xsd:complexType name="requestGenericCreaDeliveryType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_CreaDelivery">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Contratto" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="IndirizzoAlternativo" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="DataAppuntamento" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="ShippingNote" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ShippingAddressPhone" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="TipologiaODS" type="xsd:string"/>
+						<xsd:element name="ListaApparati" minOccurs="1">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Apparato" minOccurs="1" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Tipologia" type="xsd:string" minOccurs="1"/>
+												<xsd:element name="Quantita" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="DettagliApparato" minOccurs="0" maxOccurs="1">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="FlagPickAndReturn" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="MatricolaOld" type="xsd:string" minOccurs="0"/>
+															<xsd:element name="StatoMatricolaOld" type="xsd:string" minOccurs="0"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGenericCreaDelivery" type="responseSimpleType"/>
+	<xsd:element name="requestCOChangeConsistency" type="requestCOChangeConsistencyType"/>
+	<xsd:complexType name="requestCOChangeConsistencyType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_COChangeConsistency">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="XApplicationOrigin" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="Canale" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CodiceCliente" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CaseIdSF" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CaseCodeSF" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="CodiceDealer" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CodiceVenditore" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="TipoDelivery" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="Evento" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="OrderSubType" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="SubTypes" minOccurs="1">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="SubType" minOccurs="1" maxOccurs="unbounded">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="TVPackId" type="xsd:string" minOccurs="1"/>
+												<xsd:element name="Tipologia" type="xsd:string" minOccurs="1"/>
+												<xsd:element name="Tecnologia" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="CodicePromo" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="Parameter" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="NumMiniSTB" type="xsd:string" minOccurs="0"/>
+												<xsd:element name="NumNewSMC" type="xsd:string" minOccurs="0"/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCOChangeConsistency" type="responseSimpleType"/>
+	<xsd:complexType name="responseSimpleType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestNotifyUpdateContract" type="requestNotifyUpdateContractType"/>
+	<xsd:complexType name="requestNotifyUpdateContractType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_NotifyUpdateContract">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NomeMetodo" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="TIBCOOrderId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CorrelationID" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="SMCSerialNumber" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="NewStatus" type="xsd:string" minOccurs="1"/>
+						<xsd:element name="ActivationDate" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="CeaseDate" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="SuspendDate" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="OrderReason" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="LoginOperator" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ProcessingType" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="ApplicationOrigin" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseNotifyUpdateContract" type="responseSimpleType"/>
+</xsd:schema>

@@ -1,0 +1,30 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_pinOperations_proxy_PS_REST_SF_PIN_OPERATIONS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/BlueBirdProject/Resources/PS_REST_SF_PIN_OPERATIONS" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_PIN_OPERATIONS",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/SALESFORCE/pinOperations/pipeline/PL_REST_SF_PIN_OPERATIONS" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/pinOperations/pipeline/PL_REST_SF_PIN_OPERATIONS",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/BlueBirdProject/Resources/PS_REST_SF_PIN_OPERATIONS" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SF_PIN_OPERATIONS",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

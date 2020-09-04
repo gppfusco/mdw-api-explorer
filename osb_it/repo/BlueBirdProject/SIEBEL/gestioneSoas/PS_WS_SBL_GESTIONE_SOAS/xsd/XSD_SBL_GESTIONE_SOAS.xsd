@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestInsertSoas" type="requestInsertSoasType"/>
+	<xsd:element name="responseInsertSoas" type="responseInsertSoasType"/>
+	<xsd:complexType name="requestInsertSoasType">
+		<xsd:sequence>
+			<xsd:element name="codiceContratto" type="xsd:string"/>
+			<xsd:element name="autorizzazioni" type="autorizzazioniType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="autorizzazioniType">
+		<xsd:sequence>
+			<xsd:element name="autorizzazione" type="autorizzazioneType" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="autorizzazioneType">
+		<xsd:sequence>
+			<xsd:element name="dataCreazione" type="xsd:date"/>
+			<xsd:element name="dataScadenza" type="xsd:date"/>
+			<xsd:element name="codiceParteMatricola" type="xsd:string"/>
+			<xsd:element name="tipologiaApparato" type="xsd:string"/>
+			<xsd:element name="matricola" type="xsd:string"/>
+			<xsd:element name="esitoTestEpg" type="xsd:string"/>
+			<xsd:element name="contratto" type="xsd:string"/>
+			<xsd:element name="tipologiaSOAS" type="xsd:string"/>
+			<xsd:element name="sottotipologiaSOAS" type="xsd:string"/>
+			<xsd:element name="idCase" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseInsertSoasType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string"/>
+			<xsd:element name="resultDescription" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

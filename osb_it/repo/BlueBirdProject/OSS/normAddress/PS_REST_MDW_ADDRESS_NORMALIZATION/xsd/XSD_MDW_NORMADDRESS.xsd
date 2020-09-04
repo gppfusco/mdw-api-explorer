@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="responseGetCities" type="responseGetAddressType"/>
+	<xsd:element name="responseGetStreets" type="responseGetAddressType"/>
+	<xsd:element name="responseGetStreetNumbers" type="responseGetAddressType"/>
+	<xsd:element name="responseGetZipCodes" type="responseGetZipCodesType"/>
+        <xsd:element name="responseGetCitiesSoap" type="responseGetAddressSoapType"/>
+	<xsd:element name="responseGetStreetsSoap" type="responseGetAddressSoapType"/>
+	<xsd:element name="responseGetStreetNumbersSoap" type="responseGetAddressSoapType"/>
+	<xsd:element name="responseGetZipCodesSoap" type="responseGetZipCodesSoapType"/>
+        <xsd:element name="requestGetCities" type="requestGetCitiesType"/>
+	<xsd:element name="requestGetStreets" type="requestGetStreetsType"/>
+	<xsd:element name="requestGetStreetNumbers" type="requestGetStreetNumbersType"/>
+	<xsd:element name="requestGetZipCodes" type="requestGetZipCodesType"/>
+	<xsd:complexType name="requestGetCitiesType">
+		<xsd:sequence>
+			<xsd:element name="q" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flgEgon" type="booleanStr" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestGetZipCodesType">
+		<xsd:sequence>
+			<xsd:element name="cityName" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="streetName" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="streetNumber" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="cityEgonID" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="streetEgonID" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetZipCodesType">
+		<xsd:sequence>
+			<xsd:element name="zipCode" type="xsd:string" minOccurs="0" maxOccurs="100"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetZipCodesSoapType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element ref="responseGetZipCodes" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestGetStreetsType">
+		<xsd:sequence>
+			<xsd:element name="q" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flgEgon" type="booleanStr" minOccurs="1"/>
+			<xsd:element name="cityEgonID" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestGetStreetNumbersType">
+		<xsd:sequence>
+			<xsd:element name="q" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flgEgon" type="booleanStr" minOccurs="1"/>
+			<xsd:element name="cityEgonID" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="streetEgonID" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flgOnlyCatastali" type="booleanStr" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetAddressType">
+		<xsd:sequence>
+			<xsd:element name="address" type="addressType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetAddressSoapType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element ref="responseGetCities" minOccurs="0"/>
+			<xsd:element ref="responseGetStreets" minOccurs="0"/>
+			<xsd:element ref="responseGetStreetNumbers" minOccurs="0"/>
+			<xsd:element ref="responseGetZipCodes" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="addressType">
+		<xsd:sequence>
+			<xsd:element name="cities" type="citiesType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="citiesType">
+		<xsd:sequence>
+			<xsd:element name="streets" type="streetsType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="egonID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="province" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="streetsType">
+		<xsd:sequence>
+			<xsd:element name="streetNumbers" type="streetNumbersType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="egonID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="zipCode" type="xsd:string" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="streetNumbersType">
+		<xsd:sequence>
+			<xsd:element name="egonID" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="number" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="exponent" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="numberType" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:simpleType name="booleanStr">
+                <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="Y"/>
+                        <xsd:enumeration value="N"/>
+                </xsd:restriction>
+        </xsd:simpleType>
+</xsd:schema>

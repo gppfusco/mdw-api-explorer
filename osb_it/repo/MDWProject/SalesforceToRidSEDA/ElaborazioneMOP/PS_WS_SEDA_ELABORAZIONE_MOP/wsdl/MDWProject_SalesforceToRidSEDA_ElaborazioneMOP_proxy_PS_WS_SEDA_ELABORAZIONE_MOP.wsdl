@@ -1,0 +1,46 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_SEDA_ELABORAZIONE_MOP"
+     targetNamespace="http://www.skytv.it/mdw/service/SEDA_ELABORAZIONE_MOP"
+     xmlns:tns="http://www.skytv.it/mdw/service/SEDA_ELABORAZIONE_MOP"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_ELABORAZIONE_MOP.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestElaborazioneMOP_Message">
+        <wsdl:part name="part_requestElaborazioneMOP" element="inp1:requestElaborazioneMOP"/>
+    </wsdl:message>
+    <wsdl:message name="responseElaborazioneMOP_Message">
+        <wsdl:part name="part_responseElaborazioneMOP" element="inp1:responseElaborazioneMOP"/>
+    </wsdl:message>
+    <wsdl:message name="header_Message">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:portType name="SEDA_ELABORAZIONE_MOP_ptt">
+        <wsdl:operation name="execute_ElaborazioneMOP">
+            <wsdl:input message="tns:requestElaborazioneMOP_Message"/>
+            <wsdl:output message="tns:responseElaborazioneMOP_Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SEDA_ELABORAZIONE_MOP_bind" type="tns:SEDA_ELABORAZIONE_MOP_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_ElaborazioneMOP">
+            <soap:operation style="document" soapAction="execute_ElaborazioneMOP"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/SEDA_ELABORAZIONE_MOP"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/SEDA_ELABORAZIONE_MOP"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

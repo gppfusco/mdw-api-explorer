@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestCheckEccQWRecapType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodicePromo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCheckEccQWRecap" type="requestCheckEccQWRecapType"/>
+	<xsd:complexType name="responseCheckEccQWRecapType">
+		<xsd:sequence>
+			<xsd:element name="CanaleAttivo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="EsitoCheckCanalePrio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PrioritaCanale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TemplateCanale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoCanale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckEccQWRecap" type="responseCheckEccQWRecapType"/>
+	<xsd:complexType name="ListOfFieldsType">
+		<xsd:sequence>
+			<xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FieldType">
+		<xsd:sequence>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,69 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_CRM_GESTIONE_ESITI_SEDA"
+     targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_ESITI_SEDA"
+     xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_ESITI_SEDA"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_ESITI_SEDA.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestUpsertRidMop_Message">
+        <wsdl:part name="part_requestUpsertRidMop" element="inp1:requestUpsertRidMop"/>
+    </wsdl:message>
+    <wsdl:message name="responseUpsertRidMop_Message">
+        <wsdl:part name="part_responseUpsertRidMop" element="inp1:responseUpsertRidMop"/>
+    </wsdl:message>
+    <wsdl:message name="header_Message">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:portType name="CRM_GESTIONE_ESITI_SEDA_ptt">
+        <wsdl:operation name="execute_UpsertRidMop">
+            <wsdl:input message="tns:requestUpsertRidMop_Message"/>
+            <wsdl:output message="tns:responseUpsertRidMop_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_UpdateRidMopEsitiNegativi">
+            <wsdl:input message="tns:requestUpdateRidMopEsitiNegativi_Message"/>
+            <wsdl:output message="tns:responseUpdateRidMopEsitiNegativi_Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:message name="requestUpdateRidMopEsitiNegativi_Message">
+        <wsdl:part name="part_requestUpdateRidMopEsitiNegativi" element="inp1:requestUpdateRidMopEsitiNegativi"/>
+    </wsdl:message>
+    <wsdl:message name="responseUpdateRidMopEsitiNegativi_Message">
+        <wsdl:part name="responseUpdateRidMopEsitiNegativi" element="inp1:responseUpdateRidMopEsitiNegativi"/>
+    </wsdl:message>
+    <wsdl:binding name="CRM_GESTIONE_ESITI_SEDA_bind" type="tns:CRM_GESTIONE_ESITI_SEDA_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_UpsertRidMop">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_ESITI_SEDA/execute_UpsertRidMop"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestUpsertRidMop"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseUpsertRidMop"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_UpdateRidMopEsitiNegativi">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_ESITI_SEDA/execute_UpdateRidMopEsitiNegativi"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestUpdateRidMopEsitiNegativi"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="responseUpdateRidMopEsitiNegativi"/>
+                <soap:header message="tns:header_Message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

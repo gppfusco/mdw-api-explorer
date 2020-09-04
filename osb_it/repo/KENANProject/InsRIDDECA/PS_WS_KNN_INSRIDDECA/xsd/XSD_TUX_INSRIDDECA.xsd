@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+    <xsd:element name="requestInsRIDDECA">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="mdwBillingAccount" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="mdwPayImportoScaduto" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="mdwNTS_CID" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="mdwPayId" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="mdwPayCreated" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="mdwPayCodSIA" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="mdwPayCodAuthRID" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="mdwDesiredPayDate" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="mdwPayNominativoSottoscrittore" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="mdwPayIBAN" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="mdwPayCodFiscSottoscrittore" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="mdwPayFlagIBANEU" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="mdwPayBIC" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="mdwCRMIndirizzo" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="mdwPayStatus" type="xsd:string" minOccurs="0"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="responseInsRIDDECA">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+                <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="tid" type="xsd:string" minOccurs="1"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

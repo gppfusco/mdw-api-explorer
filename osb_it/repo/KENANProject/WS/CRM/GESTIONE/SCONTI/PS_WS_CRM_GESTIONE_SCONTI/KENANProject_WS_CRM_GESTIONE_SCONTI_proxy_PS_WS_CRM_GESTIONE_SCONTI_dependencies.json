@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_CRM_GESTIONE_SCONTI_proxy_PS_WS_CRM_GESTIONE_SCONTI",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneSconti/wsdl/WS_CRM_GESTIONE_SCONTI" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneSconti/wsdl/WS_CRM_GESTIONE_SCONTI",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/WS_CRM_GESTIONE_SCONTI/pipeline/PL_WS_CRM_GESTIONE_SCONTI" : {
+        "label" : "Pipeline/KENANProject/WS_CRM_GESTIONE_SCONTI/pipeline/PL_WS_CRM_GESTIONE_SCONTI",
+        "properties" : { },
+        "successors" : {
+          "Xquery/KENANProject/WS_CRM_GESTIONE_SCONTI/trasformation/createRequestGetScontiFromPureSQL" : {
+            "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_SCONTI/trasformation/createRequestGetScontiFromPureSQL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/KENANProject/WS_CRM_GESTIONE_SCONTI/businessService/BS_SQL_KNN_GET_SCONTI_PURE_SQL" : {
+            "label" : "BusinessService/KENANProject/WS_CRM_GESTIONE_SCONTI/businessService/BS_SQL_KNN_GET_SCONTI_PURE_SQL",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneSconti/wsdl/WS_CRM_GESTIONE_SCONTI" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/GestioneSconti/wsdl/WS_CRM_GESTIONE_SCONTI",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_CRM_GESTIONE_SCONTI/trasformation/createResponseGetScontiFromPureSql" : {
+            "label" : "Xquery/KENANProject/WS_CRM_GESTIONE_SCONTI/trasformation/createResponseGetScontiFromPureSql",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

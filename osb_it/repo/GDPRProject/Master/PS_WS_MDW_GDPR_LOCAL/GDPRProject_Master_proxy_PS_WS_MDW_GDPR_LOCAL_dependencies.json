@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "GDPRProject_Master_proxy_PS_WS_MDW_GDPR_LOCAL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/GDPRProject/Master/pipelines/PL_WS_MDW_GDPR_TOPIC_ENQUEUE" : {
+        "label" : "Pipeline/GDPRProject/Master/pipelines/PL_WS_MDW_GDPR_TOPIC_ENQUEUE",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/GDPRProject/Master/wsdl/WS_MDW_GDPR" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/GDPRProject/Master/wsdl/WS_MDW_GDPR",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/GDPRProject/Master/businessService/BS_TOPIC_GDPR_BY_MASTER_ENQUEUE" : {
+            "label" : "BusinessService/GDPRProject/Master/businessService/BS_TOPIC_GDPR_BY_MASTER_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/GDPRProject/Master/transformations/createRequest_BS_JMS_ENQUEUE_MASTER_NOTIFICATION_TRACKING" : {
+            "label" : "Xquery/GDPRProject/Master/transformations/createRequest_BS_JMS_ENQUEUE_MASTER_NOTIFICATION_TRACKING",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/GDPRProject/Master/pipelines/PL_INTERNAL_ENQUEUE_MASTER_NOTIFICATION_TRACKING" : {
+            "label" : "Pipeline/GDPRProject/Master/pipelines/PL_INTERNAL_ENQUEUE_MASTER_NOTIFICATION_TRACKING",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/GDPRProject/MasterNotificationTracking/businessService/BS_JMS_ENQUEUE_MASTER_NOTIFICATION_TRACKING" : {
+                "label" : "BusinessService/GDPRProject/MasterNotificationTracking/businessService/BS_JMS_ENQUEUE_MASTER_NOTIFICATION_TRACKING",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/GDPRProject/Master/wsdl/WS_MDW_GDPR" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/GDPRProject/Master/wsdl/WS_MDW_GDPR",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/GDPRProject/Master/wsdl/WS_MDW_GDPR" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/GDPRProject/Master/wsdl/WS_MDW_GDPR",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

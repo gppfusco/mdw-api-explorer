@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+
+  <xsd:element name="requestGetEsigenze" type="requestGetEsigenzeType" />
+  <xsd:complexType name="requestGetEsigenzeType">
+    <xsd:sequence>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseGetEsigenze" type="responseGetEsigenzeType" />
+  <xsd:complexType name="responseGetEsigenzeType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ListOfEsigenze" type="ListOfEsigenzeType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="requestRetentionPost" type="requestRetentionPostType" />
+  <xsd:complexType name="requestRetentionPostType">
+    <xsd:sequence>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="IdServiceRequestBB" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="TipoDisdetta" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="EsitoRetention" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="IdCaseSalesForce" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseRetentionPost" type="responseRetentionPostType" />
+  <xsd:complexType name="responseRetentionPostType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!-- TYPES --> 
+  
+  <xsd:complexType name="ListOfEsigenzeType">
+    <xsd:sequence>
+      <xsd:element name="Esigenza" type="EsigenzaType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="EsigenzaType">
+    <xsd:sequence>
+      <xsd:element name="Azione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DataPrevistaDisattivazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DataRicezioneRaccomandata" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DataRicezioneRaccomandataVariazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="EsitoRetention" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IdAccount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IdRetention" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IdServiceRequest" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IdServiceRequestBB" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="OrderId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="RecessoFW" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ScartoGiorniIrreperibili" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ScenarioDisdettaFW" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ScenarioDisdettaSKY" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="StatoRetention" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TipoContatto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TipoDisdetta" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfFieldsType">
+    <xsd:sequence>
+      <xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+ 
+  <xsd:complexType name="FieldType">
+    <xsd:sequence>
+      <xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

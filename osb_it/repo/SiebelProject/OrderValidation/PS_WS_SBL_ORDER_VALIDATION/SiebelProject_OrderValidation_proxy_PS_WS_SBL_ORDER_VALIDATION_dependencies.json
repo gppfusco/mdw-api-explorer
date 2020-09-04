@@ -1,0 +1,95 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_OrderValidation_proxy_PS_WS_SBL_ORDER_VALIDATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/OrderValidation/pipeline/PL_SBL_ORDER_VALIDATION" : {
+        "label" : "Pipeline/SiebelProject/OrderValidation/pipeline/PL_SBL_ORDER_VALIDATION",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/SiebelProject/OrderValidation/transformation/createRequest_ValidateOrderTIBCO" : {
+            "label" : "Xquery/SiebelProject/OrderValidation/transformation/createRequest_ValidateOrderTIBCO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/OrderValidation/transformation/createResponse_ValidateOrder" : {
+            "label" : "Xquery/SiebelProject/OrderValidation/transformation/createResponse_ValidateOrder",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SiebelProject/OrderValidation/businessServices/BS_SQL_SBL_ORDER_VALIDATION" : {
+            "label" : "BusinessService/SiebelProject/OrderValidation/businessServices/BS_SQL_SBL_ORDER_VALIDATION",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "ProxyService/OMProject/OrderValidation/proxy/PS_LOCAL_OM_ORDER_VALIDATION" : {
+            "label" : "ProxyService/OMProject/OrderValidation/proxy/PS_LOCAL_OM_ORDER_VALIDATION",
+            "properties" : {
+              "transport-type" : "local",
+              "nodeType" : "Proxy",
+              "service-type" : "SOAP"
+            },
+            "successors" : {
+              "WSDL/OMProject/Resources/BS_SQL_OM_ORDER_VALIDATION/concrete" : {
+                "label" : "WSDL/OMProject/Resources/BS_SQL_OM_ORDER_VALIDATION/concrete",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/OMProject/OrderValidation/pipeline/PL_INTERNAL_OM_ORDER_VALIDATION" : {
+                "label" : "Pipeline/OMProject/OrderValidation/pipeline/PL_INTERNAL_OM_ORDER_VALIDATION",
+                "properties" : { },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/OMProject/OrderValidation/businessServices/BS_SQL_OM_ORDER_VALIDATION" : {
+                    "label" : "BusinessService/OMProject/OrderValidation/businessServices/BS_SQL_OM_ORDER_VALIDATION",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/OMProject/Resources/BS_SQL_OM_ORDER_VALIDATION/concrete" : {
+                    "label" : "WSDL/OMProject/Resources/BS_SQL_OM_ORDER_VALIDATION/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OrderValidation/wsdl/WS_SBL_ORDER_VALIDATION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OrderValidation/wsdl/WS_SBL_ORDER_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/OrderValidation/transformation/createRequest_ValidateOrderSBL" : {
+            "label" : "Xquery/SiebelProject/OrderValidation/transformation/createRequest_ValidateOrderSBL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OrderValidation/wsdl/WS_SBL_ORDER_VALIDATION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OrderValidation/wsdl/WS_SBL_ORDER_VALIDATION",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

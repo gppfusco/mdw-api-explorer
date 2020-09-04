@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+    "name" : "MDWProject_AlignmentScenarioResubmission_proxy_PS_WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+    "localPath" : "osb_it\\repo\\MDWProject\\AlignmentScenarioResubmission\\PS_WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/WS_MDW_ALIGN_SCENARIO_RESUBMISSION?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/xsd/XSD_ALIGN_SCENARIO_RESUBMISSION",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

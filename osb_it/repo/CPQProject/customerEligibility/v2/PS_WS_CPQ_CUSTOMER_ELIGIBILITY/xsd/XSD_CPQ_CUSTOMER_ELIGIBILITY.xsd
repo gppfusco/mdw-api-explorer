@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xs:include schemaLocation="../../GetOffer/xsd/XSD_CPQ_GET_OFFER.xsd"/>
+	<xs:element name="requestCustomerEligibility" type="requestCustomerEligibilityType"/>
+	<xs:complexType name="requestCustomerEligibilityType">
+		<xs:sequence>
+			<xs:element name="smartcard" type="xs:string" minOccurs="0"/>
+			<xs:element name="accountId" type="xs:string" minOccurs="0"/>
+			<xs:element name="contractId" type="xs:string" minOccurs="0"/>
+			<xs:element name="catalogueCode" type="xs:string"/>
+			<xs:element name="eligibilityOptions" type="eligibilityOptionsType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eligibilityOptionsType">
+		<xs:sequence>
+			<xs:element name="onAccount" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="responseCustomerEligibility">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="resultCode" type="xs:string"/>
+				<xs:element name="resultDescription" type="xs:string"/>
+				<xs:element name="transactionId" type="xs:string"/>
+				<xs:element name="accountId" type="xs:string" minOccurs="0"/>
+				<xs:element name="contractId" type="xs:string" minOccurs="0"/>
+                                <xs:element name="orderNumber" type="xs:string" minOccurs="0"/>
+                                <xs:element name="E2EContract" type="xs:string" minOccurs="0"/>
+                                <xs:element name="customerCode" type="xs:string" minOccurs="0"/>
+				<xs:element name="resultOrderValidation" type="xs:string" minOccurs="0"/>
+				<xs:element name="offers" type="offersType" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="cpqResultCode" type="xs:string" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,27 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/eup/management",
+    "name" : "SalesforceProject_REST_CRM_EUP_MANAGEMENT_proxy_PS_REST_CRM_EUP_MANAGEMENT",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\REST\\CRM\\EUP\\MANAGEMENT\\PS_REST_CRM_EUP_MANAGEMENT",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/eup/management?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SalesforceProject/EupManagement/xsd/XSD_CRM_EUP_MANAGEMENT",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/EupManagement/xsd/XSD_CRM_EUP_MANAGEMENT",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

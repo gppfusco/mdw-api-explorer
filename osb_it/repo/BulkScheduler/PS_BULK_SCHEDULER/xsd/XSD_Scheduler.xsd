@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="schedulerRequestType">
+    <xsd:sequence>
+      <xsd:element name="schedulerLabel" type="xsd:string"/>
+      <xsd:element name="schedulerBulk" type="xsd:integer"/>
+      <xsd:element name="internalTransactionId" type="xsd:string" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="schedulerResponseType">
+    <xsd:sequence>
+      <xsd:element name="schedulerResult" type="xsd:integer"/>
+      <xsd:element name="schedulerDescription" type="xsd:string"/>
+      <xsd:element name="schedulerTransactionId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="schedulerRequest" type="schedulerRequestType"/>
+  <xsd:element name="schedulerResponse" type="schedulerResponseType"/>
+</xsd:schema>

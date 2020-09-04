@@ -1,0 +1,40 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_KeepAlive_proxy_PS_WS_MDW_IS_ALIVE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/KeepAlive/wsdl/WS_MDW_IS_ALIVE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/KeepAlive/wsdl/WS_MDW_IS_ALIVE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/KeepAlive/pipeline/PL_WS_MDW_IS_ALIVE" : {
+        "label" : "Pipeline/MDWProject/KeepAlive/pipeline/PL_WS_MDW_IS_ALIVE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/KeepAlive/wsdl/WS_MDW_IS_ALIVE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/KeepAlive/wsdl/WS_MDW_IS_ALIVE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/KeepAlive/transformation/createResponse_WS_MDW_IS_ALIVE" : {
+            "label" : "Xquery/MDWProject/KeepAlive/transformation/createResponse_WS_MDW_IS_ALIVE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

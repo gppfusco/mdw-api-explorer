@@ -1,0 +1,11 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_businessService_BS_TUX_INFO_FATTURAZIONE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "Messaging"
+    },
+    "successors" : { }
+  }
+}

@@ -1,0 +1,41 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="SOA_RTD"
+     targetNamespace="http://www.skytv.it/mdw/service/internal/SOA_RTD"
+     xmlns:tns="http://www.skytv.it/mdw/service/internal/SOA_RTD"
+     xmlns:internal="http://www.skytv.it/mdw/internal"
+     
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/internal" schemaLocation="../xsd/SOA_RTD.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="part_req" element="internal:operationRequest" /><!--type="internal:RequestType"/>-->
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="part_resp" element="internal:operationResponse" /><!--type="internal:ResponseType"/>-->
+    </wsdl:message>
+    <wsdl:portType name="RTD_ptt">
+        <wsdl:operation name="RTD_execute">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="RTD_bind" type="tns:RTD_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="RTD_execute">
+            <soap:operation style="document" soapAction="RTD_execute"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/internal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/internal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetCustomerByInvoiceType">
+		<xsd:sequence>
+			<xsd:element name="NumeroFattura" type="xsd:string"/>
+			<xsd:element name="Anno" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetCustomerByInvoice" type="requestGetCustomerByInvoiceType"/>
+	<xsd:complexType name="responseGetCustomerByInvoiceType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string"/>
+			<xsd:element name="results" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="BillingAccount" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetCustomerByInvoice" type="responseGetCustomerByInvoiceType"/>
+</xsd:schema>

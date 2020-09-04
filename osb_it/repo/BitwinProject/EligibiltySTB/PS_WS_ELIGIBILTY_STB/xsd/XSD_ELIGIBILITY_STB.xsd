@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestEligibilitySTBType">
+		<xsd:sequence>
+			<xsd:element name="SMC" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Channel" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestEligibilitySTB" type="requestEligibilitySTBType"/>
+	<xsd:element name="responseEligibilitySTB" type="responseEligibilitySTBType"/>
+	<xsd:complexType name="responseEligibilitySTBType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MVConnected" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PromoList" type="PromoListType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PromoListType">
+		<xsd:sequence>
+			<xsd:element name="Promo" type="PromoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PromoType">
+		<xsd:sequence>
+			<xsd:element name="promoStartDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promoEndDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promoName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promoCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="promoID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

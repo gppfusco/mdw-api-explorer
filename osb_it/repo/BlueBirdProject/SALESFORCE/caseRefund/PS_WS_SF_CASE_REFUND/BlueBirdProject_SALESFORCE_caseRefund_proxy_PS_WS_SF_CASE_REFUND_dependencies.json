@@ -1,0 +1,65 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_caseRefund_proxy_PS_WS_SF_CASE_REFUND",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/SALESFORCE/caseRefund/pipeline/PL_WS_SF_CASE_REFUND" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/caseRefund/pipeline/PL_WS_SF_CASE_REFUND",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/BlueBirdProject/SALESFORCE/caseRefund/pipeline/PL_WS_SF_CASE_REFUND_InsertCaseRefund_ENQUEUE" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/caseRefund/pipeline/PL_WS_SF_CASE_REFUND_InsertCaseRefund_ENQUEUE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/SALESFORCE/businessService/BS_JMS_BB_SALESFORCE" : {
+                "label" : "BusinessService/BlueBirdProject/SALESFORCE/businessService/BS_JMS_BB_SALESFORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/caseRefund/wsdl/WS_SF_CASE_REFUND" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/caseRefund/wsdl/WS_SF_CASE_REFUND",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SALESFORCE/caseRefund/transformation/createResponse_WS_InsertCaseRefund" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/caseRefund/transformation/createResponse_WS_InsertCaseRefund",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/caseRefund/wsdl/WS_SF_CASE_REFUND" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/caseRefund/wsdl/WS_SF_CASE_REFUND",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/caseRefund/wsdl/WS_SF_CASE_REFUND" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/caseRefund/wsdl/WS_SF_CASE_REFUND",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

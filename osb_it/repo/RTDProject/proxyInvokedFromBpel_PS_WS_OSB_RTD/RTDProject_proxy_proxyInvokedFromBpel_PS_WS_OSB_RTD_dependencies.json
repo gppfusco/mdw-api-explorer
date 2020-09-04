@@ -1,0 +1,35 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "RTDProject_proxy_proxyInvokedFromBpel_PS_WS_OSB_RTD",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/ApplicationObjects/RTD/wsdl/SOA_RTD" : {
+        "label" : "WSDL/MDW_CDM/ApplicationObjects/RTD/wsdl/SOA_RTD",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/RTDProject/pipeline/pipelineInvokedFromBpel/PL_OSB_RTD" : {
+        "label" : "Pipeline/RTDProject/pipeline/pipelineInvokedFromBpel/PL_OSB_RTD",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/ApplicationObjects/RTD/wsdl/SOA_RTD" : {
+            "label" : "WSDL/MDW_CDM/ApplicationObjects/RTD/wsdl/SOA_RTD",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/rtd/PL_OSB_RTD_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/rtd/PL_OSB_RTD_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

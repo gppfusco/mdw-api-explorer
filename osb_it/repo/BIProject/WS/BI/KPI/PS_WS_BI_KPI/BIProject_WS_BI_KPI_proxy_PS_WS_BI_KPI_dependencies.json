@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BIProject_WS_BI_KPI_proxy_PS_WS_BI_KPI",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BIProject/WS_BI_KPI/pipeline/PL_WS_BI_KPI" : {
+        "label" : "Pipeline/BIProject/WS_BI_KPI/pipeline/PL_WS_BI_KPI",
+        "properties" : { },
+        "successors" : {
+          "Xquery/BIProject/WS_BI_KPI/trasformations/createResponse_WS_BI_KPI" : {
+            "label" : "Xquery/BIProject/WS_BI_KPI/trasformations/createResponse_WS_BI_KPI",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/BIProject/GetKpiRealTimeOffer/wsdl/WS_BI_KPI" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BIProject/GetKpiRealTimeOffer/wsdl/WS_BI_KPI",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/BIProject/WS_BI_KPI/businessServices/BS_DB_BI_GETKPI" : {
+            "label" : "BusinessService/BIProject/WS_BI_KPI/businessServices/BS_DB_BI_GETKPI",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BIProject/WS_BI_KPI/trasformations/createRequest_WS_BI_KPI" : {
+            "label" : "Xquery/BIProject/WS_BI_KPI/trasformations/createRequest_WS_BI_KPI",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BIProject/GetKpiRealTimeOffer/wsdl/WS_BI_KPI" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BIProject/GetKpiRealTimeOffer/wsdl/WS_BI_KPI",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

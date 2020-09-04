@@ -1,0 +1,73 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_proxy_PS_WS_CRM_GESTIONE_UTENTI",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneUtenti/wsdl/WS_CRM_GESTIONE_UTENTI" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneUtenti/wsdl/WS_CRM_GESTIONE_UTENTI",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SCMSproject/pipeline/PL_WS_CRM_GESTIONE_UTENTI_BRANCH" : {
+        "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_GESTIONE_UTENTI_BRANCH",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneUtenti/wsdl/WS_CRM_GESTIONE_UTENTI" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneUtenti/wsdl/WS_CRM_GESTIONE_UTENTI",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/businessService/BS_WS_SSO_UPDATE_PRIVACY_FLAG" : {
+            "label" : "BusinessService/SCMSproject/businessService/BS_WS_SSO_UPDATE_PRIVACY_FLAG",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/transformation/create_request_SSO_updatePrivacyFlag" : {
+            "label" : "Xquery/SCMSproject/transformation/create_request_SSO_updatePrivacyFlag",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF" : {
+            "label" : "Pipeline/SCMSproject/pipeline/PL_WS_CRM_INVOKE_CAIF",
+            "properties" : { },
+            "successors" : {
+              "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+                "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

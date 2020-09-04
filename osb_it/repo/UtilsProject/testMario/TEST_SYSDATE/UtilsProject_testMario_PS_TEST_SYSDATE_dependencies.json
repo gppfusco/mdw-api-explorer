@@ -1,0 +1,33 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "UtilsProject_testMario_PS_TEST_SYSDATE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/UtilsProject/testMario/PL_TEST_SYSDATE" : {
+        "label" : "Pipeline/UtilsProject/testMario/PL_TEST_SYSDATE",
+        "properties" : { },
+        "successors" : {
+          "Xquery/UtilsProject/testMario/createResponseSysdate" : {
+            "label" : "Xquery/UtilsProject/testMario/createResponseSysdate",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/UtilsProject/testMario/WSDL_WS_MAGENTO_VERIFICHE" : {
+            "label" : "WSDL/UtilsProject/testMario/WSDL_WS_MAGENTO_VERIFICHE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/UtilsProject/testMario/WSDL_WS_MAGENTO_VERIFICHE" : {
+        "label" : "WSDL/UtilsProject/testMario/WSDL_WS_MAGENTO_VERIFICHE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCreateInteraction" type="requestCreateInteractionType"/>
+	<xsd:element name="responseCreateInteraction" type="responseCreateInteractionType"/>
+	<xsd:complexType name="requestCreateInteractionType">
+		<xsd:sequence>
+			<xsd:element name="custId" type="xsd:string"/>
+			<xsd:element name="mdwOrigin" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwOfferType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwConnId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseCreateInteractionType">
+		<xsd:sequence>
+                        <xsd:element name="mdwResultCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custId" type="xsd:string" />
+			<xsd:element name="mdwOrigin" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="mdwChannel" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="mdwOfferType" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="mdwConnId" type="xsd:string"  minOccurs="0"/>
+			<xsd:element name="mdwInteractionId" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

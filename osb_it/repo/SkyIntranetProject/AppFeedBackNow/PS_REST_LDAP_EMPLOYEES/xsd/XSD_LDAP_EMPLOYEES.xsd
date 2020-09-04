@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" 
+targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	
+        <xsd:element name="requestGetEmployeeInformation" type="requestEmployeeInformationType"/>
+	<xsd:element name="responseGetEmployeeInformation" type="responseEmployeeInformationType"/>
+
+        <xsd:element name="requestGetEmployeeLogin" type="requestEmployeeLoginType"/>
+	<xsd:element name="responseGetEmployeeLogin" type="responseEmployeeLoginType"/>
+        
+	<xsd:complexType name="requestEmployeeInformationType">
+		<xsd:sequence>
+			<xsd:element name="Cognome" type="xsd:string"/>
+                        <xsd:element name="MailUser" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="requestEmployeeLoginType">
+		<xsd:sequence>
+                        <xsd:element name="Mail" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        
+        <xsd:complexType name="responseEmployeeInformationType">
+		<xsd:sequence>
+                	<xsd:element name="employee" type="employeeInformationType" minOccurs="0" maxOccurs="unbounded"/>
+        	</xsd:sequence>
+	</xsd:complexType>
+        
+	<xsd:complexType name="employeeInformationType">
+		<xsd:sequence>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cognome" type="xsd:string"/>
+			<xsd:element name="Email" type="xsd:string"/>
+                        <xsd:element name="Photo" type="xsd:string"/>
+                        <xsd:element name="Department" type="xsd:string"/>
+                        <xsd:element name="Division" type="xsd:string"/>
+                        <xsd:element name="LocalityName" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+        <xsd:complexType name="responseEmployeeLoginType">
+		<xsd:sequence>
+                	<xsd:element name="employee" type="employeeLoginType" minOccurs="0" maxOccurs="unbounded"/>
+        	</xsd:sequence>
+	</xsd:complexType>
+        
+	<xsd:complexType name="employeeLoginType">
+		<xsd:sequence>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cognome" type="xsd:string"/>
+                        <xsd:element name="Photo" type="xsd:string"/>
+                        <xsd:element name="Department" type="xsd:string"/>
+                        <xsd:element name="Division" type="xsd:string"/>
+                        <xsd:element name="LocalityName" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>        
+        
+</xsd:schema>

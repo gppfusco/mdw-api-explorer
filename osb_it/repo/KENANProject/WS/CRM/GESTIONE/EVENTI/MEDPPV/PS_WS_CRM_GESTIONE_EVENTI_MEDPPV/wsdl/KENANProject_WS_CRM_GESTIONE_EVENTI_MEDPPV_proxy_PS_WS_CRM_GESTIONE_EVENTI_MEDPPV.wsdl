@@ -1,0 +1,138 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_CRM_GESTIONE_EVENTI_MEDPPV"
+     targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_MEDPPV"
+     xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_MEDPPV"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_EVENTI_MEDPPV.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data"
+                        schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestGetEventiOPPV_Message">
+        <wsdl:part name="part_requestGetEventiOPPV" element="inp1:requestGetEventiOPPV"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetEventiOPPV_Message">
+        <wsdl:part name="part_responseGetEventiOPPV" element="inp1:responseGetEventiOPPV"/>
+    </wsdl:message>
+
+    <wsdl:message name="requestGetEventiAllOPPV_Message">
+        <wsdl:part name="part_requestGetEventiAllOPPV" element="inp1:requestGetEventiAllOPPV"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetEventiAllOPPV_Message">
+        <wsdl:part name="part_responseGetEventiAllOPPV" element="inp1:responseGetEventiAllOPPV"/>
+    </wsdl:message>
+
+    <wsdl:portType name="GESTIONE_EVENTI_MEDPPV_ptt">
+        <wsdl:operation name="execute_getEventiOppv">
+            <wsdl:input message="tns:requestGetEventiOPPV_Message"/>
+            <wsdl:output message="tns:responseGetEventiOPPV_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getEventiAllOPPV">
+            <wsdl:input message="tns:requestGetEventiAllOPPV_Message"/>
+            <wsdl:output message="tns:responseGetEventiAllOPPV_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getEventiAllPPV">
+            <wsdl:input message="tns:requestGetEventiAllPPV_Message"/>
+            <wsdl:output message="tns:responseGetEventiAllPPV_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getEventiPPV">
+            <wsdl:input message="tns:requestGetEventiPPV_Message"/>
+            <wsdl:output message="tns:responseGetEventiPPV_Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getEventiVOD">
+            <wsdl:input message="tns:requestGetEventiVOD_Message"/>
+            <wsdl:output message="tns:responseGetEventiVOD_Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="GESTIONE_EVENTI_MEDPPV_pttSOAP11Binding" type="tns:GESTIONE_EVENTI_MEDPPV_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_getEventiOppv">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_MEDPPV/execute_getEventiOppv"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestGetEventiOPPV"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetEventiOPPV"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getEventiAllOPPV">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_MEDPPV/execute_getEventiAllOPPV"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestGetEventiAllOPPV"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetEventiAllOPPV"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getEventiAllPPV">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_MEDPPV/execute_getEventiAll"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestGetEventiAllPPV"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetEventiAllPPV"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getEventiPPV">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_MEDPPV/execute_getEventiPPV"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_request"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetEventiPPV"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_getEventiVOD">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CRM_GESTIONE_EVENTI_MEDPPV/execute_getEventiVOD"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_request"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetEventiVOD"/>
+                <soap:header message="tns:header_message" part="part_header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="header_message">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:message name="requestGetEventiAllPPV_Message">
+        <wsdl:part name="part_requestGetEventiAllPPV" element="inp1:requestGetEventiAllPPV"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetEventiAllPPV_Message">
+        <wsdl:part name="part_responseGetEventiAllPPV" element="inp1:responseGetEventiAllPPV"/>
+    </wsdl:message>
+    <wsdl:message name="requestGetEventiPPV_Message">
+        <wsdl:part name="part_request" element="inp1:requestGetEventiPPV"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetEventiPPV_Message">
+        <wsdl:part name="part_responseGetEventiPPV" element="inp1:responseGetEventiPPV"/>
+    </wsdl:message>
+    <wsdl:message name="requestGetEventiVOD_Message">
+        <wsdl:part name="part_request" element="inp1:requestGetEventiVOD"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetEventiVOD_Message">
+        <wsdl:part name="part_responseGetEventiVOD" element="inp1:responseGetEventiVOD"/>
+    </wsdl:message>
+</wsdl:definitions>

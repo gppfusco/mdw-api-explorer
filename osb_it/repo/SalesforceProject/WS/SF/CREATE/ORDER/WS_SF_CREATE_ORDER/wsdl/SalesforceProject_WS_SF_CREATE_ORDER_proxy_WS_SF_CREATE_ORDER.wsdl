@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/SF_CREATE_ORDER" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_SF_CREATE_ORDER" targetNamespace="http://www.skytv.it/mdw/service/SF_CREATE_ORDER">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SF_CREATE_ORDER.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestCreateOrder_Message">
+		<wsdl:part name="part_requestCreateOrder" element="inp1:requestCreateOrder"/>
+	</wsdl:message>
+	<wsdl:message name="responseCreateOrder_Message">
+		<wsdl:part name="part_responseCreateOrder" element="inp1:responseCreateOrder"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_Header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="SF_CREATE_ORDER_ptt">
+		<wsdl:operation name="execute_CreateOrder">
+			<wsdl:input message="tns:requestCreateOrder_Message"/>
+			<wsdl:output message="tns:responseCreateOrder_Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SF_CREATE_ORDER_bind" type="tns:SF_CREATE_ORDER_ptt">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_CreateOrder">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SF_CREATE_ORDER/execute_CreateOrder" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestCreateOrder" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseCreateOrder" use="literal"/>
+				<soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

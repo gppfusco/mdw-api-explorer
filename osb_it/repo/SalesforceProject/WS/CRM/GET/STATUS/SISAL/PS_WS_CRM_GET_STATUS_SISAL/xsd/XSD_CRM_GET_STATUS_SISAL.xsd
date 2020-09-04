@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetStatusSisalType">
+		<xsd:sequence>
+			<xsd:element name="contrIdE2E" type="stringNoEmpty"/>
+			<xsd:element name="contrId" type="stringNoEmpty"/>
+			<xsd:element name="contrType" type="contrTypeEnum"/>
+			<xsd:element name="contrStatus" type="stringNoEmpty"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetStatusSisal" type="requestGetStatusSisalType"/>
+	<xsd:element name="responseGetStatusSisal" type="responseGetStatusSisalType"/>
+	<xsd:complexType name="responseGetStatusSisalType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string"/>
+			<xsd:element name="resultDescription" type="xsd:string"/>
+                        <xsd:element name="tid" type="xsd:string"/>
+			<xsd:element name="creditRecoveryEntrustedFlg" type="flagType" minOccurs="0"/>
+			<xsd:element name="penaltyAmountTV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="penaltyAmountBB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="creditRecoveryExpenses" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="caseFoundedFlg" type="flagType" minOccurs="0"/>
+			<xsd:element name="caseControversyFlg" type="flagType" minOccurs="0"/>
+			<xsd:element name="partialPaymentsFlg" type="flagType" minOccurs="0"/>
+			<xsd:element name="balanceExpiredSKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="balanceExpiredFW" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="invoiceList" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="invoice" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="invoiceNumber" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="invoiceMounth" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="invoiceYear" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="invoiceEmissionDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="amountResidual" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="amountOriginal" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="flagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="contrTypeEnum">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="TV"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+        <xsd:simpleType name="stringNoEmpty">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_CheckSwapSmc_proxy_PS_WS_SBL_CHECK_SWAP_SMC",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/CheckSwapSmc/pipeline/PL_SBL_CHECK_SWAP_SMC" : {
+        "label" : "Pipeline/SiebelProject/CheckSwapSmc/pipeline/PL_SBL_CHECK_SWAP_SMC",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/SiebelProject/CheckSwapSmc/transformation/createRequestCheckSwapSmc" : {
+            "label" : "Xquery/SiebelProject/CheckSwapSmc/transformation/createRequestCheckSwapSmc",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/CheckSwapSmc/wsdl/WS_SBL_CHECK_SWAP_SMC" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/CheckSwapSmc/wsdl/WS_SBL_CHECK_SWAP_SMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SiebelProject/CheckSwapSmc/businessService/BS_SBL_SQL_CHECK_SWAP_SMC" : {
+            "label" : "BusinessService/SiebelProject/CheckSwapSmc/businessService/BS_SBL_SQL_CHECK_SWAP_SMC",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/CheckSwapSmc/transformation/createResponseCheckSwapSmc" : {
+            "label" : "Xquery/SiebelProject/CheckSwapSmc/transformation/createResponseCheckSwapSmc",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/CheckSwapSmc/wsdl/WS_SBL_CHECK_SWAP_SMC" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/CheckSwapSmc/wsdl/WS_SBL_CHECK_SWAP_SMC",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

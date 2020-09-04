@@ -1,0 +1,63 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_contractInfo_proxy_PS_WS_SF_CONTRACT_INFO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/SALESFORCE/contractInfo/pipeline/PL_SF_CONTRACT_INFO" : {
+        "label" : "Pipeline/BlueBirdProject/SALESFORCE/contractInfo/pipeline/PL_SF_CONTRACT_INFO",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/BlueBirdProject/SALESFORCE/contractInfo/pipeline/PL_SF_CONTRACT_INFO_GetContractStatus" : {
+            "label" : "Pipeline/BlueBirdProject/SALESFORCE/contractInfo/pipeline/PL_SF_CONTRACT_INFO_GetContractStatus",
+            "properties" : { },
+            "successors" : {
+              "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_Generic_SF_Query" : {
+                "label" : "Xquery/BlueBirdProject/SALESFORCE/numberPortabilityDn/transformations/createRequest_Generic_SF_Query",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/contractInfo/wsdl/WS_SF_CONTRACT_INFO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/contractInfo/wsdl/WS_SF_CONTRACT_INFO",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/contractInfo/wsdl/WS_SF_CONTRACT_INFO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/contractInfo/wsdl/WS_SF_CONTRACT_INFO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/contractInfo/wsdl/WS_SF_CONTRACT_INFO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/contractInfo/wsdl/WS_SF_CONTRACT_INFO",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

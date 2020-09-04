@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/clever/HttpServicesClever",
+    "name" : "CleverProject_AffidamentoClever_proxy_PS_TEXT_CLEVER_SERVICES",
+    "localPath" : "osb_it\\repo\\CleverProject\\AffidamentoClever\\PS_TEXT_CLEVER_SERVICES",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

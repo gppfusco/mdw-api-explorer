@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "WSCProject_WS_CRM_WSC_COBROWSING_proxy_PS_WS_CRM_WSC_COBROWSING",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/WSCProject/WS_CRM_WSC_COBROWSING/wsdl/WS_CRM_WSC_COBROWSING" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/WSCProject/WS_CRM_WSC_COBROWSING/wsdl/WS_CRM_WSC_COBROWSING",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/WSCProject/WS_CRM_WSC_COBROWSING/pipeline/PL_WS_CRM_WSC_COBROWSING" : {
+        "label" : "Pipeline/WSCProject/WS_CRM_WSC_COBROWSING/pipeline/PL_WS_CRM_WSC_COBROWSING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/WSCProject/WS_CRM_WSC_COBROWSING/wsdl/WS_CRM_WSC_COBROWSING" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/WSCProject/WS_CRM_WSC_COBROWSING/wsdl/WS_CRM_WSC_COBROWSING",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/WSCProject/WS_CRM_WSC_COBROWSING/businessService/BS_WS_WSC_GET_URL" : {
+            "label" : "BusinessService/WSCProject/WS_CRM_WSC_COBROWSING/businessService/BS_WS_WSC_GET_URL",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/WSCProject/WS_CRM_WSC_COBROWSING/transformation/createResponseWS_GetUrl" : {
+            "label" : "Xquery/WSCProject/WS_CRM_WSC_COBROWSING/transformation/createResponseWS_GetUrl",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/WSCProject/WS_CRM_WSC_COBROWSING/transformation/createRequest_BS_WSC_GET_URL" : {
+            "label" : "Xquery/WSCProject/WS_CRM_WSC_COBROWSING/transformation/createRequest_BS_WSC_GET_URL",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

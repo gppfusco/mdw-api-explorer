@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <!-- ELEMENTS -->
+  
+  <xsd:element name="requestRemoveAllDevices" type="requestRemoveAllDevicesType" />
+  <xsd:element name="responseRemoveAllDevices" type="responseRemoveAllDevicesType" />
+  <xsd:element name="requestRemoveDevicesForFamily" type="requestRemoveDevicesForFamilyType" />
+  <xsd:element name="responseRemoveDevicesForFamily" type="responseRemoveDevicesForFamilyType" />
+  <xsd:element name="requestGetHousehold" type="requestGetHouseholdType" />
+  <xsd:element name="responseGetHousehold" type="responseGetHouseholdType" />
+  <xsd:element name="requestGetAllDevice" type="requestGetAllDeviceType" />
+  <xsd:element name="responseGetAllDevice" type="responseGetAllDeviceType" />
+  <xsd:element name="requestGetDevice" type="requestGetDeviceType" />
+  <xsd:element name="responseGetDevice" type="responseGetDeviceType" />
+  <xsd:element name="requestRemoveDevice" type="requestRemoveDeviceType" />
+  <xsd:element name="responseRemoveDevice" type="responseRemoveDeviceType" />
+  <xsd:element name="requestRenameDevice" type="requestRenameDeviceType" />
+  <xsd:element name="responseRenameDevice" type="responseRenameDeviceType" />
+  <xsd:element name="requestGetParentalControls" type="requestGetParentalControlsType" />
+  <xsd:element name="responseGetParentalControls" type="responseGetParentalControlsType" />
+  <xsd:element name="requestSetParentalControls" type="requestSetParentalControlsType" />
+  <xsd:element name="responseSetParentalControls" type="responseSetParentalControlsType" />
+  <xsd:element name="requestBlockHousehold" type="requestBlockHouseholdType" />
+  <xsd:element name="responseBlockHousehold" type="responseBlockHouseholdType"/>
+  <xsd:element name="requestCheckHouseholdBlocked" type="requestCheckHouseholdBlockedType" />
+  <xsd:element name="responseCheckHouseholdBlocked" type="responseCheckHouseholdBlockedType" />
+  <xsd:element name="requestUnblockHousehold" type="requestUnblockHouseholdType" />
+  <xsd:element name="responseUnblockHousehold" type="responseUnblockHouseholdType" />
+  <xsd:element name="requestAddDeviceChangeException" type="requestAddDeviceChangeExcptType" />
+  <xsd:element name="responseAddDeviceChangeException" type="responseAddDeviceChangeExcptType" />
+  <xsd:element name="requestGetDeviceChangeExceptions" type="requestGetDeviceChangeExcptsType" />
+  <xsd:element name="responseGetDeviceChangeExceptions" type="responseGetDeviceChangeExcptsType" />
+  <xsd:element name="requestDeviceRemainingChanges" type="requestDeviceRemainingChangesType" />
+  <xsd:element name="responseDeviceRemainingChanges" type="responseDeviceRemainingChangesType" />
+  <xsd:element name="requestGetCustomerActivity" type="requestGetCustomerActivityType" />
+  <xsd:element name="responseGetCustomerActivity" type="responseGetCustomerActivityType" />
+  
+  
+  <!-- TYPES -->
+  <xsd:complexType name="requestRemoveAllDevicesType">
+    <xsd:sequence>
+      <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseRemoveAllDevicesType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element  name="ListOfStatus" type="ListOfStatusType" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfStatusType" >
+    <xsd:sequence>
+      <xsd:element name="deviceStatus" type="deviceStatusType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="deviceStatusType">
+    <xsd:sequence>
+      <xsd:element name="idDevice" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="result" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="descritpion" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:complexType name="requestRemoveDevicesForFamilyType">
+    <xsd:sequence>
+      <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="family" minOccurs="1" maxOccurs="1" >
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="COMPUTER" />
+              <xsd:enumeration value="MOBILE" />
+              <xsd:enumeration value="CONSOLE" />
+              <xsd:enumeration value="TV" />
+              <xsd:enumeration value="TABLET" />
+              <xsd:enumeration value="SETTOPBOX" />
+              <xsd:enumeration value="IPSETTOPBOX" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseRemoveDevicesForFamilyType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element  name="ListOfStatus" type="ListOfStatusType" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  
+  
+  <xsd:complexType name="requestGetCustomerActivityType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseGetCustomerActivityType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="listOfEvents" type="ListOfEvents" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfEvents">
+    <xsd:sequence>
+      <xsd:element name="event" type="eventType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestDeviceRemainingChangesType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseDeviceRemainingChangesType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="numberOfRemainingChanges" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestGetDeviceChangeExcptsType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseGetDeviceChangeExcptsType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="listOfDeviceChangeException" type="ListOfDeviceChangeExceptionType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfDeviceChangeExceptionType">
+    <xsd:sequence>
+      <xsd:element name="deviceChangeException" type="deviceChangeExceptionType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestAddDeviceChangeExcptType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="deviceChangeException" type="deviceChangeExceptionType" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseAddDeviceChangeExcptType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestUnblockHouseholdType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="responseUnblockHouseholdType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestCheckHouseholdBlockedType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseCheckHouseholdBlockedType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="blocked" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestBlockHouseholdType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="reason" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseBlockHouseholdType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestSetParentalControlsType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="parentalControl" type="parentalControlType" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseSetParentalControlsType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestGetParentalControlsType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseGetParentalControlsType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="parentalControl" type="parentalControlType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestRenameDeviceType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="deviceId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="newDeviceName" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseRenameDeviceType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestRemoveDeviceType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="deviceId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseRemoveDeviceType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestGetDeviceType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="deviceId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseGetDeviceType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="device" type="deviceType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestGetAllDeviceType">
+      <xsd:sequence>
+        <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseGetAllDeviceType">
+      <xsd:sequence>
+        <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        <xsd:element name="listOfDevices" type="ListOfDevicesType" minOccurs="0" maxOccurs="1" />
+      </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="requestGetHouseholdType">
+    <xsd:sequence>
+      <xsd:element name="partyId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseGetHouseholdType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="result" minOccurs="0" maxOccurs="1">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="id" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="status" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="listOfDevices" type="ListOfDevicesType" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="parentalControl" type="parentalControlType" minOccurs="0" maxOccurs="1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfDevicesType">
+    <xsd:sequence>
+      <xsd:element name="device" type="deviceType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="eventType">
+    <xsd:sequence>
+      <xsd:element name="timestamp" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="type" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="outcome" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="deviceChangeExceptionType">
+    <xsd:sequence>
+      <xsd:element name="expiryDate" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="reason" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="deviceType">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="name" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="type" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="platform" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="createdDate" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="lastModifiedDate" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="lastUsedDate" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="parentalControlType">
+    <xsd:sequence>
+      <xsd:element name="pin" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="rating" type="xsd:string" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/WS_SEDA_CREATE_BANK_XML",
+    "name" : "MDWProject_SalesforceToRidSEDA_CreateBankXML_proxy_PS_WS_SEDA_CREATE_BANK_XML",
+    "localPath" : "osb_it\\repo\\MDWProject\\SalesforceToRidSEDA\\CreateBankXML\\PS_WS_SEDA_CREATE_BANK_XML",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/WS_SEDA_CREATE_BANK_XML?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MDWProject/SalesforceToRidSEDA/CreateBankXML/xsd/XSD_CREATE_BANK_XML",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

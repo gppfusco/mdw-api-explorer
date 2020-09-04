@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/WS_MDW_CRM_FIRST_DATE_FOR_APTM",
+    "name" : "BlueBirdProject_DB_CRM_firstDateForAppointment_proxy_PS_WS_MDW_CRM_FIRST_DATE_FOR_APTM",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\DB\\CRM\\firstDateForAppointment\\PS_WS_MDW_CRM_FIRST_DATE_FOR_APTM",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/WS_MDW_CRM_FIRST_DATE_FOR_APTM?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/firstDateForAppointment/xsd/XSD_FIRST_DATE_FOR_APPOINTMENT",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

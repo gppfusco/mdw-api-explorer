@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestSendEmail" type="requestSendEmailType"/>
+  <xsd:element name="responseSendEmail" type="responseSendEmailType"/>
+  <xsd:element name="requestSendSMS" type="requestSendSMSType"/>
+  <xsd:element name="responseSendSMS" type="responseSendSMSType"/>
+  <xsd:element name="requestSendCommunication" type="requestSendCommunicationType"/>
+  <xsd:element name="responseSendCommunication" type="responseSendCommunicationType"/>
+  <xsd:complexType name="requestSendEmailType">
+    <xsd:sequence>
+      <xsd:element name="contactId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="email" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="attributes" type="attributesType" minOccurs="0"/>
+      <xsd:element name="communicationType" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="attributesType">
+    <xsd:sequence>
+      <xsd:element name="attribute" type="attributeType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="attributeType">
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="value" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseSendEmailType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="tid" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseSendSMSType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="tid" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestSendSMSType">
+    <xsd:sequence>
+      <xsd:element name="contactId" type="xsd:string"/>
+      <xsd:element name="mobileNumber" type="xsd:string"/>
+      <xsd:element name="attributes" type="attributesType" minOccurs="0"/>
+      <xsd:element name="communicationType" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestSendCommunicationType">
+    <xsd:sequence>
+      <xsd:element name="communicationType" type="xsd:string"/>
+      <xsd:element name="emailCommunication" type="emailCommunicationType" minOccurs="0"/>
+      <xsd:element name="smsCommunication" type="smsCommunicationType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="emailCommunicationType">
+    <xsd:sequence>
+      <xsd:element name="email" type="xsd:string"/>
+      <xsd:element name="attributes" type="attributesType" minOccurs="0"/>
+      <xsd:element name="communicationId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="smsCommunicationType">
+    <xsd:sequence>
+      <xsd:element name="mobileNumber" type="xsd:string"/>
+      <xsd:element name="attributes" type="attributesType" minOccurs="0"/>
+     <xsd:element name="communicationId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseSendCommunicationType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="tid" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,33 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/",
+    "name" : "SalesforceProject_REST_SF_VERIFICA_VALORIZZAZIONE_CF_proxy_PS_REST_SF_VERIFICA_VALORIZZAZIONE_CF",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\REST\\SF\\VERIFICA\\VALORIZZAZIONE\\CF\\PS_REST_SF_VERIFICA_VALORIZZAZIONE_CF",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SalesforceProject/VerificaValorizzazioneCF/xsd/XSD_SF_VERIFICA_VALORIZZAZIONE_CF",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "MDW_CDM/EnterpriseServices/SalesforceProject/VerificaValorizzazioneCF/xsd/XSD_FAULTS",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/rest/faults"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/VerificaValorizzazioneCF/xsd/XSD_SF_VERIFICA_VALORIZZAZIONE_CF",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+        }, {
+          "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/VerificaValorizzazioneCF/xsd/XSD_FAULTS",
+          "xsdNameSpace" : "http://www.skytv.it/mdw/rest/faults"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_QMI_consistency_proxy_PS_WS_QMI_CONSISTENCY",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/QMI/consistency/pipeline/PS_WS_QMI_CONSISTENCY" : {
+        "label" : "Pipeline/BlueBirdProject/QMI/consistency/pipeline/PS_WS_QMI_CONSISTENCY",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/QMI/consistenza/wsdl/WS_QMI_CONSISTENCY" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/QMI/consistenza/wsdl/WS_QMI_CONSISTENCY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/QMI/consistency/pipeline/PL_WS_QMI_CONSISTENCY_GetConsistency" : {
+            "label" : "Pipeline/BlueBirdProject/QMI/consistency/pipeline/PL_WS_QMI_CONSISTENCY_GetConsistency",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/QMI/consistenza/wsdl/WS_QMI_CONSISTENCY" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/QMI/consistenza/wsdl/WS_QMI_CONSISTENCY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/QMI/consistency/businessservice/BS_REST_QMI_CONSISTENCY" : {
+                "label" : "BusinessService/BlueBirdProject/QMI/consistency/businessservice/BS_REST_QMI_CONSISTENCY",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/QMI/consistency/transformation/createRequest_BS_GetConsistency" : {
+                "label" : "Xquery/BlueBirdProject/QMI/consistency/transformation/createRequest_BS_GetConsistency",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/QMI/consistency/transformation/createResponse_WS_GetConsistency" : {
+                "label" : "Xquery/BlueBirdProject/QMI/consistency/transformation/createResponse_WS_GetConsistency",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/QMI/consistenza/wsdl/WS_QMI_CONSISTENCY" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/QMI/consistenza/wsdl/WS_QMI_CONSISTENCY",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

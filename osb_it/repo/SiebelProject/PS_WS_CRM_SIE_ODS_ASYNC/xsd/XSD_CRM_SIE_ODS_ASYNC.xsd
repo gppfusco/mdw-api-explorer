@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestInviaSmcType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MatricolaSMC" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MotivoRichiesta" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Promozione" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestInviaSmc" type="requestInviaSmcType"/>
+	<xsd:element name="responseInviaSmc" type="basicResponseAsyncType"/>
+	<xsd:complexType name="requestInviaDttType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MatricolaSMC" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MotivoRichiesta" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Promozione" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestInviaDtt" type="requestInviaDttType"/>
+	<xsd:element name="responseInviaDtt" type="basicResponseAsyncType"/>
+	<xsd:complexType name="requestSetOdsType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MatricolaSTB" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CausaleSostituzione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfIndirizziUbicazione" type="ListOfIndirizziUbicazioneType" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSetOds" type="requestSetOdsType"/>
+	<xsd:element name="responseSetOds" type="basicResponseAsyncType"/>
+	<xsd:complexType name="ListOfIndirizziUbicazioneType">
+		<xsd:sequence>
+			<xsd:element name="IndirizzoUbicazione" type="IndirizzoType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="IndirizzoType">
+		<xsd:sequence>
+			<xsd:element name="MatchCodeEgon" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MatchCodeSKY" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ParticellaToponomastica" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Indirizzo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="NumeroCivico" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Localita" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Provincia" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CAP" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Paese" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Frazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Complesso" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Scala" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Interno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Piano" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumFabbricatiStessoEdificio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumScaleFabbricato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IndirizzoNormalizzato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bes1XG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bes1XM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bes1YG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bes1YM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BesVLXBES" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlxCtx" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IdCIV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NAB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NABALL" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestGetOdsTrackingType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="NumeroOrdine" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetOdsTracking" type="requestGetOdsTrackingType"/>
+	<xsd:element name="responseGetOdsTracking" type="basicResponseAsyncType"/>
+	<xsd:complexType name="basicResponseAsyncType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

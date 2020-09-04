@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <!-- ELEMENTS -->
+  <xsd:element name="requestGetPromoPPV" type="requestGetPromoPPVType" />
+  <xsd:element name="requestCheckPeso" type="requestCheckPesoType" />
+  
+  <xsd:element name="responseGetPromoPPV" type="responseGetPromoPPVType" />
+  <xsd:element name="responseCheckPeso" type="responseCheckPesoType" />
+  
+  
+  <xsd:element name="requestSBLGetPromoPPV" type="requestSBLGetPromoPPVType" />
+  <xsd:element name="requestSBLCheckPeso" type="requestSBLCheckPesoType" />
+  
+  <xsd:complexType name="requestSBLCheckPesoType">
+    <xsd:sequence>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="CodicePromozione" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="Matricola" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="ListOfFields" type="ListOfFieldsTypeIta" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="requestSBLGetPromoPPVType">
+    <xsd:sequence>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="Scenario" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ListOfFields" type="ListOfFieldsTypeIta" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+
+  <!-- TYPES -->
+  <xsd:complexType name="responseGetPromoPPVType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ListOfFields" type="ListOfFieldsTypeIta" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ListOfPromo" type="ListOfPromoType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="0" maxOccurs="1"/>      
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseCheckPesoType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ListOfFields" type="ListOfFieldsTypeIta" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TimeoutID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListOfPromoType">
+    <xsd:sequence>
+      <xsd:element name="Promo" type="PromoType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+    
+  <xsd:complexType name="PromoType">
+    <xsd:sequence>
+      <xsd:element name="CodicePromozione" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="DataFine" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="DurataPromozione" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="NomePromozione" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="ListOfFields" type="ListOfFieldsTypeIta" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestCheckPesoType">
+    <xsd:sequence>
+      <xsd:element name="contrId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="contrPromotion" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="serialNumber" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestGetPromoPPVType">
+    <xsd:sequence>
+      <xsd:element name="contrId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="scenario" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+
+  <xsd:complexType name="ListOfFieldsTypeIta">
+    <xsd:sequence>
+      <xsd:element name="Field" type="FieldTypeIta" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+    
+  <xsd:complexType name="ListOfFieldsType">
+    <xsd:sequence>
+      <xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="FieldType" >
+    <xsd:sequence>
+      <xsd:element name="Name" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="Value" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="Type" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+    <xsd:complexType name="FieldTypeIta">
+      <xsd:sequence>
+            <xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

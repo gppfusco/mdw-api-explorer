@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_CRM_ESITI_FATTURE_proxy_PS_WS_CRM_ESITI_FATTURE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/EsitiFatture/wsdl/WS_CRM_ESITI_FATTURE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/EsitiFatture/wsdl/WS_CRM_ESITI_FATTURE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/WS_CRM_ESITI_FATTURE/pipeline/PL_WS_CRM_ESITI_FATTURE" : {
+        "label" : "Pipeline/KENANProject/WS_CRM_ESITI_FATTURE/pipeline/PL_WS_CRM_ESITI_FATTURE",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/EsitiFatture/wsdl/WS_CRM_ESITI_FATTURE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/EsitiFatture/wsdl/WS_CRM_ESITI_FATTURE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_CRM_ESITI_FATTURE/transformations/createResponseEsitoFatture" : {
+            "label" : "Xquery/KENANProject/WS_CRM_ESITI_FATTURE/transformations/createResponseEsitoFatture",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_CRM_ESITI_FATTURE/transformations/createRequestEsitiFatture" : {
+            "label" : "Xquery/KENANProject/WS_CRM_ESITI_FATTURE/transformations/createRequestEsitiFatture",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/KENANProject/WS_CRM_ESITI_FATTURE/businessService/BS_TUX_CRM_ESITI_FATTURE" : {
+            "label" : "BusinessService/KENANProject/WS_CRM_ESITI_FATTURE/businessService/BS_TUX_CRM_ESITI_FATTURE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

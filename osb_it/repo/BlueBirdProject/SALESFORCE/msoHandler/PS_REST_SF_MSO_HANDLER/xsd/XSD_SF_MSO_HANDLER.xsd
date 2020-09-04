@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestRetrieveMSO" type="requestRetrieveMSOType"/>
+        <xsd:element name="responseRetrieveMSO" type="responseRetrieveMSOType"/>
+        <xsd:element name="responseRetrieveMSOSoap" type="responseRetrieveMSOSoapType"/>
+	<xsd:complexType name="msosType">
+		<xsd:sequence>
+			<xsd:element name="mso" type="msoType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseRetrieveMSOType">
+		<xsd:sequence>
+			<xsd:element name="msos" type="msosType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestRetrieveMSOType">
+		<xsd:sequence>
+			<xsd:element name="e2eContractId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="contractId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="channel" type="channelType" minOccurs="1"/>
+			<xsd:element name="closed" type="xsd:boolean" minOccurs="1"/>
+			<xsd:element name="closedRangeHours" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="msoType">
+		<xsd:sequence>
+			<xsd:element name="msoId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="category" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="item" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="impact" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="faultStartTime" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="faultEndTime" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="description" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="level" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="severity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="createdDate" type="xsd:dateTime" minOccurs="1"/>
+			<xsd:element name="counterDateModification" type="xsd:decimal" minOccurs="1"/>
+			<xsd:element name="ticketID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ongoing" type="xsd:boolean" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseRetrieveMSOSoapType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element ref="responseRetrieveMSO" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:simpleType name="channelType">
+                <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="APP"/>
+                        <xsd:enumeration value="IVR"/>
+                        <xsd:enumeration value="WEB"/>
+                        <xsd:enumeration value="WSC"/>
+                </xsd:restriction>
+        </xsd:simpleType>
+</xsd:schema>

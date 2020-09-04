@@ -1,0 +1,70 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_MARKET_PLACE_proxy_PS_WS_CRM_MARKET_PLACE_MONCLICK",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_MARKET_PLACE/pipeline/PL_WS_CRM_MARKET_PLACE_MONCLICK_ENQUEUE" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_MARKET_PLACE/pipeline/PL_WS_CRM_MARKET_PLACE_MONCLICK_ENQUEUE",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SalesforceProject/WS_CRM_MARKET_PLACE/pipeline/PL_SSO_MARKET_PLACE_DETOKENIZE_CLI_CONTR" : {
+            "label" : "Pipeline/SalesforceProject/WS_CRM_MARKET_PLACE/pipeline/PL_SSO_MARKET_PLACE_DETOKENIZE_CLI_CONTR",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_TEXT_SSO" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_TEXT_SSO",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/ApplicationObjects/SSO/wsdl/WS_SSO_DetokenizeClientAndContract" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/SSO/wsdl/WS_SSO_DetokenizeClientAndContract",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "BusinessService/SalesforceProject/WS_CRM_MARKET_PLACE/businessService/BS_JMS_MARKET_PLACE" : {
+            "label" : "BusinessService/SalesforceProject/WS_CRM_MARKET_PLACE/businessService/BS_JMS_MARKET_PLACE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_MARKET_PLACE/transformation/SSO_detokenize_request" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_MARKET_PLACE/transformation/SSO_detokenize_request",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/marketPlaceMonclick/wsdl/WS_CRM_MARKET_PLACE_MONCLICK" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/marketPlaceMonclick/wsdl/WS_CRM_MARKET_PLACE_MONCLICK",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/marketPlaceMonclick/wsdl/WS_CRM_MARKET_PLACE_MONCLICK" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/marketPlaceMonclick/wsdl/WS_CRM_MARKET_PLACE_MONCLICK",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

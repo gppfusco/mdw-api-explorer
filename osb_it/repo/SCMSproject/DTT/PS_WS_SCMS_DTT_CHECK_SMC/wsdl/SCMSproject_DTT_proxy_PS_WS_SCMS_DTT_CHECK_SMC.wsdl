@@ -1,0 +1,37 @@
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/SCMS_DTT" xmlns:mdata="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_SCMS_DTT" targetNamespace="http://www.skytv.it/mdw/service/SCMS_DTT">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SCMS_DTT_CHECK_SMC.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestCheckSmartcard_Message">
+		<wsdl:part name="part_requestCheckSmartcard" element="mdata:requestCheckSmartcard"/>
+	</wsdl:message>
+	<wsdl:message name="responseCheckSmartcard_Message">
+		<wsdl:part name="part_responseCheckSmartcard" element="mdata:responseCheckSmartcard"/>
+	</wsdl:message>
+	<wsdl:message name="Header_Message">
+		<wsdl:part name="part_HeaderMessage" element="mdata:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="DTT_ptt">
+		<wsdl:operation name="execute_MPINQE">
+			<wsdl:input message="tns:requestCheckSmartcard_Message"/>
+			<wsdl:output message="tns:responseCheckSmartcard_Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="DTT_pttSOAP11Binding" type="tns:DTT_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_MPINQE">
+			<soap:operation soapAction="execute_MPINQE"/>
+			<wsdl:input>
+				<soap:body use="literal" namespace="http://www.skytv.it/mdw/service/SCMS_DTT_CHECK_SMC"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" namespace="http://www.skytv.it/mdw/service/SCMS_DTT_CHECK_SMC"/>
+				<soap:header message="tns:Header_Message" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

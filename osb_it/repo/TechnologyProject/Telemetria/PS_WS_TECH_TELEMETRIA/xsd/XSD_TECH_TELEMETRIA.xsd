@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetIptvStbInfoType">
+		<xsd:sequence>
+			<xsd:element name="requestTimestamp" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="sourceType" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="loginOperator" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="matricolaStb" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="startDate" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="endDate" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="requiredInfo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="flagQuarantine" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetIptvStbInfo" type="requestGetIptvStbInfoType"/>
+	<xsd:element name="responseGetIptvStbInfo" type="responseGetIptvStbInfoType"/>
+	<xsd:complexType name="responseGetIptvStbInfoType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultGetIptvStbInfo" type="resultGetIptvStbInfoType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestGetIptvSpeedTestInfoType">
+		<xsd:sequence>
+			<xsd:element name="requestTimestamp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="sourceType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="loginOperator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="userEmail" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="startDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="endDate" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetIptvSpeedTestInfo" type="requestGetIptvSpeedTestInfoType"/>
+	<xsd:element name="responseGetIptvSpeedTestInfo" type="responseGetIptvSpeedTestInfoType"/>
+	<xsd:complexType name="responseGetIptvSpeedTestInfoType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultGetIptvSpeedTestInfo" type="resultGetIptvSpeedTestInfoType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultGetIptvSpeedTestInfoType">
+		<xsd:sequence>
+			<xsd:element name="msgTimestamp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="result" type="resultType" minOccurs="0"/>
+			<xsd:element name="eventList" type="eventListSpeedType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="eventListSpeedType">
+		<xsd:sequence>
+			<xsd:element name="event" type="eventSpeedType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="eventSpeedType">
+		<xsd:sequence>
+			<xsd:element name="timestamp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="payload" type="payloadSpeedType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="payloadSpeedType">
+		<xsd:sequence>
+			<xsd:element name="ip" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="device" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ispRilevato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ispDichiarato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dwnlBandaRilevata" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="upBandaRilevata" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="genesi" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="result" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="decision" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultGetIptvStbInfoType">
+		<xsd:sequence>
+			<xsd:element name="msgTimestamp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="result" type="resultType" minOccurs="0"/>
+			<xsd:element name="eventList" type="eventListType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultType">
+		<xsd:sequence>
+			<xsd:element name="success" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorMessage" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="eventListType">
+		<xsd:sequence>
+			<xsd:element name="event" type="eventType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="eventType">
+		<xsd:sequence>
+			<xsd:element name="timestamp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="name" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="payload" type="payloadType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="payloadType">
+		<xsd:sequence>
+			<xsd:element name="diskStatus" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="hwVersion" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="swVersion" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="streamLive" type="streamType" minOccurs="0"/>
+			<xsd:element name="streamRec" type="streamType" minOccurs="0"/>
+			<xsd:element name="streamHw" type="streamType" minOccurs="0"/>
+			<xsd:element name="streamVod" type="streamType" minOccurs="0"/>
+                        <xsd:element name="connectivity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="rankingStreaming" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="rankingGlobal" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="rankingWifi" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="rankingWifiGlobal" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="rankingWifi24Ghz" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="rankingWifi5Ghz" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="info" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="scStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="subscription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tiServiceAuth" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="remainingCredit" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="manufacturer" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ui" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="hdmi" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ethernet" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="lineaDati" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="codiceErrore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="smartcard" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="stbSn" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="stbId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="smartcardSn" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="installationType" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="localConnection" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="remoteConnection" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="ip" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="errorCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="channelNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="status" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="quality" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="signal" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="evaluation" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="channel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="bandwith" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="evaluationSd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="evaluationHd" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="band" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="frequency" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="signalStrenght" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="lock" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="modulationType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="transmissionMode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="guardInterval" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="fec" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="foundCh" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="resultInfo" type="resultInfoType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="osd" type="osdType" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element name="ifethStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ifwifiStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="wifiSsid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="wifiSignalLevel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="cpuUsage" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="memTotal" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="memFree" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ntpStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="device" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="signalLevel" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="deviceType" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="stbSwModel" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="stbHwName" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="stbManufacturer" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="stbAsVersion" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="bandwidthMbits" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="ispRilevato" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="ispDichiarato" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="dwnlBandaRilevata" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="upBandaRilevata" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="genesi" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="resultSpeedTest" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="decision" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="osdType">
+		<xsd:sequence>
+			<xsd:element name="code" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="message" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="streamType">
+		<xsd:sequence>
+			<xsd:element name="kpi" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="info" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultInfoType">
+		<xsd:sequence>
+			<xsd:element name="values" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

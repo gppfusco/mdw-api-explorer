@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_SF_LEGGI_DATI_CONTRATTO_proxy_PS_WS_SF_LEGGI_DATI_CONTRATTO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_SF_LEGGI_DATI_CONTRATTO/pipeline/PL_WS_SF_LEGGI_DATI_CONTRATTO" : {
+        "label" : "Pipeline/SalesforceProject/WS_SF_LEGGI_DATI_CONTRATTO/pipeline/PL_WS_SF_LEGGI_DATI_CONTRATTO",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_SF_LEGGI_DATI_CONTRATTO/transformations/createRequest_LeggiDatiContratto" : {
+            "label" : "Xquery/SalesforceProject/WS_SF_LEGGI_DATI_CONTRATTO/transformations/createRequest_LeggiDatiContratto",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_SF_LEGGI_DATI_CONTRATTO/transformations/createResponse_LeggiDatiContratto" : {
+            "label" : "Xquery/SalesforceProject/WS_SF_LEGGI_DATI_CONTRATTO/transformations/createResponse_LeggiDatiContratto",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/LeggiDatiContratto/wsdl/WS_CRM_LEGGI_DATI_CONTRATTO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/LeggiDatiContratto/wsdl/WS_CRM_LEGGI_DATI_CONTRATTO",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/LeggiDatiContratto/wsdl/WS_CRM_LEGGI_DATI_CONTRATTO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/LeggiDatiContratto/wsdl/WS_CRM_LEGGI_DATI_CONTRATTO",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/billing/WS_CRM_GESTIONE_DISPOSIZIONI_PAG",
+    "name" : "KENANProject_WS_CRM_GESTIONE_DISPOSIZIONI_PAG_proxy_PS_WS_CRM_GESTIONE_DISPOSIZIONI_PAG",
+    "localPath" : "osb_it\\repo\\KENANProject\\WS\\CRM\\GESTIONE\\DISPOSIZIONI\\PAG\\PS_WS_CRM_GESTIONE_DISPOSIZIONI_PAG",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/billing/WS_CRM_GESTIONE_DISPOSIZIONI_PAG?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/KenanProject/GestioneDisposizioni/xsd/XSD_CRM_GESTIONE_DISPOSIZIONI_PAG",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

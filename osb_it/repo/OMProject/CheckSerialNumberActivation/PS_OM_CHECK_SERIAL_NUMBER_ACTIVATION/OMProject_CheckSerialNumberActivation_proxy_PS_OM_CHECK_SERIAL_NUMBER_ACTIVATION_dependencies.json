@@ -1,0 +1,62 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_CheckSerialNumberActivation_proxy_PS_OM_CHECK_SERIAL_NUMBER_ACTIVATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/CheckSerialNumberActivation/wsdl/WS_OM_CHECK_SERIAL_NUMBER_ACTIVATION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/CheckSerialNumberActivation/wsdl/WS_OM_CHECK_SERIAL_NUMBER_ACTIVATION",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/OMProject/CheckSerialNumberActivation/pipeline/PL_OM_CHECK_SERIAL_NUMBER_ACTIVATION" : {
+        "label" : "Pipeline/OMProject/CheckSerialNumberActivation/pipeline/PL_OM_CHECK_SERIAL_NUMBER_ACTIVATION",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/OMProject/CheckSerialNumberActivation/transformations/createRequestCheckSerialNumberActivation" : {
+            "label" : "Xquery/OMProject/CheckSerialNumberActivation/transformations/createRequestCheckSerialNumberActivation",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/CheckSerialNumberActivation/transformations/createResponseCheckSerialNumberActivation" : {
+            "label" : "Xquery/OMProject/CheckSerialNumberActivation/transformations/createResponseCheckSerialNumberActivation",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/CheckSerialNumberActivation/wsdl/WS_OM_CHECK_SERIAL_NUMBER_ACTIVATION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/CheckSerialNumberActivation/wsdl/WS_OM_CHECK_SERIAL_NUMBER_ACTIVATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+            "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/CheckSerialNumberActivation/businessService/BS_SQL_PROC_OM_CHECK_SERIAL_NUMBER_ACTIVATION" : {
+            "label" : "BusinessService/OMProject/CheckSerialNumberActivation/businessService/BS_SQL_PROC_OM_CHECK_SERIAL_NUMBER_ACTIVATION",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

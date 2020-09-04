@@ -1,0 +1,72 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_LISTA_CAMPAGNE_ATTIVE_proxy_PS_WS_CRM_LISTA_CAMPAGNE_ATTIVE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ListaCampagneAttive/wsdl/WS_CRM_LISTA_CAMPAGNE_ATTIVE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ListaCampagneAttive/wsdl/WS_CRM_LISTA_CAMPAGNE_ATTIVE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/pipeline/PL_WS_CRM_LISTA_CAMPAGNE_ATTIVE" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/pipeline/PL_WS_CRM_LISTA_CAMPAGNE_ATTIVE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createRequest_EJB_SF_ListaCampagneAttiveClientiSosp" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createRequest_EJB_SF_ListaCampagneAttiveClientiSosp",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createResponse_EJB_SF_ListaCampagneAttiveByContract" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createResponse_EJB_SF_ListaCampagneAttiveByContract",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ListaCampagneAttive/wsdl/WS_CRM_LISTA_CAMPAGNE_ATTIVE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/ListaCampagneAttive/wsdl/WS_CRM_LISTA_CAMPAGNE_ATTIVE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createRequest_EJB_SF_ListaCampagneAttiveAll" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createRequest_EJB_SF_ListaCampagneAttiveAll",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createResponse_EJB_SF_ListaCampagneAttiveClientiSosp" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createResponse_EJB_SF_ListaCampagneAttiveClientiSosp",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createRequest_EJB_SF_ListaCampagneAttiveByContract" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createRequest_EJB_SF_ListaCampagneAttiveByContract",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createResponse_EJB_SF_ListaCampagneAttiveAll" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_LISTA_CAMPAGNE_ATTIVE/transformations/createResponse_EJB_SF_ListaCampagneAttiveAll",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

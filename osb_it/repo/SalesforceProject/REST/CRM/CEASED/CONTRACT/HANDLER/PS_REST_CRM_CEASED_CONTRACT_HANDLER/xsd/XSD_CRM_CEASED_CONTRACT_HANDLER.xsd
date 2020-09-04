@@ -1,0 +1,31 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetLastActiveConsistency" type="requestGetLastActiveConsistencyType"/>
+	<xsd:element name="responseGetLastActiveConsistency" type="responseGetLastActiveConsistencyType"/>
+	<xsd:complexType name="requestGetLastActiveConsistencyType">
+		<xsd:sequence>
+			<xsd:element name="contrIdSF" type="xsd:string"/>
+			<xsd:element name="billCeaseDateBilling" type="xsd:date"/>
+			<xsd:element name="billCeaseDate" type="xsd:date"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGetLastActiveConsistencyType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string"/>
+			<xsd:element name="resultDescription" type="xsd:string"/>
+			<xsd:element name="listOfAssets" type="listOfAssetsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="listOfAssetsType">
+		<xsd:sequence>
+			<xsd:element name="asset" type="assetType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="assetType">
+		<xsd:sequence>
+			<xsd:element name="productCode" type="xsd:string"/>
+			<xsd:element name="status" type="xsd:string"/>
+			<xsd:element name="enablementNumber" type="xsd:string"/>
+			<xsd:element name="serialNumber" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

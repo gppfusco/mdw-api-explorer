@@ -1,0 +1,18 @@
+<xsd:schema targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" xmlns:ns1="http://www.skytv.it/mdw/data">
+  
+  <xsd:include schemaLocation="XSD_SCMS_NETFLIX_GET_PAI_BY_ESN.xsd"/>
+  
+  <xsd:complexType name="FaultType">
+    <xsd:sequence>
+      <xsd:element name="Error" type="errorType" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="BadAuthorization" type="FaultType"/>
+  <xsd:element name="AllCapabilitesRefused" type="FaultType"/>
+  <xsd:element name="NoESNMappingFound" type="FaultType"/>
+  <xsd:element name="ServerError" type="FaultType"/>
+  <xsd:element name="ServiceUnavailable" type="FaultType"/>
+  <xsd:element name="MissingNetflixESN_MissingNetflixPDI" type="FaultType"/>
+
+</xsd:schema>

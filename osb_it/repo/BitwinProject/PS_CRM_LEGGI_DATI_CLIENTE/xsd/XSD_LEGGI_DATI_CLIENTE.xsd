@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestLeggiDatiClienteType">
+		<xsd:sequence>
+			<xsd:element form="unqualified" name="CodiceCliente" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseLeggiDatiClienteType">
+		<xsd:sequence>
+			<xsd:element form="unqualified" name="Esito" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="Nome" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="Cognome" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="CodiceFiscale" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="CoerenzaNomeCognomeCF" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="Telefono" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="AltroTelefono" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="Fax" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="Cellulare" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="EMail" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="NumeroDocumento" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="EnteRilascioDocumento" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="DataRilascioDocumento" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="SiglaProvinciaDocumento" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="ComuneDocumento" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="NazioneDocumento" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="DataNascita" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="ComuneNascita" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="TipoDocumento" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="ProvinciaNascita" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="Sesso" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="FlagPromoDMOutbound" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="FlagPromoNuoveTecnologie" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="FlagAnalisiPreferenze" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="FlagConsensoAnywhere" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="Stato" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="FlagConsensoSkyGoTrial" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="Segmento" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="DittaIndividuale" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="FlagConsensoDatiAltriDevice" type="xsd:string" minOccurs="0"/>
+			<xsd:element form="unqualified" name="Contratti" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element form="unqualified" name="Contratto" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element form="unqualified" name="CodiceContratto" type="xsd:string" minOccurs="0"/>
+									<xsd:element form="unqualified" name="StatoContratto" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseLeggiDatiCliente" type="responseLeggiDatiClienteType"/>
+	<xsd:element name="requestLeggiDatiCliente" type="requestLeggiDatiClienteType"/>
+</xsd:schema>

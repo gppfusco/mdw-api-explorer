@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/aws/cpq/catalogue",
+    "name" : "BlueBirdProject_AWS_SALESFORCE_cpqOfferHandler_proxy_PS_TEXT_AWS_SF_CPQ_OFFER",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\AWS\\SALESFORCE\\cpqOfferHandler\\PS_TEXT_AWS_SF_CPQ_OFFER",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : true,
+    "bufferingSupported" : false
+  }
+}

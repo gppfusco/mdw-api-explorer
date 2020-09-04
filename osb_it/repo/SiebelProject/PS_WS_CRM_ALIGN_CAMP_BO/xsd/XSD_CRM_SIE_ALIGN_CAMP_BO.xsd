@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestAlignCampBOType">
+		<xsd:sequence>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Stato" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataFine" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataInizio" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="StagingId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Motivo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Offerte" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Field" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestAlignCampBO" type="requestAlignCampBOType"/>
+	<xsd:complexType name="responseAlignCampBOType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseAlignCampBO" type="responseAlignCampBOType"/>
+</xsd:schema>

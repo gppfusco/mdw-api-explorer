@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/OM_UPDATE_CONSISTENCY" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_OM_UPDATE_CONSISTENCY" targetNamespace="http://www.skytv.it/mdw/service/OM_UPDATE_CONSISTENCY">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_OM_UPDATE_CONSISTENCY.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestConfirmUpdateConsistency_message">
+		<wsdl:part name="part_requestConfirmUpdateConsistency" element="inp1:requestConfirmUpdateConsistency"/>
+	</wsdl:message>
+	<wsdl:message name="responseConfirmUpdateConsistency_message">
+		<wsdl:part name="part_responseConfirmUpdateConsistency" element="inp1:responseConfirmUpdateConsistency"/>
+	</wsdl:message>
+	<wsdl:message name="requestUpdateConsistencyInformation_message">
+		<wsdl:part name="part_requestUpdateConsistencyInformation" element="inp1:requestUpdateConsistencyInformation"/>
+	</wsdl:message>
+	<wsdl:message name="responseUpdateConsistencyInformation_message">
+		<wsdl:part name="part_responseUpdateConsistencyInformation" element="inp1:responseUpdateConsistencyInformation"/>
+	</wsdl:message>
+	<wsdl:message name="requestActivationRequest_message">
+		<wsdl:part name="part_requestActivationRequest" element="inp1:requestActivationRequest"/>
+	</wsdl:message>
+	<wsdl:message name="responseActivationRequest_message">
+		<wsdl:part name="part_responseActivationRequest" element="inp1:responseActivationRequest"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="OM_UPDATE_CONSISTENCY_ptt">
+		<wsdl:operation name="execute_ConfirmUpdateConsistency">
+			<wsdl:input message="tns:requestConfirmUpdateConsistency_message"/>
+			<wsdl:output message="tns:responseConfirmUpdateConsistency_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_UpdateConsistencyInformation">
+			<wsdl:input message="tns:requestUpdateConsistencyInformation_message"/>
+			<wsdl:output message="tns:responseUpdateConsistencyInformation_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_ActivationRequest">
+			<wsdl:input message="tns:requestActivationRequest_message"/>
+			<wsdl:output message="tns:responseActivationRequest_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="OM_UPDATE_CONSISTENCY_pttSOAP11Binding" type="tns:OM_UPDATE_CONSISTENCY_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_ConfirmUpdateConsistency">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/OM_UPDATE_CONSISTENCY/execute_ConfirmUpdateConsistency" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestConfirmUpdateConsistency" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseConfirmUpdateConsistency" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_UpdateConsistencyInformation">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/OM_UPDATE_CONSISTENCY/execute_UpdateConsistencyInformation" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestUpdateConsistencyInformation" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseUpdateConsistencyInformation" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_ActivationRequest">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/OM_UPDATE_CONSISTENCY/execute_ActivationRequest" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestActivationRequest" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseActivationRequest" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

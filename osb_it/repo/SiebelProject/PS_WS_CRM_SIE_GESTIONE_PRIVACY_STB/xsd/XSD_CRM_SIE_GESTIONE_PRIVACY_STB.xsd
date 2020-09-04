@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestAggiornaFlgOnDemandType">
+		<xsd:sequence>
+			<xsd:element name="msgs" type="msgsType" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestAggiornaFlgOnDemand" type="requestAggiornaFlgOnDemandType"/>
+	<xsd:complexType name="responseAggiornaFlgOnDemandType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+                        <xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseAggiornaFlgOnDemand" type="responseAggiornaFlgOnDemandType"/>
+	<xsd:complexType name="msgsType">
+		<xsd:sequence>
+			<xsd:element name="msg" type="msgType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="msgType">
+		<xsd:sequence>
+			<xsd:element name="stbsn" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="cons0" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="date" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

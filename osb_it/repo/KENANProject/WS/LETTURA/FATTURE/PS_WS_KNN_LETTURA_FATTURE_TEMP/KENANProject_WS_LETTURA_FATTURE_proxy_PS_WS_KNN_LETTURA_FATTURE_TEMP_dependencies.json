@@ -1,0 +1,85 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_LETTURA_FATTURE_proxy_PS_WS_KNN_LETTURA_FATTURE_TEMP",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/LetturaFattureTEMP/wsdl/WS_KNN_LETTURA_FATTURE_TEMP" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/LetturaFattureTEMP/wsdl/WS_KNN_LETTURA_FATTURE_TEMP",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/WS_LETTURA_FATTURE/pipeline/PL_WS_KNN_LETTURA_FATTURE_getFattureRecenti_DR_TEMP" : {
+        "label" : "Pipeline/KENANProject/WS_LETTURA_FATTURE/pipeline/PL_WS_KNN_LETTURA_FATTURE_getFattureRecenti_DR_TEMP",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/LetturaFatture/wsdl/WS_KNN_LETTURA_FATTURE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/LetturaFatture/wsdl/WS_KNN_LETTURA_FATTURE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/KENANProject/WS_LETTURA_FATTURE/businessService/BS_SQL_KNN_GET_FATTURE_RECENTI_DR" : {
+            "label" : "BusinessService/KENANProject/WS_LETTURA_FATTURE/businessService/BS_SQL_KNN_GET_FATTURE_RECENTI_DR",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_LETTURA_FATTURE/transformations/createRequest_getStatoFatturazione_DR" : {
+            "label" : "Xquery/KENANProject/WS_LETTURA_FATTURE/transformations/createRequest_getStatoFatturazione_DR",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/KENANProject/WS_LETTURA_FATTURE/pipeline/PL_INTERNAL_GET_STATO_FATTURAZIONE_DR" : {
+            "label" : "Pipeline/KENANProject/WS_LETTURA_FATTURE/pipeline/PL_INTERNAL_GET_STATO_FATTURAZIONE_DR",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/LetturaFatture/wsdl/WS_KNN_LETTURA_FATTURE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/LetturaFatture/wsdl/WS_KNN_LETTURA_FATTURE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/WS_LETTURA_FATTURE/businessService/BS_SQL_KNN_GET_STATO_FATTURAZIONE_DR" : {
+                "label" : "BusinessService/KENANProject/WS_LETTURA_FATTURE/businessService/BS_SQL_KNN_GET_STATO_FATTURAZIONE_DR",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+            "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_LETTURA_FATTURE/transformations/createResponse_getFattureRecenti_fromDR_TEMP" : {
+            "label" : "Xquery/KENANProject/WS_LETTURA_FATTURE/transformations/createResponse_getFattureRecenti_fromDR_TEMP",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_LETTURA_FATTURE/transformations/createRequest_getFattureRecenti_forDR" : {
+            "label" : "Xquery/KENANProject/WS_LETTURA_FATTURE/transformations/createRequest_getFattureRecenti_forDR",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

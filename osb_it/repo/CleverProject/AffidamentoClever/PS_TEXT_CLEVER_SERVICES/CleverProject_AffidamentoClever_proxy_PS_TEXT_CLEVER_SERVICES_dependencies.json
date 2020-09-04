@@ -1,0 +1,11 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "CleverProject_AffidamentoClever_proxy_PS_TEXT_CLEVER_SERVICES",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "Messaging"
+    },
+    "successors" : { }
+  }
+}

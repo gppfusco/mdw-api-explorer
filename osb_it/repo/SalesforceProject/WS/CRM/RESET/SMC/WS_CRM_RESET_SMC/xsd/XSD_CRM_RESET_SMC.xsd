@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestResetSmc" type="requestResetSmcType"/>
+	<xsd:complexType name="requestResetSmcType">
+		<xsd:sequence>
+			<xsd:element name="custId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwSMC" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwFlgServiceRequest" minOccurs="1" maxOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Y"/>
+						<xsd:enumeration value="N"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="mdwAcquisitionChannel" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwContactType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="mdwTrackingField" minOccurs="0" maxOccurs="1">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwConnId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="mdwOrigin" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+						<xsd:element name="mdwScope" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseResetSmc" type="responseResetSmcType"/>
+	<xsd:complexType name="responseResetSmcType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

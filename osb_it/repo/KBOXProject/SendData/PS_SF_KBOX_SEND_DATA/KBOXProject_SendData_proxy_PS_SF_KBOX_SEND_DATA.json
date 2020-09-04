@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/kbox/WS_SF_KBOX_SEND_DATA",
+    "name" : "KBOXProject_SendData_proxy_PS_SF_KBOX_SEND_DATA",
+    "localPath" : "osb_it\\repo\\KBOXProject\\SendData\\PS_SF_KBOX_SEND_DATA",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/kbox/WS_SF_KBOX_SEND_DATA?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/KBOXProject/SendData_SF/xsd/XSD_SF_KBOX_SEND_DATA",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "ORCHESTRATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

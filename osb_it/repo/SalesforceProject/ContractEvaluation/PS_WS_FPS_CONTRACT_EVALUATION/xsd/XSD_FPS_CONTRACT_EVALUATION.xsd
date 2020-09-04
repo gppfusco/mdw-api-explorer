@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestContractEvaluation" type="requestContractEvaluationType"/>
+  <xsd:element name="responseContractEvaluation" type="responseContractEvaluationType"/>
+  <xsd:complexType name="requestContractEvaluationType">
+    <xsd:sequence>
+      <xsd:element name="OrderNum" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Azione" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Frode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Credito" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="NoteSPY" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Dettaglio" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Data" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseContractEvaluationType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,200 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_GET_STATUS_SISAL_proxy_PS_WS_CRM_GET_STATUS_SISAL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_GET_STATUS_SISAL/pipeline/PL_WS_CRM_GET_STATUS_SISAL" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_GET_STATUS_SISAL/pipeline/PL_WS_CRM_GET_STATUS_SISAL",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "ProxyService/KENANProject/Sisal/billInvoiceList/proxy/PS_LOCAL_KN_GET_LIST_OF_BILLS" : {
+            "label" : "ProxyService/KENANProject/Sisal/billInvoiceList/proxy/PS_LOCAL_KN_GET_LIST_OF_BILLS",
+            "properties" : {
+              "transport-type" : "local",
+              "nodeType" : "Proxy",
+              "service-type" : "SOAP"
+            },
+            "successors" : {
+              "Pipeline/KENANProject/Sisal/billInvoiceList/pipeline/PL_INTERNAL_KN_GET_LIST_OF_BILLS" : {
+                "label" : "Pipeline/KENANProject/Sisal/billInvoiceList/pipeline/PL_INTERNAL_KN_GET_LIST_OF_BILLS",
+                "properties" : { },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/KENANProject/Sisal/billInvoiceList/businessServices/BS_SQL_PROC_GET_LIST_OF_BILLS" : {
+                    "label" : "BusinessService/KENANProject/Sisal/billInvoiceList/businessServices/BS_SQL_PROC_GET_LIST_OF_BILLS",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/KENANProject/Resources/BS_SQL_PROC_GET_LIST_OF_BILLS/concrete" : {
+                    "label" : "WSDL/KENANProject/Resources/BS_SQL_PROC_GET_LIST_OF_BILLS/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/KENANProject/Resources/BS_SQL_PROC_GET_LIST_OF_BILLS/concrete" : {
+                "label" : "WSDL/KENANProject/Resources/BS_SQL_PROC_GET_LIST_OF_BILLS/concrete",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "ProxyService/KENANProject/Sisal/pagParzKenan/proxy/PS_LOCAL_KN_SKYPAGAMPARZKENAN" : {
+            "label" : "ProxyService/KENANProject/Sisal/pagParzKenan/proxy/PS_LOCAL_KN_SKYPAGAMPARZKENAN",
+            "properties" : { },
+            "successors" : {
+              "Pipeline/KENANProject/Sisal/pagParzKenan/pipelines/PL_INTERNAL_KN_SKYPAGAMPARZKENAN" : {
+                "label" : "Pipeline/KENANProject/Sisal/pagParzKenan/pipelines/PL_INTERNAL_KN_SKYPAGAMPARZKENAN",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/KENANProject/Resources/BS_SQL_CALL_SKYPAGAMPARZKENAN/concrete" : {
+                    "label" : "WSDL/KENANProject/Resources/BS_SQL_CALL_SKYPAGAMPARZKENAN/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_CALL_SKYPAGAMPARZKENAN" : {
+                    "label" : "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_SQL_CALL_SKYPAGAMPARZKENAN",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/KENANProject/Resources/BS_SQL_CALL_SKYPAGAMPARZKENAN/concrete" : {
+                "label" : "WSDL/KENANProject/Resources/BS_SQL_CALL_SKYPAGAMPARZKENAN/concrete",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SalesforceProject/WS_CRM_GET_STATUS_SISAL/trasformation/createResponseWS_GetStatus" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_GET_STATUS_SISAL/trasformation/createResponseWS_GetStatus",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_GET_STATUS_SISAL/trasformation/createRequestBS_Kenan_PagamParz" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_GET_STATUS_SISAL/trasformation/createRequestBS_Kenan_PagamParz",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_GET_STATUS_SISAL/trasformation/createRequestBS_Kenan_GelListOfBills" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_GET_STATUS_SISAL/trasformation/createRequestBS_Kenan_GelListOfBills",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_GET_STATUS_SISAL/trasformation/createRequest_WS_PaymentsServiceReinstate" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_GET_STATUS_SISAL/trasformation/createRequest_WS_PaymentsServiceReinstate",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+            "properties" : { },
+            "successors" : {
+              "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SalesforceProject/WS_CRM_GET_STATUS_SISAL/trasformation/createRequestGetEsigenze_SF" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_GET_STATUS_SISAL/trasformation/createRequestGetEsigenze_SF",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GetStatusSisal/wsdl/WS_CRM_GET_STATUS_SISAL" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GetStatusSisal/wsdl/WS_CRM_GET_STATUS_SISAL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GetStatusSisal/wsdl/WS_CRM_GET_STATUS_SISAL" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GetStatusSisal/wsdl/WS_CRM_GET_STATUS_SISAL",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

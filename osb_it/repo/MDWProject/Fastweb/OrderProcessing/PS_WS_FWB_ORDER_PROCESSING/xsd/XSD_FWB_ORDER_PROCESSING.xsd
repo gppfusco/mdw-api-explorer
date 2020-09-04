@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestFWBOrderProcessing" type="requestFWBOrderProcessingType"/>
+	<xsd:complexType name="requestFWBOrderProcessingType">
+		<xsd:sequence>
+			<xsd:element name="transactionData" type="transactionDataType"/>
+			<xsd:element name="operationData" type="operationDataType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="transactionDataType">
+		<xsd:sequence>
+			<xsd:element name="senderName" type="String50" minOccurs="0"/>
+			<xsd:element name="userName" type="String50" minOccurs="0"/>
+			<xsd:element name="transactionId" type="String42"/>
+			<xsd:element name="version" type="String50" minOccurs="0"/>
+			<xsd:element name="transactionTime" type="String19"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="operationDataType">
+		<xsd:sequence>
+			<xsd:element name="source" type="String30" minOccurs="1"/>
+			<xsd:element name="idPDA" type="String30" minOccurs="1"/>
+			<xsd:element name="keysSKY" type="keysSKYType" minOccurs="1"/>
+			<xsd:element name="keysFW" type="keysFWType" minOccurs="1"/>
+			<xsd:element name="action" type="String30" minOccurs="1"/>
+			<xsd:element name="clusterNumber" type="String2" minOccurs="1"/>
+			<xsd:element name="reasonId" type="String30" minOccurs="0"/>
+			<xsd:element name="reason" type="String30" minOccurs="0"/>
+			<xsd:element name="provisioningType" type="String30" minOccurs="0"/>
+			<xsd:element name="actionDate" type="String15" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseFWBOrderProcessing" type="responseFWBOrderProcessingType"/>
+	<xsd:complexType name="responseFWBOrderProcessingType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="keysSKYType">
+		<xsd:sequence>
+			<xsd:element name="contrIdSky" type="String30" minOccurs="1"/>
+			<xsd:element name="integrationIdSky" type="String30" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="keysFWType">
+		<xsd:sequence>
+			<xsd:element name="idHeaderFW" type="String30" minOccurs="1"/>
+			<xsd:element name="idInstanceFW" type="String30" minOccurs="1"/>
+			<xsd:element name="idAssetFW" type="String30" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="String2">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String30">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="30"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String255">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="255"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String50">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="50"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String42">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="42"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String15">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="15"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="String19">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="19"/>
+			<xsd:pattern value="|(\d\d/\d\d/\d\d\d\d \d\d:\d\d:\d\d)|('')"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

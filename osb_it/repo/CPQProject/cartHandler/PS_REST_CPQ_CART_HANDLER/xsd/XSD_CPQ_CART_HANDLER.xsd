@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+           targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xs:element name="requestAddCartItems" type="requestAddCartItemType"/>
+  <xs:element name="requestCreateCart" type="requestCreateCartType"/>
+  <xs:element name="responseCreateCart" type="responseCreateCartType"/>
+  <xs:element name="requestDeleteCartItems" type="requestDeleteCartItemType"/>
+  <xs:element name="requestDeletePromotionItems" type="requestDeletePromotionItemsType"/>
+  <xs:element name="responseDeletePromotionItems" type="responseDeletePromotionItemsType"/>
+  <xs:element name="requestAssetToOrder" type="requestAssetToOrderType"/>
+  <xs:element name="responseAssetToOrder" type="responseAssetToOrderType"/>
+  <xs:element name="product" type="addproductType"/>
+  <xs:complexType name="requestAddCartItemType">
+    <xs:sequence>
+      <xs:element type="addproductsType" name="products"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addproductsType">
+    <xs:sequence>
+      <xs:element type="addproductType" name="product" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addproductType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="productHierarchyPath" minOccurs="0"/>
+      <xs:element type="xs:string" name="parentProductId" minOccurs="0"/>
+      <xs:element type="xs:string" name="pricebookEntryId"/>
+      <xs:element name="fieldsToUpdate" type="fieldsToUpdateType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fieldsToUpdateType">
+    <xs:sequence>
+      <xs:element type="fieldToUpdateType" name="fieldToUpdate" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fieldToUpdateType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="name"/>
+      <xs:element type="xs:string" name="value"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestCreateCartType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="action"/>
+      <xs:element type="xs:string" name="assetId"/>
+      <xs:element type="xs:string" name="accountId"/>
+      <xs:element type="xs:date" name="requestDate"/>
+      <xs:element type="xs:anyType" name="price" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseCreateCartType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="orderId"/>
+      <xs:element type="xs:string" name="cpqError"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="requestSubmitCart" type="requestSubmitCartType"/>
+  <xs:element name="responseSubmitCart" type="responseSubmitCartType"/>
+  <xs:complexType name="requestSubmitCartType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="accountId"/>
+      <xs:element type="xs:string" name="contractId"/>
+      <xs:element type="assetOptionsType" name="assetOptions" minOccurs="0"/>
+      <xs:element type="xs:dateTime" name="orderCreationDate"/>
+      <xs:element type="promotionsType" name="promotions" minOccurs="0"/>
+      <xs:element type="productsType" name="products" minOccurs="0"/>
+      <xs:element type="migrationCodeType" name="migrationCode" minOccurs="0"/>
+      <xs:element type="documentType" name="document" minOccurs="0"/>
+      <xs:element type="appointmentType" name="appointment" minOccurs="0"/>
+      <xs:element type="paymentMethodType" name="paymentMethod" minOccurs="0"/>
+      <xs:element type="consentType" name="consent" minOccurs="0"/>
+      <xs:element type="orderType" name="order"/>
+      <xs:element type="xs:string" name="telephoneNumberBB" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="newLineBLBFlg" minOccurs="0"/>
+      <xs:element name="telephoneNumberForDAZN" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="promotionsType">
+    <xs:sequence>
+      <xs:element type="promotionType" name="promotion" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="promotionType">
+    <xs:sequence>
+      <xs:element type="actionType" name="action"/>
+      <xs:element type="xs:string" name="promotionId"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="productsType">
+    <xs:sequence>
+      <xs:element type="productType" name="product" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="productType">
+    <xs:sequence>
+      <xs:element type="actionType" name="action"/>
+      <xs:element type="xs:string" name="productId"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="migrationCodeType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="migrationCodeOutVoice" minOccurs="0"/>
+      <xs:element type="xs:string" name="migrationCodeOut" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documentType">
+    <xs:sequence>
+      <xs:element type="documentInfoType" name="documentInfoUser" minOccurs="0"/>
+      <xs:element type="documentInfoType" name="documentInfoPayer" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="documentInfoType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="number" minOccurs="0"/>
+      <xs:element type="xs:string" name="type" minOccurs="0"/>
+      <xs:element type="xs:string" name="autorization" minOccurs="0"/>
+      <xs:element type="xs:date" name="releaseDate" minOccurs="0"/>
+      <xs:element type="xs:date" name="expireDate" minOccurs="0"/>
+      <xs:element type="xs:string" name="city" minOccurs="0"/>
+      <xs:element type="xs:string" name="province" minOccurs="0"/>
+      <xs:element type="xs:string" name="nationality" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="appointmentType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="tokenID"/>
+      <xs:element type="xs:string" name="appointmentDate"/>
+      <xs:element type="xs:dateTime" name="appointmentOrderId" minOccurs="0"/>
+      <xs:element type="xs:string" name="slotId"/>
+      <xs:element type="xs:string" name="typeId"/>
+      <xs:element type="xs:string" name="wholesaler"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orderType">
+    <xs:sequence>
+      <xs:element type="orderTypeRestriction" name="type" minOccurs="0"/>
+      <xs:element type="xs:string" name="status" minOccurs="0"/>
+      <xs:element type="xs:string" name="subscriptionChannel"/>
+      <xs:element type="xs:string" name="orderIdByChannel" minOccurs="0"/>
+      <xs:element type="xs:string" name="caseId" minOccurs="0"/>
+      <xs:element type="xs:string" name="dealerCode" minOccurs="0"/>
+      <xs:element type="xs:string" name="sellerCode" minOccurs="0"/>
+      <xs:element type="xs:string" name="treatmentCode" minOccurs="0"/>
+      <xs:element type="xs:string" name="cellCode" minOccurs="0"/>
+      <xs:element type="xs:string" name="campaignCode" minOccurs="0"/>
+      <xs:element type="xs:string" name="penaltyApplicationFlg" minOccurs="0"/>
+      <xs:element type="xs:string" name="technology" minOccurs="0"/>
+      <xs:element type="xs:string" name="voiceSourceOperator" minOccurs="0"/>
+      <xs:element type="xs:string" name="dataSourceOperator" minOccurs="0"/>
+      <xs:element type="xs:string" name="migratedNumber" minOccurs="0"/>
+      <xs:element type="xs:string" name="existingServices" minOccurs="0"/>
+      <xs:element type="xs:date" name="schedulingDate" minOccurs="0"/>
+      <xs:element type="xs:string" name="reason" minOccurs="0"/>
+      <xs:element name="serviceType" type="xs:string" minOccurs="0"/>
+      <xs:element name="installments" type="installmentsType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="installmentsType">
+    <xs:sequence>
+      <xs:element name="installmentNumber" type="xs:string"/>
+      <xs:element name="productCode" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>  
+  <xs:complexType name="paymentMethodType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="type"/>
+      <xs:element type="bankDomiciliationType" name="bankDomiciliation" minOccurs="0"/>
+      <xs:element type="creditCardType" name="creditCard" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bankDomiciliationType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="Abi"/>
+      <xs:element type="xs:string" name="Cab"/>
+      <xs:element type="xs:string" name="Cin"/>
+      <xs:element type="xs:string" name="Agency" minOccurs="0"/>
+      <xs:element type="xs:string" name="IBAN"/>
+      <xs:element type="xs:string" name="agencyAddress" minOccurs="0"/>
+      <xs:element type="xs:string" name="bankName" minOccurs="0"/>
+      <xs:element type="xs:string" name="subscriberName"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="creditCardType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="creditCardNumber"/>
+      <xs:element type="xs:string" name="expirationMonth"/>
+      <xs:element type="xs:string" name="expirationYear"/>
+      <xs:element type="xs:string" name="subscriberName"/>
+      <xs:element type="creditCardResType" name="type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="actionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="add"/>
+      <xs:enumeration value="remove"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="assetOptionsType">
+    <xs:sequence>
+      <xs:element type="includesAssetType" name="includes" minOccurs="0"/>
+      <xs:element type="xs:dateTime" name="effectiveAssetsDateFilter" minOccurs="0"/>
+      <xs:element type="getAssetByType" name="getAssetBy"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="getAssetByType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Account"/>
+      <xs:enumeration value="Contract"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="creditCardResType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AMERICAN EXPRESS"/>
+      <xs:enumeration value="MASTERCARD"/>
+      <xs:enumeration value="VISA"/>
+      <xs:enumeration value="POSTEPAY"/>
+      <xs:enumeration value="ALTRE"/>
+      <xs:enumeration value="CARTA SI' DINERS"/>
+      <xs:enumeration value="ALTRE INTESA"/>
+      <xs:enumeration value="ALTRE BAK"/>
+      <xs:enumeration value="BAK"/>
+      <xs:enumeration value="ALTRE AMERICAN EXPRESS"/>
+      <xs:enumeration value="ALTRE DINERS"/>
+      <xs:enumeration value="ALTRE UNICREDIT"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="includesAssetType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="allAssets"/>
+      <xs:enumeration value="billedAssets"/>
+      <xs:enumeration value="noContractAssets"/>
+      <xs:enumeration value="serviceAssets"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="responseSubmitCartType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="resultCode"/>
+      <xs:element type="xs:string" name="resultDescription"/>
+      <xs:element type="xs:string" name="transactionId"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consentType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="withdrawalFlag" minOccurs="0"/>
+      <xs:element type="xs:string" name="personalDatFlag" minOccurs="0"/>
+      <xs:element type="xs:string" name="numberportabilityFlag" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="SkyQConsent" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="SkyGoSkyPlusConsentFlg" minOccurs="0"/>
+      <xs:element type="FlagType" name="PrivacyKidsAppConsentFlg" minOccurs="0"/>
+      <xs:element type="FlagType" name="termsAndConditionKidsAppConsentFlg" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="otherDeviceConsentFlg" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="SkyGoTrialConsentFlg" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="comunicationOneConsentFlg" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="comunicationTwoConsentFlg" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="BBVoiceConsentFlg" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="thirtPartConsent" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="profilingConsentFlg" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="uniqueOperatorFlg" minOccurs="0"/>
+      <xs:element type="xs:boolean" name="oneClickFlg" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestDeleteCartItemType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="cartId"/>
+      <xs:element type="xs:string" name="itemId"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestDeletePromotionItemsType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="cartId"/>
+      <xs:element type="xs:string" name="id"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseDeletePromotionItemsType">
+    <xs:sequence/>
+  </xs:complexType>
+   <xs:complexType name="requestAssetToOrderType">
+    <xs:sequence>
+      <xs:element name="assetRootId" type="xs:string"/>
+      <xs:element name="custId" type="xs:string"/>
+      <xs:element name="changeDate" type="xs:string"/>
+      <xs:element name="executePricingRules" type="xs:string"/>
+      <xs:element name="channel" type="xs:string"/>
+      <xs:element name="contrId" type="xs:string"/>
+      <xs:element name="executionType" type="xs:string"/>
+      <xs:element name="orderId" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseAssetToOrderType">
+    <xs:sequence>
+      <xs:element name="mdwResult" type="xs:string"/>
+      <xs:element name="mdwResultDescription" type="xs:string"/>
+      <xs:element name="cartIds" type="cartIdType" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cartIdType">
+    <xs:sequence>   
+      <xs:element name="cardId" type="xs:string" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="FlagType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Y"/>
+      <xs:enumeration value="N"/>
+      <xs:enumeration value=""/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="orderTypeRestriction">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BB"/>
+      <xs:enumeration value="NETFLIX"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

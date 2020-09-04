@@ -1,0 +1,218 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_AlignmentScenarioResubmission_proxy_PS_WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_MDW_ALIGN_SCENARIO_RESUBMISSION" : {
+        "label" : "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_INTERNAL_ALIGN_SCENARIO_RESUBMISSION_TECH_KEYS" : {
+            "label" : "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_INTERNAL_ALIGN_SCENARIO_RESUBMISSION_TECH_KEYS",
+            "properties" : { },
+            "successors" : {
+              "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createRequest_RetrieveBusinessRules" : {
+                "label" : "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createRequest_RetrieveBusinessRules",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_INTERNAL_EJB_SF_RETRIEVE_ENTITIES" : {
+                "label" : "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_INTERNAL_EJB_SF_RETRIEVE_ENTITIES",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_INTERNAL_ALIGN_SCENARIO_ENQUEUE_FORWARD_KENAN" : {
+                "label" : "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_INTERNAL_ALIGN_SCENARIO_ENQUEUE_FORWARD_KENAN",
+                "properties" : { },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDWProject/AlignSfByBpel/topics/businessService/BS_JMS_ENQUEUE_ALIGN_MSG" : {
+                    "label" : "BusinessService/MDWProject/AlignSfByBpel/topics/businessService/BS_JMS_ENQUEUE_ALIGN_MSG",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createRequest_EjbCOHEUpdateEntities" : {
+                "label" : "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createRequest_EjbCOHEUpdateEntities",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_INTERNAL_EJB_COHE_ALIGN_MESSAGE" : {
+                "label" : "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_INTERNAL_EJB_COHE_ALIGN_MESSAGE",
+                "properties" : { },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDWProject/AlignSfByBpel/businessServices/BS_WS_EJB_ALIGN_MESSAGE" : {
+                    "label" : "BusinessService/MDWProject/AlignSfByBpel/businessServices/BS_WS_EJB_ALIGN_MESSAGE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "ProxyService/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/proxy/PS_LOCAL_MDW_RETRIVE_SCENARIOS_BUSINESS_RULES" : {
+                "label" : "ProxyService/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/proxy/PS_LOCAL_MDW_RETRIVE_SCENARIOS_BUSINESS_RULES",
+                "properties" : { },
+                "successors" : {
+                  "Pipeline/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/pipeline/PL_LOCAL_MDW_RETRIVE_SCENARIOS_BUSINESS_RULES_INTERNAL" : {
+                    "label" : "Pipeline/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/pipeline/PL_LOCAL_MDW_RETRIVE_SCENARIOS_BUSINESS_RULES_INTERNAL",
+                    "properties" : {
+                      "nodeType" : "Pipeline"
+                    },
+                    "successors" : {
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/businessService/BS_WS_SOA_RETRIVE_SCENARIOS_RULES_SF_ALIGN" : {
+                        "label" : "BusinessService/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/businessService/BS_WS_SOA_RETRIVE_SCENARIOS_RULES_SF_ALIGN",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION" : {
+                        "label" : "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/GENERIC/wsdl/WS_GENERIC_OPERATION",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_INTERNAL_RETRIEVE_ORDER_SCENARIO" : {
+                "label" : "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_WS_INTERNAL_RETRIEVE_ORDER_SCENARIO",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "BusinessService/MDWProject/AlignmentScenarioResubmission/businessService/BS_SQL_MDW_RETRIEVE_ORDER_SCENARIO" : {
+                    "label" : "BusinessService/MDWProject/AlignmentScenarioResubmission/businessService/BS_SQL_MDW_RETRIEVE_ORDER_SCENARIO",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_STUB" : {
+                "label" : "Pipeline/MDWProject/AlignmentScenarioResubmission/pipeline/PL_STUB",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createAlignScenario" : {
+                "label" : "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createAlignScenario",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createRequest_RestEjbCompositeRetrieveRecordsByTechKeys" : {
+                "label" : "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createRequest_RestEjbCompositeRetrieveRecordsByTechKeys",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createRequest_RetrieveOrderScenario" : {
+                "label" : "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createRequest_RetrieveOrderScenario",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignmentScenarioResubmission/wsdl/WS_MDW_ALIGN_SCENARIO_RESUBMISSION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createResponse_ResubmissionScenarioWIthTechKeys" : {
+            "label" : "Xquery/MDWProject/AlignmentScenarioResubmission/transformation/createResponse_ResubmissionScenarioWIthTechKeys",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_Reitek_callbackOrderResult_proxy_PS_WS_REITEK_CALLBACK_ORDER_RESULT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/Reitek/callbackOrderResult/wsdl/WS_REITEK_CALLBACK_ORDER_RESULT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/Reitek/callbackOrderResult/wsdl/WS_REITEK_CALLBACK_ORDER_RESULT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/Reitek/callbackOrderResult/pipeline/PL_WS_REITEK_CALLBACK_ORDER_RESULT" : {
+        "label" : "Pipeline/BlueBirdProject/Reitek/callbackOrderResult/pipeline/PL_WS_REITEK_CALLBACK_ORDER_RESULT",
+        "properties" : { },
+        "successors" : {
+          "Xquery/BlueBirdProject/Reitek/callbackOrderResult/transformations/createResponse_CallbackOrderProcessingResult" : {
+            "label" : "Xquery/BlueBirdProject/Reitek/callbackOrderResult/transformations/createResponse_CallbackOrderProcessingResult",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/Reitek/callbackOrderResult/wsdl/WS_REITEK_CALLBACK_ORDER_RESULT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/Reitek/callbackOrderResult/wsdl/WS_REITEK_CALLBACK_ORDER_RESULT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/Reitek/callbackOrderResult/transformations/createRequest_CallbackOrderProcessingResult" : {
+            "label" : "Xquery/BlueBirdProject/Reitek/callbackOrderResult/transformations/createRequest_CallbackOrderProcessingResult",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/Reitek/callbackOrderResult/pipeline/PL_REST_REITEK_CALLBACK_ORDER_processingResult" : {
+            "label" : "Pipeline/BlueBirdProject/Reitek/callbackOrderResult/pipeline/PL_REST_REITEK_CALLBACK_ORDER_processingResult",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/BlueBirdProject/Reitek/callbackOrderResult/businessService/BS_REST_REITEK_PROCESSING_RESULT_2" : {
+                "label" : "BusinessService/BlueBirdProject/Reitek/callbackOrderResult/businessService/BS_REST_REITEK_PROCESSING_RESULT_2",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/BS_REST_REITEK_PROCESSING_RESULT" : {
+                "label" : "WSDL/BlueBirdProject/Resources/BS_REST_REITEK_PROCESSING_RESULT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/Reitek/callbackOrderResult/businessService/BS_REST_REITEK_PROCESSING_RESULT" : {
+                "label" : "BusinessService/BlueBirdProject/Reitek/callbackOrderResult/businessService/BS_REST_REITEK_PROCESSING_RESULT",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

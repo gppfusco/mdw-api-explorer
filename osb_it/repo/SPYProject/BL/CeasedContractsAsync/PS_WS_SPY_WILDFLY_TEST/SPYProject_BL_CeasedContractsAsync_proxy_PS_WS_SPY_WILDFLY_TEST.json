@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/spy/WS_SPY_WILDFLY_TEST",
+    "name" : "SPYProject_BL_CeasedContractsAsync_proxy_PS_WS_SPY_WILDFLY_TEST",
+    "localPath" : "osb_it\\repo\\SPYProject\\BL\\CeasedContractsAsync\\PS_WS_SPY_WILDFLY_TEST",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/spy/WS_SPY_WILDFLY_TEST?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SPYProject/BL_CeasedContractsAsync/xsd/XSD_SPY_BL_CEASED_CONTRACTS_ASYNC",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

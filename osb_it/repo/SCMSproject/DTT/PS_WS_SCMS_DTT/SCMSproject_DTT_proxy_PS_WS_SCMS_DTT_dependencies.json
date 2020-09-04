@@ -1,0 +1,40 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_DTT_proxy_PS_WS_SCMS_DTT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SCMSproject/DTT/pipeline/PL_WS_SCMS_DTT_ENQUEUE" : {
+        "label" : "Pipeline/SCMSproject/DTT/pipeline/PL_WS_SCMS_DTT_ENQUEUE",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/DTT/wsdl/WS_SCMS_DTT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/DTT/wsdl/WS_SCMS_DTT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SCMSproject/DTT/businessService/BS_JMS_DTT" : {
+            "label" : "BusinessService/SCMSproject/DTT/businessService/BS_JMS_DTT",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/DTT/wsdl/WS_SCMS_DTT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/DTT/wsdl/WS_SCMS_DTT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

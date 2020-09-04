@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+	<xsd:complexType name="requestSearchForPhoneType">
+		<xsd:sequence>
+			<xsd:element name="numeroCellulare" minOccurs="1" maxOccurs="1">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string">
+                                <xsd:minLength value="2" />
+                              </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+      
+        
+	<xsd:complexType name="responseSearchForPhoneType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListaClienti" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Cliente" type="ClienteType" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSearchForPhone" type="requestSearchForPhoneType"/>
+	<xsd:element name="responseSearchForPhone" type="responseSearchForPhoneType"/>
+	<xsd:complexType name="ClienteType">
+		<xsd:sequence>
+			<xsd:element name="codiceCliente" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="email" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestSearchContractByPhoneType">
+		<xsd:sequence>
+			<xsd:element name="messageID" type="xsd:string" minOccurs="0" maxOccurs="1" />
+                        <xsd:element name="transactionID" type="xsd:string" minOccurs="0" maxOccurs="1" />
+			<xsd:element name="contactPhone" minOccurs="1" maxOccurs="1">
+                            <xsd:simpleType>
+                              <xsd:restriction base="xsd:string">
+                                <xsd:minLength value="2" />
+                              </xsd:restriction>
+                            </xsd:simpleType>
+                        </xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseSearchContractByPhoneType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="contracts" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="contract" type="contractType" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSearchContractByPhone" type="requestSearchContractByPhoneType"/>
+	<xsd:element name="responseSearchContractByPhone" type="responseSearchContractByPhoneType"/>
+	<xsd:complexType name="contractType">
+		<xsd:sequence>
+                  <xsd:element name="OrderNumber" type="xsd:string"/>
+                  <xsd:element name="custId" type="xsd:string"/>
+                  <xsd:element name="contrStatus" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        
+	<xsd:element name="responseExecuteQuerySF">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="SF_RECORDS" type="SF_RECORDSType" form="unqualified" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+      <xsd:complexType name="SF_RECORDSType">
+        <xsd:sequence>
+          <xsd:element name="size" type="xsd:string" minOccurs="0" maxOccurs="1" form="unqualified" />
+          <xsd:element name="Contract" type="ContractType" minOccurs="0" maxOccurs="unbounded" form="unqualified" />
+        </xsd:sequence>
+      </xsd:complexType>
+      
+      <xsd:complexType name="ContractType">
+        <xsd:sequence>
+          <xsd:element name="Order_Number__c" type="xsd:string" minOccurs="0" maxOccurs="1" form="unqualified" />
+          <xsd:element name="Account" type="AccountType" minOccurs="0" maxOccurs="1" form="unqualified" />
+          <xsd:element name="Status" type="xsd:string" minOccurs="0" maxOccurs="1" form="unqualified" />
+        </xsd:sequence>
+      </xsd:complexType>
+      
+      <xsd:complexType name="AccountType">
+        <xsd:sequence>
+          <xsd:element name="Codice_Cliente__c" type="xsd:string" minOccurs="0" maxOccurs="1" form="unqualified" />
+        </xsd:sequence>
+      </xsd:complexType>
+        
+</xsd:schema>

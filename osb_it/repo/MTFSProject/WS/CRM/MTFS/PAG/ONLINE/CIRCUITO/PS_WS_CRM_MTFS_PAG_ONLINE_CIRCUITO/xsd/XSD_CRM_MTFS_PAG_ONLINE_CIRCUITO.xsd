@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:element name="requestPagOnlineCircuito" type="requestPagOnlineCircuitoType" />
+  <xsd:complexType name="requestPagOnlineCircuitoType">
+    <xsd:sequence>
+     <xsd:element name="WS_NTS_DATA_CC" type="xsd:string" minOccurs="1" maxOccurs="1"/> 
+     <xsd:element name="WS_NTS_NUM_CC" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+     <xsd:element name="WS_INC_TOTALE_DA_PAGARE" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+     <xsd:element name="WS_NTS_ID_TRANSAZIONE" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <xsd:element name="WS_NTS_TIPO_PROCEDURA" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+     <xsd:element name="WS_NTS_TIPO_PAG" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <xsd:element name="WS_CRM_ACCOUNT_NUMBER" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <xsd:element name="WS_CRM_ESITO" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+     <xsd:element name="WS_SRVZ_NUM_OUT" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="responsePagOnlineCircuito" type="responsePagOnlineCircuitoType"/>
+  <xsd:complexType name="responsePagOnlineCircuitoType">
+    <xsd:sequence>
+      <xsd:element name="WS_NTS_ESITO" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="WS_NTS_CIRCUITO_CC" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="WS_NTS_COD_AUT" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="WS_SRVZ_DESCRIZ_ESITO" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="WS_NTS_DATA_ADDEBITO" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="WS_NTS_ID_ADDEBITO" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="WS_SRVZ_RET_CODE" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

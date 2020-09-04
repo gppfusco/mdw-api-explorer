@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <!-- Header Type -->
+  <xsd:complexType name="ResponseNotificationType">
+    <xsd:sequence>
+      <xsd:element name="StatusCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Message" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HeaderType">
+    <xsd:sequence>
+      <xsd:element name="systemSender" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="systemTarget" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="transactionID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="messageID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="internalTransactionID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="timeStamp" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ResponseNotification" type="ResponseNotificationType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="HeaderBody" type="HeaderType"/>
+  <xsd:element name="Header" type="HeaderType"/>
+  <xsd:element name="requestNewContact" type="requestNewContactType"/>
+  <xsd:element name="responseNewContact" type="responseNewContactType"/>
+  <!-- TYPES -->
+  <xsd:complexType name="requestNewContactType">
+    <xsd:sequence>
+      <xsd:element name="NuovoContatto" type="NuovoContattoType" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="FlagUndo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CrossReferenceId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseNewContactType">
+    <xsd:sequence>
+      <xsd:element name="Ack" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="NuovoContattoType">
+    <xsd:sequence>
+      <xsd:element name="Context" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TargetSystem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="DescrizioneElaborazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ID_COM_SF" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="ID_COM_Pegasus" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Attivita" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IdActivitySaleseforce" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IdInteractionSaleseforce" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IdCaseSalesforce" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CodiceLavorazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CodiceCliente" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="CodiceContratto" minOccurs="1" maxOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="SRProvenienza" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Macrocategoria" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="DataContatto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="TipoContatto" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="ComunicationId" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="TIDPGS" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="SRCanale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="PDISCIniziale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="PDISCFinale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Movimentazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CausaleCessazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SRNumero" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SRAttivita" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SRCategoria" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SRSottocategoria" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SREsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SRProcedura" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SRStato" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SRMotivo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="TipoOfferta" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="CodicePromozione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="StatoContrattoIniziale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="StatoContrattoFinale" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="contrMarketCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SourceSystem" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="EmailReceivedFrom" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="EmailReceivedDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="DMSClientType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="AutomaticResponse" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Service" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IdCommPegasusToAppend" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="retentionPhone" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="ChurnReason" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="DocumentList" type="DocumentListType" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Contatto" type="ContattoType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DocumentListType">
+    <xsd:sequence>
+      <xsd:element name="DocumentElement" type="DocumentElementType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DocumentElementType">
+    <xsd:sequence>
+      <xsd:element name="IdDocumentDMS" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="AcquisitionDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="Provenienza" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="IndexDate" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="type" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ContattoType">
+    <xsd:sequence>
+      <xsd:element name="IdCanale" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="Canale" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="Template" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="MessageObject" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="MessageText" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

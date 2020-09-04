@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestVerificaGaranziaType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TipologiaODL" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestVerificaGaranzia" type="requestVerificaGaranziaType"/>
+	<xsd:complexType name="responseVerificaGaranziaType">
+		<xsd:sequence>
+			<xsd:element name="Cluster" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Garanzia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GiorniGaranzia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseVerificaGaranzia" type="responseVerificaGaranziaType"/>
+	<xsd:complexType name="requestCheckProvinciaFastType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCheckProvinciaFast" type="requestCheckProvinciaFastType"/>
+	<xsd:complexType name="responseCheckProvinciaFastType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ProvinciaFast" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckProvinciaFast" type="responseCheckProvinciaFastType"/>
+	<xsd:complexType name="requestGetInfoInstallerType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceODL" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetInfoInstaller" type="requestGetInfoInstallerType"/>
+	<xsd:complexType name="responseGetInfoInstallerType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfRateCode" type="ListOfRateCodeType" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfRateCodeType">
+		<xsd:sequence>
+			<xsd:element name="RC" type="RCType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RCType">
+		<xsd:sequence>
+			<xsd:element name="RateCode" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetInfoInstaller" type="responseGetInfoInstallerType"/>
+	<xsd:complexType name="requestSospendiOdlType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceODL" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSospendiOdl" type="requestSospendiOdlType"/>
+	<xsd:element name="responseSospendiOdl" type="basicResponseType"/>
+	<xsd:complexType name="requestInviaSollecitoType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceODL" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Operazione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataPreferenzaAppuntamento" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DisponibilitaCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataEventualeContattoTelefonico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FasciaOrariaReperibilitaTel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ReferenteDiversoTitolare" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RecapitoTelefonico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RecapitoTelefonicoSecondario" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FasciaOrariaInterventoInstaller" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ComunicazioneInstaller" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestInviaSollecito" type="requestInviaSollecitoType"/>
+	<xsd:element name="responseInviaSollecito" type="basicResponseType"/>
+	<xsd:complexType name="basicResponseType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

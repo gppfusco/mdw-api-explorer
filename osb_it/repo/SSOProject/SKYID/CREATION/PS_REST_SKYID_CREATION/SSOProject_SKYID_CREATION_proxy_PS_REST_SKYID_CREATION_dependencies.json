@@ -1,0 +1,73 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SSOProject_SKYID_CREATION_proxy_PS_REST_SKYID_CREATION",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/SSOProject/SKYID_CREATION/pipeline/PL_REST_SKYID_CREATION" : {
+        "label" : "Pipeline/SSOProject/SKYID_CREATION/pipeline/PL_REST_SKYID_CREATION",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SSOProject/SKYID_CREATION/pipeline/PL_REST_INTERNAL_SKYID_CREATION" : {
+            "label" : "Pipeline/SSOProject/SKYID_CREATION/pipeline/PL_REST_INTERNAL_SKYID_CREATION",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SSOProject/SKYID_CREATION/transformation/createRequest_SKYID_CREATION" : {
+                "label" : "Xquery/SSOProject/SKYID_CREATION/transformation/createRequest_SKYID_CREATION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SSOProject/businessService/BS_REST_SKYQ_FIBRA" : {
+                "label" : "BusinessService/SSOProject/businessService/BS_REST_SKYQ_FIBRA",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SSOProject/SKYID_CREATION/transformation/createResponse_SKYID_CREATION" : {
+                "label" : "Xquery/SSOProject/SKYID_CREATION/transformation/createResponse_SKYID_CREATION",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SSOProject/Resources/PS_REST_SKYID_CREATION" : {
+                "label" : "WSDL/SSOProject/Resources/PS_REST_SKYID_CREATION",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/SSOProject/Resources/PS_REST_SKYID_CREATION" : {
+            "label" : "WSDL/SSOProject/Resources/PS_REST_SKYID_CREATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/SSOProject/Resources/PS_REST_SKYID_CREATION" : {
+        "label" : "WSDL/SSOProject/Resources/PS_REST_SKYID_CREATION",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

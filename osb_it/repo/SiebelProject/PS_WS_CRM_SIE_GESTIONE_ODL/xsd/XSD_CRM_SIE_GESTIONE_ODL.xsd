@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestGetODLType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetODL" type="requestGetODLType"/>
+	<xsd:complexType name="responseGetODLType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfODL" type="ListOfODLType" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfODLType">
+		<xsd:sequence>
+			<xsd:element name="ODL" type="ODLType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ODLType">
+		<xsd:sequence>
+			<xsd:element name="AccessoServizioSkyONDEMAND" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Account" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AggiornatoDa" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AltroNumeroTelefonico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AmbienteServizio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AssegnatarioODL" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AttributoODL" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BloccoModificaCanali" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CanaleProvenienza" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CanaleVendita" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CAP" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CausaleMancataAttivazioneServiziPVR" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CausaleMancataEsecuzTetto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cellulare" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CentroServiziSKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CentroServiziSKYUpgrade" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Certificazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ChiusodaBonifica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Citofono" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Citta" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Civico" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ClusterBundleIPTV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceComplexFiglio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceComplexPadreContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceComplexPadreODL" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceFiscalePIva" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceInstallatoreAutorizzatoSKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceInstallatoreAutorizzatoSKYContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceInstallatoreInterno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceSubInstallatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceTransazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CognomeCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CognomePersonaIntervistata" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Complesso" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ConsegnaSC" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ControlloQualita" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataApertura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataAppuntamento" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataAppuntamentoPreferita" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataAssegnazioneaSS" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataAttivazioneContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataChiamataIVRInstaller" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataChiusura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataCreazioneAppuntamento" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataDisponibilitaServizioSKYONDEMAND" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataEsecuzioneLavori" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataFineLavori" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataInizioLavori" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataODLAssegnatoaInstallatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataODLInCorso" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataODLRecuperato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataPresuntaAttivazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataRiattivazioneContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataScansioneMU" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataSecondaAttivazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataSollecito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataSopralluogo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataStipulaContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DATATESTCONNETTIVITA" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DichiarazionediConfomitaFirmata" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DisallineamentoContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DisallineamentoLogistica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EsitoCollaudoImpiantista" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ESITOTESTCONNETTIVITA" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FasciaTVTuttoincluso" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagInstallatoreInterno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Frazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Garanzia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GaranziaDTT" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="GiorniGaranziaDTT" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ImpiantoEsistenteDaAdeguare" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ImpiantoRilevato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ImportoContrassegno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Indirizzo" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IndirizzoCablato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InstallatoreAutorizzatoSKYContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InstallatoreAutorizzatoSKYUpgrade" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InstallatoreInterno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InstallManutEffettuata" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InteresseSOD" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Interno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InterventoConsigliato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InterventoDTT" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InterventoFast" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListadeiFunzionari" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Localita" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MarcaTVHD" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MarcaTVTuttoincluso" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MatricolaEPG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ModalitaDeliveryAcquistoTV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ModelloTVHD" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MotivoAnnullamento" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MotivoMancataInstallazioneConnessioneInternet" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Multivision" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NAppartamentiEdificio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomeCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NomePersonaIntervistata" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NoteErroriChiusura" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NoteSollecito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroConnessioni" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroDDT" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumerodiCanali" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumerodiStanze" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroEsigenza" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroODL" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroPalazzine" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroPiani" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroRecuperi" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroScale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroStanzeTotali" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumeroUnitaAbitative" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Overflow" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ParcoPS" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ParticellaToponomastica" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PeriododiRiferimento" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Piano" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ProblemaSegnalato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Procacciato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Promozione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Provincia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ProvisioningIniziale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RagioneSociale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RagioneSocialeCentroServiziSKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RagioneSocialeInstallatoreAutorizzatoSKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RagioneSocialeSubInstallatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ReperibilitaCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="RiferimentoSOAS" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Scala" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ScenariodiInstallazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ServiziodiVisioneMVRichiesto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ServiziodiVisioneRichiesto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ServizioVisioneFinale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ServizioVisioneIniziale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Severity" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SkyDealerContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Sollecito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Sottostato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StampaContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Stato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StatoContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TecnologiaComplexFiglio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TecnologiaFinale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TecnologiaIniziale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TecnologiaMV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TecnologiaVisioneFinale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TecnologiaVisioneIniziale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Telefono" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TelefonoPersonaIntervistata" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TestEPG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoConnettivita" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoImpiantoIndirizzoCablato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoListino" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoODL" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoProntoSKYContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoProvisioning" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoSkyDealerContratto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoTecnologia" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoTecnologiaImpiantoEseguita" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoTecnologiaImpiantoEsistente" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetODL" type="responseGetODLType"/>
+</xsd:schema>

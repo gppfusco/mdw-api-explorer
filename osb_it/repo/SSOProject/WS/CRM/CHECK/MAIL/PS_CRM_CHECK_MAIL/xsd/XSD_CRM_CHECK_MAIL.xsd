@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCheckMail" type="requestCheckMailType"/>
+	<xsd:complexType name="requestCheckMailType">
+		<xsd:sequence>
+			<xsd:element name="client_code" nillable="true" type="xsd:string"/>
+			<xsd:element name="email_force_write" nillable="true" type="xsd:string"/>
+			<xsd:element name="email_siebel" nillable="true" type="xsd:string"/>
+			<xsd:element name="email_write_flag" nillable="true" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckMail" type="responseCheckMailType"/>
+	<xsd:complexType name="responseCheckMailType">
+		<xsd:sequence>
+			<xsd:element name="client_code" nillable="true" type="xsd:string"/>
+			<xsd:element name="desc_esito" nillable="true" type="xsd:string"/>
+			<xsd:element name="ret_code" nillable="true" type="xsd:string"/>
+			<xsd:element name="srvz_check_mail" nillable="true" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

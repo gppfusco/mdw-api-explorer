@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/billing/WS_CRM_GESTIONE_FATTURE_STORNO",
+    "name" : "KENANProject_WS_CRM_GESTIONE_FATTURE_STORNO_proxy_PS_WS_CRM_GESTIONE_FATTURE_STORNO",
+    "localPath" : "osb_it\\repo\\KENANProject\\WS\\CRM\\GESTIONE\\FATTURE\\STORNO\\PS_WS_CRM_GESTIONE_FATTURE_STORNO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/billing/WS_CRM_GESTIONE_FATTURE_STORNO?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/KenanProject/GestioneFattureStorno/xsd/XSD_CRM_GESTIONE_FATTURE_STORNO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

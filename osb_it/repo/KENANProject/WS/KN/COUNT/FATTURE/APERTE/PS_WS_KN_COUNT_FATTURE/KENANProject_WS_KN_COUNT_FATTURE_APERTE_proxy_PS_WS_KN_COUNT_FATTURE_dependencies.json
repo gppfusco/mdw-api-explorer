@@ -1,0 +1,57 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "KENANProject_WS_KN_COUNT_FATTURE_APERTE_proxy_PS_WS_KN_COUNT_FATTURE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/CountFattureAperte/wsdl/WS_KN_COUNT_FATTURE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/CountFattureAperte/wsdl/WS_KN_COUNT_FATTURE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/KENANProject/WS_KN_COUNT_FATTURE_APERTE/pipeline/PL_KN_COUNT_FATTURE_APERTE" : {
+        "label" : "Pipeline/KENANProject/WS_KN_COUNT_FATTURE_APERTE/pipeline/PL_KN_COUNT_FATTURE_APERTE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/KENANProject/WS_KN_COUNT_FATTURE_APERTE/businessServices/BS_SQL_COUNT_FATTURE_APERTE" : {
+            "label" : "BusinessService/KENANProject/WS_KN_COUNT_FATTURE_APERTE/businessServices/BS_SQL_COUNT_FATTURE_APERTE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_KN_COUNT_FATTURE_APERTE/transformations/createRequest_CountFattureAperte" : {
+            "label" : "Xquery/KENANProject/WS_KN_COUNT_FATTURE_APERTE/transformations/createRequest_CountFattureAperte",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/KenanProject/CountFattureAperte/wsdl/WS_KN_COUNT_FATTURE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/CountFattureAperte/wsdl/WS_KN_COUNT_FATTURE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+            "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_WS_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/KENANProject/WS_KN_COUNT_FATTURE_APERTE/transformations/createResponse_CountFattureAperte" : {
+            "label" : "Xquery/KENANProject/WS_KN_COUNT_FATTURE_APERTE/transformations/createResponse_CountFattureAperte",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

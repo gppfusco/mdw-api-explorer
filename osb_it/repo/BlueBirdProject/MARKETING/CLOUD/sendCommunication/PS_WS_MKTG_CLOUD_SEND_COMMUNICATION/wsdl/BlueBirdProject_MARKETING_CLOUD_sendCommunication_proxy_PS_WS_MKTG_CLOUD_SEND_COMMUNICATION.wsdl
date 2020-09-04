@@ -1,0 +1,90 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions name="WS_MKTG_CLOUD_SEND_COMMUNICATIONservice1"
+                  targetNamespace="http://www.skytv.it/mdw/service/WS_MKTG_CLOUD_SEND_COMMUNICATION"
+                  xmlns:tns="http://www.skytv.it/mdw/service/WS_MKTG_CLOUD_SEND_COMMUNICATION"
+                  xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../xsd/XSD_MKTG_CLOUD_SEND_COMMUNICATIONS.xsd"/>
+      <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="requestMessage">
+    <wsdl:part name="part_requestSendEmail" element="inp1:requestSendEmail"/>
+  </wsdl:message>
+  <wsdl:message name="replyMessage">
+    <wsdl:part name="part_responseSendEmail" element="inp1:responseSendEmail"/>
+  </wsdl:message>
+  <wsdl:message name="requestMessageSendSMS">
+    <wsdl:part name="part_requestSendSMS" element="inp1:requestSendSMS"/>
+  </wsdl:message>
+  <wsdl:message name="replyMessageSendSMS">
+    <wsdl:part name="part_responseSendSMS" element="inp1:responseSendSMS"/>
+  </wsdl:message>
+  <wsdl:message name="headerMessage">
+    <wsdl:part name="partHeader" element="inp1:Header"/>
+  </wsdl:message>
+  <wsdl:portType name="execute_ptt">
+    <wsdl:operation name="execute_SendEmail">
+      <wsdl:input message="tns:requestMessage"/>
+      <wsdl:output message="tns:replyMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SendSMS">
+      <wsdl:input message="tns:requestMessageSendSMS"/>
+      <wsdl:output message="tns:replyMessageSendSMS"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SendCommunication">
+      <wsdl:input message="tns:requestMessageSendCommunication"/>
+      <wsdl:output message="tns:responseMessageSendCommunication"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="execute_SEND_COMMUNICATION" type="tns:execute_ptt">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="execute_SendEmail">
+      <soap:operation style="document" soapAction="execute_SendEmail"/>
+      <wsdl:input>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_MKTG_CLOUD_SEND_COMMUNICATION"
+                   parts="part_requestSendEmail"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_MKTG_CLOUD_SEND_COMMUNICATION"
+                   parts="part_responseSendEmail"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SendSMS">
+      <soap:operation style="document" soapAction="execute_SendSMS"/>
+      <wsdl:input>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_MKTG_CLOUD_SEND_COMMUNICATION"
+                   parts="part_requestSendSMS"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_MKTG_CLOUD_SEND_COMMUNICATION"
+                   parts="part_responseSendSMS"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_SendCommunication">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:message name="requestMessageSendCommunication">
+    <wsdl:part name="part_requestSendCommunication" element="inp1:requestSendCommunication"/>
+  </wsdl:message>
+  <wsdl:message name="responseMessageSendCommunication">
+    <wsdl:part name="part_responseSendCommunication" element="inp1:responseSendCommunication"/>
+  </wsdl:message>
+</wsdl:definitions>

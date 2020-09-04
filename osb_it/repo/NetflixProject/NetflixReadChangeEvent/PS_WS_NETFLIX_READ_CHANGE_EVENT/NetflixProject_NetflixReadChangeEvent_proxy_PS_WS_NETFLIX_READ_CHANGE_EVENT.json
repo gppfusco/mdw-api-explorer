@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/netflix/WS_NETFLIX_READ_CHANGE_EVENT",
+    "name" : "NetflixProject_NetflixReadChangeEvent_proxy_PS_WS_NETFLIX_READ_CHANGE_EVENT",
+    "localPath" : "osb_it\\repo\\NetflixProject\\NetflixReadChangeEvent\\PS_WS_NETFLIX_READ_CHANGE_EVENT",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/netflix/WS_NETFLIX_READ_CHANGE_EVENT?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/NetflixProject/NetflixReadChangeEvent/xsd/XSD_NETFLIX_READ_CHANGE_EVENT",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

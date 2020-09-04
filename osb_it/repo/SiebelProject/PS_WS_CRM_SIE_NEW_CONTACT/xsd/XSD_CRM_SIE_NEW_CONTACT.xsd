@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  
+  <xsd:element name="requestNewContact" type="COMPLEX_INPUT" />
+  <xsd:element name="responseNewContact" type="COMPLEX_OUTPUT" />
+  
+  
+  <xsd:complexType name="COMPLEX_INPUT">
+    <xsd:sequence>
+      <xsd:element name="NuovoContatto">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="Context" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="DescrizioneElaborazione" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ID_COM_SF" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="ID_COM_Pegasus" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="Attivita" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="IdActivitySaleseforce" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="IdInteractionSaleseforce" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="IdCaseSalesforce" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CodiceLavorazione" type="xsd:string"/>
+            <xsd:element name="CodiceCliente" type="xsd:string"/>
+            <xsd:element name="CodiceContratto" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SRProvenienza" type="xsd:string"/>
+            <xsd:element name="Macrocategoria" type="xsd:string"/>
+            <xsd:element name="DataContatto" type="xsd:string"/>
+            <xsd:element name="TipoContatto" type="xsd:string"/>
+            <xsd:element name="ComunicationId" type="xsd:string"/>
+            <xsd:element name="TIDPGS" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SRCanale" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="PDISCIniziale" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="PDISCFinale" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="Movimentazione" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CausaleCessazione" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SRNumero" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SRAttivita" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SRCategoria" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SRSottocategoria" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SREsito" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SRProcedura" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SRStato" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="SRMotivo" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="TipoOfferta" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="CodicePromozione" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="StatoContrattoIniziale" type="xsd:string"/>
+            <xsd:element minOccurs="0" name="StatoContrattoFinale" type="xsd:string"/>
+            <xsd:element maxOccurs="unbounded" name="Contatto">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="IdCanale" type="xsd:string"/>
+                  <xsd:element name="Canale" type="xsd:string"/>
+                  <xsd:element name="Template" type="xsd:string"/>
+                  <xsd:element minOccurs="0" name="MessageObject" type="xsd:string"/>
+                  <xsd:element minOccurs="0" name="MessageText" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+  <xsd:complexType name="COMPLEX_OUTPUT">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string"/>
+      <xsd:element name="TIDPGS" type="xsd:string"/>
+      <xsd:element name="ServiceRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ComunicationId" type="xsd:string"/>
+            <xsd:element name="SRNumero" type="xsd:string"/>
+            <xsd:element maxOccurs="unbounded" name="Contatto">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="ContattoId" type="xsd:string"/>
+                  <xsd:element name="Canale" type="xsd:string"/>
+                  <xsd:element name="CommMsgId" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  
+</xsd:schema>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestManageDelivery" type="requestManageDeliveryType"/>
+  <xsd:element name="responseManageDelivery" type="responseManageDeliveryType"/>
+  <xsd:complexType name="requestManageDeliveryType">
+    <xsd:sequence>
+      <xsd:element name="TibcoOrderId" type="xsd:string"/>
+      <xsd:element name="CorrelationId" type="xsd:string"/>
+      <xsd:element name="Action" type="xsd:string"/>
+      <xsd:element name="SoasNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SoasType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CreationDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CompletedDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ExtSoasId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ChangeOrderId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Delivery" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DeliveryNum" minOccurs="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="SottotipoDelivery" minOccurs="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="StatusDelivery" minOccurs="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="SubStatusDelivery" minOccurs="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="LoginOperator" minOccurs="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="ExtDeliveryId" minOccurs="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="DeliveryType" minOccurs="0">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseManageDeliveryType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

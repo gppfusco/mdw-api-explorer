@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/CRM_SIE_INFO_CONTR_SYNC" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_CRM_SIE_INFO_CONTR_SYNC" targetNamespace="http://www.skytv.it/mdw/service/CRM_SIE_INFO_CONTR_SYNC">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_SIE_INFO_CONTR_SYNC.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestGetInfoContratto_message">
+		<wsdl:part name="part_requestGetInfoContratto" element="inp1:requestGetInfoContratto"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetInfoContratto_message">
+		<wsdl:part name="part_responseGetInfoContratto" element="inp1:responseGetInfoContratto"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="CRM_SIE_INFO_CONTR_SYNC_ptt">
+		<wsdl:operation name="execute_getInfoContratto">
+			<wsdl:input message="tns:requestGetInfoContratto_message"/>
+			<wsdl:output message="tns:responseGetInfoContratto_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CRM_SIE_INFO_CONTR_SYNC_pttSOAP11Binding" type="tns:CRM_SIE_INFO_CONTR_SYNC_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_getInfoContratto">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_SIE_INFO_CONTR_SYNC/execute_getInfoContratto" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestGetInfoContratto" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseGetInfoContratto" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

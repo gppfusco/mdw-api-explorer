@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBSvil/MDWProject/PS_REST_MDW_KEEP_ALIVE" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_MDW_KEEP_ALIVE">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/MDWProject/KeepAlive/xsd/XSD_MDW_KEEPALIVE.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/json/errors" schemaLocation="../../MDW_CDM/EnterpriseServices/MDWProject/KeepAlive/xsd/XSD_JSON_ERRORS_MDW_KEEPALIVE.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/isalive">
+         <method name="POST" soa:wsdlOperation="Operation1">
+            <request>
+               <representation mediaType="application/json" element="cns:requestJsonKeepAlive" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseJsonKeepAlive" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500">
+               <representation mediaType="application/json" element="cns:fault500" xmlns:cns="http://www.skytv.it/mdw/json/errors"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

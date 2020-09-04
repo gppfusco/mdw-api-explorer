@@ -1,0 +1,134 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OM_getOffers_proxy_PS_REST_OM_GET_OFFER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/OM/getOffers/pipeline/PL_REST_OM_GET_OFFERS" : {
+        "label" : "Pipeline/BlueBirdProject/OM/getOffers/pipeline/PL_REST_OM_GET_OFFERS",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/BlueBirdProject/OM/getOffers/pipeline/PL_INTERNAL_OM_GET_OFFERS" : {
+            "label" : "Pipeline/BlueBirdProject/OM/getOffers/pipeline/PL_INTERNAL_OM_GET_OFFERS",
+            "properties" : { },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/BS_SQL_OM_GET_OFFERS/concrete" : {
+                "label" : "WSDL/BlueBirdProject/Resources/BS_SQL_OM_GET_OFFERS/concrete",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/OM/getOffers/businessService/BS_SQL_OM_GET_OFFERS" : {
+                "label" : "BusinessService/BlueBirdProject/OM/getOffers/businessService/BS_SQL_OM_GET_OFFERS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/OM/getOffers/transformations/createResponse_GetOffersAppointmentDetails" : {
+            "label" : "Xquery/BlueBirdProject/OM/getOffers/transformations/createResponse_GetOffersAppointmentDetails",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_OM_GET_OFFER" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OM_GET_OFFER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OM/getOffers/pipeline/PL_INTERNAL_OM_GET_APPOINTMENT_DETAILS" : {
+            "label" : "Pipeline/BlueBirdProject/OM/getOffers/pipeline/PL_INTERNAL_OM_GET_APPOINTMENT_DETAILS",
+            "properties" : { },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/OM/getOffers/businessService/BS_SQL_OM_GET_APPOINTMENT_DETAILS" : {
+                "label" : "BusinessService/BlueBirdProject/OM/getOffers/businessService/BS_SQL_OM_GET_APPOINTMENT_DETAILS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/BS_SQL_OM_GET_APPOINTMENT_DETAILS/concrete" : {
+                "label" : "WSDL/BlueBirdProject/Resources/BS_SQL_OM_GET_APPOINTMENT_DETAILS/concrete",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/BlueBirdProject/OM/getOffers/transformations/createResponse_GetOffers" : {
+            "label" : "Xquery/BlueBirdProject/OM/getOffers/transformations/createResponse_GetOffers",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OM/getOffers/pipeline/PL_INTERNAL_OM_GET_APPOINTMENT_DETAILS_FW" : {
+            "label" : "Pipeline/BlueBirdProject/OM/getOffers/pipeline/PL_INTERNAL_OM_GET_APPOINTMENT_DETAILS_FW",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/BlueBirdProject/OM/getOffers/businessService/BS_SQL_OM_GET_APPOINTMENT_DETAILS_FW" : {
+                "label" : "BusinessService/BlueBirdProject/OM/getOffers/businessService/BS_SQL_OM_GET_APPOINTMENT_DETAILS_FW",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OM/getOffers/transformations/createResponse_GetOffersAppointmentDetails_FW" : {
+                "label" : "Xquery/BlueBirdProject/OM/getOffers/transformations/createResponse_GetOffersAppointmentDetails_FW",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/BS_SQL_OM_GET_APPOINTMENT_DETAILS/concrete" : {
+                "label" : "WSDL/BlueBirdProject/Resources/BS_SQL_OM_GET_APPOINTMENT_DETAILS/concrete",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OM/getOffers/transformations/createRequest_GetOffersAppointmentDetails_FW" : {
+                "label" : "Xquery/BlueBirdProject/OM/getOffers/transformations/createRequest_GetOffersAppointmentDetails_FW",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/BlueBirdProject/OM/getOffers/transformations/createRequest_GetOffers" : {
+            "label" : "Xquery/BlueBirdProject/OM/getOffers/transformations/createRequest_GetOffers",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/BlueBirdProject/OM/getOffers/transformations/createRequest_GetOffersAppointmentDetails" : {
+            "label" : "Xquery/BlueBirdProject/OM/getOffers/transformations/createRequest_GetOffersAppointmentDetails",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/BlueBirdProject/Resources/PS_REST_OM_GET_OFFER" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OM_GET_OFFER",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

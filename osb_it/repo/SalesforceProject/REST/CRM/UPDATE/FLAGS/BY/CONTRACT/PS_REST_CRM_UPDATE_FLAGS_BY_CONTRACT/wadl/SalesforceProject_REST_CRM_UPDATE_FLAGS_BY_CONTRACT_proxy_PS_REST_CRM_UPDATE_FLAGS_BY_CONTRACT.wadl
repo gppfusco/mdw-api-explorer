@@ -1,0 +1,31 @@
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBSvil_REPLY/SalesforceProject/PS_REST_CRM_UPDATE_AMS_FLAGS_BY_CONTRACT" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="PS_REST_CRM_UPDATE_FLAGS_BY_CONTRACT">RestService</doc>
+   <grammars>
+      <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SalesforceProject/Rest_UpdateFlagsByContract/xsd/XSD_CRM_UPDATE_FLAGS_BY_CONTRACT.xsd"/>
+        </xsd:schema>
+      <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/{contrId}">
+         <method name="PUT" soa:wsdlOperation="UpdateFlagsByContract">
+            <request>
+               <param name="contrId" style="template" soa:expression="$property.contrId" default="" type="xsd:string"/>
+               <representation mediaType="application/xml" element="cns:requestUpdateFlagsByContract" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="204"/>
+            <response status="400" soa:wsdlFaultName="error400">
+               <representation mediaType="application/xml" element="cns:error400" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="error404">
+               <representation mediaType="application/xml" element="cns:error404" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="error500">
+               <representation mediaType="application/xml" element="cns:error500" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

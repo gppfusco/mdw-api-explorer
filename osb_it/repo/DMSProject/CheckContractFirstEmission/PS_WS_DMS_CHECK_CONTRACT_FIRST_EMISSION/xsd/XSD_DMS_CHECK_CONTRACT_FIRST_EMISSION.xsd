@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestCheckContractFirstEmissionType">
+		<xsd:sequence>
+			<xsd:element name="inputSequence" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCheckContractFirstEmission" type="requestCheckContractFirstEmissionType"/>
+	<xsd:complexType name="responseCheckContractFirstEmissionType"> 
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDMS" type="xsd:string" minOccurs="0"/>
+				
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckContractFirstEmission" type="responseCheckContractFirstEmissionType"/>
+</xsd:schema>

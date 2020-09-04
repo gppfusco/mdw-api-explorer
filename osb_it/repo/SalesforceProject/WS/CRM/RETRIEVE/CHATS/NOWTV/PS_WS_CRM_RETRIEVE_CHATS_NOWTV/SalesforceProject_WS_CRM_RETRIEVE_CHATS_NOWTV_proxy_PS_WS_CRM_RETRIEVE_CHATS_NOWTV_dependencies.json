@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_RETRIEVE_CHATS_NOWTV_proxy_PS_WS_CRM_RETRIEVE_CHATS_NOWTV",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveChats_NowTv/wsdl/WS_CRM_RETRIEVE_CHATS_NOWTV" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveChats_NowTv/wsdl/WS_CRM_RETRIEVE_CHATS_NOWTV",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/WS_CRM_RETRIEVE_CHATS_NOWTV/pipeline/PL_WS_CRM_RETRIEVE_CHATS_NOWTV" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_RETRIEVE_CHATS_NOWTV/pipeline/PL_WS_CRM_RETRIEVE_CHATS_NOWTV",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/SalesforceProject/WS_CRM_RETRIEVE_CHATS_NOWTV/transformation/createRequest_EJB_SF_RetrieveChatsNowTv" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_RETRIEVE_CHATS_NOWTV/transformation/createRequest_EJB_SF_RetrieveChatsNowTv",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF_GDPR" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF_GDPR",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveChats/wsdl/WS_CRM_RETRIEVE_CHATS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/RetrieveChats/wsdl/WS_CRM_RETRIEVE_CHATS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_RETRIEVE_CHATS_NOWTV/transformation/createResponse_EJB_SF_RetrieveChatsNowTv" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_RETRIEVE_CHATS_NOWTV/transformation/createResponse_EJB_SF_RetrieveChatsNowTv",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

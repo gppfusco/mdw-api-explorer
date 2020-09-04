@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestChurnRequest" type="requestChurnRequestType"/>
+  <xsd:element name="responseChurnRequest" type="responseChurnRequestType"/>
+  <xsd:complexType name="requestChurnRequestType">
+    <xsd:sequence>
+      <xsd:element name="FruCodiceCliente" type="xsd:string"/>
+      <xsd:element name="CodiceContratto" type="xsd:string"/>
+      <xsd:element name="MotivoDisdetta" type="xsd:string"/>
+      <xsd:element name="TipologiaDisdetta" type="tipologiaDisdettaType"/>
+      <xsd:element name="DataRegistrazione" type="xsd:string"/>
+      <xsd:element name="Canale" type="canaleType"/>
+      <xsd:element name="Comunicazione" type="comunicazioneType"/>
+      <xsd:element name="mdwTrackingField" type="mdwTrackingFieldType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseChurnRequestType">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="comunicazioneType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneElaborazione" type="descrizioneElaborazioneType"/>
+      <xsd:element name="Attivita" type="attivitaType"/>
+      <xsd:element name="FruNome" type="xsd:string"/>
+      <xsd:element name="FruCognome" type="xsd:string"/>
+      <xsd:element name="FruEmail" type="xsd:string"/>
+      <xsd:element name="FruCellulare" type="xsd:string"/>
+      <xsd:element name="FruTelefono" type="xsd:string"/>
+      <xsd:element name="FruAltroNumeroTel" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwTrackingFieldType">
+    <xsd:sequence>
+      <xsd:element name="mdwConnId" type="xsd:string"/>
+      <xsd:element name="mdwOrigin" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="tipologiaDisdettaType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="BERSANI"/>
+      <xsd:enumeration value="A_SCADENZA"/>
+      <xsd:enumeration value="AUMENTO_TARIFFA"/>
+      <xsd:enumeration value="RECESSO_14_GG"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="canaleType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="IVR-SELFCARE"/>
+      <xsd:enumeration value="WEB"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="descrizioneElaborazioneType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="COMUNICAZIONI DDL CONCORRENZA"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="attivitaType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="PRESA IN CARICO"/>
+    </xsd:restriction>
+  </xsd:simpleType> 
+</xsd:schema>

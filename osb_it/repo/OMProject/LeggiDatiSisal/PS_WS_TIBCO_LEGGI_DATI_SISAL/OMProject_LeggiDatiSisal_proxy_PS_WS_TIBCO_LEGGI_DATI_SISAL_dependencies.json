@@ -1,0 +1,66 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_LeggiDatiSisal_proxy_PS_WS_TIBCO_LEGGI_DATI_SISAL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/OMProject/LeggiDatiSisal/pipeline/PL_TIBCO_LEGGI_DATI_SISAL" : {
+        "label" : "Pipeline/OMProject/LeggiDatiSisal/pipeline/PL_TIBCO_LEGGI_DATI_SISAL",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/OMProject/LeggiDatiSisal/pipeline/PL_INTERNAL_TIBCO_LEGGI_DATI_SISAL" : {
+            "label" : "Pipeline/OMProject/LeggiDatiSisal/pipeline/PL_INTERNAL_TIBCO_LEGGI_DATI_SISAL",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/OMProject/LeggiDatiSisal/businessServices/BS_SQL_PROC_TIBCO_LEGGI_DATI_SISAL" : {
+                "label" : "BusinessService/OMProject/LeggiDatiSisal/businessServices/BS_SQL_PROC_TIBCO_LEGGI_DATI_SISAL",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OMProject/LeggiDatiSisal/transformations/createRequestLeggiDatiSisal" : {
+                "label" : "Xquery/OMProject/LeggiDatiSisal/transformations/createRequestLeggiDatiSisal",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OMProject/LeggiDatiSisal/transformations/createResponseLeggiDatiSisal" : {
+                "label" : "Xquery/OMProject/LeggiDatiSisal/transformations/createResponseLeggiDatiSisal",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/OMProject/LeggiDatiSisal/wsdl/WS_TIBCO_LEGGI_DATI_SISAL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/LeggiDatiSisal/wsdl/WS_TIBCO_LEGGI_DATI_SISAL",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/LeggiDatiSisal/wsdl/WS_TIBCO_LEGGI_DATI_SISAL" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/LeggiDatiSisal/wsdl/WS_TIBCO_LEGGI_DATI_SISAL",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/LeggiDatiSisal/wsdl/WS_TIBCO_LEGGI_DATI_SISAL" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/LeggiDatiSisal/wsdl/WS_TIBCO_LEGGI_DATI_SISAL",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

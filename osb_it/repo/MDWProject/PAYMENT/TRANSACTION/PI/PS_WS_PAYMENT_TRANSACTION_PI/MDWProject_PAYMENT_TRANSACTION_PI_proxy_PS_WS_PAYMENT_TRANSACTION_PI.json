@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/WS_PAYMENT_TRANSACTION_PI",
+    "name" : "MDWProject_PAYMENT_TRANSACTION_PI_proxy_PS_WS_PAYMENT_TRANSACTION_PI",
+    "localPath" : "osb_it\\repo\\MDWProject\\PAYMENT\\TRANSACTION\\PI\\PS_WS_PAYMENT_TRANSACTION_PI",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/WS_PAYMENT_TRANSACTION_PI?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MDWProject/PaymentTransactionPI/xsd/XSD_PAYMENT_TRANSACTION_PI",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified"> 
+  <xsd:complexType name="AttributeType">
+    <xsd:sequence> 
+      <xsd:element name="name" type="xsd:string"/> 
+      <xsd:element name="value" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType> 
+  <xsd:complexType name="AttributesType">
+    <xsd:sequence>
+      <xsd:element name="Attribute" type="AttributeType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProductType">
+    <xsd:sequence>
+      <xsd:element name="Type" type="xsd:string"/>
+      <xsd:element name="ReitekCode" type="xsd:string"/>
+      <xsd:element name="ProductCode" type="xsd:string"/>
+      <xsd:element name="Attributes" type="AttributesType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="resultsType">
+    <xsd:sequence>
+      <xsd:element name="products" type="ProductsType" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ProductsType">
+    <xsd:sequence>
+      <xsd:element name="product" type="ProductType" minOccurs="1" maxOccurs="unbounded"/> 
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="response_AttProdCatType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescrizione" type="xsd:string"/>
+      <xsd:element name="result" type="resultsType" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseAttProdCat" type="response_AttProdCatType"/>
+</xsd:schema>

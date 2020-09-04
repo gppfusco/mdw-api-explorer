@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestUpdateAttribute" type="requestUpdateAttributeType"/>
+  <xsd:complexType name="requestUpdateAttributeType">
+    <xsd:sequence>
+      <xsd:element name="mdwAttributeUniqueName" type="xsd:string"/>
+      <xsd:element name="mdwAttributeValue" type="xsd:string"/>
+      <xsd:element name="mdwAttributeValueId" type="xsd:string"/>
+      <xsd:element name="jsonSection" type="xsd:string"/>
+      <xsd:element name="mdwLineItemId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseUpdateAttribute" type="responseUpdateAttributeType"/>
+  <xsd:complexType name="responseUpdateAttributeType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultCode" type="xsd:string"/>
+      <xsd:element name="mdwResultDescription" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

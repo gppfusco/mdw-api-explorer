@@ -1,0 +1,112 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_DMS_identityDocument_proxy_PS_WS_DMS_IDENTITY_DOCUMENT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DMS/identityDocument/wsdl/WS_DMS_IDENTITY_DOCUMENT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DMS/identityDocument/wsdl/WS_DMS_IDENTITY_DOCUMENT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/DMS/identityDocument/pipeline/PL_DMS_IDENTITY_DOCUMENT" : {
+        "label" : "Pipeline/BlueBirdProject/DMS/identityDocument/pipeline/PL_DMS_IDENTITY_DOCUMENT",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/BlueBirdProject/DMS/identityDocument/pipeline/PL_DMS_IDENTITY_DOCUMENT_ITERATE_uploadIDFiles" : {
+            "label" : "Pipeline/BlueBirdProject/DMS/identityDocument/pipeline/PL_DMS_IDENTITY_DOCUMENT_ITERATE_uploadIDFiles",
+            "properties" : { },
+            "successors" : {
+              "ProxyService/MDW_CO/WriteFile/proxy/PS_LOCAL_MDW_WRITE_FILE" : {
+                "label" : "ProxyService/MDW_CO/WriteFile/proxy/PS_LOCAL_MDW_WRITE_FILE",
+                "properties" : {
+                  "transport-type" : "local",
+                  "nodeType" : "Proxy",
+                  "service-type" : "SOAP"
+                },
+                "successors" : {
+                  "Pipeline/MDW_CO/WriteFile/pipeline/PL_WS_MDW_WRITE_FILE" : {
+                    "label" : "Pipeline/MDW_CO/WriteFile/pipeline/PL_WS_MDW_WRITE_FILE",
+                    "properties" : { },
+                    "successors" : {
+                      "Xquery/MDW_CO/WriteFile/transformations/createResponse_WriteFile" : {
+                        "label" : "Xquery/MDW_CO/WriteFile/transformations/createResponse_WriteFile",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseObjects/WriteFile/wsdl/WS_MDW_WRITE_FILE" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseObjects/WriteFile/wsdl/WS_MDW_WRITE_FILE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/MDW_CO/WriteFile/businessServices/BS_FA_WRITE_FILE" : {
+                        "label" : "BusinessService/MDW_CO/WriteFile/businessServices/BS_FA_WRITE_FILE",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                        "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CO/WriteFile/transformations/createRequest_WriteFile" : {
+                        "label" : "Xquery/MDW_CO/WriteFile/transformations/createRequest_WriteFile",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseObjects/WriteFile/wsdl/WS_MDW_WRITE_FILE" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseObjects/WriteFile/wsdl/WS_MDW_WRITE_FILE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_DMS_IDENTITY_DOCUMENT" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_DMS_IDENTITY_DOCUMENT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DMS/identityDocument/transformation/createRespone_WS_UploadIDFiles" : {
+                "label" : "Xquery/BlueBirdProject/DMS/identityDocument/transformation/createRespone_WS_UploadIDFiles",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DMS/identityDocument/transformation/createRequest_WriteFileGeneric" : {
+                "label" : "Xquery/BlueBirdProject/DMS/identityDocument/transformation/createRequest_WriteFileGeneric",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_DMS_IDENTITY_DOCUMENT" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_DMS_IDENTITY_DOCUMENT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

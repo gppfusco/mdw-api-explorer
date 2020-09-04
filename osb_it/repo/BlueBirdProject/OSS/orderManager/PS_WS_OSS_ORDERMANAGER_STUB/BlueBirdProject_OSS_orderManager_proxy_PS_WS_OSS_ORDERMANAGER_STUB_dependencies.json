@@ -1,0 +1,42 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OSS_orderManager_proxy_PS_WS_OSS_ORDERMANAGER_STUB",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/orderManager/wsdl/WS_OSS_ORDERMANAGER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/orderManager/wsdl/WS_OSS_ORDERMANAGER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/OSS/orderManager/pipeline/PL_WS_OSS_ORDERMANAGER_STUB" : {
+        "label" : "Pipeline/BlueBirdProject/OSS/orderManager/pipeline/PL_WS_OSS_ORDERMANAGER_STUB",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/orderManager/wsdl/WS_OSS_ORDERMANAGER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/orderManager/wsdl/WS_OSS_ORDERMANAGER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OSS/orderManager/pipeline/PL_empty" : {
+            "label" : "Pipeline/BlueBirdProject/OSS/orderManager/pipeline/PL_empty",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

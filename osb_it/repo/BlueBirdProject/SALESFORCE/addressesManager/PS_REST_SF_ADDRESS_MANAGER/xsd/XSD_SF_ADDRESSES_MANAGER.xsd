@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestUpdateBillingAddress" type="requestUpdateBillingAddressType"/>
+  <xsd:element name="responseUpdateBillingAddress" type="responseUpdateBillingAddressType"/>
+   <xsd:complexType name="requestUpdateBillingAddressType">
+		<xsd:sequence>
+			<xsd:element name="channel" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="flagCoBrowsing" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="interactionId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="connIdCTI" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="provenienza" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="contractCodeE2E" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="contractCodeBB" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="contractCodeTV" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="customerCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="billingAddress" type="billingAddressType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="billingAddressType">
+		<xsd:sequence>
+			<xsd:element name="toponymy" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="street" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="streetNumber" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="complex" type="xsd:string"  minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="stair" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="internal" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="zipCode" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="floor" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="city" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="province" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="egonIdCIV" type="xsd:string" minOccurs="0"/>             
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="responseUpdateBillingAddressType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="updateAddress" type ="updateAddressType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+         <xsd:complexType name="updateAddressType">
+		<xsd:sequence>
+			<xsd:element name="flagCoBrowsing" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="contractCodeE2E" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="contractCodeBB" type ="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="contractCodeTV" type ="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        
+        
+          <xsd:element name="requestUpdateInstallationAddress" type="requestUpdateInstallationAddressType"/>
+          <xsd:element name="responseUpdateInstallationAddress" type="responseUpdateInstallationAddressType"/>
+   <xsd:complexType name="requestUpdateInstallationAddressType">
+		<xsd:sequence>
+			<xsd:element name="channel" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="flagCoBrowsing" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="interactionId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="connIdCTI" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="provenienza" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="contractCodeE2E" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="contractCodeBB" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="contractCodeTV" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="customerCode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                        <xsd:element name="installationAddress" type="installationAddressType" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="installationAddressType">
+		<xsd:sequence>
+			<xsd:element name="toponymy" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="street" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="streetNumber" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="complex" type="xsd:string"  minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="stair" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="internal" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="zipCode" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="floor" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="city" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="province" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="egonIdCIV" type="xsd:string" maxOccurs="1"/>
+                        <xsd:element name="egonIdStreet" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="responseUpdateInstallationAddressType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string"/>
+                        <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="updateAddress" type ="updateInstallationAddressType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="updateInstallationAddressType">
+		<xsd:sequence>
+			<xsd:element name="flagCoBrowsing" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="contractCodeE2E" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="contractCodeBB" type ="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="contractCodeTV" type ="xsd:string" minOccurs="0" maxOccurs="1"/>
+                        <xsd:element name="serviceRequests" type ="serviceRequestsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="serviceRequestsType">
+		<xsd:sequence>
+			<xsd:element name="serviceRequest" type ="serviceRequestType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+         <xsd:complexType name="serviceRequestType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="caseNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

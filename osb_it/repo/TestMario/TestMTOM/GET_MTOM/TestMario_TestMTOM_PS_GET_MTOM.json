@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/TestMario/TestMTOM/PS_GET_MTOM",
+    "name" : "TestMario_TestMTOM_PS_GET_MTOM",
+    "localPath" : "osb_it\\repo\\TestMario\\TestMTOM\\GET_MTOM",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/TestMario/TestMTOM/PS_GET_MTOM?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/TestMario/TestMTOM/XSD_TEST_MTOM",
+        "xsdNameSpace" : "http://www.example.org"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

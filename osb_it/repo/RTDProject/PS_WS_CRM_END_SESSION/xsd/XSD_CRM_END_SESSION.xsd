@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestEndSessionType">
+		<xsd:sequence>
+			<xsd:element name="contractId" type="xsd:string" form="unqualified"/>
+			<xsd:element name="customerCode" type="xsd:string" form="unqualified"/>
+			<xsd:element name="sessionId" type="xsd:string" form="unqualified"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseEndSessionType">
+		<xsd:sequence>
+			<xsd:element name="sessionId" type="xsd:string" form="unqualified"/>
+			<xsd:element name="statusCode" type="xsd:int" form="unqualified"/>
+			<xsd:element name="advisoryMessages" form="unqualified" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="advisoryMessage" type="advisoryMessageType" form="unqualified" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="advisoryMessageType">
+		<xsd:sequence>
+			<xsd:element name="messageCode" type="xsd:int" form="unqualified" minOccurs="0"/>
+			<xsd:element name="statusLevel" type="xsd:int" form="unqualified" minOccurs="0"/>
+			<xsd:element name="detailMessage" type="xsd:string" form="unqualified" minOccurs="0"/>
+			<xsd:element name="message" type="xsd:string" form="unqualified" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestEndSession" type="requestEndSessionType"/>
+	<xsd:element name="responseEndSession" type="responseEndSessionType"/>
+</xsd:schema>

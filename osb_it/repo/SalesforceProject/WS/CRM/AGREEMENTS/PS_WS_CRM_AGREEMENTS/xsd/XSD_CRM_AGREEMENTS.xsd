@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <!-- ELEMENTS -->
+  <xsd:element name="requestUpdateAdSmartAgreement" type="requestUpdateAdSmartAgreementType" />
+  <xsd:element name="responseUpdateAdSmartAgreement" type="responseUpdateAdSmartAgreementType" />
+  <xsd:element name="requestUpdateAdSmartAgreementBySMC" type="requestUpdateAdSmartAgreementBySMCType" />
+  <xsd:element name="responseUpdateAdSmartAgreementBySMC" type="responseUpdateAdSmartAgreementBySMCType" />
+  
+  <!-- TYPES -->
+  
+  <xsd:complexType name="requestUpdateAdSmartAgreementBySMCType">
+    <xsd:sequence>
+      <xsd:element name="messageID" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="transactionID" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="ItemSMCAssetNumber" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="FlagAgreementAdSmart" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseUpdateAdSmartAgreementBySMCType">
+    <xsd:complexContent>
+      <xsd:extension base="UpdateAdSmartAgreementResponse">
+        <xsd:sequence>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestUpdateAdSmartAgreementType">
+    <xsd:sequence>
+      <xsd:element name="messageID" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="transactionID" type="xsd:string" minOccurs="0" maxOccurs="1" />
+      <xsd:element name="CustId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="FlagAgreementAdSmart" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="responseUpdateAdSmartAgreementType">
+    <xsd:complexContent>
+      <xsd:extension base="UpdateAdSmartAgreementResponse">
+        <xsd:sequence>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  
+  <xsd:complexType name="UpdateAdSmartAgreementResponse">
+    <xsd:sequence>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+</xsd:schema>

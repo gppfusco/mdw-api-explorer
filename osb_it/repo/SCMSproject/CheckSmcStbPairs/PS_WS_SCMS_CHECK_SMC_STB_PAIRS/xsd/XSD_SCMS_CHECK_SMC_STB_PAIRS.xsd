@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCheckSmcStbPairs" type="requestCheckSmcStbPairsType"/>
+	<xsd:complexType name="requestCheckSmcStbPairsType">
+		<xsd:sequence>
+			<xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="activationPairs">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="activationPair" minOccurs="1" maxOccurs="4">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="smcNumber" type="xsd:string"/>
+									<xsd:element name="decoderId" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ConnId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TransId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCheckSmcStbPairs" type="responseCheckSmcStbPairsType"/>
+	<xsd:complexType name="responseCheckSmcStbPairsType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operator" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="outcomeActivationPairs">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="outcomeActivationPair" minOccurs="1" maxOccurs="4">
+							<xsd:complexType>
+								<xsd:sequence>
+										<xsd:element name="smcNumber" type="xsd:string"/>
+									<xsd:element name="decoderId" type="xsd:string"/>
+									<xsd:element name="crmResult" type="xsd:string"/>
+									<xsd:element name="crmResultDescription" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

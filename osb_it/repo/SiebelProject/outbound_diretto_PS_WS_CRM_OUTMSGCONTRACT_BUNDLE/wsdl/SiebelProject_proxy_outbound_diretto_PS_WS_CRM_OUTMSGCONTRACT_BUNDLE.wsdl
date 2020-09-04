@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Salesforce.com Outbound Notification Web Services API Version 1.0 
+Generated on 2017-11-16 17:25:08 +0000.
+
+Copyright 2005-2017 Salesforce.com, Inc.
+All Rights Reserved
+-->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.sforce.com/2005/09/outbound" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ent="urn:enterprise.soap.sforce.com" xmlns:ens="urn:sobject.enterprise.soap.sforce.com" targetNamespace="http://soap.sforce.com/2005/09/outbound">
+	<types>
+		<schema elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:enterprise.soap.sforce.com">
+			<!-- Our simple ID Type -->
+			<simpleType name="ID">
+				<restriction base="xsd:string">
+					<length value="18"/>
+					<pattern value="[a-zA-Z0-9]{18}"/>
+				</restriction>
+			</simpleType>
+		</schema>
+		<schema elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:sobject.enterprise.soap.sforce.com">
+			<import namespace="urn:enterprise.soap.sforce.com"/>
+			<!-- Base sObject (abstract) -->
+			<complexType name="sObject">
+				<sequence>
+					<element name="fieldsToNull" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="Id" type="ent:ID" nillable="true"/>
+				</sequence>
+			</complexType>
+			<complexType name="AggregateResult">
+				<complexContent>
+					<extension base="ens:sObject">
+						<sequence>
+							<any namespace="##targetNamespace" minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+						</sequence>
+					</extension>
+				</complexContent>
+			</complexType>
+			<complexType name="Contract_Bundle__c">
+				<complexContent>
+					<extension base="ens:sObject">
+						<sequence>
+							<element name="CANALE_ATTIVAZIONE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CANALE_VENDITA_EXT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CAP__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CAUSALE_ANNULLAMENTO_EXT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CAUSALE_ANNULLA_BUNDLE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CAUSALE_CESSAZIONE_BUNDLE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CAUSALE_CESSAZIONE_EXT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CAUSALE_SOSPENSIONE_EXT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CAUSALE_SOSP_BUNDLE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CLUSTER_BUNDLE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CLUSTER_EXT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CLUSTER_RENDICONTAZIONE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CLUSTER_SKY__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CODICE_CONTRATTO_ORIGINE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CODICE_MODULO__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="ContractId__c" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="CreatedById" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="DATA_ANNULLAMENTO_BUNDLE__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_ANNULLAMENTO_EXT__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_ATTIVAZIONE_BUNDLE__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_ATTIVAZIONE_EXT__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_CESSAZIONE_BUNDLE__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_CESSAZIONE_EXT__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_EFFETTIVA_TRASLOCO__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_NOTIFICA_EXT__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_NOTIFICA_PROVISIONING_SKY__c" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="DATA_PREVISTA_TRASLOCO__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_PRIMO_DOWN_SOFTWARE__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_RIATTIVAZIONE_EXT__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_RICH_CESSAZIONE_EXT__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_RICH_MIGRAZIONE__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_SCADENZA_RECUPERO__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_SOSPENSIONE_EXT__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_SOSP_BUNDLE__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DATA_VAR_RENDICONTAZIONE__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="DT_PREVISTA_CESS_PER_SOSP_TI__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="EMAIL_EXT_2__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="EMAIL_EXT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="FLG_FRODE__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+							<element name="FLG_TRAFFICO_ANOMALO__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+							<element name="ID_PDA__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="INDIRIZZO__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
+							<element name="LOCALITA__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="LastActivityDate" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="LastModifiedById" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="MOTIVI_SKY__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="MOTIVO_MIGRAZIONE_A_DTH__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="NUMERO_CIVICO__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Name" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OFFERTA_EXT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Account_Number_FW_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_AddressType__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Auth_Scambio_Dati_Flg_1_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_BB_PKEY__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_BundleAvailabilityCheckEligibility_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Bundle_Offer_Flg_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_CNP_PHONY__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_CODICE_CLIENTE_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_CODICE_COMSY__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_CODICE_DEALER_ORIGINE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_CODICE_TECNOLOGIA__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_CODICE_VENDITORE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Causale_Check_Eligibility_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Cluster_Comm_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Cluster_Comm_SKY__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Code_CDF_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Code_Customer_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Code_Migrazione_Dati_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Code_Migrazione_Voce_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Codice_Autor_DP_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Codice_DONOR_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_CompanyFlgInt__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_ConflictId__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_CorrelationID__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Credit_Check_Result_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_DB_LAST_UPD_SRC__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_DB_LastUpdate__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Desc_Oper_DONOR_Check_Coverage_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Descr_SGU_Check_Coverage_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Donor_OLO_Dati_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Donor_OLO_Voce_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_EX_BUNDLE_FLG__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_FLAG_OLO__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_FW_BB_Modem_Request_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_FW_UBBPlus__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_FlagAgentData_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_FlagAgentVoice_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_FlagPresaleFTTS_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_HISTORY_PROVISIONING_TYPE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_IDSGU_FTTS_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_ID_ASSET_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_ID_BUNDLE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_ID_CHANGE_ORDER__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_ID_ESIGENZA__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_ID_HEADER_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_ID_Instance_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_IDcabinetFTTSBB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_IdBundleBB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Id_Richiesta_Credit_Check_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Linea_fonia_attiva__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Modification_Num__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_NP_Cosmy_Code_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_NP_Flg_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_NP_Intestato_Azienda_Flg_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_NUM_TEL_PORTABILITY__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Number_Portability_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Operator_Data__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Operator_Phony__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Operatore_Telefonico_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Opt_Fiber100__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Opt_FiberUltra__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Opt_NoLimits__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_PRIMARY_RETENTION_ID__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Phone_Book_Consent_Flg_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Pin_Telecom_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Progressivo_Blocco_DP_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_ProvisioningType__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Request_Install_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Request_ModemType_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_ResourceCombopotsFW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Sellability_Check_Coverage_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_SellerCode2__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_SellerCode__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_SemaforoConnettivita__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_SguCode_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Shipping_Type_Recap_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_TWO_STEP_Join_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_TWO_STEP_Join__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_TechCode_FW__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Tecnologia__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Tel_DN_Appoggio_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Tipo_Linea_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Tipo_Op_Dati_FW_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Tipo_Op_Voce_FW_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_Vocal_Ordering_FW_BB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_X_BB_ActivationDate_FTTS__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_X_BB_FLG_DEALER_COND__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_X_BB_Technology_FTTS__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OG_X_FLAG_VPLUS__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OwnerId" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="PARTICELLA_TOPONOMASTICA__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="PIATTAFORMA_ORIGINE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="PROVINCIA__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="RecordTypeId" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="SEMAFORO_CONNETTIVITA__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="STATO_CONTRATTO_BUNDLE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="STATO_CONTRATTO_EXT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="STATO_PROVISIONING_EXT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="STATO_PROVISIONING_SKY__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="STATO_RICH_MIGRAZIONE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Scenario_Allineamento__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Siebel_External_id__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="TELEFONO_IMPIANTO__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="TIPO_FATTURAZIONE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="TIPO_LAVORAZIONE_EXT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="TYPE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Tipologia_Venditore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="VELOCITA_TI_NATIVA__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="VOCAL_ORDER_EXT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="X_MATRICOLA_SMC__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="X_MATRICOLA_STB__c" nillable="true" minOccurs="0" type="xsd:string"/>
+						</sequence>
+					</extension>
+				</complexContent>
+			</complexType>
+		</schema>
+		<schema elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://soap.sforce.com/2005/09/outbound">
+			<import namespace="urn:enterprise.soap.sforce.com"/>
+			<import namespace="urn:sobject.enterprise.soap.sforce.com"/>
+			<element name="notifications">
+				<complexType>
+					<sequence>
+						<element name="OrganizationId" type="ent:ID"/>
+						<element name="ActionId" type="ent:ID"/>
+						<element name="SessionId" type="xsd:string" nillable="true"/>
+						<element name="EnterpriseUrl" type="xsd:string"/>
+						<element name="PartnerUrl" type="xsd:string"/>
+						<element name="Notification" maxOccurs="100" type="tns:Contract_Bundle__cNotification"/>
+					</sequence>
+				</complexType>
+			</element>
+			<complexType name="Contract_Bundle__cNotification">
+				<sequence>
+					<element name="Id" type="ent:ID"/>
+					<element name="sObject" type="ens:Contract_Bundle__c"/>
+				</sequence>
+			</complexType>
+			<element name="notificationsResponse">
+				<complexType>
+					<sequence>
+						<element name="Ack" type="xsd:boolean"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="notificationsRequest">
+		<part name="request" element="tns:notifications"/>
+	</message>
+	<message name="notificationsResponse">
+		<part name="response" element="tns:notificationsResponse"/>
+	</message>
+	<portType name="NotificationPort">
+		<operation name="notifications">
+			<documentation>Process a number of notifications.</documentation>
+			<input message="tns:notificationsRequest"/>
+			<output message="tns:notificationsResponse"/>
+		</operation>
+	</portType>
+	<binding name="NotificationBinding" type="tns:NotificationPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="notifications">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="NotificationService">
+		<documentation>Notification Service Implementation</documentation>
+		<port name="Notification" binding="tns:NotificationBinding">
+			<soap:address location="https://ws.osbcol.sky.it/osbprj/services/siebel/WS_CRM_OUTMSGCONTRACT_BUNDLE"/>
+		</port>
+	</service>
+	<!-- Method Messages -->
+	<!-- PortType -->
+	<!-- Binding 
+         You need to write a service that implements this binding to receive the notifications
+     -->
+	<!-- Service Endpoint -->
+</definitions>

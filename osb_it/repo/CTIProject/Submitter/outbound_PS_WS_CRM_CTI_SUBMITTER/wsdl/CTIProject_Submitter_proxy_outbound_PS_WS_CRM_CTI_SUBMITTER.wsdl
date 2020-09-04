@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Salesforce.com Outbound Notification Web Services API Version 1.0 
+Generated on 2016-01-12 13:26:20 +0000.
+
+Copyright 2005-2016 Salesforce.com, Inc.
+All Rights Reserved
+-->
+<definitions targetNamespace="http://soap.sforce.com/2005/09/outbound"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:tns="http://soap.sforce.com/2005/09/outbound"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:ent="urn:enterprise.soap.sforce.com"
+             xmlns:ens="urn:sobject.enterprise.soap.sforce.com">
+    <types>
+
+        <schema elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:enterprise.soap.sforce.com">
+            <!-- Our simple ID Type -->
+            <simpleType name="ID">
+                <restriction base="xsd:string">
+                    <length value="18"/>
+                    <pattern value='[a-zA-Z0-9]{18}'/>
+                </restriction>
+            </simpleType>
+        </schema>
+
+        <schema elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:sobject.enterprise.soap.sforce.com">
+            <import namespace="urn:enterprise.soap.sforce.com" />
+            <!-- Base sObject (abstract) -->
+            <complexType name="sObject">
+                <sequence>
+                    <element name="fieldsToNull"       type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                    <element name="Id"                 type="ent:ID" nillable="true" />
+                </sequence>
+            </complexType>
+
+            <complexType name="AggregateResult">
+                <complexContent>
+                    <extension base="ens:sObject">
+                        <sequence>
+                            <any namespace="##targetNamespace" minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+
+            <complexType name="JobRequest__c">
+                <complexContent>
+                    <extension base="ens:sObject">
+                        <sequence>
+                        <element name="Ambiente__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BL_COD_ACCOUNT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BL_ESITO__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BL_GRUPPO__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BL_ID_DETTAGLIO__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BL_ID_EXTRADMS__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BL_SERVICE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BL_SRNUM__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BL_STATO__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BL_TYPE__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BO_FiloneRT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BO_GenesysId__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="BO_SitoRT__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Calltypeext__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Canale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Case_NewCRM_Id__c" nillable="true" minOccurs="0" type="ent:ID"/>
+                        <element name="Cell_cliente_sito__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Cod_cliente__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Coduser__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Comm_Action__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Data__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Data_ora_mail__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="IDDocumento__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="InteractionQueue__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="ListOfValues__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Mail_cliente_sito__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Media_Type__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Provenienza__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Services__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="Tel_cliente_sito__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        <element name="TipoCliente__c" nillable="true" minOccurs="0" type="xsd:string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+
+
+        </schema>
+
+        <schema elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://soap.sforce.com/2005/09/outbound">
+            <import namespace="urn:enterprise.soap.sforce.com" />
+            <import namespace="urn:sobject.enterprise.soap.sforce.com" />
+    
+            <element name="notifications">
+                <complexType> 
+                    <sequence> 
+                    	<element name="OrganizationId" type="ent:ID" />
+                    	<element name="ActionId" type="ent:ID" />
+                    	<element name="SessionId" type="xsd:string" nillable="true" />
+                    	<element name="EnterpriseUrl" type="xsd:string" />
+                    	<element name="PartnerUrl" type="xsd:string" />
+                        <element name="Notification" maxOccurs="100" type="tns:JobRequest__cNotification" />
+                    </sequence> 
+                </complexType> 
+            </element>
+    
+            <complexType name="JobRequest__cNotification">
+                <sequence>
+                    <element name="Id" type="ent:ID" />
+                    <element name="sObject" type="ens:JobRequest__c" />
+                </sequence>
+            </complexType>
+                
+            <element name="notificationsResponse">
+                <complexType>
+                    <sequence>
+                        <element name="Ack" type="xsd:boolean" />
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+    
+    
+    <!-- Method Messages -->   
+    <message name="notificationsRequest">
+        <part element="tns:notifications" name="request"/>
+    </message>
+    <message name="notificationsResponse">
+        <part element="tns:notificationsResponse" name="response"/>
+    </message>
+
+    <!-- PortType -->
+    <portType name="NotificationPort">
+        <operation name="notifications">
+            <documentation>Process a number of notifications.</documentation>
+            <input  message="tns:notificationsRequest"/>
+            <output message="tns:notificationsResponse"/>
+        </operation>
+    </portType>
+    
+    <!-- Binding 
+         You need to write a service that implements this binding to receive the notifications
+     -->
+    <binding name="NotificationBinding" type="tns:NotificationPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        
+        <operation name="notifications">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output> 
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <!-- Service Endpoint -->
+    <service name="NotificationService">
+        <documentation>Notification Service Implementation</documentation>
+        <port binding="tns:NotificationBinding" name="Notification">
+            <soap:address location="https://ws.osbcol.sky.it/osbprj/services/cti/WS_CRM_CTI_SUBMITTER"/>
+        </port>
+    </service>
+    
+</definitions>

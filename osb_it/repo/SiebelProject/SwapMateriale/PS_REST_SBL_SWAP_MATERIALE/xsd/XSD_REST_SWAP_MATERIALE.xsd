@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestSwapMateriale" type="requestSwapMaterialeType"/>
+	<xsd:element name="responseSwapMateriale" type="responseSwapMaterialeType"/>
+	<xsd:complexType name="requestSwapMaterialeType">
+		<xsd:sequence>
+			<xsd:element name="contrCodeTV" type="xsd:string"/>
+			<xsd:element name="codeSMC" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseSwapMaterialeType">
+		<xsd:sequence>			
+                        <xsd:element name="resultCode" type="xsd:string"/>
+                        <xsd:element name="resultDescription" type="xsd:string"/>
+                        <xsd:element name="idSblPackage" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

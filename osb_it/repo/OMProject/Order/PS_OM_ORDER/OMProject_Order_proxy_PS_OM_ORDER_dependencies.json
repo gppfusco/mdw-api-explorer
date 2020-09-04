@@ -1,0 +1,67 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_Order_proxy_PS_OM_ORDER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/OMProject/Order/pipeline/PL_WS_OM_ORDER" : {
+        "label" : "Pipeline/OMProject/Order/pipeline/PL_WS_OM_ORDER",
+        "properties" : { },
+        "successors" : {
+          "Xquery/OMProject/Order/transformations/createRequestUpdateContractStatus" : {
+            "label" : "Xquery/OMProject/Order/transformations/createRequestUpdateContractStatus",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/Order/transformations/createResponseUpdateContractStatus" : {
+            "label" : "Xquery/OMProject/Order/transformations/createResponseUpdateContractStatus",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/Order/transformations/createRequestUpdateDeliveryStatus" : {
+            "label" : "Xquery/OMProject/Order/transformations/createRequestUpdateDeliveryStatus",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/Order/transformations/createResponseUpdateDeliveryStatus" : {
+            "label" : "Xquery/OMProject/Order/transformations/createResponseUpdateDeliveryStatus",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/Order/businessServices/BS_WS_OM_ORDER_OP_UPD_CONTR_STATUS" : {
+            "label" : "BusinessService/OMProject/Order/businessServices/BS_WS_OM_ORDER_OP_UPD_CONTR_STATUS",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/Order/wsdl/WS_OM_ORDER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/Order/wsdl/WS_OM_ORDER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/Order/businessServices/BS_WS_OM_ORDER_UPD_DELIVERY_STATUS" : {
+            "label" : "BusinessService/OMProject/Order/businessServices/BS_WS_OM_ORDER_UPD_DELIVERY_STATUS",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/Order/wsdl/WS_OM_ORDER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/Order/wsdl/WS_OM_ORDER",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "VODAFONEProject_NotifyFile_proxy_PS_SKY_VODAFONE_NOTIFY_FILE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/VodafoneProject/NotifyFile/wsdl/WS_SKY_VODAFONE_NOTIFY_FILE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/VodafoneProject/NotifyFile/wsdl/WS_SKY_VODAFONE_NOTIFY_FILE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/VODAFONEProject/NotifyFile/pipeline/PL_SKY_VODAFONE_NOTIFY_FILE" : {
+        "label" : "Pipeline/VODAFONEProject/NotifyFile/pipeline/PL_SKY_VODAFONE_NOTIFY_FILE",
+        "properties" : { },
+        "successors" : {
+          "Xquery/VODAFONEProject/NotifyFile/transformations/createRequestNotifyFile" : {
+            "label" : "Xquery/VODAFONEProject/NotifyFile/transformations/createRequestNotifyFile",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/VODAFONEProject/NotifyFile/transformations/createResponseNotifyFile" : {
+            "label" : "Xquery/VODAFONEProject/NotifyFile/transformations/createResponseNotifyFile",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/VodafoneProject/NotifyFile/wsdl/WS_SKY_VODAFONE_NOTIFY_FILE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/VodafoneProject/NotifyFile/wsdl/WS_SKY_VODAFONE_NOTIFY_FILE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/VODAFONEProject/NotifyFile/businessService/BS_WS_VODAFONE_NOTIFY_FILE" : {
+            "label" : "BusinessService/VODAFONEProject/NotifyFile/businessService/BS_WS_VODAFONE_NOTIFY_FILE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

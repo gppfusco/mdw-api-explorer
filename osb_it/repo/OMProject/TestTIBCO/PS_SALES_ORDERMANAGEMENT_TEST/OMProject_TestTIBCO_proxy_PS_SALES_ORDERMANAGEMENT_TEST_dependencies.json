@@ -1,0 +1,59 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_TestTIBCO_proxy_PS_SALES_ORDERMANAGEMENT_TEST",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/SalesOrdermanagement/wsdl/WS_SALES_ORDERMANAGEMENT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/SalesOrdermanagement/wsdl/WS_SALES_ORDERMANAGEMENT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/OMProject/TestTIBCO/pipeline/PL_WS_SALES_ORDERMANAGEMENT_TEST" : {
+        "label" : "Pipeline/OMProject/TestTIBCO/pipeline/PL_WS_SALES_ORDERMANAGEMENT_TEST",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_LOG_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/SalesOrdermanagement/wsdl/WS_SALES_ORDERMANAGEMENT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/SalesOrdermanagement/wsdl/WS_SALES_ORDERMANAGEMENT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CO/transformation/create_soap_header" : {
+            "label" : "Xquery/MDW_CO/transformation/create_soap_header",
+            "properties" : { },
+            "successors" : { }
+          },
+          "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+            "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+            "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/TestTIBCO/businessServices/BS_ENQUEUE_TIBCO_TEST" : {
+            "label" : "BusinessService/OMProject/TestTIBCO/businessServices/BS_ENQUEUE_TIBCO_TEST",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

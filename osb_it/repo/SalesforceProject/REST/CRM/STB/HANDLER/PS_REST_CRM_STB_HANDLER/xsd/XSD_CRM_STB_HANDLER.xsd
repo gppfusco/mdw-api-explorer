@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+ 
+ <xsd:element name="requestGetCustomerInfoFromSMC" type="requestGetCustomerInfoFromSMCType" />
+ <xsd:complexType name="requestGetCustomerInfoFromSMCType">
+  <xsd:sequence>
+    <xsd:element name="smcNumber" type="xsd:string" minOccurs="1" maxOccurs="1" />
+  </xsd:sequence>
+ </xsd:complexType>
+
+
+  <xsd:element name="responseGetCustomerInfoFromSMC" type="responseGetCustomerInfoFromSMCType" />
+ <xsd:complexType name="responseGetCustomerInfoFromSMCType">
+  <xsd:sequence>
+    <xsd:element name="resultCode" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    <xsd:element name="resultDescription" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    <xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    <xsd:element name="customerInfo" type="customerInfoType" minOccurs="0" maxOccurs="1" />
+  </xsd:sequence>
+ </xsd:complexType>
+
+ 
+ <xsd:complexType name="customerInfoType">
+  <xsd:sequence>
+    <xsd:element name="accountId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    <xsd:element name="contractId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    <xsd:element name="orderNumber" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    <xsd:element name="E2ECode" type="xsd:string" minOccurs="1" maxOccurs="1" />
+    <xsd:element name="customerCode" type="xsd:string" minOccurs="1" maxOccurs="1" />
+  </xsd:sequence>
+  
+ </xsd:complexType>
+ 
+</xsd:schema>

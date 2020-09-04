@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGetVocalOrders">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="custId" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="responseGetVocalOrders" type="responseGetVocalOrdersType"/>
+  <xsd:complexType name="responseGetVocalOrdersType">
+    <xsd:sequence>
+      <xsd:element name="mdwVocalOrders">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwVocalOrder" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="contrId" type="xsd:string"/>
+                  <xsd:element name="contrIdE2E" type="xsd:string"/>
+                  <xsd:element name="mdwContractComponent" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mdwPayerFlag" type="flagType"/>
+                  <xsd:element name="mdwStatus" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mdwChurnDate" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mdwStipulationDate" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mdwStartDate" type="xsd:string" minOccurs="0"/>
+                  <xsd:element name="mdwVocalOrderFlag" type="flagType"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="flagType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

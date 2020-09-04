@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_SF_LEGGI_DATI_CONTRATTO",
+    "name" : "SalesforceProject_WS_SF_LEGGI_DATI_CONTRATTO_proxy_PS_WS_SF_LEGGI_DATI_CONTRATTO",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\SF\\LEGGI\\DATI\\CONTRATTO\\PS_WS_SF_LEGGI_DATI_CONTRATTO",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_SF_LEGGI_DATI_CONTRATTO?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/LeggiDatiContratto/xsd/XSD_LEGGI_DATI_CONTRATTO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

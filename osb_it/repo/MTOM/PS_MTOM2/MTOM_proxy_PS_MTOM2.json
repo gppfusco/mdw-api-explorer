@@ -1,0 +1,20 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/MTOM/proxy/PS_MTOM2",
+    "name" : "MTOM_proxy_PS_MTOM2",
+    "localPath" : "osb_it\\repo\\MTOM\\PS_MTOM2",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/MTOM/proxy/PS_MTOM2?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MTOM/xsd/MTOMRequestResponse",
+        "xsdNameSpace" : "http://www.darwin-it.nl/MTOM"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

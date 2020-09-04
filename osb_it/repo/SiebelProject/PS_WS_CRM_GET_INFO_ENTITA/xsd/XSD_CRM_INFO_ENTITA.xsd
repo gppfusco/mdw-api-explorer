@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetInfoEntitaChild" type="requestGetInfoEntitaChildType"/>
+	<xsd:complexType name="requestGetInfoEntitaChildType">
+		<xsd:sequence>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="EntitaParent" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="ChiaveEntitaParent" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="SearchParent" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="EntitaChild" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="SearchChild" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfFieldsType">
+		<xsd:sequence>
+			<xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FieldType">
+		<xsd:sequence>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetInfoEntitaChild" type="responseGetInfoEntitaChildType"/>
+	<xsd:complexType name="responseGetInfoEntitaChildType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Parent" type="ParentType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ParentType">
+		<xsd:sequence>
+			<xsd:element name="ListOfChild" type="ListOfChildType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfChildType">
+		<xsd:sequence>
+			<xsd:element name="Child" type="ChildType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ChildType">
+		<xsd:sequence>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestGetInfoEntita" type="requestGetInfoEntitaType"/>
+	<xsd:complexType name="requestGetInfoEntitaType">
+		<xsd:sequence>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="Entita" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="ChiaveEntita" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Search" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetInfoEntita" type="responseGetInfoEntitaType"/>
+	<xsd:complexType name="responseGetInfoEntitaType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

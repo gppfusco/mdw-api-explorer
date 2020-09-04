@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/rest/faults"
+    targetNamespace="http://www.skytv.it/mdw/rest/faults" elementFormDefault="qualified">
+    
+    
+    <xsd:element name="fault500" type="responseErrorType" />
+    <xsd:element name="fault404" type="responseErrorType" />
+    <xsd:element name="fault400" type="responseErrorType" />
+    <xsd:element name="fault508" type="responseErrorType" />
+    
+    <xsd:complexType name="responseErrorType">
+        <xsd:sequence>
+            <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+            <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1" />
+            <xsd:element name="transactionId" type="xsd:string" minOccurs="1" maxOccurs="1" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+</xsd:schema>

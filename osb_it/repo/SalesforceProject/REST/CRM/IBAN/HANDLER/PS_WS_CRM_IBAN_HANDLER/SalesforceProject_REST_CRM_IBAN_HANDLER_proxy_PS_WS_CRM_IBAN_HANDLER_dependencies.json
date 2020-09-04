@@ -1,0 +1,92 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_IBAN_HANDLER_proxy_PS_WS_CRM_IBAN_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/IbanHandler/wsdl/WS_CRM_IBAN_HANDLER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/IbanHandler/wsdl/WS_CRM_IBAN_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/REST_CRM_IBAN_HANDLER/pipeline/PL_REST_CRM_IBAN_HANDLER" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_IBAN_HANDLER/pipeline/PL_REST_CRM_IBAN_HANDLER",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_IBAN_HANDLER/trasformation/createRequest_CalculateIBAN" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_IBAN_HANDLER/trasformation/createRequest_CalculateIBAN",
+            "properties" : { },
+            "successors" : { }
+          },
+          "XMLSchema/MDW_CDM/ApplicationObjects/SALESFORCE/IbanHandler/xsd/XSD_IbanHandlerSF" : {
+            "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SALESFORCE/IbanHandler/xsd/XSD_IbanHandlerSF",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_IBAN_HANDLER/trasformation/createResponse_CheckIBAN" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_IBAN_HANDLER/trasformation/createResponse_CheckIBAN",
+            "properties" : { },
+            "successors" : { }
+          },
+          "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL" : {
+            "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_SF_EJB_REST_INTERNAL",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+                "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              }
+            }
+          },
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_IBAN_HANDLER" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_IBAN_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_IBAN_HANDLER/trasformation/createResponseCalculateIBAN" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_IBAN_HANDLER/trasformation/createResponseCalculateIBAN",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_IBAN_HANDLER/trasformation/createRequest_CheckIBAN" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_IBAN_HANDLER/trasformation/createRequest_CheckIBAN",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

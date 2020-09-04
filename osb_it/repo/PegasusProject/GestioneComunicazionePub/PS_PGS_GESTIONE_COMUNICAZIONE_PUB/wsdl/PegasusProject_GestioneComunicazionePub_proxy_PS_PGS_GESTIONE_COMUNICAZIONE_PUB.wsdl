@@ -1,0 +1,38 @@
+<wsdl:definitions name="WL_PGD_GESTIONE_COMUNICAZIONE_PUB" targetNamespace="http://xmlns.oracle.com/SkyAppOSB/MDW_CDM/WL_PGD_GESTIONE_COMUNICAZIONE_PUB" xmlns:tns="http://xmlns.oracle.com/SkyAppOSB/MDW_CDM/WL_PGD_GESTIONE_COMUNICAZIONE_PUB" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:inp2="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_PGS_GESTIONE_COMUNICAZIONE_PUB.xsd"/>
+        </xsd:schema>
+        <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="part_in" element="inp1:requestSendCommunication"/>
+        <wsdl:part name="part_Header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="part_out" element="inp1:responseSendCommunication"/>
+        <wsdl:part name="part_Header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:portType name="execute_ptt">
+        <wsdl:operation name="execute_SendCommunication">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="execute_bind" type="tns:execute_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_SendCommunication">
+            <soap:operation style="document" soapAction="execute_SendCommunication"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/SkyAppOSB/MDW_CDM/WL_PGD_GESTIONE_COMUNICAZIONE_PUB" parts="part_in"/>
+                <soap:header message="tns:requestMessage" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://xmlns.oracle.com/SkyAppOSB/MDW_CDM/WL_PGD_GESTIONE_COMUNICAZIONE_PUB" parts="part_out"/>
+                <soap:header message="tns:replyMessage" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+   <xsd:simpleType name="string_MaxLength12">
+      <xsd:restriction base="xsd:string">
+        <xsd:maxLength value="12"/>
+      </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="mdwKeyValueType">
+    <xsd:sequence>
+      <xsd:element name="mdwKey" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwValue" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwParametersType">
+    <xsd:sequence>
+      <xsd:element name="mdwParameter" type="mdwKeyValueType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+    
+    
+    <xsd:complexType name="mdwRecordType">
+    <xsd:sequence>
+      <xsd:element name="mdwActivityType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwActivity" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwActivityDetail" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwActivityStatus" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwChannelCaller" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwActivityCreationDateTime" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwParameters" type="mdwParametersType" minOccurs="0" maxOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwRecordsType">
+    <xsd:sequence>
+      <xsd:element name="mdwRecord" type="mdwRecordType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwGetTrackingRecordsDataType">
+    <xsd:sequence>
+      <xsd:element name="mdwRecords" type="mdwRecordsType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+    
+  
+   <xsd:complexType name="requestIVRGetTrackingRecordsType">
+    <xsd:sequence>
+      <xsd:element name="contrId" type="string_MaxLength12" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="custId" type="string_MaxLength12" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseIVRGetTrackingRecordsType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="mdwRecords" type="mdwRecordsType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="requestIVRGetTrackingRecords" type="requestIVRGetTrackingRecordsType"/>
+  <xsd:element name="responseIVRGetTrackingRecords" type="responseIVRGetTrackingRecordsType"/>
+  
+  
+</xsd:schema>

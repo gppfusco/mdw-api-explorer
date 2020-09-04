@@ -1,0 +1,109 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_CUSTOMER_HANDLER_proxy_PS_REST_CRM_CUSTOMER_HANDLER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_CUSTOMER_HANDLER" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_CUSTOMER_HANDLER",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/pipeline/PL_REST_CRM_CUSTOMER_HANDLER" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/pipeline/PL_REST_CRM_CUSTOMER_HANDLER",
+        "properties" : { },
+        "successors" : {
+          "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createRequestGetCustomerByCustId" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createRequestGetCustomerByCustId",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createRequestGetCustomerIdByFiscalCode" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createRequestGetCustomerIdByFiscalCode",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createResponseUpdateCustomerData" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createResponseUpdateCustomerData",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createRequestGetCustomerIdByPhone" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createRequestGetCustomerIdByPhone",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL" : {
+            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_REST_INTERNAL",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_CUSTOMER_HANDLER" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_CUSTOMER_HANDLER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createResponseGetCustomer" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createResponseGetCustomer",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_WS_STD_API_INTERNAL" : {
+            "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_EJB_WS_STD_API_INTERNAL",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_WS_EJB_FORCE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService" : {
+                "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/ejb_mdw/SalesForcePartnerAdapterCRMService",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createRequestUpdateCustomerData" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CUSTOMER_HANDLER/transformations/createRequestUpdateCustomerData",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

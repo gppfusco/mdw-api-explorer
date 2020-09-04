@@ -1,0 +1,306 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_PortaleBookingHotel_proxy_PS_WS_CRM_PORTALE_BOOKING_HOTEL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/PortaleBookingHotel/wsdl/WS_CRM_PORTALE_BOOKING_HOTEL" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/PortaleBookingHotel/wsdl/WS_CRM_PORTALE_BOOKING_HOTEL",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/PortaleBookingHotel/pipeline/PL_WS_CRM_PORTALE_BOOKING_HOTEL_ROUTING" : {
+        "label" : "Pipeline/SiebelProject/PortaleBookingHotel/pipeline/PL_WS_CRM_PORTALE_BOOKING_HOTEL_ROUTING",
+        "properties" : { },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/PortaleBookingHotel/wsdl/WS_CRM_PORTALE_BOOKING_HOTEL" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/PortaleBookingHotel/wsdl/WS_CRM_PORTALE_BOOKING_HOTEL",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/PortaleBookingHotel/pipeline/PL_WS_CRM_PORTALE_BOOKING_HOTEL_TrackingEsigenze" : {
+            "label" : "Pipeline/SiebelProject/PortaleBookingHotel/pipeline/PL_WS_CRM_PORTALE_BOOKING_HOTEL_TrackingEsigenze",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Pipeline/SiebelProject/PortaleBookingHotel/pipeline/PL_WS_SSO_PORTALE_BOOKING_HOTEL_INTERNAL" : {
+                "label" : "Pipeline/SiebelProject/PortaleBookingHotel/pipeline/PL_WS_SSO_PORTALE_BOOKING_HOTEL_INTERNAL",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/SiebelProject/Resources/BS_REST_SSO_TOKEN" : {
+                    "label" : "WSDL/SiebelProject/Resources/BS_REST_SSO_TOKEN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/SiebelProject/PortaleBookingHotel/businessService/BS_TEXT_SSO_TOKEN" : {
+                    "label" : "BusinessService/SiebelProject/PortaleBookingHotel/businessService/BS_TEXT_SSO_TOKEN",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/PortaleBookingHotel/wsdl/WS_CRM_PORTALE_BOOKING_HOTEL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/PortaleBookingHotel/wsdl/WS_CRM_PORTALE_BOOKING_HOTEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/PortaleBookingHotel/transformation/createRequest_TrackingEsigenze" : {
+                "label" : "Xquery/SiebelProject/PortaleBookingHotel/transformation/createRequest_TrackingEsigenze",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/PortaleBookingHotel/transformation/createRequest_SSO" : {
+                "label" : "Xquery/SiebelProject/PortaleBookingHotel/transformation/createRequest_SSO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SiebelProject/proxy/local/PS_LOCAL_SIE_CONTR_SYNC" : {
+                "label" : "ProxyService/SiebelProject/proxy/local/PS_LOCAL_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : {
+                  "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                        "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                        "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "XSLT/SiebelProject/transformations/createElement" : {
+                        "label" : "XSLT/SiebelProject/transformations/createElement",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                        "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/SiebelProject/PortaleBookingHotel/transformation/createResponse_TrackingEsigenze" : {
+                "label" : "Xquery/SiebelProject/PortaleBookingHotel/transformation/createResponse_TrackingEsigenze",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/PortaleBookingHotel/transformation/createResponse_SSO" : {
+                "label" : "Xquery/SiebelProject/PortaleBookingHotel/transformation/createResponse_SSO",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/PortaleBookingHotel/pipeline/PL_WS_CRM_PORTALE_BOOKING_HOTEL_GetHotelList" : {
+            "label" : "Pipeline/SiebelProject/PortaleBookingHotel/pipeline/PL_WS_CRM_PORTALE_BOOKING_HOTEL_GetHotelList",
+            "properties" : { },
+            "successors" : {
+              "Xquery/SiebelProject/PortaleBookingHotel/transformation/createResponse_GetHotelList" : {
+                "label" : "Xquery/SiebelProject/PortaleBookingHotel/transformation/createResponse_GetHotelList",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/MDWProject/GestioneTokenEntity/proxy/PS_LOCAL_MDW_SET_ENTITY_TOKEN" : {
+                "label" : "ProxyService/MDWProject/GestioneTokenEntity/proxy/PS_LOCAL_MDW_SET_ENTITY_TOKEN",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneTokenEntity/wsdl/WS_MDW_GESTIONE_TOKEN_INTERNAL" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneTokenEntity/wsdl/WS_MDW_GESTIONE_TOKEN_INTERNAL",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/MDWProject/GestioneTokenEntity/pipeline/PL_MDW_SET_ENTITY_TOKEN_ENQUEUE" : {
+                    "label" : "Pipeline/MDWProject/GestioneTokenEntity/pipeline/PL_MDW_SET_ENTITY_TOKEN_ENQUEUE",
+                    "properties" : {
+                      "nodeType" : "Pipeline"
+                    },
+                    "successors" : {
+                      "BusinessService/MDWProject/GestioneTokenEntity/businessService/BS_JMS_PORTALE_BOOKING_HOTEL_ENQUEUE" : {
+                        "label" : "BusinessService/MDWProject/GestioneTokenEntity/businessService/BS_JMS_PORTALE_BOOKING_HOTEL_ENQUEUE",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneTokenEntity/wsdl/WS_MDW_GESTIONE_TOKEN_INTERNAL" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/GestioneTokenEntity/wsdl/WS_MDW_GESTIONE_TOKEN_INTERNAL",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/PortaleBookingHotel/wsdl/WS_CRM_PORTALE_BOOKING_HOTEL" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/PortaleBookingHotel/wsdl/WS_CRM_PORTALE_BOOKING_HOTEL",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/PortaleBookingHotel/transformation/createRequest_GetHotelList" : {
+                "label" : "Xquery/SiebelProject/PortaleBookingHotel/transformation/createRequest_GetHotelList",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/PortaleBookingHotel/transformation/createRequestEnqueueDB" : {
+                "label" : "Xquery/SiebelProject/PortaleBookingHotel/transformation/createRequestEnqueueDB",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SiebelProject/PortaleBookingHotel/transformation/createResponse_1901_GetHotelList" : {
+                "label" : "Xquery/SiebelProject/PortaleBookingHotel/transformation/createResponse_1901_GetHotelList",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SiebelProject/PortaleBookingHotel/pipeline/PL_SQL_GESTIONE_TOKEN_ENTITY_GETKEY_INTERNAL" : {
+                "label" : "Pipeline/SiebelProject/PortaleBookingHotel/pipeline/PL_SQL_GESTIONE_TOKEN_ENTITY_GETKEY_INTERNAL",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDWProject/GestioneTokenEntity/businessService/BS_SQL_GESTIONE_TOKEN_ENTITY_GETKEY" : {
+                    "label" : "BusinessService/MDWProject/GestioneTokenEntity/businessService/BS_SQL_GESTIONE_TOKEN_ENTITY_GETKEY",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/MDWProject/Resources/BS_SQL_GESTIONE_TOKEN_ENTITY_GETKEY/concrete" : {
+                    "label" : "WSDL/MDWProject/Resources/BS_SQL_GESTIONE_TOKEN_ENTITY_GETKEY/concrete",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SiebelProject/proxy/local/PS_LOCAL_SIE_CONTR_SYNC" : {
+                "label" : "ProxyService/SiebelProject/proxy/local/PS_LOCAL_SIE_CONTR_SYNC",
+                "properties" : { },
+                "successors" : {
+                  "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "Pipeline/SiebelProject/pipeline/PL_WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : {
+                      "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL" : {
+                        "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SIEBEL",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL" : {
+                        "label" : "Xquery/SiebelProject/transformations/createRequest_BS_EJB_SIEBEL",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL" : {
+                        "label" : "XMLSchema/MDW_CDM/ApplicationObjects/SIEBEL/XSD_EJB_SIEBEL",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "XSLT/SiebelProject/transformations/createElement" : {
+                        "label" : "XSLT/SiebelProject/transformations/createElement",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                        "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ContrSync/wsdl/WS_CRM_SIE_CONTR_SYNC",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/SiebelProject/PortaleBookingHotel/transformation/createRequest_GetKey" : {
+                "label" : "Xquery/SiebelProject/PortaleBookingHotel/transformation/createRequest_GetKey",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

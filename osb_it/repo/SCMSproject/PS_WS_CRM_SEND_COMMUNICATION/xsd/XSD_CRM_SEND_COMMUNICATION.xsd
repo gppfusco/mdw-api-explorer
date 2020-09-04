@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="DocumentData">
+    <xsd:sequence>
+      <xsd:element name="param" type="param" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="record" type="record" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="param">
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+    <xsd:attribute name="value" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:complexType name="record">
+    <xsd:sequence>
+      <xsd:element name="param" type="param" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="record" type="record" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+    <xsd:attribute name="value" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="requestSendCommunication" type="requestSendCommunicationType"/>
+   <xsd:complexType name="requestSendCommunicationType">
+      <xsd:sequence>
+        <xsd:element name="COMPLEX_INPUT" type="DocumentData" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="TIDPGS" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  <xsd:element name="responseSendCommunication" type="responseSendCommunicationType"/>
+  <xsd:complexType name="responseSendCommunicationType">
+    <xsd:sequence>
+      <xsd:element name="COMPLEX_OUTPUT" type="DocumentData" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="TIDPGS" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

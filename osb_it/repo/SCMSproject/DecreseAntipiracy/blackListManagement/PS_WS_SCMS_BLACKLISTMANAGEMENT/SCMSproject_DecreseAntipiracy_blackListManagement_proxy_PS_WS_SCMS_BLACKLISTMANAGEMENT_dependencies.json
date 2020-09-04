@@ -1,0 +1,73 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SCMSproject_DecreseAntipiracy_blackListManagement_proxy_PS_WS_SCMS_BLACKLISTMANAGEMENT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/DecreaseAntipiracy/blackListManagement/WS_SCMS_BLACKLISTMANAGEMENT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/DecreaseAntipiracy/blackListManagement/WS_SCMS_BLACKLISTMANAGEMENT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SCMSproject/DecreseAntipiracy/blackListManagement/pipeline/PL_REST_SCMS_BLACKLISTMANAGEMENT" : {
+        "label" : "Pipeline/SCMSproject/DecreseAntipiracy/blackListManagement/pipeline/PL_REST_SCMS_BLACKLISTMANAGEMENT",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SCMSproject/pipeline/PL_INTERNAL_INVOKE_CAIF" : {
+            "label" : "Pipeline/SCMSproject/pipeline/PL_INTERNAL_INVOKE_CAIF",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC" : {
+                "label" : "Xquery/SCMSproject/transformation/scms_request_enrichment/create_request_ejb_scms_GENERIC",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SCMSproject/GestioneSmartCard/wsdl/WS_CRM_GESTIONE_SMARTCARD",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_CAIF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SCMSproject/DecreseAntipiracy/blackListManagement/trasformation/createResponse_blackListManagement" : {
+            "label" : "Xquery/SCMSproject/DecreseAntipiracy/blackListManagement/trasformation/createResponse_blackListManagement",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/SCMSproject/Resources/PS_REST_SCMS_BLACKLISTMANAGEMENT" : {
+            "label" : "WSDL/SCMSproject/Resources/PS_REST_SCMS_BLACKLISTMANAGEMENT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SCMSproject/DecreseAntipiracy/blackListManagement/trasformation/createRequest_blacklistManagement" : {
+            "label" : "Xquery/SCMSproject/DecreseAntipiracy/blackListManagement/trasformation/createRequest_blacklistManagement",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

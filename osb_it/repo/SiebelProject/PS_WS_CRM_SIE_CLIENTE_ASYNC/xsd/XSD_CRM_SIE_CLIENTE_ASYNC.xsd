@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestUpdateClienteType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceCliente" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="IndirizzoFatturazione" type="IndirizzoType" minOccurs="0"/>
+			<xsd:element name="IndirizzoUbicazione" type="IndirizzoType" minOccurs="0"/>
+			<xsd:element name="ListOfDatiMarketing" type="ListOfDatiMarketingType" minOccurs="0"/>
+			<xsd:element name="NumeroDocumento" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoDocumento" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="EnteRilascio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataRilascio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagPromoNuoveTecnologie" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagAnalisiPreferenze" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagPromoDM_Outbound" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagQueryGrandeCliente" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Telefono" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Cellulare" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AltroNumeroTel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Fax" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PostaRitornata" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Email" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Reperibilita" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestUpdateCliente" type="requestUpdateClienteType"/>
+	<xsd:element name="responseUpdateCliente" type="basicResponseAsyncType"/>
+	<xsd:complexType name="IndirizzoType">
+		<xsd:sequence>
+			<xsd:element name="MatchCodeEgon" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MatchCodeSKY" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ParticellaToponomastica" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Indirizzo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="NumeroCivico" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Localita" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Provincia" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CAP" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Paese" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Frazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Complesso" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Scala" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Interno" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Piano" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumFabbricatiStessoEdificio" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumScaleFabbricato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IndirizzoNormalizzato" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bes1XG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bes1XM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bes1YG" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Bes1YM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BesVLXBES" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlxCtx" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IdCIV" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NAB" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NABALL" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfDatiMarketingType">
+		<xsd:sequence>
+			<xsd:element name="DatiMarketing" type="DatiMarketingType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DatiMarketingType">
+		<xsd:sequence>
+			<xsd:element name="DatoMarketing" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="basicResponseAsyncType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

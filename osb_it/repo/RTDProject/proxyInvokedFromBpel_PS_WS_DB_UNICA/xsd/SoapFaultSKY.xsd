@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:tns="http://www.skytv.it/mdw/data"
+            xmlns:log="http://www.skytv.it/mdw/internal"
+            targetNamespace="http://www.skytv.it/mdw/data" 
+            elementFormDefault="qualified">
+            
+  <xsd:import namespace="http://www.skytv.it/mdw/internal" schemaLocation="../../ApplicationObjects/LOG/xsd/logmessage.xsd"/>
+            
+  <xsd:complexType name="faultType">
+    <xsd:sequence>
+      <xsd:element name="faultCode" type="xsd:string"/>
+      <xsd:element name="faultString" type="xsd:string"/>
+      <xsd:element name="detail" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FaultMessegeInternalType">
+    <xsd:sequence>
+      <xsd:element name="fault" type="tns:faultType"/>
+      <xsd:element name="infos" type="log:LogManagementType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="FaultMessegeExternalType">
+    <xsd:sequence>
+      <xsd:element name="fault" type="tns:faultType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="faultMessageInternal" type="tns:FaultMessegeInternalType"/>
+  <xsd:element name="faultMessageExternal" type="tns:FaultMessegeExternalType"/>
+</xsd:schema>

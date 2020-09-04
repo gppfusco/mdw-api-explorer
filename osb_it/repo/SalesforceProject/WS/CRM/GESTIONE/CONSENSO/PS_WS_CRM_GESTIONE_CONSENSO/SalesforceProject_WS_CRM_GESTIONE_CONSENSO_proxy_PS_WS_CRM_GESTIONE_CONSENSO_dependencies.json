@@ -1,0 +1,55 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_GESTIONE_CONSENSO_proxy_PS_WS_CRM_GESTIONE_CONSENSO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_GESTIONE_CONSENSO/pipeline/PL_CRM_GESTIONE_CONSENSO" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_GESTIONE_CONSENSO/pipeline/PL_CRM_GESTIONE_CONSENSO",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_GESTIONE_CONSENSO/transformation/createRequestUpdatePrivacy" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_GESTIONE_CONSENSO/transformation/createRequestUpdatePrivacy",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_GESTIONE_CONSENSO/transformation/createRequestSelectAccount" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_GESTIONE_CONSENSO/transformation/createRequestSelectAccount",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_GESTIONE_CONSENSO" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_GESTIONE_CONSENSO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_GESTIONE_CONSENSO/transformation/createResponseWSUpdatePrivacy" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_GESTIONE_CONSENSO/transformation/createResponseWSUpdatePrivacy",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneConsenso/wsdl/WS_CRM_GESTIONE_CONSENSO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneConsenso/wsdl/WS_CRM_GESTIONE_CONSENSO",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

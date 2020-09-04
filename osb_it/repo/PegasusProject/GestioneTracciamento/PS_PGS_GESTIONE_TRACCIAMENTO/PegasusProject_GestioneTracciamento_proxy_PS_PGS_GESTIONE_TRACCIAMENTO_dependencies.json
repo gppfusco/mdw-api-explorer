@@ -1,0 +1,327 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "PegasusProject_GestioneTracciamento_proxy_PS_PGS_GESTIONE_TRACCIAMENTO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTracciamento/wsdl/WS_PGS_GESTIONE_TRACCIAMENTO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTracciamento/wsdl/WS_PGS_GESTIONE_TRACCIAMENTO",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_WS_PGS_GESTIONE_TRACCIAMENTO_ROUTING" : {
+        "label" : "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_WS_PGS_GESTIONE_TRACCIAMENTO_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTracciamento/wsdl/WS_PGS_GESTIONE_TRACCIAMENTO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTracciamento/wsdl/WS_PGS_GESTIONE_TRACCIAMENTO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_PGS_SMS_TRACKING" : {
+            "label" : "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_PGS_SMS_TRACKING",
+            "properties" : { },
+            "successors" : {
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestSmsTracking" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestSmsTracking",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTracciamento/wsdl/WS_PGS_GESTIONE_TRACCIAMENTO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTracciamento/wsdl/WS_PGS_GESTIONE_TRACCIAMENTO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/createResponseSmsTracking" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/createResponseSmsTracking",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/PegasusProject/GestioneTracciamento/businessServices/BS_WS_PGS_SMS_TRACKING" : {
+                "label" : "BusinessService/PegasusProject/GestioneTracciamento/businessServices/BS_WS_PGS_SMS_TRACKING",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_PGS_DMS_TRACKING" : {
+            "label" : "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_PGS_DMS_TRACKING",
+            "properties" : { },
+            "successors" : {
+              "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_INTERNAL_PEGASUS_SEND_MESSAGE" : {
+                "label" : "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_INTERNAL_PEGASUS_SEND_MESSAGE",
+                "properties" : { },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/ApplicationObjects/PEGASUS/WS_MDW_PEGASUS_SEND" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/PEGASUS/WS_MDW_PEGASUS_SEND",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_WS_MDW_PEGASUS_SEND" : {
+                    "label" : "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_WS_MDW_PEGASUS_SEND",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTracciamento/wsdl/WS_PGS_GESTIONE_TRACCIAMENTO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTracciamento/wsdl/WS_PGS_GESTIONE_TRACCIAMENTO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/transformation/create_soap_header" : {
+                "label" : "Xquery/MDW_CO/transformation/create_soap_header",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestSendCommunicationPegasus" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestSendCommunicationPegasus",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestDmsTracking_BS_WS_PEGASUS_SEND" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestDmsTracking_BS_WS_PEGASUS_SEND",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/createResponseWS_TRACCIAMENTO_DMSTracking" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/createResponseWS_TRACCIAMENTO_DMSTracking",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestGetAccInfoXml" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestGetAccInfoXml",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_INTERNAL_GET_ACC_INFO_CLIENTE" : {
+                "label" : "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_INTERNAL_GET_ACC_INFO_CLIENTE",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GetAccInfoXML/wsdl/WS_SIE_GET_ACC_INFO_XML" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GetAccInfoXML/wsdl/WS_SIE_GET_ACC_INFO_XML",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "ProxyService/SiebelProject/proxy/PS_WS_GET_ACC_INFO_XML" : {
+                    "label" : "ProxyService/SiebelProject/proxy/PS_WS_GET_ACC_INFO_XML",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/createResponseGetAccInfoXml" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/createResponseGetAccInfoXml",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_PGS_WEB_MAIL_TRACKING_ITERATE" : {
+            "label" : "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_PGS_WEB_MAIL_TRACKING_ITERATE",
+            "properties" : { },
+            "successors" : {
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestForCheckBB" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestForCheckBB",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/SalesforceProject/proxy/PS_WS_CALL_EJB_SF" : {
+                "label" : "ProxyService/SalesforceProject/proxy/PS_WS_CALL_EJB_SF",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTracciamento/wsdl/WS_PGS_GESTIONE_TRACCIAMENTO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTracciamento/wsdl/WS_PGS_GESTIONE_TRACCIAMENTO",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestForCheckServizioTecnico" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestForCheckServizioTecnico",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CO/transformation/createSimpleResponseWithoutTid" : {
+                "label" : "Xquery/MDW_CO/transformation/createSimpleResponseWithoutTid",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestForAssistSkyMail" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestForAssistSkyMail",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/creareRequestForPegasusSendPrint" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/creareRequestForPegasusSendPrint",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/PegasusProject/WriteFile/pipeline/PL_WS_MDW_WRITE_FILE" : {
+                "label" : "Pipeline/PegasusProject/WriteFile/pipeline/PL_WS_MDW_WRITE_FILE",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/PegasusProject/WriteFile/businessServices/BS_FA_WRITE_FILE" : {
+                    "label" : "BusinessService/PegasusProject/WriteFile/businessServices/BS_FA_WRITE_FILE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/PegasusProject/WriteFile/transformations/createResponse_WriteFile" : {
+                    "label" : "Xquery/PegasusProject/WriteFile/transformations/createResponse_WriteFile",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WriteFile/wsdl/WS_MDW_WRITE_FILE" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/WriteFile/wsdl/WS_MDW_WRITE_FILE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/PegasusProject/WriteFile/transformations/createRequest_WriteFile" : {
+                    "label" : "Xquery/PegasusProject/WriteFile/transformations/createRequest_WriteFile",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_INTERNAL_PGS_WEB_MAIL_SEND_PRINT" : {
+                "label" : "Pipeline/PegasusProject/GestioneTracciamento/pipeline/PL_INTERNAL_PGS_WEB_MAIL_SEND_PRINT",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/ApplicationObjects/PEGASUS/WS_MDW_PEGASUS_SEND" : {
+                    "label" : "WSDL/MDW_CDM/ApplicationObjects/PEGASUS/WS_MDW_PEGASUS_SEND",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_WS_MDW_PEGASUS_SEND" : {
+                    "label" : "BusinessService/PegasusProject/OUTBOUND_MSG/WS_CRM_PGS_OUTBOUND_SEND_PRINT/businessService/BS_WS_MDW_PEGASUS_SEND",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "ProxyService/AssistProject/SkyMail/proxy/PS_LOCAL_ASSIST_SKY_MAIL" : {
+                "label" : "ProxyService/AssistProject/SkyMail/proxy/PS_LOCAL_ASSIST_SKY_MAIL",
+                "properties" : {
+                  "transport-type" : "local",
+                  "nodeType" : "Proxy",
+                  "service-type" : "SOAP"
+                },
+                "successors" : {
+                  "Pipeline/AssistProject/SkyMail/pipeline/PL_ASSIST_SKY_MAIL" : {
+                    "label" : "Pipeline/AssistProject/SkyMail/pipeline/PL_ASSIST_SKY_MAIL",
+                    "properties" : { },
+                    "successors" : {
+                      "Xquery/AssistProject/SkyMail/transformation/createResponse_WebmailCategorizer" : {
+                        "label" : "Xquery/AssistProject/SkyMail/transformation/createResponse_WebmailCategorizer",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "Xquery/AssistProject/SkyMail/transformation/createRequest_WebmailCategorizer" : {
+                        "label" : "Xquery/AssistProject/SkyMail/transformation/createRequest_WebmailCategorizer",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "BusinessService/AssistProject/SkyMail/businessServices/BS_WS_ASSIST_SKY_MAIL" : {
+                        "label" : "BusinessService/AssistProject/SkyMail/businessServices/BS_WS_ASSIST_SKY_MAIL",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/AssistProject/SkyMail/wsdl/WS_ASSIST_SKY_MAIL",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestWriteFileFromBase64" : {
+                "label" : "Xquery/PegasusProject/GestioneTracciamento/transformations/createRequestWriteFileFromBase64",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

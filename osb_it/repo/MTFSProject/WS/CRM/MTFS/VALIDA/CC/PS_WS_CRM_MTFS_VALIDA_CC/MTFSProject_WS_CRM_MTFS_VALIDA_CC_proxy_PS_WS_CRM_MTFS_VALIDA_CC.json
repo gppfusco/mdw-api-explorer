@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mtfs/WS_CRM_MTFS_VALIDA_CC",
+    "name" : "MTFSProject_WS_CRM_MTFS_VALIDA_CC_proxy_PS_WS_CRM_MTFS_VALIDA_CC",
+    "localPath" : "osb_it\\repo\\MTFSProject\\WS\\CRM\\MTFS\\VALIDA\\CC\\PS_WS_CRM_MTFS_VALIDA_CC",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mtfs/WS_CRM_MTFS_VALIDA_CC?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MTFSProject/ValidaCC/xsd/XSD_CRM_MTFS_VALIDA_CC",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

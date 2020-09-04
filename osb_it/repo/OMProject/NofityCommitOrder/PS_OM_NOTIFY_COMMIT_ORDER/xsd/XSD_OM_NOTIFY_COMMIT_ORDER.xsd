@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestNotifyOrder" type="requestNotifyOrderType"/>
+	<xsd:complexType name="requestNotifyOrderType">
+		<xsd:sequence>
+			<xsd:element name="mdwCommitOrder" type="mdwCommitOrderType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwCommitOrderType">
+		<xsd:sequence>
+			<xsd:element name="mdwBBIdPDA" type="xsd:string"/>
+			<xsd:element name="mdwOrderId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwOrderNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwResultFastweb" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseNotifyOrder" type="responseNotifyOrderType"/>
+	<xsd:complexType name="responseNotifyOrderType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

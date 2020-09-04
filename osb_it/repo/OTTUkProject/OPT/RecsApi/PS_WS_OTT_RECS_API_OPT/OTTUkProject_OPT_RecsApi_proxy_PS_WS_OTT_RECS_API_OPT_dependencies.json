@@ -1,0 +1,86 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OTTUkProject_OPT_RecsApi_proxy_PS_WS_OTT_RECS_API_OPT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/OTTUkProject/OPT_RecsApi/pipeline/PL_WS_OTT_RECS_API_ROUNTING" : {
+        "label" : "Pipeline/OTTUkProject/OPT_RecsApi/pipeline/PL_WS_OTT_RECS_API_ROUNTING",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/OTTUkProject/OPT_RecsApi/pipeline/PL_INTERNAL_OTT_OPTIN" : {
+            "label" : "Pipeline/OTTUkProject/OPT_RecsApi/pipeline/PL_INTERNAL_OTT_OPTIN",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/OTTUkProject/OPT_RecsApi/businessServices/BS_TEXT_OTTUK_RECS" : {
+                "label" : "BusinessService/OTTUkProject/OPT_RecsApi/businessServices/BS_TEXT_OTTUK_RECS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/RecsOPTApi/wsdl/WS_OTT_RECS_API_OPT" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/RecsOPTApi/wsdl/WS_OTT_RECS_API_OPT",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/MDW_CO/transformation/createSimpleResponseEnglilsh" : {
+            "label" : "Xquery/MDW_CO/transformation/createSimpleResponseEnglilsh",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OTTUk/RecsOPTApi/wsdl/WS_OTT_RECS_API_OPT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/RecsOPTApi/wsdl/WS_OTT_RECS_API_OPT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/OTTUkProject/OPT_RecsApi/pipeline/PL_INTERNAL_OTT_RECYCLE" : {
+            "label" : "Pipeline/OTTUkProject/OPT_RecsApi/pipeline/PL_INTERNAL_OTT_RECYCLE",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/OTTUkProject/OPT_RecsApi/businessServices/BS_TEXT_OTTUK_RECS" : {
+                "label" : "BusinessService/OTTUkProject/OPT_RecsApi/businessServices/BS_TEXT_OTTUK_RECS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/OTTUk/RecsOPTApi/wsdl/WS_OTT_RECS_API_OPT" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/RecsOPTApi/wsdl/WS_OTT_RECS_API_OPT",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/OTTUk/RecsOPTApi/wsdl/WS_OTT_RECS_API_OPT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OTTUk/RecsOPTApi/wsdl/WS_OTT_RECS_API_OPT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

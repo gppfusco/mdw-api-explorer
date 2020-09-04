@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_AlignSfByBpel_RetriveScenariosBusinessRules_proxy_PS_WS_MDW_RETRIVE_SCENARIOS_BUSINESS_RULES",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignFromSF/wsdl/WS_MDW_RETRIVE_SCENARIOS_BUSINESS_RULES" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignFromSF/wsdl/WS_MDW_RETRIVE_SCENARIOS_BUSINESS_RULES",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/pipeline/PL_WS_MDW_RETRIVE_SCENARIOS_BUSINESS_RULES" : {
+        "label" : "Pipeline/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/pipeline/PL_WS_MDW_RETRIVE_SCENARIOS_BUSINESS_RULES",
+        "properties" : { },
+        "successors" : {
+          "Xquery/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/transformations/createResponseRetriveScenariosBRuleSFAlign" : {
+            "label" : "Xquery/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/transformations/createResponseRetriveScenariosBRuleSFAlign",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/businessService/BS_WS_SOA_RETRIVE_SCENARIOS_RULES_SF_ALIGN" : {
+            "label" : "BusinessService/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/businessService/BS_WS_SOA_RETRIVE_SCENARIOS_RULES_SF_ALIGN",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/transformations/createRequestRetriveScenariosBRuleSFAlign" : {
+            "label" : "Xquery/MDWProject/AlignSfByBpel/RetriveScenariosBusinessRules/transformations/createRequestRetriveScenariosBRuleSFAlign",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignFromSF/wsdl/WS_MDW_RETRIVE_SCENARIOS_BUSINESS_RULES" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MDWProject/AlignFromSF/wsdl/WS_MDW_RETRIVE_SCENARIOS_BUSINESS_RULES",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

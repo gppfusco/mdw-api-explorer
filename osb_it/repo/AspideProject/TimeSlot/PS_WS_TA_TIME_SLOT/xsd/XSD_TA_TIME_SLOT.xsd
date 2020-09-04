@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" 
+elementFormDefault="qualified">
+	<xsd:complexType name="requestRetrieveSlotType">
+		<xsd:sequence>
+			<xsd:element name="mdwCodContract" type="xsd:string"/>
+                        <xsd:element name="mdwCodCustomer" type="xsd:string"/>
+                        <xsd:element name="mdwChannel" type="channelSimpleType"/>
+                        <xsd:element name="mdwTypeRequest" type="typeRequestSimpleType"/>
+                        <xsd:element name="mdwTypeCustomer" type="typeCustomerSimpleType" minOccurs="0"/>
+                        <xsd:element name="mdwTypeCase" type="typeCaseSimpleType" minOccurs="0"/>
+                        <xsd:element name="mdwOwnerId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwCaseId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestRetrieveSlot" type="requestRetrieveSlotType"/>
+	<xsd:element name="responseRetrieveSlot" type="responseRetrieveSlotType"/>
+	<xsd:complexType name="responseRetrieveSlotType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tid" type="xsd:string"/>
+			<xsd:element name="mdwAppointments" type="mdwAppointmentsType" minOccurs="0"/>
+                        <xsd:element name="mdwTalkedAngelTeam" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwAvailabilityAngel" type="SlotsType" minOccurs="0"/>
+                        <xsd:element name="mdwAvaliabilityTeam" type="SlotsType" minOccurs="0"/>
+                        <xsd:element name="mdwAvailabilityTeamAll" type="SlotsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+         <xsd:complexType name="mdwAppointmentsType">
+		<xsd:sequence>
+			<xsd:element name="mdwAppointment" type="mdwAppointmentType" minOccurs="1" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="mdwAppointmentType">
+		<xsd:sequence>
+			<xsd:element name="mdwAppointmentId" type="xsd:string"/>
+			<xsd:element name="mdwCaseId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwTeam" type="xsd:string"/>
+                        <xsd:element name="mdwAliasAngel" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwTypeRequest" type="typeRequestSimpleType"/>
+                        <xsd:element name="mdwTypeCustomer" type="typeCustomerSimpleType" minOccurs="0"/>
+                        <xsd:element name="mdwTypeCase" type="typeCaseSimpleType" minOccurs="0"/>
+			<xsd:element name="mdwReason" type="xsd:string"/>
+                        <xsd:element name="mdwSchedTime" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwFullName" type="xsd:string"/>
+                        <xsd:element name="mdwTel1" type="xsd:string"/>
+			<xsd:element name="mdwTel2" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwTel3" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwTelDefault" type="xsd:string"/>
+                        <xsd:element name="mdwCodContract" type="xsd:string"/>
+                        <xsd:element name="mdwCodCustomer" type="xsd:string"/>
+                        <xsd:element name="mdwAttempt" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwEmployeeId" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwUsername" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwChannel" type="channelSimpleType"/>
+                        <xsd:element name="mdwNote" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwSite" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwEmail" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwExpirationTime" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="SlotsType">
+		<xsd:sequence>
+			<xsd:element name="mdwSlot" type="SlotType" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:complexType name="SlotType">
+		<xsd:sequence>
+			<xsd:element name="mdwTime" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+        <xsd:simpleType name="channelSimpleType">
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="WEB"/>
+            <xsd:enumeration value="WDE"/>
+            <xsd:enumeration value="IVR"/>
+            <xsd:enumeration value="CRM"/>
+            <xsd:enumeration value="APP"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+       <xsd:simpleType name="typeRequestSimpleType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BB_TEAM"/>
+			<xsd:enumeration value="SW_SQUAD"/>
+			<xsd:enumeration value="TV_TEAM"/>
+			<xsd:enumeration value="DTH"/>
+			<xsd:enumeration value="DTT"/>
+			<xsd:enumeration value="RETENTION"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+        <xsd:simpleType name="typeCustomerSimpleType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BB"/>
+			<xsd:enumeration value="DTT"/>
+			<xsd:enumeration value="DTH"/>
+			<xsd:enumeration value="DTH+"/>
+		</xsd:restriction>
+        </xsd:simpleType>
+        <xsd:simpleType name="typeCaseSimpleType">
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="CMN"/>
+            <xsd:enumeration value="CMB"/>
+            <xsd:enumeration value="CHK"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestGetCustomer" type="requestGetCustomerType"/>
+	<xsd:complexType name="requestGetCustomerType">
+		<xsd:sequence>
+			<xsd:element name="custId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custPhoneNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custFiscalCode" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetCustomer" type="responseGetCustomerType"/>
+	<xsd:complexType name="responseGetCustomerType">
+		<xsd:sequence>
+			<xsd:element name="contracts" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwTotalSize" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="contract" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="contrIdE2E" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrIdCRM" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrStatus" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrReqCeaseDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrTNBStatus" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrParentContractId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrRecurringFrequency" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrChildContractBB" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrChildContractTv" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="custId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="custPayerId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrCeaseDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrServiceEnvironment" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrShippingCity" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrShippingCountry" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrShippingGeocodeAccuracy" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrShippingLatitude" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrShippingLongitude" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrShippingPostalCode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrShippingState" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrShippingStreet" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrToponomyParticle" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrStreetNumber" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrStair" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrIndoor" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrBillingId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrType" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccount" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrStartDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrSkyQBlackFlg" type="flagType" minOccurs="0"/>
+									<xsd:element name="contrVendibileFlg" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrEligibleTechnology" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrEligibleSpeed" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrEligibleWholesaler" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrCeaseRequestRegistrationDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrCeaseBillingRequestDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrCeaseBillingDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contractSkyExtraFlg" type="consensusFlagType" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="custPersonContactId" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="custContactId" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custFirstName" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custLastName" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custFiscalCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custPhoneNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custOtherPhone" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custFax" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custMobilePhone" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custEmail" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custDocumentNumber" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custDocumentIssuingBody" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custDocumentIssuingDate" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custDocumentProvince" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custDocumentMunicipality" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custBirthdate" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custBirthMunicipality" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custDocumentType" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custBithProvince" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custGender" type="xsd:string" minOccurs="0"/>
+                                                <xsd:element name="typePhoneIstallation" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custDocumentNationality" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custLoadedDocumentStatus" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custVerifiedDocumentStatus" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custCountryDocumentCode" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custDocumentExpiry" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custPartitaIva" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="custUnavailable" type="xsd:string" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="custIdCRM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custPromoFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custContactPreference" type="xsd:string"/>
+			<xsd:element name="mdwSkyQConsensus" type="flagType"/>
+			<xsd:element name="mdwTeamAngel" type="xsd:string"/>
+			<xsd:element name="mdwTrialBSBB" type="xsd:string"/>
+                        <xsd:element name="mdwDigitalScore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwOperativeModel" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="consensoTerzePartiFlag" type="flagType" minOccurs="0"/>
+			<xsd:element name="consensoProfilazioneFlag" type="flagType" minOccurs="0"/>
+			<xsd:element name="accountStatisticsFlg" type="flagType" minOccurs="0"/>
+			<xsd:element name="accountNewTechnologyPromoFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountPreferencesAnalysis" type="flagType" minOccurs="0"/>
+			<xsd:element name="accountAnywhereFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountTCFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountLimitationFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountSegment" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountDenominationIndividualCompany" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountDataConsensusSkyGoFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountConsensusKidsAppFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountTermsAndConditionKidsApp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountConsensusAdSmartFlg" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountEligibilityAdSmart" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountVerifyDocDMSErrorCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountVerifyDocDMSErrorDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountVerifyDocSPYErrorCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="accountVerifySPYErrorDesc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custCluster" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contrAccounts" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwTotalSize" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="contrAccount" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="contrAccountIdE2E" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountIdCRM" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountStatus" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountReqCeaseDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountTNBStatus" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountParentContractId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountChildContractBB" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountChildContractTV" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountRecurringFrequency" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountCeaseDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountServiceEnvironment" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountShippingCity" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountShippingCountry" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountGeocodeAccuracy" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountShippingLatitude" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountShippingLongitude" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountShippingPostalCode" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountShippingState" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountShippingStreet" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountToponomyParticle" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountStreetNumber" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountStair" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountIndoor" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountPayerId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountBillingId" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="custIdConsumer" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="custIdPayer" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrType" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountStartDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountSkyQBlackFlg" type="flagType" minOccurs="0"/>
+									<xsd:element name="contrAccountVendibileFlg" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountEligibleTechnology" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountEligibleSpeed" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountEligibleWholesaler" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountCeaseRequestRegistrationDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountCeaseBillingRequestDate" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="contrAccountCeaseBillingDate" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="contrSkyExtraFlg" type="consensusFlagType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestUpdateCustomerData" type="requestUpdateCustomerDataType"/>
+	<xsd:complexType name="requestUpdateCustomerDataType">
+		<xsd:sequence>
+			<xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCoBrowsingFlag" type="flagType"/>
+			<xsd:element name="mdwConnIdCTI" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwProveance" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwInteractionId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCustomerData" type="mdwCustomerDataType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="mdwCustomerDataType">
+		<xsd:sequence>
+			<xsd:element name="custId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="custPhone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custOtherPhone" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custFax" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custMobile" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custEmail" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custDocumentType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custDocNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custDocPublicAuthorityIssuer" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custDocExpirationDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="custMainPhoneFlag" type="flagType" minOccurs="0"/>
+			<xsd:element name="custOtherPhoneFlag" type="flagType" minOccurs="0"/>
+			<xsd:element name="custMobilePhoneFlag" type="flagType" minOccurs="0"/>
+			<xsd:element name="custMainFaxNumberFlag" type="flagType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseUpdateCustomerData" type="responseUpdateCustomerDataType"/>
+	<xsd:complexType name="responseUpdateCustomerDataType">
+		<xsd:sequence>
+			<xsd:element name="result" type="resultType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="resultType">
+		<xsd:sequence>
+			<xsd:element name="mdwInteractionId" type="xsd:string"/>
+			<xsd:element name="custId" type="xsd:string"/>
+			<xsd:element name="custStatus" type="xsd:string"/>
+			<xsd:element name="mdwServiceRequest" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwServiceRequestId" type="xsd:string" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="flagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="consensusFlagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="P"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/SBL_RETRIEVE_ODS" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_SBL_RETRIEVE_ODS" targetNamespace="http://www.skytv.it/mdw/service/SBL_RETRIEVE_ODS">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SBL_RETRIEVE_ODS.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="responseRetrieveODS_message">
+		<wsdl:part name="part_requestRetrieveODS" element="inp1:requestRetrieveODS"/>
+	</wsdl:message>
+	<wsdl:message name="requestRetrieveODS_message">
+		<wsdl:part name="part_responseRetrieveODS" element="inp1:responseRetrieveODS"/>
+	</wsdl:message>
+	<wsdl:message name="responseRetrieveODSTibcoSiebel_message">
+		<wsdl:part name="part_requestRetrieveODSTibcoSiebel" element="inp1:requestRetrieveODSTibcoSiebel"/>
+	</wsdl:message>
+	<wsdl:message name="requestRetrieveODSTibcoSiebel_message">
+		<wsdl:part name="part_responseRetrieveODSTibcoSiebel" element="inp1:responseRetrieveODSTibcoSiebel"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="SBL_RETRIEVE_ODS_ptt">
+		<wsdl:operation name="execute_RetrieveODS">
+			<wsdl:input message="tns:responseRetrieveODS_message"/>
+			<wsdl:output message="tns:requestRetrieveODS_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_RetrieveODSTibcoSiebel">
+			<wsdl:input message="tns:responseRetrieveODSTibcoSiebel_message"/>
+			<wsdl:output message="tns:requestRetrieveODSTibcoSiebel_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SBL_RETRIEVE_ODS_pttSOAP11Binding" type="tns:SBL_RETRIEVE_ODS_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_RetrieveODS">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SBL_RETRIEVE_ODS/execute_RetrieveODS" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestRetrieveODS" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseRetrieveODS" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_RetrieveODSTibcoSiebel">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SBL_RETRIEVE_ODS/execute_RetrieveODSTibcoSiebel" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestRetrieveODSTibcoSiebel" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseRetrieveODSTibcoSiebel" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,47 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_CRM_GESTIONE_SCONTI"
+     targetNamespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_SCONTI"
+     xmlns:tns="http://www.skytv.it/mdw/service/CRM_GESTIONE_SCONTI"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GESTIONE_SCONTI.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestGetSconti_Message">
+        <wsdl:part name="part_requestGetSconti" element="inp1:requestGetSconti"/>
+    </wsdl:message>
+    <wsdl:message name="responseGetSconti_Message">
+        <wsdl:part name="part_responseGetSconti" element="inp1:responseGetSconti"/>
+    </wsdl:message>
+    <wsdl:portType name="CRM_GESTIONE_SCONTI_ptt">
+        <wsdl:operation name="execute_GetSconti">
+            <wsdl:input message="tns:requestGetSconti_Message"/>
+            <wsdl:output message="tns:responseGetSconti_Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CRM_GESTIONE_SCONTI_bind" type="tns:CRM_GESTIONE_SCONTI_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_GetSconti">
+            <soap:operation style="document" soapAction="execute_GetSconti"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_SCONTI"/>
+                <soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/CRM_GESTIONE_SCONTI"/>
+                <soap:header message="tns:header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="header_Message">
+        <wsdl:part name="part_Header" element="inp1:Header"/>
+    </wsdl:message>
+</wsdl:definitions>

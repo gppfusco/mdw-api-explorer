@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2013 sp1 (http://www.altova.com) by ?Da Ma (Test) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestCreateOdlType">
+    <xsd:sequence>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="CanaleAcquisizioneContatto" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="IdCaseSalesForce" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MatricolaSTB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CodiceParteMatricolaSTB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FlgPresenzaVV" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FlgPresenzaVN" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MatricolaVV" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MatricolaVN" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CodicePromozione" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="InterventoLight" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="FlagGaranzia" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="InterventoFast" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="AnnullaSOAS" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="LoginOperatore" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EmailCliente" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestCreateOdl" type="requestCreateOdlType"/>
+  <xsd:complexType name="responseCreateOdlType">
+    <xsd:sequence>
+      <xsd:element name="CodiceODL" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseCreateOdl" type="responseCreateOdlType"/>
+  <xsd:complexType name="requestAutorizzaSkyServiceType">
+    <xsd:sequence>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="IdCaseSalesForce" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MatricolaLeggibile" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="MatricolaDecoder" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MotivoChiamataCliente" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="TestEPG" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="ProblemaIntermittente" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Operatore" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="ProvenienzaContatto" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MotivoEsigenza" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="EsitoEsigenza" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestAutorizzaSkyService" type="requestAutorizzaSkyServiceType"/>
+  <xsd:element name="responseAutorizzaSkyService" type="basicResponseAsyncType"/>
+  <xsd:complexType name="requestGetOdlSospesiType">
+    <xsd:sequence>
+      <xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="NumeroODL" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="IndicazioniDisponibilitaCliente" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="ComunicazioneInstaller" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="DataDisponibilitaCliente" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="PrimoRecapitoTelefonico" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="FasciaOrariaRepCliente" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SecondoRecapitoTelefonico" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReferenteDiversoTitolare" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetOdlSospesi" type="requestGetOdlSospesiType"/>
+  <xsd:element name="responseGetOdlSospesi" type="basicResponseAsyncType"/>
+  <xsd:complexType name="basicResponseAsyncType">
+    <xsd:sequence>
+      <xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestGetVoucherType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="1" name="mdwCodiceContratto" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="mdwTaglio" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="mdwQuantita" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="mdwCanale" type="xsd:string"/>
+      <xsd:element maxOccurs="1" minOccurs="1" name="mdwPartner">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="DAZN"/>
+            <xsd:enumeration value="SPOTIFY"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetVoucher" type="requestGetVoucherType"/>
+  <xsd:complexType name="responseGetVoucherType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDettagliVoucher" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwSeriale" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="mdwTaglio" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="mdwPartnerInfo" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseGetVoucher" type="responseGetVoucherType"/>
+  <xsd:complexType name="requestSospensioneVoucherType">
+    <xsd:sequence>
+      <xsd:element name="mdwSeriale" maxOccurs="1" minOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="mdwCanale" maxOccurs="1" minOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="mdwPartner" maxOccurs="1" minOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:enumeration value="DAZN"/>
+            <xsd:enumeration value="SPOTIFY"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="mdwCausaleRecesso" maxOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+            <xsd:maxLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestSospensioneVoucher" type="requestSospensioneVoucherType"/>
+  <xsd:complexType name="responseSospensioneVoucherType">
+    <xsd:sequence>
+      <xsd:element name="esito" minOccurs="1" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" minOccurs="1" type="xsd:string"/>
+      <xsd:element name="mdwCanale" minOccurs="0" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseSospensioneVoucher" type="responseSospensioneVoucherType"/>
+  <xsd:complexType name="requestGetInfoVoucherType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="mdwSeriale">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="24"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="1" name="mdwCodiceContratto">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="16"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="1" name="mdwCanale">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="32"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element maxOccurs="1" minOccurs="1" name="mdwPartner">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="DAZN"/>
+            <xsd:enumeration value="SPOTIFY"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetInfoVoucher" type="requestGetInfoVoucherType"/>
+  <xsd:complexType name="responseGetInfoVoucherType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDettagliInfoVoucher" minOccurs="0" maxOccurs="1">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwDettaglioInfoVoucher" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="mdwStatoCartaPartner" minOccurs="1">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="2"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mdwTaglio" minOccurs="1">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="16"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mdwDataCreazione" minOccurs="1">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="24"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mdwDataAttivazione" minOccurs="1">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="24"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mdwDataScadenza" minOccurs="1">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="24"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mdwDataBruciatura" minOccurs="1">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="24"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mdwStatoCartaSky" minOccurs="1">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="2"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mdwCausaleRecesso" minOccurs="1">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="16"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mdwSeriale" minOccurs="0" type="xsd:string">
+                  </xsd:element>
+                  <xsd:element name="mdwPartner" minOccurs="1">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="DAZN"/>
+                        <xsd:enumeration value="SPOTIFY"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mdwCanale" minOccurs="1">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="16"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mdwCodiceContratto" minOccurs="1">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="16"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseGetInfoVoucher" type="responseGetInfoVoucherType"/>
+</xsd:schema>

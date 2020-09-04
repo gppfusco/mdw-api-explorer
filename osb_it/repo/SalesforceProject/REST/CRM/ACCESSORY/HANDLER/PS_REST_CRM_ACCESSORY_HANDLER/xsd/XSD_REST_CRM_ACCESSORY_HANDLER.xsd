@@ -1,0 +1,26 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGetMaxAccessoriesType" type="requestGetMaxAccessoriesTypeType"/>
+  <xsd:complexType name="requestGetMaxAccessoriesTypeType"/>
+  <xsd:element name="responseGetMaxAccessoriesType" type="responseGetMaxAccessoriesTypeType"/>
+  <xsd:complexType name="responseGetMaxAccessoriesTypeType">
+    <xsd:sequence>
+    <xsd:element name="mdwResultCode" type="xsd:string"/> 
+    <xsd:element name="mdwResultDescription" type="xsd:string"/>
+    <xsd:element name="accessories" >
+      <xsd:complexType>
+        <xsd:sequence> 
+          <xsd:element name="accessory" minOccurs="0" maxOccurs="unbounded">
+             <xsd:complexType>
+               <xsd:sequence>
+                <xsd:element name="accessoryName" type="xsd:string"/>
+                <xsd:element name="accessoryMaxValue" type="xsd:string"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element> 
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

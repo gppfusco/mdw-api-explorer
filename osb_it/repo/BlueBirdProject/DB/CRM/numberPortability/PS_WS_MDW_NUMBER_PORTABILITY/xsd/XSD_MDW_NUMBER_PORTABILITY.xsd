@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestVerifyNumberPortability" type="requestNumberPortabilityType"/>
+  <xsd:element name="requestGetPrefixNumber" type="requestGetPrefixNumberType"/>
+  <xsd:element name="responseVerifyNumberPortability" type="responseNumberPortabilityType"/>
+  <xsd:element name="responseVerifyNumberPortabilitySoap" type="responseNumberPortabilitySoapType"/>
+  <xsd:element name="responseGetPrefixNumberSoap" type="responseGetPrefixNumberSoapType"/>
+  <xsd:element name="responseGetPrefixNumber" type="responseGetPrefixNumberType"/>
+
+
+    <xsd:complexType name="requestGetPrefixNumberType">
+  <xsd:sequence>
+    <xsd:element name="cap" type="xsd:string"/>
+    <xsd:element name="comune" type="xsd:string"/>
+  </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="requestNumberPortabilityType">
+  <xsd:sequence>
+    <xsd:element name="cap" type="xsd:string"/>
+    <xsd:element name="comune" type="xsd:string"/>
+    <xsd:element name="prefisso" type="xsd:string"/>
+  </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="responseNumberPortabilityType">
+  <xsd:sequence>
+    <xsd:element name="resultNumberPortability" type="resultNumberPortabilityType" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+  </xsd:complexType>
+
+  
+  <xsd:complexType name="responseNumberPortabilitySoapType">
+  <xsd:sequence>
+    <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+    <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+    <xsd:element ref="responseVerifyNumberPortability" minOccurs="0"/>
+  </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="resultNumberPortabilityType">
+  <xsd:sequence>
+    <xsd:element name="result" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+  </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="responseGetPrefixNumberType">
+  <xsd:sequence>
+    <xsd:element name="resultGetPrefixNumber" type="resultGetPrefixNumberType" minOccurs="0" maxOccurs="unbounded"/>
+  </xsd:sequence>
+  </xsd:complexType>
+
+  
+  <xsd:complexType name="responseGetPrefixNumberSoapType">
+  <xsd:sequence>
+    <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+    <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+    <xsd:element ref="responseGetPrefixNumber" minOccurs="0"/>
+  </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="resultGetPrefixNumberType">
+  <xsd:sequence>
+    <xsd:element name="prefix" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+  </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

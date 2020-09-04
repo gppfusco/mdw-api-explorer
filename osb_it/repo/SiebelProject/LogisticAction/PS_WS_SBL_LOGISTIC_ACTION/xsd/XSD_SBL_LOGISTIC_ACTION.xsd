@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestAssociaMatricola" type="requestAssociaMatricolaType"/>
+	<xsd:element name="responseAssociaMatricola" type="responseGenericFromSBLType"/>
+	<xsd:element name="requestDisassociaMatricola" type="requestDisassociaMatricolaType"/>
+	<xsd:element name="responseDisassociaMatricola" type="responseGenericFromSBLType"/>
+	<xsd:complexType name="requestDisassociaMatricolaType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_Disassocia" type="requestXML_DisassociaToSBL"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestXML_DisassociaToSBL">
+		<xsd:sequence>
+			<xsd:element name="NomeMetodo" type="xsd:string"/>
+			<xsd:element name="CorrelationID" type="xsd:string"/>
+			<xsd:element name="OrderNumber" type="xsd:string"/>
+			<xsd:element name="MatricolaOld" type="xsd:string"/>
+			<xsd:element name="StatoMatricola" type="xsd:string"/>
+			<xsd:element name="IntegrationId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestAssociaMatricolaType">
+		<xsd:sequence>
+			<xsd:element name="requestXML_Associa" type="requestXML_AssociaTypeToSBL"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestXML_AssociaTypeToSBL">
+		<xsd:sequence>
+			<xsd:element name="NomeMetodo" type="xsd:string"/>
+			<xsd:element name="CorrelationID" type="xsd:string"/>
+			<xsd:element name="OrderNumber" type="xsd:string"/>
+			<xsd:element name="MatricolaNew" type="xsd:string"/>
+			<xsd:element name="IntegrationId" type="xsd:string"/>
+			<xsd:element name="StatoItem" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGenericType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="DescrizioneEsito" type="xsd:string"/>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseGenericFromSBLType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="CorrelationIdOM" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="DescrizioneEsito" type="xsd:string"/>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestAssociaDisassocia" type="requestAssociaDisassociaType"/>
+	<xsd:element name="responseAssociaDisassocia" type="responseGenericType"/>
+	<xsd:complexType name="requestAssociaDisassociaType">
+		<xsd:sequence>
+			<xsd:element name="NomeMetodo" type="xsd:string"/>
+			<xsd:element name="CorrelationID" type="xsd:string"/>
+			<xsd:element name="requestXML_Disassocia" type="requestXML_DisassociaType" minOccurs="0"/>
+			<xsd:element name="requestXML_Associa" type="requestXML_AssociaType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestXML_DisassociaType">
+		<xsd:sequence>
+			<xsd:element name="OrderNumber" type="xsd:string"/>
+			<xsd:element name="MatricolaOld" type="xsd:string"/>
+			<xsd:element name="StatoMatricola" type="xsd:string"/>
+			<xsd:element name="IntegrationId" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestXML_AssociaType">
+		<xsd:sequence>
+			<xsd:element name="OrderNumber" type="xsd:string"/>
+			<xsd:element name="MatricolaNew" type="xsd:string"/>
+			<xsd:element name="IntegrationId" type="xsd:string"/>
+			<xsd:element name="StatoItem" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

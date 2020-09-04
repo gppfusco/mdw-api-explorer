@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/kenan/WS_KENAN_VERIFICHE",
+    "name" : "KENANProject_WS_KENAN_VERIFICHE_proxy_PS_WS_KENAN_VERIFICHE",
+    "localPath" : "osb_it\\repo\\KENANProject\\WS\\KENAN\\VERIFICHE\\PS_WS_KENAN_VERIFICHE",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/kenan/WS_KENAN_VERIFICHE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/KenanProject/KenanVerifiche/xsd/XSD_WS_KENAN_VERIFICHE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

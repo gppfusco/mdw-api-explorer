@@ -1,0 +1,66 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_CRM_OFFER_SUMMARY_proxy_PS_REST_CRM_OFFER_SUMMARY",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_OFFER_SUMMARY" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_OFFER_SUMMARY",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/CRM_OFFER_SUMMARY/pipeline/PL_REST_CRM_OFFER_SUMMARY" : {
+        "label" : "Pipeline/SalesforceProject/CRM_OFFER_SUMMARY/pipeline/PL_REST_CRM_OFFER_SUMMARY",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SalesforceProject/CRM_OFFER_SUMMARY/pipeline/PL_INTERNAL_CRM_OFFER_SUMMARY" : {
+            "label" : "Pipeline/SalesforceProject/CRM_OFFER_SUMMARY/pipeline/PL_INTERNAL_CRM_OFFER_SUMMARY",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+                "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/CRM_OFFER_SUMMARY/transformation/createRequest_SF_offerSummary" : {
+                "label" : "Xquery/SalesforceProject/CRM_OFFER_SUMMARY/transformation/createRequest_SF_offerSummary",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/SalesforceProject/Resources/PS_REST_CRM_OFFER_SUMMARY" : {
+                "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_OFFER_SUMMARY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/CRM_OFFER_SUMMARY/transformation/createResponse_offerSummary" : {
+                "label" : "Xquery/SalesforceProject/CRM_OFFER_SUMMARY/transformation/createResponse_offerSummary",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_OFFER_SUMMARY" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_OFFER_SUMMARY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

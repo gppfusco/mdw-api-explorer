@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestBL_CeasedContractsAsyncType">
+		<xsd:sequence>
+			<xsd:element name="ListOfCeasedContracts">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="contract" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="contrId" type="xsd:string"/>
+									<xsd:element name="ceaseReason" type="xsd:string"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestBL_CeasedContractsAsync" type="requestBL_CeasedContractsAsyncType"/>
+	<xsd:complexType name="responseBL_CeasedContractsAsyncType">
+		<xsd:sequence>
+			<xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseBL_CeasedContractsAsync" type="responseBL_CeasedContractsAsyncType"/>
+</xsd:schema>

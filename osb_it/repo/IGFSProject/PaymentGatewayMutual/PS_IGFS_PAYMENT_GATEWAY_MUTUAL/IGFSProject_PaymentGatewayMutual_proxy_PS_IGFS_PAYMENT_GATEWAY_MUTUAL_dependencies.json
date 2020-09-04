@@ -1,0 +1,320 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "IGFSProject_PaymentGatewayMutual_proxy_PS_IGFS_PAYMENT_GATEWAY_MUTUAL",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_PAYMENT_GATEWAY_MUTUAL" : {
+        "label" : "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_PAYMENT_GATEWAY_MUTUAL",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_CONFIRM_OPERATION" : {
+            "label" : "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_CONFIRM_OPERATION",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Confirm_IncassiPagOnlineEnqueue" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Confirm_IncassiPagOnlineEnqueue",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Confirm" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Confirm",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_Confirm" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_Confirm",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_TRANSACTION" : {
+                "label" : "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_TRANSACTION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/KENANProject/proxy/proxy_local/PS_LOCAL_INCASSI_PAG_ONLINE_ENQUEUE" : {
+                "label" : "ProxyService/KENANProject/proxy/proxy_local/PS_LOCAL_INCASSI_PAG_ONLINE_ENQUEUE",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/KENANProject/pipeline/PL_JMS_INCASSI_PAG_ONLINE_ENQUEUE" : {
+                    "label" : "Pipeline/KENANProject/pipeline/PL_JMS_INCASSI_PAG_ONLINE_ENQUEUE",
+                    "properties" : {
+                      "nodeType" : "Pipeline"
+                    },
+                    "successors" : {
+                      "BusinessService/KENANProject/businessService/BS_JMS_KENAN_ENQUEUE" : {
+                        "label" : "BusinessService/KENANProject/businessService/BS_JMS_KENAN_ENQUEUE",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_VOIDAUTH_OPERATION" : {
+            "label" : "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_VOIDAUTH_OPERATION",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_VoidAuth" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_VoidAuth",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_TRANSACTION" : {
+                "label" : "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_TRANSACTION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_VoidAuth" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_VoidAuth",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_INIT_OPERATION" : {
+            "label" : "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_INIT_OPERATION",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Init" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Init",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_INIZIALIZATION" : {
+                "label" : "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_INIZIALIZATION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_Init" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_Init",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_CREDIT_OPERATION" : {
+            "label" : "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_CREDIT_OPERATION",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Credit" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Credit",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_TRANSACTION" : {
+                "label" : "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_TRANSACTION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_Credit" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_Credit",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_VERIFY_OPERATION" : {
+            "label" : "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_VERIFY_OPERATION",
+            "properties" : { },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_INIZIALIZATION" : {
+                "label" : "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_INIZIALIZATION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_Verify" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_Verify",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Verify" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Verify",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_AUTH_OPERATION" : {
+            "label" : "Pipeline/IGFSProject/PaymentGatewayMutual/pipeline/PL_IGFS_AUTH_OPERATION",
+            "properties" : { },
+            "successors" : {
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_Auth" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createResponse_Auth",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequestIncassiPagOnlineEnqueue" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequestIncassiPagOnlineEnqueue",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/IGFSProject/PaymentGateway/wsdl/WS_IGFS_PAYMENT_GATEWAY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_TRANSACTION" : {
+                "label" : "BusinessService/IGFSProject/PaymentGatewayMutual/businessService/BS_WS_IGFS_TRANSACTION",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Auth" : {
+                "label" : "Xquery/IGFSProject/PaymentGatewayMutual/transformation/createRequest_Auth",
+                "properties" : { },
+                "successors" : { }
+              },
+              "ProxyService/KENANProject/proxy/proxy_local/PS_LOCAL_INCASSI_PAG_ONLINE_ENQUEUE" : {
+                "label" : "ProxyService/KENANProject/proxy/proxy_local/PS_LOCAL_INCASSI_PAG_ONLINE_ENQUEUE",
+                "properties" : { },
+                "successors" : {
+                  "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Pipeline/KENANProject/pipeline/PL_JMS_INCASSI_PAG_ONLINE_ENQUEUE" : {
+                    "label" : "Pipeline/KENANProject/pipeline/PL_JMS_INCASSI_PAG_ONLINE_ENQUEUE",
+                    "properties" : {
+                      "nodeType" : "Pipeline"
+                    },
+                    "successors" : {
+                      "BusinessService/KENANProject/businessService/BS_JMS_KENAN_ENQUEUE" : {
+                        "label" : "BusinessService/KENANProject/businessService/BS_JMS_KENAN_ENQUEUE",
+                        "properties" : {
+                          "nodeType" : "BusinessService"
+                        },
+                        "successors" : { }
+                      },
+                      "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+                        "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+                        "properties" : { },
+                        "successors" : { }
+                      },
+                      "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE" : {
+                        "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/IncassiPagOnline/wsdl/WSDL_INCASSI_PAG_ONLINE",
+                        "properties" : { },
+                        "successors" : { }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "ServiceProvider/MDW_CDM/ServiceKeyProviders/key_provider_vodafone" : {
+        "label" : "ServiceProvider/MDW_CDM/ServiceKeyProviders/key_provider_vodafone",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

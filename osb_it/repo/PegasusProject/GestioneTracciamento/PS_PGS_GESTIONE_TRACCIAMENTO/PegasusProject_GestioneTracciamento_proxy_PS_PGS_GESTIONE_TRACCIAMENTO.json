@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/pegasus/WS_PGS_GESTIONE_TRACCIAMENTO",
+    "name" : "PegasusProject_GestioneTracciamento_proxy_PS_PGS_GESTIONE_TRACCIAMENTO",
+    "localPath" : "osb_it\\repo\\PegasusProject\\GestioneTracciamento\\PS_PGS_GESTIONE_TRACCIAMENTO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/pegasus/WS_PGS_GESTIONE_TRACCIAMENTO?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/PegasusProject/GestioneTracciamento/xsd/XSD_PGS_GESTIONE_TRACCIAMENTO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "ORCHESTRATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

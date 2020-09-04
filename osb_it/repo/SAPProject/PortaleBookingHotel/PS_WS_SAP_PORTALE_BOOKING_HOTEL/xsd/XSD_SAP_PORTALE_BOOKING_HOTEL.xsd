@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestSetCommission" type="requestSetCommissionType"/>
+  <xsd:element name="responseSetCommission" type="responseSetCommissionType"/>
+  <xsd:complexType name="requestSetCommissionType">
+    <xsd:sequence>
+      <xsd:element name="mdwHeader">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwBillingAccount" type="xsd:string"/>
+            <xsd:element name="mdwTipoDoc" type="xsd:string"/>
+            <xsd:element name="mdwAnno">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:integer">
+                  <xsd:pattern value="[0-9][0-9][0-9][0-9]"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="mdwPeriodo">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:integer">
+                  <xsd:pattern value="[0-9][0-9]"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="mdwDataEmissione" type="xsd:date"/>
+            <xsd:element name="mdwTotale">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:decimal">
+                  <xsd:totalDigits value="11"/>
+                  <xsd:fractionDigits value="2"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="mdwPosizioni">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwItem" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="mdwTipoCosto" type="xsd:string"/>
+                  <xsd:element name="mdwImportoComm">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:decimal">
+                        <xsd:totalDigits value="11"/>
+                        <xsd:fractionDigits value="2"/>
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="mdwStrutturaId" type="xsd:string"/>
+                  <xsd:element name="mdwStrutturaDescr" type="xsd:string"/>
+                  <xsd:element name="mdwNumeroOdv" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseSetCommissionType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="mdwHeader">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwBillingAccount" type="xsd:string"/>
+            <xsd:element name="mdwTipoDoc" type="xsd:string"/>
+            <xsd:element name="mdwNumeroOdv" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mdwErrore" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetBadPayerList" type="requestGetBadPayerListType"/>
+  <xsd:element name="responseGetBadPayerList" type="responseGetBadPayerListType"/>
+  <xsd:complexType name="requestGetBadPayerListType"/>
+  <xsd:complexType name="responseGetBadPayerListType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="mdwBadPayerList" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwItem" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="mdwBillingAccount" type="xsd:string"/>
+                  <xsd:element name="mdwFatturaNotaCredito" type="xsd:string"/>
+                  <xsd:element name="mdwOrdineDiVendita" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

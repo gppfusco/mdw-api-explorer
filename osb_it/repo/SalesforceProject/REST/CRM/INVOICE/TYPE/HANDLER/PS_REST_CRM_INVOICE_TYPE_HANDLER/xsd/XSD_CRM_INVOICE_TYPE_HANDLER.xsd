@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGetCompatibleInvoiceSendingType" type="requestGetCompatibleInvoiceSendingTypeType"/>
+  <xsd:complexType name="requestGetCompatibleInvoiceSendingTypeType">
+    <xsd:sequence>
+      <xsd:element name="mdwBroadBandFlag" type="FlagType"/>
+      <xsd:element name="mdwContractType" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseGetCompatibleInvoiceSendingType" type="responseGetCompatibleInvoiceSendingTypeType"/>
+  <xsd:complexType name="responseGetCompatibleInvoiceSendingTypeType">
+    <xsd:sequence>
+      <xsd:element name="mdwInvoices" type="mdwInvoicesType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwInvoicesType">
+    <xsd:sequence>
+      <xsd:element name="mdwInvoice" type="mdwInvoiceType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwInvoiceType">
+    <xsd:sequence>
+      <xsd:element name="mdwInvoiceTypelabel" type="xsd:string"/>
+      <xsd:element name="mdwInvoiceFormats" type="mdwInvoiceFormatType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwInvoiceFormatType">
+    <xsd:sequence>
+      <xsd:element name="mdwFormat" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="FlagType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="requestInvoiceDeliverySettings" type="requestInvoiceDeliverySettingsType"/>
+  <xsd:complexType name="requestInvoiceDeliverySettingsType">
+    <xsd:sequence>
+      <xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/> 
+      <xsd:element name="mdwCoBrowsingFlag" type="FlagType" />
+      <xsd:element name="mdwConnIdCTI" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwInteractionId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="contractData">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="custId" type="xsd:string"/>
+            <xsd:element name="contrId" type="xsd:string"/>
+            <xsd:element name="mdwFormatChoice" type="xsd:string"/>
+            <xsd:element name="mdwInvoiceSendModalityChoice" type="xsd:string"/>
+            <xsd:element name="mdwBroadBandFlag" type="FlagType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseInvoiceDeliverySettings" type="responseInvoiceDeliverySettingsType"/>
+  <xsd:complexType name="responseInvoiceDeliverySettingsType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwInteractionId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCoBrowsingFlag" type="FlagType" minOccurs="0"/>
+      <xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwServiceRequests" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwServiceRequestID" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

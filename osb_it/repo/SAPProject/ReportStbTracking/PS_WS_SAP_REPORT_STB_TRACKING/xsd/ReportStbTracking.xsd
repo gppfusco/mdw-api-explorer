@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema elementFormDefault="qualified" targetNamespace="http://www.skytv.it/mdw/data" xmlns="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="requestReportStbTracking" type="requestStbTrackingType"/>
+	<xsd:element name="responseReportStbTracking" type="responseStbTrackingType"/>
+	<xsd:complexType name="requestStbTrackingType">
+		<xsd:sequence>
+			<xsd:element name="DataInizio" type="dataType"/>
+			<xsd:element minOccurs="0" name="DataFine" type="dataType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType final="restriction" name="dataType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="responseStbTrackingType">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="DescrizioneEsito" type="xsd:string"/>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="DettaglioApparati" type="DettaglioApparatiType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DettaglioApparatiType">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="DettaglioApparato" type="DettaglioApparatoType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DettaglioApparatoType">
+		<xsd:sequence>
+			<xsd:element name="RecordId">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="25"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="NumeroOrdine">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Posizione">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="5"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Matricola">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Progressivo">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="DataInserimento" type="dataType"/>
+			<xsd:element name="DataStralcio" type="dataType"/>
+			<xsd:element name="DataOperazione" type="dataType"/>
+			<xsd:element name="Quantita">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="17"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="Valore">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="idMovimento">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="6"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

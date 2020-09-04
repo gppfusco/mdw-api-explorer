@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MTFSProject_WS_CRM_MTFS_PAG_ONLINE_CIRCUITO_proxy_PS_WS_CRM_MTFS_PAG_ONLINE_CIRCUITO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/MTFSProject/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO/pipeline/PL_WS_CRM_PAG_ONLINE_CIRCUITO" : {
+        "label" : "Pipeline/MTFSProject/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO/pipeline/PL_WS_CRM_PAG_ONLINE_CIRCUITO",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/MTFSProject/PagOnlineCircuito/wsdl/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MTFSProject/PagOnlineCircuito/wsdl/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MTFSProject/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO/businessService/BS_TUX_PAG_ONLINE_CIRCUITO" : {
+            "label" : "BusinessService/MTFSProject/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO/businessService/BS_TUX_PAG_ONLINE_CIRCUITO",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/MTFSProject/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO/trasformation/CreateResponse_WS_CRM_MTFS_PAG_ONLINE_CIRCUITO" : {
+            "label" : "Xquery/MTFSProject/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO/trasformation/CreateResponse_WS_CRM_MTFS_PAG_ONLINE_CIRCUITO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MTFSProject/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO/trasformation/CreateRequest_BS_TUX_PAG_ONLINE_CIRCUITO" : {
+            "label" : "Xquery/MTFSProject/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO/trasformation/CreateRequest_BS_TUX_PAG_ONLINE_CIRCUITO",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/MTFSProject/PagOnlineCircuito/wsdl/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MTFSProject/PagOnlineCircuito/wsdl/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SALESFORCE_CheckCallTranscomm_proxy_PS_WS_SF_CHECK_CALL_TRANSCOMM",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/CheckCallTranscomm/wsdl/WS_SF_CHECK_CALL_TRANSCOMM" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/CheckCallTranscomm/wsdl/WS_SF_CHECK_CALL_TRANSCOMM",
+        "properties" : { },
+        "successors" : { }
+      },
+      "BusinessService/BlueBirdProject/SALESFORCE/businessService/BS_WS_SF_LEAD_HANDLER" : {
+        "label" : "BusinessService/BlueBirdProject/SALESFORCE/businessService/BS_WS_SF_LEAD_HANDLER",
+        "properties" : {
+          "nodeType" : "BusinessService"
+        },
+        "successors" : { }
+      }
+    }
+  }
+}

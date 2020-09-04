@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/ALIGN_SPY_CLOSE_MVC" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_SPY_ALIGN_SPY_CLOSE_MVC" targetNamespace="http://www.skytv.it/mdw/service/ALIGN_SPY_CLOSE_MVC">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SPY_ALIGN_SPY_CLOSE_MVC.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestAlignSpyCloseMVCtype_message">
+		<wsdl:part name="part_requestAlignSpyCloseMVCtype" element="inp1:requestAlignSpyCloseMVC"/>
+	</wsdl:message>
+        <wsdl:message name="responseAlignSpyCloseMVCtype_message">
+		<wsdl:part name="part_responseAlignSpyCloseMVCtype" element="inp1:responseAlignSpyCloseMVC"/>
+	</wsdl:message>
+	<wsdl:message name="header_message">
+		<wsdl:part name="part_header" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="ALIGN_SPY_CLOSE_MVC_ptt">
+		<wsdl:operation name="execute_AlignSpyCloseMVC">
+			<wsdl:input message="tns:requestAlignSpyCloseMVCtype_message"/>
+			<wsdl:output message="tns:responseAlignSpyCloseMVCtype_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="ALIGN_SPY_CLOSE_MVC_pttSOAP11Binding" type="tns:ALIGN_SPY_CLOSE_MVC_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_AlignSpyCloseMVC">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/ALIGN_SPY_CLOSE_MVC/execute_AlignSpyCloseMVC" style="document"/>
+			<wsdl:input>
+                                <soap:body parts="part_requestAlignSpyCloseMVCtype" use="literal"/>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+			</wsdl:input>
+                        <wsdl:output>
+				<soap:header message="tns:header_message" part="part_header" use="literal"/>
+                                <soap:body parts="part_responseAlignSpyCloseMVCtype" use="literal"/>
+                        </wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestEnabledChannels" type="requestEnabledChannelsType"/>
+  <xsd:element name="responseEnabledChannels" type="responseEnabledChannelsType"/>
+  <xsd:complexType name="requestEnabledChannelsType">
+    <xsd:sequence>
+      <xsd:element name="mdwPackageId" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="mdwBitmapType" type="xsd:string"/>
+      <xsd:element name="mdwBitmapPremium" minOccurs="0" type="xsd:string"/>
+      <xsd:element name="mdwVision" minOccurs="0" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseEnabledChannelsType">
+    <xsd:sequence>
+      <xsd:element name="mdwResultCode" type="xsd:string"/>
+      <xsd:element name="mdwResultDescription" type="xsd:string"/>
+      <xsd:element name="mdwChannels">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwDescriptionChannel" minOccurs="0" type="xsd:string"/>
+            <xsd:element name="mdwchannel" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="mdwChannelName" type="xsd:string"/>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,11 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "TestMario_TestProxyText_PROXY_TEST",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "Messaging"
+    },
+    "successors" : { }
+  }
+}

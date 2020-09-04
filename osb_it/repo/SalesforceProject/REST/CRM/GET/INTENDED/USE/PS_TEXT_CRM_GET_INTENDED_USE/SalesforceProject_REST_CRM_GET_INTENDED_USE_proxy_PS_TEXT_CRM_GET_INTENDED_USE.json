@@ -1,0 +1,17 @@
+{
+  "MessagingApi" : {
+    "type" : "Messaging",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/rest/getIntendedUse",
+    "name" : "SalesforceProject_REST_CRM_GET_INTENDED_USE_proxy_PS_TEXT_CRM_GET_INTENDED_USE",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\REST\\CRM\\GET\\INTENDED\\USE\\PS_TEXT_CRM_GET_INTENDED_USE",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+      "xsdSchemas" : [ ]
+    },
+    "integrationScenario" : "PROXY",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SPYProject_BL_Run_proxy_PS_WS_SPY_BL_RUN",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SPYProject/BL_Run/wsdl/WS_SPY_BL_RUN" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/BL_Run/wsdl/WS_SPY_BL_RUN",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SPYProject/BL_Run/pipeline/PL_WS_SPY_BL_RUN" : {
+        "label" : "Pipeline/SPYProject/BL_Run/pipeline/PL_WS_SPY_BL_RUN",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SPYProject/BL_Run/wsdl/WS_SPY_BL_RUN" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/BL_Run/wsdl/WS_SPY_BL_RUN",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SPYProject/BL_Run/pipeline/PL_INTERNAL_SPY_BL_RUN" : {
+            "label" : "Pipeline/SPYProject/BL_Run/pipeline/PL_INTERNAL_SPY_BL_RUN",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/SPYProject/BL_Run/wsdl/WS_SPY_BL_RUN" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SPYProject/BL_Run/wsdl/WS_SPY_BL_RUN",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SPYProject/BL_Run/businessServices/BS_WS_SPY_BL_RUN" : {
+                "label" : "BusinessService/SPYProject/BL_Run/businessServices/BS_WS_SPY_BL_RUN",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SPYProject/BL_Run/trasformation/createRequestBLRun" : {
+                "label" : "Xquery/SPYProject/BL_Run/trasformation/createRequestBLRun",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SPYProject/BL_Run/trasformation/createResponseBLRun" : {
+                "label" : "Xquery/SPYProject/BL_Run/trasformation/createResponseBLRun",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

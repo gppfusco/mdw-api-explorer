@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestAlignOutboundForced" type="requestAlignOutboundForcedType"/>
+	<xsd:complexType name="requestAlignOutboundForcedType">
+		<xsd:sequence>
+			<xsd:element name="ListOfEntity" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Entity" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Type" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="ListOfFields" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="Fields" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="key" type="xsd:string"/>
+															<xsd:element name="value" type="xsd:string"/>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseAlignOutboundForced" type="responseAlignOutboundForcedType"/>
+	<xsd:complexType name="responseAlignOutboundForcedType">
+		<xsd:sequence>
+			<xsd:element name="Esito" type="xsd:string" nillable="true"/>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="basicResponseAsyncType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Esito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestCheckGuastoSmcType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MatricolaSMC" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="BloccoODLFurto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="IdCaseSalesForce" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BloccoODLAperto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="BloccoGiaInviata" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="NewStatoMatricola" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="NumPenale" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CheckZ7" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="InvioZ7" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ProgressivoMagAltriApp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Promozione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ODLManutAperto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MotivoRichiesta" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCheckGuastoSmc" type="requestCheckGuastoSmcType"/>
+	<xsd:element name="responseCheckGuastoSmc" type="basicResponseAsyncType"/>
+	<xsd:element name="requestCheckGuastoSmcAsync" type="requestCheckGuastoSmcType"/>
+	<xsd:element name="responseCheckGuastoSmcAsync" type="basicResponseAsyncType"/>
+	<xsd:complexType name="requestCheckGuastoDkType">
+		<xsd:sequence>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="IdCaseSalesForce" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="MatricolaDK" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="StopERR" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Promozione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="StatoItem" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="BloccoCreazione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CreaRichiesta" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ODLManutAperto" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="InserisciServizio" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="MotivoRichiesta" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="SoasSTB" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Operatore" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfFields" type="ListOfFieldsType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ListOfFieldsType">
+		<xsd:sequence>
+			<xsd:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="FieldType">
+		<xsd:sequence>
+			<xsd:element name="Nome" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Valore" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="Tipo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCheckGuastoDk" type="requestCheckGuastoDkType"/>
+	<xsd:element name="responseCheckGuastoDk" type="basicResponseAsyncType"/>
+	<xsd:element name="requestCheckGuastoDkAsync" type="requestCheckGuastoDkType"/>
+	<xsd:element name="responseCheckGuastoDkAsync" type="basicResponseAsyncType"/>
+</xsd:schema>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestGetHotelListType"/>
+  <xsd:element name="requestGetHotelList" type="requestGetHotelListType"/>
+  <xsd:complexType name="responseGetHotelListType">
+    <xsd:sequence>
+    <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="mdwHotels" minOccurs="0" maxOccurs="1">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwHotel" type="hotelType" maxOccurs="unbounded" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="hotelType">
+    <xsd:sequence>
+      <xsd:element name="mdwIDStruttura" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwBillingAccount" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwFlgBAPrimario" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwStatoContratto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwIndirizzoUbicazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwTelefono" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwPuntiVisione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwInizioPrimaStagione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwFinePrimaStagione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwInizioSecondaStagione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwFineSecondaStagione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDataRichiestaCessazione" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwFlagAffiliazioneBooking" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDataAffiliazioneBooking" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="mdwDataUltimaModificaFlagBooking" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseGetHotelList" type="responseGetHotelListType"/>
+  <xsd:complexType name="requestGetBillingHotelListType"/>
+  <xsd:complexType name="responseGetBillingHotelListType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="mdwBillingHotels" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwBillingHotel" type="billingHotelType" minOccurs="0" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="billingHotelType">
+    <xsd:sequence>
+      <xsd:element name="mdwBillingAccount" type="xsd:string"/>
+      <xsd:element name="mdwBillingAccountToken" type="xsd:string"/>
+      <xsd:element name="mdwNomeSottoscrittore" type="xsd:string"/>
+      <xsd:element name="mdwCFSottoscrittore" type="xsd:string"/>
+      <xsd:element name="mdwPaese" type="xsd:string"/>
+      <xsd:element name="mdwLocalita" type="xsd:string"/>
+      <xsd:element name="mdwProvincia" type="xsd:string"/>
+      <xsd:element name="mdwVia" type="xsd:string"/>
+      <xsd:element name="mdwCAP" type="xsd:string"/>
+      <xsd:element name="mdwPartitaIva" type="xsd:string"/>
+      <xsd:element name="mdwCondizionePag" type="xsd:string"/>
+      <xsd:element name="mdwTipoMOP" type="xsd:string"/>
+      <xsd:element name="mdwFlagAffiliazioneBooking" type="xsd:string"/>
+      <xsd:element name="mdwCodiceDestinatario" type="xsd:string" minOccurs="0" />
+      <xsd:element name="mdwPecFatturazione" type="xsd:string" minOccurs="0" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetBillingHotelList" type="requestGetBillingHotelListType"/>
+  <xsd:element name="responseGetBillingHotelList" type="responseGetBillingHotelListType"/>
+  <xsd:complexType name="requestTrackingEsigenzeType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string"/>
+      <xsd:element name="mdwCodiceEvento" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseTrackingEsigenzeType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestTrackingEsigenze" type="requestTrackingEsigenzeType"/>
+  <xsd:element name="responseTrackingEsigenze" type="responseTrackingEsigenzeType"/>
+</xsd:schema>

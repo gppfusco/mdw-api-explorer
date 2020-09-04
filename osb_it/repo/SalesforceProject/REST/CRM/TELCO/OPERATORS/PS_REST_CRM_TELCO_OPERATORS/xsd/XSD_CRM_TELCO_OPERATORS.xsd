@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestGetTelcoOperators" type="requestGetTelcoOperatorsType"/>
+
+  <xsd:complexType name="requestGetTelcoOperatorsType">
+    <xsd:sequence/>
+  </xsd:complexType>
+    <xsd:element name="responseGetTelcoOperators" type="responseGetTelcoOperatorsType"/>
+  <xsd:complexType name="responseGetTelcoOperatorsType">
+    <xsd:sequence>
+      <xsd:element name="mdwTelcoOperators" type="mdwTelcoOperatorsType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwTelcoOperatorsType">
+    <xsd:sequence>
+      <xsd:element name="mdwTelcoOperator" type="mdwTelcoOperatorType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mdwTelcoOperatorType">
+    <xsd:sequence>
+      <xsd:element name="mdwOperatorName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOperatorCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOperatorNumberPortabilityCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOperatorVoiceMigrationCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOperatorDataMigrationCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwOperatorTelecomPin" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

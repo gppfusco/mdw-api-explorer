@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/siebel/WS_CRM_SIE_GESTIONE_APPARATI_ASYNC",
+    "name" : "SiebelProject_offline_proxy_PS_WS_CRM_SIE_GESTIONE_APPARATI_ASYNC",
+    "localPath" : "osb_it\\repo\\SiebelProject\\offline\\PS_WS_CRM_SIE_GESTIONE_APPARATI_ASYNC",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/siebel/WS_CRM_SIE_GESTIONE_APPARATI_ASYNC?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SiebelProject/GestioneApparati/xsd/XSD_CRM_SIE_GESTIONE_APPARATI",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

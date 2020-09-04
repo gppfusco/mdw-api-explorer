@@ -1,0 +1,252 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_OSS_appointmentManagement_proxy_PS_WS_OSS_MANAGE_APPOINTMENTS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_OSS_MANAGE_APPOINTMENTS" : {
+        "label" : "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_OSS_MANAGE_APPOINTMENTS",
+        "properties" : { },
+        "successors" : {
+          "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_OSS_MANAGE_APPOINTMENTS_ReserveAppointment" : {
+            "label" : "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_OSS_MANAGE_APPOINTMENTS_ReserveAppointment",
+            "properties" : { },
+            "successors" : {
+              "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_INTERNAL_UPDATE_APPOINTMENT_ON_ESCALATION_ENQUEUE" : {
+                "label" : "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_INTERNAL_UPDATE_APPOINTMENT_ON_ESCALATION_ENQUEUE",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_JMS_SF_UPDATE_APPOINTMENT_ON_ESCALATION_ENQUEUE" : {
+                    "label" : "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_JMS_SF_UPDATE_APPOINTMENT_ON_ESCALATION_ENQUEUE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_INTERNAL_TRACE_APPOINTMENT_ENQUEUE" : {
+                "label" : "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_INTERNAL_TRACE_APPOINTMENT_ENQUEUE",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_JMS_SF_TRACE_APPOINTMENT_ENQUEUE" : {
+                    "label" : "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_JMS_SF_TRACE_APPOINTMENT_ENQUEUE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createResponse_WS_APPOINTMENTS_ReserveAppointment" : {
+                "label" : "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createResponse_WS_APPOINTMENTS_ReserveAppointment",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_REST_OSS_APPOINTMENTS" : {
+                "label" : "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_REST_OSS_APPOINTMENTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_INTERNAL_TOOL_AGENDA_MGMT_RESERVE_APPOINTMENT_ENQUEUE" : {
+                "label" : "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_INTERNAL_TOOL_AGENDA_MGMT_RESERVE_APPOINTMENT_ENQUEUE",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_JMS_SF_TRACE_APPOINTMENT_ENQUEUE" : {
+                    "label" : "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_JMS_SF_TRACE_APPOINTMENT_ENQUEUE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createRequest_AgendaMgmtSlotReservation" : {
+                "label" : "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createRequest_AgendaMgmtSlotReservation",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createRequest_BS_APPOINTMENTS_ReserveAppointment" : {
+                "label" : "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createRequest_BS_APPOINTMENTS_ReserveAppointment",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_OSS_MANAGE_APPOINTMENTS_CancelAppointment" : {
+            "label" : "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_OSS_MANAGE_APPOINTMENTS_CancelAppointment",
+            "properties" : { },
+            "successors" : {
+              "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createRequest_BS_APPOINTMENTS_CancelAppointment" : {
+                "label" : "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createRequest_BS_APPOINTMENTS_CancelAppointment",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/manageAppointment/wsdl/WS_OSS_MANAGE_APPOINTMENTS" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/manageAppointment/wsdl/WS_OSS_MANAGE_APPOINTMENTS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_REST_OSS_APPOINTMENTS" : {
+                "label" : "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_REST_OSS_APPOINTMENTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createResponse_WS_APPOINTMENTS_CancelAppointment" : {
+                "label" : "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createResponse_WS_APPOINTMENTS_CancelAppointment",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_OSS_MANAGE_APPOINTMENTS_AvailableAppointments" : {
+            "label" : "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_OSS_MANAGE_APPOINTMENTS_AvailableAppointments",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_INTERNAL_TOOL_AGENDA_MGMT_SLOT_PRIORITIZATION" : {
+                "label" : "Pipeline/BlueBirdProject/OSS/appointmentManagement/pipeline/PL_INTERNAL_TOOL_AGENDA_MGMT_SLOT_PRIORITIZATION",
+                "properties" : { },
+                "successors" : {
+                  "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_REST_AGENDA_MGMT_TOOL_APPOINTMENTS" : {
+                    "label" : "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_REST_AGENDA_MGMT_TOOL_APPOINTMENTS",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/AGENDA_MGTM_TOOL/slotPrioritization/xsd/XSD_AGENDA_MGMT_TOOL_APPOINTMENTS" : {
+                    "label" : "XMLSchema/MDW_CDM/ApplicationObjects/BLUEBIRD/AGENDA_MGTM_TOOL/slotPrioritization/xsd/XSD_AGENDA_MGMT_TOOL_APPOINTMENTS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS" : {
+                    "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_OSS_MANAGE_APPOINTMENTS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createResponse_WS_APPOINTMENTS_AvailableAppointments" : {
+                "label" : "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createResponse_WS_APPOINTMENTS_AvailableAppointments",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_REST_OSS_APPOINTMENTS" : {
+                "label" : "BusinessService/BlueBirdProject/OSS/appointmentManagement/businessservice/BS_REST_OSS_APPOINTMENTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createRequest_BS_APPOINTMENTS_AvailableAppointments" : {
+                "label" : "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createRequest_BS_APPOINTMENTS_AvailableAppointments",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createRequest_AgendaMgmtSlotPrioritization" : {
+                "label" : "Xquery/BlueBirdProject/OSS/appointmentManagement/transformation/createRequest_AgendaMgmtSlotPrioritization",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/manageAppointment/wsdl/WS_OSS_MANAGE_APPOINTMENTS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/OSS/manageAppointment/wsdl/WS_OSS_MANAGE_APPOINTMENTS",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

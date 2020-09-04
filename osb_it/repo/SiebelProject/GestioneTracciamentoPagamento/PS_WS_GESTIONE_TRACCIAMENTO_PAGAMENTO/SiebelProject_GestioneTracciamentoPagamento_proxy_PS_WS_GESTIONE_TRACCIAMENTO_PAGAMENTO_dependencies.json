@@ -1,0 +1,115 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_GestioneTracciamentoPagamento_proxy_PS_WS_GESTIONE_TRACCIAMENTO_PAGAMENTO",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GestioneTracciamentoPagamento/wsdl/WS_GESTIONE_TRACCIAMENTO_PAGAMENTO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GestioneTracciamentoPagamento/wsdl/WS_GESTIONE_TRACCIAMENTO_PAGAMENTO",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/GestioneTracciamentoPagamento/pipeline/PL_JMS_CREA_ESIGENZA_SISAL_ENQUEUE" : {
+        "label" : "Pipeline/SiebelProject/GestioneTracciamentoPagamento/pipeline/PL_JMS_CREA_ESIGENZA_SISAL_ENQUEUE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "ProxyService/KENANProject/WS_BILL_PAYMENT/proxy/PS_LOCAL_BILL_NOTIFY_ENQUEUE" : {
+            "label" : "ProxyService/KENANProject/WS_BILL_PAYMENT/proxy/PS_LOCAL_BILL_NOTIFY_ENQUEUE",
+            "properties" : { },
+            "successors" : {
+              "Pipeline/KENANProject/WS_BILL_PAYMENT/pipeline/internalBillNotify/PL_INTERNAL_BILL_NOTIFY_ENQUEUE" : {
+                "label" : "Pipeline/KENANProject/WS_BILL_PAYMENT/pipeline/internalBillNotify/PL_INTERNAL_BILL_NOTIFY_ENQUEUE",
+                "properties" : {
+                  "nodeType" : "Pipeline"
+                },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_JMS_BILL_NOTIFY" : {
+                    "label" : "BusinessService/KENANProject/WS_BILL_PAYMENT/businessServices/BS_JMS_BILL_NOTIFY",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/KenanProject/BollettiniDematerializzati/wsdl/WS_BOLLETTINI_DEMATERIALIZZATI" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/BollettiniDematerializzati/wsdl/WS_BOLLETTINI_DEMATERIALIZZATI",
+                    "properties" : { },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/KenanProject/BollettiniDematerializzati/wsdl/WS_BOLLETTINI_DEMATERIALIZZATI" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/KenanProject/BollettiniDematerializzati/wsdl/WS_BOLLETTINI_DEMATERIALIZZATI",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDW_CO/transformation/createSimpleResponseWithTid" : {
+            "label" : "Xquery/MDW_CO/transformation/createSimpleResponseWithTid",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GestioneTracciamentoPagamento/wsdl/WS_GESTIONE_TRACCIAMENTO_PAGAMENTO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GestioneTracciamentoPagamento/wsdl/WS_GESTIONE_TRACCIAMENTO_PAGAMENTO",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/GestioneTracciamentoPagamento/transformations/createRequestBillNotifyEnqueueSisal" : {
+            "label" : "Xquery/SiebelProject/GestioneTracciamentoPagamento/transformations/createRequestBillNotifyEnqueueSisal",
+            "properties" : { },
+            "successors" : { }
+          },
+          "ProxyService/SalesforceProject/WS_CRM_GESTIONE_TRACCIAMENTO_PAG/proxy/PS_LOCAL_CRM_GEST_TRACCIAM_PAG_ENQUEUE" : {
+            "label" : "ProxyService/SalesforceProject/WS_CRM_GESTIONE_TRACCIAMENTO_PAG/proxy/PS_LOCAL_CRM_GEST_TRACCIAM_PAG_ENQUEUE",
+            "properties" : { },
+            "successors" : {
+              "Pipeline/SalesforceProject/WS_CRM_GESTIONE_TRACCIAMENTO_PAG/pipeline/PL_INTERNAL_CRM_GESTIONE_TRACCIAM_PAG_ENQUEUE" : {
+                "label" : "Pipeline/SalesforceProject/WS_CRM_GESTIONE_TRACCIAMENTO_PAG/pipeline/PL_INTERNAL_CRM_GESTIONE_TRACCIAM_PAG_ENQUEUE",
+                "properties" : { },
+                "successors" : {
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GestioneTracciamentoPagamento/wsdl/WS_GESTIONE_TRACCIAMENTO_PAGAMENTO" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GestioneTracciamentoPagamento/wsdl/WS_GESTIONE_TRACCIAMENTO_PAGAMENTO",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/SalesforceProject/WS_CRM_GESTIONE_TRACCIAMENTO_PAG/businessServices/BS_JMS_SF_SISAL_POSTE" : {
+                    "label" : "BusinessService/SalesforceProject/WS_CRM_GESTIONE_TRACCIAMENTO_PAG/businessServices/BS_JMS_SF_SISAL_POSTE",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GestioneTracciamentoPagamento/wsdl/WS_GESTIONE_TRACCIAMENTO_PAGAMENTO" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GestioneTracciamentoPagamento/wsdl/WS_GESTIONE_TRACCIAMENTO_PAGAMENTO",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

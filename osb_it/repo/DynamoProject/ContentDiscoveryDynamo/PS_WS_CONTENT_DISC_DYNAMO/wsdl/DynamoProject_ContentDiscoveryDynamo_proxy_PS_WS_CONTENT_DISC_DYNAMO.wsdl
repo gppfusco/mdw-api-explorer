@@ -1,0 +1,104 @@
+<wsdl:definitions name="WS_CONTENT_DISC_DYNAMO" targetNamespace="http://www.skytv.it/mdw/service/CONTENT_DISC_DYNAMO" xmlns:tns="http://www.skytv.it/mdw/service/CONTENT_DISC_DYNAMO" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <xsd:schema>
+            <xsd:import namespace="http://www.skytv.it/mdw/data"
+                        schemaLocation="../xsd/XSD_CONTENT_DISCOVERY_DYNAMO.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data"
+                        schemaLocation="../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="requestUpsertItemDynamo_message">
+        <wsdl:part name="part_requestUpsertItemDynamo" element="inp1:requestUpsertItemDynamo"/>
+    </wsdl:message>
+    <wsdl:message name="responseUpsertItemDynamo_message">
+        <wsdl:part name="part_responseUpsertItemDynamo" element="inp1:responseUpsertItemDynamo"/>
+    </wsdl:message>
+    <wsdl:message name="requestDeleteItemDynamo_message">
+        <wsdl:part name="part_requestDeleteItemDynamo" element="inp1:requestDeleteItemDynamo"/>
+    </wsdl:message>
+    <wsdl:message name="responseDeleteItemDynamo_message">
+        <wsdl:part name="part_responseDeleteItemDynamo" element="inp1:responseDeleteItemDynamo"/>
+    </wsdl:message>
+    <wsdl:message name="Header_Message">
+    <wsdl:part name="part_Header" element="inp1:Header"/>
+  </wsdl:message>
+    <wsdl:portType name="CONTENT_DISC_DYNAMO_ptt">
+        <wsdl:operation name="execute_upsertItemDynamo">
+            <wsdl:input message="tns:requestUpsertItemDynamo_message"/>
+            <wsdl:output message="tns:responseUpsertItemDynamo_message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_deleteItemDynamo">
+            <wsdl:input message="tns:requestDeleteItemDynamo_message"/>
+            <wsdl:output message="tns:responseDeleteItemDynamo_message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_upsertFlagPrivacyDynamo">
+            <wsdl:input message="tns:requestUpsertFlagPrivacyDynamo_message"/>
+            <wsdl:output message="tns:responseUpsertFlagPrivacyDynamo_message"/>
+        </wsdl:operation>
+        <wsdl:operation name="execute_deleteFlagPrivacyDynamo">
+            <wsdl:input message="tns:requestDeleteFlagPrivacyDynamo_message"/>
+            <wsdl:output message="tns:responseDeleteFlagPrivacyDynamo_message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CONTENT_DISC_DYNAMO_bind" type="tns:CONTENT_DISC_DYNAMO_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute_upsertItemDynamo">
+            <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/CONTENT_DISC_DYNAMO/execute_upsertItemDynamo"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestUpsertItemDynamo"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseUpsertItemDynamo"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_deleteItemDynamo">
+            <soap:operation style="document" soapAction="http://www.skytv.it/mdw/service/CONTENT_DISC_DYNAMO/execute_deleteItemDynamo"/>
+            <wsdl:input>
+              <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+                <soap:body use="literal" parts="part_requestDeleteItemDynamo"/>
+            </wsdl:input>
+            <wsdl:output>
+              <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+                <soap:body use="literal" parts="part_responseDeleteItemDynamo"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_upsertFlagPrivacyDynamo">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CONTENT_DISC_DYNAMO/execute_upsertFlagPrivacyDynamo"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestUpsertFlagPrivacyDynamo"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseUpsertFlagPrivacyDynamo"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="execute_deleteFlagPrivacyDynamo">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/CONTENT_DISC_DYNAMO/execute_deleteFlagPrivacyDynamo"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestDeleteFlagPrivacyDynamo"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseDeleteFlagPrivacyDynamo"/>
+                <soap:header message="tns:Header_Message" part="part_Header" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:message name="requestUpsertFlagPrivacyDynamo_message">
+        <wsdl:part name="part_requestUpsertFlagPrivacyDynamo" element="inp1:requestUpsertFlagPrivacyDynamo"/>
+    </wsdl:message>
+    <wsdl:message name="responseUpsertFlagPrivacyDynamo_message">
+        <wsdl:part name="part_responseUpsertFlagPrivacyDynamo" element="inp1:responseUpsertFlagPrivacyDynamo"/>
+    </wsdl:message>
+    <wsdl:message name="requestDeleteFlagPrivacyDynamo_message">
+        <wsdl:part name="part_requestDeleteFlagPrivacyDynamo" element="inp1:requestDeleteFlagPrivacyDynamo"/>
+    </wsdl:message>
+    <wsdl:message name="responseDeleteFlagPrivacyDynamo_message">
+        <wsdl:part name="part_responseDeleteFlagPrivacyDynamo" element="inp1:responseDeleteFlagPrivacyDynamo"/>
+    </wsdl:message>
+</wsdl:definitions>

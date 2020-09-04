@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:complexType name="requestGetEWalletFlgType">
+    <xsd:sequence>
+      <xsd:element name="customer" type="customerGetEWalletFlgType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerGetEWalletFlgType">
+    <xsd:sequence>
+      <xsd:element name="contact" type="contactGetEWalletFlgType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="contactGetEWalletFlgType">
+    <xsd:sequence>
+      <xsd:element name="contactFiscalCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetEWalletFlg" type="requestGetEWalletFlgType">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="responseGetEWalletFlgType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="custEWalletFlg" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseGetEWalletFlg" type="responseGetEWalletFlgType"/>
+  <xsd:complexType name="requestCheckStatusType">
+    <xsd:sequence>
+      <xsd:element name="customer" type="customerCheckStatusType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseCheckStatusType">
+   <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="mdwResult" type="resultCheckStatusType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerCheckStatusType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+   <xsd:complexType name="contactCheckStatusType">
+    <xsd:sequence>
+      <xsd:element name="contactFiscalCode" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="resultCheckStatusType">
+    <xsd:sequence>
+      <xsd:element name="mdwStato" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestCheckStatus" type="requestCheckStatusType"/>
+  <xsd:element name="responseCheckStatus" type="responseCheckStatusType"/>
+  <xsd:complexType name="requestAdesioneType">
+     <xsd:sequence>
+      <xsd:element name="customer" type="customerAdesioneType"/>
+     <xsd:element name="mdwIspCustomerFlg" type="xsd:string"/>
+      <xsd:element name="mdwAdvisoryCashbackFlg" type="xsd:string"/>
+      <xsd:element name="mdwTermsConditionsCashbackFlg" type="xsd:string"/>
+      <xsd:element name="mdwContrSEDateAgeingLoyalty" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseAdesioneType">
+   <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerAdesioneType">
+    <xsd:sequence>
+      <xsd:element name="contact" type="contactAdesioneType" />
+      <xsd:element name="custId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="contactAdesioneType">
+    <xsd:sequence>
+      <xsd:element name="contactFiscalCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestAdesione" type="requestAdesioneType"/>
+  <xsd:element name="responseAdesione" type="responseAdesioneType"/>
+  <xsd:complexType name="requestRevocaType">
+     <xsd:sequence>
+      <xsd:element name="customers" type="customersRevocaType"/>
+      <xsd:element name="mdwTipoFlusso" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseRevocaType">
+   <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerRevocaType">
+    <xsd:sequence>
+      <xsd:choice>
+        <xsd:element name="custId" type="xsd:string"/>
+        <xsd:element name="contactFiscalCode" type="xsd:string" minOccurs="1"/>
+      </xsd:choice>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestRevoca" type="requestRevocaType"/>
+  <xsd:element name="responseRevoca" type="responseRevocaType"/>
+  <xsd:complexType name="requestGetCarteType">
+     <xsd:sequence>
+      <xsd:element name="customer" type="customerGetCarteType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseGetCarteType">
+   <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string"/>
+      <xsd:element name="mdwResult" type="resultGetCarteType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerGetCarteType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+   <xsd:complexType name="resultGetCarteType">
+    <xsd:sequence>
+      <xsd:element name="mdwListaCarte" type="carteType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="cartaType">
+    <xsd:sequence>
+      <xsd:element name="mdwProgressiveMultibank" type="xsd:string"/>
+      <xsd:element name="mdwPANCard" type="xsd:string"/>
+      <xsd:element name="mdwEnablingDate" type="xsd:string"/>
+      <xsd:element name="mdwEnablingEndDate" type="xsd:string"/>
+      <xsd:element name="mdwTipoCarta" type="xsd:string"/>
+      <xsd:element name="mdwListaRendicontazioni" type="rendicontazioniType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetCarte" type="requestGetCarteType"/>
+  <xsd:element name="responseGetCarte" type="responseGetCarteType"/>
+  <xsd:complexType name="rendicontazioneType">
+    <xsd:sequence>
+    <xsd:element name="mdwDatetime" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDiscountPerc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwDiscountAmount" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwWebDesc" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwSite" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCertifDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwContabDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAccreditDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwCancelDate" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="mdwAmount" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="carteType">
+    <xsd:sequence>
+      <xsd:element name="mdwCarta" type="cartaType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="rendicontazioniType">
+    <xsd:sequence>
+      <xsd:element name="mdwRendicontazione" type="rendicontazioneType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customerAggiornaCFType">
+    <xsd:sequence>
+      <xsd:element name="contact" type="contactAggiornaCFType" />
+      <xsd:element name="custId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+   <xsd:complexType name="contactAggiornaCFType">
+    <xsd:sequence>
+      <xsd:element name="contactFiscalCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="customersRevocaType">
+    <xsd:sequence>
+      <xsd:element name="customer" type="customerRevocaType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

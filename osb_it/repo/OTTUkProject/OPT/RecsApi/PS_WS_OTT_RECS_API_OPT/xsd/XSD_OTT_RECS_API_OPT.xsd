@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestRecycle" type="requestRecycleType"/>
+	<xsd:element name="responseRecycle" type="responseRecycleType"/> 
+	<xsd:complexType name="requestRecycleType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="territory" type="listTerritoriesType" minOccurs="1"/>
+			<xsd:element name="proposition" type="listPropositionsType" minOccurs="1"/>
+			<xsd:element name="provider" type="listProvidersType" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseRecycleType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestOptIn" type="requestOptInType"/>
+	<xsd:element name="responseOptIn" type="responseOptInType"/>
+	<xsd:complexType name="requestOptInType">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="idType" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="territory" type="listTerritoriesType" minOccurs="1"/>
+			<xsd:element name="proposition" type="listPropositionsType" minOccurs="1"/>
+			<xsd:element name="provider" type="listProvidersType" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseOptInType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="listTerritoriesType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DE"/>
+			<xsd:enumeration value="IT"/>
+			<xsd:enumeration value="UK"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="listProvidersType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SKY"/>
+			<xsd:enumeration value="NOWTV"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="listPropositionsType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SKYQ"/>
+			<xsd:enumeration value="NOWTV"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

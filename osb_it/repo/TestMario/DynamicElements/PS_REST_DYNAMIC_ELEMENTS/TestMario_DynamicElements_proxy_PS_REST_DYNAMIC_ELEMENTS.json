@@ -1,0 +1,27 @@
+{
+  "RestApi" : {
+    "type" : "REST",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/TestMario/PS_REST_DYNAMIC_ELEMENTS",
+    "name" : "TestMario_DynamicElements_proxy_PS_REST_DYNAMIC_ELEMENTS",
+    "localPath" : "osb_it\\repo\\TestMario\\DynamicElements\\PS_REST_DYNAMIC_ELEMENTS",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/TestMario/PS_REST_DYNAMIC_ELEMENTS?WADL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "TestMario/DynamicElements/xsd/XSD_DYNAMIC_ELEMENTS",
+        "xsdNameSpace" : "http://www.example.org"
+      } ],
+      "soapApiSpec" : {
+        "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj",
+        "xsdSchemas" : [ {
+          "xsdPath" : "/TestMario/DynamicElements/xsd/XSD_DYNAMIC_ELEMENTS",
+          "xsdNameSpace" : "http://www.example.org"
+        } ]
+      }
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

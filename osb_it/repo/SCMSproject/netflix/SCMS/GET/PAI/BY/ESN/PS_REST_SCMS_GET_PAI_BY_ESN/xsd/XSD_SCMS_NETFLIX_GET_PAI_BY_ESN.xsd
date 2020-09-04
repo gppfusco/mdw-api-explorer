@@ -1,0 +1,42 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestGetPaiByEsn" type="requestGetPaiByEsnType"/>
+  
+  <xsd:complexType name="requestGetPaiByEsnType">
+    <xsd:sequence />
+  </xsd:complexType>
+  
+  
+  <xsd:element name="Error" type="errorType"/>
+  
+  <xsd:complexType name="responseGetPaiByEsnType">
+    <xsd:sequence>
+      <xsd:element name="PAI" type="xsd:string"/>
+      <xsd:element name="PartnerChargeCountry" type="xsd:string"/>
+      <xsd:element name="Capabilities" type="capabilityType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="PromotionID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ValidityDurationInSeconds" type="xsd:integer" minOccurs="0"/>
+      <xsd:element name="ServiceProvider" type="xsd:string" minOccurs="0"/>
+      <xsd:element ref="Error" minOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="capabilityType">
+    <xsd:sequence>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="value" type="xsd:boolean"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="errorType">
+    <xsd:sequence>
+      <xsd:element name="ErrorCode" minOccurs="0"/>
+      <xsd:element name="ErrorDescription" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="HttpStatusCode" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:element name="responseGetPaiByEsn" type="responseGetPaiByEsnType" />
+
+
+</xsd:schema>

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/wsc/WS_CRM_CHECK_MAIL",
+    "name" : "SSOProject_WS_CRM_CHECK_MAIL_proxy_PS_CRM_CHECK_MAIL",
+    "localPath" : "osb_it\\repo\\SSOProject\\WS\\CRM\\CHECK\\MAIL\\PS_CRM_CHECK_MAIL",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/wsc/WS_CRM_CHECK_MAIL?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SSOProject/CheckMail/xsd/XSD_CRM_CHECK_MAIL",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

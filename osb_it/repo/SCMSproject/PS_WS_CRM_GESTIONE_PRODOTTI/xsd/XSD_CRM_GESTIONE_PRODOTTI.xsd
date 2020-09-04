@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:srv="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:include schemaLocation="../../../../EnterpriseObjects/CommonEntities/ScmsResponse.xsd"/>
+	<xsd:complexType name="requestENBPRDType">
+		<xsd:sequence>
+			<xsd:element name="flagsync" type="xsd:string"/>
+			<xsd:element name="clientid" type="xsd:string"/>
+			<xsd:element name="box" >
+							<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:minLength value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="corp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="format" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="stbkind" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="stbkindhw" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operator" type="xsd:string"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="authocodesnum" type="xsd:string"/>
+			<xsd:element name="authocodes" type="srv:authocodesType" maxOccurs="unbounded"/>
+			<xsd:element name="zipcode" type="xsd:string"/>
+			<xsd:element name="tokens" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="account" type="xsd:string"/>
+			<xsd:element name="flagrefresh" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ppvkey" type="xsd:string"/>
+			<xsd:element name="decoderid" type="xsd:string"/>
+			<xsd:element name="flagpriority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="customerid" type="xsd:string"/>
+			<xsd:element name="code_parte" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="boxaccounttype" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestENBPRD" type="srv:requestENBPRDType"/>
+	<xsd:complexType name="requestADDAUTType">
+		<xsd:sequence>
+			<xsd:element name="flagsync" type="xsd:string"/>
+			<xsd:element name="clientid" type="xsd:string"/>
+			<xsd:element name="box" type="xsd:string"/>
+			<xsd:element name="stbkind" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="stbkindhw" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operator" type="xsd:string"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="authocodesnum" type="xsd:string"/>
+			<xsd:element name="authocodes" type="srv:authocodesType" maxOccurs="unbounded"/>
+			<xsd:element name="zipcode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tokens" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="account" type="xsd:string"/>
+			<xsd:element name="flagrefresh" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ppvkey" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="expiredate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Flagresexp" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="decoderid" type="xsd:string"/>
+			<xsd:element name="customerid" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestADDAUT" type="srv:requestADDAUTType"/>
+	<xsd:complexType name="requestDELAUTType">
+		<xsd:sequence>
+			<xsd:element name="flagsync" type="xsd:string"/>
+			<xsd:element name="clientid" type="xsd:string"/>
+			<xsd:element name="box" type="xsd:string"/>
+			<xsd:element name="stbkind" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="stbkindhw" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="operator" type="xsd:string"/>
+			<xsd:element name="execdate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="priority" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="funcname" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="authocodesnum" type="xsd:string"/>
+			<xsd:element name="authocodes" type="srv:authocodesType" maxOccurs="unbounded"/>
+			<xsd:element name="zipcode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="decoderid" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestSETCLRType">
+		<xsd:sequence>
+			<xsd:element name="cardId" type="xsd:string"/>
+			<xsd:element name="operator" type="xsd:string"/>
+			<xsd:element name="swapCloseDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="swapPVR" type="srv:flagType" minOccurs="0"/>
+			<xsd:element name="cardType" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestDELAUT" type="srv:requestDELAUTType"/>
+	<xsd:element name="responseSCMS" type="srv:ScmsResponseType"/>
+	<xsd:element name="requestSETCLR" type="srv:requestSETCLRType"/>
+	<xsd:element name="responseSETCLR" type="srv:responseSETCLRType"/>
+	<xsd:complexType name="responseSETCLRType">
+		<xsd:sequence>
+			<xsd:element name="result" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="ndserr" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="transid" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descriptionerr" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="flagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="authocodesType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute name="expdate" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:schema>

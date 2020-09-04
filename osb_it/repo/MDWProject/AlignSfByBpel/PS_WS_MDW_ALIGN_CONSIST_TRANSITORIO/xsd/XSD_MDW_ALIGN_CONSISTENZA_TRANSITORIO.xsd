@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data">
+    
+    <xsd:element name="requestAlignConsistenzaTransitorio" type="requestAlignConsistenzaTransitorioType"/>
+    <xsd:element name="responseAlignConsistenzaTransitorio" type="responseAlignConsistenzaTransitorioType"/>
+
+    <xsd:complexType name="requestAlignConsistenzaTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="alignConsistenzaSerialized" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="responseAlignConsistenzaTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="correlationId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="alignConsistenza" type="alignConsistenzaType">
+    </xsd:element>
+
+    <xsd:complexType name="alignConsistenzaType">
+      <xsd:sequence>
+        <xsd:element name="correlationId" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="scenario" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="subScenarioTransitorio" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="key2Transitorio" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="contract" type="contractTransitorioType" minOccurs="1" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+
+    <xsd:complexType name="contractTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="OrderNumber" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ordOrderRef" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ordStatus" type="xsd:string" minOccurs="0" />
+        <xsd:element name="Category" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ordAction" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ordCreationDate" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ordProcessingDate" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ordApplicationOrigin" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ordSalesChannel" type="xsd:string" minOccurs="0" />
+        <xsd:element name="UserAccountKey" type="xsd:string" minOccurs="0" />
+        <xsd:element name="PayerAccountKey" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BillingAccountKey" type="xsd:string" minOccurs="0" />
+        <xsd:element name="PayerContactKey" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ordUserContactKey" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ContractKey" type="xsd:string" minOccurs="0" />
+        <xsd:element name="PaymentKey" type="xsd:string" minOccurs="0" />
+        <xsd:element name="BundleKey" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ordDetOrderNum" type="xsd:string" minOccurs="0" />
+        <xsd:element name="DetContractTrait" type="xsd:string" minOccurs="0" />
+        <xsd:element name="DetRegionCode" type="xsd:string" minOccurs="0" />
+        <xsd:element name="DetPriceList" type="xsd:string" minOccurs="0" />
+        <xsd:element name="DetCustomerSignedDate" type="xsd:string" minOccurs="0" />
+        <xsd:element name="DetSigned" type="xsd:string" minOccurs="0" />
+        <xsd:element name="ordScenarioType" type="xsd:string" minOccurs="0" />
+        <xsd:element name="orderItems" type="orderItemsTransitorioType" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="orderItemsTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="orderItem" type="orderItemTransitorioType" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="orderItemTransitorioType">
+      <xsd:sequence>
+          <xsd:element name="ordItemId" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemProvisioningStatus" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemOrdId" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemRootItemId" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemParentItemId" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemIntegrationId" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemProductCode" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemDescription" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemProductClass" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemProductCodeOM" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemLineNumber" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemCreatedDate" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemActivationDate" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemOneTimeTotal" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemEffectiveOneTimeTotal" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemOneTimeCharge" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemOneTimeCalculatedPrice" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemRecurringTotal" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemRecurringCharge" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemEffectiveRecurringTotal" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemRecurringCalculatedPrice" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemDeviceDefectiveFlag" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemAction" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="ordItemFulfilmentStatus" type="xsd:string" minOccurs="0"/>
+          <xsd:element name="appliedPromotions" type="appliedPromotionsTransitorioType" minOccurs="0" maxOccurs="1"/>
+          <xsd:element name="priceAdjustments" type="priceAdjustmentsTransitorioType" minOccurs="0" maxOccurs="1"/>
+          <xsd:element name="itemPrices" type="itemPricesTransitorioType" minOccurs="0" maxOccurs="1"/>
+          <xsd:element name="attributes" type="attributesTransitorioType" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="appliedPromotionsTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="appliedPromotion" type="appliedPromotionTransitorioType" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="appliedPromotionTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="ordApplPromoCommitmentEndDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplPromoCommitmentStartDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplPromoPromotion" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplPromoProvisioningStatus" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplPromoReferenceNumber" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplPromoTechnicalName" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplPromoTechnicalPromotionCode" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplPromoCommercialName" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplPromoCommercialPromotionCode" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplPromoIntegrationId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplPromoAction" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplIsStartProratable" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordApplIsEndProratable" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="orderApplPromoVoucher" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="priceAdjustmentsTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="priceAdjustment" type="priceAdjustmentTransitorioType" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="priceAdjustmentTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="ordPrcAdjId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjAmount" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjEstimatedEndDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjEstimatedStartDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjAddedBy" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjPriceListEntry" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjPricingElementVersion" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjPricingVariable" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjAdjustmentValue" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjSequence" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjProvisioningStatus" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjSource" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjReferenceNumber" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjPricingElementGlobalKey" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjOAPIntegrationId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjOItemIntegrationId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjAppliedDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjEffectiveEndDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjEffectiveStartDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjIntegrationId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjAction" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordPrcAdjNoFattOverride" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="priceAdjustmentDetails" type="priceAdjustmentDetailsType" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="priceAdjustmentDetailsType">
+      <xsd:sequence>
+        <xsd:element name="orderPriceAdjDetExternalKey" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="orderPriceAdjDetNoFatt" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="orderPriceAdjDetAdjustmentValue" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="orderPriceAdjDetIsOverride" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="orderPriceAdjDetPricingVariableType" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="orderPriceAdjDetVoucher" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="orderPriceAdjDetIsEndProratable" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="orderPriceAdjDetIsStartProratable" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="orderPriceAdjDetIsStartTimeDelayed" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="itemPricesTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="itemPrice" type="itemPriceTransitorioType" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="itemPriceTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="ordItemPriceExternalKey" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordItemPriceNoFatt" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordItemPriceAmount" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordItemPriceIsOverride" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordItemPricePricingVariableType" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordItemPriceVoucher" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordItemPriceIsEndProratable" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordItemPriceIsStartProratable" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordItemPriceIsStartTimeDelayed" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="ordItemPricePricingVariableCode" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="attributesTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="attribute" type="attributeTransitorioType" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="attributeTransitorioType">
+      <xsd:sequence>
+        <xsd:element name="attribName" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="attribValue" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="attribCode" type="xsd:string" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  
+</xsd:schema>

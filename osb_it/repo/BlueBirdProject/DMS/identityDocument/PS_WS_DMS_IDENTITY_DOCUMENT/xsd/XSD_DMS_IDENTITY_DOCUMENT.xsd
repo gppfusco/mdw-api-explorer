@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+    <xsd:element name="requestUploadIDFiles" type="requestUploadIDFilesType"/>
+
+    <xsd:complexType name="requestUploadIDFilesType">
+      <xsd:sequence>
+        <xsd:element name="customerUserId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="customerPayerId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="prospectUserId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="prospectPayerId" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="accountID" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="orderID" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="documentType" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="documentID" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="expireDate" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="documentFiles" type="documentFilesType" minOccurs="1"/>
+      
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="documentFilesType">
+      <xsd:sequence>
+        <xsd:element name="file" type="fileType" minOccurs="1" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="fileType">
+      <xsd:sequence>
+        <xsd:element name="fileName" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="correlationID" type="xsd:string" minOccurs="0"/>
+        <xsd:element name="fileContent_BASE64" type="xsd:string" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+
+        <xsd:element name="responseUploadIDFiles" type="responseUploadIDFilesType"/>
+
+        <xsd:complexType name="responseUploadIDFilesType">
+          <xsd:sequence>
+            <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+            <xsd:element name="resultDescription" type="xsd:string" minOccurs="0"/>
+          </xsd:sequence>
+        </xsd:complexType>
+
+</xsd:schema>

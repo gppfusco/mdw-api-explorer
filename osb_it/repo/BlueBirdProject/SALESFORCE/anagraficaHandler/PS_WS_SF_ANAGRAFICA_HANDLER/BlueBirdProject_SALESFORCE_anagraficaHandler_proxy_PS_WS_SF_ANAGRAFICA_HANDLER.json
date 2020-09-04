@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mdw/salesforce/WS_SF_ANAGRAFICA_HANDLER",
+    "name" : "BlueBirdProject_SALESFORCE_anagraficaHandler_proxy_PS_WS_SF_ANAGRAFICA_HANDLER",
+    "localPath" : "osb_it\\repo\\BlueBirdProject\\SALESFORCE\\anagraficaHandler\\PS_WS_SF_ANAGRAFICA_HANDLER",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mdw/salesforce/WS_SF_ANAGRAFICA_HANDLER?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/BlueBirdProject/SALESFORCE/anagraficaHandler/xsd/XSD_SF_ANAGRAFICA_HANDLER",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

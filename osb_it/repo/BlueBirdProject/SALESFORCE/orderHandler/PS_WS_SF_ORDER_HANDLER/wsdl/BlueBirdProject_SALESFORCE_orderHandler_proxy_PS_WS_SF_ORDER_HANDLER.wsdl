@@ -1,0 +1,58 @@
+<wsdl:definitions name="WS_SF_ORDER_HANDLER" targetNamespace="http://www.skytv.it/mdw/service/SF_ORDER_HANDLER" xmlns:tns="http://www.skytv.it/mdw/service/SF_ORDER_HANDLER" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_SF_ORDER_HANDLER.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestSubmitOrder_message">
+		<wsdl:part name="part_requestSubmitOrder" element="inp1:requestSubmitOrder"/>
+	</wsdl:message>
+	<wsdl:message name="responseSubmitOrder_message">
+		<wsdl:part name="part_responseSubmitOrder" element="inp1:responseSubmitOrderSOAP"/>
+	</wsdl:message>
+	<wsdl:message name="requestCreateOrder_message">
+		<wsdl:part name="part_requestCreateOrder" element="inp1:requestCreateOrder"/>
+	</wsdl:message>
+	<wsdl:message name="responseCreateOrder_message">
+		<wsdl:part name="part_responseCreateOrder" element="inp1:responseCreateOrderSOAP"/>
+	</wsdl:message>
+	<wsdl:message name="Message_Header">
+		<wsdl:part name="part_HeaderMessage" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="SF_ORDER_HANDLER_ptt">
+		<wsdl:operation name="execute_CreateOrder">
+			<wsdl:input message="tns:requestCreateOrder_message"/>
+			<wsdl:output message="tns:responseCreateOrder_message"/>
+		</wsdl:operation>
+		<wsdl:operation name="execute_SubmitOrder">
+			<wsdl:input message="tns:requestSubmitOrder_message"/>
+			<wsdl:output message="tns:responseSubmitOrder_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="SF_ORDER_HANDLER_pttSOAP11Binding" type="tns:SF_ORDER_HANDLER_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_SubmitOrder">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SF_ORDER_HANDLER/execute_SubmitOrder" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestSubmitOrder" use="literal"/>
+				<soap:header message="tns:Message_Header" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseSubmitOrder" use="literal"/>
+				<soap:header message="tns:Message_Header" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="execute_CreateOrder">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/SF_ORDER_HANDLER/execute_CreateOrder" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestCreateOrder" use="literal"/>
+				<soap:header message="tns:Message_Header" part="part_HeaderMessage" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseCreateOrder" use="literal"/>
+				<soap:header message="tns:Message_Header" part="part_HeaderMessage" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

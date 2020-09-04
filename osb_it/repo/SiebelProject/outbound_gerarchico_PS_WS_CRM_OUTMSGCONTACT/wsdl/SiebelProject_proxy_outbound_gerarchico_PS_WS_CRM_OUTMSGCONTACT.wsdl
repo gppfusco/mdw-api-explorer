@@ -1,0 +1,187 @@
+<!--
+ 
+Salesforce.com Outbound Notification Web Services API Version 1.0 
+Generated on 2018-11-22 11:47:53 +0000.
+
+Copyright 2005-2018 Salesforce.com, Inc.
+All Rights Reserved
+-->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.sforce.com/2005/09/outbound" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ent="urn:enterprise.soap.sforce.com" xmlns:ens="urn:sobject.enterprise.soap.sforce.com" targetNamespace="http://soap.sforce.com/2005/09/outbound">
+<types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:enterprise.soap.sforce.com">
+ <!--  Our simple ID Type  -->
+<simpleType name="ID">
+<restriction base="xsd:string">
+<length value="18"/>
+<pattern value="[a-zA-Z0-9]{18}"/>
+</restriction>
+</simpleType>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:sobject.enterprise.soap.sforce.com">
+<import namespace="urn:enterprise.soap.sforce.com"/>
+ <!--  Base sObject (abstract)  -->
+<complexType name="sObject">
+<sequence>
+<element name="fieldsToNull" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<element name="Id" type="ent:ID" nillable="true"/>
+</sequence>
+</complexType>
+<complexType name="AggregateResult">
+<complexContent>
+<extension base="ens:sObject">
+<sequence>
+<any namespace="##targetNamespace" minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<complexType name="Contact">
+<complexContent>
+<extension base="ens:sObject">
+<sequence>
+<element name="AccountId" nillable="true" minOccurs="0" type="ent:ID"/>
+<element name="Altro_Numero_Tel_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Birthdate" nillable="true" minOccurs="0" type="xsd:date"/>
+<element name="ChannelComBMAIL__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="ChannelComEMAIL__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="ChannelComLETTERA__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="ChannelComMMS__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="ChannelComPUSH__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="ChannelComSMS__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="ChannelComTELEFONO__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="ChannelSelection__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Codice_Fiscale_Normalizzato_FLG__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Codice_Fiscale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Comune_Documento__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Comune_Nascita__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Consenso_Anywhere_Flg__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="CreatedById" nillable="true" minOccurs="0" type="ent:ID"/>
+<element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+<element name="Data_Rilascio_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+<element name="DoNotCall" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="Email" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="EmailOptOut_Flg__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="Email_Address_Validation_Flg__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="Email_recapito_fattura__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Ente_Rilascio_Documento__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Ente_Rilascio__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Fax" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="FirstName" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="HomePhone" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Irreperibile__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="LastModifiedAccount__c" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+<element name="LastModifiedById" nillable="true" minOccurs="0" type="ent:ID"/>
+<element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+<element name="LastName" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="LastUserName__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Main_Fax_Number_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Main_Phone_Number_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="MobilePhone" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Mobile_Phone_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Nazionalita_Documento__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Nazione_Nascita__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Number_of_Registers__c" nillable="true" minOccurs="0" type="xsd:double"/>
+<element name="Numero_Alert_Telefono__c" nillable="true" minOccurs="0" type="xsd:double"/>
+<element name="Numero_Documento__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="OG_CorrelationID__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="OtherPhone" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Permesso_Soggiorno__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Phone" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Posta_Ritornata_Flg__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="PrimaryContact__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="PrivacyFlagBLB1__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="PrivacyFlagBLB2__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="Provincia_Documento__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Provincia_Nascita__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Reperibilita__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Rilascio_Documento_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+<element name="SKYID__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Salutation" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Scadenza_Documento_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+<element name="Scenario_Allineamento__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="SecondaryContact__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Sesso__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="StatoDocumentoCaricato__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="StatoDocumentoVerificato__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Temporary_Email_Address_Validation_Flg__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+<element name="Temporary_Email_Address__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Tipo_Documento__c" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Title" nillable="true" minOccurs="0" type="xsd:string"/>
+<element name="Ultima_Modifica_Email_Dt__c" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+<element name="Validita_Permesso_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+<element name="Variazione_Codice_Fiscale_Flg__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+</schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://soap.sforce.com/2005/09/outbound">
+<import namespace="urn:enterprise.soap.sforce.com"/>
+<import namespace="urn:sobject.enterprise.soap.sforce.com"/>
+<element name="notifications">
+<complexType>
+<sequence>
+<element name="OrganizationId" type="ent:ID"/>
+<element name="ActionId" type="ent:ID"/>
+<element name="SessionId" type="xsd:string" nillable="true"/>
+<element name="EnterpriseUrl" type="xsd:string"/>
+<element name="PartnerUrl" type="xsd:string"/>
+<element name="Notification" maxOccurs="100" type="tns:ContactNotification"/>
+</sequence>
+</complexType>
+</element>
+<complexType name="ContactNotification">
+<sequence>
+<element name="Id" type="ent:ID"/>
+<element name="sObject" type="ens:Contact"/>
+</sequence>
+</complexType>
+<element name="notificationsResponse">
+<complexType>
+<sequence>
+<element name="Ack" type="xsd:boolean"/>
+</sequence>
+</complexType>
+</element>
+</schema>
+</types>
+ <!--  Method Messages  -->
+<message name="notificationsRequest">
+<part element="tns:notifications" name="request"/>
+</message>
+<message name="notificationsResponse">
+<part element="tns:notificationsResponse" name="response"/>
+</message>
+ <!--  PortType  -->
+<portType name="NotificationPort">
+<operation name="notifications">
+<documentation>Process a number of notifications.</documentation>
+<input message="tns:notificationsRequest"/>
+<output message="tns:notificationsResponse"/>
+</operation>
+</portType>
+ <!--
+ Binding 
+         You need to write a service that implements this binding to receive the notifications
+     
+-->
+<binding name="NotificationBinding" type="tns:NotificationPort">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<operation name="notifications">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+</binding>
+ <!--  Service Endpoint  -->
+<service name="NotificationService">
+<documentation>Notification Service Implementation</documentation>
+<port binding="tns:NotificationBinding" name="Notification">
+<soap:address location="https://ws.it///WS_OUTMSGCONTACT_USERxxxx"/>
+</port>
+</service>
+</definitions>

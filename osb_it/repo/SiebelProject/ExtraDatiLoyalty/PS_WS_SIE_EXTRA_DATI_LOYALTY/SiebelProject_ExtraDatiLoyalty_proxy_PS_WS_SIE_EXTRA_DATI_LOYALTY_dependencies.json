@@ -1,0 +1,103 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_ExtraDatiLoyalty_proxy_PS_WS_SIE_EXTRA_DATI_LOYALTY",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/ExtraDatiLoyalty/pipeline/PL_WS_SIE_EXTRA_DATI_LOYALTY" : {
+        "label" : "Pipeline/SiebelProject/ExtraDatiLoyalty/pipeline/PL_WS_SIE_EXTRA_DATI_LOYALTY",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/ExtraDatiLoyalty/trasformations/createRequest_ExtraGetDatiLoyalty" : {
+            "label" : "Xquery/SiebelProject/ExtraDatiLoyalty/trasformations/createRequest_ExtraGetDatiLoyalty",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/ExtraDatiLoyalty/trasformations/createResponse_ExtraGetDatiLoyalty" : {
+            "label" : "Xquery/SiebelProject/ExtraDatiLoyalty/trasformations/createResponse_ExtraGetDatiLoyalty",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/ExtraDatiLoyalty/pipeline/PL_INTERNAL_EXTRA_STORICO_LOYALTY" : {
+            "label" : "Pipeline/SiebelProject/ExtraDatiLoyalty/pipeline/PL_INTERNAL_EXTRA_STORICO_LOYALTY",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SiebelProject/ExtraDatiLoyalty/businessService/BS_SQL_FUNCTION_STORICO" : {
+                "label" : "BusinessService/SiebelProject/ExtraDatiLoyalty/businessService/BS_SQL_FUNCTION_STORICO",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ExtraDatiLoyalty/wsdl/WS_CRM_SIE_EXTRA_DATI_LOYALTY" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ExtraDatiLoyalty/wsdl/WS_CRM_SIE_EXTRA_DATI_LOYALTY",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Xquery/SiebelProject/ExtraDatiLoyalty/trasformations/createResponse_ExtraStoricoLoyalty" : {
+            "label" : "Xquery/SiebelProject/ExtraDatiLoyalty/trasformations/createResponse_ExtraStoricoLoyalty",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/ExtraDatiLoyalty/trasformations/createRequest_ExtraStoricoLoyalty" : {
+            "label" : "Xquery/SiebelProject/ExtraDatiLoyalty/trasformations/createRequest_ExtraStoricoLoyalty",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SiebelProject/ExtraDatiLoyalty/pipeline/PL_INTERNAL_EXTRA_GET_DATI_LOYALTY" : {
+            "label" : "Pipeline/SiebelProject/ExtraDatiLoyalty/pipeline/PL_INTERNAL_EXTRA_GET_DATI_LOYALTY",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/SiebelProject/ExtraDatiLoyalty/businessService/BS_SQL_FUNCTION_GETDATI_EXTRA" : {
+                "label" : "BusinessService/SiebelProject/ExtraDatiLoyalty/businessService/BS_SQL_FUNCTION_GETDATI_EXTRA",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ExtraDatiLoyalty/wsdl/WS_CRM_SIE_EXTRA_DATI_LOYALTY" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ExtraDatiLoyalty/wsdl/WS_CRM_SIE_EXTRA_DATI_LOYALTY",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ExtraDatiLoyalty/wsdl/WS_CRM_SIE_EXTRA_DATI_LOYALTY" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ExtraDatiLoyalty/wsdl/WS_CRM_SIE_EXTRA_DATI_LOYALTY",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ExtraDatiLoyalty/wsdl/WS_CRM_SIE_EXTRA_DATI_LOYALTY" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/ExtraDatiLoyalty/wsdl/WS_CRM_SIE_EXTRA_DATI_LOYALTY",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_AGREEMENTS_proxy_PS_WS_CRM_AGREEMENTS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_AGREEMENTS/pipeline/PL_WS_CRM_AGREEMENTS_UPDATE" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_AGREEMENTS/pipeline/PL_WS_CRM_AGREEMENTS_UPDATE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_AGREEMENTS/transformation/createRequest_UpdateAdSmartAgreementBySMC" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_AGREEMENTS/transformation/createRequest_UpdateAdSmartAgreementBySMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_AGREEMENTS/transformation/createRequest_UpdateAdSmartAgreement" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_AGREEMENTS/transformation/createRequest_UpdateAdSmartAgreement",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_AGREEMENTS/transformation/createResponse_UpdateAdSmartAgreement" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_AGREEMENTS/transformation/createResponse_UpdateAdSmartAgreement",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_AGREEMENTS/transformation/createResponse_UpdateAdSmartAgreementBySMC" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_AGREEMENTS/transformation/createResponse_UpdateAdSmartAgreementBySMC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/Agreements/wsdl/WS_CRM_AGREEMENTS" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/Agreements/wsdl/WS_CRM_AGREEMENTS",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/Agreements/wsdl/WS_CRM_AGREEMENTS" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/Agreements/wsdl/WS_CRM_AGREEMENTS",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

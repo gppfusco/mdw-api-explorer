@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+
+  <xsd:element name="requestGetConsistency" type="requestGetConsistencyType"/>
+  <xsd:complexType name="requestGetConsistencyType">
+    <xsd:sequence>
+      <xsd:element name="customerCode" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="responseGetConsistency" type="responseGetConsistencyType"/>
+  <xsd:complexType name="responseGetConsistencyType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="resultDescription" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="results" type="GetConsistencyResultsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="GetConsistencyResultsType">
+    <xsd:sequence>
+      <xsd:element name="customerCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="partecipazioni" type="partecipazioniType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="partecipazioniType">
+    <xsd:sequence>
+      <xsd:element name="partecipazione" type="partecipazioneType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="partecipazioneType">
+    <xsd:sequence>
+      <xsd:element name="nomePartecipazione" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="tipologia" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="data" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="vittoria" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="note" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="codice" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="barcode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="urliniziativa" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+</xsd:schema>

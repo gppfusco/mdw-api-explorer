@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/ott/WS_OTT_RECS_API_OPT",
+    "name" : "OTTUkProject_OPT_RecsApi_proxy_PS_WS_OTT_RECS_API_OPT",
+    "localPath" : "osb_it\\repo\\OTTUkProject\\OPT\\RecsApi\\PS_WS_OTT_RECS_API_OPT",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/ott/WS_OTT_RECS_API_OPT?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/OTTUk/RecsOPTApi/xsd/XSD_OTT_RECS_API_OPT",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

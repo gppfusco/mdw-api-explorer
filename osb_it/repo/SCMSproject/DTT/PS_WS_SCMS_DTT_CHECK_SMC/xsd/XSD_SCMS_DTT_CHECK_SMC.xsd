@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:complexType name="requestCheckSmartcardType">
+    <xsd:sequence>
+      <xsd:element name="serialNumber" minOccurs="1">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+            <xsd:minLength value="1"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestCheckSmartcard" type="requestCheckSmartcardType"/>
+  
+  
+  <xsd:complexType name="responseCheckSmartcardType">
+    <xsd:sequence>
+      <xsd:element name="esito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="SMCStateReason" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SMCStateCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="enableFlag" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="segmentCategory" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseCheckSmartcard" type="responseCheckSmartcardType"/>
+  
+  
+</xsd:schema>

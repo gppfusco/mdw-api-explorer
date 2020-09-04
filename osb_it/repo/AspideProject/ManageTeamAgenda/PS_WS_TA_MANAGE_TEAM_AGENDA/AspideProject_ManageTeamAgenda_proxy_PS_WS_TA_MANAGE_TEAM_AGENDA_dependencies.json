@@ -1,0 +1,78 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "AspideProject_ManageTeamAgenda_proxy_PS_WS_TA_MANAGE_TEAM_AGENDA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/AspideProject/ManageTeamAgenda/pipeline/PL_WS_TA_MANAGE_TEAM_AGENDA" : {
+        "label" : "Pipeline/AspideProject/ManageTeamAgenda/pipeline/PL_WS_TA_MANAGE_TEAM_AGENDA",
+        "properties" : { },
+        "successors" : {
+          "Xquery/AspideProject/ManageTeamAgenda/transformation/createRequestChangeOwner" : {
+            "label" : "Xquery/AspideProject/ManageTeamAgenda/transformation/createRequestChangeOwner",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_INTERNAL_REST_ASPIDE_APPOINTMENTS" : {
+            "label" : "Pipeline/AspideProject/AppointmentManagement/pipeline/PL_INTERNAL_REST_ASPIDE_APPOINTMENTS",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS" : {
+                "label" : "BusinessService/AspideProject/AppointmentManagement/businessService/BS_REST_ASPIDE_APPOINTMENTS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/AspideProject/Resources/BS_REST_ASPIDE_APPOINTMENTS" : {
+                "label" : "WSDL/AspideProject/Resources/BS_REST_ASPIDE_APPOINTMENTS",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/AspideProject/ManageTeamAgenda/transformation/createResponseChangeOwner" : {
+            "label" : "Xquery/AspideProject/ManageTeamAgenda/transformation/createResponseChangeOwner",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/AspideProject/ManageTeamAgenda/transformation/createResponseChangeTeam" : {
+            "label" : "Xquery/AspideProject/ManageTeamAgenda/transformation/createResponseChangeTeam",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/AspideProject/ManageTeamAgenda/transformation/createRequestChangeTeam" : {
+            "label" : "Xquery/AspideProject/ManageTeamAgenda/transformation/createRequestChangeTeam",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/AspideProject/ManageTeamAgenda/wsdl/WS_TA_MANAGE_TEAM_AGENDA" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/AspideProject/ManageTeamAgenda/wsdl/WS_TA_MANAGE_TEAM_AGENDA",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/AspideProject/ManageTeamAgenda/wsdl/WS_TA_MANAGE_TEAM_AGENDA" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/AspideProject/ManageTeamAgenda/wsdl/WS_TA_MANAGE_TEAM_AGENDA",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

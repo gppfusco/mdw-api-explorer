@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestChangeMOP" type="requestChangeMOPType"/>
+  <xsd:element name="requestCloneMOP" type="requestCloneMOPType"/>
+  <xsd:element name="responseMOPHandler" type="responseMOPHandlerType"/>
+  <xsd:complexType name="mopToContractType">
+    <xsd:sequence>
+      <xsd:element name="mopId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="contractId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="effectiveDate" type="xsd:date" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="mopToContractsType">
+    <xsd:sequence>
+      <xsd:element name="mopToContract" type="mopToContractType" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseMOPHandlerType">
+    <xsd:sequence>
+      <xsd:element name="mopToContracts" type="mopToContractsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestChangeMOPType">
+    <xsd:sequence>
+      <xsd:element name="e2eContractId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="contractId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="extendMopToContracts" type="xsd:boolean" minOccurs="1"/>
+      <xsd:element name="billingPeriod" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="paymentType" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="flagCoBrowsing" type="flagType" minOccurs="0"/>
+      <xsd:element name="channel" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="requestDate" type="xsd:date" minOccurs="1"/>
+      <xsd:element name="creditCard" type="creditCardType" minOccurs="0"/>
+      <xsd:element name="bankDomiciliation" type="bankDomiciliationType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="creditCardType">
+    <xsd:sequence>
+      <xsd:element name="tidIGFS" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="shopIdIGFS" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="authorizationCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="cardNumber" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="expirationMonth" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="expirationYear" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="last4numbers" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="cardHolderName" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="bankDomiciliationType">
+    <xsd:sequence>
+      <xsd:element name="subscriberFiscalCode" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="subscriberNameAndSurname" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="ABI" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="CAB" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IBAN" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="CIN" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="bankAccountNumber" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="agencyAddress" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="agencyName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="bankName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BIC" minOccurs="0" nillable="true">
+          <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+                 <xsd:minLength value="1"/>
+                 <xsd:maxLength value="11"/>
+               </xsd:restriction>
+          </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="esteroFlag" type="TrueFalseType" minOccurs="0" nillable="true"/>
+      <xsd:element name="countryNameIBAN" type="xsd:string" minOccurs="0" nillable="true"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="requestCloneMOPType">
+    <xsd:sequence>
+      <xsd:element name="cloneMopId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="targetContractId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="sourceContractId" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="requestDate" type="xsd:dateTime" minOccurs="1"/>
+      <xsd:element name="e2eContractId" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="channel" type="channelsType" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MOPType">
+    <xsd:sequence>
+      <xsd:element name="ID" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestGetCompatibleMOPs" type="requestGetCompatibleMOPsType"/>
+  <xsd:complexType name="requestGetCompatibleMOPsType">
+    <xsd:sequence>
+      <xsd:element name="billingType" type="billingType"/>
+      <xsd:element name="contractType" type="contractTypeType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseGetCompatibleMOPs" type="responseGetCompatibleMOPsType"/>
+  <xsd:complexType name="responseGetCompatibleMOPsType">
+    <xsd:sequence>
+      <xsd:element name="MOPs" type="MOPsType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MOPsType">
+    <xsd:sequence>
+      <xsd:element name="MOP" type="MOPGetCompatibleMOPsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MOPGetCompatibleMOPsType">
+    <xsd:sequence>
+      <xsd:element name="Moplabel" type="xsd:string"/>
+      <xsd:element name="billingPeriod" type="billingPeriodType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="billingPeriodType">
+    <xsd:sequence>
+      <xsd:element name="contractType" type="xsd:string"/>
+      <xsd:element name="billingType" type="xsd:string"/>
+      <xsd:element name="billingLabel" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="billingType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="M"/>
+      <xsd:enumeration value="W"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="channelsType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="APP"/>
+      <xsd:enumeration value="IVR"/>
+      <xsd:enumeration value="WEB"/>
+      <xsd:enumeration value="WSC"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="flagType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+   <xsd:simpleType name="TrueFalseType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="true"/>
+      <xsd:enumeration value="false"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="contractTypeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="TV_ONLY"/>
+      <xsd:enumeration value="BB"/>
+      <xsd:enumeration value="TV_IN_BUNDLE"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

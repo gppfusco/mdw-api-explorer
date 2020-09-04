@@ -1,0 +1,98 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_OrderManagement_proxy_PS_OM_ORDER_MANAGEMENT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/OMProject/OrderManagement/pipeline/PL_WS_OM_ORDERMANAGEMENT_ROUTING" : {
+        "label" : "Pipeline/OMProject/OrderManagement/pipeline/PL_WS_OM_ORDERMANAGEMENT_ROUTING",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/OMProject/OrderManagement/pipeline/PL_JMS_OP_ORDER_MANAGEMENT_ENQUEUE" : {
+            "label" : "Pipeline/OMProject/OrderManagement/pipeline/PL_JMS_OP_ORDER_MANAGEMENT_ENQUEUE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/OMProject/OrderManagement/transformation/createRequest_OrderManagement" : {
+                "label" : "Xquery/OMProject/OrderManagement/transformation/createRequest_OrderManagement",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OMProject/OrderManagement/businessServices/BS_JMS_OM_ORDER_MANAGEMENT" : {
+                "label" : "BusinessService/OMProject/OrderManagement/businessServices/BS_JMS_OM_ORDER_MANAGEMENT",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderManagement/wsdl/WS_OM_ORDERMANAGEMENT" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderManagement/wsdl/WS_OM_ORDERMANAGEMENT",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "Pipeline/OMProject/OrderManagement/pipeline/PL_OM_SET_KEY_OM" : {
+            "label" : "Pipeline/OMProject/OrderManagement/pipeline/PL_OM_SET_KEY_OM",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/OMProject/OrderManagement/transformation/createRequest_SetKeyOM" : {
+                "label" : "Xquery/OMProject/OrderManagement/transformation/createRequest_SetKeyOM",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/OMProject/OrderManagement/businessServices/BS_WS_OM_SET_KEY" : {
+                "label" : "BusinessService/OMProject/OrderManagement/businessServices/BS_WS_OM_SET_KEY",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/OMProject/OrderManagement/transformation/createResponse_SetKeyOM" : {
+                "label" : "Xquery/OMProject/OrderManagement/transformation/createResponse_SetKeyOM",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderManagement/wsdl/WS_OM_ORDERMANAGEMENT" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderManagement/wsdl/WS_OM_ORDERMANAGEMENT",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderManagement/wsdl/WS_OM_ORDERMANAGEMENT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderManagement/wsdl/WS_OM_ORDERMANAGEMENT",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderManagement/wsdl/WS_OM_ORDERMANAGEMENT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/OrderManagement/wsdl/WS_OM_ORDERMANAGEMENT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

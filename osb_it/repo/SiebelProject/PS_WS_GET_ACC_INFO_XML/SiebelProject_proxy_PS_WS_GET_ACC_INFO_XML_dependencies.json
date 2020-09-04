@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_proxy_PS_WS_GET_ACC_INFO_XML",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SiebelProject/pipeline/PL_WS_GET_ACC_INFO_XML" : {
+        "label" : "Pipeline/SiebelProject/pipeline/PL_WS_GET_ACC_INFO_XML",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GetAccInfoXML/wsdl/WS_SIE_GET_ACC_INFO_XML" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GetAccInfoXML/wsdl/WS_SIE_GET_ACC_INFO_XML",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SiebelProject/businessService/BS_TUX_GET_ACC_INFO_XML" : {
+            "label" : "BusinessService/SiebelProject/businessService/BS_TUX_GET_ACC_INFO_XML",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/transformations/createResponse_GetAccInfoXML" : {
+            "label" : "Xquery/SiebelProject/transformations/createResponse_GetAccInfoXML",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/transformations/createRequest_GetAccInfoXML" : {
+            "label" : "Xquery/SiebelProject/transformations/createRequest_GetAccInfoXML",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GetAccInfoXML/wsdl/WS_SIE_GET_ACC_INFO_XML" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/GetAccInfoXML/wsdl/WS_SIE_GET_ACC_INFO_XML",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

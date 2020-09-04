@@ -1,0 +1,173 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_GESTIONE_ESITI_SEDA_proxy_PS_WS_CRM_GESTIONE_ESITI_SEDA",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/pipeline/PL_WS_GESTIONE_ESITI_SEDA_ROUTING" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/pipeline/PL_WS_GESTIONE_ESITI_SEDA_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/pipeline/PL_INTERNAL_UPDATE_RID_MOP_ESITI_NEGATIVI" : {
+            "label" : "Pipeline/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/pipeline/PL_INTERNAL_UPDATE_RID_MOP_ESITI_NEGATIVI",
+            "properties" : { },
+            "successors" : {
+              "Xquery/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/transformation/createResponseUpdateRidMopEsitiNegativi" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/transformation/createResponseUpdateRidMopEsitiNegativi",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+                "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+                "properties" : { },
+                "successors" : {
+                  "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                    "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                    "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                    "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneEsitiSeda/wsdl/WS_CRM_GESTIONE_ESITI_SEDA" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneEsitiSeda/wsdl/WS_CRM_GESTIONE_ESITI_SEDA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/transformation/createRequetsUpdateRidMopEsitiNegativi" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/transformation/createRequetsUpdateRidMopEsitiNegativi",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneEsitiSeda/wsdl/WS_CRM_GESTIONE_ESITI_SEDA" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneEsitiSeda/wsdl/WS_CRM_GESTIONE_ESITI_SEDA",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/pipeline/PL_INTERNAL_UPSERT_RID_MOP" : {
+            "label" : "Pipeline/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/pipeline/PL_INTERNAL_UPSERT_RID_MOP",
+            "properties" : { },
+            "successors" : {
+              "Xquery/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/transformation/createResponseUpsertRidMop" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/transformation/createResponseUpsertRidMop",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL" : {
+                "label" : "Pipeline/SalesforceProject/pipeline/PL_SF_MAIN_OSB_TO_BPEL",
+                "properties" : { },
+                "successors" : {
+                  "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA" : {
+                    "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF" : {
+                    "label" : "Xquery/MDW_CO/transformation/salesforce/createRequestForSOA_WithUserToLoginSF",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN" : {
+                    "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneClienteIn/wsdl/WS_CRM_GESTIONE_CLIENTE_IN",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY" : {
+                    "label" : "XMLSchema/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+                    "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log" : {
+                    "label" : "Xquery/MDW_CDM/ApplicationObjects/LOG/trasformation/populate_log",
+                    "properties" : { },
+                    "successors" : { }
+                  },
+                  "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER" : {
+                    "label" : "BusinessService/MDW_CO/businessServices/BS_WS_BPEL_SF_INVOKER",
+                    "properties" : {
+                      "nodeType" : "BusinessService"
+                    },
+                    "successors" : { }
+                  }
+                }
+              },
+              "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneEsitiSeda/wsdl/WS_CRM_GESTIONE_ESITI_SEDA" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneEsitiSeda/wsdl/WS_CRM_GESTIONE_ESITI_SEDA",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/transformation/createRequestUpsertRidMop" : {
+                "label" : "Xquery/SalesforceProject/WS_CRM_GESTIONE_ESITI_SEDA/transformation/createRequestUpsertRidMop",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneEsitiSeda/wsdl/WS_CRM_GESTIONE_ESITI_SEDA" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/GestioneEsitiSeda/wsdl/WS_CRM_GESTIONE_ESITI_SEDA",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

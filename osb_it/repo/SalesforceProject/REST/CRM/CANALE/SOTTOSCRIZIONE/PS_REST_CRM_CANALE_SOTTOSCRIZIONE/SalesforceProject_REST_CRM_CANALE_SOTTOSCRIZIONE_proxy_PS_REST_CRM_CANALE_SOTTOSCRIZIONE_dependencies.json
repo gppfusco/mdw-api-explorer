@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_CRM_CANALE_SOTTOSCRIZIONE_proxy_PS_REST_CRM_CANALE_SOTTOSCRIZIONE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/SalesforceProject/Resources/PS_REST_CRM_CANALE_SOTTOSCRIZIONE" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_CANALE_SOTTOSCRIZIONE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SalesforceProject/REST_CRM_CANALE_SOTTOSCRIZIONE/pipeline/PL_CRM_CANALE_SOTTOSCRIZIONE" : {
+        "label" : "Pipeline/SalesforceProject/REST_CRM_CANALE_SOTTOSCRIZIONE/pipeline/PL_CRM_CANALE_SOTTOSCRIZIONE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_CANALE_SOTTOSCRIZIONE/trasformation/createResponseCanaleSottoscrizione" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CANALE_SOTTOSCRIZIONE/trasformation/createResponseCanaleSottoscrizione",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_CRM_CANALE_SOTTOSCRIZIONE/trasformation/createRequestCanaleSottoscrizione" : {
+            "label" : "Xquery/SalesforceProject/REST_CRM_CANALE_SOTTOSCRIZIONE/trasformation/createRequestCanaleSottoscrizione",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/SalesforceProject/Resources/PS_REST_CRM_CANALE_SOTTOSCRIZIONE" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_CRM_CANALE_SOTTOSCRIZIONE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

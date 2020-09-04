@@ -1,0 +1,45 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "TechnologyProject_Outmsg_contractTech_proxy_PS_WS_TECH_OUTMSG_CONTRACT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/TechnologyProject/Outmsg_contractTech/pipeline/PL_WS_TECH_OUTMSG_CONTRACT_ENQUEUE" : {
+        "label" : "Pipeline/TechnologyProject/Outmsg_contractTech/pipeline/PL_WS_TECH_OUTMSG_CONTRACT_ENQUEUE",
+        "properties" : { },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/TechnologyProject/Outmsg_contractTech/businessService/BS_JMS_ENQUEUE_TECHNOLOGY" : {
+            "label" : "BusinessService/TechnologyProject/Outmsg_contractTech/businessService/BS_JMS_ENQUEUE_TECHNOLOGY",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/TechnologyProject/Outmsg_contractTech/transformations/createWSResponseOutboundMSG_TECH" : {
+            "label" : "Xquery/TechnologyProject/Outmsg_contractTech/transformations/createWSResponseOutboundMSG_TECH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/OUTMSG_CONTRACT_TECH/WS_CRM_OUTMSGCONTRACTTECH" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/OUTMSG_CONTRACT_TECH/WS_CRM_OUTMSGCONTRACTTECH",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/OUTMSG_CONTRACT_TECH/WS_CRM_OUTMSGCONTRACTTECH" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/TechnologyProject/OUTMSG_CONTRACT_TECH/WS_CRM_OUTMSGCONTRACTTECH",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

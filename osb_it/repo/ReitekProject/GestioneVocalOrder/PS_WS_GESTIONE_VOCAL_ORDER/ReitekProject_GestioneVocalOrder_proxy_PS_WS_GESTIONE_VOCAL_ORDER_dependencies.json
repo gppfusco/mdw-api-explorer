@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "ReitekProject_GestioneVocalOrder_proxy_PS_WS_GESTIONE_VOCAL_ORDER",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/ReitekProject/GestioneVocalOrder/pipeline/PL_WS_GESTIONE_VOCAL_ORDER" : {
+        "label" : "Pipeline/ReitekProject/GestioneVocalOrder/pipeline/PL_WS_GESTIONE_VOCAL_ORDER",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/ReitekProject/GestioneVocalOrder/transformation/createRequestReitek" : {
+            "label" : "Xquery/ReitekProject/GestioneVocalOrder/transformation/createRequestReitek",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/ReitekProject/GestioneVocalOrder/wsdl/WS_WSC_GESTIONE_VOCAL_ORDER" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/ReitekProject/GestioneVocalOrder/wsdl/WS_WSC_GESTIONE_VOCAL_ORDER",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/ReitekProject/GestioneVocalOrder/businessService/BS_WS_GetVocalOrder" : {
+            "label" : "BusinessService/ReitekProject/GestioneVocalOrder/businessService/BS_WS_GetVocalOrder",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/ReitekProject/GestioneVocalOrder/transformation/createResponseReitek" : {
+            "label" : "Xquery/ReitekProject/GestioneVocalOrder/transformation/createResponseReitek",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/ReitekProject/GestioneVocalOrder/wsdl/WS_WSC_GESTIONE_VOCAL_ORDER" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/ReitekProject/GestioneVocalOrder/wsdl/WS_WSC_GESTIONE_VOCAL_ORDER",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

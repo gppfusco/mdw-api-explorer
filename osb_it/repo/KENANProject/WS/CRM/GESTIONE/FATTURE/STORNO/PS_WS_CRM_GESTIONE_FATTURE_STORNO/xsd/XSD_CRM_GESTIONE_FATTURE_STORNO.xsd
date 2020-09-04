@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCalcoloStorno" type="requestCalcoloStornoType"/>
+	<xsd:element name="responseCalcoloStorno" type="responseCalcoloStornoType"/>
+	<xsd:element name="requestGetFattureStorno" type="requestGetFattureStornoType"/>
+	<xsd:complexType name="requestGetFattureStornoType">
+		<xsd:sequence>
+			<xsd:element name="billingAccount" type="xsd:string"/>
+			<xsd:element name="dataLimite" type="xsd:string"/>
+			<xsd:element name="flgFattureRecenti" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseGetFattureStorno" type="responseGetFattureStornoType"/>
+	<xsd:complexType name="responseGetFattureStornoType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string"/>
+			<xsd:element name="dataValutaIncasso" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="flagIncassoRid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="listaFatture" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="fattura" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="dataProduzioneFattura" type="xsd:string"/>
+									<xsd:element name="billingAccount" type="xsd:string"/>
+									<xsd:element name="numGiorniRitardoPag" type="xsd:string"/>
+									<xsd:element name="idFattura" type="xsd:string"/>
+									<xsd:element name="dataChiusura" type="xsd:string"/>
+									<xsd:element name="dataEmissioneFattura" type="xsd:string"/>
+									<xsd:element name="dataScadenzaFattura" type="xsd:string"/>
+									<xsd:element name="fatturaSaldataFlag" type="xsd:string"/>
+									<xsd:element name="adjComplessivi" type="xsd:string"/>
+									<xsd:element name="creditoPrecedente" type="xsd:string"/>
+									<xsd:element name="importoDovuto" type="xsd:string"/>
+									<xsd:element name="importoStornabile" type="xsd:string"/>
+									<xsd:element name="totaleFattura" type="xsd:string"/>
+									<xsd:element name="numVociFattura" type="xsd:string"/>
+									<xsd:element name="totaleDaPagare" type="xsd:string"/>
+									<xsd:element name="listaCategorie" minOccurs="0">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="categoria" minOccurs="0" maxOccurs="unbounded">
+													<xsd:complexType>
+														<xsd:sequence>
+															<xsd:element name="nomeCategoria" type="xsd:string"/>
+															<xsd:element name="listaDettagli" minOccurs="0">
+																<xsd:complexType>
+																	<xsd:sequence>
+																		<xsd:element name="dettaglio" minOccurs="0" maxOccurs="unbounded">
+																			<xsd:complexType>
+																				<xsd:sequence>
+																					<xsd:element name="typeCodeDecode" type="xsd:string"/>
+																					<xsd:element name="dataInizio" type="xsd:string"/>
+																					<xsd:element name="dataFine" type="xsd:string"/>
+																					<xsd:element name="importoTotale" type="xsd:string"/>
+																					<xsd:element name="importoStornabile" type="xsd:string"/>
+																					<xsd:element name="descrizione" type="xsd:string"/>
+																					<xsd:element name="idEvento" type="xsd:string"/>
+																					<xsd:element name="tipoEvento" type="xsd:string"/>
+																					<xsd:element name="dataVisione" type="xsd:string"/>
+																					<xsd:element name="idVoceFattura" type="xsd:string"/>
+																					<xsd:element name="codiceEventoPPV" type="xsd:string"/>
+																					<xsd:element name="subTypeCode" type="xsd:string"/>
+																					<xsd:element name="typeCode" type="xsd:string"/>
+																					<xsd:element name="kenanId" type="xsd:string"/>
+																				</xsd:sequence>
+																			</xsd:complexType>
+																		</xsd:element>
+																	</xsd:sequence>
+																</xsd:complexType>
+															</xsd:element>
+														</xsd:sequence>
+													</xsd:complexType>
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestCalcoloStornoType">
+		<xsd:sequence>
+			<xsd:element name="billingAccount" type="string_valorizzata"/>
+			<xsd:element name="idFattura" type="string_valorizzata"/>
+			<xsd:element name="dataEmissioneFattura" type="string_valorizzata"/>
+			<xsd:element name="dettaglioCalcoloStorno">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="idVoceFattura" type="string_valorizzata"/>
+						<xsd:element name="subTypeCode" type="string_valorizzata"/>
+						<xsd:element name="typeCode" type="string_valorizzata"/>
+						<xsd:element name="dataInizio" type="string_valorizzata"/>
+						<xsd:element name="dataFine" type="string_valorizzata"/>
+						<xsd:element name="importoTotale" type="string_valorizzata"/>
+						<xsd:element name="importoStornabile" type="string_valorizzata"/>
+						<xsd:element name="idEvento" type="xsd:string"/>
+						<xsd:element name="codiceEventoPPV" type="xsd:string"/>
+						<xsd:element name="tipoEvento" type="xsd:string"/>
+						<xsd:element name="dataVisione" type="xsd:string"/>
+						<xsd:element name="importoOperatore" type="string_valorizzata"/>
+						<xsd:element name="dataInizioPeriodoOperatore" type="string_valorizzata"/>
+						<xsd:element name="dataFinePeriodoOperatore" type="string_valorizzata"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseCalcoloStornoType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string"/>
+			<xsd:element name="importoOperatore" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="importoKenan" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="codiceEsito" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="string_valorizzata">
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

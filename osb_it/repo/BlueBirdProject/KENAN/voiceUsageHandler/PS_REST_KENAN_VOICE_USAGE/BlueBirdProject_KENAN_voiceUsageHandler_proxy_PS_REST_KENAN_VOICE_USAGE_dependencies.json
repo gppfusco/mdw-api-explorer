@@ -1,0 +1,78 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_KENAN_voiceUsageHandler_proxy_PS_REST_KENAN_VOICE_USAGE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/KENAN/voiceUsageHandler/pipeline/PL_REST_KENAN_VOICE_USAGE" : {
+        "label" : "Pipeline/BlueBirdProject/KENAN/voiceUsageHandler/pipeline/PL_REST_KENAN_VOICE_USAGE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/KENAN/voiceUsageHandler/pipeline/PL_INTERNAL_KENAN_RETRIEVE_VOICE_USAGE" : {
+            "label" : "Pipeline/BlueBirdProject/KENAN/voiceUsageHandler/pipeline/PL_INTERNAL_KENAN_RETRIEVE_VOICE_USAGE",
+            "properties" : { },
+            "successors" : {
+              "BusinessService/BlueBirdProject/KENAN/voiceUsageHandler/businessService/BS_SQL_KENAN_RETRIEVE_VOICE_USAGE" : {
+                "label" : "BusinessService/BlueBirdProject/KENAN/voiceUsageHandler/businessService/BS_SQL_KENAN_RETRIEVE_VOICE_USAGE",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS" : {
+                "label" : "Xquery/KENANProject/transformation/createRequest_BS_SQL_KNN_GET_CATALOG_INFOS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/voiceUsageHandler/transformation/createResponse_KenanRetrieveVoiceUsage" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/voiceUsageHandler/transformation/createResponse_KenanRetrieveVoiceUsage",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_VOICE_USAGE" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_VOICE_USAGE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/KENAN/voiceUsageHandler/transformation/createRequest_KenanRetrieveVoiceUsage" : {
+                "label" : "Xquery/BlueBirdProject/KENAN/voiceUsageHandler/transformation/createRequest_KenanRetrieveVoiceUsage",
+                "properties" : { },
+                "successors" : { }
+              },
+              "XMLSchema/BlueBirdProject/Resources/BS_SQL_KENAN_RETRIEVE_VOICE_USAGE" : {
+                "label" : "XMLSchema/BlueBirdProject/Resources/BS_SQL_KENAN_RETRIEVE_VOICE_USAGE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/kenan/PL_INTERNAL_KENAN_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_VOICE_USAGE" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_VOICE_USAGE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_VOICE_USAGE" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_KENAN_VOICE_USAGE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

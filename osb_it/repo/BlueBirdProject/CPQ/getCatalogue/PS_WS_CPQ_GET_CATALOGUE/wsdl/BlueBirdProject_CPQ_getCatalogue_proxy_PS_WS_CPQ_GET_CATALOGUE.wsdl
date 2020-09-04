@@ -1,0 +1,66 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="WS_CPQ_GET_CATALOGUE"
+     targetNamespace="http://www.skytv.it/mdw/service/WS_CPQ_GET_CATALOGUE"
+     xmlns:tns="http://www.skytv.it/mdw/service/WS_CPQ_GET_CATALOGUE"
+     xmlns:inp2="http://www.skytv.it/mdw/internal"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/internal" schemaLocation="../xsd/XSD_CPQ_CATALOGUE.xsd"/>
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="headerMessage">
+        <wsdl:part name="part_header" element="inp1:Header"/>
+    </wsdl:message>
+    <wsdl:message name="requestMessageGetCatalogue">
+        <wsdl:part name="part_requestGetCatalogue" element="inp2:requestGetCatalogue"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessageGetCatalogue">
+        <wsdl:part name="part_responseGetCatalogue" element="inp2:responseGetCatalogue"/>
+    </wsdl:message>
+    <wsdl:message name="requestMessageGetOffer">
+        <wsdl:part name="part_requestGetOffer" element="inp2:requestGetOffer"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessageGetOffer"> 
+        <wsdl:part name="part_responseGetOffer" element="inp2:responseGetOffer"/>
+    </wsdl:message>
+    <wsdl:portType name="ptt_GetCatalogue">
+        <wsdl:operation name="getCatalogue">
+            <wsdl:input message="tns:requestMessageGetCatalogue"/>
+            <wsdl:output message="tns:replyMessageGetCatalogue"/>
+        </wsdl:operation>
+        <wsdl:operation name="getOffer">
+            <wsdl:input message="tns:requestMessageGetOffer"/>
+            <wsdl:output message="tns:replyMessageGetOffer"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ptt_GetCatalogueSOAP11Binding" type="tns:ptt_GetCatalogue">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getCatalogue">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/WS_CPQ_GET_CATALOGUE/getCatalogue"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestGetCatalogue"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetCatalogue"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getOffer">
+            <soap:operation style="document"
+                            soapAction="http://www.skytv.it/mdw/service/WS_CPQ_GET_CATALOGUE/getOffer"/>
+            <wsdl:input>
+                <soap:body use="literal" parts="part_requestGetOffer"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" parts="part_responseGetOffer"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

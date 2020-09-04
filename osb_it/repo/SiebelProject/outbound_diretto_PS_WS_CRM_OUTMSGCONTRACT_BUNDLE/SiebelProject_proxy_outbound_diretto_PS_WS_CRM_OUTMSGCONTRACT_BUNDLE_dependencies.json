@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_proxy_outbound_diretto_PS_WS_CRM_OUTMSGCONTRACT_BUNDLE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGCONTRACT_BUNDLE" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGCONTRACT_BUNDLE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/pipeline/Outbound/ContractBundle/PL_WS_ITERATE_CONTRACT_BUNDLE" : {
+        "label" : "Pipeline/SiebelProject/pipeline/Outbound/ContractBundle/PL_WS_ITERATE_CONTRACT_BUNDLE",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/SiebelProject/pipeline/Outbound/ContractBundle/PL_JMS_INTERNAL_CONTACT_BUNDLE_ENQUEUE" : {
+            "label" : "Pipeline/SiebelProject/pipeline/Outbound/ContractBundle/PL_JMS_INTERNAL_CONTACT_BUNDLE_ENQUEUE",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGCONTRACT_BUNDLE" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGCONTRACT_BUNDLE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_ENQUEUE_INTERNAL_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/KENANProject/KENAN_FX/businessServices/BS_JMS_KENAN_FX" : {
+                "label" : "BusinessService/KENANProject/KENAN_FX/businessServices/BS_JMS_KENAN_FX",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGCONTRACT_BUNDLE" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/Outbound/wsdl/WS_CRM_OUTMSGCONTRACT_BUNDLE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_ITERATE_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/transformations/outbound/createWSResponseOutboundMSG" : {
+            "label" : "Xquery/SiebelProject/transformations/outbound/createWSResponseOutboundMSG",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/transformations/outbound/createRequestkenanFX" : {
+            "label" : "Xquery/SiebelProject/transformations/outbound/createRequestkenanFX",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

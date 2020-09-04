@@ -1,0 +1,77 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "OMProject_UpdateConsistency_proxy_PS_WS_OM_UPDATE_CONSISTENCY",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/OMProject/UpdateConsistency/pipeline/PL_WS_OM_UPDATE_CONSISTENCY" : {
+        "label" : "Pipeline/OMProject/UpdateConsistency/pipeline/PL_WS_OM_UPDATE_CONSISTENCY",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/OMProject/transformation/createRequestSoapHeaderTibco" : {
+            "label" : "Xquery/OMProject/transformation/createRequestSoapHeaderTibco",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/UpdateConsistency/transformations/createRequest_createActivationRequest" : {
+            "label" : "Xquery/OMProject/UpdateConsistency/transformations/createRequest_createActivationRequest",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/UpdateConsistency/transformations/createResponse_activationRequest" : {
+            "label" : "Xquery/OMProject/UpdateConsistency/transformations/createResponse_activationRequest",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_N_OPERATIONS_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/UpdateConsistency/transformations/createRequest_confirmUpdateConsistency" : {
+            "label" : "Xquery/OMProject/UpdateConsistency/transformations/createRequest_confirmUpdateConsistency",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/OMProject/UpdateConsistency/businessServices/BS_TIBCO_UPDATE_CONSISTENCY" : {
+            "label" : "BusinessService/OMProject/UpdateConsistency/businessServices/BS_TIBCO_UPDATE_CONSISTENCY",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/OMProject/UpdateConsistency/transformations/createResponse_confirmUpdateConsistency" : {
+            "label" : "Xquery/OMProject/UpdateConsistency/transformations/createResponse_confirmUpdateConsistency",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/UpdateConsistency/transformations/createRequest_updateConsistencyInformation" : {
+            "label" : "Xquery/OMProject/UpdateConsistency/transformations/createRequest_updateConsistencyInformation",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/OMProject/UpdateConsistency/transformations/createResponse_updateConsistencyInformation" : {
+            "label" : "Xquery/OMProject/UpdateConsistency/transformations/createResponse_updateConsistencyInformation",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/OMProject/UpdateConsistency/wsdl/WS_OM_UPDATE_CONSISTENCY" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/UpdateConsistency/wsdl/WS_OM_UPDATE_CONSISTENCY",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/OMProject/UpdateConsistency/wsdl/WS_OM_UPDATE_CONSISTENCY" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/OMProject/UpdateConsistency/wsdl/WS_OM_UPDATE_CONSISTENCY",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

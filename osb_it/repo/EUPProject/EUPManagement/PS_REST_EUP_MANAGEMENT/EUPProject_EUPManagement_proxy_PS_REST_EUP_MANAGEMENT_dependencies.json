@@ -1,0 +1,73 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "EUPProject_EUPManagement_proxy_PS_REST_EUP_MANAGEMENT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "ServiceProvider/MDW_CDM/ServiceKeyProviders/key_provider_eup" : {
+        "label" : "ServiceProvider/MDW_CDM/ServiceKeyProviders/key_provider_eup",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/EUPProject/EUPManagement/pipeline/PL_EUP_MANAGEMENT_ROUTING" : {
+        "label" : "Pipeline/EUPProject/EUPManagement/pipeline/PL_EUP_MANAGEMENT_ROUTING",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Pipeline/EUPProject/EUPManagement/pipeline/PL_INTERNAL_EUP_UPSERT_CUSTOMER" : {
+            "label" : "Pipeline/EUPProject/EUPManagement/pipeline/PL_INTERNAL_EUP_UPSERT_CUSTOMER",
+            "properties" : { },
+            "successors" : {
+              "Xquery/EUPProject/EUPManagement/transformation/createResponse_EUP_UpsertCustomer" : {
+                "label" : "Xquery/EUPProject/EUPManagement/transformation/createResponse_EUP_UpsertCustomer",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/EUPProject/EUPManagement/transformation/createRequest_EUP_UpsertCustomer" : {
+                "label" : "Xquery/EUPProject/EUPManagement/transformation/createRequest_EUP_UpsertCustomer",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/EUPProject/EUPManagement/businessService/BS_REST_EUP" : {
+                "label" : "BusinessService/EUPProject/EUPManagement/businessService/BS_REST_EUP",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/EUPProject/Resources/PS_REST_EUP_MANAGEMENT" : {
+                "label" : "WSDL/EUPProject/Resources/PS_REST_EUP_MANAGEMENT",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "WSDL/EUPProject/Resources/PS_REST_EUP_MANAGEMENT" : {
+            "label" : "WSDL/EUPProject/Resources/PS_REST_EUP_MANAGEMENT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/EUPProject/Resources/PS_REST_EUP_MANAGEMENT" : {
+        "label" : "WSDL/EUPProject/Resources/PS_REST_EUP_MANAGEMENT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

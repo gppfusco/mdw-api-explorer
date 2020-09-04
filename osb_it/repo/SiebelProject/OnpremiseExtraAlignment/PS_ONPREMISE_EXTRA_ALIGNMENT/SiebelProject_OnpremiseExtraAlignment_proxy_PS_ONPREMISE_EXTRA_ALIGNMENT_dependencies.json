@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SiebelProject_OnpremiseExtraAlignment_proxy_PS_ONPREMISE_EXTRA_ALIGNMENT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OnpremiseExtraAlignment/wsdl/WS_ONPREMISE_EXTRA_ALIGNMENT" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OnpremiseExtraAlignment/wsdl/WS_ONPREMISE_EXTRA_ALIGNMENT",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/SiebelProject/OnpremiseExtraAlignment/pipeline/PL_WS_ONPREMISE_EXTRA_ALIGNMENT" : {
+        "label" : "Pipeline/SiebelProject/OnpremiseExtraAlignment/pipeline/PL_WS_ONPREMISE_EXTRA_ALIGNMENT",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/SiebelProject/OnpremiseExtraAlignment/trasformations/createResponseOnpremiseExtraAlignment" : {
+            "label" : "Xquery/SiebelProject/OnpremiseExtraAlignment/trasformations/createResponseOnpremiseExtraAlignment",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SiebelProject/OnpremiseExtraAlignment/trasformations/createRequestOnPremiseExtraAlignment" : {
+            "label" : "Xquery/SiebelProject/OnpremiseExtraAlignment/trasformations/createRequestOnPremiseExtraAlignment",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OnpremiseExtraAlignment/wsdl/WS_ONPREMISE_EXTRA_ALIGNMENT" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SiebelProject/OnpremiseExtraAlignment/wsdl/WS_ONPREMISE_EXTRA_ALIGNMENT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/SiebelProject/businessService/BS_SQL_FUNCTION_SCRIVI_EXTRA" : {
+            "label" : "BusinessService/SiebelProject/businessService/BS_SQL_FUNCTION_SCRIVI_EXTRA",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

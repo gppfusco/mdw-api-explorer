@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestCallbackOrderManagement" type="requestCallbackOrderManagementType"/>
+	<xsd:complexType name="requestCallbackOrderManagementType">
+		<xsd:sequence>
+			<xsd:element name="mdwOrderReference" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwOrderId" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwOrderNum" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwAction" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwResult" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwDescription" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwCorrelationID" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="mdwCorrelationOMId" type="xsd:string" minOccurs="0"/>
+                        
+                        <xsd:element name="mdwIdHeaderFW" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwIdInstanceFW" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwIdAssetFW" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwCodiceClienteFW" type="xsd:string" minOccurs="0"/>
+                        <xsd:element name="mdwCodiceCDFFW" type="xsd:string" minOccurs="0"/>
+                        
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseCallbackOrderManagement" type="responseCallbackOrderManagementType"/>
+	<xsd:complexType name="responseCallbackOrderManagementType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

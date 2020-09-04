@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestUpdateConsistencyInformation" type="requestUpdateConsistencyInformationType"/>
+	<xsd:element name="responseUpdateConsistencyInformation" type="responseUpdateConsistencyInformationType"/>
+	<xsd:complexType name="requestUpdateConsistencyInformationType">
+		<xsd:sequence>
+			<xsd:element name="TibcoOrderId" type="xsd:string"/>
+			<xsd:element name="OrderNumber" type="xsd:string"/>
+			<xsd:element name="CorrelationId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Device" type="DeviceType" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DeviceType">
+		<xsd:sequence>
+			<xsd:element name="SeriaNumber" type="xsd:string"/>
+			<xsd:element name="DeviceType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="PacketType" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Status" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="SubStatus" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="AssociationDate" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Model" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ChannelTypeCD" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Technology" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagDKIntegration" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagWifi" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagDolbyDigital" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagMySKY" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagBought" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FlagEthan" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseUpdateConsistencyInformationType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestConfirmUpdateConsistency" type="requestConfirmUpdateConsistencyType"/>
+	<xsd:element name="responseConfirmUpdateConsistency" type="responseConfirmUpdateConsistencyType"/>
+	<xsd:complexType name="requestConfirmUpdateConsistencyType">
+		<xsd:sequence>
+			<xsd:element name="Action" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TibcoOrderId" type="xsd:string"/>
+			<xsd:element name="CorrelationId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CorrelationIdOM" type="xsd:string"/>
+			<xsd:element name="ResultCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ResultDescription" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseConfirmUpdateConsistencyType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestActivationRequest" type="requestActivationRequestType"/>
+	<xsd:element name="responseActivationRequest" type="responseActivationRequestType"/>
+	<xsd:complexType name="requestActivationRequestType">
+		<xsd:sequence>
+			<xsd:element name="Action" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TibcoOrderId" type="xsd:string"/>
+			<xsd:element name="CorrelationId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CorrelationIdOM" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ResultCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ResultDescription" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="responseActivationRequestType">
+		<xsd:sequence>
+			<xsd:element name="esito" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="descrizioneEsito" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="tid" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

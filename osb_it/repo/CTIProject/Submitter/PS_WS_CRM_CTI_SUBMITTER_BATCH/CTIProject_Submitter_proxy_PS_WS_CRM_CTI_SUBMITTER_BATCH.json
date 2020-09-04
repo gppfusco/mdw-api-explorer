@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/cti/WS_CRM_CTI_SUBMITTER_BATCH",
+    "name" : "CTIProject_Submitter_proxy_PS_WS_CRM_CTI_SUBMITTER_BATCH",
+    "localPath" : "osb_it\\repo\\CTIProject\\Submitter\\PS_WS_CRM_CTI_SUBMITTER_BATCH",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/cti/WS_CRM_CTI_SUBMITTER_BATCH?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/CTIProject/CtiSubmitterBatch/xsd/XSD_CRM_CTI_SUBMITTER_BATCH",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:element name="requestSendMagazine" type="requestSendMagazineType"/>
+	<xsd:complexType name="requestSendMagazineType">
+		<xsd:sequence>
+			<xsd:element name="mdwChannel" type="xsd:string"/>
+			<xsd:element name="mdwCoBrowsingFlag" type="flagType"/>
+			<xsd:element name="mdwConnIDCTI" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwProvenance" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwInteractionid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwSessionid" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="contractData">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="custId" type="xsd:string"/>
+						<xsd:element name="contrId" type="xsd:string"/>
+						<xsd:element name="mdwMagazineChoice" type="magazineChoiceType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="responseSendMagazine" type="responseSendMagazineType"/>
+	<xsd:complexType name="responseSendMagazineType">
+		<xsd:sequence>
+			<xsd:element name="mdwResultCode" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwResultDescription" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwInteractionId" type="xsd:string"/>
+			<xsd:element name="mdwServiceMessage" type="xsd:string"/>
+			<xsd:element name="contrId" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="mdwCoBrowsingFlag" type="flagType" minOccurs="0"/>
+			<xsd:element name="mdwServiceRequest" minOccurs="0" >
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="mdwServiceRequestId" type="xsd:string" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="flagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="magazineChoiceType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+			<xsd:enumeration value="G"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

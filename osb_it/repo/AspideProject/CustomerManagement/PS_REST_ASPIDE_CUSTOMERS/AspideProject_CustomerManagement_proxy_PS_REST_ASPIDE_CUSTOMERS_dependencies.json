@@ -1,0 +1,70 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "AspideProject_CustomerManagement_proxy_PS_REST_ASPIDE_CUSTOMERS",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/AspideProject/CustomerManagement/pipeline/PL_REST_CUSTOMERS" : {
+        "label" : "Pipeline/AspideProject/CustomerManagement/pipeline/PL_REST_CUSTOMERS",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "WSDL/AspideProject/Resources/PS_REST_ASPIDE_CUSTOMERS" : {
+            "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_CUSTOMERS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/AspideProject/CustomerManagement/pipeline/PL_REST_INTERNAL_GET_CUSTOMER" : {
+            "label" : "Pipeline/AspideProject/CustomerManagement/pipeline/PL_REST_INTERNAL_GET_CUSTOMER",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/AspideProject/CustomerManagement/businessService/BS_REST_ASPIDE_CUSTOMERS" : {
+                "label" : "BusinessService/AspideProject/CustomerManagement/businessService/BS_REST_ASPIDE_CUSTOMERS",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "WSDL/AspideProject/Resources/PS_REST_ASPIDE_CUSTOMERS" : {
+                "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_CUSTOMERS",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/AspideProject/CustomerManagement/transformations/createResponse_GetCustomer" : {
+                "label" : "Xquery/AspideProject/CustomerManagement/transformations/createResponse_GetCustomer",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/AspideProject/CustomerManagement/transformations/createRequest_GetCustomer" : {
+                "label" : "Xquery/AspideProject/CustomerManagement/transformations/createRequest_GetCustomer",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/AspideProject/Resources/PS_REST_ASPIDE_CUSTOMERS" : {
+        "label" : "WSDL/AspideProject/Resources/PS_REST_ASPIDE_CUSTOMERS",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

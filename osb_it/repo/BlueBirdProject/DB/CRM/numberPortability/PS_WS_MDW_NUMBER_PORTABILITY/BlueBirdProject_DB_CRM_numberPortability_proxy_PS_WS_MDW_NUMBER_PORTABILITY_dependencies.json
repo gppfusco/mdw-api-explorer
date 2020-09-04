@@ -1,0 +1,103 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_DB_CRM_numberPortability_proxy_PS_WS_MDW_NUMBER_PORTABILITY",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/numberPortability/wsdl/WS_MDW_NUMBER_PORTABILITY" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/numberPortability/wsdl/WS_MDW_NUMBER_PORTABILITY",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/BlueBirdProject/DB_CRM/numberPortability/pipeline/PL_REST_MDW_SF_NUMBER_PORTABILITY" : {
+        "label" : "Pipeline/BlueBirdProject/DB_CRM/numberPortability/pipeline/PL_REST_MDW_SF_NUMBER_PORTABILITY",
+        "properties" : { },
+        "successors" : {
+          "Pipeline/BlueBirdProject/DB_CRM/numberPortability/pipeline/PL_INTERNAL_VERIFY_NUMBER_PORTABILITY" : {
+            "label" : "Pipeline/BlueBirdProject/DB_CRM/numberPortability/pipeline/PL_INTERNAL_VERIFY_NUMBER_PORTABILITY",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "Xquery/BlueBirdProject/DB_CRM/numberPortability/transformation/createRequest_VerifyNumberPortability" : {
+                "label" : "Xquery/BlueBirdProject/DB_CRM/numberPortability/transformation/createRequest_VerifyNumberPortability",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/DB_CRM/numberPortability/businessService/BS_SQL_SF_VERIFY_NUMBER_PORTABILITY" : {
+                "label" : "BusinessService/BlueBirdProject/DB_CRM/numberPortability/businessService/BS_SQL_SF_VERIFY_NUMBER_PORTABILITY",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_NUMBER_PORTABILITY" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_NUMBER_PORTABILITY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DB_CRM/numberPortability/transformation/createResponse_VerifyNumberPortability" : {
+                "label" : "Xquery/BlueBirdProject/DB_CRM/numberPortability/transformation/createResponse_VerifyNumberPortability",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION_WITHOUT_BRANCH",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/BlueBirdProject/Resources/PS_REST_NUMBER_PORTABILITY" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_NUMBER_PORTABILITY",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/DB_CRM/numberPortability/pipeline/PL_INTERNAL_GET_PREFIX_NUMBER" : {
+            "label" : "Pipeline/BlueBirdProject/DB_CRM/numberPortability/pipeline/PL_INTERNAL_GET_PREFIX_NUMBER",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/numberPortability/wsdl/WS_MDW_NUMBER_PORTABILITY" : {
+                "label" : "WSDL/MDW_CDM/EnterpriseServices/BlueBirdProject/DB_CRM/numberPortability/wsdl/WS_MDW_NUMBER_PORTABILITY",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DB_CRM/numberPortability/transformation/createResponse_GetPrefixNumber" : {
+                "label" : "Xquery/BlueBirdProject/DB_CRM/numberPortability/transformation/createResponse_GetPrefixNumber",
+                "properties" : { },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/DB_CRM/numberPortability/transformation/createRequest_GetPrefixNumber" : {
+                "label" : "Xquery/BlueBirdProject/DB_CRM/numberPortability/transformation/createRequest_GetPrefixNumber",
+                "properties" : { },
+                "successors" : { }
+              },
+              "BusinessService/BlueBirdProject/DB_CRM/numberPortability/businessService/BS_SQL_GET_PREFIX_NUMBER" : {
+                "label" : "BusinessService/BlueBirdProject/DB_CRM/numberPortability/businessService/BS_SQL_GET_PREFIX_NUMBER",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

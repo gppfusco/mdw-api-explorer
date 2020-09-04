@@ -1,0 +1,47 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_WS_CRM_ALIGNMENT_SCENARIO_proxy_PS_WS_CRM_ALIGNMENT_SCENARIO_ASYNC",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/WS_CRM_ALIGNMENT_SCENARIO/pipeline/PL_WS_CRM_ALIGNMENT_SCENARIO_ENQUEUE" : {
+        "label" : "Pipeline/SalesforceProject/WS_CRM_ALIGNMENT_SCENARIO/pipeline/PL_WS_CRM_ALIGNMENT_SCENARIO_ENQUEUE",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "BusinessService/SalesforceProject/WS_CRM_ALIGNMENT_SCENARIO/businessService/BS_JMS_ALIGNMENT_SCENARIO_ENQUEUE" : {
+            "label" : "BusinessService/SalesforceProject/WS_CRM_ALIGNMENT_SCENARIO/businessService/BS_JMS_ALIGNMENT_SCENARIO_ENQUEUE",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_ASYNC_ENQUEUE_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/WS_CRM_ALIGNMENT_SCENARIO/transformations/createResponse_AlignmentScenario" : {
+            "label" : "Xquery/SalesforceProject/WS_CRM_ALIGNMENT_SCENARIO/transformations/createResponse_AlignmentScenario",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/AlignmentScenario/wsdl/WS_CRM_ALIGNMENT_SCENARIO" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/AlignmentScenario/wsdl/WS_CRM_ALIGNMENT_SCENARIO",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/AlignmentScenario/wsdl/WS_CRM_ALIGNMENT_SCENARIO" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SalesforceProject/AlignmentScenario/wsdl/WS_CRM_ALIGNMENT_SCENARIO",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

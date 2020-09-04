@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Salesforce.com Outbound Notification Web Services API Version 1.0 
+Generated on 2018-06-14 13:17:18 +0000.
+
+Copyright 2005-2018 Salesforce.com, Inc.
+All Rights Reserved
+-->
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://soap.sforce.com/2005/09/outbound" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ent="urn:enterprise.soap.sforce.com" xmlns:ens="urn:sobject.enterprise.soap.sforce.com" targetNamespace="http://soap.sforce.com/2005/09/outbound">
+	<types>
+		<schema elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:enterprise.soap.sforce.com">
+			<!-- Our simple ID Type -->
+			<simpleType name="ID">
+				<restriction base="xsd:string">
+					<length value="18"/>
+					<pattern value="[a-zA-Z0-9]{18}"/>
+				</restriction>
+			</simpleType>
+		</schema>
+		<schema elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:sobject.enterprise.soap.sforce.com">
+			<import namespace="urn:enterprise.soap.sforce.com"/>
+			<!-- Base sObject (abstract) -->
+			<complexType name="sObject">
+				<sequence>
+					<element name="fieldsToNull" type="xsd:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+					<element name="Id" type="ent:ID" nillable="true"/>
+				</sequence>
+			</complexType>
+			<complexType name="AggregateResult">
+				<complexContent>
+					<extension base="ens:sObject">
+						<sequence>
+							<any namespace="##targetNamespace" minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+						</sequence>
+					</extension>
+				</complexContent>
+			</complexType>
+			<complexType name="Comunicazioni__c">
+				<complexContent>
+					<extension base="ens:sObject">
+						<sequence>
+							<element name="Account_Id__c" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="Activity_Id__c" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="Activity_Number__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Adesione_Promo_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Agcom_PIN__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Alias_Mittente__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Altro_Numero_Tel_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Altro_Numero_Tel_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Ambiente_Servizio__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Analisi_Preferenze_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Analisi_Preferenze_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Attachment__c" nillable="true" minOccurs="0" type="xsd:boolean"/>
+							<element name="Attivazione_Futura_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Attivita__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CAP_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="CAP_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Canale_Chiamante__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Canale_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Canale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Candidato_Finale_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Candidato_Iniziale_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Categoria_Listino__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Categoria__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Causale_Cessazione__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Cellulare_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Cellulare_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Citta_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Citta_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Classe_Promozione__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Cliente_BB_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Cliente_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Cliente_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Cliente__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Contratto__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Esigenza__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Landing_Page__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Lavorazione__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Lettera__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Promozione_Agg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Promozione__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Ricarica__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Seriale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Servizio_Premium_Agg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Codice_Servizio_Premium__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Cognome_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Cognome_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Comment__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Comunication_Id__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Consenso_Dati_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Contact_Id__c" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="Contesto_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Contratto_ID__c" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="CreatedById" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="CreatedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="Credito_Residuo__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Data_Attivazione_MOP__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Data_Contatto_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Data_Invio_Dt__c" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="Data_Nascita_Fruitore_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Data_Nascita_Pagatore_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Data_Pagamento_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="SkyExtra_Data_Elegibility_Loyalty_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Desc_Pack_Arrivo__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Desc_Pack_Partenza__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Desc_Pack__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Descrizione_Esito__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Descrizione_Motivo__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Descrizione_Premio__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Descrizione_Promo__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Descrizione_Promo_per_BMAIL__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Descrizione_Promo_per_Lettera__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Descrizione_Richiesta__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Descrizione_Tipo_Upg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Dettaglio_Motivo__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Durata_Promo__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Elenco_SmartCard__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="EmailBody__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Email_Body__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Email_CCN__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Email_CC__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Email_Catalog_Id__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Email_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Email_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Email_Recipient_Address__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Email_Recipient_Name__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Esito_Adesione__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Esito_Premio__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Esito_Upgrade__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Esito__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Exit_Fee__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Fee_Cambio_Piano__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="FileName_Attachment1__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="FilePath_Attachment1__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Fine_Validita_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Frase_Promozione__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Free_Vision_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="IDOdl__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="IDOds__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="IdCXWEBLOG__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="IdCommPegasusToAppend__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Id_Retail__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Id_Service_Request__c" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="Importo__c" nillable="true" minOccurs="0" type="xsd:double"/>
+							<element name="Inbound_Outbound__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Indirizzo_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Indirizzo_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Interaction_Id__c" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="Interno_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Interno_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Invio_Ctr_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="IsDeleted" nillable="true" minOccurs="0" type="xsd:boolean"/>
+							<element name="LastModifiedAccount__c" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="LastModifiedActivity__c" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="LastModifiedById" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="LastModifiedContact__c" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="LastModifiedContract__c" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="LastModifiedDate" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="LastModifiedInteraction__c" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="LastModifiedSR__c" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="Link_Landing_Page__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Link_Registrazione_SkyId__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Link_Validazione_Mail__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="MOP_PO_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Macrocategoria__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Message_Object__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Migrazione__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Mittente__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Modalit_di_Pagamento__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Motivo__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Movimentazione__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Name" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="NameVersion_Attachment1__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="NameVersion_Attachment2__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Name_Attachment1__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Name_Attachment2__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Nome_Attivita__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Nome_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Nome_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Nome_Premio__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Nome_Promo__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Note_Attivita__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Numero_Civico_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Numero_Civico_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Numero_Reclamo__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="ODL_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Oggetto_Richiesta__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="On_Demand_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Order_Id_Attachment1__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Order_Id__c" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="Order_Number_Attachment1__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="OwnerId" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="PDISC_Finale_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="PDISC_Iniziale_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="PREPDISC_Finale_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="PREPDISC_Iniziale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Path_Delivery_PDF__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Payment_Method__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Pegasus_Id__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Periodicit_di_fatturazione__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Piano_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Piano_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Piva_Cod_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Piva_Cod_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Planned_Completion_Dt__c" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="Provenienza_RTD__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Provincia_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Provincia_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Rate_Code__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="RecordTypeId" nillable="true" minOccurs="0" type="ent:ID"/>
+							<element name="Record_Type_Name__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Reminder__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Richiesta_Attivazione_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Richiesta_Cessazione_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Richiesta_Promozione_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="SEZ1__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SKYID__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SRCanale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SRId__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SRNumber__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SRProvenienza__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SRStato__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Scadenza_Contratto_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Scala_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Scala_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Service_Request_Number__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Servizio_Downgrade__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Servizio_Premium__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Sesso_Fruitore_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Sesso_Pagatore_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Sezione1__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Sezione2__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Sezione3__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Simulato_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SkyId_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SkyService_CAP__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SkyService_Citta__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SkyService_GiorniChiusura__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SkyService_Indirizzo__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SkyService_Orari__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SkyService_RagioneSociale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SkyService_Telefono__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SmartCard__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Sottocategoria__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Statistiche_Fruitore_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Statistiche_Pagatore_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Stato_Contratto_Finale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Stato_Contratto_Iniziale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Status__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Storia_Cliente__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="SystemModstamp" nillable="true" minOccurs="0" type="xsd:dateTime"/>
+							<element name="TIDPGS__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Telefono_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Telefono_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Template__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Temporary_Email_Address_Fruitore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Temporary_Email_Address_Pagatore__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Testo_Centrale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Testo_Libero__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Testo_Originale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Tipo_Canale__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Tipo_Categoria__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Tipo_Contatto__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Tipo_Invio_RTD__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Tipo_Lavorazione__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Tipo_Offerta_RTD__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Tipo_Offerta__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Tipo_Operazione__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Tipo_Procedura__c" nillable="true" minOccurs="0" type="xsd:string"/> 
+							<element name="Tipo_Record__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Tipologia_Cliente__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Type_Attachment1__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Type_Attachment2__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Ultima_Modifica_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+							<element name="Upgrade_Downgrade_Flg__c" nillable="true" minOccurs="0" type="xsd:string"/>
+							<element name="Validita_Dt__c" nillable="true" minOccurs="0" type="xsd:date"/>
+						</sequence>
+					</extension>
+				</complexContent>
+			</complexType>
+		</schema>
+		<schema elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://soap.sforce.com/2005/09/outbound">
+			<import namespace="urn:enterprise.soap.sforce.com"/>
+			<import namespace="urn:sobject.enterprise.soap.sforce.com"/>
+			<element name="notifications">
+				<complexType>
+					<sequence>
+						<element name="OrganizationId" type="ent:ID"/>
+						<element name="ActionId" type="ent:ID"/>
+						<element name="SessionId" type="xsd:string" nillable="true"/>
+						<element name="EnterpriseUrl" type="xsd:string"/>
+						<element name="PartnerUrl" type="xsd:string"/>
+						<element name="Notification" maxOccurs="100" type="tns:Comunicazioni__cNotification"/>
+					</sequence>
+				</complexType>
+			</element>
+			<complexType name="Comunicazioni__cNotification">
+				<sequence>
+					<element name="Id" type="ent:ID"/>
+					<element name="sObject" type="ens:Comunicazioni__c"/>
+				</sequence>
+			</complexType>
+			<element name="notificationsResponse">
+				<complexType>
+					<sequence>
+						<element name="Ack" type="xsd:boolean"/>
+					</sequence>
+				</complexType>
+			</element>
+		</schema>
+	</types>
+	<message name="notificationsRequest">
+		<part name="request" element="tns:notifications"/>
+	</message>
+	<message name="notificationsResponse">
+		<part name="response" element="tns:notificationsResponse"/>
+	</message>
+	<portType name="NotificationPort">
+		<operation name="notifications">
+			<documentation>Process a number of notifications.</documentation>
+			<input message="tns:notificationsRequest"/>
+			<output message="tns:notificationsResponse"/>
+		</operation>
+	</portType>
+	<binding name="NotificationBinding" type="tns:NotificationPort">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="notifications">
+			<soap:operation soapAction=""/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="NotificationService">
+		<documentation>Notification Service Implementation</documentation>
+		<port name="Notification" binding="tns:NotificationBinding">
+			<soap:address location="https://ws.osbcol.sky.it/osbprj/services/pegasus/WS_CRM_PEGASUS_OUTMSGCOMMUNICATION"/>
+		</port>
+	</service>
+	<!-- Method Messages -->
+	<!-- PortType -->
+	<!-- Binding 
+         You need to write a service that implements this binding to receive the notifications
+     -->
+	<!-- Service Endpoint -->
+</definitions>

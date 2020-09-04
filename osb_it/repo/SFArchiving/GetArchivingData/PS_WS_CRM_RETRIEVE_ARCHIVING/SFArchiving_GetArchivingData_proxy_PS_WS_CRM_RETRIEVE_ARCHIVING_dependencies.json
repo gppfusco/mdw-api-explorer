@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SFArchiving_GetArchivingData_proxy_PS_WS_CRM_RETRIEVE_ARCHIVING",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "Pipeline/SFArchiving/GetArchivingData/pipeline/PL_CRM_RETRIEVE_ARCHIVING" : {
+        "label" : "Pipeline/SFArchiving/GetArchivingData/pipeline/PL_CRM_RETRIEVE_ARCHIVING",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/SFArchiving/GetArchivingData/businessService/BS_TUX_CRM_RETRIEVE_ARCHIVING" : {
+            "label" : "BusinessService/SFArchiving/GetArchivingData/businessService/BS_TUX_CRM_RETRIEVE_ARCHIVING",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SFArchiving/GetArchivingData/transformations/createResponseGetArchivingData" : {
+            "label" : "Xquery/SFArchiving/GetArchivingData/transformations/createResponseGetArchivingData",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SFArchiving/GetArchivingData/transformations/createRequestGetArchivingData" : {
+            "label" : "Xquery/SFArchiving/GetArchivingData/transformations/createRequestGetArchivingData",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/SFArchiving/GetArchivingData/wsdl/WS_CRM_RETRIEVE_ARCHIVING" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/SFArchiving/GetArchivingData/wsdl/WS_CRM_RETRIEVE_ARCHIVING",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/MDW_CDM/EnterpriseServices/SFArchiving/GetArchivingData/wsdl/WS_CRM_RETRIEVE_ARCHIVING" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/SFArchiving/GetArchivingData/wsdl/WS_CRM_RETRIEVE_ARCHIVING",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<wsdl:definitions xmlns:tns="http://xmlns.oracle.com/OSBSvil_REPLY/SalesforceProject/PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:inp2="http://www.skytv.it/mdw/data" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION" targetNamespace="http://xmlns.oracle.com/OSBSvil_REPLY/SalesforceProject/PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SalesforceProject/Rest_PremiumServiceActivation/xsd/XSD_CRM_PREMIUM_SERVICE_ACTIVATION.xsd"/>
+		</xsd:schema>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="premiumServiceActivation_inputMessage">
+		<wsdl:part name="request" element="inp1:requestPremiumServiceActivation"/>
+	</wsdl:message>
+	<wsdl:message name="premiumServiceActivation_outputMessage">
+		<wsdl:part name="reply" element="inp1:responsePremiumServiceActivation"/>
+	</wsdl:message>
+	<wsdl:message name="premiumServiceActivation_error400Message">
+		<wsdl:part name="fault_error400" element="inp1:error400"/>
+	</wsdl:message>
+	<wsdl:message name="premiumServiceActivation_error500Message">
+		<wsdl:part name="fault_error500" element="inp1:error500"/>
+	</wsdl:message>
+	<wsdl:message name="premiumServiceActivation_error404Message">
+		<wsdl:part name="fault_error404" element="inp1:error404"/>
+	</wsdl:message>
+	<wsdl:portType name="PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION_ptt"> 
+		<wsdl:operation name="premiumServiceActivation">
+			<wsdl:input message="tns:premiumServiceActivation_inputMessage"/>
+			<wsdl:output message="tns:premiumServiceActivation_outputMessage"/>
+			<wsdl:fault name="error400" message="tns:premiumServiceActivation_error400Message"/>
+			<wsdl:fault name="error500" message="tns:premiumServiceActivation_error500Message"/>
+			<wsdl:fault name="error404" message="tns:premiumServiceActivation_error404Message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION_ptt-binding" type="tns:PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="premiumServiceActivation">
+			<soap:operation soapAction="premiumServiceActivation"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<plnk:partnerLinkType name="PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION">
+		<plnk:role name="PS_REST_CRM_PREMIUM_SERVICE_ACTIVATIONProvider" portType="tns:PS_REST_CRM_PREMIUM_SERVICE_ACTIVATION_ptt"/>
+	</plnk:partnerLinkType>
+</wsdl:definitions>

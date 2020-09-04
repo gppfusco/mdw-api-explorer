@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestSetAccountInfo" type="requestSetAccountInfoType"/>
+  <xsd:complexType name="requestSetAccountInfoType">
+    <xsd:sequence>
+      <xsd:element name="mdwChannel" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="custId" type="xsd:string"/>
+      <xsd:element name="custEmail" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="custValidEmailFlag" type="FlagType" minOccurs="0"/>
+      <xsd:element name="custStatisticsFlag" type="FlagType" minOccurs="0"/>
+      <xsd:element name="custNewTechnologyPromoFlag" type="FlagType" minOccurs="0"/>
+      <xsd:element name="custWscFlag" type="FlagType" minOccurs="0"/>
+      <xsd:element name="custGenericPhone" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="custTrackingFlag" type="FlagType" minOccurs="0"/>
+      <xsd:element name="custCookieFlag" type="FlagType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseSetAccountInfo" type="responseSetAccountInfoType"/>
+  <xsd:complexType name="responseSetAccountInfoType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string"/>
+      <xsd:element name="custStatus" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="FlagType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Y"/>
+			<xsd:enumeration value="N"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

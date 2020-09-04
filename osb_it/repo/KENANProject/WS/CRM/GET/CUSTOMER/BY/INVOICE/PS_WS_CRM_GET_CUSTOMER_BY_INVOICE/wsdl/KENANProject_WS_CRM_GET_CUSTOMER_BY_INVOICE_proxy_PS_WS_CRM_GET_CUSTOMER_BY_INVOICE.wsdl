@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:tns="http://www.skytv.it/mdw/service/CRM_GET_CUSTOMER_BY_INVOICE" xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="WS_CRM_GET_CUSTOMER_BY_INVOICE" targetNamespace="http://www.skytv.it/mdw/service/CRM_GET_CUSTOMER_BY_INVOICE">
+	<wsdl:types>
+		<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_CRM_GET_CUSTOMER_BY_INVOICE.xsd"/>
+			<xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="requestGetCustomerByInvoice_message">
+		<wsdl:part name="part_requestGetCustomerByInvoice" element="inp1:requestGetCustomerByInvoice"/>
+	</wsdl:message>
+	<wsdl:message name="responseGetCustomerByInvoice_message">
+		<wsdl:part name="part_responseGetCustomerByInvoice" element="inp1:responseGetCustomerByInvoice"/>
+	</wsdl:message>
+	<wsdl:message name="Header_message">
+		<wsdl:part name="header_part" element="inp1:Header"/>
+	</wsdl:message>
+	<wsdl:portType name="GET_CUSTOMER_BY_INVOICE_ptt">
+		<wsdl:operation name="execute_GetCustomerByInvoice">
+			<wsdl:input message="tns:requestGetCustomerByInvoice_message"/>
+			<wsdl:output message="tns:responseGetCustomerByInvoice_message"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="GET_CUSTOMER_BY_INVOICE_pttSOAP11Binding" type="tns:GET_CUSTOMER_BY_INVOICE_ptt">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="execute_GetCustomerByInvoice">
+			<soap:operation soapAction="http://www.skytv.it/mdw/service/CRM_GET_CUSTOMER_BY_INVOICE/execute_GetCustomerByInvoice" style="document"/>
+			<wsdl:input>
+				<soap:body parts="part_requestGetCustomerByInvoice" use="literal"/>
+				<soap:header message="tns:Header_message" part="header_part" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body parts="part_responseGetCustomerByInvoice" use="literal"/>
+				<soap:header message="tns:Header_message" part="header_part" use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+</wsdl:definitions>

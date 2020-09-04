@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mtfs/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO",
+    "name" : "MTFSProject_WS_CRM_MTFS_PAG_ONLINE_CIRCUITO_proxy_PS_WS_CRM_MTFS_PAG_ONLINE_CIRCUITO",
+    "localPath" : "osb_it\\repo\\MTFSProject\\WS\\CRM\\MTFS\\PAG\\ONLINE\\CIRCUITO\\PS_WS_CRM_MTFS_PAG_ONLINE_CIRCUITO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mtfs/WS_CRM_MTFS_PAG_ONLINE_CIRCUITO?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MTFSProject/PagOnlineCircuito/xsd/XSD_CRM_MTFS_PAG_ONLINE_CIRCUITO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

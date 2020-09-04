@@ -1,0 +1,50 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "SalesforceProject_REST_SF_RECUPERA_INFO_CLIENTE_proxy_PS_REST_SF_RECUPERA_INFO_CLIENTE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/SalesforceProject/REST_SF_RECUPERA_INFO_CLIENTE/pipeline/PL_SF_RECUPERA_INFO_CLIENTE" : {
+        "label" : "Pipeline/SalesforceProject/REST_SF_RECUPERA_INFO_CLIENTE/pipeline/PL_SF_RECUPERA_INFO_CLIENTE",
+        "properties" : { },
+        "successors" : {
+          "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF" : {
+            "label" : "BusinessService/MDW_CO/businessServices/BS_PSSB_EJB_SF",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_SF_RECUPERA_INFO_CLIENTE/transformations/createRequest_SF_RecuperaInfoCliente" : {
+            "label" : "Xquery/SalesforceProject/REST_SF_RECUPERA_INFO_CLIENTE/transformations/createRequest_SF_RecuperaInfoCliente",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/SalesforceProject/REST_SF_RECUPERA_INFO_CLIENTE/transformations/createResponse_SF_RecuperaInfoCliente" : {
+            "label" : "Xquery/SalesforceProject/REST_SF_RECUPERA_INFO_CLIENTE/transformations/createResponse_SF_RecuperaInfoCliente",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/SalesforceProject/Resources/PS_REST_SF_RECUPERA_INFO_CLIENTE" : {
+            "label" : "WSDL/SalesforceProject/Resources/PS_REST_SF_RECUPERA_INFO_CLIENTE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/SalesforceProject/Resources/PS_REST_SF_RECUPERA_INFO_CLIENTE" : {
+        "label" : "WSDL/SalesforceProject/Resources/PS_REST_SF_RECUPERA_INFO_CLIENTE",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

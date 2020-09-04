@@ -1,0 +1,43 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MDWProject_KeepAlive_proxy_PS_REST_MDW_KEEP_ALIVE",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "WSDL/MDWProject/Resources/PS_REST_MDW_KEEP_ALIVE" : {
+        "label" : "WSDL/MDWProject/Resources/PS_REST_MDW_KEEP_ALIVE",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MDWProject/KeepAlive/pipeline/PL_REST_MDW_KEEPALIVE" : {
+        "label" : "Pipeline/MDWProject/KeepAlive/pipeline/PL_REST_MDW_KEEPALIVE",
+        "properties" : { },
+        "successors" : {
+          "Xquery/MDWProject/KeepAlive/transformation/createResponse_JSON_ERRORS" : {
+            "label" : "Xquery/MDWProject/KeepAlive/transformation/createResponse_JSON_ERRORS",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDWProject/Resources/PS_REST_MDW_KEEP_ALIVE" : {
+            "label" : "WSDL/MDWProject/Resources/PS_REST_MDW_KEEP_ALIVE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MDWProject/KeepAlive/transformation/createResponse_KeepAlive" : {
+            "label" : "Xquery/MDWProject/KeepAlive/transformation/createResponse_KeepAlive",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_NO_ROUTING_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_SALES_ORDERMANAGEMENT",
+    "name" : "SalesforceProject_WS_SALES_ORDERMANAGEMENT_proxy_PS_WS_SALES_ORDERMANAGEMENT",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\SALES\\ORDERMANAGEMENT\\PS_WS_SALES_ORDERMANAGEMENT",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_SALES_ORDERMANAGEMENT?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/SalesOrdermanagement/xsd/XSD_SALES_ORDERMANAGEMENT",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

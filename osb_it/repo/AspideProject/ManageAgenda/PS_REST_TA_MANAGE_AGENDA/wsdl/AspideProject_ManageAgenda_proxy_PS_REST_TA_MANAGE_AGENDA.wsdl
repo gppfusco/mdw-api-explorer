@@ -1,0 +1,126 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="ManageAgenda"
+     targetNamespace="http://xmlns.oracle.com/OSBApplicationSkyReply/AspideProject/ManageAgenda"
+     xmlns:tns="http://xmlns.oracle.com/OSBApplicationSkyReply/AspideProject/ManageAgenda"
+     xmlns:inp1="http://www.skytv.it/mdw/data"
+     xmlns:inp2="http://www.skytv.it/mdw/data"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <plnk:partnerLinkType name="ManageAgenda">
+        <plnk:role name="ManageAgendaProvider" portType="tns:ManageAgenda_ptt"/>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/AspideProject/ManageAgenda/xsd/XSD_TA_MANAGE_AGENDA.xsd"/>
+        </xsd:schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseObjects/CommonEntities/restErrors.xsd"/>
+        </xsd:schema>
+        <schema targetNamespace="http://xmlns.oracle.com/OSBApplicationSkyReply/AspideProject/ManageAgenda"
+             elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema">
+            <element name="deleteAppointment_params">
+                <complexType>
+                    <sequence>
+                        <element name="appointmentId" type="string"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="createAppointment_inputMessage">
+        <wsdl:part name="request" element="inp1:requestTACreateAppointment"/>
+    </wsdl:message>
+    <wsdl:message name="createAppointment_outputMessage">
+        <wsdl:part name="reply" element="inp1:responseTACreateAppointment"/>
+    </wsdl:message>
+    <wsdl:message name="createAppointment_fault400Message">
+        <wsdl:part name="fault_fault400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="createAppointment_fault500Message">
+        <wsdl:part name="fault_fault500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="createAppointment_fault404Message">
+        <wsdl:part name="fault_fault404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="updateAppointment_inputMessage">
+        <wsdl:part name="request" element="inp1:requestTAUpdateAppointment"/>
+    </wsdl:message>
+    <wsdl:message name="Rest_EmptyMessage"/>
+    <wsdl:message name="updateAppointment_fault400Message">
+        <wsdl:part name="fault_fault400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="updateAppointment_fault500Message">
+        <wsdl:part name="fault_fault500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="updateAppointment_fault404Message">
+        <wsdl:part name="fault_fault404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:message name="deleteAppointment_inputMessage">
+        <wsdl:part name="request" element="inp1:requestTADeleteAppointment"/>
+    </wsdl:message>
+    <wsdl:message name="deleteAppointment_fault400Message">
+        <wsdl:part name="fault_fault400" element="inp1:error400"/>
+    </wsdl:message>
+    <wsdl:message name="deleteAppointment_fault500Message">
+        <wsdl:part name="fault_fault500" element="inp1:error500"/>
+    </wsdl:message>
+    <wsdl:message name="deleteAppointment_fault404Message">
+        <wsdl:part name="fault_fault404" element="inp1:error404"/>
+    </wsdl:message>
+    <wsdl:portType name="ManageAgenda_ptt">
+        <wsdl:operation name="createAppointment">
+            <wsdl:input message="tns:createAppointment_inputMessage"/>
+            <wsdl:output message="tns:createAppointment_outputMessage"/>
+            <wsdl:fault name="fault400" message="tns:createAppointment_fault400Message"/>
+            <wsdl:fault name="fault500" message="tns:createAppointment_fault500Message"/>
+            <wsdl:fault name="fault404" message="tns:createAppointment_fault404Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateAppointment">
+            <wsdl:input message="tns:updateAppointment_inputMessage"/>
+            <wsdl:output message="tns:Rest_EmptyMessage"/>
+            <wsdl:fault name="fault400" message="tns:updateAppointment_fault400Message"/>
+            <wsdl:fault name="fault500" message="tns:updateAppointment_fault500Message"/>
+            <wsdl:fault name="fault404" message="tns:updateAppointment_fault404Message"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteAppointment">
+            <wsdl:input message="tns:deleteAppointment_inputMessage"/>
+            <wsdl:output message="tns:Rest_EmptyMessage"/>
+            <wsdl:fault name="fault400" message="tns:deleteAppointment_fault400Message"/>
+            <wsdl:fault name="fault500" message="tns:deleteAppointment_fault500Message"/>
+            <wsdl:fault name="fault404" message="tns:deleteAppointment_fault404Message"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ManageAgenda_ptt-binding" type="tns:ManageAgenda_ptt">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="createAppointment">
+            <soap:operation soapAction="createAppointment"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateAppointment">
+            <soap:operation soapAction="updateAppointment"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteAppointment">
+            <soap:operation soapAction="deleteAppointment"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+	<xsd:complexType name="requestAttivazioneContrattoType">
+		<xsd:sequence>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Field" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestAttivazioneContratto" type="requestAttivazioneContrattoType"/>
+	<xsd:element name="responseAttivazioneContratto" type="responseAttivazioneContrattoType"/>
+	<xsd:complexType name="responseAttivazioneContrattoType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="RichiestaMagazzino" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestCessazioneTrentaGGType">
+		<xsd:sequence>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CausaleCessazione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataRichiestaCessazione" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="ListOfFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Field" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestCessazioneTrentaGG" type="requestCessazioneTrentaGGType"/>
+	<xsd:element name="responseCessazioneTrentaGG" type="responseCessazioneTrentaGGType"/>
+	<xsd:complexType name="responseCessazioneTrentaGGType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="requestSchedulazioneDisdettaType">
+		<xsd:sequence>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CausaleCessazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="DataRichiestaCessazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CodiceContratto" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="Ambito" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="TipoCessazione" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="TipoCliente" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="DataRicezioneRacc" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="ListOfFields" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Field" minOccurs="0" maxOccurs="unbounded">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="Nome" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Valore" type="xsd:string" minOccurs="0"/>
+									<xsd:element name="Tipo" type="xsd:string" minOccurs="0"/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="requestSchedulazioneDisdetta" type="requestSchedulazioneDisdettaType"/>
+	<xsd:element name="responseSchedulazioneDisdetta" type="responseSchedulazioneDisdettaType"/>
+	<xsd:complexType name="responseSchedulazioneDisdettaType">
+		<xsd:sequence>
+			<xsd:element name="DescrizioneEsito" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Esito" type="xsd:string"/>
+			<xsd:element name="TimeoutID" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

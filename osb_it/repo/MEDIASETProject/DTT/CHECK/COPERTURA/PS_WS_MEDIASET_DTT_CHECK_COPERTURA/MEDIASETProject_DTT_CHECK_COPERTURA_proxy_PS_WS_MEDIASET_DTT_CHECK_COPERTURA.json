@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/mediaset/WS_MEDIASET_DTT_CHECK_COPERTURA",
+    "name" : "MEDIASETProject_DTT_CHECK_COPERTURA_proxy_PS_WS_MEDIASET_DTT_CHECK_COPERTURA",
+    "localPath" : "osb_it\\repo\\MEDIASETProject\\DTT\\CHECK\\COPERTURA\\PS_WS_MEDIASET_DTT_CHECK_COPERTURA",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/mediaset/WS_MEDIASET_DTT_CHECK_COPERTURA?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/MediasetProject/DTTCheckCopertura/xsd/XSD_MEDIASET_DTT_CHECK_COPERTURA",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

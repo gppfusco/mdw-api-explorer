@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data" targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  
+  <xsd:element name="requestCheckSpeedThresholds" type="requestCheckSpeedThresholdsType"/>
+  <xsd:element name="responseCheckSpeedThresholds" type="responseCheckSpeedThresholdsType"/>
+  
+  <xsd:complexType name="requestCheckSpeedThresholdsType">
+    <xsd:sequence>
+      <xsd:element name="channel" type="xsd:string"/>
+      <xsd:element name="assetId" type="xsd:string"/>
+      <xsd:element name="downloadSpeed" type="xsd:string"/>
+      <xsd:element name="uploadSpeed" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="responseCheckSpeedThresholdsType">
+    <xsd:sequence>
+      <xsd:element name="resultCode" type="xsd:string"/>
+      <xsd:element name="resultDescription" type="xsd:string"/>
+      <xsd:element name="connectionSpeedThresholds" type="connectionSpeedThresholdsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="connectionSpeedThresholdsType">
+    <xsd:sequence>
+      <xsd:element name="belowThreshold" type="xsd:boolean"/>
+      <xsd:element name="downloadBelowThreshold" type="xsd:boolean"/>
+      <xsd:element name="downloadThreshold" type="xsd:string"/>
+      <xsd:element name="uploadBelowThreshold" type="xsd:boolean"/>
+      <xsd:element name="uploadThreshold" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+
+</xsd:schema>

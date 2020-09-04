@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/sso/WS_SSO_CHECK_NEW_CONTACTS",
+    "name" : "SSOProject_CheckNewContacts_PS_WS_SSO_CHECK_NEW_CONTACTS",
+    "localPath" : "osb_it\\repo\\SSOProject\\CheckNewContacts\\WS_SSO_CHECK_NEW_CONTACTS",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/sso/WS_SSO_CHECK_NEW_CONTACTS?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SSOProject/CheckNewContacts/xsd/XSD_SSO_CHECK_NEW_CONTACTS",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

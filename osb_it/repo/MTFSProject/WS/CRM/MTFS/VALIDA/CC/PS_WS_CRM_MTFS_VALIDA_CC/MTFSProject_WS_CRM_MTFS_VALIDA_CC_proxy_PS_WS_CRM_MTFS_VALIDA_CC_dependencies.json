@@ -1,0 +1,52 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "MTFSProject_WS_CRM_MTFS_VALIDA_CC_proxy_PS_WS_CRM_MTFS_VALIDA_CC",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "SOAP"
+    },
+    "successors" : {
+      "WSDL/MDW_CDM/EnterpriseServices/MTFSProject/ValidaCC/wsdl/WS_CRM_MTFS_VALIDA_CC" : {
+        "label" : "WSDL/MDW_CDM/EnterpriseServices/MTFSProject/ValidaCC/wsdl/WS_CRM_MTFS_VALIDA_CC",
+        "properties" : { },
+        "successors" : { }
+      },
+      "Pipeline/MTFSProject/WS_CRM_MTFS_VALIDA_CC/pipeline/PL_WS_CRM_MTFS_VALIDA_CC" : {
+        "label" : "Pipeline/MTFSProject/WS_CRM_MTFS_VALIDA_CC/pipeline/PL_WS_CRM_MTFS_VALIDA_CC",
+        "properties" : {
+          "nodeType" : "Pipeline"
+        },
+        "successors" : {
+          "Xquery/MTFSProject/WS_CRM_MTFS_VALIDA_CC/trasformation/CreateRequest_BS_TUX_VALIDA_CC" : {
+            "label" : "Xquery/MTFSProject/WS_CRM_MTFS_VALIDA_CC/trasformation/CreateRequest_BS_TUX_VALIDA_CC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Xquery/MTFSProject/WS_CRM_MTFS_VALIDA_CC/trasformation/CreateResponse_WS_VALIDA_CC" : {
+            "label" : "Xquery/MTFSProject/WS_CRM_MTFS_VALIDA_CC/trasformation/CreateResponse_WS_VALIDA_CC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "WSDL/MDW_CDM/EnterpriseServices/MTFSProject/ValidaCC/wsdl/WS_CRM_MTFS_VALIDA_CC" : {
+            "label" : "WSDL/MDW_CDM/EnterpriseServices/MTFSProject/ValidaCC/wsdl/WS_CRM_MTFS_VALIDA_CC",
+            "properties" : { },
+            "successors" : { }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_GENERIC_OPERATION_TEMPLATE",
+            "properties" : { },
+            "successors" : { }
+          },
+          "BusinessService/MTFSProject/WS_CRM_MTFS_VALIDA_CC/businessService/BS_TUX_VALIDA_CC" : {
+            "label" : "BusinessService/MTFSProject/WS_CRM_MTFS_VALIDA_CC/businessService/BS_TUX_VALIDA_CC",
+            "properties" : {
+              "nodeType" : "BusinessService"
+            },
+            "successors" : { }
+          }
+        }
+      }
+    }
+  }
+}

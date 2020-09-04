@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/billing/WS_KNN_LETTURA_FATTURE_ORACLE",
+    "name" : "KENANProject_WS_LETTURA_FATTURE_proxy_PS_WS_KNN_LETTURA_FATTURE_ORACLE",
+    "localPath" : "osb_it\\repo\\KENANProject\\WS\\LETTURA\\FATTURE\\PS_WS_KNN_LETTURA_FATTURE_ORACLE",
+    "authentication" : "http:HttpBasicAuthenticationType",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/billing/WS_KNN_LETTURA_FATTURE_ORACLE?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/KenanProject/LetturaFatture/xsd/XSD_KNN_LETTURA_FATTURE",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "ORCHESTRATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

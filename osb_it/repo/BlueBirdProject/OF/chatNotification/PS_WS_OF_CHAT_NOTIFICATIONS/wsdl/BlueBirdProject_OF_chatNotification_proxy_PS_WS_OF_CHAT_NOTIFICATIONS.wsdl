@@ -1,0 +1,91 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions name="WS_OF_CHAT_NOTIFICATIONS"
+                  targetNamespace="http://www.skytv.it/mdw/service/WS_OF_CHAT_NOTIFICATIONS"
+                  xmlns:tns="http://www.skytv.it/mdw/service/WS_OF_CHAT_NOTIFICATIONS"
+                  xmlns:inp1="http://www.skytv.it/mdw/data" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../xsd/XSD_OF_CHAT_NOTIFICATIONS.xsd"/>
+      <xsd:import namespace="http://www.skytv.it/mdw/data"
+                  schemaLocation="../../../../../EnterpriseObjects/CommonEntities/SoapHeaderSKY.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="headerMessage">
+    <wsdl:part name="partHeader" element="inp1:Header"/>
+  </wsdl:message>
+  <wsdl:message name="requestMessage">
+    <wsdl:part name="part_SendMessageRequest" element="inp1:requestSendMessage"/>
+  </wsdl:message>
+  <wsdl:message name="replyMessage">
+    <wsdl:part name="part_SendMessageResponse" element="inp1:responseSendMessage"/>
+  </wsdl:message>
+  <wsdl:message name="requestMessageAddNick">
+    <wsdl:part name="part_AddNickRequest" element="inp1:requestAddNickname"/>
+  </wsdl:message>
+  <wsdl:message name="replyMessageAddNick">
+    <wsdl:part name="part_AddNickResponse" element="inp1:responseAddNickname"/>
+  </wsdl:message>
+  <wsdl:message name="requestMessageGetPosition">
+    <wsdl:part name="part_GetPositionRequest" element="inp1:requestGetPosition"/>
+  </wsdl:message>
+  <wsdl:message name="replyMessageGetPosition">
+    <wsdl:part name="part_GetPositionResponse" element="inp1:responseGetPosition"/>
+  </wsdl:message>
+  <wsdl:portType name="execute_ptt">
+    <wsdl:operation name="execute_SendMessage">
+      <wsdl:input message="tns:requestMessage"/>
+      <wsdl:output message="tns:replyMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_AddNickname">
+      <wsdl:input message="tns:requestMessageAddNick"/>
+      <wsdl:output message="tns:replyMessageAddNick"/>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GetPosition">
+      <wsdl:input message="tns:requestMessageGetPosition"/>
+      <wsdl:output message="tns:replyMessageGetPosition"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="execute_bind" type="tns:execute_ptt">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="execute_SendMessage">
+      <soap:operation style="document" soapAction="execute_SendMessage"/>
+      <wsdl:input>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_OF_CHAT_NOTIFICATIONS"
+                   parts="part_SendMessageRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_OF_CHAT_NOTIFICATIONS"
+                   parts="part_SendMessageResponse"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_AddNickname">
+      <soap:operation style="document" soapAction="execute_SendMessage"/>
+      <wsdl:input>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_OF_CHAT_NOTIFICATIONS"
+                   parts="part_AddNickRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_OF_CHAT_NOTIFICATIONS"
+                   parts="part_AddNickResponse"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="execute_GetPosition">
+      <soap:operation style="document" soapAction="execute_SendMessage"/>
+      <wsdl:input>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_OF_CHAT_NOTIFICATIONS"
+                   parts="part_GetPositionRequest"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:header message="tns:headerMessage" part="partHeader" use="literal"/>
+        <soap:body use="literal" namespace="http://www.skytv.it/mdw/service/WS_OF_CHAT_NOTIFICATIONS"
+                   parts="part_GetPositionResponse"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

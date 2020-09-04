@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/services/salesforce/WS_CRM_TRACCIA_PAGAMENTO",
+    "name" : "SalesforceProject_WS_CRM_TRACCIA_PAGAMENTO_proxy_PS_CRM_TRACCIA_PAGAMENTO",
+    "localPath" : "osb_it\\repo\\SalesforceProject\\WS\\CRM\\TRACCIA\\PAGAMENTO\\PS_CRM_TRACCIA_PAGAMENTO",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/services/salesforce/WS_CRM_TRACCIA_PAGAMENTO?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapHeaderSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseServices/SalesforceProject/TracciaPagamento/xsd/XSD_CRM_TRACCIA_PAGAMENTO",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

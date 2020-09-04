@@ -1,0 +1,23 @@
+{
+  "SoapApi" : {
+    "type" : "SOAP",
+    "endpoint" : "https://servizicollaudo.sky.it/osbprj",
+    "path" : "/RTDProject/proxy/PS_SOAP_DB_UNICA",
+    "name" : "RTDProject_proxy_proxyInvokedFromBpel_PS_WS_DB_UNICA",
+    "localPath" : "osb_it\\repo\\RTDProject\\proxyInvokedFromBpel_PS_WS_DB_UNICA",
+    "authentication" : "Undefined",
+    "apiSpecification" : {
+      "apiSpecEndpoint" : "https://servizicollaudo.sky.it/osbprj/RTDProject/proxy/PS_SOAP_DB_UNICA?WSDL",
+      "xsdSchemas" : [ {
+        "xsdPath" : "/MDW_CDM/ApplicationObjects/RTD/xsd/JCA_DB_UNICA_table",
+        "xsdNameSpace" : "http://xmlns.oracle.com/pcbpel/adapter/db/top/JCA_DB_UNICA"
+      }, {
+        "xsdPath" : "/MDW_CDM/EnterpriseObjects/CommonEntities/SoapFaultSKY",
+        "xsdNameSpace" : "http://www.skytv.it/mdw/data"
+      } ]
+    },
+    "integrationScenario" : "DATA_MANIPULATION",
+    "compressionSupported" : false,
+    "bufferingSupported" : false
+  }
+}

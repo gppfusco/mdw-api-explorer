@@ -1,0 +1,68 @@
+{
+  "DefaultNetworkNode" : {
+    "label" : "BlueBirdProject_SPY_verifyIdentityDocument_proxy_PS_REST_SPY_VERIFY_IDENTITY_DOCUMENT",
+    "properties" : {
+      "transport-type" : "http",
+      "nodeType" : "Proxy",
+      "service-type" : "REST"
+    },
+    "successors" : {
+      "Pipeline/BlueBirdProject/SPY/verifyIdentityDocument/pipeline/PL_SPY_VERIFY_IDENTITY_DOCUMENT" : {
+        "label" : "Pipeline/BlueBirdProject/SPY/verifyIdentityDocument/pipeline/PL_SPY_VERIFY_IDENTITY_DOCUMENT",
+        "properties" : { },
+        "successors" : {
+          "WSDL/BlueBirdProject/Resources/PS_REST_SPY_VERIFY_IDENTITY_DOCUMENT" : {
+            "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SPY_VERIFY_IDENTITY_DOCUMENT",
+            "properties" : { },
+            "successors" : { }
+          },
+          "Pipeline/BlueBirdProject/SPY/verifyIdentityDocument/pipeline/PL_SPY_VERIFY_IDENTITY_DOCUMENT_VerifyID" : {
+            "label" : "Pipeline/BlueBirdProject/SPY/verifyIdentityDocument/pipeline/PL_SPY_VERIFY_IDENTITY_DOCUMENT_VerifyID",
+            "properties" : {
+              "nodeType" : "Pipeline"
+            },
+            "successors" : {
+              "BusinessService/BlueBirdProject/SPY/verifyIdentityDocument/businessService/BS_WS_SPY_VERIFY_IDENTITY_DOCUMENT" : {
+                "label" : "BusinessService/BlueBirdProject/SPY/verifyIdentityDocument/businessService/BS_WS_SPY_VERIFY_IDENTITY_DOCUMENT",
+                "properties" : {
+                  "nodeType" : "BusinessService"
+                },
+                "successors" : { }
+              },
+              "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE" : {
+                "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_INTERNAL_GENERIC_OPERATION_TEMPLATE",
+                "properties" : { },
+                "successors" : { }
+              },
+              "WSDL/BlueBirdProject/Resources/PS_REST_SPY_VERIFY_IDENTITY_DOCUMENT" : {
+                "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SPY_VERIFY_IDENTITY_DOCUMENT",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SPY/verifyIdentityDocument/transformation/createResponse_WS_verifyIdentityDocument" : {
+                "label" : "Xquery/BlueBirdProject/SPY/verifyIdentityDocument/transformation/createResponse_WS_verifyIdentityDocument",
+                "properties" : { },
+                "successors" : { }
+              },
+              "Xquery/BlueBirdProject/SPY/verifyIdentityDocument/transformation/createRequest_BS_VERIFY_ID" : {
+                "label" : "Xquery/BlueBirdProject/SPY/verifyIdentityDocument/transformation/createRequest_BS_VERIFY_ID",
+                "properties" : { },
+                "successors" : { }
+              }
+            }
+          },
+          "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION" : {
+            "label" : "PipelineTemplate/MDW_CO/templates/pipeline/PL_WS_SERVICE_ROUTING_TEMPLATE_VALIDATION",
+            "properties" : { },
+            "successors" : { }
+          }
+        }
+      },
+      "WSDL/BlueBirdProject/Resources/PS_REST_SPY_VERIFY_IDENTITY_DOCUMENT" : {
+        "label" : "WSDL/BlueBirdProject/Resources/PS_REST_SPY_VERIFY_IDENTITY_DOCUMENT",
+        "properties" : { },
+        "successors" : { }
+      }
+    }
+  }
+}

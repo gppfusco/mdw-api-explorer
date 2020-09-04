@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://xmlns.oracle.com/OSBSvil/SCMSproject/PS_REST_SCMS_ETHAN" xmlns:ns0="http://www.skytv.it/mdw/data" xmlns="http://wadl.dev.java.net/2009/02">
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SCMSproject/RemoteBooking/xsd/XSD_SCMS_REMOTE_BOOKING.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/data" schemaLocation="../../MDW_CDM/EnterpriseServices/SCMSproject/GestioneDevice/xsd/XSD_CRM_GESTIONE_DEVICE.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/json/errors" schemaLocation="../../MDW_CDM/EnterpriseServices/SCMSproject/RemoteBooking/xsd/XSD_SCMS_REMOTE_BOOKING_JSON_ERRORS.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.skytv.it/mdw/json/errors" schemaLocation="../../MDW_CDM/EnterpriseServices/SCMSproject/GestioneDevice/xsd/XSD_CRM_GESTIONE_DEVICE_JSON_ERRORS.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/remote_booking">
+         <method name="POST" soa:wsdlOperation="REMBOK">
+            <request>
+               <representation mediaType="application/json" element="cns:requestJsonREMBOK" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseJsonREMBOK" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault400REMBOK">
+               <representation mediaType="application/json" element="cns:fault400REMBOK" xmlns:cns="http://www.skytv.it/mdw/json/errors"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500REMBOK">
+               <representation mediaType="application/json" element="cns:fault500REMBOK" xmlns:cns="http://www.skytv.it/mdw/json/errors"/>
+            </response>
+            <response status="504" soa:wsdlFaultName="fault504REMBOK">
+               <representation mediaType="application/json" element="cns:fault504REMBOK" xmlns:cns="http://www.skytv.it/mdw/json/errors"/>
+            </response>
+            <response status="404" soa:wsdlFaultName="fault404REMBOK">
+               <representation mediaType="application/json" element="cns:fault404REMBOK" xmlns:cns="http://www.skytv.it/mdw/json/errors"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/update_device_list">
+         <method name="POST" soa:wsdlOperation="AQEDCM">
+            <request>
+               <representation mediaType="application/json" element="cns:requestJsonAQEDCM" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:responseJsonAQEDCM" xmlns:cns="http://www.skytv.it/mdw/data"/>
+            </response>
+            <response status="400" soa:wsdlFaultName="fault400AQEDCM">
+               <representation mediaType="application/json" element="cns:fault400AQEDCM" xmlns:cns="http://www.skytv.it/mdw/json/errors"/>
+            </response>
+            <response status="500" soa:wsdlFaultName="fault500AQEDCM">
+               <representation mediaType="application/json" element="cns:fault500AQEDCM" xmlns:cns="http://www.skytv.it/mdw/json/errors"/>
+            </response>
+            <response status="504" soa:wsdlFaultName="fault504AQEDCM">
+               <representation mediaType="application/json" element="cns:fault504AQEDCM" xmlns:cns="http://www.skytv.it/mdw/json/errors"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

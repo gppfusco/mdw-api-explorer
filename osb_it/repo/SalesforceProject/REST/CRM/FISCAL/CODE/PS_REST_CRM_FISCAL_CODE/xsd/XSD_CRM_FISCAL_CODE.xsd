@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.skytv.it/mdw/data"
+            targetNamespace="http://www.skytv.it/mdw/data" elementFormDefault="qualified">
+  <xsd:element name="requestCheckFCDummies" type="requestCheckFCDummiesType"/>
+  <xsd:element name="responseCheckFCDummies" type="responseCheckFCDummiesType"/>
+  <xsd:complexType name="requestCheckFCDummiesType">
+    <xsd:sequence>
+      <xsd:element name="contrIdE2E" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="responseCheckFCDummiesType">
+    <xsd:sequence>
+      <xsd:element name="resultContracts" type="resultContractsType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="resultContractsType"> 
+    <xsd:sequence>
+      <xsd:element name="resultContract" type="resultContractType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="resultContractType">
+    <xsd:sequence>
+      <xsd:element name="resultCodeContract" type="xsd:string"/>
+      <xsd:element name="resultDescriptionContract" type="xsd:string"/>
+      <xsd:element name="custFCPayer" type="xsd:string"/>
+      <xsd:element name="custFCCustService" type="xsd:string"/>
+      <xsd:element name="custFlagPF" type="xsd:string"/>
+      <xsd:element name="contrId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestCheckFiscalCode" type="requestCheckFiscalCodeType"/>
+  <xsd:complexType name="requestCheckFiscalCodeType">
+    <xsd:sequence>
+      <xsd:element name="custId" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="responseCheckFiscalCode" type="responseCheckFiscalCodeType"/>
+  <xsd:complexType name="responseCheckFiscalCodeType">
+    <xsd:sequence>
+      <xsd:element name="resultOperation" type="xsd:string"/>
+      <xsd:element name="resultOperationDescription" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="requestModifyFiscalCode" type="requestModifyFiscalCodeType"/>
+  <xsd:complexType name="requestModifyFiscalCodeType">
+    <xsd:sequence>
+      <xsd:element name="mdwChannel" type="xsd:string"/>
+      <xsd:element name="mdwCoBrowsingFlag" type="xsd:string"/>
+      <xsd:element name="mdwInteractionId" type="xsd:string"/>
+      <xsd:element name="mdwCustomerData">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="custName" type="xsd:string"/>
+            <xsd:element name="custSurname" type="xsd:string"/>
+            <xsd:element name="custFiscalCode" type="xsd:string"/>
+            <xsd:element name="custBirthDate" type="xsd:string"/>
+            <xsd:element name="custBirthPlace" type="xsd:string"/>
+            <xsd:element name="custBirthProvince" type="xsd:string"/>
+            <xsd:element name="custGender" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+    <xsd:element name="responseModifyFiscalCode" type="responseModifyFiscalCodeType"/>
+  <xsd:complexType name="responseModifyFiscalCodeType">
+    <xsd:sequence>
+      <xsd:element name="result">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="mdwInteractionId" type="xsd:string"/>
+            <xsd:element name="custId" type="xsd:string"/>
+            <xsd:element name="custStatus" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>
