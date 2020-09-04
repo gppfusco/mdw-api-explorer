@@ -29,11 +29,7 @@
               },
               "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL" : {
                 "label" : "ProxyService/SalesforceProject/proxy/Local/PS_LOCAL_PL_SF_MAIN_OSB_TO_BPEL",
-                "properties" : {
-                  "transport-type" : "local",
-                  "nodeType" : "Proxy",
-                  "service-type" : "SOAP"
-                },
+                "properties" : { },
                 "successors" : {
                   "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN" : {
                     "label" : "WSDL/MDW_CDM/ApplicationObjects/SALESFORCE/GestioneClienteIn/WS_GESTIONE_CLIENTE_IN",
